@@ -1,0 +1,41 @@
+{
+	"text":"root",
+	"children":[{
+	    "text":"navigation_business",
+	    "iconCls": "icon-business",
+	    "expanded": "true", 
+	    "children":[{
+	        "text": "chart_title",
+	        "iconCls": "icon-gear", 
+	        "view": "pollchart", 
+	        "roles": ["ROLE_USER","ROLE_ADMIN"]
+	    }]},{
+	    "text":"navigation_administration",
+	    "iconCls": "icon-administration",
+	    "expanded": "true", 
+	    "children":[{
+	    	"text": "user_users", 
+	    	"iconCls": "icon-users",
+	    	"view": "userlist", 	    	
+	    	"roles": ["ROLE_ADMIN"]
+	    }]},{
+	    "text":"navigation_system",
+	    "iconCls": "icon-system",
+	    "expanded": "true", 
+	    "children":[{
+	    	"text": "accesslogs", 
+	    	"iconCls": "icon-logging",
+	    	"view": "accessloglist", 
+	    	"roles": ["ROLE_ADMIN"]	    
+	    },{
+	    	"text": "logevents", 
+	    	"iconCls": "icon-logging",
+	    	"view": "loggingeventlist", 
+	    	"roles": ["ROLE_ADMIN"]
+	    }, {
+	        "text": "config", 
+	        "iconCls": "icon-logging",
+	        "view": "configedit", 
+	        "roles": ["ROLE_ADMIN"]
+	    }]}]
+}

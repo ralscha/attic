@@ -1,0 +1,95 @@
+.appHeader .x-panel-body {
+	background-color: transparent;
+	background-image: url(../images/windup_key.png);
+	background-repeat: no-repeat;
+	background-position: 2px 2px;
+	padding: 1px 0px 0px 30px;
+	border: none;
+	color: navy;
+	font-size: 22px;
+	font-weight: 200;
+	white-space: nowrap;
+}
+
+.userName {
+	font-size: 12px; 
+	font-weight: bold;
+	color: navy;
+	text-align: right;
+	padding-right: 5px;
+}
+
+/** sprite: sprites; sprite-image: url('../images/sprites.png'); sprite-layout: vertical */
+
+.icon-add {
+	background-image: url(../images/add.png) !important; /** sprite-ref: sprites; */
+}
+
+.icon-delete {
+	background-image: url(../images/eraser.png) !important; /** sprite-ref: sprites; */
+}
+
+.icon-logging {
+	background-image: url(../images/data_scroll.png) !important; /** sprite-ref: sprites; */
+}
+
+.icon-system {
+	background-image: url(../images/application_server.png) !important; /** sprite-ref: sprites; */
+}
+
+.icon-user-add {
+	background-image: url(../images/user_add.png) !important; /** sprite-ref: sprites; */
+}
+
+.icon-user-edit {
+	background-image: url(../images/user_edit.png) !important; /** sprite-ref: sprites; */
+}
+
+.icon-user-delete {
+	background-image: url(../images/user_delete.png) !important; /** sprite-ref: sprites; */
+}
+
+.icon-users {
+	background-image: url(../images/users.png) !important; /** sprite-ref: sprites; */
+}
+
+.icon-gear {
+	background-image: url(../images/gear.png) !important; /** sprite-ref: sprites; */
+}
+
+.icon-administration {
+	background-image: url(../images/administration.png) !important; /** sprite-ref: sprites; */
+}
+
+.icon-business {
+	background-image: url(../images/business.png) !important; /** sprite-ref: sprites; */
+}
+
+.icon-save {
+	background-image: url(../images/save.png) !important; /** sprite-ref: sprites; */
+}
+
+.icon-cancel {
+	background-image: url(../images/cancel.png) !important; /** sprite-ref: sprites; */
+}
+
+.icon-logout {
+	background-image: url(../images/logout.png) !important; /** sprite-ref: sprites; */
+}
+
+.icon-login {
+	background-image: url(../images/login.png) !important; /** sprite-ref: sprites; */
+}
+
+.icon-start {
+	background-image: url(../images/start.png) !important; /** sprite-ref: sprites; */
+}
+
+.icon-stop {
+	background-image: url(../images/stop.png) !important; /** sprite-ref: sprites; */
+}
+
+.icon-excel {
+	background-image: url(../images/excel.gif) !important; /** sprite-ref: sprites; */
+}
+

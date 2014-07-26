@@ -1,0 +1,10 @@
+<!DOCTYPE context>
+<Context>
+    
+    <Environment name="mongoServer" value="127.0.0.1" type="java.lang.String" override="false"/>
+    <Environment name="mongoPort" value="27017" type="java.lang.String" override="false"/>
+    
+    <!-- Uncomment the following line to activate production profile --> 
+    <Environment name="spring.profiles.active" value="development" type="java.lang.String" override="false"/>
+
+</Context>

@@ -1,0 +1,112 @@
+.appHeader .x-panel-body {
+	background-color: transparent;
+	background-image: url(../images/windup_key.png);
+	background-repeat: no-repeat;
+	background-position: 2px 2px;
+	padding: 1px 0px 0px 30px;
+	border: none;
+	color: navy;
+	font-size: 22px;
+	font-weight: 200;
+	white-space: nowrap;
+}
+
+.userName {
+	font-size: 12px; 
+	font-weight: bold;
+	color: navy;
+	text-align: right;
+	padding-right: 5px;
+}
+
+
+.icon-add {
+  background-image: url('../images/sprites.png') !important;
+  background-position: left -0px !important;
+}
+
+.icon-delete {
+  background-image: url('../images/sprites.png') !important;
+  background-position: left -16px !important;
+}
+
+.icon-logging {
+  background-image: url('../images/sprites.png') !important;
+  background-position: left -32px !important;
+}
+
+.icon-system {
+  background-image: url('../images/sprites.png') !important;
+  background-position: left -48px !important;
+}
+
+.icon-user-add {
+  background-image: url('../images/sprites.png') !important;
+  background-position: left -64px !important;
+}
+
+.icon-user-edit {
+  background-image: url('../images/sprites.png') !important;
+  background-position: left -80px !important;
+}
+
+.icon-user-delete {
+  background-image: url('../images/sprites.png') !important;
+  background-position: left -96px !important;
+}
+
+.icon-users {
+  background-image: url('../images/sprites.png') !important;
+  background-position: left -112px !important;
+}
+
+.icon-gear {
+  background-image: url('../images/sprites.png') !important;
+  background-position: left -128px !important;
+}
+
+.icon-administration {
+  background-image: url('../images/sprites.png') !important;
+  background-position: left -144px !important;
+}
+
+.icon-business {
+  background-image: url('../images/sprites.png') !important;
+  background-position: left -160px !important;
+}
+
+.icon-save {
+  background-image: url('../images/sprites.png') !important;
+  background-position: left -176px !important;
+}
+
+.icon-cancel {
+  background-image: url('../images/sprites.png') !important;
+  background-position: left -192px !important;
+}
+
+.icon-logout {
+  background-image: url('../images/sprites.png') !important;
+  background-position: left -208px !important;
+}
+
+.icon-login {
+  background-image: url('../images/sprites.png') !important;
+  background-position: left -224px !important;
+}
+
+.icon-start {
+  background-image: url('../images/sprites.png') !important;
+  background-position: left -240px !important;
+}
+
+.icon-stop {
+  background-image: url('../images/sprites.png') !important;
+  background-position: left -256px !important;
+}
+
+.icon-excel {
+  background-image: url('../images/sprites.png') !important;
+  background-position: left -272px !important;
+}
+
