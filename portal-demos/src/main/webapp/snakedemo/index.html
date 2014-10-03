@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>Apache Tomcat Examples: Multiplayer Snake</title>
+    <style>
+        #playground {
+            width: 640px;
+            height: 480px;
+            background-color: #000;
+        }
+
+        #console-container {
+            float: left;
+            margin-left: 15px;
+            width: 300px;
+        }
+
+        #console {
+            border: 1px solid #CCCCCC;
+            border-right-color: #999999;
+            border-bottom-color: #999999;
+            height: 480px;
+            overflow-y: scroll;
+            padding-left: 5px;
+            padding-right: 5px;
+            width: 100%;
+        }
+
+        #console p {
+            padding: 0;
+            margin: 0;
+        }
+    </style>
+	<script src="../portal/portal.min.js"></script>
+	<script src="../portal/atmosphere.min.js"></script>
+
+</head>
+<body>
+    <div style="float: left">
+        <canvas id="playground" width="640" height="480"></canvas>
+    </div>
+    <div id="console-container">
+        <div id="console"></div>
+    </div>
+    <script type="text/javascript">
+
+        var Game = {};
+
+        Game.fps = 30;
+        Game.nextFrame = null;
+        Game.interval = null;
+        Game.direction = 'none';
+        Game.gridSize = 10;
+
+        function Snake() {
+            this.snakeBody = [];
+            this.color = null;
+        }
+
+        Snake.prototype.draw = function(context) {
+            for (var id in this.snakeBody) {
+                context.fillStyle = this.color;
+                context.fillRect(this.snakeBody[id].x, this.snakeBody[id].y, Game.gridSize, Game.gridSize);
+            }
+        };
+
+        Game.initialize = function() {
+            this.entities = [];
+            canvas = document.getElementById('playground');
+            if (!canvas.getContext) {
+                Console.log('Error: 2d canvas not supported by this browser.');
+                return;
+            }
+            this.context = canvas.getContext('2d');
+            window.addEventListener('keydown', function (e) {
+                var code = e.keyCode;
+                if (code > 36 && code < 41) {
+                    switch (code) {
+                        case 37:
+                            if (Game.direction != 'east') Game.setDirection('west');
+                            break;
+                        case 38:
+                            if (Game.direction != 'south') Game.setDirection('north');
+                            break;
+                        case 39:
+                            if (Game.direction != 'west') Game.setDirection('east');
+                            break;
+                        case 40:
+                            if (Game.direction != 'north') Game.setDirection('south');
+                            break;
+                    }
+                }
+            }, false);
+
+            
+        	var transports = ["sse", "stream", "longpoll"];
+        	if (!window.location.search || window.location.search.indexOf('nows') === -1) {
+        		transports.unshift("ws");
+        	}
+        	
+        	portal.open("../snake", {transports: transports}).on({
+        		open: function() {
+                    // Socket open.. start the game loop.
+                    Console.log('Info: Connection opened.');
+                    Console.log('Info: Press an arrow key to begin.');
+                    Game.startGameLoop();
+        		},
+        		close: function() {
+                    Console.log('Info: Connection closed.');
+                    Game.stopGameLoop();
+
+        		},
+        		update: function(data) {
+        			for (var i = 0; i < data.length; i++) {
+                        Game.updateSnake(data[i].id, data[i].body);
+                    }
+        		},
+        		join: function(data) {
+        			for (var j = 0; j < data.length; j++) {
+                        Game.addSnake(data[j].id, data[j].color);
+                    }
+        		},
+        		leave: function(data) {
+        			Game.removeSnake(data.id);
+        		},
+        		dead: function() {
+        			Console.log('Info: Your snake is dead, bad luck!');
+                    Game.direction = 'none';
+        		},
+        		kill: function() {
+        			Console.log('Info: Head shot!');
+        		}
+        	});
+
+            
+        };
+
+        Game.setDirection  = function(direction) {
+            Game.direction = direction;
+            portal.find().send(direction);
+            //Game.socket.send(direction);
+            Console.log('Sent: Direction ' + direction);
+        };
+
+        Game.startGameLoop = function() {
+            if (window.webkitRequestAnimationFrame) {
+                Game.nextFrame = function () {
+                    webkitRequestAnimationFrame(Game.run);
+                };
+            } else if (window.mozRequestAnimationFrame) {
+                Game.nextFrame = function () {
+                    mozRequestAnimationFrame(Game.run);
+                };
+            } else {
+                Game.interval = setInterval(Game.run, 1000 / Game.fps);
+            }
+            if (Game.nextFrame != null) {
+                Game.nextFrame();
+            }
+        };
+
+        Game.stopGameLoop = function () {
+            Game.nextFrame = null;
+            if (Game.interval != null) {
+                clearInterval(Game.interval);
+            }
+        };
+
+        Game.draw = function() {
+            this.context.clearRect(0, 0, 640, 480);
+            for (var id in this.entities) {
+                this.entities[id].draw(this.context);
+            }
+        };
+
+        Game.addSnake = function(id, color) {
+            Game.entities[id] = new Snake();
+            Game.entities[id].color = color;
+        };
+
+        Game.updateSnake = function(id, snakeBody) {
+            if (typeof Game.entities[id] != "undefined") {
+                Game.entities[id].snakeBody = snakeBody;
+            }
+        };
+
+        Game.removeSnake = function(id) {
+            Game.entities[id] = null;
+            // Force GC.
+            delete Game.entities[id];
+        };
+
+        Game.run = (function() {
+            var skipTicks = 1000 / Game.fps, nextGameTick = (new Date).getTime();
+
+            return function() {          	
+                while ((new Date).getTime() > nextGameTick) {
+                    nextGameTick += skipTicks;
+                }
+                Game.draw();
+                if (Game.nextFrame != null) {
+                    Game.nextFrame();
+                }
+            };
+        })();
+
+        var Console = {};
+
+        Console.log = (function(message) {
+            var console = document.getElementById('console');
+            var p = document.createElement('p');
+            p.style.wordWrap = 'break-word';
+            p.innerHTML = message;
+            console.appendChild(p);
+            while (console.childNodes.length > 25) {
+                console.removeChild(console.firstChild);
+            }
+            console.scrollTop = console.scrollHeight;
+        });
+
+        Game.initialize();
+    </script>
+</body>
+</html>
