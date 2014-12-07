@@ -1,0 +1,380 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd
+    http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+	<changeSet author="dev" id="1">
+		<createTable tableName="AppUser">
+			<column autoIncrement="true" name="id" type="BIGINT">
+				<constraints nullable="false" primaryKey="true" primaryKeyName="PK_AppUser" />
+			</column>
+
+			<column name="name" type="varchar(100)">
+				<constraints nullable="false" />
+			</column>
+			
+			<column name="userName" type="varchar(100)">
+				<constraints nullable="false" unique="true" />
+			</column>
+
+			<column name="email" type="varchar(255)">
+				<constraints nullable="false" unique="true" />
+			</column>
+
+			<column name="password" type="varchar(100)" />
+
+			<column name="picture" type="clob" />
+
+			<column name="appGroupId" type="BIGINT">
+				<constraints nullable="false" />
+			</column>
+
+		</createTable>
+				
+		<createTable tableName="AppGroup">
+			<column autoIncrement="true" name="id" type="BIGINT">
+				<constraints nullable="false" primaryKey="true" primaryKeyName="PK_AppGroup" />
+			</column>
+
+			<column name="name" type="varchar(255)">
+				<constraints nullable="false" />
+			</column>
+		</createTable>
+		
+		<addForeignKeyConstraint baseColumnNames="appGroupId" baseTableName="AppUser" constraintName="FK_AppUser_AppGroup"
+			referencedColumnNames="id"
+			referencedTableName="AppGroup" />			
+		
+	</changeSet>
+
+	<changeSet author="dev" id="2">
+		<createTable tableName="Menu">
+			<column autoIncrement="true" name="id" type="BIGINT">
+				<constraints nullable="false" primaryKey="true" primaryKeyName="PK_Menu" />
+			</column>
+
+			<column name="menuText" type="varchar(45)">
+				<constraints nullable="false" />
+			</column>
+
+			<column name="iconCls" type="varchar(15)">
+				<constraints nullable="false" />
+			</column>
+
+			<column name="className" type="varchar(45)" />
+			<column name="parentId" type="BIGINT" />
+		</createTable>
+		
+		<addForeignKeyConstraint baseColumnNames="parentId" baseTableName="Menu" constraintName="FK_Menu_Parent"
+			referencedColumnNames="id"
+			referencedTableName="Menu" />			
+	</changeSet>
+	
+	<changeSet author="dev" id="3">
+		<createTable tableName="Permission">
+			<column autoIncrement="true" name="id" type="BIGINT">
+				<constraints nullable="false" primaryKey="true" primaryKeyName="PK_Permission" />
+			</column>
+	
+			<column name="menuId" type="BIGINT">
+				<constraints nullable="false" />
+			</column>
+			<column name="appGroupId" type="BIGINT">
+				<constraints nullable="false" />
+			</column>
+	    </createTable>
+	    
+	    <addForeignKeyConstraint baseColumnNames="menuId" baseTableName="Permission" constraintName="FK_Permission_Menu"
+			referencedColumnNames="id"
+			referencedTableName="Menu" />
+	    <addForeignKeyConstraint baseColumnNames="appGroupId" baseTableName="Permission" constraintName="FK_Permission_AppGroup"
+			referencedColumnNames="id"
+			referencedTableName="AppGroup" />
+			
+	</changeSet>	 
+	
+	<changeSet id="4" author="dev">
+		<createTable tableName="Actor">
+			<column autoIncrement="true" name="id" type="BIGINT">
+				<constraints nullable="false" primaryKey="true" primaryKeyName="PK_Actor" />
+			</column>
+			<column name="firstName" type="varchar(45)">
+				<constraints nullable="false" />
+			</column>
+			<column name="lastName" type="varchar(45)">
+				<constraints nullable="false" />
+			</column>
+			<column name="lastUpdate" type="datetime">
+				<constraints nullable="false" />
+			</column>			
+		</createTable>	
+	</changeSet>   
+	
+	<changeSet id="5" author="dev">
+		<createTable tableName="Category">
+			<column autoIncrement="true" name="id" type="BIGINT">
+				<constraints nullable="false" primaryKey="true" primaryKeyName="PK_Category" />
+			</column>
+			<column name="name" type="varchar(25)">
+				<constraints nullable="false" />
+			</column>
+			<column name="lastUpdate" type="datetime">
+				<constraints nullable="false" />
+			</column>			
+		</createTable>		
+	</changeSet>
+
+	<changeSet id="6" author="dev">
+		<createTable tableName="Country">
+			<column autoIncrement="true" name="id" type="BIGINT">
+				<constraints nullable="false" primaryKey="true" primaryKeyName="PK_Country" />
+			</column>
+			<column name="country" type="varchar(50)">
+				<constraints nullable="false" />
+			</column>
+			<column name="lastUpdate" type="datetime">
+				<constraints nullable="false" />
+			</column>			
+		</createTable>		
+	</changeSet>
+
+	<changeSet id="7" author="dev">
+		<createTable tableName="City">
+			<column autoIncrement="true" name="id" type="BIGINT">
+				<constraints nullable="false" primaryKey="true" primaryKeyName="PK_City" />
+			</column>
+			<column name="city" type="varchar(50)">
+				<constraints nullable="false" />
+			</column>
+			<column name="countryId" type="BIGINT">
+				<constraints nullable="false" />
+			</column>			
+			<column name="lastUpdate" type="datetime">
+				<constraints nullable="false" />
+			</column>			
+		</createTable>		
+		
+	    <addForeignKeyConstraint baseColumnNames="countryId" baseTableName="City" constraintName="FK_CityCountry"
+			referencedColumnNames="id"
+			referencedTableName="Country" />
+	</changeSet>
+
+	<changeSet id="8" author="dev">
+		<createTable tableName="Language">
+			<column autoIncrement="true" name="id" type="BIGINT">
+				<constraints nullable="false" primaryKey="true" primaryKeyName="PK_Language" />
+			</column>
+			<column name="name" type="varchar(20)">
+				<constraints nullable="false" />
+			</column>
+			<column name="lastUpdate" type="datetime">
+				<constraints nullable="false" />
+			</column>			
+		</createTable>		
+	</changeSet>
+	
+	<changeSet author="dev" id="9">
+	  <loadData tableName="Actor" file="db/actor.csv"/>	  
+	</changeSet>		
+	<changeSet author="dev" id="10">
+	  <loadData tableName="Category" file="db/category.csv"/>	  
+	</changeSet>
+	<changeSet author="dev" id="11">
+	  <loadData tableName="Country" file="db/country.csv"/>	  
+	</changeSet>
+	<changeSet author="dev" id="12">
+	  <loadData tableName="City" file="db/city.csv"/>	  
+	</changeSet>
+	<changeSet author="dev" id="13">
+	  <loadData tableName="Language" file="db/language.csv"/>	  
+	</changeSet>
+	
+	
+	<changeSet id="14" author="dev">
+		<createTable tableName="Film">
+			<column autoIncrement="true" name="id" type="BIGINT">
+				<constraints nullable="false" primaryKey="true" primaryKeyName="PK_Film" />
+			</column>
+			<column name="title" type="varchar(255)">
+				<constraints nullable="false" />
+			</column>
+			
+			<column name="description" type="varchar(5000)"/>
+			<column name="releaseYear" type="int"/>
+
+			<column name="languageId" type="bigint" >
+   			  <constraints nullable="false" />
+			</column>
+			
+			<column name="originalLanguageId" type="bigint"/>
+
+			<column name="rentalDuration" type="int" >
+   			  <constraints nullable="false" />
+			</column>
+
+			<column name="rentalRate" type="decimal(4,2)">
+				<constraints nullable="false" />
+			</column>	
+			
+			<column name="length" type="int"/>
+				
+			<column name="replacementCost" type="decimal(5,2)">
+				<constraints nullable="false" />
+			</column>					
+					
+			<column name="rating" type="varchar(5)">
+				<constraints nullable="false" />
+			</column>		
+			
+			<column name="specialFeatures" type="varchar(500)"/>			
+					
+			<column name="lastUpdate" type="datetime">
+				<constraints nullable="false" />
+			</column>						
+					
+		</createTable>		
+		
+	    <addForeignKeyConstraint baseColumnNames="languageId" baseTableName="Film" constraintName="FK_Film_Language"
+			referencedColumnNames="id"
+			referencedTableName="Language" />
+			
+  	    <addForeignKeyConstraint baseColumnNames="originalLanguageId" baseTableName="Film" constraintName="FK_Film_OriginalLanguage"
+			referencedColumnNames="id"
+			referencedTableName="Language" />		
+			
+	</changeSet>	
+	
+	<changeSet author="dev" id="15">
+		<createTable tableName="FilmActor">
+			<column autoIncrement="true" name="id" type="BIGINT">
+				<constraints nullable="false" primaryKey="true" primaryKeyName="PK_FilmActor" />
+			</column>
+	
+			<column name="actorId" type="BIGINT">
+				<constraints nullable="false" />
+			</column>
+			<column name="filmId" type="BIGINT">
+				<constraints nullable="false" />
+			</column>
+			
+			<column name="lastUpdate" type="datetime">
+				<constraints nullable="false" />
+			</column>				
+			
+	    </createTable>
+	    
+	    <addForeignKeyConstraint baseColumnNames="actorId" baseTableName="FilmActor" constraintName="FK_FilmActor_Actor"
+			referencedColumnNames="id"
+			referencedTableName="Actor" />
+	    <addForeignKeyConstraint baseColumnNames="filmId" baseTableName="FilmActor" constraintName="FK_FilmActor_Film"
+			referencedColumnNames="id"
+			referencedTableName="Film" />
+			
+	</changeSet>	
+
+	<changeSet author="dev" id="16">
+		<createTable tableName="FilmCategory">
+			<column autoIncrement="true" name="id" type="BIGINT">
+				<constraints nullable="false" primaryKey="true" primaryKeyName="PK_FilmCategory" />
+			</column>
+	
+			<column name="categoryId" type="BIGINT">
+				<constraints nullable="false" />
+			</column>
+			<column name="filmId" type="BIGINT">
+				<constraints nullable="false" />
+			</column>
+			
+			<column name="lastUpdate" type="datetime">
+				<constraints nullable="false" />
+			</column>				
+			
+	    </createTable>
+	    
+	    <addForeignKeyConstraint baseColumnNames="categoryId" baseTableName="FilmCategory" constraintName="FK_FilmCategory_Category"
+			referencedColumnNames="id"
+			referencedTableName="Category" />
+	    <addForeignKeyConstraint baseColumnNames="filmId" baseTableName="FilmCategory" constraintName="FK_FilmCategory_Film"
+			referencedColumnNames="id"
+			referencedTableName="Film" />
+			
+	</changeSet>	
+	
+	<changeSet author="dev" id="17">
+	  <loadData tableName="Film" file="db/film.csv"/>	  
+	</changeSet>	
+	<changeSet author="dev" id="18">
+	  <loadData tableName="FilmActor" file="db/filmactor.csv"/>	  
+	</changeSet>		
+	<changeSet author="dev" id="19">
+	  <loadData tableName="FilmCategory" file="db/filmcategory.csv"/>	  
+	</changeSet>		
+
+	
+	<changeSet id="20" author="dev">
+	
+		<createTable tableName="Rental">
+			<column autoIncrement="true" name="id" type="BIGINT">
+				<constraints nullable="false" primaryKey="true" primaryKeyName="PK_Rental" />
+			</column>
+	
+			<column name="rentalDate" type="datetime">
+				<constraints nullable="false" />
+			</column>
+	
+			<column name="filmId" type="bigint">
+				<constraints nullable="false" />
+			</column>			
+
+			<column name="returnDate" type="datetime" />
+			
+			<column name="lastUpdate" type="datetime">
+				<constraints nullable="false" />
+			</column>				
+			
+	    </createTable>
+	    
+	    <addForeignKeyConstraint baseColumnNames="filmId" baseTableName="Rental" constraintName="FK_Rental_Film"
+			referencedColumnNames="id"
+			referencedTableName="Film" />		
+			
+	</changeSet>
+	
+	<changeSet id="21" author="dev">
+	
+		<createTable tableName="Payment">
+			<column autoIncrement="true" name="id" type="BIGINT">
+				<constraints nullable="false" primaryKey="true" primaryKeyName="PK_Payment" />
+			</column>
+	
+			<column name="rentalId" type="bigint" />
+			
+			<column name="amount" type="decimal(5,2)">
+				<constraints nullable="false" />
+			</column>
+			
+			<column name="paymentDate" type="datetime">
+				<constraints nullable="false" />
+			</column>				
+			
+			<column name="lastUpdate" type="datetime">
+				<constraints nullable="false" />
+			</column>				
+			
+	    </createTable>
+	    
+	    <addForeignKeyConstraint baseColumnNames="rentalId" baseTableName="Payment" constraintName="FK_Payment_Rental"
+			referencedColumnNames="id"
+			referencedTableName="Rental" />	
+
+	</changeSet>
+	
+	<changeSet author="dev" id="22">
+	  <loadData tableName="Rental" file="db/rental.csv"/>	  
+	</changeSet>		
+	<changeSet author="dev" id="23">
+	  <loadData tableName="Payment" file="db/payment.csv"/>	  
+	</changeSet>		
+	
+</databaseChangeLog>

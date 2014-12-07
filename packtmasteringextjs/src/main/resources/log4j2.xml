@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration packages="ch.rasc.packt.util">
+  <Appenders>
+  
+    <Console name="stdout" target="SYSTEM_OUT">
+      <PatternLayout pattern="%d{HH:mm:ss.SSS} %-5level %msg%n%rEx{full}"/>
+    </Console>
+    
+  </Appenders>
+  
+  <Loggers>
+    <Root level="warn">
+      <AppenderRef ref="stdout"/>
+    </Root>
+  </Loggers>
+</Configuration>

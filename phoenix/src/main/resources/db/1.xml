@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd
+    http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+	<changeSet author="dev" id="1">
+		<createTable tableName="AffectedItem">
+			<column autoIncrement="true" name="id" type="BIGINT">
+				<constraints nullable="false" primaryKey="true" primaryKeyName="PK_AffectedItem" />
+			</column>
+			<column name="value" type="varchar(255)" />
+		</createTable>	
+	</changeSet>
+	
+	<changeSet author="dev" id="2">
+		<createTable tableName="Probability">
+			<column autoIncrement="true" name="id" type="BIGINT">
+				<constraints nullable="false" primaryKey="true" primaryKeyName="PK_Probability" />
+			</column>
+			<column name="value" type="varchar(255)" />
+		</createTable>	
+	</changeSet>	
+
+	<changeSet author="dev" id="3">
+		<createTable tableName="RevenueImpact">
+			<column autoIncrement="true" name="id" type="BIGINT">
+				<constraints nullable="false" primaryKey="true" primaryKeyName="PK_RevenueImpact" />
+			</column>
+			<column name="value" type="varchar(255)" />
+		</createTable>	
+	</changeSet>
+	
+	<changeSet author="dev" id="4">
+		<createTable tableName="Scenario">
+			<column autoIncrement="true" name="id" type="BIGINT">
+				<constraints nullable="false" primaryKey="true" primaryKeyName="PK_Scenario" />
+			</column>
+
+			<column name="name" type="varchar(255)" />
+			<column name="description" type="varchar(1000)" />
+
+			<column name="dateUpdated" type="datetime">
+		      <constraints nullable="false" />
+			</column>
+						
+			<column name="probabilityId" type="BIGINT">
+			    <constraints nullable="true" />
+			</column>
+			
+            <column name="planCost" type="decimal(18,3)" />
+            <column name="impactCost" type="decimal(18,3)" />
+            <column name="impactLength" type="decimal(18,3)" />
+            <column name="totalImpact" type="decimal(18,3)" />
+            
+            <column name="planEffectiveness" type="varchar(255)" />
+		</createTable>
+		
+        <addForeignKeyConstraint 
+		    baseColumnNames="probabilityId" baseTableName="Scenario" 
+		    constraintName="FK_Scenario_Probability"
+			referencedColumnNames="id" referencedTableName="Probability" />			
+		
+	</changeSet>
+	
+	<changeSet author="dev" id="5">
+		<createTable tableName="ScenarioItem">
+			<column autoIncrement="true" name="id" type="BIGINT">
+				<constraints nullable="false" primaryKey="true" primaryKeyName="PK_ScenarioItem" />
+			</column>
+
+			<column name="affectedItemId" type="BIGINT">
+			    <constraints nullable="true" />
+			</column>
+
+			<column name="itemDescription" type="varchar(255)" />
+            <column name="timeToRecover" type="decimal(18,3)" />
+            <column name="cost" type="decimal(18,3)" />
+
+			<column name="revenueImpactId" type="BIGINT">
+			    <constraints nullable="true" />
+			</column>
+
+			<column name="scenarioId" type="BIGINT">
+			    <constraints nullable="false" />
+			</column>
+            
+		</createTable>
+		
+        <addForeignKeyConstraint 
+		    baseColumnNames="affectedItemId" baseTableName="ScenarioItem" 
+		    constraintName="FK_ScenarioItem_AffectedItem"
+			referencedColumnNames="id" referencedTableName="AffectedItem" />					
+		
+        <addForeignKeyConstraint 
+		    baseColumnNames="revenueImpactId" baseTableName="ScenarioItem" 
+		    constraintName="FK_ScenarioItem_RevenueImpact"
+			referencedColumnNames="id" referencedTableName="RevenueImpact" />			
+
+        <addForeignKeyConstraint 
+		    baseColumnNames="scenarioId" baseTableName="ScenarioItem" 
+		    constraintName="FK_ScenarioItem_Scenario"
+			referencedColumnNames="id" referencedTableName="Scenario" />
+	</changeSet>
+
+	<changeSet author="dev" id="6">
+	  <loadData tableName="AffectedItem" file="db/initialdata_affecteditem.csv"/>	  
+	</changeSet>	
+		
+	<changeSet author="dev" id="7">
+	  <loadData tableName="Probability" file="db/initialdata_probability.csv"/>	  
+	</changeSet>
+		
+	<changeSet author="dev" id="8">
+	  <loadData tableName="RevenueImpact" file="db/initialdata_revenueimpact.csv"/>	  
+	</changeSet>			
+		
+</databaseChangeLog>

@@ -1,0 +1,390 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:fb="http://www.facebook.com/2008/fbml" xmlns:og="http://opengraph.org/schema/"> <head>
+        
+<meta property="og:image" content="https://gallery.mailchimp.com/35c628e5bf74b167e4791ffb8/images/Sencha_Insights_Logo.3.png" />
+<meta property="og:title" content="Sencha Insights - Issue #20"/>
+<meta property="fb:page_id" content="43929265776" />        
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Sencha Insights - Issue #20</title>
+		
+    <style type="text/css">
+		#outlook a{
+			padding:0;
+		}
+		body{
+			width:100% !important;
+		}
+		.ReadMsgBody{
+			width:100%;
+		}
+		.ExternalClass{
+			width:100%;
+		}
+		body{
+			-webkit-text-size-adjust:none;
+		}
+		body{
+			margin:0;
+			padding:0;
+		}
+		img{
+			border:0;
+			height:auto;
+			line-height:100%;
+			outline:none;
+			text-decoration:none;
+		}
+		table td{
+			border-collapse:collapse;
+		}
+		#bodyTable{
+			height:100% !important;
+			margin:0;
+			padding:0;
+			width:100% !important;
+		}
+		h1{
+			color:#9ac864;
+			display:block;
+			font-family:Tahoma;
+			font-size:30px;
+			font-style:normal;
+			font-weight:bold;
+			line-height:100%;
+			letter-spacing:normal;
+			margin-top:0;
+			margin-right:0;
+			margin-bottom:10px;
+			margin-left:0;
+			text-align:left;
+		}
+		h2{
+			color:#323232;
+			display:block;
+			font-family:Tahoma;
+			font-size:32px;
+			font-style:normal;
+			font-weight:bold;
+			line-height:100%;
+			letter-spacing:normal;
+			margin-top:0;
+			margin-right:0;
+			margin-bottom:10px;
+			margin-left:0;
+			text-align:left;
+		}
+		h3{
+			color:#707070;
+			display:block;
+			font-family:Tahoma;
+			font-size:20px;
+			font-style:normal;
+			font-weight:bold;
+			line-height:100%;
+			letter-spacing:normal;
+			margin-top:0;
+			margin-right:0;
+			margin-bottom:10px;
+			margin-left:0;
+			text-align:left;
+		}
+		h4{
+			color:#707070;
+			display:block;
+			font-family:Verdana;
+			font-size:18px;
+			font-style:italic;
+			font-weight:normal;
+			line-height:100%;
+			letter-spacing:normal;
+			margin-top:0;
+			margin-right:0;
+			margin-bottom:10px;
+			margin-left:0;
+			text-align:left;
+		}
+		#templatePreheader{
+			background-color:#EEEEEE;
+			border-bottom:0;
+		}
+		.preheaderContent{
+			color:#808080;
+			font-family:Helvetica;
+			font-size:10px;
+			line-height:125%;
+			text-align:left;
+		}
+		.preheaderContent a:link,.preheaderContent a:visited,.preheaderContent a .yshortcuts{
+			color:#606060;
+			font-weight:normal;
+			text-decoration:underline;
+		}
+		.headerContent{
+			color:#505050;
+			font-family:Helvetica;
+			font-size:20px;
+			font-weight:bold;
+			line-height:100%;
+			text-align:left;
+			vertical-align:top;
+		}
+		.headerContent a:link,.headerContent a:visited,.headerContent a .yshortcuts{
+			color:#990000;
+			font-weight:normal;
+			text-decoration:underline;
+		}
+		#headerImage{
+			height:auto;
+			max-width:300px !important;
+		}
+		#templateBody{
+			background-color:#EEEEEE;
+			border-top:0;
+			border-bottom:0;
+		}
+		#bodyContentBlock{
+			background-color:#ffffff;
+			border-top:1px solid #c0da9d;
+			border-bottom:1px solid #c0da9d;
+		}
+		.bodyContent{
+			color:#323232;
+			font-family:Verdana;
+			font-size:16px;
+			line-height:150%;
+			text-align:left;
+		}
+		.bodyContent a:link,.bodyContent a:visited,.bodyContent a .yshortcuts{
+			color:#0088cc;
+			font-weight:normal;
+			text-decoration:underline;
+		}
+		.bodyContent img{
+			display:inline;
+			height:auto;
+		}
+		#templateFooter{
+			border-top:1px solid #c0da9d;
+		}
+		body,#bodyTable{
+			background-color:#ffffff;
+		}
+		.footerContent{
+			color:#808080;
+			font-family:Helvetica;
+			font-size:14px;
+			line-height:150%;
+			text-align:left;
+		}
+		.footerContent a:link,.footerContent a:visited,.footerContent a .yshortcuts{
+			color:#0088cc;
+			font-weight:normal;
+			text-decoration:underline;
+		}
+		.footerContent img{
+			display:inline;
+		}
+		#monkeyRewards img{
+			max-width:190px !important;
+		}
+</style>         </head> <body id="archivebody"> 
+        <body leftmargin="0" marginwidth="0" topmargin="0" marginheight="0" offset="0" style="-webkit-text-size-adjust: none;margin: 0;padding: 0;background-color: #ffffff;width: 100% !important;">
+    	<center>
+        	<table border="0" cellpadding="0" cellspacing="0" height="100%" width="100%" id="bodyTable" style="margin: 0;padding: 0;background-color: #ffffff;height: 100% !important;width: 100% !important;">
+            	<tr>
+                	<td align="center" valign="top" style="border-collapse: collapse;">
+                    	<!-- // BEGIN PREHEADER -->
+                        <table border="0" cellpadding="10" cellspacing="0" width="100%" id="templatePreheader" style="background-color: #EEEEEE;border-bottom: 0;">
+                        	<tr>
+                            	<td align="center" valign="top" style="border-collapse: collapse;">
+                                	<table border="0" cellpadding="0" cellspacing="0" width="600">
+                                    	<tr>
+                                        	<td valign="top" class="preheaderContent" style="border-collapse: collapse;color: #808080;font-family: Helvetica;font-size: 10px;line-height: 125%;text-align: left;">The latest news, articles and code focused on Sencha and related web technologies.</td>
+                                            <!--  -->
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                        <!-- END PREHEADER \\ -->
+                    	<!-- // BEGIN CONTAINER -->
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%" id="templateContainer">
+                        	<tr>
+                            	<td align="center" valign="top" style="border-collapse: collapse;">
+                                	<!-- // BEGIN BODY -->
+                                	<table border="0" cellpadding="40" cellspacing="0" width="100%" id="templateBody" style="background-color: #EEEEEE;border-top: 0;border-bottom: 0;">
+                                    	<tr>
+                                        	<td align="center" valign="top" style="border-collapse: collapse;">
+                                            	<table border="0" cellpadding="0" cellspacing="0" width="600">
+                                                	<tr>
+                                                    	<td align="center" valign="bottom" style="border-collapse: collapse;">
+                                                            <table border="0" cellpadding="40" cellspacing="0" width="600" id="bodyContentBlock" style="background-color: #ffffff;border-top: 1px solid #c0da9d;border-bottom: 1px solid #c0da9d;">
+                                                                <tr>
+                                                                    <td align="left" valign="top" style="padding-top: 40px;padding-bottom: 80px;border-collapse: collapse;">
+                                                                        <table border="0" cellpadding="0" cellspacing="0">
+                                                                            <tr>
+                                                                                <td class="headerContent" style="padding-right: 40px;border-collapse: collapse;color: #505050;font-family: Helvetica;font-size: 20px;font-weight: bold;line-height: 100%;text-align: left;vertical-align: top;">
+                                                                                    <a href="http://www.senchainsights.com" target="_blank" style="color: #990000;font-weight: normal;text-decoration: underline;"><img src="https://gallery.mailchimp.com/35c628e5bf74b167e4791ffb8/images/Sencha_Insights_Logo.3.png" alt="" border="0" style="border: px none;border-color: ;border-style: none;border-width: px;height: 240px;width: 195px;margin: 0;padding: 0;max-width: 400px;line-height: 100%;outline: none;text-decoration: none;" width="195" height="240" id="campaign-icon"></a>
+                                                                                </td>
+                                                                                <td width="100%" class="headerContent" style="border-collapse: collapse;color: #505050;font-family: Helvetica;font-size: 20px;font-weight: bold;line-height: 100%;text-align: left;vertical-align: top;"><h4 style="color: #707070;display: block;font-family: Verdana;font-size: 18px;font-style: italic;font-weight: normal;line-height: 100%;letter-spacing: normal;margin-top: 0;margin-right: 0;margin-bottom: 10px;margin-left: 0;text-align: left;"><span style="color: rgb(178, 206, 86); font-family: Helvetica; font-size: 40px; font-weight: bold; line-height: 40px;">Sencha Insights</span></h4>
+
+<h2 style="color: #323232;display: block;font-family: Tahoma;font-size: 32px;font-style: normal;font-weight: bold;line-height: 100%;letter-spacing: normal;margin-top: 0;margin-right: 0;margin-bottom: 10px;margin-left: 0;text-align: left;">Issue #20</h2>
+
+<h3 style="color: #707070;display: block;font-family: Tahoma;font-size: 20px;font-style: normal;font-weight: bold;line-height: 100%;letter-spacing: normal;margin-top: 0;margin-right: 0;margin-bottom: 10px;margin-left: 0;text-align: left;">December 11th, 2013</h3>
+</td>
+                                                                            </tr>
+                                                                        </table>
+                                                                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                                                            <tr>
+                                                                                <td valign="top" class="bodyContent" style="padding-top: 20px;border-collapse: collapse;color: #323232;font-family: Verdana;font-size: 16px;line-height: 150%;text-align: left;"><em><span style="color:#696969;">A lot of great Sencha related articles in this week&#39;s issue - thanks to all the authors!<br>
+<br>
+If you would like to get in touch with us please feel free to email us (<a href="mailto:senchainsights@swarmonline.com" target="_self" style="color: #0088cc;font-weight: normal;text-decoration: underline;">senchainsights@swarmonline.com</a>) or message us on Twitter (<a href="https://twitter.com/SenchaInsights" target="_self" style="color: #0088cc;font-weight: normal;text-decoration: underline;">@SenchaInsights</a>).</span></em><br>
+<br>
+&nbsp;
+<h1 style="color: #9ac864;display: block;font-family: Tahoma;font-size: 30px;font-style: normal;font-weight: bold;line-height: 100%;letter-spacing: normal;margin-top: 0;margin-right: 0;margin-bottom: 10px;margin-left: 0;text-align: left;">Sencha Official</h1>
+
+<p><a href="https://senchaevents.webex.com/mw0401l/mywebex/default.do?nomenu=true&siteurl=senchaevents&service=6&rnd=0.35116030104013674&main_url=https%3A%2F%2Fsenchaevents.webex.com%2Fec0701l%2Feventcenter%2Fevent%2FeventAction.do%3FtheAction%3Ddetail%26confViewID%3D1004618538%26%26%26%26siteurl%3Dsenchaevents" style="color: #0088cc;font-weight: normal;text-decoration: underline;">Webinar: Re-skinning Your Apps Just Got Easier with Sencha Architect 3</a></p>
+
+<p>Lee Boonstra will show you how to customise your applications with Sencha Architect 3 and how to export templates for use on Sencha Market. This 1 hour webinar will be extremely helpful to those looking to re-style their apps.</p>
+
+<p><a href="http://www.sencha.com/blog/building-a-user-extension-and-integrating-it-into-sencha-architect-3-part-1/" style="color: #0088cc;font-weight: normal;text-decoration: underline;">Building a User Extension and Integrating It Into Sencha Architect 3 (Part 1)</a></p>
+
+<p>Aaron Conran starts a multi-part blog series describing how to build and integrate User Extensions with Sencha Architect.</p>
+
+<hr>
+<p>&nbsp;</p>
+
+<h1 style="color: #9ac864;display: block;font-family: Tahoma;font-size: 30px;font-style: normal;font-weight: bold;line-height: 100%;letter-spacing: normal;margin-top: 0;margin-right: 0;margin-bottom: 10px;margin-left: 0;text-align: left;">Sponsor</h1>
+
+<p>&nbsp;</p>
+
+<p><a href="http://www.swarmonline.com" style="color: #EF3A23;font-weight: normal;text-decoration: underline;"><img align="none" alt="SwarmOnline.com" height="70" src="https://gallery.mailchimp.com/35c628e5bf74b167e4791ffb8/images/logo_trans.png" style="height: 70px;line-height: 13px;width: 234px;border: 0;outline: none;text-decoration: none;display: inline;" width="234"></a><br>
+<br>
+Sencha Insights is proudly sponsored by&nbsp;<a href="http://www.swarmonline.com" target="_self" style="color: #0088cc;font-weight: normal;text-decoration: underline;">SwarmOnline.com</a>&nbsp;who provide expert Sencha development, consultancy and training services.<br>
+<br>
+To discuss your next project email them on&nbsp;<a href="mailto:info@swarmonline.com" target="_self" style="color: #0088cc;font-weight: normal;text-decoration: underline;">info@swarmonline.com</a>.</p>
+
+<hr>&nbsp;
+<h1 style="color: #9ac864;display: block;font-family: Tahoma;font-size: 30px;font-style: normal;font-weight: bold;line-height: 100%;letter-spacing: normal;margin-top: 0;margin-right: 0;margin-bottom: 10px;margin-left: 0;text-align: left;">Sencha</h1>
+
+<p><a href="http://www.akawebdesign.com/2013/11/22/building-mobile-apps-sencha-touch-windows-azure/" style="color: #0088cc;font-weight: normal;text-decoration: underline;">Building Mobile Apps with Sencha Touch and Windows Azure | aKa Web Design</a></p>
+
+<p>Arthur Kay recently presented a new project to allow easy integration between Sencha projects and Microsoft Azure. His presentation introduces this project (Ext.azure.Azure) and shows how it can be used to quickly integrate Azure with your Sencha Touch and Ext JS apps.</p>
+
+<p><a href="http://blogs.walkingtree.in/2013/12/04/using-webfont-icons-in-sencha-touch/" style="color: #0088cc;font-weight: normal;text-decoration: underline;">Using Webfont icons in Sencha Touch</a></p>
+
+<p>Sencha Touch now uses icon fonts for all of its icons which can cause some problems if you aren&#39;t used to dealing with them. This article runs down an approach to create your own icon font and how it can be integrated with your Sencha Touch project.</p>
+
+<p><a href="http://www.meetup.com/NYC-Sencha-Users/events/153679992/" style="color: #0088cc;font-weight: normal;text-decoration: underline;">Webinar: Building Fluid Enterprise Applications with Ext JS</a></p>
+
+<p>If you&#39;re quick this, webinar will run today at 1pm and will cover how to build fluid enterprise applications with Ext JS.</p>
+
+<p><a href="http://www.bryntum.com/blog/getting-started-with-the-siesta-event-recorder/" style="color: #0088cc;font-weight: normal;text-decoration: underline;">Getting started with the Siesta event recorder</a></p>
+
+<p>Bryntum&#39;s Siesta testing framework just got better with the introduction of the Event Recorder to allow tests to be created even more easily. Mats introduces the feature and how it works in this blog post.</p>
+
+<p><a href="http://yaroshevy.ch/post/68465625767/sencha-conditional-compilation" style="color: #0088cc;font-weight: normal;text-decoration: underline;">Conditional Compilation in Sencha/ExtJS</a></p>
+
+<p>Oleg Yaroshevych shows us how to perform conditional compilation in our Ext JS projects using Sencha Cmd and special comment structures. A very useful read on a little known feature of the product.</p>
+
+<h1 style="color: #9ac864;display: block;font-family: Tahoma;font-size: 30px;font-style: normal;font-weight: bold;line-height: 100%;letter-spacing: normal;margin-top: 0;margin-right: 0;margin-bottom: 10px;margin-left: 0;text-align: left;">JavaScript</h1>
+
+<p><a href="http://css-tricks.com/video-screencasts/130-first-moments-grunt/" style="color: #0088cc;font-weight: normal;text-decoration: underline;">First Moments with Grunt</a></p>
+
+<p>Grunt.js is a very popular tool for automating build steps in your projects. This screencast takes you through the initial setup of Grunt and shows you how to get things up and running.</p>
+
+<p><a href="http://css-tricks.com/continuous-integration-continuous-deployment/" style="color: #0088cc;font-weight: normal;text-decoration: underline;">Why You Should Use Continuous Integration and Continuous Deployment</a></p>
+
+<p>Continuous Integration and Deployment are very important parts of your project&#39;s build process and help to make everything run smoothly. This article introduces the topics and looks at ways that you can introduce these two things to your own workflow.</p>
+
+<p><a href="http://blog.teamtreehouse.com/improving-code-quality-jshint" style="color: #0088cc;font-weight: normal;text-decoration: underline;">Improving Code Quality with JSHint</a></p>
+
+<p>Improving the quality of your JavaScript should always be a goal of developers so utilising tools like JSHint to point out any problems with your code is important. This article introduces JSHint and shows how we can integrate it with our workflow.</p>
+
+<p><a href="http://mitchellsimoens.com/?p=254" style="color: #0088cc;font-weight: normal;text-decoration: underline;">JsonP Explanation</a></p>
+
+<p>JsonP is a method for transporting data from client to a server across domains. Mitchell Simoens explains how it works and how to use it both from an Ext JS and a server side perspective.</p>
+
+<p><a href="http://ariya.ofilabs.com/2012/12/javascript-performance-analysis-sampling-tracing-and-timing.html" style="color: #0088cc;font-weight: normal;text-decoration: underline;">JavaScript Performance Analysis: Sampling, Tracing, and Timing</a></p>
+
+<p>Ariya Hidayat introduces various ways for identifying slow code and analysing how it could be improved.</p>
+
+<h1 style="color: #9ac864;display: block;font-family: Tahoma;font-size: 30px;font-style: normal;font-weight: bold;line-height: 100%;letter-spacing: normal;margin-top: 0;margin-right: 0;margin-bottom: 10px;margin-left: 0;text-align: left;">HTML5</h1>
+
+<p><a href="http://devtoolsecrets.com/" style="color: #0088cc;font-weight: normal;text-decoration: underline;">Secrets of the Browser Developer Tools - Secrets</a></p>
+
+<p>A great resource full of tips for getting the most out of your web developer tools.</p>
+
+<p><a href="http://codepen.io/AmeliaBR/pen/lvkyD" style="color: #0088cc;font-weight: normal;text-decoration: underline;">Scaling SVG elements</a></p>
+
+<p>This CodePen pen demonstrates the use of various attributes for scaling SVG elements.</p>
+
+<h1 style="color: #9ac864;display: block;font-family: Tahoma;font-size: 30px;font-style: normal;font-weight: bold;line-height: 100%;letter-spacing: normal;margin-top: 0;margin-right: 0;margin-bottom: 10px;margin-left: 0;text-align: left;">Quiz</h1>
+
+<p>Which of the following method calls will return the version of Ext JS being used in the current project?</p>
+1.&nbsp;<a href="http://www.senchainsights.com/quiz/issue20.php?option=1" target="_self" style="color: #0088cc;font-weight: normal;text-decoration: underline;">Ext.getCurrentVersion();</a><br>
+2.&nbsp;<a href="http://www.senchainsights.com/quiz/issue20.php?option=2" target="_self" style="color: #0088cc;font-weight: normal;text-decoration: underline;">Ext.getVersionNumber();</a><br>
+3.&nbsp;<a href="http://www.senchainsights.com/quiz/issue20.php?option=3" target="_self" style="color: #0088cc;font-weight: normal;text-decoration: underline;">Ext.getVersion()</a><br>
+4.&nbsp;<a href="http://www.senchainsights.com/quiz/issue20.php?option=4" target="_self" style="color: #0088cc;font-weight: normal;text-decoration: underline;">Ext.framework.getVersion();</a><br>
+&nbsp;
+<hr>
+<p><span style="font-size: 11px;">Want to sponsor the next issue? Email us on </span><a href="mailto:senchainsights@swarmonline.com?subject=Sponsor" style="font-size: 11px;color: #0088cc;font-weight: normal;text-decoration: underline;" target="_self">senchainsights@swarmonline.com</a></p>
+&nbsp;
+
+<h3 class="null" style="color: #707070;display: block;font-family: Tahoma;font-size: 20px;font-style: normal;font-weight: bold;line-height: 100%;letter-spacing: normal;margin-top: 0;margin-right: 0;margin-bottom: 10px;margin-left: 0;text-align: left;"><span style="color: rgb(178, 206, 86);">Share this Newsletter</span></h3>
+If you enjoyed this issue of Sencha Insights please <a href="http://twitter.com/intent/tweet?url=http://www.senchainsights.com&text=Issue %231 of @SenchaInsights is just out. Don't forget to check it out! %23Sencha" target="_self" style="color: #0088cc;font-weight: normal;text-decoration: underline;">tweet</a> about it!</td>
+                                                                            </tr>
+                                                                        </table>
+                                                                    </td>
+                                                                </tr>
+                                                            </table>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                    	<td align="center" valign="top" style="padding-right: 50px;padding-left: 50px;border-collapse: collapse;">
+                                                            <img src="http://gallery.mailchimp.com/27aac8a65e64c994c4416d6b8/images/leaftshadow.png" height="20" width="500" style="display: block;border: 0;height: auto;line-height: 100%;outline: none;text-decoration: none;">
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <!-- END BODY \\ -->
+                                </td>
+                            </tr>
+                        	<tr>
+                            	<td align="center" valign="top" style="border-collapse: collapse;">
+                                	<!-- // BEGIN FOOTER -->
+                                	<table border="0" cellpadding="20" cellspacing="0" width="100%" id="templateFooter" style="border-top: 1px solid #c0da9d;">
+                                    	<tr>
+                                        	<td align="center" valign="top" style="padding-bottom: 40px;border-collapse: collapse;">
+                                            	<table border="0" cellpadding="0" cellspacing="0" width="580">
+                                                    <tr>
+                                                    	<td colspan="3" valign="top" class="footerContent" style="padding-bottom: 20px;border-collapse: collapse;color: #808080;font-family: Helvetica;font-size: 14px;line-height: 150%;text-align: left;"><a href="https://www.twitter.com/SenchaInsights/" style="color: #0088cc;font-weight: normal;text-decoration: underline;">Follow on Twitter</a> | <a href="http://us6.forward-to-friend.com/forward?u=35c628e5bf74b167e4791ffb8&id=156bf3ccb3&e=cdcd50bdf1" style="color: #0088cc;font-weight: normal;text-decoration: underline;">Forward to Friend</a>&nbsp; </td>
+                                                    </tr>
+                                                	<tr>
+                                                        <td valign="top" class="footerContent" style="border-collapse: collapse;color: #808080;font-family: Helvetica;font-size: 14px;line-height: 150%;text-align: left;"><em>&copy; 2013 SwarmOnline Ltd, All rights reserved.</em><br>
+<em>SwarmOnline Ltd is a Limited Company registered in Scotland, with company number SC411633. Our Registered Office is 1-2 249 Byres Road, Glasgow G12 8UB</em><br>
+<br>
+Sencha Insights is not linked to <a href="http://www.sencha.com" target="_self" style="color: #0088cc;font-weight: normal;text-decoration: underline;">Sencha Inc.</a> in any way.<br>
+<br>
+</td>
+                                                        <td width="20" style="border-collapse: collapse;">
+                                                        	<br>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <!-- END FOOTER \\ -->
+                                </td>
+                            </tr>
+                        </table>
+                        <!-- END CONTAINER \\ -->
+                    </td>
+                </tr>
+            </table>
+        </center>
+    </body>    </body> </html>

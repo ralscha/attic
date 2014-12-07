@@ -1,0 +1,881 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html><head><META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW"><meta http-equiv='Content-Type' content='text/html; charset=UTF-8'/>
+<meta name="generator" content="HTML Tidy for Linux/x86 (vers 11 February 2007), see www.w3.org">
+<meta http-equiv="Content-Type" content="text/html; charset=us-ascii">
+<title>Architect 3 Theming and Extensions, Ext JS Tips, PhoneGap with Sencha Touch, and more</title>
+
+<style type="text/css">
+@media only screen and (max-device-width: 480px) { 
+        p{
+                line-height: 1.2em !important;
+        }
+}
+</style>
+</head>
+<body class="body" style="margin:0; padding:0; background-color:#192640; " ><div ><div class="mktEditable" ><table style="background-color: #192640;" border="0" cellspacing="0" cellpadding="0" width="100%" bgcolor="#192640">
+<tbody>
+<tr>
+<td><!-- header --> 
+<table style="border-left-width: 1px; border-left-style: solid; border-left-color: #8ac640; border-right-width: 1px; border-right-style: solid; border-right-color: #8ac640;" border="0" cellspacing="0" cellpadding="0" width="600" align="center">
+<tbody>
+<tr>
+<td height="20" valign="top"><br /></td>
+</tr>
+<tr>
+<td valign="top">
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
+<tbody>
+<tr>
+<td width="44">&nbsp;</td>
+<td width="108" valign="middle">
+<h1 style="font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 24px; margin-top: 10px; padding: 0px; color: white;"><img src="http://cdn.sencha.io/img/newsletter/june-sencha-logo-blue.jpg" alt="Sencha Logo" width="117" height="47" /></h1>
+<span style="display: none; font-size: 0; height: 0; line-height: 0; width: 0; visibility: hidden; white-space: nowrap;">Building a User Extension and Integrating It Into Sencha Architect 3, Using the New App Watch Command in Sencha Cmd 4, Leveraging PhoneGap within Sencha Touch &amp; more in the latest Sencha News</span></td>
+<td width="404" valign="top"><!-- <br> -->
+<p style="font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: normal; font-size: 12px; margin-top: 17px; padding-top: 9px; text-align: right;"><a style="color: #8ac640; text-decoration: underline;" href=
+"http://mailer.sencha.com/ol/0xEFfYeadVJRtGVz__2aN7r50maQK8zl9vEsWKKyn98s1kwzNOHcP0jr1YMXGJs2OLnYEgxNQ9ZkyQgFCOGZbIhT-f1cDlOSXzb-ia2UbIJDN6F62Jwyqfn2iTVT7Niahk7NVAlIBg,,/1gwVMM7QNEFYskJlpe-cLKrlnnvDdZXnsrJ5DO-owsculk1zc-XDd0TiidpdK5cwc-CbFl0dGIRe1ANTR7Ond61t0MJqDWfrTyjNj63POd5gS59L089r17ijy1hS_djSh2vnIlgCbVgpNiDNTI1zghLxIqAWWSSN0y_gAYQnkQFN1583-ra8WIqT0X-2o3fBygaMMnNQ5sWX8167Ia5YupJSmw,,"
+>View in browser &raquo;</a></p>
+</td>
+<td width="44">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr>
+<td height="20" valign="top"><br /></td>
+</tr>
+<tr>
+<td valign="top">
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
+<tbody>
+<tr>
+<td width="44">&nbsp;</td>
+<td style="color: #ffffff;" width="204" valign="top"><img src="http://cdn.sencha.io/img/newsletter/december-newsletter.jpg" alt="Newsletter 2013" width="507" height="23" />
+<p style="margin-top: 20px; margin-bottom: 0px; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 14px; color: #e7f0da;"><strong>Don&rsquo;t Miss:</strong> <a style="color: #e7f0da !important; text-decoration: none;" href="#support">Top Support Tips</a> | <a style="color: #e7f0da !important; text-decoration: none;" href="#training">Training</a> | <a style="color: #e7f0da !important; text-decoration: none;" href="#jobs">Jobs</a> | <a style="color: #e7f0da !important; text-decoration: none;" href="#events">Events</a></p>
+</td>
+<td width="44">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr>
+<td height="20" valign="top"><br /> <br /></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<!-- /header --><!-- articles --> 
+<tr>
+<td>
+<table border="0" cellspacing="0" cellpadding="0" width="600" align="center" bgcolor="#E7F0DA">
+<tbody>
+<tr>
+<td>
+<table border="0" cellspacing="0" cellpadding="0" width="600" align="center">
+<tbody>
+<tr>
+<td style="border-top-width: 6px; border-top-color: #8ac640; border-top-style: solid;" width="44" valign="top">&nbsp;</td>
+<td style="border-bottom-width: 6px; border-bottom-color: #8ac640; border-bottom-style: solid; border-top-width: 6px; border-top-color: #192640; border-top-style: solid;" width="107" valign="top">
+<table border="0" cellspacing="0" cellpadding="0" width="107" align="center" bgcolor="#192640">
+<tbody>
+<tr>
+<td>
+<p style="margin: 15px; font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: bold; font-size: 15px; color: #ffffff; text-align: center;">ARTICLES</p>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+<td style="border-top-width: 6px; border-top-color: #8ac640; border-top-style: solid;" valign="top">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr>
+<td>
+<table border="0" cellspacing="0" cellpadding="0" width="600" align="center">
+<tbody>
+<tr>
+<td>
+<table border="0" cellspacing="0" cellpadding="0" width="600" align="center">
+<tbody>
+<tr>
+<td width="45" valign="top"><br /></td>
+<td>
+<p style="font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: normal; font-size: 14px; color: #000; margin: 20px 0 5px 0; padding-bottom: 0;"><a style="color: #000000 !important; text-decoration: none;" href=
+"http://mailer.sencha.com/ol/0xEFfYeadVJRtGVz__2aN7r50maQK8zl9vEsWKKyn98s1kwzNOHcP0jr1YMXGJs2OLnYEgxNQ9ZkyQgFCOGZbIhT-f1cDlOSXzb-ia2UbIJDN6F62Jwyqfn2iTVT7Niahk7NVAlIBg,,/1gwVMM7QNEZOogll7vKaKqijnDrNNZqktLsyC-Lv3ss3108zc6HaK0T9xdZJCJc8duCRD08RHZQsyQJMH-eHfZRJ9PIQAlX_UTXrj-zJaoNNebU-3dNi96Gx3WMR547Pgl3eHQJfDy5hbxKifbAr2W7VO70OdTSw_F2YIpQRkyQd0-4q7LmTcr2-02Om5nyRuzDeIWZWz9aXx3X5Xr86vuVSuW4y-mATe8f8ymHm9r8hpA9-p85EoTh408VVCsV-tiCOeBfh4q3VTexiW7e1vdXAnbh6Sw,,"
+><strong>Building a User Extension and Integrating It Into Sencha Architect 3 (Part 1)</strong><br /> Aaron Conran</a></p>
+</td>
+</tr>
+</tbody>
+</table>
+<table border="0" cellspacing="0" cellpadding="0" width="600" align="center">
+<tbody>
+<tr>
+<td width="45" valign="top"><br /></td>
+<td valign="top">
+<p style="font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: normal; font-size: 12px; line-height: 16px; color: #000000; margin-top: 0; padding-top: 0;">Regardless of the type of application you&rsquo;re building, there is almost always room to create a custom component or user extension that can be used across projects or teams. This is the first article in a two-part series on building a user extension and integrating it into Architect. We will walk through some of the challenges in creating a robust user extension.</p>
+<p style="font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: normal; font-size: 12px; color: #000; margin-top: 0; padding-top: 0; margin-bottom: 20px;"><a style="color: #000000 !important; text-decoration: underline; font-weight: bold;" href=
+"http://mailer.sencha.com/ol/0xEFfYeadVJRtGVz__2aN7r50maQK8zl9vEsWKKyn98s1kwzNOHcP0jr1YMXGJs2OLnYEgxNQ9ZkyQgFCOGZbIhT-f1cDlOSXzb-ia2UbIJDN6F62Jwyqfn2iTVT7Niahk7NVAlIBg,,/1gwVMM7QNEZOogll7vKaKqijnDrNNZqktLsyC-Lv3ss3108zc6HaK0T9xdZJCJc8duCRD08RHZQsyQJMH-eHfZRJ9PIQAlX_UTXrj-zJaoNNebU-3dNi96Gx3WMR547Pgl3eHQJfDy5hbxKifbAr2W7VO70OdTSw_F2YIpQRkyQd0-4q7LmTcr2-02Om5nyRuzDeIWZWz9aXx3X5Xr86vuVSuW4y-mATe8f8ymHm9r8hpA9-p85EoTh408VVCsV-tiCOeBfh4q3VTexiW7e1vdXAnbh6Sw,,"
+>Read More</a></p>
+</td>
+<td width="17"><br /></td>
+<td valign="top"><a style="border: none; padding: 0; margin: 0; line-height: 0;" href=
+"http://mailer.sencha.com/ol/0xEFfYeadVJRtGVz__2aN7r50maQK8zl9vEsWKKyn98s1kwzNOHcP0jr1YMXGJs2OLnYEgxNQ9ZkyQgFCOGZbIhT-f1cDlOSXzb-ia2UbIJDN6F62Jwyqfn2iTVT7Niahk7NVAlIBg,,/1gwVMM7QNEZOogll7vKaKqijnDrNNZqktLsyC-Lv3ss3108zc6HaK0T9xdZJCJc8duCRD08RHZQsyQJMH-eHfZRJ9PIQAlX_UTXrj-zJaoNNebU-3dNi96Gx3WMR547Pgl3eHQJfDy5hbxKifbAr2W7VO70OdTSw_F2YIpQRkyQd0-4q7LmTcr2-02Om5nyRuzDeIWZWz9aXx3X5Xr86vuVSuW4y-mATe8f8ymHm9r8hpA9-p85EoTh408VVCsV-tiCOeBfh4q3VTexiW7e1vdXAnbh6Sw,,"
+><img style="border: 0;" src="http://cdn.sencha.io/img/newsletter/december-newsletter-lead.jpg" alt="Building a User Extension and Integrating it Into Sencha Architect 3 (Part 1)" width="248" height="134" /></a></td>
+<td width="30">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+<table border="0" cellspacing="0" cellpadding="0" width="600" align="center">
+<tbody>
+<tr>
+<td width="45" valign="top"><br /> <img src="http://cdn.sencha.io/img/newsletter/new-icon.png" alt="New" width="30" height="30" /></td>
+<td>
+<p style="font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: normal; font-size: 14px; color: #000; margin-bottom: 5px; padding-bottom: 0;"><a style="color: #000000 !important; text-decoration: none;" href=
+"http://mailer.sencha.com/ol/0xEFfYeadVJRtGVz__2aN7r50maQK8zl9vEsWKKyn98s1kwzNOHcP0jr1YMXGJs2OLnYEgxNQ9ZkyQgFCOGZbIhT-f1cDlOSXzb-ia2UbIJDN6F62Jwyqfn2iTVT7Niahk7NVAlIBg,,/1gwVMM7QNEZOogll7vKaKqijnDrNNZqktLsyHOTv3MhzzUB7P-LKLwzumMMcC5MmZuHTAg0dHpFvxEFRFK2GeY5D8vQQCEy2FW-gjarOUJlBeukg7spM0oKS72Yj88qRoFPAHBldbktHXAmTY5cwgi7fZ8cmDxaw0VDWOaoK2Xou1Zg2hZSEa6GEznWH_22SzQGNMFxUoZO52XCYG7xTvP0NqRcX73YVf-bUzjfDzqUnrgsMx80y3jg,"
+><strong>Using the New App Watch Command in Sencha Cmd 4</strong> | Don Griffin</a></p>
+<p style="font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: normal; font-size: 12px; line-height: 16px; color: #000000; margin-top: 0; padding-top: 0;">Perhaps the biggest new feature introduced in Sencha Cmd 4 is the &ldquo;sencha app watch&rdquo; command. This command greatly streamlines the continuous process of making small changes and seeing them run seconds later. In this article, we will cover the basic operation of the app watch command and how you can customize its behavior.</p>
+<p style="font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: normal; font-size: 12px; color: #000; margin-top: 0; padding-top: 0; margin-bottom: 20px;"><a style="color: #000000 !important; text-decoration: underline; font-weight: bold;" href=
+"http://mailer.sencha.com/ol/0xEFfYeadVJRtGVz__2aN7r50maQK8zl9vEsWKKyn98s1kwzNOHcP0jr1YMXGJs2OLnYEgxNQ9ZkyQgFCOGZbIhT-f1cDlOSXzb-ia2UbIJDN6F62Jwyqfn2iTVT7Niahk7NVAlIBg,,/1gwVMM7QNEZOogll7vKaKqijnDrNNZqktLsyHOTv3MhzzUB7P-LKLwzumMMcC5MmZuHTAg0dHpFvxEFRFK2GeY5D8vQQCEy2FW-gjarOUJlBeukg7spM0oKS72Yj88qRoFPAHBldbktHXAmTY5cwgi7fZ8cmDxaw0VDWOaoK2Xou1Zg2hZSEa6GEznWH_22SzQGNMFxUoZO52XCYG7xTvP0NqRcX73YVf-bUzjfDzqUnrgsMx80y3jg,"
+>Read More</a></p>
+</td>
+<td width="35">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+<table border="0" cellspacing="0" cellpadding="0" width="600" align="center">
+<tbody>
+<tr>
+<td width="45" valign="top"><br /></td>
+<td>
+<p style="font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: normal; font-size: 14px; color: #000; margin-bottom: 5px; padding-bottom: 0;"><a style="color: #000000 !important; text-decoration: none;" href=
+"http://mailer.sencha.com/ol/0xEFfYeadVJRtGVz__2aN7r50maQK8zl9vEsWKKyn98s1kwzNOHcP0jr1YMXGJs2OLnYEgxNQ9ZkyQgFCOGZbIhT-f1cDlOSXzb-ia2UbIJDN6F62Jwyqfn2iTVT7Niahk7NVAlIBg,,/1gwVMM7QNEZOogll7vKaKqijnDrNNZqktLsyBfLw190_3kFwdaHfME7hjdRQDN8lbP2WCAxdAJVvwwRZV_SaaYNItapQAFWNTDT03fLoZKBjW4NE2uc46LuX12wQ_I6sqHf0BkEEaGFqdz7KPrpwkQrMG4cvcirCqF2RELVwmgcel40x0LWhVOeVz3Ck-G2Dvhe9GHVqwfi8wFCqWqptveQDuWMJ6lQqZOLxzgL14_l2jQ,,"
+><strong>Leveraging PhoneGap within Sencha Touch</strong> | Ross Gerbasi</a></p>
+<p style="font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: normal; font-size: 12px; line-height: 16px; color: #000000; margin-top: 0; padding-top: 0;">With the release of Sencha Touch 2.3 and Sencha Cmd 4, creating your cross platform hybrid applications has never been easier. PhoneGap is now a first class citizen in the Sencha Touch mobile workflow integrating seamlessly into the newly released, NodeJS based, PhoneGap command line interface. In this article, we&rsquo;ll take a look at creating an app with Sencha Touch and PhoneGap.</p>
+<p style="font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: normal; font-size: 12px; color: #000; margin-top: 0; padding-top: 0; margin-bottom: 20px;"><a style="color: #000000 !important; text-decoration: underline; font-weight: bold;" href=
+"http://mailer.sencha.com/ol/0xEFfYeadVJRtGVz__2aN7r50maQK8zl9vEsWKKyn98s1kwzNOHcP0jr1YMXGJs2OLnYEgxNQ9ZkyQgFCOGZbIhT-f1cDlOSXzb-ia2UbIJDN6F62Jwyqfn2iTVT7Niahk7NVAlIBg,,/1gwVMM7QNEZOogll7vKaKqijnDrNNZqktLsyBfLw190_3kFwdaHfME7hjdRQDN8lbP2WCAxdAJVvwwRZV_SaaYNItapQAFWNTDT03fLoZKBjW4NE2uc46LuX12wQ_I6sqHf0BkEEaGFqdz7KPrpwkQrMG4cvcirCqF2RELVwmgcel40x0LWhVOeVz3Ck-G2Dvhe9GHVqwfi8wFCqWqptveQDuWMJ6lQqZOLxzgL14_l2jQ,,"
+>Read More</a></p>
+</td>
+<td width="35">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+<table border="0" cellspacing="0" cellpadding="0" width="600" align="center">
+<tbody>
+<tr>
+<td width="45" valign="top"><br /></td>
+<td valign="top">
+<p style="font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: normal; font-size: 14px; color: #000; margin-bottom: 5px; padding-bottom: 0;"><a style="color: #000000 !important; text-decoration: none;" href=
+"http://mailer.sencha.com/ol/0xEFfYeadVJRtGVz__2aN7r50maQK8zl9vEsWKKyn98s1kwzNOHcP0jr1YMXGJs2OLnYEgxNQ9ZkyQgFCOGZbIhT-f1cDlOSXzb-ia2UbIJDN6F62Jwyqfn2iTVT7Niahk7NVAlIBg,,/1gwVMM7QNEZOogll7vKaKqijnDrNNZqktLsyG_KrwcQ310Z3fOuCIU76mp5QDIIhKOOLEhZdFJ91jQlZCemQbs1X8-FVRlK3Vjj3gezbfY5GeKB239UsrOf61WsRlcmNmQGfO0QjbVtbUwC7MKgztjLrJcZwcTmswnTPP68zmjsw0uoBhoecVpij916JsBbgvBC8Z1dS8tOr31qbBrA-uuMCu0wNrQIETszS9BD-5ZYpv3AI8spEjxpN2_52LNBq5z6-bAWmt6s,"
+><strong>Re-skinning Your Apps Just Got Easier with Sencha Architect 3</strong><br /> Miroslav Bojic</a></p>
+<p style="font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: normal; font-size: 12px; line-height: 16px; color: #000000; margin-top: 0; padding-top: 0;">There are many reasons why you might want to change the look and feel of your app. In this blog post, we will give you a quick run through of the Themes feature in Sencha Architect 3 and share a few tips. You&rsquo;ll also learn how to export a theme built in Architect and use it with other Sencha Touch and Ext JS projects.</p>
+<p style="font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: normal; font-size: 12px; color: #000; margin-top: 0; padding-top: 0; margin-bottom: 20px;"><a style="color: #000000 !important; text-decoration: underline; font-weight: bold;" href=
+"http://mailer.sencha.com/ol/0xEFfYeadVJRtGVz__2aN7r50maQK8zl9vEsWKKyn98s1kwzNOHcP0jr1YMXGJs2OLnYEgxNQ9ZkyQgFCOGZbIhT-f1cDlOSXzb-ia2UbIJDN6F62Jwyqfn2iTVT7Niahk7NVAlIBg,,/1gwVMM7QNEZOogll7vKaKqijnDrNNZqktLsyG_KrwcQ310Z3fOuCIU76mp5QDIIhKOOLEhZdFJ91jQlZCemQbs1X8-FVRlK3Vjj3gezbfY5GeKB239UsrOf61WsRlcmNmQGfO0QjbVtbUwC7MKgztjLrJcZwcTmswnTPP68zmjsw0uoBhoecVpij916JsBbgvBC8Z1dS8tOr31qbBrA-uuMCu0wNrQIETszS9BD-5ZYpv3AI8spEjxpN2_52LNBq5z6-bAWmt6s,"
+>Read More</a></p>
+</td>
+<td width="35">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+<table border="0" cellspacing="0" cellpadding="0" width="600" align="center">
+<tbody>
+<tr>
+<td width="45" valign="top"><br /></td>
+<td valign="top">
+<p style="font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: normal; font-size: 14px; color: #000; margin-bottom: 5px; padding-bottom: 0;"><a style="color: #000000 !important; text-decoration: none;" href=
+"http://mailer.sencha.com/ol/0xEFfYeadVJRtGVz__2aN7r50maQK8zl9vEsWKKyn98s1kwzNOHcP0jr1YMXGJs2OLnYEgxNQ9ZkyQgFCOGZbIhT-f1cDlOSXzb-ia2UbIJDN6F62Jwyqfn2iTVT7Niahk7NVAlIBg,,/1gwVMM7QNEZOogll7vKaKqijnDrNNZqktLsyDvLyxsYw3gVtZu3dLETrxcRYCJp_duyQAgoRXoRu1Q9QV7LYfpVJ9vEQCgylXTrriKTIIphaeLh6yNgs_ri1lXAEuMnPwBOTBEQaf2Vjb1vOW7QNqRfQB5YFBhSUyHTNINFwshIjvbIK3Lq7e6CMrCSlpVHxxx6ZOHxUoZO9unmOX59FjcUxikcD4nlyXNT15zjuh-4Hmgof4slOqjZj4KpBJ-9b4hWrcybn6Jb6SMVZcJT3w8Y,"
+><strong>Getting Started with Sencha Touch 2: Build a Weather Utility App (Part 2)</strong><br /> Lee Boonstra</a></p>
+<p style="font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: normal; font-size: 12px; line-height: 16px; color: #000000; margin-top: 0; padding-top: 0;">In this Sencha Touch tutorial, you will build the Do I need my Umbrella app, a simple utility app that loads weather information from a web service &mdash; worldweatheronline.com. Based on weather codes, this app can predict if you need your umbrella or not. In part 2, you will start to build an app theme, and you will use the code from part 1 of this tutorial.</p>
+<p style="font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: normal; font-size: 12px; color: #000; margin-top: 0; padding-top: 0; margin-bottom: 20px;"><a style="color: #000000 !important; text-decoration: underline; font-weight: bold;" href=
+"http://mailer.sencha.com/ol/0xEFfYeadVJRtGVz__2aN7r50maQK8zl9vEsWKKyn98s1kwzNOHcP0jr1YMXGJs2OLnYEgxNQ9ZkyQgFCOGZbIhT-f1cDlOSXzb-ia2UbIJDN6F62Jwyqfn2iTVT7Niahk7NVAlIBg,,/1gwVMM7QNEZOogll7vKaKqijnDrNNZqktLsyDvLyxsYw3gVtZu3dLETrxcRYCJp_duyQAgoRXoRu1Q9QV7LYfpVJ9vEQCgylXTrriKTIIphaeLh6yNgs_ri1lXAEuMnPwBOTBEQaf2Vjb1vOW7QNqRfQB5YFBhSUyHTNINFwshIjvbIK3Lq7e6CMrCSlpVHxxx6ZOHxUoZO9unmOX59FjcUxikcD4nlyXNT15zjuh-4Hmgof4slOqjZj4KpBJ-9b4hWrcybn6Jb6SMVZcJT3w8Y,"
+>Read More</a></p>
+</td>
+<td width="35">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+<!-- past reads --> 
+<table border="0" cellspacing="0" cellpadding="0" width="600" align="center">
+<tbody>
+<tr>
+<td width="44">&nbsp;</td>
+<td>
+<hr />
+</td>
+<td width="35">&nbsp;</td>
+</tr>
+<tr>
+<td width="44">&nbsp;</td>
+<td>
+<p style="font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: normal; font-size: 13px; color: #000; margin-bottom: 5px; padding-bottom: 0;"><a style="color: #000000 !important; text-decoration: none;" href=
+"http://mailer.sencha.com/ol/0xEFfYeadVJRtGVz__2aN7r50maQK8zl9vEsWKKyn98s1kwzNOHcP0jr1YMXGJs2OLnYEgxNQ9ZkyQgFCOGZbIhT-f1cDlOSXzb-ia2UbIJDN6F62Jwyqfn2iTVT7Niahk7NVAlIBg,,/1gwVMM7QNEZOogll7vKaKqijnDrNNZqktLsyHOTv3Mhzyk1wceTOdUb3nJ5FE98wcOCSBU8ZHYRk0g1bDumDec1X__cQClGiS3briKDOIoBPf7V02Yxj9q_o3GERq5Ldn1fYNlsBSyw_Vg2wRJUXszvBaYcwbQyL7y2SG70IpCcGj5UU0IGTKuSxq2aX3m_R4BincQNbtOSpuVqTGotartEmtWhwyWQlee3fpmfl8ZABvgMC0sZ7m0pc8dpBIs9KzRGNUj3h46LPfckrEZE,"
+><strong>Using Sencha GXT To Build Interactive Web Apps That Manage Big Data</strong><br /> Arno Mittelbach</a></p>
+<p style="font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: normal; font-size: 13px; color: #000; margin-bottom: 5px; padding-bottom: 0;"><a style="color: #000000 !important; text-decoration: none;" href=
+"http://mailer.sencha.com/ol/0xEFfYeadVJRtGVz__2aN7r50maQK8zl9vEsWKKyn98s1kwzNOHcP0jr1YMXGJs2OLnYEgxNQ9ZkyQgFCOGZbIhT-f1cDlOSXzb-ia2UbIJDN6F62Jwyqfn2iTVT7Niahk7NVAlIBg,,/1gwVMM7QNEZOogll7vKaKqijnDrNNZqktLsyHPni190tzUlwduXBPwz8jd1SFJN_ZuSaTBIREJtgxwlLVb-Yd5R_7vpWVhKAUxbSqpbtaasXZqdB0810qfuL4ks9pdOIukzKGndZF3Q8cTG2QqgsqRSiYrZzejHU_FTXJ7cWmg8CrOkl4pGvcJrxqVGT2WDRyQypHl1rsvKczG--CrtHmdMNpkMjxWcUXKWlxw,,"
+><strong>Understanding Sencha Cmd Packages</strong> | Don Griffin</a></p>
+<p style="font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: normal; font-size: 13px; color: #000; margin-bottom: 5px; padding-bottom: 0;"><a style="color: #000000 !important; text-decoration: none;" href=
+"http://mailer.sencha.com/ol/0xEFfYeadVJRtGVz__2aN7r50maQK8zl9vEsWKKyn98s1kwzNOHcP0jr1YMXGJs2OLnYEgxNQ9ZkyQgFCOGZbIhT-f1cDlOSXzb-ia2UbIJDN6F62Jwyqfn2iTVT7Niahk7NVAlIBg,,/1gwVMM7QNEZOogll7vKaKqijnDrNNZqktLsyGvLo0cc_lEpse-LIKwz7gclUEt8hcPmODhAEXoRujRhQH62Bc5VD8rhbGUC_XSzwkqqVMIBFZYtn08o8rJqu9U0vneqEtAXbGn0BTGQ6NyinQocvijfPIJYwZ1TQ_yvUAqwIiyQlrPhW8MKOT-Cy1GWyxXHAyz-nYHBJ58WWwxnuLqpGv8AkhmYO5EZwTufQ0DfB4JEnrSoi9-taui5Os69W"
+><strong>Sencha Brings Tizen Support to the Touch Framework</strong> | Gautam Agrawal</a></p>
+<p style="font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: normal; font-size: 13px; color: #000; margin-bottom: 5px; padding-bottom: 0;"><a style="color: #000000 !important; text-decoration: none;" href=
+"http://mailer.sencha.com/ol/0xEFfYeadVJRtGVz__2aN7r50maQK8zl9vEsWKKyn98s1kwzNOHcP0jr1YMXGJs2OLnYEgxNQ9ZkyQgFCOGZbIhT-f1cDlOSXzb-ia2UbIJDN6F62Jwyqfn2iTVT7Niahk7NVAlIBg,,/1gwVMM7QNEZOogll7vKaKqijnDrNNZqktLsyDvLyxsYw3gVtZu3dLETrxcRYCJp_duyQAgoRXoRu1Q9QV7LYfpVJ9vEQCgylXTrriKTIIphaeLh6yNgs_ri1lXAEuMnPwxOTBEQaf2Vjb1vOW7QNqRfQB5YFBhSUyHTNINFwshIjvbIK3Lq7e6CMrCSlpVHxxx6ZOHxUoZO9unmOX59FjcUxikcD4nlyXNT15zjuh-4Hmgof4slOqjZj4KpBJ-9b4hWrcybn6Jb6SMVZcJT3w8Y,"
+><strong>Getting Started with Sencha Touch 2: Build a Weather Utility App (Part 1)</strong><br /> Lee Boonstra</a></p>
+<p style="font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: normal; font-size: 13px; color: #000; margin-bottom: 5px; padding-bottom: 0;"><a style="color: #000000 !important; text-decoration: none;" href=
+"http://mailer.sencha.com/ol/0xEFfYeadVJRtGVz__2aN7r50maQK8zl9vEsWKKyn98s1kwzNOHcP0jr1YMXGJs2OLnYEgxNQ9ZkyQgFCOGZbIhT-f1cDlOSXzb-ia2UbIJDN6F62Jwyqfn2iTVT7Niahk7NVAlIBg,,/1gwVMM7QNEdQuEJ5pf-WL-a6x2CXKcvw6ONwAuPZxsA1hBtMecHiEnbYjvUIC4EAauWLV1E-KbtZzwJSMvCTb7gXrfANHnaZcyzzrYifPaseVIYg2u537ZiQ3kcPg4mjpl_IBGZLElNfSCKKTIYHrjHxZqMkeTCF_FnsN4MvhSoPqIo299f4WQ,,"
+><strong>Video: 5 Myths about Mobile Web Performance</strong></a></p>
+<p style="font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: normal; font-size: 13px; color: #000; margin-bottom: 5px; padding-bottom: 0;"><a style="color: #000000 !important; text-decoration: none;" href=
+"http://mailer.sencha.com/ol/0xEFfYeadVJRtGVz__2aN7r50maQK8zl9vEsWKKyn98s1kwzNOHcP0jr1YMXGJs2OLnYEgxNQ9ZkyQgFCOGZbIhT-f1cDlOSXzb-ia2UbIJDN6F62Jwyqfn2iTVT7Niahk7NVAlIBg,,/1gwVMM7QNEdQuEJ5pf-WL-a6xmGTLMr94uNwAuPZxsA1hBtMecHiEnbYjvUIC4EAauWLV1E-KbtZzwJSMvCTb7gXrfANHnaZcyzzrYifPaseVIYg2u537ZiQ3kcPg4mjpl_IBGZLElNfSCKKTIYHrjHxZqMkeTCF_FnsN4MvhSoPqIo299f4WQ,,"
+><strong>Video: Best Practices for Sencha JavaScript Apps</strong></a></p>
+</td>
+<td width="35">&nbsp;</td>
+</tr>
+<tr>
+<td><br /></td>
+</tr>
+</tbody>
+</table>
+<!-- /past reads --></td>
+</tr>
+<tr>
+<td><br /></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<!-- /articles --> <!-- promos --> 
+<tr>
+<td>
+<table border="0" cellspacing="0" cellpadding="0" width="600" align="center">
+<tbody>
+<tr>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td width="290" height="150" valign="top" bgcolor="#FFFFFF">
+<table border="0" cellspacing="0" cellpadding="0" width="290" align="center" bgcolor="#FFFFFF">
+<tbody>
+<tr>
+<td width="20">&nbsp;</td>
+<td>
+<p style="margin-right: 15px; margin-top: 15px; margin-bottom: 5px; font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: bold; font-size: 15px; color: #0b446c;"><a style="color: #000000 !important; text-decoration: none !important;" href=
+"http://mailer.sencha.com/ol/0xEFfYeadVJRtGVz__2aN7r50maQK8zl9vEsWKKyn98s1kwzNOHcP0jr1YMXGJs2OLnYEgxNQ9ZkyQgFCOGZbIhT-f1cDlOSXzb-ia2UbIJDN6F62Jwyqfn2iTVT7Niahk7NVAlIBg,,/1gwVMM7QNEZOogll7vKaKqijnDrNNZuntah8CuOpjcI1zXdqfeeSa3Pkpf57K6U0Q7CJEjAfH4U3kyJiMdiacopo6vNOMxblXWvqt4rxeIFjWPEh-pFEzfuj93YXmuiEtVblXW46Q3VhTUPPS4wMoCrCCbcJUxXRyXznBoUlvgUKgbEd1JWGSoGVviCE"
+>Need Help With Your App<br /> Dev Project?</a></p>
+<p style="font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: normal; font-size: 12px; line-height: 16px; color: #000000; margin-top: 5px; padding-top: 0; margin-bottom: 5px;"><img style="margin-bottom: 10px;" src="http://cdn.sencha.io/img/newsletter/services-promo.jpg" alt="Sencha Services" width="235" /><br /> The Sencha Professional Services team can help. Using their deep technical skills, the Sencha services team can provide team mentoring, software architecture advice and code reviews, or even custom component development.</p>
+<p style="font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: normal; font-size: 12px; line-height: 16px; color: #000000; margin-top: 10px; padding-top: 0; margin-bottom: 0px;"><a style="color: #000000 !important; text-decoration: underline; font-weight: bold;" href=
+"http://mailer.sencha.com/ol/0xEFfYeadVJRtGVz__2aN7r50maQK8zl9vEsWKKyn98s1kwzNOHcP0jr1YMXGJs2OLnYEgxNQ9ZkyQgFCOGZbIhT-f1cDlOSXzb-ia2UbIJDN6F62Jwyqfn2iTVT7Niahk7NVAlIBg,,/1gwVMM7QNEZOogll7vKaKqijnDrNNZuntah8CuOpjcI1zXdqfeeSa3Pkpf57K6U0Q7CJEjAfH4U3kyJiMdiacopo6vNOMxblXWvqt4rxeIFjWPEh-pFEzfuj93YXmuiEtVblXW46Q3VhTUPPS4wMoCrCCbcJUxXRyXznBoUlvgUKgbEd1JWGSoGVviCE"
+>Contact us</a> for more info.</p>
+</td>
+<td width="20">&nbsp;</td>
+</tr>
+<tr>
+<td><br /></td>
+</tr>
+</tbody>
+</table>
+</td>
+<td width="20"></td>
+<td width="290" valign="top" bgcolor="#FFFFFF">
+<table border="0" cellspacing="0" cellpadding="0" width="290" align="center" bgcolor="#FFFFFF">
+<tbody>
+<tr>
+<td width="20">&nbsp;</td>
+<td>
+<p style="margin-right: 15px; margin-top: 15px; margin-bottom: 5px; font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: bold; font-size: 15px; color: #0b446c;"><a style="color: #000000 !important; text-decoration: none !important;" href=
+"http://mailer.sencha.com/ol/0xEFfYeadVJRtGVz__2aN7r50maQK8zl9vEsWKKyn98s1kwzNOHcP0jr1YMXGJs2OLnYEgxNQ9ZkyQgFCOGZbIhT-f1cDlOSXzb-ia2UbIJDN6F62Jwyqfn2iTVT7Niahk7NVAlIBg,,/1gwVMM7QNEdQuEJ5pf-WL-a6x22SI8n_6eNwAuPZxsA1hBtMecHiEnbYjvUIC4EAauWLV1E-KbtZzwJSMvCTb7gXrfANHnaZcyzzrYifPaseVIYg2u537ZiQ3kcPg4mjpl_IBGZLElNfSCKKTIYHrjHxZqMkeTCF_FnsN4MvhSoPqIo299f4WQ,,"
+>Video: Sencha Architect 3 now with customizable themes, app templates, enhanced code editing and more</a></p>
+<p style="font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: normal; font-size: 12px; line-height: 16px; color: #000000; margin-top: 5px; padding-top: 0; text-align: center;"><a style="border: none; padding: 0; margin: 0; line-height: 0;" href=
+"http://mailer.sencha.com/ol/0xEFfYeadVJRtGVz__2aN7r50maQK8zl9vEsWKKyn98s1kwzNOHcP0jr1YMXGJs2OLnYEgxNQ9ZkyQgFCOGZbIhT-f1cDlOSXzb-ia2UbIJDN6F62Jwyqfn2iTVT7Niahk7NVAlIBg,,/1gwVMM7QNEdQuEJ5pf-WL-a6x22SI8n_6eNwAuPZxsA1hBtMecHiEnbYjvUIC4EAauWLV1E-KbtZzwJSMvCTb7gXrfANHnaZcyzzrYifPaseVIYg2u537ZiQ3kcPg4mjpl_IBGZLElNfSCKKTIYHrjHxZqMkeTCF_FnsN4MvhSoPqIo299f4WQ,,"
+><img style="border: 0;" src="http://cdn.sencha.io/img/newsletter/20131210-architect-3-webinar-promo.jpg" alt="Sencha Architect 3 Webinar" width="215" /></a></p>
+<p style="font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: normal; font-size: 12px; line-height: 16px; color: #000000; margin-top: 0px; padding-top: 0; margin-bottom: 5px;">See how easy it is to build apps using Sencha Architect 3 and reach more people on more platforms leveraging HTML5.</p>
+<p style="font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: normal; font-size: 12px; line-height: 16px; color: #000000; margin-top: 10px; padding-top: 0; margin-bottom: 0px;"><a style="color: #000000 !important; text-decoration: underline; font-weight: bold;" href=
+"http://mailer.sencha.com/ol/0xEFfYeadVJRtGVz__2aN7r50maQK8zl9vEsWKKyn98s1kwzNOHcP0jr1YMXGJs2OLnYEgxNQ9ZkyQgFCOGZbIhT-f1cDlOSXzb-ia2UbIJDN6F62Jwyqfn2iTVT7Niahk7NVAlIBg,,/1gwVMM7QNEdQuEJ5pf-WL-a6x22SI8n_6eNwAuPZxsA1hBtMecHiEnbYjvUIC4EAauWLV1E-KbtZzwJSMvCTb7gXrfANHnaZcyzzrYifPaseVIYg2u537ZiQ3kcPg4mjpl_IBGZLElNfSCKKTIYHrjHxZqMkeTCF_FnsN4MvhSoPqIo299f4WQ,,"
+>Watch Now</a></p>
+<br /></td>
+<td width="20">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<!-- /promos --> <!-- top support tips --> 
+<tr>
+<td>
+<table border="0" cellspacing="0" cellpadding="0" width="600" align="center" bgcolor="#B7E2E9">
+<tbody>
+<tr>
+<td>
+<table border="0" cellspacing="0" cellpadding="0" width="600" align="center">
+<tbody>
+<tr>
+<td style="border-top-width: 6px; border-top-color: #019ab2; border-top-style: solid;" width="44" valign="top">&nbsp;</td>
+<td style="border-bottom-width: 6px; border-bottom-color: #019ab2; border-bottom-style: solid; border-top-width: 6px; border-top-color: #192640; border-top-style: solid;" width="107" valign="top">
+<table border="0" cellspacing="0" cellpadding="0" width="180" align="center" bgcolor="#192640">
+<tbody>
+<tr>
+<td>
+<p style="margin: 15px; font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: bold; font-size: 15px; color: #ffffff; text-align: center;"><a style="color: #ffffff !important;" name="support">TOP SUPPORT TIPS</a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+<td style="border-top-width: 6px; border-top-color: #019ab2; border-top-style: solid;" valign="top">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr>
+<td>
+<table border="0" cellspacing="0" cellpadding="0" width="600" align="center">
+<tbody>
+<tr>
+<td>
+<table border="0" cellspacing="0" cellpadding="0" width="600" align="center">
+<tbody>
+<tr>
+<td height="1">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+<table border="0" cellspacing="0" cellpadding="0" width="600" align="center">
+<tbody>
+<tr>
+<td width="44">&nbsp;</td>
+<td>
+<p style="font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: normal; font-size: 14px; color: #000; margin-bottom: 0; padding-bottom: 0; margin-top: 0px;"><a style="color: #000000 !important; text-decoration: none;" href=
+"http://mailer.sencha.com/ol/0xEFfYeadVJRtGVz__2aN7r50maQK8zl9vEsWKKyn98s1kwzNOHcP0jr1YMXGJs2OLnYEgxNQ9ZkyQgFCOGZbIhT-f1cDlOSXzb-ia2UbIJDN6F62Jwyqfn2iTVT7Niahk7NVAlIBg,,/1gwVMM7QNEZOogll7vKaKqijnDrNNZqktLsyHfj2n9wryVhxYPiCLEj_m55VGZE3aOubE09CQ8EynwFTDt-Bc4sdqcdWJmyYbwz5pvjNfL9BfaElj-9b1JCq1motutuRqgubDB8bd1pHcwqwQPpyom3CAsMlcBWVyk7HEo0KyAk8hrkJ_9f5X4CY32SFzGPs4CPYB1Zb18OdyHG-CJVzmdAsiHMFrQMC"
+><strong>Making the Most of TaskRunner</strong></a></p>
+<p style="font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: normal; font-size: 12px; line-height: 16px; color: #000000; margin-top: 5px; padding-top: 0; margin-bottom: 15px;">Sometimes, it's helpful to have a reusable running task that you can start and pause at will. Fortunately, setting a reusable task with Ext JS is quite easy.</p>
+</td>
+<td width="44">&nbsp;</td>
+</tr>
+<tr>
+<td width="44">&nbsp;</td>
+<td>
+<p style="font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: normal; font-size: 14px; color: #000; margin-bottom: 0; padding-bottom: 0; margin-top: 0px;"><a style="color: #000000 !important; text-decoration: none;" href=
+"http://mailer.sencha.com/ol/0xEFfYeadVJRtGVz__2aN7r50maQK8zl9vEsWKKyn98s1kwzNOHcP0jr1YMXGJs2OLnYEgxNQ9ZkyQgFCOGZbIhT-f1cDlOSXzb-ia2UbIJDN6F62Jwyqfn2iTVT7Niahk7NVAlIBg,,/1gwVMM7QNEZOogll7vKaKqijnDrNNZqktLsyHfj2n9wryVhxYPiCLEj_m55VGZE3aOubE09CQ8EynwFTDt-Bc4sdqcdWJmyYbwz5pvjNfL9BfaElj-9b1JCq1motutuRqgubDB8bd1pHcwqwQPpyom3CAsMlcBWVyk7HEo0KyAk8hrkJ_9f5X4CY32SFzGPs4CPYB1Zb18OdyHG-CJVzmdAsiHMFrQMC"
+><strong>Event Delegation in Sencha Touch</strong></a></p>
+<p style="font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: normal; font-size: 12px; line-height: 16px; color: #000000; margin-top: 5px; padding-top: 0; margin-bottom: 15px;">Did you know a container can listen to events on a descendant component even if you are not using controllers in a MVC application? There are two ways to do it.</p>
+</td>
+<td width="44">&nbsp;</td>
+</tr>
+<tr>
+<td width="44">&nbsp;</td>
+<td>
+<p style="font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: normal; font-size: 14px; color: #000; margin-bottom: 0; padding-bottom: 0; margin-top: 0px;"><a style="color: #000000 !important; text-decoration: none;" href=
+"http://mailer.sencha.com/ol/0xEFfYeadVJRtGVz__2aN7r50maQK8zl9vEsWKKyn98s1kwzNOHcP0jr1YMXGJs2OLnYEgxNQ9ZkyQgFCOGZbIhT-f1cDlOSXzb-ia2UbIJDN6F62Jwyqfn2iTVT7Niahk7NVAlIBg,,/1gwVMM7QNEZOogll7vKaKqijnDrNNZqktLsyHfj2n9wryVhxYPiCLEj_m55VGZE3aOubE09CQ8EynwFTDt-Bc4sdqcdWJmyYbwz5pvjNfL9BfaElj-9b1JCq1motutuRqgubDB8bd1pHcwqwQPpyom3CAsMlcBWVyk7HEo0KyAk8hrkJ_9f5X4CY32SFzGPs4CPYB1Zb18OdyHG-CJVzmdAsiHMFrQMC"
+><strong>Hidden Gems in Sencha Cmd</strong></a></p>
+<p style="font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: normal; font-size: 12px; line-height: 16px; color: #000000; margin-top: 5px; padding-top: 0; margin-bottom: 15px;">Sencha Cmd relies heavily on a set of internal properties that are known about your environment and application. These properties include environmental software paths, system settings and Sencha software versions.</p>
+<p style="font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: normal; font-size: 12px; color: #000; margin-top: 0; margin-bottom: 20px; padding-top: 0;"><a style="color: #000000 !important; text-decoration: underline; font-weight: bold;" href=
+"http://mailer.sencha.com/ol/0xEFfYeadVJRtGVz__2aN7r50maQK8zl9vEsWKKyn98s1kwzNOHcP0jr1YMXGJs2OLnYEgxNQ9ZkyQgFCOGZbIhT-f1cDlOSXzb-ia2UbIJDN6F62Jwyqfn2iTVT7Niahk7NVAlIBg,,/1gwVMM7QNEZOogll7vKaKqijnDrNNZqktLsyHfj2n9wryVhxYPiCLEj_m55VGZE3aOubE09CQ8EynwFTDt-Bc4sdqcdWJmyYbwz5pvjNfL9BfaElj-9b1JCq1motutuRqgubDB8bd1pHcwqwQPpyom3CAsMlcBWVyk7HEo0KyAk8hrkJ_9f5X4CY32SFzGPs4CPYB1Zb18OdyHG-CJVzmdAsiHMFrQMC"
+>Read More</a></p>
+</td>
+<td width="44">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+</tr>
+<!-- /support --><!-- promos --> 
+<tr>
+<td>
+<table border="0" cellspacing="0" cellpadding="0" width="600" align="center" bgcolor="#E7F0DA">
+<tbody>
+<tr>
+<td>
+<table border="0" cellspacing="0" cellpadding="0" width="600" align="center">
+<tbody>
+<tr>
+<td style="border-top-width: 6px; border-top-color: #8AC640; border-top-style: solid;" width="44" valign="top">&nbsp;</td>
+<td style="border-bottom-width: 6px; border-bottom-color: #8AC640; border-bottom-style: solid; border-top-width: 6px; border-top-color: #192640; border-top-style: solid;" width="107" valign="top">
+<table border="0" cellspacing="0" cellpadding="0" width="225" align="center" bgcolor="#192640">
+<tbody>
+<tr>
+<td>
+<p style="margin: 15px; font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: bold; font-size: 15px; color: #ffffff; text-align: center;"><a style="color: #ffffff !important;" name="support">CONTRIBUTING EDITORS</a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+<td style="border-top-width: 6px; border-top-color: #8AC640; border-top-style: solid;" valign="top">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr>
+<td>
+<table border="0" cellspacing="0" cellpadding="0" width="600" align="center">
+<tbody>
+<tr>
+<td>
+<table border="0" cellspacing="0" cellpadding="0" width="600" align="center">
+<tbody>
+<tr>
+<td height="1">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+<table border="0" cellspacing="0" cellpadding="0" width="600" align="center">
+<tbody>
+<tr>
+<td width="44">&nbsp;</td>
+<td>
+<p style="font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: normal; font-size: 14px; color: #000; margin-bottom: 0; padding-bottom: 0; margin-top: 0px;"><a style="color: #000000 !important; text-decoration: none;" href=
+"http://mailer.sencha.com/ol/0xEFfYeadVJRtGVz__2aN7r50maQK8zl9vEsWKKyn98s1kwzNOHcP0jr1YMXGJs2OLnYEgxNQ9ZkyQgFCOGZbIhT-f1cDlOSXzb-ia2UbIJDN6F62Jwyqfn2iTVT7Niahk7NVAlIBg,,/1gwVMM7QNEZOogl0-eWXNrzg0TbPd9eqt7N6RvDjxts3108zYfjOKlXqjJ5GFYY6KP2WBE8DGpVy1A0VH_aQcpQN6PBeBFO2XSmw36zRe7Jafr8uj_Nq0oWP71cDjISVgW7DBVpYE19WTz6SZ7UIlDv0CMd0WlOSzVDqIosOtW1ao-0h5MGtUqWmy0am0k7vuBS6N1VwzYTJyG-QKI5PovArs1dy21cATuLwwRjFxrA8qyEWwt5WyE9L"
+><strong>Getting Started with the Siesta Event Recorder</strong></a></p>
+<p style="font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: normal; font-size: 12px; color: #000; margin-bottom: 0; padding-bottom: 0; margin-top: 3px;">Contributed by Mats Bryntse, Founder, Bryntum</p>
+<p style="font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: normal; font-size: 12px; line-height: 16px; color: #000000; margin-top: 15px; padding-top: 0; margin-bottom: 20px;"><strong>Mats writes:</strong> The Siesta Event Recorder helps developers save time when writing UI tests for apps or UI components. It records interactions with the user interface to help target the components in the app. The recorder detects Sencha components such as grids, form fields, checkboxes, etc. without having to manually type in each target.</p>
+<p style="font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: normal; font-size: 12px; color: #000; margin-top: 0; margin-bottom: 20px; padding-top: 0;"><a style="color: #000000 !important; text-decoration: underline; font-weight: bold;" href=
+"http://mailer.sencha.com/ol/0xEFfYeadVJRtGVz__2aN7r50maQK8zl9vEsWKKyn98s1kwzNOHcP0jr1YMXGJs2OLnYEgxNQ9ZkyQgFCOGZbIhT-f1cDlOSXzb-ia2UbIJDN6F62Jwyqfn2iTVT7Niahk7NVAlIBg,,/1gwVMM7QNEZOogl0-eWXNrzg0TbPd9eqt7N6RvDjxts3108zYfjOKlXqjJ5GFYY6KP2WBE8DGpVy1A0VH_aQcpQN6PBeBFO2XSmw36zRe7Jafr8uj_Nq0oWP71cDjISVgW7DBVpYE19WTz6SZ7UIlDv0CMd0WlOSzVDqIosOtW1ao-0h5MGtUqWmy0am0k7vuBS6N1VwzYTJyG-QKI5PovArs1dy21cATuLwwRjFxrA8qyEWwt5WyE9L"
+>Read the Article</a></p>
+</td>
+<td width="44">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<!-- /support --><!-- promos --> 
+<tr>
+<td>
+<table border="0" cellspacing="0" cellpadding="0" width="600" align="center">
+<tbody>
+<tr>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<!-- /promos --> <!-- training --> 
+<tr>
+<td>
+<table border="0" cellspacing="0" cellpadding="0" width="600" align="center" bgcolor="#B7E2E9">
+<tbody>
+<tr>
+<td>
+<table border="0" cellspacing="0" cellpadding="0" width="600" align="center">
+<tbody>
+<tr>
+<td style="border-top-width: 6px; border-top-color: #019AB2; border-top-style: solid;" width="44" valign="top">&nbsp;</td>
+<td style="border-bottom-width: 6px; border-bottom-color: #019AB2; border-bottom-style: solid; border-top-width: 6px; border-top-color: #192640; border-top-style: solid;" width="107" valign="top">
+<table border="0" cellspacing="0" cellpadding="0" width="107" align="center" bgcolor="#192640">
+<tbody>
+<tr>
+<td>
+<p style="margin: 15px; font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: bold; font-size: 15px; color: #ffffff; text-align: center;"><a style="color: #ffffff !important;" name="training">TRAINING</a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+<td style="border-top-width: 6px; border-top-color: #019AB2; border-top-style: solid;" valign="top">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr>
+<td>
+<table border="0" cellspacing="0" cellpadding="0" width="600" align="center">
+<tbody>
+<tr>
+<td width="20" valign="top"><br /></td>
+<td valign="middle"><br />
+<p style="font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: normal; font-size: 14px; line-height: 16px; color: #000000; margin-top: 5px;"><a style="color: #000000 !important; text-decoration: none !important; font-weight: bold;" href=
+"http://mailer.sencha.com/ol/0xEFfYeadVJRtGVz__2aN7r50maQK8zl9vEsWKKyn98s1kwzNOHcP0jr1YMXGJs2OLnYEgxNQ9ZkyQgFCOGZbIhT-f1cDlOSXzb-ia2UbIJDN6F62Jwyqfn2iTVT7Niahk7NVAlIBg,,/1gwVMM7QNEZOogll7vKaKqijnDrNNZqktLsyHOTv3Mhz2l1tZuPCdUjsh91CUZs8KPCRFBBdFoh1jQZLV-GFbJMf9_5JNFW9U2assqr3Qqd5RrJVhdZyzaepzTZWhOepqlPCA2ceRmJUM1GYOaoXrxbwPL0KGlGhql7zZoEMijo4sLsj3Lv_XIe3_36JsBbk3xmqI3REw-uX_AqPC79ZmdEjkkMg5Ekkes3B0RSCkZg,"
+><strong>Training Tip: Using Custom Icons in Your Ext JS Apps</strong></a></p>
+<p style="font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: normal; font-size: 12px; line-height: 16px; color: #000000; margin-top: 5px; padding-top: 0;">Do you like the <strong>glyph</strong> attribute in Ext JS 4.2 as much as I do? With glyphs, you can implement an icon that is created from a font. There are advantages to using icon fonts &mdash; they are vectors and therefore never lose quality; it&rsquo;s easy to style icons without the use of Photoshop; and you make one page request to download all of the icons.</p>
+<p style="font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: normal; font-size: 12px; line-height: 16px; color: #000000; margin-top: 5px; padding-top: 0;">The <strong>glyph</strong> attribute is available on Ext JS buttons and panels. You can download a custom icon font from a site like: IcoMoon (<a style="color: #000000;" href=
+"http://mailer.sencha.com/ol/0xEFfYeadVJRtGVz__2aN7r50maQK8zl9vEsWKKyn98s1kwzNOHcP0jr1YMXGJs2OLnYEgxNQ9ZkyQgFCOGZbIhT-f1cDlOSXzb-ia2UbIJDN6F62Jwyqfn2iTVT7Niahk7NVAlIBg,,/1gwVMM7QNFhaukp55PLXK6aiwDjLbqe8tLcgWsXt_-IU7n94VLXYK3PghMYHT7wITtGRDwg4A5Zy-FsPH7CAS6tr7flwIgTgfmvasvLcQJtcQYF1-8tIq4mR22QIg5jQsG_gLVgreVZGaBDLWrgGtz_hEr0hWw-e-HzsArUC2Xss"
+>http://icomoon.io/</a>) and implement the font in your style sheet. Let&rsquo;s try it.</p>
+<p style="font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: normal; font-size: 12px; color: #000; margin-top: 0; margin-bottom: 20px; padding-top: 0; padding-bottom: 20px; border-bottom: 1px solid #000000;"><a style="color: #000000 !important; text-decoration: underline; font-weight: bold;" href=
+"http://mailer.sencha.com/ol/0xEFfYeadVJRtGVz__2aN7r50maQK8zl9vEsWKKyn98s1kwzNOHcP0jr1YMXGJs2OLnYEgxNQ9ZkyQgFCOGZbIhT-f1cDlOSXzb-ia2UbIJDN6F62Jwyqfn2iTVT7Niahk7NVAlIBg,,/1gwVMM7QNEZOogll7vKaKqijnDrNNZqktLsyHOTv3Mhz2l1tZuPCdUjsh91CUZs8KPCRFBBdFoh1jQZLV-GFbJMf9_5JNFW9U2assqr3Qqd5RrJVhdZyzaepzTZWhOepqlPCA2ceRmJUM1GYOaoXrxbwPL0KGlGhql7zZoEMijo4sLsj3Lv_XIe3_36JsBbk3xmqI3REw-uX_AqPC79ZmdEjkkMg5Ekkes3B0RSCkZg,"
+>Read More</a></p>
+</td>
+<td width="20"><br /></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr>
+<td>
+<table border="0" cellspacing="0" cellpadding="0" width="600" align="center">
+<tbody>
+<tr>
+<td width="10" valign="top"><br /></td>
+<td><img style="margin-top: 10px;" src="http://cdn.sencha.io/img/training-globe.png" alt="Training Globe" width="170" /></td>
+<td valign="middle">
+<p style="font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: normal; font-size: 12px; line-height: 16px; color: #000000; margin-top: 5px; padding-top: 10px;">The Sencha Training Experts are on the road to get you on the Fast Track to Ext JS 4 and Sencha Touch 2 development. Create innovative web and mobile user interfaces with hands-on training led by Sencha Certified instructors. <a style="color: #000000 !important; text-decoration: underline;" href=
+"http://mailer.sencha.com/ol/0xEFfYeadVJRtGVz__2aN7r50maQK8zl9vEsWKKyn98s1kwzNOHcP0jr1YMXGJs2OLnYEgxNQ9ZkyQgFCOGZbIhT-f1cDlOSXzb-ia2UbIJDN6F62Jwyqfn2iTVT7Niahk7NVAlIBg,,/1gwVMM7QNEZOogll7vKaKqijnDrNNYy6urVzAPnhjcI1zXdqfeeSa3Pkpf57K6U0Q7CJEjAfH4U3kyJiMdiacopo6vNOMxblXWvqt4rxeIFjWPEh-pFEzfuj93YXmuiEtVblXW46Q3VhTUPPS4wMoCrCCbcJUxXRyXznBoUlvgUKgbEd1JWGSoGVviCE"
+><strong>Sign up for a class today</strong></a>.</p>
+<p style="font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: normal; font-size: 12px; line-height: 16px; color: #000000; margin-top: 5px; padding-top: 0;"><em>If you register one month in advance for January and February classes, you get 20% off.</em></p>
+</td>
+<td width="20"><br /></td>
+</tr>
+<tr>
+<td><br /></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr>
+<td>
+<table border="0" cellspacing="0" cellpadding="0" width="600" align="center">
+<tbody>
+<tr>
+<td width="20"><br /></td>
+<td valign="top">
+<table border="0" cellspacing="0" cellpadding="0" width="190" align="center">
+<tbody>
+<tr>
+<td valign="top">
+<p style="font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: normal; font-size: 11px; line-height: 15px; color: #000000; margin-top: 5px; padding-top: 0;"><strong>LIVE ONLINE</strong><br /> <em>Pacific Time</em><br /> Advanced Theming for Ext JS<br /> Jan 27-31</p>
+</td>
+</tr>
+<tr>
+<td valign="top">
+<p style="font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: normal; font-size: 11px; line-height: 15px; color: #000000; margin-top: 5px; padding-top: 0;"><em>Central Time</em><br /> Essential Ext JS &amp; Architect<br /> Jan 6-10</p>
+</td>
+</tr>
+<tr>
+<td valign="top">
+<p style="font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: normal; font-size: 11px; line-height: 15px; color: #000000; margin-top: 5px; padding-top: 0;">Sencha Touch &amp; Advanced Architect<br /> Jan 13-24</p>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+<td valign="top">
+<table border="0" cellspacing="0" cellpadding="0" width="190" align="center">
+<tbody>
+<tr>
+<td valign="bottom">
+<p style="font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: normal; font-size: 11px; line-height: 15px; color: #000000; margin-top: 5px; padding-top: 0;"><strong>NORTH AMERICA</strong><br /> <em>Chicago, IL</em><br /> Sencha Touch &amp; Architect 3<br /> Jan 13-17</p>
+</td>
+</tr>
+<tr>
+<td valign="top">
+<p style="font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: normal; font-size: 11px; line-height: 15px; color: #000000; margin-top: 5px; padding-top: 0;"><em>New York, NY</em><br /> Ext JS 4.2 &amp; Sencha Architect 3<br /> Jan 13-17</p>
+</td>
+</tr>
+<tr>
+<td valign="top">
+<p style="font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: normal; font-size: 11px; line-height: 15px; color: #000000; margin-top: 5px; padding-top: 0;"><em>Redwood City, CA</em><br /> Sencha Touch &amp; Architect 3<br /> Jan 6-10</p>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+<td valign="top">
+<table border="0" cellspacing="0" cellpadding="0" width="190" align="center">
+<tbody>
+<tr>
+<td valign="bottom">
+<p style="font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: normal; font-size: 11px; line-height: 15px; color: #000000; margin-top: 5px; padding-top: 0;"><em>Washington, DC</em><br /> Ext JS 4.2 &amp; Sencha Architect 3<br /> Dec 16-20</p>
+</td>
+</tr>
+<tr>
+<td valign="top">
+<p style="font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: normal; font-size: 11px; line-height: 15px; color: #000000; margin-top: 5px; padding-top: 0;"><strong>EMEA</strong><br /> <em>Amsterdam, The Netherlands</em><br /> Advanced Theming for Ext JS<br /> Jan 14-16</p>
+</td>
+</tr>
+<tr>
+<td valign="top">
+<p style="font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: normal; font-size: 11px; line-height: 15px; color: #000000; margin-top: 5px; padding-top: 0;"><strong>ASIA PACIFIC</strong><br /> <em>Tokyo, Japan</em><br /> Ext JS 4.2 &amp; Sencha Architect 3<br /> Jan 20-24</p>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr>
+<td>
+<table border="0" cellspacing="0" cellpadding="0" width="600" align="center">
+<tbody>
+<tr>
+<td>
+<p style="text-align: center; font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: normal; font-size: 12px; line-height: 16px; color: #000000; margin-top: 5px; margin-bottom: 20px; padding-top: 0;"><a style="color: #000000 !important; text-decoration: underline; font-weight: bold;" href=
+"http://mailer.sencha.com/ol/0xEFfYeadVJRtGVz__2aN7r50maQK8zl9vEsWKKyn98s1kwzNOHcP0jr1YMXGJs2OLnYEgxNQ9ZkyQgFCOGZbIhT-f1cDlOSXzb-ia2UbIJDN6F62Jwyqfn2iTVT7Niahk7NVAlIBg,,/1gwVMM7QNEZOogll7vKaKqijnDrNNYy6urVzAPnhjcI1zXdqfeeSa3Pkpf57K6U0Q7CJEjAfH4U3kyJiMdiacopo6vNOMxblXWvqt4rxeIFjWPEh-pFEzfuj93YXmuiEtVblXW46Q3VhTUPPS4wMoCrCCbcJUxXRyXznBoUlvgUKgbEd1JWGSoGVviCE"
+>Sign up for a training class today</a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr>
+<td>
+<table border="0" cellspacing="0" cellpadding="0" width="600" align="center">
+<tbody>
+<tr>
+<td><br /></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<!-- /training --><!-- jobs --> 
+<tr>
+<td>
+<table border="0" cellspacing="0" cellpadding="0" width="600" align="center" bgcolor="#E7F0DA">
+<tbody>
+<tr>
+<td>
+<table border="0" cellspacing="0" cellpadding="0" width="600" align="center">
+<tbody>
+<tr>
+<td style="border-top-width: 6px; border-top-color: #8AC640; border-top-style: solid;" width="44" valign="top">&nbsp;</td>
+<td style="border-bottom-width: 6px; border-bottom-color: #8AC640; border-bottom-style: solid; border-top-width: 6px; border-top-color: #192640; border-top-style: solid;" width="75" valign="top">
+<table border="0" cellspacing="0" cellpadding="0" width="75" align="center" bgcolor="#192640">
+<tbody>
+<tr>
+<td>
+<p style="margin: 15px; font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: bold; font-size: 15px; color: #ffffff; text-align: center;"><a style="color: #ffffff !important;" name="jobs">JOBS</a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+<td style="border-top-width: 6px; border-top-color: #8AC640; border-top-style: solid;" valign="top">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr>
+<td>
+<table border="0" cellspacing="0" cellpadding="0" width="600" align="center">
+<tbody>
+<tr>
+<td>
+<table border="0" cellspacing="0" cellpadding="0" width="600" align="center">
+<tbody>
+<tr>
+<td height="1">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+<table border="0" cellspacing="0" cellpadding="0" width="600" align="center">
+<tbody>
+<tr>
+<td width="44">&nbsp;</td>
+<td valign="top"><img src="http://cdn.sencha.io/img/newsletter/now-hiring.png" alt="Now Hiring" width="131" height="103" /></td>
+<td width="30">&nbsp;</td>
+<td valign="top">
+<p style="font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: bold; font-size: 12px; line-height: 16px; color: #000000; margin-top: 5px; padding-top: 0; margin-bottom: 5px;"><a style="color: #000000 !important; text-decoration: none;" href=
+"http://mailer.sencha.com/ol/0xEFfYeadVJRtGVz__2aN7r50maQK8zl9vEsWKKyn98s1kwzNOHcP0jr1YMXGJs2OLnYEgxNQ9ZkyQgFCOGZbIhT-f1cDlOSXzb-ia2UbIJDN6F62Jwyqfn2iTVT7Niahk7NVAlIBg,,/1gwVMM7QNEZOogll7vKaKqijnDrNNZuntqx8B-6p0c4s3E1sYaOQP0_k1dJBDJ4rI-iTEVkXHZk8mA0MSOHELoITo_RcCBHlC2uu0_jYON8dJ7d32pVl-avj2W0V8dqMgQH_DEENSHApNlazbKgziDjzJJUxGQ6M7kTVOox-zxoDqJAu4aWtW-qj6EGv-VGQvxu0H2ly6suz-lqvNM49nocUiGoP_1wLVKWkxWXi8O8jhjApxdlxqhZGot1GI81lyVbbfBfPwJjdds9ETqPko-XUj_8vTTM1j4k3eWn8HmmSStm8"
+>Sr. Software Architect &mdash; Frameworks</a></p>
+<p style="font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: normal; font-size: 12px; line-height: 16px; color: #000000; margin-top: 5px; padding-top: 0;">As a Sr. Sencha Framework Architect, you will work on the future releases of Sencha's Ext JS and Sencha Touch Frameworks. Sencha frameworks are object-oriented JavaScript frameworks for building complex, cross-browser, HTML5 apps for mobile, tablet and desktop environments. They feature rich interface capabilities, a clean, extensible component model and are highly optimized for size and performance.</p>
+<p style="font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: normal; font-size: 12px; color: #000; margin-top: 0; margin-bottom: 20px; padding-top: 0;"><a style="color: #000000 !important; text-decoration: underline; font-weight: bold;" href=
+"http://mailer.sencha.com/ol/0xEFfYeadVJRtGVz__2aN7r50maQK8zl9vEsWKKyn98s1kwzNOHcP0jr1YMXGJs2OLnYEgxNQ9ZkyQgFCOGZbIhT-f1cDlOSXzb-ia2UbIJDN6F62Jwyqfn2iTVT7Niahk7NVAlIBg,,/1gwVMM7QNEZOogll7vKaKqijnDrNNZuntqx8B-6p0c4s3E1sYaOQP0_k1dJBDJ4rI-iTEVkXHZk8mA0MSOHELoITo_RcCBHlC2uu0_jYON8dJ7d32pVl-avj2W0V8dqMgQH_DEENSHApNlazbKgziDjzJJUxGQ6M7kTVOox-zxoDqJAu4aWtW-qj6EGv-VGQvxu0H2ly6suz-lqvNM49nocUiGoP_1wLVKWkxWXi8O8jhjApxdlxqhZGot1GI81lyVbbfBfPwJjdds9ETqPko-XUj_8vTTM1j4k3eWn8HmmSStm8"
+>Apply Now</a></p>
+<p style="font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: bold; font-size: 12px; line-height: 16px; color: #000000; margin-top: 5px; padding-top: 0; margin-bottom: 5px;"><a style="color: #000000 !important; text-decoration: none;" href=
+"http://mailer.sencha.com/ol/0xEFfYeadVJRtGVz__2aN7r50maQK8zl9vEsWKKyn98s1kwzNOHcP0jr1YMXGJs2OLnYEgxNQ9ZkyQgFCOGZbIhT-f1cDlOSXzb-ia2UbIJDN6F62Jwyqfn2iTVT7Niahk7NVAlIBg,,/1gwVMM7QNEZOogll7vKaKqijnDrNNZuntqx8B-6p0c4s3E1sYaOQP0_k1dJBDJ4rI-iTEVkXHZk8mA0OQ7mXJdgUq6cEXBLmCWuu1PCIbIlKJecn3pJj_Pvj2W0V8dqMgQH_DEENSHApNlazbKgziDjzJJUxGQ6M7kTVOox-zxoDqJAu4aWtW-qj6EGv-VGQvxu0H2ly6suz-lqvNM49nocUiGoP_1wLVKWkxWXi8O8jhjApxdlxqhZGot1GI81lyVbbfBfPwJjdds9ETqPko-XUj_8vTTM1j4k3eWn8HmmSStm8"
+>Sr. Developer Advocate</a></p>
+<p style="font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: normal; font-size: 12px; line-height: 16px; color: #000000; margin-top: 5px; padding-top: 0;">As a Sencha developer advocate, you'll be a key member of our elite developer relations team, responsible for activities that inspire developers to engage with our technologies, and that educate and enable them to innovate and achieve success building HTML5 apps for mobile, tablet, and desktop environments.</p>
+<p style="font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: normal; font-size: 12px; color: #000; margin-top: 0; margin-bottom: 20px; padding-top: 0;"><a style="color: #000000 !important; text-decoration: underline; font-weight: bold;" href=
+"http://mailer.sencha.com/ol/0xEFfYeadVJRtGVz__2aN7r50maQK8zl9vEsWKKyn98s1kwzNOHcP0jr1YMXGJs2OLnYEgxNQ9ZkyQgFCOGZbIhT-f1cDlOSXzb-ia2UbIJDN6F62Jwyqfn2iTVT7Niahk7NVAlIBg,,/1gwVMM7QNEZOogll7vKaKqijnDrNNZuntqx8B-6p0c4s3E1sYaOQP0_k1dJBDJ4rI-iTEVkXHZk8mA0OQ7mXJdgUq6cEXBLmCWuu1PCIbIlKJecn3pJj_Pvj2W0V8dqMgQH_DEENSHApNlazbKgziDjzJJUxGQ6M7kTVOox-zxoDqJAu4aWtW-qj6EGv-VGQvxu0H2ly6suz-lqvNM49nocUiGoP_1wLVKWkxWXi8O8jhjApxdlxqhZGot1GI81lyVbbfBfPwJjdds9ETqPko-XUj_8vTTM1j4k3eWn8HmmSStm8"
+>Apply Now</a></p>
+</td>
+<td width="44">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr>
+<td>
+<table border="0" cellspacing="0" cellpadding="0" width="600" align="center">
+<tbody>
+<tr>
+<td><br /></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<!-- /jobs --><!-- events --> 
+<tr>
+<td>
+<table border="0" cellspacing="0" cellpadding="0" width="600" align="center" bgcolor="#B7E2E9">
+<tbody>
+<tr>
+<td>
+<table border="0" cellspacing="0" cellpadding="0" width="600" align="center">
+<tbody>
+<tr>
+<td style="border-top-width: 6px; border-top-color: #019AB2; border-top-style: solid;" width="44" valign="top">&nbsp;</td>
+<td style="border-bottom-width: 6px; border-bottom-color: #019AB2; border-bottom-style: solid; border-top-width: 6px; border-top-color: #192640; border-top-style: solid;" width="107" valign="top">
+<table border="0" cellspacing="0" cellpadding="0" width="107" align="center" bgcolor="#192640">
+<tbody>
+<tr>
+<td>
+<p style="margin: 15px; font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: bold; font-size: 15px; color: #ffffff; text-align: center;"><a style="color: #ffffff !important;" name="events">EVENTS</a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+<td style="border-top-width: 6px; border-top-color: #019AB2; border-top-style: solid;" valign="top">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr>
+<td>
+<table border="0" cellspacing="0" cellpadding="0" width="600" align="center">
+<tbody>
+<tr>
+<td width="20"><br /></td>
+</tr>
+<tr>
+<td width="44">&nbsp;</td>
+<td>
+<table border="0" cellspacing="0" cellpadding="0" width="556" align="center">
+<tbody>
+<tr>
+<td valign="top">
+<table border="0" cellspacing="0" cellpadding="0" width="155" align="left">
+<tbody>
+<tr>
+<td><img src="http://img1.sencha.com/files/misc/sencha-on-the-road.jpg" alt="Sencha Events" /></td>
+</tr>
+</tbody>
+</table>
+</td>
+<td valign="top">
+<table border="0" cellspacing="0" cellpadding="0" width="185" align="left">
+<tbody>
+<tr>
+<td>
+<p style="font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: normal; font-size: 12px; line-height: 16px; color: #000000; margin-top: 5px; padding-top: 0;"><a style="color: #000000 !important; text-decoration: underline; font-weight: bold;" href=
+"http://mailer.sencha.com/ol/0xEFfYeadVJRtGVz__2aN7r50maQK8zl9vEsWKKyn98s1kwzNOHcP0jr1YMXGJs2OLnYEgxNQ9ZkyQgFCOGZbIhT-f1cDlOSXzb-ia2UbIJDN6F62Jwyqfn2iTVT7Niahk7NVAlIBg,,/1gwVMM7QNFZOoURk7v2NJ-fukDiPJZWjr4NpBvy7gf019GVURdvJHhj4m-FeEIdkNsekKjofHZpJ0ApLIrfCedBVzd52HE2fcX6tpvH_Xd5IXqJh7PRn2KKMjEExqdmPuxmeK3wiZGZJXSG3Zal2tzrBA5IlfS6F_nfYN4AOqxopwO4g"
+>GWT.create EU</a><br /> <em>Frankfurt, Germany</em><br /> Dec 17-18</p>
+</td>
+</tr>
+<tr>
+<td>
+<p style="font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: normal; font-size: 12px; line-height: 16px; color: #000000; margin-top: 5px; padding-top: 0;"><a style="color: #000000 !important; text-decoration: underline; font-weight: bold;" href=
+"http://mailer.sencha.com/ol/0xEFfYeadVJRtGVz__2aN7r50maQK8zl9vEsWKKyn98s1kwzNOHcP0jr1YMXGJs2OLnYEgxNQ9ZkyQgFCOGZbIhT-f1cDlOSXzb-ia2UbIJDN6F62Jwyqfn2iTVT7Niahk7NVAlIBg,,/1gwVMM7QNFxWt0567uucIK3oiTbPdJ6tqblzCvKo0cAzllt_fKHJKkDhi9pCH51_N7nPVU1PHpt1_xhXEb3GTott199qPEeUASzssq7WetsdX45Y5M5v9YC13nM9_YqHwkn7ImQZTFxFIVS7OZoS1zvIJoITagWg8FKVFLMgmCUhwO8m5b6PapaN3Fms4xL16xO9NldfycOf5kW-C7RdqfZE7GU,"
+>Mobile+Web DevCon</a><br /> <em>San Francisco, CA</em><br /> Jan 28-30</p>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+<td valign="top">
+<table border="0" cellspacing="0" cellpadding="0" width="185" align="left">
+<tbody>
+<tr>
+<td>
+<p style="font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: normal; font-size: 12px; line-height: 16px; color: #000000; margin-top: 5px; padding-top: 0;"><a style="color: #000000 !important; text-decoration: underline; font-weight: bold;" href=
+"http://mailer.sencha.com/ol/0xEFfYeadVJRtGVz__2aN7r50maQK8zl9vEsWKKyn98s1kwzNOHcP0jr1YMXGJs2OLnYEgxNQ9ZkyQgFCOGZbIhT-f1cDlOSXzb-ia2UbIJDN6F62Jwyqfn2iTVT7Niahk7NVAlIBg,,/1gwVMM7QNEZOogl3--yKb77ijTnENJatr_NzBuXy2s4z3Fp3ce2AZ0zknOxFE5lvNtuVLC86JKdn5lVPCdKacJUWqdtnIHm9VjHXkKfJV9oZdORm6-pK6KSI8SVXjI2noA_KJlkccERqQwy0PZ4UhznqGdVxfTCr3mzkDKAJkD5etroi5ZCtX562_3-590Pr2wevcQJZ"
+>AppsWorld North America</a><br /> <em>San Francisco, CA</em><br /> Feb 5-6</p>
+</td>
+</tr>
+<tr>
+<td>
+<p style="font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: normal; font-size: 12px; line-height: 16px; color: #000000; margin-top: 5px; padding-top: 0;"><a style="color: #000000 !important; text-decoration: underline; font-weight: bold;" href=
+"http://mailer.sencha.com/ol/0xEFfYeadVJRtGVz__2aN7r50maQK8zl9vEsWKKyn98s1kwzNOHcP0jr1YMXGJs2OLnYEgxNQ9ZkyQgFCOGZbIhT-f1cDlOSXzb-ia2UbIJDN6F62Jwyqfn2iTVT7Niahk7NVAlIBg,,/1gwVMM7QNFVco0J65OycML7omj6OeZel9ONwAuPZxsA1hBtMecHiEnbYjvUIC4EAauWLV1E-KbtZzwJSMvCTb7gXrfANHnaZcyzzrYifPaseVIYg2u537ZiQ3kcPg4mjpl_IBGZLElNfSCKKTIYHrjHxZqMkeTCF_FnsN4MvhSoPqIo299f4WQ,,"
+>DeveloperWeek</a><br /> <em>San Francisco, CA</em><br /> Feb 15-21</p>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr>
+<td><br /></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<!-- /events --> 
+<tr>
+<td>
+<table border="0" cellspacing="0" cellpadding="0" width="600" align="center">
+<tbody>
+<tr>
+<td><br /> <br /></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+
+<table align="center" style="background: #ffffff;padding: 10px 20px 20px 20px;border: 0;margin: 0;outline: 0;" width="100%" border="0" cellspacing="0" cellpadding="0">
+
+        <tr>
+            <td height="24" width="600"><img src="http://www.sencha.com/assets/images/emails/_shim.gif" alt="" height="24" width="600"></td>
+        </tr>
+    </table><script type="text/javascript" src="/js/public/jquery-1.8.2.min.js"></script><script type="text/javascript" src="/js/forwardemail.js"></script></body>
+</html>

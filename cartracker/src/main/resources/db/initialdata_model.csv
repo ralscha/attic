@@ -1,0 +1,1056 @@
+createDate,active,longName,shortName,makeId
+2013-08-08T10:34:00,true,CL,CL,1
+2013-08-08T10:34:00,true,Integra,Integra,1
+2013-08-08T10:34:00,true,Legend,Legend,1
+2013-08-08T10:34:00,true,MDX,MDX,1
+2013-08-08T10:34:00,true,NSX,NSX,1
+2013-08-08T10:34:00,true,RDX,RDX,1
+2013-08-08T10:34:00,true,RL,RL,1
+2013-08-08T10:34:00,true,RSX,RSX,1
+2013-08-08T10:34:00,true,SLX,SLX,1
+2013-08-08T10:34:00,true,TL,TL,1
+2013-08-08T10:34:00,true,TSX,TSX,1
+2013-08-08T10:34:00,true,Vigor,Vigor,1
+2013-08-08T10:34:00,true,ZDX,ZDX,1
+2013-08-08T10:34:00,true,164,164,2
+2013-08-08T10:34:00,true,Spider,Spider,2
+2013-08-08T10:34:00,true,2e,2e,3
+2013-08-08T10:34:00,true,Typ-1,Typ-1,3
+2013-08-08T10:34:00,true,Type-1h,Type-1h,3
+2013-08-08T10:34:00,true,DB9,DB9,4
+2013-08-08T10:34:00,true,DB9 Volante,DB9 Volante,4
+2013-08-08T10:34:00,true,DBS,DBS,4
+2013-08-08T10:34:00,true,Rapide,Rapide,4
+2013-08-08T10:34:00,true,V12 Vantage,V12 Vantage,4
+2013-08-08T10:34:00,true,V8 Vantage,V8 Vantage,4
+2013-08-08T10:34:00,true,V8 Vantage S,V8 Vantage S,4
+2013-08-08T10:34:00,true,Vanquish S,Vanquish S,4
+2013-08-08T10:34:00,true,Vantage,Vantage,4
+2013-08-08T10:34:00,true,Virage,Virage,4
+2013-08-08T10:34:00,true,100,100,5
+2013-08-08T10:34:00,true,200,200,5
+2013-08-08T10:34:00,true,4000,4000,5
+2013-08-08T10:34:00,true,4000CS Quattro,4000CS Quattro,5
+2013-08-08T10:34:00,true,4000s,4000s,5
+2013-08-08T10:34:00,true,4000s Quattro,4000s Quattro,5
+2013-08-08T10:34:00,true,5000CS,5000CS,5
+2013-08-08T10:34:00,true,5000CS Quattro,5000CS Quattro,5
+2013-08-08T10:34:00,true,5000S,5000S,5
+2013-08-08T10:34:00,true,80,80,5
+2013-08-08T10:34:00,true,80/90,80/90,5
+2013-08-08T10:34:00,true,90,90,5
+2013-08-08T10:34:00,true,A3,A3,5
+2013-08-08T10:34:00,true,A4,A4,5
+2013-08-08T10:34:00,true,A5,A5,5
+2013-08-08T10:34:00,true,A6,A6,5
+2013-08-08T10:34:00,true,A7,A7,5
+2013-08-08T10:34:00,true,A8,A8,5
+2013-08-08T10:34:00,true,Allroad,Allroad,5
+2013-08-08T10:34:00,true,Cabriolet,Cabriolet,5
+2013-08-08T10:34:00,true,Coupe GT,Coupe GT,5
+2013-08-08T10:34:00,true,Coupe Quattro,Coupe Quattro,5
+2013-08-08T10:34:00,true,Q5,Q5,5
+2013-08-08T10:34:00,true,Q7,Q7,5
+2013-08-08T10:34:00,true,Quattro,Quattro,5
+2013-08-08T10:34:00,true,R8,R8,5
+2013-08-08T10:34:00,true,RS 4,RS 4,5
+2013-08-08T10:34:00,true,RS 6,RS 6,5
+2013-08-08T10:34:00,true,RS4,RS4,5
+2013-08-08T10:34:00,true,RS6,RS6,5
+2013-08-08T10:34:00,true,S4,S4,5
+2013-08-08T10:34:00,true,S5,S5,5
+2013-08-08T10:34:00,true,S6,S6,5
+2013-08-08T10:34:00,true,S8,S8,5
+2013-08-08T10:34:00,true,TT,TT,5
+2013-08-08T10:34:00,true,V8,V8,5
+2013-08-08T10:34:00,true,riolet,riolet,5
+2013-08-08T10:34:00,true,Mini,Mini,6
+2013-08-08T10:34:00,true,Mini Cooper,Mini Cooper,6
+2013-08-08T10:34:00,true,Mini Cooper S,Mini Cooper S,6
+2013-08-08T10:34:00,true,1 Series,1 Series,7
+2013-08-08T10:34:00,true,3 Series,3 Series,7
+2013-08-08T10:34:00,true,325,325,7
+2013-08-08T10:34:00,true,330,330,7
+2013-08-08T10:34:00,true,5 Series,5 Series,7
+2013-08-08T10:34:00,true,525,525,7
+2013-08-08T10:34:00,true,530,530,7
+2013-08-08T10:34:00,true,545,545,7
+2013-08-08T10:34:00,true,550,550,7
+2013-08-08T10:34:00,true,6 Series,6 Series,7
+2013-08-08T10:34:00,true,600,600,7
+2013-08-08T10:34:00,true,645,645,7
+2013-08-08T10:34:00,true,650,650,7
+2013-08-08T10:34:00,true,7 Series,7 Series,7
+2013-08-08T10:34:00,true,745,745,7
+2013-08-08T10:34:00,true,750,750,7
+2013-08-08T10:34:00,true,760,760,7
+2013-08-08T10:34:00,true,8 Series,8 Series,7
+2013-08-08T10:34:00,true,Alpina B7,Alpina B7,7
+2013-08-08T10:34:00,true,M,M,7
+2013-08-08T10:34:00,true,M Roadster,M Roadster,7
+2013-08-08T10:34:00,true,M3,M3,7
+2013-08-08T10:34:00,true,M5,M5,7
+2013-08-08T10:34:00,true,M6,M6,7
+2013-08-08T10:34:00,true,X3,X3,7
+2013-08-08T10:34:00,true,X5,X5,7
+2013-08-08T10:34:00,true,X5 M,X5 M,7
+2013-08-08T10:34:00,true,X6,X6,7
+2013-08-08T10:34:00,true,X6 M,X6 M,7
+2013-08-08T10:34:00,true,Z3,Z3,7
+2013-08-08T10:34:00,true,Z4,Z4,7
+2013-08-08T10:34:00,true,Z4 M,Z4 M,7
+2013-08-08T10:34:00,true,Z4 M Roadster,Z4 M Roadster,7
+2013-08-08T10:34:00,true,Z8,Z8,7
+2013-08-08T10:34:00,true,Arnage,Arnage,8
+2013-08-08T10:34:00,true,Azure,Azure,8
+2013-08-08T10:34:00,true,Azure T,Azure T,8
+2013-08-08T10:34:00,true,Brooklands,Brooklands,8
+2013-08-08T10:34:00,true,Continental,Continental,8
+2013-08-08T10:34:00,true,Continental Flying Spur,Continental Flying Spur,8
+2013-08-08T10:34:00,true,Continental GT,Continental GT,8
+2013-08-08T10:34:00,true,Continental GTC,Continental GTC,8
+2013-08-08T10:34:00,true,Continental Super,Continental Super,8
+2013-08-08T10:34:00,true,Mulsanne,Mulsanne,8
+2013-08-08T10:34:00,true,Veyron,Veyron,9
+2013-08-08T10:34:00,true,Century,Century,10
+2013-08-08T10:34:00,true,Coachbuilder,Coachbuilder,10
+2013-08-08T10:34:00,true,Electra,Electra,10
+2013-08-08T10:34:00,true,Enclave,Enclave,10
+2013-08-08T10:34:00,true,Estate,Estate,10
+2013-08-08T10:34:00,true,Hearse,Hearse,10
+2013-08-08T10:34:00,true,LaCrosse,LaCrosse,10
+2013-08-08T10:34:00,true,LeSabre,LeSabre,10
+2013-08-08T10:34:00,true,Lucerne,Lucerne,10
+2013-08-08T10:34:00,true,Park Avenue,Park Avenue,10
+2013-08-08T10:34:00,true,Rainier,Rainier,10
+2013-08-08T10:34:00,true,Reatta,Reatta,10
+2013-08-08T10:34:00,true,Regal,Regal,10
+2013-08-08T10:34:00,true,Rendezvous,Rendezvous,10
+2013-08-08T10:34:00,true,Riviera,Riviera,10
+2013-08-08T10:34:00,true,Roadmaster,Roadmaster,10
+2013-08-08T10:34:00,true,Skyhawk,Skyhawk,10
+2013-08-08T10:34:00,true,Skylark,Skylark,10
+2013-08-08T10:34:00,true,Somerset,Somerset,10
+2013-08-08T10:34:00,true,Special,Special,10
+2013-08-08T10:34:00,true,Terraza,Terraza,10
+2013-08-08T10:34:00,true,Verano,Verano,10
+2013-08-08T10:34:00,true,Allante,Allante,11
+2013-08-08T10:34:00,true,Brougham,Brougham,11
+2013-08-08T10:34:00,true,CTS,CTS,11
+2013-08-08T10:34:00,true,CTS-V,CTS-V,11
+2013-08-08T10:34:00,true,Catera,Catera,11
+2013-08-08T10:34:00,true,DTS,DTS,11
+2013-08-08T10:34:00,true,DeVille,DeVille,11
+2013-08-08T10:34:00,true,Eldorado,Eldorado,11
+2013-08-08T10:34:00,true,Escalade,Escalade,11
+2013-08-08T10:34:00,true,Escalade ESV,Escalade ESV,11
+2013-08-08T10:34:00,true,Escalade EXT,Escalade EXT,11
+2013-08-08T10:34:00,true,Fleetwood,Fleetwood,11
+2013-08-08T10:34:00,true,SRX,SRX,11
+2013-08-08T10:34:00,true,STS,STS,11
+2013-08-08T10:34:00,true,STS-V,STS-V,11
+2013-08-08T10:34:00,true,Seville,Seville,11
+2013-08-08T10:34:00,true,Sixty Special,Sixty Special,11
+2013-08-08T10:34:00,true,XLR,XLR,11
+2013-08-08T10:34:00,true,XLR-V,XLR-V,11
+2013-08-08T10:34:00,true,1500,1500,12
+2013-08-08T10:34:00,true,2500,2500,12
+2013-08-08T10:34:00,true,3500,3500,12
+2013-08-08T10:34:00,true,APV,APV,12
+2013-08-08T10:34:00,true,Astro,Astro,12
+2013-08-08T10:34:00,true,Avalanche,Avalanche,12
+2013-08-08T10:34:00,true,Avalanche 1500,Avalanche 1500,12
+2013-08-08T10:34:00,true,Avalanche 2500,Avalanche 2500,12
+2013-08-08T10:34:00,true,Aveo,Aveo,12
+2013-08-08T10:34:00,true,Bel Air,Bel Air,12
+2013-08-08T10:34:00,true,Beretta,Beretta,12
+2013-08-08T10:34:00,true,Blazer,Blazer,12
+2013-08-08T10:34:00,true,Camaro,Camaro,12
+2013-08-08T10:34:00,true,Caprice,Caprice,12
+2013-08-08T10:34:00,true,Caprice Classic,Caprice Classic,12
+2013-08-08T10:34:00,true,Cavalier,Cavalier,12
+2013-08-08T10:34:00,true,Citation,Citation,12
+2013-08-08T10:34:00,true,Classic,Classic,12
+2013-08-08T10:34:00,true,Cobalt,Cobalt,12
+2013-08-08T10:34:00,true,Cobalt SS,Cobalt SS,12
+2013-08-08T10:34:00,true,Colorado,Colorado,12
+2013-08-08T10:34:00,true,Corsica,Corsica,12
+2013-08-08T10:34:00,true,Corvair,Corvair,12
+2013-08-08T10:34:00,true,Corvair 500,Corvair 500,12
+2013-08-08T10:34:00,true,Corvette,Corvette,12
+2013-08-08T10:34:00,true,Cruze,Cruze,12
+2013-08-08T10:34:00,true,Equinox,Equinox,12
+2013-08-08T10:34:00,true,Express,Express,12
+2013-08-08T10:34:00,true,Express 1500,Express 1500,12
+2013-08-08T10:34:00,true,Express 2500,Express 2500,12
+2013-08-08T10:34:00,true,Express 3500,Express 3500,12
+2013-08-08T10:34:00,true,G-Series 1500,G-Series 1500,12
+2013-08-08T10:34:00,true,G-Series 2500,G-Series 2500,12
+2013-08-08T10:34:00,true,G-Series 3500,G-Series 3500,12
+2013-08-08T10:34:00,true,G-Series G10,G-Series G10,12
+2013-08-08T10:34:00,true,G-Series G20,G-Series G20,12
+2013-08-08T10:34:00,true,G-Series G30,G-Series G30,12
+2013-08-08T10:34:00,true,HHR,HHR,12
+2013-08-08T10:34:00,true,HHR Panel,HHR Panel,12
+2013-08-08T10:34:00,true,Impala,Impala,12
+2013-08-08T10:34:00,true,Impala SS,Impala SS,12
+2013-08-08T10:34:00,true,K5 Blazer,K5 Blazer,12
+2013-08-08T10:34:00,true,LUV,LUV,12
+2013-08-08T10:34:00,true,Lumina,Lumina,12
+2013-08-08T10:34:00,true,Lumina APV,Lumina APV,12
+2013-08-08T10:34:00,true,Malibu,Malibu,12
+2013-08-08T10:34:00,true,Malibu Maxx,Malibu Maxx,12
+2013-08-08T10:34:00,true,Metro,Metro,12
+2013-08-08T10:34:00,true,Monte Carlo,Monte Carlo,12
+2013-08-08T10:34:00,true,Monza,Monza,12
+2013-08-08T10:34:00,true,Prizm,Prizm,12
+2013-08-08T10:34:00,true,S10,S10,12
+2013-08-08T10:34:00,true,S10 Blazer,S10 Blazer,12
+2013-08-08T10:34:00,true,SSR,SSR,12
+2013-08-08T10:34:00,true,Silverado,Silverado,12
+2013-08-08T10:34:00,true,Silverado 1500,Silverado 1500,12
+2013-08-08T10:34:00,true,Silverado 2500,Silverado 2500,12
+2013-08-08T10:34:00,true,Silverado 3500,Silverado 3500,12
+2013-08-08T10:34:00,true,Silverado 3500HD,Silverado 3500HD,12
+2013-08-08T10:34:00,true,Silverado Hybrid,Silverado Hybrid,12
+2013-08-08T10:34:00,true,Sonic,Sonic,12
+2013-08-08T10:34:00,true,Sportvan G10,Sportvan G10,12
+2013-08-08T10:34:00,true,Sportvan G20,Sportvan G20,12
+2013-08-08T10:34:00,true,Sportvan G30,Sportvan G30,12
+2013-08-08T10:34:00,true,Suburban,Suburban,12
+2013-08-08T10:34:00,true,Suburban 1500,Suburban 1500,12
+2013-08-08T10:34:00,true,Suburban 2500,Suburban 2500,12
+2013-08-08T10:34:00,true,Tahoe,Tahoe,12
+2013-08-08T10:34:00,true,Tracker,Tracker,12
+2013-08-08T10:34:00,true,TrailBlazer,TrailBlazer,12
+2013-08-08T10:34:00,true,Trailblazer,Trailblazer,12
+2013-08-08T10:34:00,true,Traverse,Traverse,12
+2013-08-08T10:34:00,true,Uplander,Uplander,12
+2013-08-08T10:34:00,true,Vega,Vega,12
+2013-08-08T10:34:00,true,Venture,Venture,12
+2013-08-08T10:34:00,true,Volt,Volt,12
+2013-08-08T10:34:00,true,200,200,13
+2013-08-08T10:34:00,true,300,300,13
+2013-08-08T10:34:00,true,300C,300C,13
+2013-08-08T10:34:00,true,300M,300M,13
+2013-08-08T10:34:00,true,Aspen,Aspen,13
+2013-08-08T10:34:00,true,Cirrus,Cirrus,13
+2013-08-08T10:34:00,true,Concorde,Concorde,13
+2013-08-08T10:34:00,true,Crossfire,Crossfire,13
+2013-08-08T10:34:00,true,Crossfire Roadster,Crossfire Roadster,13
+2013-08-08T10:34:00,true,Fifth Ave,Fifth Ave,13
+2013-08-08T10:34:00,true,Grand Voyager,Grand Voyager,13
+2013-08-08T10:34:00,true,Imperial,Imperial,13
+2013-08-08T10:34:00,true,LHS,LHS,13
+2013-08-08T10:34:00,true,LeBaron,LeBaron,13
+2013-08-08T10:34:00,true,New Yorker,New Yorker,13
+2013-08-08T10:34:00,true,PT Cruiser,PT Cruiser,13
+2013-08-08T10:34:00,true,Pacifica,Pacifica,13
+2013-08-08T10:34:00,true,Prowler,Prowler,13
+2013-08-08T10:34:00,true,Sebring,Sebring,13
+2013-08-08T10:34:00,true,Town & Country,Town & Country,13
+2013-08-08T10:34:00,true,Voyager,Voyager,13
+2013-08-08T10:34:00,true,2CV,2CV,14
+2013-08-08T10:34:00,true,CX,CX,14
+2013-08-08T10:34:00,true,SM,SM,14
+2013-08-08T10:34:00,true,Sparrow,Sparrow,15
+2013-08-08T10:34:00,true,Lanos,Lanos,16
+2013-08-08T10:34:00,true,Leganza,Leganza,16
+2013-08-08T10:34:00,true,Nubira,Nubira,16
+2013-08-08T10:34:00,true,Charade,Charade,17
+2013-08-08T10:34:00,true,Rocky,Rocky,17
+2013-08-08T10:34:00,true,Ice Edition,Ice Edition,18
+2013-08-08T10:34:00,true,Aries,Aries,19
+2013-08-08T10:34:00,true,Aspen,Aspen,19
+2013-08-08T10:34:00,true,Avenger,Avenger,19
+2013-08-08T10:34:00,true,Caliber,Caliber,19
+2013-08-08T10:34:00,true,Caravan,Caravan,19
+2013-08-08T10:34:00,true,Challenger,Challenger,19
+2013-08-08T10:34:00,true,Charger,Charger,19
+2013-08-08T10:34:00,true,Colt,Colt,19
+2013-08-08T10:34:00,true,D150,D150,19
+2013-08-08T10:34:00,true,D150 Club,D150 Club,19
+2013-08-08T10:34:00,true,D250,D250,19
+2013-08-08T10:34:00,true,D250 Club,D250 Club,19
+2013-08-08T10:34:00,true,D350,D350,19
+2013-08-08T10:34:00,true,D350 Club,D350 Club,19
+2013-08-08T10:34:00,true,Dakota,Dakota,19
+2013-08-08T10:34:00,true,Dakota Club,Dakota Club,19
+2013-08-08T10:34:00,true,Daytona,Daytona,19
+2013-08-08T10:34:00,true,Durango,Durango,19
+2013-08-08T10:34:00,true,Dynasty,Dynasty,19
+2013-08-08T10:34:00,true,Grand Caravan,Grand Caravan,19
+2013-08-08T10:34:00,true,Intrepid,Intrepid,19
+2013-08-08T10:34:00,true,Journey,Journey,19
+2013-08-08T10:34:00,true,Magnum,Magnum,19
+2013-08-08T10:34:00,true,Monaco,Monaco,19
+2013-08-08T10:34:00,true,Neon,Neon,19
+2013-08-08T10:34:00,true,Nitro,Nitro,19
+2013-08-08T10:34:00,true,Omni,Omni,19
+2013-08-08T10:34:00,true,Ram,Ram,19
+2013-08-08T10:34:00,true,Ram 1500,Ram 1500,19
+2013-08-08T10:34:00,true,Ram 1500 Club,Ram 1500 Club,19
+2013-08-08T10:34:00,true,Ram 2500,Ram 2500,19
+2013-08-08T10:34:00,true,Ram 2500 Club,Ram 2500 Club,19
+2013-08-08T10:34:00,true,Ram 3500,Ram 3500,19
+2013-08-08T10:34:00,true,Ram 3500 Club,Ram 3500 Club,19
+2013-08-08T10:34:00,true,Ram 50,Ram 50,19
+2013-08-08T10:34:00,true,Ram Van 1500,Ram Van 1500,19
+2013-08-08T10:34:00,true,Ram Van 2500,Ram Van 2500,19
+2013-08-08T10:34:00,true,Ram Van 3500,Ram Van 3500,19
+2013-08-08T10:34:00,true,Ram Van B150,Ram Van B150,19
+2013-08-08T10:34:00,true,Ram Van B250,Ram Van B250,19
+2013-08-08T10:34:00,true,Ram Van B350,Ram Van B350,19
+2013-08-08T10:34:00,true,Ram Wagon B150,Ram Wagon B150,19
+2013-08-08T10:34:00,true,Ram Wagon B250,Ram Wagon B250,19
+2013-08-08T10:34:00,true,Ram Wagon B350,Ram Wagon B350,19
+2013-08-08T10:34:00,true,Ramcharger,Ramcharger,19
+2013-08-08T10:34:00,true,Shadow,Shadow,19
+2013-08-08T10:34:00,true,Spirit,Spirit,19
+2013-08-08T10:34:00,true,Sprinter,Sprinter,19
+2013-08-08T10:34:00,true,Stealth,Stealth,19
+2013-08-08T10:34:00,true,Stratus,Stratus,19
+2013-08-08T10:34:00,true,Viper,Viper,19
+2013-08-08T10:34:00,true,Viper RT/10,Viper RT/10,19
+2013-08-08T10:34:00,true,Premier,Premier,20
+2013-08-08T10:34:00,true,Summit,Summit,20
+2013-08-08T10:34:00,true,Talon,Talon,20
+2013-08-08T10:34:00,true,Vision,Vision,20
+2013-08-08T10:34:00,true,Rockette,Rockette,21
+2013-08-08T10:34:00,true,430 Scuderia,430 Scuderia,22
+2013-08-08T10:34:00,true,458 Italia,458 Italia,22
+2013-08-08T10:34:00,true,599 GTB Fiorano,599 GTB Fiorano,22
+2013-08-08T10:34:00,true,612 Scaglietti,612 Scaglietti,22
+2013-08-08T10:34:00,true,California,California,22
+2013-08-08T10:34:00,true,F430,F430,22
+2013-08-08T10:34:00,true,F430 Spider,F430 Spider,22
+2013-08-08T10:34:00,true,FF,FF,22
+2013-08-08T10:34:00,true,500,500,23
+2013-08-08T10:34:00,true,Nuova 500,Nuova 500,23
+2013-08-08T10:34:00,true,Fillmore,Fillmore,24
+2013-08-08T10:34:00,true,Hemisfear,Hemisfear,25
+2013-08-08T10:34:00,true,Aerostar,Aerostar,26
+2013-08-08T10:34:00,true,Aspire,Aspire,26
+2013-08-08T10:34:00,true,Bronco,Bronco,26
+2013-08-08T10:34:00,true,Bronco II,Bronco II,26
+2013-08-08T10:34:00,true,C-MAX Hybrid,C-MAX Hybrid,26
+2013-08-08T10:34:00,true,Club Wagon,Club Wagon,26
+2013-08-08T10:34:00,true,Contour,Contour,26
+2013-08-08T10:34:00,true,Country,Country,26
+2013-08-08T10:34:00,true,Courier,Courier,26
+2013-08-08T10:34:00,true,Crown Victoria,Crown Victoria,26
+2013-08-08T10:34:00,true,E-350 Super Duty,E-350 Super Duty,26
+2013-08-08T10:34:00,true,E-350 Super Duty Van,E-350 Super Duty Van,26
+2013-08-08T10:34:00,true,E-Series,E-Series,26
+2013-08-08T10:34:00,true,E150,E150,26
+2013-08-08T10:34:00,true,E250,E250,26
+2013-08-08T10:34:00,true,E350,E350,26
+2013-08-08T10:34:00,true,EXP,EXP,26
+2013-08-08T10:34:00,true,Econoline E150,Econoline E150,26
+2013-08-08T10:34:00,true,Econoline E250,Econoline E250,26
+2013-08-08T10:34:00,true,Econoline E350,Econoline E350,26
+2013-08-08T10:34:00,true,Edge,Edge,26
+2013-08-08T10:34:00,true,Escape,Escape,26
+2013-08-08T10:34:00,true,Escort,Escort,26
+2013-08-08T10:34:00,true,Escort ZX2,Escort ZX2,26
+2013-08-08T10:34:00,true,Excursion,Excursion,26
+2013-08-08T10:34:00,true,Expedition,Expedition,26
+2013-08-08T10:34:00,true,Expedition EL,Expedition EL,26
+2013-08-08T10:34:00,true,Explorer,Explorer,26
+2013-08-08T10:34:00,true,Explorer Sport,Explorer Sport,26
+2013-08-08T10:34:00,true,Explorer Sport Trac,Explorer Sport Trac,26
+2013-08-08T10:34:00,true,F-250 Super Duty,F-250 Super Duty,26
+2013-08-08T10:34:00,true,F-350 Super Duty,F-350 Super Duty,26
+2013-08-08T10:34:00,true,F-Series,F-Series,26
+2013-08-08T10:34:00,true,F-Series Super Duty,F-Series Super Duty,26
+2013-08-08T10:34:00,true,F150,F150,26
+2013-08-08T10:34:00,true,F250,F250,26
+2013-08-08T10:34:00,true,F350,F350,26
+2013-08-08T10:34:00,true,F450,F450,26
+2013-08-08T10:34:00,true,Fairlane,Fairlane,26
+2013-08-08T10:34:00,true,Falcon,Falcon,26
+2013-08-08T10:34:00,true,Festiva,Festiva,26
+2013-08-08T10:34:00,true,Fiesta,Fiesta,26
+2013-08-08T10:34:00,true,Five Hundred,Five Hundred,26
+2013-08-08T10:34:00,true,Flex,Flex,26
+2013-08-08T10:34:00,true,Focus,Focus,26
+2013-08-08T10:34:00,true,Focus ST,Focus ST,26
+2013-08-08T10:34:00,true,Freestar,Freestar,26
+2013-08-08T10:34:00,true,Freestyle,Freestyle,26
+2013-08-08T10:34:00,true,Fusion,Fusion,26
+2013-08-08T10:34:00,true,GT,GT,26
+2013-08-08T10:34:00,true,GT500,GT500,26
+2013-08-08T10:34:00,true,Galaxie,Galaxie,26
+2013-08-08T10:34:00,true,LTD,LTD,26
+2013-08-08T10:34:00,true,LTD Crown Victoria,LTD Crown Victoria,26
+2013-08-08T10:34:00,true,Laser,Laser,26
+2013-08-08T10:34:00,true,Lightning,Lightning,26
+2013-08-08T10:34:00,true,Mustang,Mustang,26
+2013-08-08T10:34:00,true,Probe,Probe,26
+2013-08-08T10:34:00,true,Ranger,Ranger,26
+2013-08-08T10:34:00,true,TH!NK,TH!NK,26
+2013-08-08T10:34:00,true,Taurus,Taurus,26
+2013-08-08T10:34:00,true,Taurus X,Taurus X,26
+2013-08-08T10:34:00,true,Tempo,Tempo,26
+2013-08-08T10:34:00,true,Th!nk,Th!nk,26
+2013-08-08T10:34:00,true,Thunderbird,Thunderbird,26
+2013-08-08T10:34:00,true,Torino,Torino,26
+2013-08-08T10:34:00,true,Transit Connect,Transit Connect,26
+2013-08-08T10:34:00,true,Windstar,Windstar,26
+2013-08-08T10:34:00,true,ZX2,ZX2,26
+2013-08-08T10:34:00,true,1500,1500,27
+2013-08-08T10:34:00,true,1500 Club Coupe,1500 Club Coupe,27
+2013-08-08T10:34:00,true,2500,2500,27
+2013-08-08T10:34:00,true,2500 Club Coupe,2500 Club Coupe,27
+2013-08-08T10:34:00,true,3500,3500,27
+2013-08-08T10:34:00,true,3500 Club Coupe,3500 Club Coupe,27
+2013-08-08T10:34:00,true,Acadia,Acadia,27
+2013-08-08T10:34:00,true,Canyon,Canyon,27
+2013-08-08T10:34:00,true,EV1,EV1,27
+2013-08-08T10:34:00,true,Envoy,Envoy,27
+2013-08-08T10:34:00,true,Envoy XL,Envoy XL,27
+2013-08-08T10:34:00,true,Envoy XUV,Envoy XUV,27
+2013-08-08T10:34:00,true,Jimmy,Jimmy,27
+2013-08-08T10:34:00,true,Rally Wagon 1500,Rally Wagon 1500,27
+2013-08-08T10:34:00,true,Rally Wagon 2500,Rally Wagon 2500,27
+2013-08-08T10:34:00,true,Rally Wagon 3500,Rally Wagon 3500,27
+2013-08-08T10:34:00,true,Rally Wagon G2500,Rally Wagon G2500,27
+2013-08-08T10:34:00,true,Rally Wagon G3500,Rally Wagon G3500,27
+2013-08-08T10:34:00,true,Safari,Safari,27
+2013-08-08T10:34:00,true,Savana,Savana,27
+2013-08-08T10:34:00,true,Savana 1500,Savana 1500,27
+2013-08-08T10:34:00,true,Savana 2500,Savana 2500,27
+2013-08-08T10:34:00,true,Savana 3500,Savana 3500,27
+2013-08-08T10:34:00,true,Savana Cargo Van,Savana Cargo Van,27
+2013-08-08T10:34:00,true,Sierra,Sierra,27
+2013-08-08T10:34:00,true,Sierra 1500,Sierra 1500,27
+2013-08-08T10:34:00,true,Sierra 2500,Sierra 2500,27
+2013-08-08T10:34:00,true,Sierra 2500HD,Sierra 2500HD,27
+2013-08-08T10:34:00,true,Sierra 3500,Sierra 3500,27
+2013-08-08T10:34:00,true,Sierra 3500HD,Sierra 3500HD,27
+2013-08-08T10:34:00,true,Sierra Denali,Sierra Denali,27
+2013-08-08T10:34:00,true,Sierra Hybrid,Sierra Hybrid,27
+2013-08-08T10:34:00,true,Sonoma,Sonoma,27
+2013-08-08T10:34:00,true,Sonoma Club,Sonoma Club,27
+2013-08-08T10:34:00,true,Sonoma Club Coupe,Sonoma Club Coupe,27
+2013-08-08T10:34:00,true,Suburban 1500,Suburban 1500,27
+2013-08-08T10:34:00,true,Suburban 2500,Suburban 2500,27
+2013-08-08T10:34:00,true,Terrain,Terrain,27
+2013-08-08T10:34:00,true,Vandura 1500,Vandura 1500,27
+2013-08-08T10:34:00,true,Vandura 2500,Vandura 2500,27
+2013-08-08T10:34:00,true,Vandura 3500,Vandura 3500,27
+2013-08-08T10:34:00,true,Vandura G1500,Vandura G1500,27
+2013-08-08T10:34:00,true,Vandura G2500,Vandura G2500,27
+2013-08-08T10:34:00,true,Vandura G3500,Vandura G3500,27
+2013-08-08T10:34:00,true,Yukon,Yukon,27
+2013-08-08T10:34:00,true,Yukon Denali,Yukon Denali,27
+2013-08-08T10:34:00,true,Yukon XL,Yukon XL,27
+2013-08-08T10:34:00,true,Yukon XL 1500,Yukon XL 1500,27
+2013-08-08T10:34:00,true,Yukon XL 2500,Yukon XL 2500,27
+2013-08-08T10:34:00,true,Metro,Metro,28
+2013-08-08T10:34:00,true,Prizm,Prizm,28
+2013-08-08T10:34:00,true,Storm,Storm,28
+2013-08-08T10:34:00,true,Tracker,Tracker,28
+2013-08-08T10:34:00,true,Minx Magnificent,Minx Magnificent,29
+2013-08-08T10:34:00,true,Monaro,Monaro,30
+2013-08-08T10:34:00,true,VS Commodore,VS Commodore,30
+2013-08-08T10:34:00,true,Accord,Accord,31
+2013-08-08T10:34:00,true,Accord Crosstour,Accord Crosstour,31
+2013-08-08T10:34:00,true,CR-V,CR-V,31
+2013-08-08T10:34:00,true,CR-X,CR-X,31
+2013-08-08T10:34:00,true,CR-Z,CR-Z,31
+2013-08-08T10:34:00,true,Civic,Civic,31
+2013-08-08T10:34:00,true,Civic GX,Civic GX,31
+2013-08-08T10:34:00,true,Civic Si,Civic Si,31
+2013-08-08T10:34:00,true,Crosstour,Crosstour,31
+2013-08-08T10:34:00,true,Del Sol,Del Sol,31
+2013-08-08T10:34:00,true,Element,Element,31
+2013-08-08T10:34:00,true,FCX Clarity,FCX Clarity,31
+2013-08-08T10:34:00,true,Fit,Fit,31
+2013-08-08T10:34:00,true,Insight,Insight,31
+2013-08-08T10:34:00,true,Odyssey,Odyssey,31
+2013-08-08T10:34:00,true,Passport,Passport,31
+2013-08-08T10:34:00,true,Pilot,Pilot,31
+2013-08-08T10:34:00,true,Prelude,Prelude,31
+2013-08-08T10:34:00,true,Ridgeline,Ridgeline,31
+2013-08-08T10:34:00,true,S2000,S2000,31
+2013-08-08T10:34:00,true,del Sol,del Sol,31
+2013-08-08T10:34:00,true,H1,H1,32
+2013-08-08T10:34:00,true,H2,H2,32
+2013-08-08T10:34:00,true,H2 SUT,H2 SUT,32
+2013-08-08T10:34:00,true,H2 SUV,H2 SUV,32
+2013-08-08T10:34:00,true,H3,H3,32
+2013-08-08T10:34:00,true,H3T,H3T,32
+2013-08-08T10:34:00,true,Accent,Accent,33
+2013-08-08T10:34:00,true,Azera,Azera,33
+2013-08-08T10:34:00,true,Elantra,Elantra,33
+2013-08-08T10:34:00,true,Entourage,Entourage,33
+2013-08-08T10:34:00,true,Equus,Equus,33
+2013-08-08T10:34:00,true,Excel,Excel,33
+2013-08-08T10:34:00,true,Genesis,Genesis,33
+2013-08-08T10:34:00,true,Genesis Coupe,Genesis Coupe,33
+2013-08-08T10:34:00,true,HED-5,HED-5,33
+2013-08-08T10:34:00,true,Santa Fe,Santa Fe,33
+2013-08-08T10:34:00,true,Scoupe,Scoupe,33
+2013-08-08T10:34:00,true,Sonata,Sonata,33
+2013-08-08T10:34:00,true,Tiburon,Tiburon,33
+2013-08-08T10:34:00,true,Tucson,Tucson,33
+2013-08-08T10:34:00,true,Veloster,Veloster,33
+2013-08-08T10:34:00,true,Veracruz,Veracruz,33
+2013-08-08T10:34:00,true,XG300,XG300,33
+2013-08-08T10:34:00,true,XG350,XG350,33
+2013-08-08T10:34:00,true,EX,EX,34
+2013-08-08T10:34:00,true,FX,FX,34
+2013-08-08T10:34:00,true,G,G,34
+2013-08-08T10:34:00,true,G25,G25,34
+2013-08-08T10:34:00,true,G35,G35,34
+2013-08-08T10:34:00,true,G37,G37,34
+2013-08-08T10:34:00,true,I,I,34
+2013-08-08T10:34:00,true,IPL G,IPL G,34
+2013-08-08T10:34:00,true,J,J,34
+2013-08-08T10:34:00,true,JX,JX,34
+2013-08-08T10:34:00,true,M,M,34
+2013-08-08T10:34:00,true,Q,Q,34
+2013-08-08T10:34:00,true,QX,QX,34
+2013-08-08T10:34:00,true,QX56,QX56,34
+2013-08-08T10:34:00,true,Amigo,Amigo,35
+2013-08-08T10:34:00,true,Ascender,Ascender,35
+2013-08-08T10:34:00,true,Axiom,Axiom,35
+2013-08-08T10:34:00,true,Hombre,Hombre,35
+2013-08-08T10:34:00,true,Hombre Space,Hombre Space,35
+2013-08-08T10:34:00,true,Impulse,Impulse,35
+2013-08-08T10:34:00,true,Oasis,Oasis,35
+2013-08-08T10:34:00,true,Rodeo,Rodeo,35
+2013-08-08T10:34:00,true,Rodeo Sport,Rodeo Sport,35
+2013-08-08T10:34:00,true,Space,Space,35
+2013-08-08T10:34:00,true,Stylus,Stylus,35
+2013-08-08T10:34:00,true,Trooper,Trooper,35
+2013-08-08T10:34:00,true,VehiCROSS,VehiCROSS,35
+2013-08-08T10:34:00,true,i-280,i-280,35
+2013-08-08T10:34:00,true,i-290,i-290,35
+2013-08-08T10:34:00,true,i-350,i-350,35
+2013-08-08T10:34:00,true,i-370,i-370,35
+2013-08-08T10:34:00,true,i-Series,i-Series,35
+2013-08-08T10:34:00,true,S-Type,S-Type,36
+2013-08-08T10:34:00,true,X-Type,X-Type,36
+2013-08-08T10:34:00,true,XF,XF,36
+2013-08-08T10:34:00,true,XJ,XJ,36
+2013-08-08T10:34:00,true,XJ Series,XJ Series,36
+2013-08-08T10:34:00,true,XK,XK,36
+2013-08-08T10:34:00,true,XK Series,XK Series,36
+2013-08-08T10:34:00,true,Cherokee,Cherokee,37
+2013-08-08T10:34:00,true,Comanche,Comanche,37
+2013-08-08T10:34:00,true,Commander,Commander,37
+2013-08-08T10:34:00,true,Compass,Compass,37
+2013-08-08T10:34:00,true,Grand Cherokee,Grand Cherokee,37
+2013-08-08T10:34:00,true,Liberty,Liberty,37
+2013-08-08T10:34:00,true,Patriot,Patriot,37
+2013-08-08T10:34:00,true,Wrangler,Wrangler,37
+2013-08-08T10:34:00,true,Interceptor,Interceptor,38
+2013-08-08T10:34:00,true,Amanti,Amanti,39
+2013-08-08T10:34:00,true,Borrego,Borrego,39
+2013-08-08T10:34:00,true,Carens,Carens,39
+2013-08-08T10:34:00,true,Forte,Forte,39
+2013-08-08T10:34:00,true,Mentor,Mentor,39
+2013-08-08T10:34:00,true,Mohave/Borrego,Mohave/Borrego,39
+2013-08-08T10:34:00,true,Optima,Optima,39
+2013-08-08T10:34:00,true,Rio,Rio,39
+2013-08-08T10:34:00,true,Rio5,Rio5,39
+2013-08-08T10:34:00,true,Rondo,Rondo,39
+2013-08-08T10:34:00,true,Sedona,Sedona,39
+2013-08-08T10:34:00,true,Sephia,Sephia,39
+2013-08-08T10:34:00,true,Sorento,Sorento,39
+2013-08-08T10:34:00,true,Soul,Soul,39
+2013-08-08T10:34:00,true,Spectra,Spectra,39
+2013-08-08T10:34:00,true,Spectra5,Spectra5,39
+2013-08-08T10:34:00,true,Sportage,Sportage,39
+2013-08-08T10:34:00,true,Aventador,Aventador,40
+2013-08-08T10:34:00,true,Countach,Countach,40
+2013-08-08T10:34:00,true,Diablo,Diablo,40
+2013-08-08T10:34:00,true,Gallardo,Gallardo,40
+2013-08-08T10:34:00,true,Murcielago,Murcielago,40
+2013-08-08T10:34:00,true,Murcielago LP640,Murcielago LP640,40
+2013-08-08T10:34:00,true,Murciélago,Murciélago,40
+2013-08-08T10:34:00,true,Reventón,Reventón,40
+2013-08-08T10:34:00,true,Defender,Defender,41
+2013-08-08T10:34:00,true,Defender 110,Defender 110,41
+2013-08-08T10:34:00,true,Defender 90,Defender 90,41
+2013-08-08T10:34:00,true,Discovery,Discovery,41
+2013-08-08T10:34:00,true,Discovery Series II,Discovery Series II,41
+2013-08-08T10:34:00,true,Freelander,Freelander,41
+2013-08-08T10:34:00,true,LR2,LR2,41
+2013-08-08T10:34:00,true,LR3,LR3,41
+2013-08-08T10:34:00,true,LR4,LR4,41
+2013-08-08T10:34:00,true,Range Rover,Range Rover,41
+2013-08-08T10:34:00,true,Range Rover Classic,Range Rover Classic,41
+2013-08-08T10:34:00,true,Range Rover Evoque,Range Rover Evoque,41
+2013-08-08T10:34:00,true,Range Rover Sport,Range Rover Sport,41
+2013-08-08T10:34:00,true,Sterling,Sterling,41
+2013-08-08T10:34:00,true,CT,CT,42
+2013-08-08T10:34:00,true,ES,ES,42
+2013-08-08T10:34:00,true,GS,GS,42
+2013-08-08T10:34:00,true,GX,GX,42
+2013-08-08T10:34:00,true,HS,HS,42
+2013-08-08T10:34:00,true,IS,IS,42
+2013-08-08T10:34:00,true,IS F,IS F,42
+2013-08-08T10:34:00,true,IS-F,IS-F,42
+2013-08-08T10:34:00,true,LFA,LFA,42
+2013-08-08T10:34:00,true,LS,LS,42
+2013-08-08T10:34:00,true,LS Hybrid,LS Hybrid,42
+2013-08-08T10:34:00,true,LX,LX,42
+2013-08-08T10:34:00,true,RX,RX,42
+2013-08-08T10:34:00,true,RX Hybrid,RX Hybrid,42
+2013-08-08T10:34:00,true,SC,SC,42
+2013-08-08T10:34:00,true,Aviator,Aviator,43
+2013-08-08T10:34:00,true,Blackwood,Blackwood,43
+2013-08-08T10:34:00,true,Continental,Continental,43
+2013-08-08T10:34:00,true,Continental Mark VII,Continental Mark VII,43
+2013-08-08T10:34:00,true,LS,LS,43
+2013-08-08T10:34:00,true,MKS,MKS,43
+2013-08-08T10:34:00,true,MKT,MKT,43
+2013-08-08T10:34:00,true,MKX,MKX,43
+2013-08-08T10:34:00,true,MKZ,MKZ,43
+2013-08-08T10:34:00,true,Mark LT,Mark LT,43
+2013-08-08T10:34:00,true,Mark VII,Mark VII,43
+2013-08-08T10:34:00,true,Mark VIII,Mark VIII,43
+2013-08-08T10:34:00,true,Navigator,Navigator,43
+2013-08-08T10:34:00,true,Navigator L,Navigator L,43
+2013-08-08T10:34:00,true,Town Car,Town Car,43
+2013-08-08T10:34:00,true,Zephyr,Zephyr,43
+2013-08-08T10:34:00,true,Elan,Elan,44
+2013-08-08T10:34:00,true,Elise,Elise,44
+2013-08-08T10:34:00,true,Esprit,Esprit,44
+2013-08-08T10:34:00,true,Esprit Turbo,Esprit Turbo,44
+2013-08-08T10:34:00,true,Evora,Evora,44
+2013-08-08T10:34:00,true,Exige,Exige,44
+2013-08-08T10:34:00,true,Exige S,Exige S,44
+2013-08-08T10:34:00,true,MGB,MGB,45
+2013-08-08T10:34:00,true,228,228,46
+2013-08-08T10:34:00,true,430,430,46
+2013-08-08T10:34:00,true,Biturbo,Biturbo,46
+2013-08-08T10:34:00,true,Coupe,Coupe,46
+2013-08-08T10:34:00,true,Gran Sport,Gran Sport,46
+2013-08-08T10:34:00,true,GranSport,GranSport,46
+2013-08-08T10:34:00,true,GranTurismo,GranTurismo,46
+2013-08-08T10:34:00,true,Karif,Karif,46
+2013-08-08T10:34:00,true,Quattroporte,Quattroporte,46
+2013-08-08T10:34:00,true,Spyder,Spyder,46
+2013-08-08T10:34:00,true,57,57,47
+2013-08-08T10:34:00,true,57S,57S,47
+2013-08-08T10:34:00,true,62,62,47
+2013-08-08T10:34:00,true,Landaulet,Landaulet,47
+2013-08-08T10:34:00,true,323,323,48
+2013-08-08T10:34:00,true,626,626,48
+2013-08-08T10:34:00,true,929,929,48
+2013-08-08T10:34:00,true,B-Series,B-Series,48
+2013-08-08T10:34:00,true,B-Series Plus,B-Series Plus,48
+2013-08-08T10:34:00,true,B2000,B2000,48
+2013-08-08T10:34:00,true,B2500,B2500,48
+2013-08-08T10:34:00,true,B2600,B2600,48
+2013-08-08T10:34:00,true,CX-5,CX-5,48
+2013-08-08T10:34:00,true,CX-7,CX-7,48
+2013-08-08T10:34:00,true,CX-9,CX-9,48
+2013-08-08T10:34:00,true,Familia,Familia,48
+2013-08-08T10:34:00,true,GLC,GLC,48
+2013-08-08T10:34:00,true,MAZDA6,MAZDA6,48
+2013-08-08T10:34:00,true,MPV,MPV,48
+2013-08-08T10:34:00,true,MX-3,MX-3,48
+2013-08-08T10:34:00,true,MX-5,MX-5,48
+2013-08-08T10:34:00,true,MX-6,MX-6,48
+2013-08-08T10:34:00,true,Mazda2,Mazda2,48
+2013-08-08T10:34:00,true,Mazda3,Mazda3,48
+2013-08-08T10:34:00,true,Mazda5,Mazda5,48
+2013-08-08T10:34:00,true,Mazda6,Mazda6,48
+2013-08-08T10:34:00,true,Mazda6 5-Door,Mazda6 5-Door,48
+2013-08-08T10:34:00,true,Mazda6 Sport,Mazda6 Sport,48
+2013-08-08T10:34:00,true,Mazdaspeed 3,Mazdaspeed 3,48
+2013-08-08T10:34:00,true,Mazdaspeed6,Mazdaspeed6,48
+2013-08-08T10:34:00,true,Miata MX-5,Miata MX-5,48
+2013-08-08T10:34:00,true,Millenia,Millenia,48
+2013-08-08T10:34:00,true,Navajo,Navajo,48
+2013-08-08T10:34:00,true,Protege,Protege,48
+2013-08-08T10:34:00,true,Protege5,Protege5,48
+2013-08-08T10:34:00,true,RX-7,RX-7,48
+2013-08-08T10:34:00,true,RX-8,RX-8,48
+2013-08-08T10:34:00,true,Tribute,Tribute,48
+2013-08-08T10:34:00,true,MP4-12C,MP4-12C,49
+2013-08-08T10:34:00,true,190E,190E,50
+2013-08-08T10:34:00,true,300CE,300CE,50
+2013-08-08T10:34:00,true,300D,300D,50
+2013-08-08T10:34:00,true,300E,300E,50
+2013-08-08T10:34:00,true,300SD,300SD,50
+2013-08-08T10:34:00,true,300SE,300SE,50
+2013-08-08T10:34:00,true,300SL,300SL,50
+2013-08-08T10:34:00,true,300TE,300TE,50
+2013-08-08T10:34:00,true,400E,400E,50
+2013-08-08T10:34:00,true,400SE,400SE,50
+2013-08-08T10:34:00,true,400SEL,400SEL,50
+2013-08-08T10:34:00,true,500E,500E,50
+2013-08-08T10:34:00,true,500SEC,500SEC,50
+2013-08-08T10:34:00,true,500SEL,500SEL,50
+2013-08-08T10:34:00,true,500SL,500SL,50
+2013-08-08T10:34:00,true,600SEC,600SEC,50
+2013-08-08T10:34:00,true,600SEL,600SEL,50
+2013-08-08T10:34:00,true,600SL,600SL,50
+2013-08-08T10:34:00,true,C-Class,C-Class,50
+2013-08-08T10:34:00,true,CL-Class,CL-Class,50
+2013-08-08T10:34:00,true,CL65 AMG,CL65 AMG,50
+2013-08-08T10:34:00,true,CLK-Class,CLK-Class,50
+2013-08-08T10:34:00,true,CLS-Class,CLS-Class,50
+2013-08-08T10:34:00,true,E-Class,E-Class,50
+2013-08-08T10:34:00,true,G-Class,G-Class,50
+2013-08-08T10:34:00,true,G55 AMG,G55 AMG,50
+2013-08-08T10:34:00,true,GL-Class,GL-Class,50
+2013-08-08T10:34:00,true,GLK-Class,GLK-Class,50
+2013-08-08T10:34:00,true,M-Class,M-Class,50
+2013-08-08T10:34:00,true,R-Class,R-Class,50
+2013-08-08T10:34:00,true,S-Class,S-Class,50
+2013-08-08T10:34:00,true,SL-Class,SL-Class,50
+2013-08-08T10:34:00,true,SL65 AMG,SL65 AMG,50
+2013-08-08T10:34:00,true,SLK-Class,SLK-Class,50
+2013-08-08T10:34:00,true,SLK55 AMG,SLK55 AMG,50
+2013-08-08T10:34:00,true,SLR McLaren,SLR McLaren,50
+2013-08-08T10:34:00,true,SLS AMG,SLS AMG,50
+2013-08-08T10:34:00,true,SLS-Class,SLS-Class,50
+2013-08-08T10:34:00,true,Sprinter,Sprinter,50
+2013-08-08T10:34:00,true,Sprinter 2500,Sprinter 2500,50
+2013-08-08T10:34:00,true,Sprinter 3500,Sprinter 3500,50
+2013-08-08T10:34:00,true,W123,W123,50
+2013-08-08T10:34:00,true,W126,W126,50
+2013-08-08T10:34:00,true,W201,W201,50
+2013-08-08T10:34:00,true,Capri,Capri,51
+2013-08-08T10:34:00,true,Cougar,Cougar,51
+2013-08-08T10:34:00,true,Grand Marquis,Grand Marquis,51
+2013-08-08T10:34:00,true,Lynx,Lynx,51
+2013-08-08T10:34:00,true,Marauder,Marauder,51
+2013-08-08T10:34:00,true,Mariner,Mariner,51
+2013-08-08T10:34:00,true,Marquis,Marquis,51
+2013-08-08T10:34:00,true,Milan,Milan,51
+2013-08-08T10:34:00,true,Montego,Montego,51
+2013-08-08T10:34:00,true,Monterey,Monterey,51
+2013-08-08T10:34:00,true,Mountaineer,Mountaineer,51
+2013-08-08T10:34:00,true,Mystique,Mystique,51
+2013-08-08T10:34:00,true,Sable,Sable,51
+2013-08-08T10:34:00,true,Topaz,Topaz,51
+2013-08-08T10:34:00,true,Tracer,Tracer,51
+2013-08-08T10:34:00,true,Villager,Villager,51
+2013-08-08T10:34:00,true,XR4Ti,XR4Ti,52
+2013-08-08T10:34:00,true,Clubman,Clubman,53
+2013-08-08T10:34:00,true,Cooper,Cooper,53
+2013-08-08T10:34:00,true,Cooper Clubman,Cooper Clubman,53
+2013-08-08T10:34:00,true,Cooper Countryman,Cooper Countryman,53
+2013-08-08T10:34:00,true,Countryman,Countryman,53
+2013-08-08T10:34:00,true,Mini,Mini,53
+2013-08-08T10:34:00,true,3000GT,3000GT,54
+2013-08-08T10:34:00,true,Challenger,Challenger,54
+2013-08-08T10:34:00,true,Chariot,Chariot,54
+2013-08-08T10:34:00,true,Cordia,Cordia,54
+2013-08-08T10:34:00,true,Diamante,Diamante,54
+2013-08-08T10:34:00,true,Eclipse,Eclipse,54
+2013-08-08T10:34:00,true,Endeavor,Endeavor,54
+2013-08-08T10:34:00,true,Excel,Excel,54
+2013-08-08T10:34:00,true,Expo,Expo,54
+2013-08-08T10:34:00,true,Expo LRV,Expo LRV,54
+2013-08-08T10:34:00,true,GTO,GTO,54
+2013-08-08T10:34:00,true,Galant,Galant,54
+2013-08-08T10:34:00,true,L300,L300,54
+2013-08-08T10:34:00,true,Lancer,Lancer,54
+2013-08-08T10:34:00,true,Lancer Evolution,Lancer Evolution,54
+2013-08-08T10:34:00,true,Mighty Max,Mighty Max,54
+2013-08-08T10:34:00,true,Mighty Max Macro,Mighty Max Macro,54
+2013-08-08T10:34:00,true,Mirage,Mirage,54
+2013-08-08T10:34:00,true,Montero,Montero,54
+2013-08-08T10:34:00,true,Montero Sport,Montero Sport,54
+2013-08-08T10:34:00,true,Outlander,Outlander,54
+2013-08-08T10:34:00,true,Outlander Sport,Outlander Sport,54
+2013-08-08T10:34:00,true,Pajero,Pajero,54
+2013-08-08T10:34:00,true,Precis,Precis,54
+2013-08-08T10:34:00,true,RVR,RVR,54
+2013-08-08T10:34:00,true,Raider,Raider,54
+2013-08-08T10:34:00,true,Sigma,Sigma,54
+2013-08-08T10:34:00,true,Space,Space,54
+2013-08-08T10:34:00,true,Starion,Starion,54
+2013-08-08T10:34:00,true,Tredia,Tredia,54
+2013-08-08T10:34:00,true,Truck,Truck,54
+2013-08-08T10:34:00,true,Tundra,Tundra,54
+2013-08-08T10:34:00,true,i-MiEV,i-MiEV,54
+2013-08-08T10:34:00,true,Aero 8,Aero 8,55
+2013-08-08T10:34:00,true,200SX,200SX,56
+2013-08-08T10:34:00,true,240SX,240SX,56
+2013-08-08T10:34:00,true,280ZX,280ZX,56
+2013-08-08T10:34:00,true,300ZX,300ZX,56
+2013-08-08T10:34:00,true,350Z,350Z,56
+2013-08-08T10:34:00,true,350Z Roadster,350Z Roadster,56
+2013-08-08T10:34:00,true,370Z,370Z,56
+2013-08-08T10:34:00,true,Altima,Altima,56
+2013-08-08T10:34:00,true,Armada,Armada,56
+2013-08-08T10:34:00,true,Cube,Cube,56
+2013-08-08T10:34:00,true,Datsun/Nissan Z-car,Datsun/Nissan Z-car,56
+2013-08-08T10:34:00,true,Frontier,Frontier,56
+2013-08-08T10:34:00,true,GT-R,GT-R,56
+2013-08-08T10:34:00,true,JUKE,JUKE,56
+2013-08-08T10:34:00,true,Leaf,Leaf,56
+2013-08-08T10:34:00,true,Maxima,Maxima,56
+2013-08-08T10:34:00,true,Murano,Murano,56
+2013-08-08T10:34:00,true,NV1500,NV1500,56
+2013-08-08T10:34:00,true,NV2500,NV2500,56
+2013-08-08T10:34:00,true,NV3500,NV3500,56
+2013-08-08T10:34:00,true,NX,NX,56
+2013-08-08T10:34:00,true,Pathfinder,Pathfinder,56
+2013-08-08T10:34:00,true,Pathfinder Armada,Pathfinder Armada,56
+2013-08-08T10:34:00,true,Quest,Quest,56
+2013-08-08T10:34:00,true,Rogue,Rogue,56
+2013-08-08T10:34:00,true,Sentra,Sentra,56
+2013-08-08T10:34:00,true,Stanza,Stanza,56
+2013-08-08T10:34:00,true,Titan,Titan,56
+2013-08-08T10:34:00,true,Versa,Versa,56
+2013-08-08T10:34:00,true,Xterra,Xterra,56
+2013-08-08T10:34:00,true,cube,cube,56
+2013-08-08T10:34:00,true,88,88,57
+2013-08-08T10:34:00,true,98,98,57
+2013-08-08T10:34:00,true,Achieva,Achieva,57
+2013-08-08T10:34:00,true,Alero,Alero,57
+2013-08-08T10:34:00,true,Aurora,Aurora,57
+2013-08-08T10:34:00,true,Bravada,Bravada,57
+2013-08-08T10:34:00,true,Ciera,Ciera,57
+2013-08-08T10:34:00,true,Custom Cruiser,Custom Cruiser,57
+2013-08-08T10:34:00,true,Cutlass,Cutlass,57
+2013-08-08T10:34:00,true,Cutlass Cruiser,Cutlass Cruiser,57
+2013-08-08T10:34:00,true,Cutlass Supreme,Cutlass Supreme,57
+2013-08-08T10:34:00,true,Intrigue,Intrigue,57
+2013-08-08T10:34:00,true,LSS,LSS,57
+2013-08-08T10:34:00,true,Regency,Regency,57
+2013-08-08T10:34:00,true,Silhouette,Silhouette,57
+2013-08-08T10:34:00,true,Toronado,Toronado,57
+2013-08-08T10:34:00,true,Esperante,Esperante,58
+2013-08-08T10:34:00,true,207,207,59
+2013-08-08T10:34:00,true,Acclaim,Acclaim,60
+2013-08-08T10:34:00,true,Breeze,Breeze,60
+2013-08-08T10:34:00,true,Colt,Colt,60
+2013-08-08T10:34:00,true,Colt Vista,Colt Vista,60
+2013-08-08T10:34:00,true,Fury,Fury,60
+2013-08-08T10:34:00,true,Grand Voyager,Grand Voyager,60
+2013-08-08T10:34:00,true,Horizon,Horizon,60
+2013-08-08T10:34:00,true,Laser,Laser,60
+2013-08-08T10:34:00,true,Neon,Neon,60
+2013-08-08T10:34:00,true,Prowler,Prowler,60
+2013-08-08T10:34:00,true,Reliant,Reliant,60
+2013-08-08T10:34:00,true,Roadrunner,Roadrunner,60
+2013-08-08T10:34:00,true,Sundance,Sundance,60
+2013-08-08T10:34:00,true,Volare,Volare,60
+2013-08-08T10:34:00,true,Voyager,Voyager,60
+2013-08-08T10:34:00,true,1000,1000,61
+2013-08-08T10:34:00,true,6000,6000,61
+2013-08-08T10:34:00,true,Aztek,Aztek,61
+2013-08-08T10:34:00,true,Bonneville,Bonneville,61
+2013-08-08T10:34:00,true,Chevette,Chevette,61
+2013-08-08T10:34:00,true,Daewoo Kalos,Daewoo Kalos,61
+2013-08-08T10:34:00,true,Fiero,Fiero,61
+2013-08-08T10:34:00,true,Firebird,Firebird,61
+2013-08-08T10:34:00,true,Firebird Formula,Firebird Formula,61
+2013-08-08T10:34:00,true,Firebird Trans Am,Firebird Trans Am,61
+2013-08-08T10:34:00,true,Firefly,Firefly,61
+2013-08-08T10:34:00,true,G3,G3,61
+2013-08-08T10:34:00,true,G5,G5,61
+2013-08-08T10:34:00,true,G6,G6,61
+2013-08-08T10:34:00,true,G8,G8,61
+2013-08-08T10:34:00,true,GTO,GTO,61
+2013-08-08T10:34:00,true,Gemini,Gemini,61
+2013-08-08T10:34:00,true,Grand Am,Grand Am,61
+2013-08-08T10:34:00,true,Grand Prix,Grand Prix,61
+2013-08-08T10:34:00,true,Grand Prix Turbo,Grand Prix Turbo,61
+2013-08-08T10:34:00,true,LeMans,LeMans,61
+2013-08-08T10:34:00,true,Lemans,Lemans,61
+2013-08-08T10:34:00,true,Montana,Montana,61
+2013-08-08T10:34:00,true,Montana SV6,Montana SV6,61
+2013-08-08T10:34:00,true,Monterey,Monterey,61
+2013-08-08T10:34:00,true,Parisienne,Parisienne,61
+2013-08-08T10:34:00,true,Safari,Safari,61
+2013-08-08T10:34:00,true,Solstice,Solstice,61
+2013-08-08T10:34:00,true,Sunbird,Sunbird,61
+2013-08-08T10:34:00,true,Sunfire,Sunfire,61
+2013-08-08T10:34:00,true,Tempest,Tempest,61
+2013-08-08T10:34:00,true,Torrent,Torrent,61
+2013-08-08T10:34:00,true,Trans Sport,Trans Sport,61
+2013-08-08T10:34:00,true,Turbo Firefly,Turbo Firefly,61
+2013-08-08T10:34:00,true,Vibe,Vibe,61
+2013-08-08T10:34:00,true,911,911,62
+2013-08-08T10:34:00,true,914,914,62
+2013-08-08T10:34:00,true,924,924,62
+2013-08-08T10:34:00,true,924 S,924 S,62
+2013-08-08T10:34:00,true,928,928,62
+2013-08-08T10:34:00,true,944,944,62
+2013-08-08T10:34:00,true,968,968,62
+2013-08-08T10:34:00,true,Boxster,Boxster,62
+2013-08-08T10:34:00,true,Carrera GT,Carrera GT,62
+2013-08-08T10:34:00,true,Cayenne,Cayenne,62
+2013-08-08T10:34:00,true,Cayman,Cayman,62
+2013-08-08T10:34:00,true,Panamera,Panamera,62
+2013-08-08T10:34:00,true,1500,1500,63
+2013-08-08T10:34:00,true,2500,2500,63
+2013-08-08T10:34:00,true,3500,3500,63
+2013-08-08T10:34:00,true,C/V,C/V,63
+2013-08-08T10:34:00,true,Dakota,Dakota,63
+2013-08-08T10:34:00,true,Classic,Classic,64
+2013-08-08T10:34:00,true,Alliance,Alliance,65
+2013-08-08T10:34:00,true,Ghost,Ghost,66
+2013-08-08T10:34:00,true,Phantom,Phantom,66
+2013-08-08T10:34:00,true,9-2X,9-2X,67
+2013-08-08T10:34:00,true,9-3,9-3,67
+2013-08-08T10:34:00,true,9-4X,9-4X,67
+2013-08-08T10:34:00,true,9-5,9-5,67
+2013-08-08T10:34:00,true,9-7X,9-7X,67
+2013-08-08T10:34:00,true,900,900,67
+2013-08-08T10:34:00,true,9000,9000,67
+2013-08-08T10:34:00,true,Astra,Astra,68
+2013-08-08T10:34:00,true,Aura,Aura,68
+2013-08-08T10:34:00,true,Ion,Ion,68
+2013-08-08T10:34:00,true,L-Series,L-Series,68
+2013-08-08T10:34:00,true,Outlook,Outlook,68
+2013-08-08T10:34:00,true,Relay,Relay,68
+2013-08-08T10:34:00,true,S-Series,S-Series,68
+2013-08-08T10:34:00,true,Sky,Sky,68
+2013-08-08T10:34:00,true,VUE,VUE,68
+2013-08-08T10:34:00,true,Vue,Vue,68
+2013-08-08T10:34:00,true,FR-S,FR-S,69
+2013-08-08T10:34:00,true,iQ,iQ,69
+2013-08-08T10:34:00,true,tC,tC,69
+2013-08-08T10:34:00,true,xA,xA,69
+2013-08-08T10:34:00,true,xB,xB,69
+2013-08-08T10:34:00,true,xD,xD,69
+2013-08-08T10:34:00,true,GT350,GT350,70
+2013-08-08T10:34:00,true,GT500,GT500,70
+2013-08-08T10:34:00,true,Fortwo,Fortwo,71
+2013-08-08T10:34:00,true,C8,C8,72
+2013-08-08T10:34:00,true,C8 Double 12 S,C8 Double 12 S,72
+2013-08-08T10:34:00,true,C8 Laviolette,C8 Laviolette,72
+2013-08-08T10:34:00,true,C8 Spyder,C8 Spyder,72
+2013-08-08T10:34:00,true,C8 Spyder Wide Body,C8 Spyder Wide Body,72
+2013-08-08T10:34:00,true,Avanti,Avanti,73
+2013-08-08T10:34:00,true,Alcyone SVX,Alcyone SVX,74
+2013-08-08T10:34:00,true,B9 Tribeca,B9 Tribeca,74
+2013-08-08T10:34:00,true,BRAT,BRAT,74
+2013-08-08T10:34:00,true,BRZ,BRZ,74
+2013-08-08T10:34:00,true,Baja,Baja,74
+2013-08-08T10:34:00,true,Brat,Brat,74
+2013-08-08T10:34:00,true,Forester,Forester,74
+2013-08-08T10:34:00,true,Impreza,Impreza,74
+2013-08-08T10:34:00,true,Impreza WRX,Impreza WRX,74
+2013-08-08T10:34:00,true,Justy,Justy,74
+2013-08-08T10:34:00,true,Legacy,Legacy,74
+2013-08-08T10:34:00,true,Leone,Leone,74
+2013-08-08T10:34:00,true,Loyale,Loyale,74
+2013-08-08T10:34:00,true,Outback,Outback,74
+2013-08-08T10:34:00,true,Outback Sport,Outback Sport,74
+2013-08-08T10:34:00,true,SVX,SVX,74
+2013-08-08T10:34:00,true,Tribeca,Tribeca,74
+2013-08-08T10:34:00,true,XT,XT,74
+2013-08-08T10:34:00,true,Aerio,Aerio,75
+2013-08-08T10:34:00,true,Cultus,Cultus,75
+2013-08-08T10:34:00,true,Daewoo Lacetti,Daewoo Lacetti,75
+2013-08-08T10:34:00,true,Daewoo Magnus,Daewoo Magnus,75
+2013-08-08T10:34:00,true,Equator,Equator,75
+2013-08-08T10:34:00,true,Esteem,Esteem,75
+2013-08-08T10:34:00,true,Forenza,Forenza,75
+2013-08-08T10:34:00,true,Grand Vitara,Grand Vitara,75
+2013-08-08T10:34:00,true,Kizashi,Kizashi,75
+2013-08-08T10:34:00,true,Reno,Reno,75
+2013-08-08T10:34:00,true,SJ,SJ,75
+2013-08-08T10:34:00,true,SJ 410,SJ 410,75
+2013-08-08T10:34:00,true,SX4,SX4,75
+2013-08-08T10:34:00,true,Samurai,Samurai,75
+2013-08-08T10:34:00,true,Sidekick,Sidekick,75
+2013-08-08T10:34:00,true,Swift,Swift,75
+2013-08-08T10:34:00,true,Verona,Verona,75
+2013-08-08T10:34:00,true,Vitara,Vitara,75
+2013-08-08T10:34:00,true,X-90,X-90,75
+2013-08-08T10:34:00,true,XL-7,XL-7,75
+2013-08-08T10:34:00,true,XL7,XL7,75
+2013-08-08T10:34:00,true,Model S,Model S,76
+2013-08-08T10:34:00,true,Roadster,Roadster,76
+2013-08-08T10:34:00,true,4Runner,4Runner,77
+2013-08-08T10:34:00,true,Avalon,Avalon,77
+2013-08-08T10:34:00,true,Camry,Camry,77
+2013-08-08T10:34:00,true,Camry Hybrid,Camry Hybrid,77
+2013-08-08T10:34:00,true,Camry Solara,Camry Solara,77
+2013-08-08T10:34:00,true,Celica,Celica,77
+2013-08-08T10:34:00,true,Corolla,Corolla,77
+2013-08-08T10:34:00,true,Cressida,Cressida,77
+2013-08-08T10:34:00,true,Echo,Echo,77
+2013-08-08T10:34:00,true,FJ Cruiser,FJ Cruiser,77
+2013-08-08T10:34:00,true,Highlander,Highlander,77
+2013-08-08T10:34:00,true,Highlander Hybrid,Highlander Hybrid,77
+2013-08-08T10:34:00,true,Ipsum,Ipsum,77
+2013-08-08T10:34:00,true,Land Cruiser,Land Cruiser,77
+2013-08-08T10:34:00,true,MR2,MR2,77
+2013-08-08T10:34:00,true,Matrix,Matrix,77
+2013-08-08T10:34:00,true,Paseo,Paseo,77
+2013-08-08T10:34:00,true,Previa,Previa,77
+2013-08-08T10:34:00,true,Prius,Prius,77
+2013-08-08T10:34:00,true,Prius Plug-in,Prius Plug-in,77
+2013-08-08T10:34:00,true,Prius Plug-in Hybrid,Prius Plug-in Hybrid,77
+2013-08-08T10:34:00,true,Prius c,Prius c,77
+2013-08-08T10:34:00,true,Prius v,Prius v,77
+2013-08-08T10:34:00,true,RAV4,RAV4,77
+2013-08-08T10:34:00,true,Sequoia,Sequoia,77
+2013-08-08T10:34:00,true,Sienna,Sienna,77
+2013-08-08T10:34:00,true,Solara,Solara,77
+2013-08-08T10:34:00,true,Supra,Supra,77
+2013-08-08T10:34:00,true,T100,T100,77
+2013-08-08T10:34:00,true,T100 Xtra,T100 Xtra,77
+2013-08-08T10:34:00,true,Tacoma,Tacoma,77
+2013-08-08T10:34:00,true,Tacoma Xtra,Tacoma Xtra,77
+2013-08-08T10:34:00,true,Tercel,Tercel,77
+2013-08-08T10:34:00,true,Truck Xtracab SR5,Truck Xtracab SR5,77
+2013-08-08T10:34:00,true,Tundra,Tundra,77
+2013-08-08T10:34:00,true,TundraMax,TundraMax,77
+2013-08-08T10:34:00,true,Venza,Venza,77
+2013-08-08T10:34:00,true,Xtra,Xtra,77
+2013-08-08T10:34:00,true,Yaris,Yaris,77
+2013-08-08T10:34:00,true,Beetle,Beetle,78
+2013-08-08T10:34:00,true,CC,CC,78
+2013-08-08T10:34:00,true,Cabriolet,Cabriolet,78
+2013-08-08T10:34:00,true,Corrado,Corrado,78
+2013-08-08T10:34:00,true,Eos,Eos,78
+2013-08-08T10:34:00,true,Eurovan,Eurovan,78
+2013-08-08T10:34:00,true,Fox,Fox,78
+2013-08-08T10:34:00,true,GLI,GLI,78
+2013-08-08T10:34:00,true,GTI,GTI,78
+2013-08-08T10:34:00,true,Golf,Golf,78
+2013-08-08T10:34:00,true,Golf III,Golf III,78
+2013-08-08T10:34:00,true,Jetta,Jetta,78
+2013-08-08T10:34:00,true,Jetta III,Jetta III,78
+2013-08-08T10:34:00,true,New Beetle,New Beetle,78
+2013-08-08T10:34:00,true,Passat,Passat,78
+2013-08-08T10:34:00,true,Phaeton,Phaeton,78
+2013-08-08T10:34:00,true,Quantum,Quantum,78
+2013-08-08T10:34:00,true,R32,R32,78
+2013-08-08T10:34:00,true,Rabbit,Rabbit,78
+2013-08-08T10:34:00,true,Routan,Routan,78
+2013-08-08T10:34:00,true,Scirocco,Scirocco,78
+2013-08-08T10:34:00,true,Tiguan,Tiguan,78
+2013-08-08T10:34:00,true,Touareg,Touareg,78
+2013-08-08T10:34:00,true,Touareg 2,Touareg 2,78
+2013-08-08T10:34:00,true,Type 2,Type 2,78
+2013-08-08T10:34:00,true,Vanagon,Vanagon,78
+2013-08-08T10:34:00,true,rio,rio,78
+2013-08-08T10:34:00,true,riolet,riolet,78
+2013-08-08T10:34:00,true,240,240,79
+2013-08-08T10:34:00,true,740,740,79
+2013-08-08T10:34:00,true,850,850,79
+2013-08-08T10:34:00,true,940,940,79
+2013-08-08T10:34:00,true,960,960,79
+2013-08-08T10:34:00,true,C30,C30,79
+2013-08-08T10:34:00,true,C70,C70,79
+2013-08-08T10:34:00,true,S40,S40,79
+2013-08-08T10:34:00,true,S60,S60,79
+2013-08-08T10:34:00,true,S70,S70,79
+2013-08-08T10:34:00,true,S80,S80,79
+2013-08-08T10:34:00,true,S90,S90,79
+2013-08-08T10:34:00,true,V40,V40,79
+2013-08-08T10:34:00,true,V50,V50,79
+2013-08-08T10:34:00,true,V70,V70,79
+2013-08-08T10:34:00,true,V90,V90,79
+2013-08-08T10:34:00,true,XC60,XC60,79
+2013-08-08T10:34:00,true,XC70,XC70,79
+2013-08-08T10:34:00,true,XC90,XC90,79

@@ -1,0 +1,39 @@
+# [d]   = dev only. script or link tag
+# [ps]  = prod only. script or link tag
+# [dps] = dev and prod. script or link tag
+# [dp]  = dev and prod. script/link tag in dev. concat and minify in prod
+# [p]   = prod only. contact and minify. can be ommited
+
+app_js:
+  /resources/extjs-gpl/{extjs.version}/ext-all-dev.js[d]
+  /resources/extjs-gpl/{extjs.version}/ext-all.js[ps]
+  /resources/theme/masteringextjs-theme.js[dp]
+  /resources/extjs-gpl/{extjs.version}/ux/grid/filter/Filter.js
+  /resources/extjs-gpl/{extjs.version}/ux/grid/filter/BooleanFilter.js
+  /resources/extjs-gpl/{extjs.version}/ux/grid/filter/DateFilter.js
+  /resources/extjs-gpl/{extjs.version}/ux/grid/filter/DateTimeFilter.js
+  /resources/extjs-gpl/{extjs.version}/ux/grid/filter/ListFilter.js
+  /resources/extjs-gpl/{extjs.version}/ux/grid/filter/NumericFilter.js
+  /resources/extjs-gpl/{extjs.version}/ux/grid/filter/StringFilter.js
+  /resources/extjs-gpl/{extjs.version}/ux/grid/menu/ListMenu.js  
+  /resources/extjs-gpl/{extjs.version}/ux/grid/menu/RangeMenu.js
+  /resources/extjs-gpl/{extjs.version}/ux/grid/FiltersFeature.js  
+  /resources/extjs-gpl/{extjs.version}/ux/statusbar/StatusBar.js
+  /resources/extjs-gpl/{extjs.version}/ux/LiveSearchGridPanel.js
+  /resources/extjs-gpl/{extjs.version}/ux/IFrame.js
+  /resources/extjs-gpl/{extjs.version}/ux/form/MultiSelect.js  
+  /overrides/
+  /api.js[d]
+  /api-{application.version}.js[ps]
+  /locale.js[dps]
+  /app/
+  /vtypes.js[dp]
+  /app.js[dp]
+
+app_css:
+  /resources/theme/masteringextjs-theme-all.css[dp]  
+  /resources/css/app.css[dp]  
+  /resources/extjs-gpl/{extjs.version}/ux/grid/css/GridFilters.css[dp]
+  /resources/extjs-gpl/{extjs.version}/ux/grid/css/RangeMenu.css[dp]
+  /resources/extjs-gpl/{extjs.version}/ux/statusbar/css/statusbar.css[dp]
+  /resources/extjs-gpl/{extjs.version}/ux/css/LiveSearchGridPanel.css[dp]

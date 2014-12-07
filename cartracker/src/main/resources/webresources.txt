@@ -1,0 +1,46 @@
+# [d]   = dev only. script or link tag
+# [ps]  = prod only. script or link tag
+# [dps] = dev and prod. script or link tag
+# [dp]  = dev and prod. script/link tag in dev. concat and minify in prod
+# [p]   = prod only. contact and minify. can be ommited
+
+login_js:
+  /resources/extjs-gpl/{extjs.version}/ext-all-dev.js[d]
+  /resources/extjs-gpl/{extjs.version}/ext-all.js[ps]
+  /resources/extjs-gpl/{extjs.version}/ext-theme-neptune.js[dps]
+  /login.js[dp]
+  /resources/detect.js[dp]
+
+login_css:
+  /resources/extjs-gpl/{extjs.version}/resources/ext-theme-neptune/ext-theme-neptune-all.css[dps]
+  /resources/css/app.css[dp]
+ 
+
+app_js:
+  /resources/extjs-gpl/{extjs.version}/ext-all-dev.js[d]
+  /resources/extjs-gpl/{extjs.version}/ext-all.js[ps]
+  /resources/extjs-gpl/{extjs.version}/ext-theme-neptune.js[dps]
+  /resources/extjs-gpl/{extjs.version}/ux/form/MultiSelect.js
+  /resources/extjs-gpl/{extjs.version}/ux/form/ItemSelector.js  
+  /overrides/
+  /loader.js[d]
+  /api.js[d]
+  /api-{application.version}.js[ps] 
+  /direct.js[dp]
+  /app/ux/
+  /app/model/
+  /app/store/Base.js
+  /app/store/option/Base.js
+  /app/store/
+  /app/view/car/edit/tab/
+  /app/view/car/edit/
+  /app/view/
+  /app/controller/Base.js
+  /app/controller/
+  /app/Application.js
+  /app.js[dp]
+  /resources/detect.js[dp]
+
+app_css:
+  /resources/extjs-gpl/{extjs.version}/resources/ext-theme-neptune/ext-theme-neptune-all.css[dps]
+  /resources/css/app.css[dp]

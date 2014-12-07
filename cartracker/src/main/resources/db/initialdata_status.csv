@@ -1,0 +1,6 @@
+createDate,active,longName,shortName
+2013-08-08T10:34:00,true,Approved,Approved
+2013-08-08T10:34:00,true,Rejected,Rejected
+2013-08-08T10:34:00,true,Initiated,Initiated
+2013-08-08T10:34:00,true,In-Audit,In-Audit
+2013-08-08T10:34:00,true,In-Review,In-Review

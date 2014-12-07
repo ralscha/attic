@@ -1,0 +1,544 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd
+    http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+	<changeSet author="dev" id="1">
+		<createTable tableName="Color">
+			<column autoIncrement="true" name="id" type="BIGINT">
+				<constraints nullable="false" primaryKey="true" primaryKeyName="PK_Color" />
+			</column>
+
+			<column name="createDate" type="datetime">
+		      <constraints nullable="false" />
+			</column>
+
+			<column name="active" type="boolean">
+	          <constraints nullable="false" />			
+			</column>
+			
+			<column name="longName" type="varchar(255)" />
+            <column name="shortName" type="varchar(45)" />
+		</createTable>	
+	</changeSet>	
+	
+	<changeSet author="dev" id="2">
+		<createTable tableName="Category">
+			<column autoIncrement="true" name="id" type="BIGINT">
+				<constraints nullable="false" primaryKey="true" primaryKeyName="PK_Category" />
+			</column>
+
+			<column name="createDate" type="datetime">
+		      <constraints nullable="false" />
+			</column>
+
+			<column name="active" type="boolean">
+	          <constraints nullable="false" />			
+			</column>
+			
+			<column name="longName" type="varchar(255)" />
+            <column name="shortName" type="varchar(45)" />
+		</createTable>	
+	</changeSet>		
+	
+	<changeSet author="dev" id="3">
+		<createTable tableName="Feature">
+			<column autoIncrement="true" name="id" type="BIGINT">
+				<constraints nullable="false" primaryKey="true" primaryKeyName="PK_Feature" />
+			</column>
+
+			<column name="createDate" type="datetime">
+		      <constraints nullable="false" />
+			</column>
+
+			<column name="active" type="boolean">
+	          <constraints nullable="false" />			
+			</column>
+			
+			<column name="longName" type="varchar(255)" />
+            <column name="shortName" type="varchar(45)" />
+		</createTable>	
+	</changeSet>
+	
+	<changeSet author="dev" id="4">
+		<createTable tableName="Position">
+			<column autoIncrement="true" name="id" type="BIGINT">
+				<constraints nullable="false" primaryKey="true" primaryKeyName="PK_Position" />
+			</column>
+
+			<column name="createDate" type="datetime">
+		      <constraints nullable="false" />
+			</column>
+
+			<column name="active" type="boolean">
+	          <constraints nullable="false" />			
+			</column>
+			
+			<column name="longName" type="varchar(255)" />
+            <column name="shortName" type="varchar(45)" />
+		</createTable>	
+	</changeSet>	
+	
+	<changeSet author="dev" id="5">
+		<createTable tableName="Status">
+			<column autoIncrement="true" name="id" type="BIGINT">
+				<constraints nullable="false" primaryKey="true" primaryKeyName="PK_Status" />
+			</column>
+
+			<column name="createDate" type="datetime">
+		      <constraints nullable="false" />
+			</column>
+
+			<column name="active" type="boolean">
+	          <constraints nullable="false" />			
+			</column>
+			
+			<column name="longName" type="varchar(255)" />
+            <column name="shortName" type="varchar(45)" />
+		</createTable>	
+	</changeSet>
+	
+	<changeSet author="dev" id="6">
+	  <loadData tableName="Color" file="db/initialdata_color.csv"/>	  
+	</changeSet>	
+		
+	<changeSet author="dev" id="7">
+		<createTable tableName="UserRole">
+			<column autoIncrement="true" name="id" type="BIGINT">
+				<constraints nullable="false" primaryKey="true" primaryKeyName="PK_UserRole" />
+			</column>
+
+			<column name="createDate" type="datetime">
+		      <constraints nullable="false" />
+			</column>
+
+			<column name="active" type="boolean">
+	          <constraints nullable="false" />			
+			</column>
+			
+			<column name="longName" type="varchar(255)" />
+            <column name="shortName" type="varchar(45)" />
+		</createTable>	
+	</changeSet>		
+		
+	<changeSet author="dev" id="8">
+		<createTable tableName="Staff">
+			<column autoIncrement="true" name="id" type="BIGINT">
+				<constraints nullable="false" primaryKey="true" primaryKeyName="PK_Staff" />
+			</column>
+
+			<column name="createDate" type="datetime">
+		      <constraints nullable="false" />
+			</column>
+
+			<column name="active" type="boolean">
+	          <constraints nullable="false" />			
+			</column>
+			
+			<column name="username" type="varchar(255)" />
+			<column name="password" type="varchar(255)" />
+			
+			<column name="firstName" type="varchar(255)" />
+			<column name="lastName" type="varchar(255)" />
+			<column name="dob" type="date" />
+			<column name="address1" type="varchar(255)" />
+			<column name="address2" type="varchar(255)" />
+			<column name="city" type="varchar(255)" />
+            <column name="state" type="varchar(10)" />
+            <column name="postalCode" type="varchar(10)" />
+            <column name="phone" type="varchar(50)" />
+			<column name="hireDate" type="date" />
+
+			<column name="positionId" type="BIGINT">
+			    <constraints nullable="true" />
+			</column>
+		</createTable>	
+		
+        <addForeignKeyConstraint 
+		    baseColumnNames="positionId" baseTableName="Staff" 
+		    constraintName="FK_Staff_Position"
+			referencedColumnNames="id" referencedTableName="Position" />		
+				
+	</changeSet>	
+	
+	
+	<changeSet author="dev" id="9">
+		<createTable tableName="StaffUserRole">
+			<column autoIncrement="true" name="id" type="BIGINT">
+				<constraints nullable="false" primaryKey="true" primaryKeyName="PK_StaffUserRole" />
+			</column>
+
+			<column name="staffId" type="BIGINT">
+			    <constraints nullable="false" />
+			</column>
+			
+			<column name="userRoleId" type="BIGINT">
+			    <constraints nullable="false" />
+			</column>
+		
+		</createTable>	
+			
+        <addForeignKeyConstraint 
+		    baseColumnNames="staffId" baseTableName="StaffUserRole" 
+		    constraintName="FK_StaffUserRole_Staff"
+			referencedColumnNames="id" referencedTableName="Staff" />				
+
+        <addForeignKeyConstraint 
+		    baseColumnNames="userRoleId" baseTableName="StaffUserRole" 
+		    constraintName="FK_StaffUserRole_UserRole"
+			referencedColumnNames="id" referencedTableName="UserRole" />						
+	</changeSet>	
+	
+	
+	
+	<changeSet author="dev" id="10">
+		<createTable tableName="Make">
+			<column autoIncrement="true" name="id" type="BIGINT">
+				<constraints nullable="false" primaryKey="true" primaryKeyName="PK_Make" />
+			</column>
+
+			<column name="createDate" type="datetime">
+		      <constraints nullable="false" />
+			</column>
+
+			<column name="active" type="boolean">
+	          <constraints nullable="false" />			
+			</column>
+			
+			<column name="longName" type="varchar(255)" />
+            <column name="shortName" type="varchar(45)" />
+		</createTable>	
+	</changeSet>
+	
+	<changeSet author="dev" id="11">
+		<createTable tableName="Model">
+			<column autoIncrement="true" name="id" type="BIGINT">
+				<constraints nullable="false" primaryKey="true" primaryKeyName="PK_Model" />
+			</column>
+
+			<column name="createDate" type="datetime">
+		      <constraints nullable="false" />
+			</column>
+
+			<column name="active" type="boolean">
+	          <constraints nullable="false" />			
+			</column>
+			
+			<column name="longName" type="varchar(255)" />
+            <column name="shortName" type="varchar(45)" />
+            
+			<column name="makeId" type="BIGINT">
+			    <constraints nullable="true" />
+			</column>    
+		</createTable>	
+			
+        <addForeignKeyConstraint 
+		    baseColumnNames="makeId" baseTableName="Model" 
+		    constraintName="FK_Model_Make"
+			referencedColumnNames="id" referencedTableName="Make" />				
+		
+	</changeSet>	
+	
+	<changeSet author="dev" id="12">
+		<createTable tableName="DriveTrain">
+			<column autoIncrement="true" name="id" type="BIGINT">
+				<constraints nullable="false" primaryKey="true" primaryKeyName="PK_DriveTrain" />
+			</column>
+
+			<column name="createDate" type="datetime">
+		      <constraints nullable="false" />
+			</column>
+
+			<column name="active" type="boolean">
+	          <constraints nullable="false" />			
+			</column>
+			
+			<column name="longName" type="varchar(255)" />
+            <column name="shortName" type="varchar(45)" />
+		</createTable>	
+	</changeSet>	
+	
+	<changeSet author="dev" id="13">
+		<createTable tableName="Car">
+			<column autoIncrement="true" name="id" type="BIGINT">
+				<constraints nullable="false" primaryKey="true" primaryKeyName="PK_Car" />
+			</column>
+
+			<column name="createDate" type="datetime">
+		      <constraints nullable="false" />
+			</column>
+
+			<column name="active" type="boolean">
+	          <constraints nullable="false" />			
+			</column>
+						
+			<column name="description" type="clob" />
+			<column name="year" type="int" />
+			<column name="listPrice" type="int" />
+			<column name="salePrice" type="int" />			
+			<column name="acquisitionDate" type="date" />			
+			<column name="saleDate" type="date" />
+			<column name="stockNumber" type="varchar(50)" />
+			<column name="vin" type="varchar(50)" />
+			<column name="fuel" type="varchar(50)" />
+			<column name="engine" type="varchar(50)" />
+			<column name="transmission" type="varchar(50)" />
+			<column name="mileage" type="varchar(50)" />
+			<column name="sold" type="boolean" />
+
+			<column name="makeId" type="BIGINT">
+			    <constraints nullable="true" />
+			</column>
+			<column name="modelId" type="BIGINT">
+			    <constraints nullable="true" />
+			</column>
+			<column name="categoryId" type="BIGINT">
+			    <constraints nullable="true" />
+			</column>
+			<column name="statusId" type="BIGINT">
+			    <constraints nullable="true" />
+			</column>
+			<column name="colorId" type="BIGINT">
+			    <constraints nullable="true" />
+			</column>
+			<column name="driveTrainId" type="BIGINT">
+			    <constraints nullable="true" />
+			</column>			
+		</createTable>	
+			
+        <addForeignKeyConstraint 
+		    baseColumnNames="makeId" baseTableName="Car" 
+		    constraintName="FK_Car_Make"
+			referencedColumnNames="id" referencedTableName="Make" />				
+
+        <addForeignKeyConstraint 
+		    baseColumnNames="modelId" baseTableName="Car" 
+		    constraintName="FK_Car_Model"
+			referencedColumnNames="id" referencedTableName="Model" />			
+
+        <addForeignKeyConstraint 
+		    baseColumnNames="categoryId" baseTableName="Car" 
+		    constraintName="FK_Car_Category"
+			referencedColumnNames="id" referencedTableName="Category" />			
+
+        <addForeignKeyConstraint 
+		    baseColumnNames="statusId" baseTableName="Car" 
+		    constraintName="FK_Car_Status"
+			referencedColumnNames="id" referencedTableName="Status" />		
+			
+        <addForeignKeyConstraint 
+		    baseColumnNames="colorId" baseTableName="Car" 
+		    constraintName="FK_Car_Color"
+			referencedColumnNames="id" referencedTableName="Color" />
+			
+        <addForeignKeyConstraint 
+		    baseColumnNames="driveTrainId" baseTableName="Car" 
+		    constraintName="FK_Car_DriveTrain"
+			referencedColumnNames="id" referencedTableName="DriveTrain" />	
+	</changeSet>	
+		
+	<changeSet author="dev" id="14">
+	  <loadData tableName="Category" file="db/initialdata_category.csv"/>	  
+	</changeSet>	
+	
+	<changeSet author="dev" id="15">
+	  <loadData tableName="Feature" file="db/initialdata_feature.csv"/>	  
+	</changeSet>
+		
+	<changeSet author="dev" id="16">
+	  <loadData tableName="Make" file="db/initialdata_make.csv"/>	  
+	</changeSet>
+		
+	<changeSet author="dev" id="17">
+	  <loadData tableName="Model" file="db/initialdata_model.csv"/>	  
+	</changeSet>
+		
+	<changeSet author="dev" id="18">
+	  <loadData tableName="Status" file="db/initialdata_status.csv"/>	  
+	</changeSet>	
+
+	<changeSet author="dev" id="19">
+	  <loadData tableName="Position" file="db/initialdata_position.csv"/>	  
+	</changeSet>		
+		
+	<changeSet author="dev" id="20">
+		<createTable tableName="CarStaff">
+			<column autoIncrement="true" name="id" type="BIGINT">
+				<constraints nullable="false" primaryKey="true" primaryKeyName="PK_CarStaff" />
+			</column>
+
+			<column name="carId" type="BIGINT">
+			    <constraints nullable="false" />
+			</column>
+			
+			<column name="staffId" type="BIGINT">
+			    <constraints nullable="false" />
+			</column>
+		
+		</createTable>	
+			
+        <addForeignKeyConstraint 
+		    baseColumnNames="carId" baseTableName="CarStaff" 
+		    constraintName="FK_CarStaff_Car"
+			referencedColumnNames="id" referencedTableName="Car" />				
+
+        <addForeignKeyConstraint 
+		    baseColumnNames="staffId" baseTableName="CarStaff" 
+		    constraintName="FK_CarStaff_Staff"
+			referencedColumnNames="id" referencedTableName="Staff" />						
+	</changeSet>
+	
+	<changeSet author="dev" id="21">
+		<createTable tableName="CarFeature">
+			<column autoIncrement="true" name="id" type="BIGINT">
+				<constraints nullable="false" primaryKey="true" primaryKeyName="PK_CarFeature" />
+			</column>
+
+			<column name="carId" type="BIGINT">
+			    <constraints nullable="false" />
+			</column>
+			
+			<column name="featureId" type="BIGINT">
+			    <constraints nullable="false" />
+			</column>
+		
+		</createTable>	
+			
+        <addForeignKeyConstraint 
+		    baseColumnNames="carId" baseTableName="CarFeature" 
+		    constraintName="FK_CarFeature_Car"
+			referencedColumnNames="id" referencedTableName="Car" />				
+
+        <addForeignKeyConstraint 
+		    baseColumnNames="featureId" baseTableName="CarFeature" 
+		    constraintName="FK_CarFeature_Feature"
+			referencedColumnNames="id" referencedTableName="Feature" />						
+	</changeSet>		
+			
+	<changeSet author="dev" id="22">
+		<createTable tableName="CarImage">
+			<column autoIncrement="true" name="id" type="BIGINT">
+				<constraints nullable="false" primaryKey="true" primaryKeyName="PK_CarImage" />
+			</column>
+
+			<column name="createDate" type="datetime">
+		      <constraints nullable="false" />
+			</column>
+
+			<column name="active" type="boolean">
+	          <constraints nullable="false" />			
+			</column>
+			
+			<column name="imagedata" type="blob" />
+			<column name="etag" type="varchar(100)" />
+			<column name="contentType" type="varchar(100)" />					
+			
+			<column name="carId" type="BIGINT">
+			    <constraints nullable="true" />
+			</column>
+		</createTable>	
+			
+        <addForeignKeyConstraint 
+		    baseColumnNames="carId" baseTableName="CarImage" 
+		    constraintName="FK_CarImage_Car"
+			referencedColumnNames="id" referencedTableName="Car" />						
+		
+	</changeSet>	
+
+	<changeSet author="dev" id="23">
+	  <loadData tableName="UserRole" file="db/initialdata_userrole.csv"/>	  
+	</changeSet>	
+
+	<changeSet author="dev" id="24">
+	  <loadData tableName="Staff" file="db/initialdata_staff.csv"/>	  
+	</changeSet>	
+
+	<changeSet author="dev" id="25">
+	  <loadData tableName="StaffUserRole" file="db/initialdata_staffuserrole.csv"/>	  
+	</changeSet>
+
+	<changeSet author="dev" id="26">
+	  <loadData tableName="DriveTrain" file="db/initialdata_drivetrain.csv"/>	  
+	</changeSet>	
+		
+	<changeSet author="dev" id="27">
+		<createTable tableName="persistent_logins">
+			<column name="series" type="varchar(64)">
+				<constraints nullable="false" primaryKey="true" primaryKeyName="pk_persistent_logins" />
+			</column>	
+						
+			<column name="username" type="varchar(255)">
+               <constraints nullable="false"/>
+			</column>
+
+			<column name="token" type="varchar(64)">
+               <constraints nullable="false"/>
+			</column>			
+
+			<column name="last_used" type="TIMESTAMP">
+               <constraints nullable="false"/>
+			</column>	
+		</createTable>
+	</changeSet>		
+		
+	<changeSet author="dev" id="28">
+		<createTable tableName="Workflow">
+			<column autoIncrement="true" name="id" type="BIGINT">
+				<constraints nullable="false" primaryKey="true" primaryKeyName="PK_Workflow" />
+			</column>
+
+			<column name="createDate" type="datetime">
+		      <constraints nullable="false" />
+			</column>
+
+			<column name="active" type="boolean">
+	          <constraints nullable="false" />			
+			</column>
+						
+            <column name="approved" type="boolean">
+	          <constraints nullable="false" />			
+			</column>						
+
+            <column name="notes" type="varchar(255)" />
+						
+			<column name="carId" type="BIGINT">
+			    <constraints nullable="false" />
+			</column>
+			
+			<column name="staffId" type="BIGINT">
+			    <constraints nullable="false" />
+			</column>	
+			
+			<column name="lastStatusId" type="BIGINT">
+			    <constraints nullable="true" />
+			</column>			
+			
+			<column name="nextStatusId" type="BIGINT">
+			    <constraints nullable="false" />
+			</column>
+		</createTable>	
+			
+        <addForeignKeyConstraint 
+		    baseColumnNames="carId" baseTableName="Workflow" 
+		    constraintName="FK_Workflow_Car"
+			referencedColumnNames="id" referencedTableName="Car" />						
+		
+        <addForeignKeyConstraint 
+		    baseColumnNames="staffId" baseTableName="Workflow" 
+		    constraintName="FK_Workflow_Staff"
+			referencedColumnNames="id" referencedTableName="Staff" />			
+		
+        <addForeignKeyConstraint 
+		    baseColumnNames="lastStatusId" baseTableName="Workflow" 
+		    constraintName="FK_Workflow_LastStatus"
+			referencedColumnNames="id" referencedTableName="Status" />			
+		
+        <addForeignKeyConstraint 
+		    baseColumnNames="nextStatusId" baseTableName="Workflow" 
+		    constraintName="FK_Workflow_NextStatus"
+			referencedColumnNames="id" referencedTableName="Status" />			
+	</changeSet>			
+		
+		
+</databaseChangeLog>
