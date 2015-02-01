@@ -1,0 +1,136 @@
+# dev = development profile
+# prod = production profile
+# script/link = script/link tag
+
+--- 
+  variable: login_js
+  resources:
+  - path: /resources/extjs-gpl/{extjs.version}/ext-all-dev.js
+    dev: script
+    prod: ignore
+    
+  - path: /resources/extjs-gpl/{extjs.version}/ext-all.js
+    dev: ignore
+    prod: script
+      
+  - path: /resources/customtheme/customtheme.js
+    dev: script
+    prod: script
+    
+  - path: /app/ux/window/Notification.js
+    classpath: /static
+    dev: script
+    prod: concat_minify  
+      
+  - path: /login.js
+    classpath: /static
+    dev: script
+    prod: concat_minify  
+      
+  - path: /resources/detect.js
+    classpath: /static
+    dev: script
+    prod: concat_minify    
+  
+---
+  variable: app_css
+  resources:
+  - path: /resources/customtheme/customtheme-all.css
+    classpath: /static
+    dev: link
+    prod: link
+      
+  - path: /resources/css/app.css
+    classpath: /static
+    dev: link
+    prod: concat_minify
+      
+  - path: /resources/css/Notification.css
+    classpath: /static
+    dev: link
+    prod: concat_minify
+      
+  - path: /resources/fontello/css/custom.css
+    classpath: /static
+    dev: link
+    prod: concat_minify    
+  
+--- 
+  variable: app_js
+  resources:
+  - path: /resources/extjs-gpl/{extjs.version}/ext-all-dev.js
+    dev: script
+    prod: ignore
+      
+  - path: /resources/extjs-gpl/{extjs.version}/ext-all.js
+    dev: ignore
+    prod: script
+
+  - path: /overrides/
+    classpath: /static
+    dev: ignore
+    prod: concat_minify
+      
+  - path: /resources/customtheme/customtheme.js
+    classpath: /static
+    dev: script
+    prod: script  
+  
+  - path: /resources/deft-debug.js
+    classpath: /static
+    dev: script
+    prod: ignore  
+  
+  - path: /resources/deft.js
+    classpath: /static
+    dev: ignore
+    prod: concat_minify   
+  
+  - path: /api.js
+    dev: script
+    prod: ignore
+      
+  - path: /api-{application.version}.js
+    dev: ignore
+    prod: script  
+  
+  - path: /resources/extjs-gpl/{extjs.version}/ux/BoxReorderer.js
+    classpath: /META-INF/resources    
+    dev: ignore
+    prod: concat_minify
+      
+  - path: /resources/extjs-gpl/{extjs.version}/ux/TabCloseMenu.js
+    classpath: /META-INF/resources
+    dev: ignore
+    prod: concat_minify
+      
+  - path: /resources/extjs-gpl/{extjs.version}/ux/TabReorderer.js
+    classpath: /META-INF/resources
+    dev: ignore
+    prod: concat_minify
+      
+  - path: /resources/extjs-gpl/{extjs.version}/ux/form/MultiSelect.js
+    classpath: /META-INF/resources
+    dev: ignore
+    prod: concat_minify
+    
+  - path: /app/
+    classpath: /static
+    dev: ignore
+    prod: concat_minify
+      
+  - path: /app.js
+    classpath: /static
+    dev: script
+    prod: concat_minify  
+      
+  - path: /resources/extjs.history.js
+    classpath: /static
+    dev: script
+    prod: concat_minify  
+      
+  - path: /resources/detect.js
+    classpath: /static
+    dev: script
+    prod: concat_minify
+ 
