@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<archetype-catalog>
+  <archetypes>
+    <archetype>
+      <groupId>ch.rasc</groupId>
+      <artifactId>springjpa-archetype</artifactId>
+      <version>2.0.2</version>
+      <repository>https://repo.rasc.ch</repository>
+      <description>Spring 4, JPA2, Spring-Data-Jpa, QueryDSL, Hibernate 4</description>
+    </archetype>
+	
+    <archetype>
+      <groupId>ch.rasc</groupId>
+      <artifactId>springmvc-archetype</artifactId>
+      <version>2.0.2</version>
+      <repository>https://repo.rasc.ch</repository>
+      <description>Simple Webapp with Spring MVC 4 and Spring Security 3.2.x</description>
+    </archetype>	
+	
+    <archetype>
+      <groupId>ch.rasc</groupId>
+      <artifactId>webappsimple-archetype</artifactId>
+      <version>2.0.2</version>
+      <repository>https://repo.rasc.ch</repository>
+      <description>Simple Webapplication with Servlet 3.0/JSP 2.2</description>
+    </archetype>		
+	
+    <archetype>
+      <groupId>ch.rasc</groupId>
+      <artifactId>webapp-archetype</artifactId>
+      <version>2.0.2</version>
+      <repository>https://repo.rasc.ch</repository>
+      <description>Webapp with Spring 4, Spring Security 3.2.x, JPA2, Spring-Data-Jpa, QueryDSL, Hibernate 4</description>
+    </archetype>	
+
+    <archetype>
+      <groupId>ch.rasc</groupId>
+      <artifactId>eds-starter-simple-archetype</artifactId>
+      <version>2.0.2</version>
+      <repository>https://repo.rasc.ch</repository>
+      <description>Simple Webapp with Ext JS 5.x, ExtDirectSpring 1.4.x and Spring 4</description>
+    </archetype>
+	
+    <archetype>
+      <groupId>ch.rasc</groupId>
+      <artifactId>eds-starter-archetype</artifactId>
+      <version>2.0.2</version>
+      <repository>https://repo.rasc.ch</repository>
+      <description>Webapp with Ext JS 4.2.2, ExtDirectSpring 1.4.x, Spring 4, Spring Security, JPA2, Spring-Data-Jpa, QueryDSL, Hibernate 4</description>
+    </archetype>		
+
+  </archetypes>
+</archetype-catalog>

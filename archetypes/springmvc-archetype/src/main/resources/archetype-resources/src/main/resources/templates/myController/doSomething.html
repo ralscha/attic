@@ -1,0 +1,15 @@
+#set( $symbol_pound = '#' )
+#set( $symbol_dollar = '$' )
+#set( $symbol_escape = '\' )
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8"></meta>
+  <title>Response</title>
+</head>
+
+<body>
+  Today: <strong th:text="${symbol_dollar}{today}">${symbol_dollar}{today}</strong><br />
+  I am: <span id="me" th:text="${symbol_dollar}{me}">${symbol_dollar}{me}</span> 
+</body>
+</html>
