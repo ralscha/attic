@@ -1,0 +1,11 @@
+insert into team(name) values ('Team A')
+insert into team(name) values ('Team B')
+insert into team(name) values ('Team C')
+
+insert into player(first_name,last_name,team_id) values('Timothy','Fox',1)
+insert into player(first_name,last_name,team_id) values('Quemby','Russell',2)
+insert into player(first_name,last_name,team_id) values('Kirk','Bird',3)
+insert into player(first_name,last_name,team_id) values('Latifah','Graves',1)
+insert into player(first_name,last_name,team_id) values('Geraldine','Alvarado',2)
+insert into player(first_name,last_name,team_id) values('Willa','Randall',3)
+insert into player(first_name,last_name,team_id) values('Quinn','Hancock',1)
