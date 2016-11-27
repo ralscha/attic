@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:HDividedBox xmlns:mx="http://www.adobe.com/2006/mxml" width="100%" height="100%" 
+  xmlns:user="@packageProject@.component.user.*" enterState="onEnterStateList()">
+  
+  <mx:Metadata>
+    [Name]
+  </mx:Metadata>  
+  
+  <mx:Script>
+    <![CDATA[
+      import org.granite.tide.events.TideUIEvent;
+    
+      public function init():void {
+        currentState = '';
+        userList.setFocus();
+        dispatchEvent(new TideUIEvent("searchUser", null));
+        dispatchEvent(new TideUIEvent("initRoles"));
+      }      
+            
+      [Observer("switchToUserEdit")]
+      public function switchToEdit():void {
+        currentState = 'edit';      
+      }     
+      
+      [Observer("switchToUserList")]
+      public function switchToList():void {
+        currentState = '';
+        
+      }                        
+      
+      private function onEnterStateList():void {
+        userList.setFocus();   
+      }
+      
+      
+    ]]>
+  </mx:Script>
+  
+  <mx:states>
+    <mx:State name="edit">
+      <mx:SetProperty target="{userList}" name="width" value="50%" />
+      <mx:SetProperty target="{userEdit}" name="width" value="50%" />
+      <mx:SetProperty target="{userEdit}" name="includeInLayout" value="true" />
+      <mx:SetProperty target="{userEdit}" name="visible" value="true" />
+    </mx:State>
+  </mx:states>
+  <!-- todo: this no longer works with flex sdk 3.4
+  <mx:transitions>
+    <mx:Transition fromState="" toState="edit">
+      <mx:Sequence>
+        <mx:SetPropertyAction target="{userEdit}" name="includeInLayout"/>
+        <mx:SetPropertyAction target="{userEdit}" name="visible"/>
+        <mx:Resize targets="{[userList, userEdit]}" duration="300"/>
+        <mx:SetPropertyAction target="{userEdit}" name="width"/>
+        <mx:SetPropertyAction target="{userList}" name="width"/>
+      </mx:Sequence>
+    </mx:Transition>    
+    <mx:Transition fromState="edit" toState="">
+      <mx:Sequence>
+        <mx:Resize targets="{[userList, userEdit]}" duration="300"/>
+        <mx:SetPropertyAction target="{userEdit}" name="includeInLayout"/>
+        <mx:SetPropertyAction target="{userEdit}" name="visible"/>        
+        <mx:SetPropertyAction target="{userEdit}" name="width"/>
+        <mx:SetPropertyAction target="{userList}" name="width"/>
+      </mx:Sequence>
+    </mx:Transition>        
+  </mx:transitions>
+  -->
+  <user:UserList id="userList" width="100%" />
+  <user:UserEdit id="userEdit" width="0%" visible="false" includeInLayout="false"/>
+  
+</mx:HDividedBox>

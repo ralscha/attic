@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<services-config>
+
+  <services>
+    <service id="granite-service" class="flex.messaging.services.RemotingService" messageTypes="flex.messaging.messages.RemotingMessage">
+      <destination id="seam">
+        <channels>
+          <channel ref="my-graniteamf" />
+        </channels>
+        <properties>
+          <factory>seamFactory</factory>
+        </properties>
+      </destination>
+    </service>
+
+    <service id="gravity-service"
+        class="flex.messaging.services.MessagingService"
+        messageTypes="flex.messaging.messages.AsyncMessage">
+        <adapters>
+            <adapter-definition id="simple" class="org.granite.gravity.adapters.SimpleServiceAdapter"/>
+        </adapters>
+
+        <destination id="seamAsync">
+            <channels>
+                <channel ref="my-gravityamf"/>
+            </channels>
+            <adapter ref="simple"/>
+        </destination>
+        
+        <destination id="updateTopic">
+            <properties>
+              <session-selector>true</session-selector>
+            </properties>
+            <channels>
+                <channel ref="my-gravityamf"/>
+            </channels>
+            <adapter ref="simple"/>
+        </destination>            
+    </service>
+    
+
+    <!--  
+    <service id="gravity-service" class="flex.messaging.services.MessagingService" messageTypes="flex.messaging.messages.AsyncMessage">
+      <adapters>
+        <adapter-definition id="jms" class="org.granite.gravity.adapters.JMSServiceAdapter" />
+      </adapters>
+
+      <destination id="dataTopic">
+        <properties>
+          <jms>
+            <destination-type>Topic</destination-type>
+            <connection-factory>jms/connectionFactory</connection-factory>
+            <destination-jndi-name>topic/dataUpdateTopic</destination-jndi-name>
+            <destination-name>dataTopic</destination-name>
+            <acknowledge-mode>AUTO_ACKNOWLEDGE</acknowledge-mode>
+            <transacted-sessions>true</transacted-sessions>
+            <no-local>true</no-local>
+          </jms>
+        </properties>
+        <channels>
+          <channel ref="my-gravityamf" />
+        </channels>
+        <adapter ref="jms" />
+      </destination>
+    </service>
+    -->
+    
+  </services>
+
+
+  <factories>
+    <factory id="seamFactory" class="org.granite.tide.seam.SeamServiceFactory" />
+  </factories>
+
+  <channels>
+    <channel-definition id="my-graniteamf" class="mx.messaging.channels.AMFChannel">
+      <endpoint uri="http://{server.name}:{server.port}/{context.root}/graniteamf/amf" class="flex.messaging.endpoints.AMFEndpoint" />
+    </channel-definition>
+
+    <channel-definition id="my-gravityamf" class="org.granite.gravity.channels.GravityChannel">
+      <endpoint uri="http://{server.name}:{server.port}/{context.root}/gravity/amf" class="flex.messaging.endpoints.AMFEndpoint" />
+    </channel-definition>
+  </channels>
+
+</services-config>

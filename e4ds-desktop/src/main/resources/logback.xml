@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration>
+<configuration debug="false">
+  
+  <appender name="DB" class="ch.qos.logback.classic.db.DBAppender">
+    <connectionSource class="ch.qos.logback.core.db.JNDIConnectionSource">
+      <param name="jndiLocation" value="java:comp/env/jdbc/e4desk" />
+    </connectionSource>
+  </appender>
+
+  <root level="WARN">    
+    <appender-ref ref="DB" />
+  </root>  
+   
+</configuration>

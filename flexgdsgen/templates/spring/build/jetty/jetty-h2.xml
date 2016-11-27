@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+<!DOCTYPE Configure PUBLIC "-//Jetty//Configure//EN" "http://www.eclipse.org/jetty/configure.dtd">
+
+<Configure id="Server" class="org.eclipse.jetty.server.Server">
+
+  <Call name="addConnector">
+    <Arg>
+      <New class="org.eclipse.jetty.server.nio.SelectChannelConnector">
+        <Set name="host"><SystemProperty name="jetty.host" /></Set>
+        <Set name="port"><SystemProperty name="jetty.port" default="8080" /></Set>
+        <Set name="maxIdleTime">300000</Set>
+        <Set name="Acceptors">2</Set>
+        <Set name="statsOn">false</Set>
+        <Set name="confidentialPort">8443</Set>
+        <Set name="lowResourcesConnections">20000</Set>
+        <Set name="lowResourcesMaxIdleTime">5000</Set>
+      </New>
+    </Arg>
+  </Call>
+
+  <Set name="handler">
+    <New class="org.eclipse.jetty.webapp.WebAppContext">
+      <Set name="contextPath">/@projectNameLowerCase@</Set>
+        <Set name="war">web</Set>
+        <Set name="defaultsDescriptor">build/jetty/webdefault.xml</Set>
+        
+        <Set name="configurationClasses">
+          <Array type="java.lang.String">
+          <Item>org.eclipse.jetty.webapp.WebInfConfiguration</Item>
+          <Item>org.eclipse.jetty.webapp.WebXmlConfiguration</Item>
+          <Item>org.eclipse.jetty.webapp.MetaInfConfiguration</Item>
+          <Item>org.eclipse.jetty.webapp.FragmentConfiguration</Item>
+          <Item>org.eclipse.jetty.plus.webapp.EnvConfiguration</Item>
+          <Item>org.eclipse.jetty.plus.webapp.Configuration</Item>
+          <Item>org.eclipse.jetty.webapp.JettyWebXmlConfiguration</Item>
+          </Array>
+        </Set>
+
+			  <New id="datasource" class="org.eclipse.jetty.plus.jndi.Resource">
+			    <Arg>jdbc/@projectNameLowerCase@</Arg>
+			    <Arg>
+			      <New class="org.h2.jdbcx.JdbcDataSource">
+			        <Set name="URL">@hibernate.connection.url@</Set>
+			        <Set name="User">@hibernate.connection.username@</Set>
+			        <Set name="Password">@hibernate.connection.password@</Set>
+			      </New>
+			    </Arg>
+			  </New> 
+        
+        <New id="mail" class="org.eclipse.jetty.plus.jndi.Resource">
+				  <Arg>mail/session</Arg>
+				  <Arg>
+				    <New class="org.eclipse.jetty.jndi.factories.MailSessionReference">
+				      <Set name="properties">
+				        <New class="java.util.Properties">
+						      <Put name="mail.smtp.host">127.0.0.1</Put>
+						      <Put name="mail.from">no-reply@test.ch</Put>
+						      <Put name="mail.debug">true</Put>
+						    </New>
+				      </Set>
+				    </New>
+				  </Arg>
+				</New>
+        
+
+      </New>
+    </Set>
+    
+</Configure>

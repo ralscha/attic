@@ -1,0 +1,7 @@
+FLEX_HOME=@flexHome@
+fork.mxmlc=false
+
+ivy.revision=2.1.0
+granite.revision=2.1.0.GA
+jetty.revision=7.0.1.v20091125
+spring.revision=3.0.1.RELEASE

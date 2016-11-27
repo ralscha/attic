@@ -1,0 +1,438 @@
+<project name="build spring" default="generate">
+		
+	<target name="init">
+	  <path id="seam.gen.path">
+      <fileset dir="${basedir}/lib">
+        <include name="jboss-seam-gen*.jar" />
+      </fileset>	  	
+	  </path>
+
+	  <taskdef name="normalizeProjectName" 
+	           classname="org.jboss.seam.tool.NormalizeProjectNameTask" 
+	           classpathref="seam.gen.path"/>
+	       
+	  <taskdef name="packageDirectory" 
+	           classname="org.jboss.seam.tool.PackageDirectoryTask" 
+	           classpathref="seam.gen.path"/>
+	      	      
+	  <taskdef name="uncapitalizeProperty" 
+	           classname="org.jboss.seam.tool.UncapitalizePropertyTask" 
+	           classpathref="seam.gen.path"/>
+	       
+	  <taskdef name="uppercaseProperty" 
+	           classname="org.jboss.seam.tool.UppercasePropertyTask" 
+	           classpathref="seam.gen.path"/>
+
+	  <taskdef name="pathFixer" 
+	           classname="org.jboss.seam.tool.FixPathTask" 
+	           classpathref="seam.gen.path"/>
+		
+		<taskdef name="eclipseClasspath" 
+		         classname="ch.ralscha.task.EclipseClasspathTask">
+			<classpath>
+				<pathelement location="${basedir}/tool/bin" />          
+			</classpath>
+		</taskdef>
+		
+    <taskdef name="lowercaseProperty" 
+             classname="ch.ralscha.task.LowercasePropertyTask">
+      <classpath>
+        <pathelement location="${basedir}/tool/bin" />          
+      </classpath>
+    </taskdef>		
+		
+	  <taskdef resource="net/sf/antcontrib/antlib.xml">
+      <classpath>
+        <pathelement location="${basedir}/lib/ant-contrib-1.0b3.jar" />          
+      </classpath>		
+		</taskdef>
+		
+	</target>	
+	
+  <macrodef name="setPropertyValue">
+   <attribute name="to"/>
+   <attribute name="prefix"/>
+   <attribute name="name"/>
+   <attribute name="postfix"/>
+    <sequential>
+      <property name="@{to}" value="${@{prefix}.@{name}.@{postfix}}"/>
+    </sequential>
+  </macrodef>
+  
+	
+	<target name="generate" description="Generates a Spring/Flex/Air/GraniteDS Project" depends="init">
+		
+    <input addproperty="projectName" message="Project Name: " />
+    <normalizeProjectName property="projectName" />
+
+		<input addproperty="applicationType"
+		       message="Application?"
+		       validargs="web,air"
+		       defaultvalue="web" />
+		
+
+		<property name="templatesDir" value="${basedir}/templates/spring"/>
+		
+		<property file="${basedir}/build.properties" prefix="default" />
+				
+		<input addproperty="projectDir" message="Project Directory: " 
+			     defaultvalue="${default.workspaceDir}/${projectName}"/>
+		<pathFixer property="projectDir" />
+								
+		<input addproperty="packageBaseName" message="Company Package Name: " defaultvalue="${default.packageBaseName}"/>
+		
+    <uncapitalizeProperty name="projectNameLowerCase" value="${projectName}"/>
+    
+		<lowercaseProperty name="lowercasePackageProject" value="${packageBaseName}.${projectNameLowerCase}"/>
+		
+		<input addproperty="packageProject" message="Project Package Name: " 
+			     defaultvalue="${lowercasePackageProject}" />
+		
+		<input addproperty="flexHome" message="Flex Home: " defaultvalue="${default.flexHome}"/>		
+		<pathFixer property="flexHome" />
+					  		
+	  
+	  
+    <input addproperty="databaseType" 
+           message="Database Type?"
+           validargs="mysql,mssql,h2,postgresql"
+           defaultvalue="${default.databaseType}"/>						
+			  
+	  <setPropertyValue to="hibernate.dialect" prefix="default" name="${databaseType}" postfix="hibernate.dialect"/>
+	  <setPropertyValue to="hibernate.connection.driver_class" prefix="default" name="${databaseType}" postfix="connection.driver"/>
+    <setPropertyValue to="default.hibernate.connection.url" prefix="default" name="${databaseType}" postfix="connection.url"/>	  
+	  <setPropertyValue to="default.hibernate.connection.username" prefix="default" name="${databaseType}" postfix="connection.username"/>
+    <setPropertyValue to="default.hibernate.connection.password" prefix="default" name="${databaseType}" postfix="connection.password"/>    
+	  <setPropertyValue to="jdbc.driver.download.url" prefix="default" name="${databaseType}" postfix="jdbc.driver.location"/>
+	  
+    <input addproperty="hibernate.connection.url" 
+           message="JDBC URL: " 
+           defaultvalue="${default.hibernate.connection.url}"/>
+    
+    <input addproperty="hibernate.connection.username" 
+           message="Database Username: " 
+           defaultvalue="${default.hibernate.connection.username}"/>
+            
+    <input addproperty="hibernate.connection.password" 
+           message="Database Password: " 
+           defaultvalue="${default.hibernate.connection.password}"/>		
+
+		<echo message="downloading jdbc driver..."/>
+		<basename property="jdbcDriverFileName" file="${jdbc.driver.download.url}"/>
+    <get src="${jdbc.driver.download.url}" 
+         dest="${basedir}/lib/${jdbcDriverFileName}" usetimestamp="true"/>		
+				
+		<packageDirectory property="packageDir" package="${packageProject}"/>
+		<packageDirectory property="packageEntityDir" package="${packageProject}/entity"/>
+		<packageDirectory property="packageServiceDir" package="${packageProject}/service"/>
+		<packageDirectory property="packageSecurityDir" package="${packageProject}/security"/>
+		<packageDirectory property="packageWebDir" package="${packageProject}/web"/>		
+		<packageDirectory property="packageComponentDir" package="${packageProject}/component"/>		
+		<packageDirectory property="packageControlDir" package="${packageProject}/control"/>
+		
+	  <!-- Global Filters -->
+		<filterset id="project">
+  	  <filter token="packageBaseName" value="${packageBaseName}" />
+  	  <filter token="packageProject" value="${packageProject}" />
+  	  <filter token="flexHome" value="${flexHome}"/>
+  	  <filter token="projectName" value="${projectName}"/>
+  	  <filter token="projectNameLowerCase" value="${projectNameLowerCase}" />
+			<filter token="packageEntityDir" value="${packageEntityDir}"/>
+			<filter token="packageServiceDir" value="${packageServiceDir}"/>
+			<filter token="webDir" value="${projectDir}/web"/>
+			<filter token="projectDir" value="${projectDir}"/>
+			
+      <filter token="hibernate.dialect" value="${hibernate.dialect}" />
+      <filter token="hibernate.connection.username" value="${hibernate.connection.username}" />
+      <filter token="hibernate.connection.password" value="${hibernate.connection.password}" />
+      <filter token="hibernate.connection.driver_class" value="${hibernate.connection.driver_class}" />
+      <filter token="hibernate.connection.url" value="${hibernate.connection.url}" />     			
+			
+			<filter token="packageComponentDir" value="${packageComponentDir}" />
+			<filter token="packageDir" value="${packageDir}" />
+			
+      <filter token="jdbc.driver.path" value="build/lib/${jdbcDriverFileName}" /> 
+			<filter token="jdbcDriverFileName" value="${jdbcDriverFileName}" />
+									
+    </filterset>
+		
+		<!-- Make Directories -->
+		<mkdir dir="${projectDir}"/>
+		<mkdir dir="${projectDir}/build"/>				
+		<mkdir dir="${projectDir}/build/lib"/>
+		<mkdir dir="${projectDir}/build/flex-lib"/>
+		<mkdir dir="${projectDir}/build/jetty"/>
+		<mkdir dir="${projectDir}/build/jetty/lib"/>
+		<mkdir dir="${projectDir}/build/repository"/>
+		<mkdir dir="${projectDir}/flex-src"/>
+		<mkdir dir="${projectDir}/flex-src/assets"/>
+		<mkdir dir="${projectDir}/web"/>						
+		<mkdir dir="${projectDir}/web/WEB-INF"/>
+		<mkdir dir="${projectDir}/web/WEB-INF/classes"/>
+		<mkdir dir="${projectDir}/web/WEB-INF/lib"/>
+				
+		<!-- Copy Sourcecode -->					
+
+    <copy todir="${projectDir}/src">
+    	<fileset dir="${templatesDir}/src/java/ROOT" />
+      <filterset refid="project"/>
+    </copy> 		
+    <copy todir="${projectDir}/src/${packageDir}">
+    	<fileset dir="${templatesDir}/src/java/package" />
+      <filterset refid="project"/>
+    </copy>   		
+
+    <copy todir="${projectDir}/flex-src">
+    	<fileset dir="${templatesDir}/src/flex/ROOT">
+    		<exclude name="**/*.png"/>  
+        <exclude name="**/Main.mxml*"/>  		
+    	</fileset>
+      <filterset refid="project"/>
+    </copy>
+    <copy todir="${projectDir}/flex-src">
+    	<fileset dir="${templatesDir}/src/flex/ROOT">
+    		<include name="**/*.png"/>  
+    	</fileset>
+    </copy>
+		
+    <if>     
+      <equals arg1="${applicationType}" arg2="air" />
+      <then>
+        <replace file="${projectDir}/flex-src/assets/main.css">
+          <replacefilter token="Application {" value="WindowedApplication {"/>
+        </replace>
+      </then>     
+    </if>		
+		
+    <if>     
+      <equals arg1="${applicationType}" arg2="web" />
+      <then>
+      	 <delete dir="${projectDir}/flex-src/locale_sdk/de_CH/airframework" />
+      </then>    	
+    </if>
+		
+    <copy todir="${projectDir}/flex-src/${packageDir}">
+    	<fileset dir="${templatesDir}/src/flex/package">
+    		<exclude name="**/*_web"/>
+    		<exclude name="**/*_air"/>
+    	</fileset>	
+      <filterset refid="project"/>
+    </copy>
+		
+    <if>     
+      <equals arg1="${applicationType}" arg2="web" />
+      <then>
+        <copy todir="${projectDir}/flex-src/${packageDir}">
+          <fileset dir="${templatesDir}/src/flex/package">
+            <include name="**/*_web"/>
+          </fileset>  
+          <filterset refid="project"/>
+        	<mapper type="glob" from="*_web" to="*" />
+        </copy>        
+      </then>   
+      <else>
+        <copy todir="${projectDir}/flex-src/${packageDir}">
+          <fileset dir="${templatesDir}/src/flex/package">
+            <include name="**/*_air"/>
+          </fileset>  
+          <filterset refid="project"/>
+        	<mapper type="glob" from="*_air" to="*" />
+        </copy>
+      	
+        <replace file="${projectDir}/flex-src/${packageDir}/Constants.as">
+          <replacefilter token="&quot;&quot;;" value="&quot;http://127.0.0.1:8080/${projectNameLowerCase}/&quot;;"/>
+        </replace>          
+      	
+      </else>
+    </if>		
+		
+				
+		<copy file="${templatesDir}/src/flex/ROOT/Main.mxml_${applicationType}" tofile="${projectDir}/flex-src/${projectNameLowerCase}.mxml">
+			<filterset refid="project"/>
+		</copy>
+		
+    <if>     
+      <equals arg1="${applicationType}" arg2="web" />
+      <then>
+  	    <delete file="${projectDir}/flex-src/air-app.xml" />
+  	    <delete file="${projectDir}/flex-src/updateConfig.xml" />
+  	    <delete file="${projectDir}/flex-src/FramerateThrottler.as" />
+  	  </then>   
+      <else>
+      	<move file="${projectDir}/flex-src/air-app.xml" tofile="${projectDir}/flex-src/${projectNameLowerCase}-app.xml"/>     
+      	
+        <if>
+          <available file="${flexHome}/templates/air/Descriptor.1.5.2.xsd" />
+          <then>
+             <replace file="${projectDir}/flex-src/${projectNameLowerCase}-app.xml">
+               <replacefilter token="1.5" value="1.5.2"/>
+             </replace>                 
+          </then>
+        </if>         	
+      	
+      </else>
+    </if>
+		
+		
+		<!-- Copy ROOT files -->	
+		<property name="repositoryDir" value="${projectDir}/build/repository"/>
+		<pathFixer property="repositoryDir" />
+					
+		<copy file="${templatesDir}/ivysettings.xml" todir="${projectDir}">
+      <filterset>
+        <filter token="repositoryDir" value="${repositoryDir}"/>
+      </filterset>
+    </copy>			
+
+    <mkdir dir="${projectDir}/.settings" />
+    <copy file="${templatesDir}/org.eclipse.core.resources.prefs" todir="${projectDir}/.settings" />
+
+		<copy file="${templatesDir}/DOTproject_${applicationType}" tofile="${projectDir}/.project" >
+			<filterset refid="project"/>
+		</copy>
+		
+		<copy file="${templatesDir}/DOTflexProperties" tofile="${projectDir}/.flexProperties"/>		
+		
+		<copy file="${templatesDir}/DOTgranite" tofile="${projectDir}/.granite">
+      <filterset refid="project"/>
+		</copy>
+
+    <copy file="${templatesDir}/DOTactionScriptProperties_${applicationType}" tofile="${projectDir}/.actionScriptProperties">
+      <filterset refid="project"/>   
+    </copy>   		
+		
+    <copy file="${templatesDir}/ivy.xml" todir="${projectDir}">
+      <filterset refid="project"/>
+    </copy>
+		
+    <copy file="${templatesDir}/build.properties_${applicationType}" tofile="${projectDir}/build.properties">
+      <filterset refid="project"/>
+    </copy>		
+		
+    <copy todir="${projectDir}/build/repository">
+      <fileset dir="${templatesDir}/build/repository" />
+    </copy> 		
+		
+		<osfamily property="osfamily"/>
+		<if>
+			<equals arg1="${osfamily}" arg2="unix" />
+			<then>
+	       <replace file="${projectDir}/build.properties">
+	         <replacefilter token="fork.mxmlc=false" value="fork.mxmlc=true"/>
+	       </replace> 				
+		  </then>
+	  </if>
+		
+    <copy file="${templatesDir}/build.xml_${applicationType}" tofile="${projectDir}/build.xml">
+      <filterset refid="project" />   	
+    </copy> 		
+		
+		
+		<!-- Copy Build files -->
+    <copy file="${basedir}/lib/${jdbcDriverFileName}" tofile="${projectDir}/build/lib/${jdbcDriverFileName}"/>    
+    
+    <copy file="${templatesDir}/build/jetty/jetty.launch" tofile="${projectDir}/build/jetty/${projectName}_Jetty.launch">   
+      <filterset refid="project"/>
+    </copy> 	
+    
+    <if>     
+      <equals arg1="${applicationType}" arg2="air" />
+      <then>
+      	<mkdir dir="${projectDir}/build/icons"/>
+        <copy todir="${projectDir}/build/icons">
+          <fileset dir="${templatesDir}/build/icons" />
+        </copy> 		
+      </then>
+    </if>
+      	
+    <copy todir="${projectDir}/build/repository">
+      <fileset dir="${templatesDir}/build/repository" />
+    </copy> 
+		
+    <if>    	
+     <equals arg1="${applicationType}" arg2="air" />
+     <then>
+       <copy file="${templatesDir}/build/Air.launch" tofile="${projectDir}/build/${projectName}_Air.launch">   
+         <filterset refid="project"/>
+       </copy>    
+     </then>
+     <else>
+       <copy file="${templatesDir}/build/Main.launch" tofile="${projectDir}/build/${projectName}_Flex.launch">   
+         <filterset refid="project"/>
+       </copy> 		
+		 </else>
+    </if>
+    			
+    <copy file="${templatesDir}/build/jetty/jetty-${databaseType}.xml" tofile="${projectDir}/build/jetty/jetty.xml">
+    	<filterset refid="project"/>
+    </copy>	
+											
+		<copy file="${templatesDir}/build/jetty/webdefault.xml" todir="${projectDir}/build/jetty"/>
+	
+     	      
+    <copy file="${templatesDir}/web/WEB-INF/web.xml" todir="${projectDir}/web/WEB-INF">
+      <filterset refid="project"/>
+    </copy>
+		
+    <copy file="${templatesDir}/web/WEB-INF/graniteamf-servlet.xml" todir="${projectDir}/web/WEB-INF">
+      <filterset refid="project"/>
+    </copy>      
+    
+    <copy file="${templatesDir}/web/WEB-INF/dispatcher-servlet.xml" todir="${projectDir}/web/WEB-INF">
+      <filterset refid="project"/>
+    </copy>             	
+		
+    <if>
+     <equals arg1="${applicationType}" arg2="air" />
+     <then>     	
+
+     	<copy todir="${projectDir}/web">
+        <fileset dir="${flexHome}/samples/badge">
+          <exclude name="default_badge.html"/>
+        	<exclude name="red_badge.html"/>
+        </fileset>    
+      </copy>
+      
+      <copy file="${templatesDir}/web/air/index.html" todir="${projectDir}/web">
+        <filterset refid="project"/>
+      </copy>
+     	
+      <copy file="${templatesDir}/web/air/update.xml" todir="${projectDir}/web">
+        <filterset refid="project"/>
+      </copy>
+     	
+     	<copy file="${flexHome}/frameworks/libs/air/applicationupdater.swc" todir="${projectDir}/build/flex-lib" />
+     	
+     </then>
+     <else>
+     	<copy file="${templatesDir}/web/expressInstall.swf" todir="${projectDir}/web" />
+   	
+  		<copy file="${templatesDir}/web/index.jsp" todir="${projectDir}/web">
+     	  <filterset refid="project"/>	  
+     	</copy>
+     </else>
+    </if>
+				
+		<zip destfile="${projectDir}/build/lib/buildtools.jar" basedir="${basedir}/tool/bin" />
+		<copy file="${templatesDir}/build/classpath.tmpl" todir="${projectDir}/build" />
+     	
+		<!-- Call resolve task from new project -->        
+		<ant antfile="${projectDir}/build.xml" 
+			   dir="${projectDir}"
+			   target="resolve" inheritall="false"/>
+
+    <ant antfile="${projectDir}/build.xml" 
+         dir="${projectDir}"
+         target="create.rb" inheritall="false"/>
+		
+    <if>
+      <equals arg1="${applicationType}" arg2="air" />
+      <then> 	
+        <ant antfile="${projectDir}/build.xml" 
+             dir="${projectDir}"
+             target="create.certificate" inheritall="false"/>   
+      </then>
+    </if>				
+	</target>
+	    
+</project>

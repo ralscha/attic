@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Canvas xmlns:mx="http://www.adobe.com/2006/mxml" styleName="statusBarReady" height="25">
+  
+  <mx:Metadata>
+    [Name("statusBar")]
+  </mx:Metadata>  
+  
+  <mx:Script>
+    <![CDATA[
+      
+      import mx.managers.CursorManager;
+            
+      private var timer:Timer;      
+            
+      [Observer("statusChange")]
+      public function statusChange(msg:String, state:StatusEnum, timed:Boolean = true, source:Object = null):void {
+        statusBarLabel.text = msg;
+        if (state == StatusEnum.SUCCESSFUL) {
+          styleName = 'statusBarSuccessful';
+        } else if (state == StatusEnum.ERROR) {
+          styleName = 'statusBarError';
+        } else if (state == StatusEnum.WORKING) {
+          CursorManager.setBusyCursor();
+          styleName = "statusBarReady";
+        }
+        
+        if (source != null) {
+          progressBar.visible = true;
+          progressBar.source = source;
+        }
+        
+        if (timed) {
+          if (timer != null) {
+            timer.removeEventListener(TimerEvent.TIMER, onTimer);
+            timer = null;
+          }
+          
+          timer = new Timer(3000, 1);
+          timer.addEventListener(TimerEvent.TIMER, onTimer);
+          timer.start();
+        }        
+      } 
+            
+      public function onTimer(event:TimerEvent):void {
+        reset();
+      }
+      
+      [Observer("statusReset")]
+      public function reset():void {
+        CursorManager.removeBusyCursor();
+        statusBarLabel.text = resourceManager.getString('common','Ready');
+        progressBar.source = null;
+        progressBar.visible = false;
+        styleName = "statusBarReady";
+      }
+      
+      private function onComplete():void {
+        CursorManager.removeBusyCursor();
+        progressBar.source = null;
+        progressBar.visible = false;
+      }
+             
+    ]]>
+  </mx:Script>
+  
+  <mx:Label text="{resourceManager.getString('common','Ready')}" id="statusBarLabel" styleName="statusBarLabel" verticalCenter="0"/>
+  <mx:ProgressBar verticalCenter="0" right="10" id="progressBar" visible="false" label="%3%%" labelPlacement="right" complete="onComplete()"/>
+</mx:Canvas>

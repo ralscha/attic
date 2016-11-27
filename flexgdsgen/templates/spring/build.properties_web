@@ -1,0 +1,14 @@
+FLEX_HOME=@flexHome@
+fork.mxmlc=false
+
+hibernate.connection.driver_class=@hibernate.connection.driver_class@
+hibernate.connection.url=@hibernate.connection.url@
+hibernate.connection.username=@hibernate.connection.username@
+hibernate.connection.password=@hibernate.connection.password@
+jdbc.driver.path=@jdbc.driver.path@
+hibernate.dialect=@hibernate.dialect@
+
+ivy.revision=2.1.0
+granite.revision=2.1.0.GA
+jetty.revision=7.0.1.v20091125
+spring.revision=3.0.1.RELEASE

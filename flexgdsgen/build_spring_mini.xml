@@ -1,0 +1,227 @@
+<project name="build spring mini" default="generate">
+		
+	<target name="init">
+	  <path id="seam.gen.path">
+      <fileset dir="${basedir}/lib">
+        <include name="jboss-seam-gen*.jar" />
+      </fileset>	  	
+	  </path>
+
+	  <taskdef name="normalizeProjectName" 
+	           classname="org.jboss.seam.tool.NormalizeProjectNameTask" 
+	           classpathref="seam.gen.path"/>
+	       
+	  <taskdef name="packageDirectory" 
+	           classname="org.jboss.seam.tool.PackageDirectoryTask" 
+	           classpathref="seam.gen.path"/>
+	      	      
+	  <taskdef name="uncapitalizeProperty" 
+	           classname="org.jboss.seam.tool.UncapitalizePropertyTask" 
+	           classpathref="seam.gen.path"/>
+	       
+	  <taskdef name="uppercaseProperty" 
+	           classname="org.jboss.seam.tool.UppercasePropertyTask" 
+	           classpathref="seam.gen.path"/>
+
+	  <taskdef name="pathFixer" 
+	           classname="org.jboss.seam.tool.FixPathTask" 
+	           classpathref="seam.gen.path"/>
+		
+		<taskdef name="eclipseClasspath" 
+		         classname="ch.ralscha.task.EclipseClasspathTask">
+			<classpath>
+				<pathelement location="${basedir}/tool/bin" />          
+			</classpath>
+		</taskdef>
+		
+    <taskdef name="lowercaseProperty" 
+             classname="ch.ralscha.task.LowercasePropertyTask">
+      <classpath>
+        <pathelement location="${basedir}/tool/bin" />          
+      </classpath>
+    </taskdef>		
+						
+    <taskdef resource="net/sf/antcontrib/antlib.xml">
+      <classpath>
+        <pathelement location="${basedir}/lib/ant-contrib-1.0b3.jar" />          
+      </classpath>    
+    </taskdef>	  
+	  
+	</target>	
+	
+	
+	<target name="generate" description="Generates a Mini Spring/Flex/GraniteDS Project" depends="init">
+		
+    <input addproperty="projectName" message="Project Name: " />    
+		<normalizeProjectName property="projectName" />
+			
+		<property name="applicationType" value="web" />
+
+		<property name="templatesDir" value="${basedir}/templates/spring_mini"/>
+		
+		<property file="${basedir}/build.properties" prefix="default" />
+				
+		<input addproperty="projectDir" message="Project Directory: " 
+			     defaultvalue="${default.workspaceDir}/${projectName}"/>
+		<pathFixer property="projectDir" />
+								
+		<input addproperty="packageBaseName" message="Company Package Name: " defaultvalue="${default.packageBaseName}"/>
+		
+    <uncapitalizeProperty name="projectNameLowerCase" value="${projectName}"/>
+    
+		<lowercaseProperty name="lowercasePackageProject" value="${packageBaseName}.${projectNameLowerCase}"/>
+		
+		<input addproperty="packageProject" message="Project Package Name: " 
+			     defaultvalue="${lowercasePackageProject}" />
+		
+		<input addproperty="flexHome" message="Flex Home: " defaultvalue="${default.flexHome}"/>		
+		<pathFixer property="flexHome" />
+					  									               	
+   				
+		<packageDirectory property="packageDir" package="${packageProject}"/>
+		<packageDirectory property="packageEntityDir" package="${packageProject}/entity"/>
+		<packageDirectory property="packageServiceDir" package="${packageProject}/service"/>
+		
+	  <!-- Global Filters -->
+		<filterset id="project">
+  	  <filter token="packageBaseName" value="${packageBaseName}" />
+  	  <filter token="packageProject" value="${packageProject}" />
+  	  <filter token="flexHome" value="${flexHome}"/>
+  	  <filter token="projectName" value="${projectName}"/>
+  	  <filter token="projectNameLowerCase" value="${projectNameLowerCase}" />
+			<filter token="packageEntityDir" value="${packageEntityDir}"/>
+			<filter token="packageServiceDir" value="${packageServiceDir}"/>
+			<filter token="webDir" value="${projectDir}/web"/>
+			<filter token="projectDir" value="${projectDir}"/>			
+			<filter token="packageDir" value="${packageDir}" />
+    </filterset>
+		
+		<!-- Make Directories -->
+		<mkdir dir="${projectDir}"/>
+		<mkdir dir="${projectDir}/build"/>				
+		<mkdir dir="${projectDir}/build/lib"/>
+		<mkdir dir="${projectDir}/build/flex-lib"/>
+		<mkdir dir="${projectDir}/build/jetty"/>
+		<mkdir dir="${projectDir}/build/jetty/lib"/>
+		<mkdir dir="${projectDir}/build/repository"/>
+		<mkdir dir="${projectDir}/flex-src"/>
+		<mkdir dir="${projectDir}/flex-src/assets"/> 
+		<mkdir dir="${projectDir}/web"/>						
+		<mkdir dir="${projectDir}/web/WEB-INF"/>
+		<mkdir dir="${projectDir}/web/WEB-INF/classes"/>
+		<mkdir dir="${projectDir}/web/WEB-INF/lib"/>
+				
+		<!-- Copy Sourcecode -->					
+  
+    <copy todir="${projectDir}/src">
+    	<fileset dir="${templatesDir}/src/java/ROOT" />
+      <filterset refid="project"/>
+    </copy> 		
+    <copy todir="${projectDir}/src/${packageDir}">
+    	<fileset dir="${templatesDir}/src/java/package" />
+      <filterset refid="project"/>
+    </copy>   		
+		
+    <copy todir="${projectDir}/flex-src">
+      <fileset dir="${templatesDir}/src/flex/ROOT">
+      	<exclude name="**/Main.mxml*"/>
+      </fileset>
+    </copy>		
+				
+		<copy file="${templatesDir}/src/flex/ROOT/Main.mxml_${applicationType}" tofile="${projectDir}/flex-src/${projectNameLowerCase}.mxml">
+			<filterset refid="project"/>
+		</copy>
+		
+		<!-- Copy ROOT files -->	
+		<property name="repositoryDir" value="${projectDir}/build/repository"/>
+		<pathFixer property="repositoryDir" />
+					
+		<copy file="${templatesDir}/ivysettings.xml" todir="${projectDir}">
+      <filterset>
+        <filter token="repositoryDir" value="${repositoryDir}"/>
+      </filterset>
+    </copy>			
+
+		<copy file="${templatesDir}/DOTproject_${applicationType}" tofile="${projectDir}/.project" >
+			<filterset refid="project"/>
+		</copy>
+		
+		<copy file="${templatesDir}/DOTflexProperties" tofile="${projectDir}/.flexProperties"/>		
+		
+		<copy file="${templatesDir}/DOTgranite" tofile="${projectDir}/.granite">
+      <filterset refid="project"/>
+		</copy>
+				
+    <copy file="${templatesDir}/DOTactionScriptProperties_${applicationType}" tofile="${projectDir}/.actionScriptProperties">
+      <filterset refid="project"/>   
+    </copy>   		
+		
+    <copy file="${templatesDir}/ivy.xml" todir="${projectDir}">
+      <filterset refid="project"/>
+    </copy>
+		
+    <copy file="${templatesDir}/build.properties_${applicationType}" tofile="${projectDir}/build.properties">
+      <filterset refid="project"/>
+    </copy>		
+		
+    <copy todir="${projectDir}/build/repository">
+      <fileset dir="${templatesDir}/build/repository" />
+    </copy> 		
+		
+		<osfamily property="osfamily"/>
+		<if>
+			<equals arg1="${osfamily}" arg2="unix" />
+			<then>
+	       <replace file="${projectDir}/build.properties">
+	         <replacefilter token="fork.mxmlc=false" value="fork.mxmlc=true"/>
+	       </replace> 				
+		  </then>
+	  </if>
+		
+    <copy file="${templatesDir}/build.xml_${applicationType}" tofile="${projectDir}/build.xml">
+      <filterset refid="project" />   	
+    </copy> 		
+				   
+    <copy file="${templatesDir}/build/jetty/jetty.launch" tofile="${projectDir}/build/jetty/${projectName}_Jetty.launch">   
+      <filterset refid="project"/>
+    </copy> 	
+        			
+
+    <copy file="${templatesDir}/build/Main.launch" tofile="${projectDir}/build/${projectName}_Flex.launch">   
+      <filterset refid="project"/>
+    </copy> 		
+    	
+    <copy file="${templatesDir}/build/jetty/jetty.xml" todir="${projectDir}/build/jetty">
+    	<filterset refid="project"/>
+    </copy>	
+											
+		<copy file="${templatesDir}/build/jetty/webdefault.xml" todir="${projectDir}/build/jetty"/>
+	
+		<!-- Copy Web files -->      
+    <copy file="${templatesDir}/web/WEB-INF/web.xml" todir="${projectDir}/web/WEB-INF">
+      <filterset refid="project"/>
+    </copy>
+		
+    <copy file="${templatesDir}/web/WEB-INF/graniteamf-servlet.xml" todir="${projectDir}/web/WEB-INF">
+      <filterset refid="project"/>
+    </copy>        	
+		
+    
+   	<copy file="${templatesDir}/web/expressInstall.swf" todir="${projectDir}/web" />
+   	
+		<copy file="${templatesDir}/web/index.jsp" todir="${projectDir}/web">
+   	  <filterset refid="project"/>	  
+   	</copy>
+		
+		<zip destfile="${projectDir}/build/lib/buildtools.jar" basedir="${basedir}/tool/bin" />
+		<copy file="${templatesDir}/build/classpath.tmpl" todir="${projectDir}/build" />
+     	
+		<!-- Call resolve task from new project -->        
+		<ant antfile="${projectDir}/build.xml" 
+			   dir="${projectDir}"
+			   target="resolve" inheritall="false"/>
+
+		
+	</target>
+		
+</project>

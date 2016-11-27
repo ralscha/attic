@@ -1,0 +1,310 @@
+<project name="@projectName@" xmlns:ivy="antlib:org.apache.ivy.ant" default="jetty">
+
+  <property file="${user.home}/build.properties" /> 
+  <property file="${basedir}/build.properties" />
+
+  <property name="web.dir" value="${basedir}/web" />
+	<property name="build.dir" value="${basedir}/build" />
+	<property name="webinf.lib.dir" value="${web.dir}/WEB-INF/lib" />
+	<property name="classes.dir" value="${web.dir}/WEB-INF/classes" />
+	<property name="src.dir" value="${basedir}/src" />
+	<property name="flexsrc.dir" value="${basedir}/flex-src" />
+
+	<path id="compile.classpath">
+		<fileset dir="${build.dir}/jetty/lib">
+			<include name="servlet-api*.jar" />			
+			<include name="mail*.jar" />
+		</fileset>
+		<fileset dir="${webinf.lib.dir}">
+			<include name="*.jar" />
+		</fileset>
+	</path>
+
+	<path id="liquibase.classpath">
+		<path location="${jdbc.driver.path}" />
+    <fileset dir="${webinf.lib.dir}">
+      <include name="*.jar" />
+    </fileset>	
+		<pathelement location="${classes.dir}" />         
+	</path>
+
+
+	<taskdef resource="flexTasks.tasks" classpath="${FLEX_HOME}/ant/lib/flexTasks.jar" />
+
+
+	<target name="install.ivy">
+	  <mkdir dir="${build.dir}/lib"/>
+	  <echo message="installing ivy..."/>
+	  <get src="http://repo1.maven.org/maven2/org/apache/ivy/ivy/${ivy.revision}/ivy-${ivy.revision}.jar" 
+	       dest="${build.dir}/lib/ivy-${ivy.revision}.jar" usetimestamp="true"/>
+
+	  <taskdef resource="org/apache/ivy/ant/antlib.xml" uri="antlib:org.apache.ivy.ant">
+	    <classpath>
+	  	  <pathelement location="${build.dir}/lib/ivy-${ivy.revision}.jar" />         
+	  	</classpath>
+	  </taskdef>
+	</target>
+
+
+	<target name="clean.java">
+		<delete dir="${classes.dir}" />
+	</target>
+
+	<target name="clean.flex">
+		<delete file="${web.dir}/@projectNameLowerCase@.swf" />
+	</target>
+
+	<target name="clean" depends="clean.java,clean.flex" >
+    <delete file="${build.dir}/@projectNameLowerCase@.war" />
+  </target>
+	
+	<target name="compile" depends="generate.as3,compile.java,compile.flex" />
+
+	<target name="check.swf">
+	  <condition property="skip.mxmlc">	   
+      <uptodate targetfile="${web.dir}/@projectNameLowerCase@.swf">
+        <srcfiles dir="${FLEX_HOME}/frameworks" includes="**"/>
+      	<srcfiles dir="${build.dir}/flex-lib" includes="*.swc"/>
+        <srcfiles dir="${flexsrc.dir}" includes="**"/>
+        <srcfiles dir="${web.dir}" includes="WEB-INF/flex/services-config.xml"/>      	
+      </uptodate>	        
+	  </condition>
+	</target>
+
+	
+	<target name="compile.flex" depends="check.swf" unless="skip.mxmlc">
+
+		<mxmlc file="${flexsrc.dir}/@projectNameLowerCase@.mxml" 
+			     keep-generated-actionscript="false" 
+			     output="${web.dir}/@projectNameLowerCase@.swf" 
+			     context-root="@projectNameLowerCase@" debug="false"
+			     optimize="true" 
+			     fork="${fork.mxmlc}"
+			     accessible="false" 
+			     static-link-runtime-shared-libraries="false" 
+			     services="${web.dir}/WEB-INF/flex/services-config.xml"			
+           allow-source-path-overlap="true"
+			     locale="en_US,de_CH">
+      
+      <load-config filename="${FLEX_HOME}/frameworks/flex-config.xml"/>
+      
+			<source-path path-element="${flexsrc.dir}/locale/{locale}" />
+
+      <compiler.include-libraries dir="${build.dir}/flex-lib" append="true">
+        <include name="granite-essentials.swc" />
+      </compiler.include-libraries>
+
+    	<compiler.library-path dir="${build.dir}/flex-lib" append="true">
+    		<include name="*.swc" />
+    	</compiler.library-path>			
+
+      <compiler.library-path dir="${build.dir}/flex-lib/de_CH" append="true">
+        <include name="*.swc" />
+      </compiler.library-path>  
+			
+      <!-- Standard annotations -->
+			<keep-as3-metadata name="Bindable"/>
+		  <keep-as3-metadata name="Managed"/>
+		  <keep-as3-metadata name="ChangeEvent"/>
+		  <keep-as3-metadata name="NonCommittingChangeEvent"/>
+		  <keep-as3-metadata name="Transient"/>
+
+    	<!-- Tide annotations -->
+    	<keep-as3-metadata name="Version"/>
+    	<keep-as3-metadata name="Name"/>
+    	<keep-as3-metadata name="In"/>
+    	<keep-as3-metadata name="Out"/>
+    	<keep-as3-metadata name="Observer"/>
+    	<keep-as3-metadata name="Destroy"/>
+    	<keep-as3-metadata name="Event"/>
+     
+		</mxmlc>
+
+		<copy todir="${web.dir}">
+		  <fileset dir="${FLEX_HOME}/frameworks/rsls" includes="framework*" />
+      <fileset dir="${FLEX_HOME}/frameworks/rsls" includes="datavisualization*" />
+		</copy>
+
+    <copy file="${flexsrc.dir}/assets/swfobject.js" todir="${web.dir}/assets" />
+
+	</target>
+
+	<target name="compile.java">
+		<mkdir dir="${classes.dir}" />
+
+		<javac srcdir="${src.dir}" 
+			     destdir="${classes.dir}" 
+			     deprecation="true" 
+			     optimize="true" 
+			     debug="false" 
+			     includeAntRuntime="no" 
+			     source="1.6" 
+			     target="1.6">
+			<classpath refid="compile.classpath" />
+		</javac>
+
+		<copy todir="${classes.dir}">
+			<fileset dir="${src.dir}" excludes="**/*.java" />
+		</copy>
+
+	</target>
+
+  <target name="prepare">
+		<replace file="${flexsrc.dir}/@packageComponentDir@/LoginView.mxml">
+		  <replacefilter token="/*STARTTESTONLY*/" value="/*STARTTESTONLY" />
+		</replace>            		
+
+		<replace file="${flexsrc.dir}/@packageComponentDir@/LoginView.mxml">
+      <replacefilter token="/*ENDTESTONLY*/" value="ENDTESTONLY*/" />
+    </replace>                
+	</target>
+	
+  <target name="unprepare">
+    <replace file="${flexsrc.dir}/@packageComponentDir@/LoginView.mxml">
+      <replacefilter token="/*STARTTESTONLY" value="/*STARTTESTONLY*/" />
+    </replace>                
+
+    <replace file="${flexsrc.dir}/@packageComponentDir@/LoginView.mxml">
+      <replacefilter token="ENDTESTONLY*/" value="/*ENDTESTONLY*/" />
+    </replace>     	  	
+  </target>
+	
+  <target name="war" depends="clean,prepare,compile,unprepare">
+		<jar compress="yes" jarfile="${build.dir}/@projectNameLowerCase@.war" basedir="${web.dir}" /> 
+	</target>
+	
+	
+	<target name="clean.lib">
+		<delete dir="${webinf.lib.dir}" failonerror="false" />
+	  <delete dir="${build.dir}/flex-lib" failonerror="false" />
+		<delete dir="${build.dir}/lib/gas" failonerror="false" />
+		<delete dir="${build.dir}/jetty/lib" failonerror="false" />
+		
+		<mkdir dir="${webinf.lib.dir}" />		
+    <mkdir dir="${build.dir}/flex-lib" />
+		<mkdir dir="${build.dir}/lib/gas" />
+		<mkdir dir="${build.dir}/jetty/lib" />
+	</target>
+
+  <target name="resolve" depends="install.ivy,clean.lib">
+    <ivy:settings file="${basedir}/ivysettings.xml" />
+    <ivy:retrieve />
+
+  	<move todir="${build.dir}/flex-lib">
+  		<fileset dir="${basedir}/lib">
+  		  <include name="*.swc" />
+  		</fileset>
+  	</move>
+  	
+  	<move file="${build.dir}/flex-lib/granite-essentials-swc-${granite.revision}.swc" 
+  		    tofile="${build.dir}/flex-lib/granite-essentials.swc" />
+  	<move file="${build.dir}/flex-lib/granite-swc-${granite.revision}.swc" 
+  		    tofile="${build.dir}/flex-lib/granite.swc" />
+  	
+    <move todir="${webinf.lib.dir}">
+      <fileset dir="${basedir}/lib">
+        <include name="*.jar" />
+        <exclude name="servlet*.jar" />
+        <exclude name="groovy-all*.jar" />
+      	<exclude name="jdo2*.jar" />
+        <exclude name="granite-generator*.jar" />
+      	<exclude name="jetty*.jar" />
+      	<exclude name="servlet*.jar" />
+      	<exclude name="mail*.jar" />      
+        <exclude name="jsp*.jar" />
+      	<exclude name="core*.jar" />
+      </fileset>
+    </move> 
+    <move todir="${build.dir}/lib/gas">
+      <fileset dir="${basedir}/lib">
+        <include name="groovy-all*.jar" />
+      	<include name="jdo2*.jar" />
+        <include name="granite-generator*.jar" />
+      </fileset>
+    </move>    
+    <move todir="${build.dir}/jetty/lib">
+      <fileset dir="${basedir}/lib"/>
+      </move>  	
+    <delete dir="${basedir}/lib" />
+    
+  </target>
+
+
+  <target name="create.rb" depends="framework_rb">
+		<mkdir dir="${FLEX_HOME}/frameworks/locale/de_CH" />
+  	<mkdir dir="${build.dir}/flex-lib/en_US" />
+  </target>
+	
+	<target name="framework_rb" description="Builds locale/de_CH/framework_rb.swc">
+    <compc output="${build.dir}/flex-lib/de_CH/framework_rb.swc" locale="de_CH" fork="${fork.mxmlc}">
+        <include-resource-bundles bundle="SharedResources"/>
+        <include-resource-bundles bundle="formatters"/>
+        <include-resource-bundles bundle="validators"/>
+      <source-path path-element="${flexsrc.dir}/locale_sdk/de_CH/framework"/>
+      <source-path path-element="${FLEX_HOME}/frameworks/projects/framework/src"/>
+      <external-library-path dir="${FLEX_HOME}/frameworks/libs/player/9" includes="playerglobal.swc"/>
+      <library-path/>
+    </compc>
+	</target>
+		
+	<target name="generate.as3" depends="compile.java">			
+		<taskdef name="gas3" classname="org.granite.generator.ant.AntJavaAs3Task">
+		  <classpath>
+		    <fileset dir="${build.dir}/lib/gas">
+		      <include name="*.jar" />
+		    </fileset>		  	
+		  	<path refid="compile.classpath"/>  		  	
+		  </classpath>	
+		</taskdef>
+			  
+		<gas3 outputdir="${flexsrc.dir}" tide="true">
+			<classpath>
+				<pathelement location="${classes.dir}" />					
+				<path refid="compile.classpath"/>
+			</classpath>		
+			<fileset dir="${classes.dir}">
+				<include name="@packageEntityDir@/*.class" />
+			</fileset>
+		</gas3>
+	</target>
+
+
+	<target name="create.db.changelog">
+		<input addproperty="changelogFileName" message="Changelog Filename: " defaultvalue="changelog_1.xml"/>
+		<available file="${src.dir}/db/${changelogFileName}" property="changelogFileExists"/>    
+		<fail if="changelogFileExists" message="Changelog File already exists"/>
+		
+		<taskdef resource="liquibasetasks.properties" classpathref="liquibase.classpath" />  
+ 
+	  <mkdir dir="${src.dir}/db"/>
+	
+    <diffDatabaseToChangeLog
+            driver="${hibernate.connection.driver_class}"
+            url="${hibernate.connection.url}"
+            username="${hibernate.connection.username}"
+            password="${hibernate.connection.password}"
+            baseUrl="hibernate:hibernate.cfg.xml"	 
+            outputFile="${src.dir}/db/${changelogFileName}"
+            classpathref="liquibase.classpath">
+    </diffDatabaseToChangeLog>
+		
+	</target>
+
+
+	<target name="jetty" depends="compile">
+    <path id="jetty.classpath">
+      <fileset dir="${build.dir}/jetty/lib" includes="*.jar"/>
+      <pathelement path="${jdbc.driver.path}"/>
+      <pathelement path="${build.dir}/jetty"/>
+    </path>
+
+    <java classname="org.mortbay.xml.XmlConfiguration" fork="yes">
+      <arg file="${build.dir}/jetty/jetty.xml"/>
+      <classpath refid="jetty.classpath"/>
+    </java>
+		
+</target>
+	
+
+
+</project>

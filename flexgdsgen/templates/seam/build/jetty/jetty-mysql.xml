@@ -1,0 +1,83 @@
+<?xml version="1.0"?>
+<!DOCTYPE Configure PUBLIC "-//Mort Bay Consulting//DTD Configure//EN" "http://jetty.mortbay.org/configure.dtd">
+
+
+<Configure id="Server" class="org.mortbay.jetty.Server">
+
+    <Set name="Connectors">
+      <Array type="org.mortbay.jetty.Connector">
+        <Item>
+          <New class="org.mortbay.jetty.nio.SelectChannelConnector">
+            <Set name="port">8080</Set>
+            <Set name="ReuseAddress">false</Set>
+          </New>
+        </Item>
+      </Array>
+    </Set>
+
+    <Set name="handler">
+      <New class="org.mortbay.jetty.webapp.WebAppContext">
+        <Set name="contextPath">/@projectNameLowerCase@</Set>
+        <Set name="war">web</Set>
+        <Set name="defaultsDescriptor">build/jetty/webdefault.xml</Set>
+        
+        <Set name="configurationClasses">
+          <Array type="java.lang.String">
+            <Item>org.mortbay.jetty.webapp.WebInfConfiguration</Item>
+            <Item>org.mortbay.jetty.plus.webapp.EnvConfiguration</Item>
+            <Item>org.mortbay.jetty.plus.webapp.Configuration</Item>
+            <Item>org.mortbay.jetty.webapp.JettyWebXmlConfiguration</Item>
+            <Item>org.mortbay.jetty.webapp.TagLibConfiguration</Item>
+          </Array>
+        </Set>
+
+			  <New id="datasource" class="org.mortbay.jetty.plus.naming.Resource">
+			    <Arg>jdbc/@projectNameLowerCase@</Arg>
+			    <Arg>
+			      <New class="com.mysql.jdbc.jdbc2.optional.MysqlConnectionPoolDataSource">
+			        <Set name="Url">@hibernate.connection.url@</Set>
+			        <Set name="User">@hibernate.connection.username@</Set>
+			        <Set name="Password">@hibernate.connection.password@</Set>
+			      </New>
+			    </Arg>
+			  </New>
+			  
+        <New id="mail" class="org.mortbay.jetty.plus.naming.Resource">
+				  <Arg>mail/session</Arg>
+				  <Arg>
+				    <New class="org.mortbay.naming.factories.MailSessionReference">
+				      <Set name="properties">
+				        <New class="java.util.Properties">
+						      <Put name="mail.smtp.host">127.0.0.1</Put>
+						      <Put name="mail.from">no-reply@test.ch</Put>
+						      <Put name="mail.debug">true</Put>
+						    </New>
+				      </Set>
+				    </New>
+				  </Arg>
+				</New>
+        
+      <!--       
+      <New id="cf" class="org.mortbay.jetty.plus.naming.Resource">
+        <Arg>jms/connectionFactory</Arg>
+        <Arg>
+          <New class="org.apache.activemq.ActiveMQConnectionFactory">
+            <Arg>vm://127.0.0.1?broker.persistent=true</Arg>
+          </New>
+        </Arg>
+      </New>
+      
+      <New id="dataUpdateTopic" class="org.mortbay.jetty.plus.naming.Resource">
+        <Arg>topic/dataUpdateTopic</Arg>
+        <Arg>
+          <New class="org.apache.activemq.command.ActiveMQTopic">
+            <Arg>dataUpdateTopic</Arg>
+          </New>
+        </Arg>
+      </New>
+       -->	  
+        
+      </New>
+    </Set>
+    
+</Configure>

@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:HBox xmlns:mx="http://www.adobe.com/2006/mxml" width="100%">
+  
+  <mx:Script>
+    <![CDATA[
+      import mx.resources.ResourceManager;
+      import mx.collections.ItemResponder;
+      import mx.collections.errors.ItemPendingError;
+      import mx.managers.DragManager;
+      import mx.events.DragEvent;
+      import mx.events.CollectionEvent;
+      import mx.collections.ArrayCollection;
+      import mx.collections.IList;
+      
+      [Bindable]
+      private var _availableDataProvider:IList;
+      
+      [Bindable]
+      private var availableDataProviderCopy:ArrayCollection;
+      
+      [Bindable]
+      private var _selectedDataProvider:IList;
+            
+      [Bindable]
+      public var availableHeaderText:String = ResourceManager.getInstance().getString('common','Available');
+      
+      [Bindable]
+      public var selectedHeaderText:String = ResourceManager.getInstance().getString('common','Selected');  
+
+      [Bindable]
+      public var availableLabelField:String = null;
+      
+      [Bindable]
+      public var selectedLabelField:String = null;
+      
+      [Bindable]
+      public var availableLabelFieldFunction:Function = null;
+      
+      [Bindable]
+      public var selectedLabelFieldFunction:Function = null;
+      
+      [Bindable]
+      public var selectedWidth:int = 100;
+      
+      [Bindable]
+      public var availableWidth:int = 100;
+      
+      public function set selectedDataProvider(aList:IList):void {
+        _selectedDataProvider = aList;
+        _selectedDataProvider.addEventListener(CollectionEvent.COLLECTION_CHANGE, onCollectionChange, false, 0, true);
+        init();
+      }
+      
+      private function onCollectionChange(e:CollectionEvent):void {
+        init();
+      }
+      
+      public function set availableDataProvider(aList:IList):void {
+        _availableDataProvider = aList;
+        init();
+      }
+      
+      private function init():void {   
+        try {              
+          if (_availableDataProvider != null) {
+            availableDataProviderCopy = new ArrayCollection();
+            for(var i:uint = 0; i < _availableDataProvider.length; i++) {
+              availableDataProviderCopy.addItem(_availableDataProvider.getItemAt(i));        
+            }             
+          
+            if (_selectedDataProvider != null) {
+              for(var s:uint = 0; s < _selectedDataProvider.length; s++) {          
+                for(var a:uint = 0; a < availableDataProviderCopy.length; a++) {
+                  if (availableDataProviderCopy.getItemAt(a).uid == _selectedDataProvider.getItemAt(s).uid) {                          
+                    availableDataProviderCopy.removeItemAt(a);
+                    break;
+                  }
+                }
+              }
+            }
+          }
+        } catch (e:ItemPendingError) {
+          e.addResponder(new ItemResponder(
+          function (result:Object, token:Object = null):void {
+            init();
+          },
+          function (fault:Object, token:Object = null):void {
+            trace('Error while loading collection');
+          }));          
+        }
+      }
+      
+      
+      private function dragCompleteHandler(event:DragEvent):void {
+        if (event.action != DragManager.NONE) {
+          var listInitiator:List = List(event.dragInitiator);
+          var listAC:IList = IList(listInitiator.dataProvider);
+          var item:Object = event.dragSource.dataForFormat("items")[0];
+          for(var i:uint = 0; item != null && i < listAC.length; i++) {
+            if (listAC.getItemAt(i).uid == item.uid) {
+              listAC.removeItemAt(i);
+              break;
+            }
+          }
+        }
+      }      
+      
+      private function onAvailableListItemClick():void {
+        moveAllButton.enabled = true;
+        moveButon.enabled = true;
+        removeAllButton.enabled = false;
+        removeButton.enabled = false;
+        selectedList.selectedItem = -1;
+      }
+      
+      private function onSelectedListItemClick():void {
+        moveAllButton.enabled = false;
+        moveButon.enabled = false;
+        removeAllButton.enabled = true;
+        removeButton.enabled = true;   
+        availableList.selectedItem = -1;   
+      }
+      
+      private function moveAll(source:IList, target:IList):void {
+        for(var i:uint = 0; i < source.length; i++) {
+          target.addItem(source.getItemAt(i));
+        }
+        source.removeAll();
+      }
+      
+      private function moveSelected(selectedItems:Array, source:IList, target:IList):void {
+        var movedItems:ArrayCollection = new ArrayCollection();
+        
+        for(var n:uint = 0; n < selectedItems.length; n++) {
+          target.addItem(selectedItems[n]);
+          movedItems.addItem(selectedItems[n]);
+        }
+        
+        for(n = 0; n < movedItems.length; n++) {
+          var found:Boolean = false;
+          for(var i:uint = 0; i < source.length && !found; i++) {
+            if (source.getItemAt(i).uid == movedItems.getItemAt(n).uid) {
+              source.removeItemAt(i);
+              found = true;
+            }
+          }
+        }        
+      }
+
+      
+      private function onMoveAllClick():void {
+        moveAll(availableDataProviderCopy, _selectedDataProvider);
+      }      
+
+      private function onMoveClick():void {
+        moveSelected(availableList.selectedItems, availableDataProviderCopy, _selectedDataProvider);
+      }
+      
+      private function onRemoveAllClick():void {
+        moveAll(_selectedDataProvider, availableDataProviderCopy);          
+      }
+      
+      private function onRemoveClick():void {
+        moveSelected(selectedList.selectedItems, _selectedDataProvider, availableDataProviderCopy);         
+      }
+      
+
+      
+    ]]>
+  </mx:Script>
+
+
+  <mx:VBox>
+    <mx:Label text="{availableHeaderText}" />           
+    <mx:List width="{availableWidth}" id="availableList" 
+             dataProvider="{availableDataProviderCopy}" 
+             dropEnabled="true" 
+             labelField="{availableLabelField}" 
+             labelFunction="availableLabelFieldFunction" 
+             dragEnabled="true" allowMultipleSelection="true" 
+             dragMoveEnabled="true"
+             dragComplete="dragCompleteHandler(event)"
+             itemClick="onAvailableListItemClick()"
+             doubleClick="onMoveClick()"
+             doubleClickEnabled="true"/>  
+  </mx:VBox>
+  <mx:VBox height="100%" verticalAlign="middle">
+    <mx:Button label="&gt;&gt;" width="45" id="moveAllButton" enabled="{availableDataProviderCopy.length > 0}" click="onMoveAllClick()"/>
+    <mx:Button label="&gt;" width="45" id="moveButon" enabled="false" click="onMoveClick()"/>
+    <mx:Button label="&lt;&lt;" width="45" id="removeAllButton" enabled="{_selectedDataProvider.length > 0}" click="onRemoveAllClick()"/>
+    <mx:Button label="&lt;" width="45" id="removeButton" enabled="false" click="onRemoveClick()"/>
+  </mx:VBox>
+  
+  <mx:VBox>
+    <mx:Label text="{selectedHeaderText}" />
+    <mx:List width="{selectedWidth}" id="selectedList" 
+             dataProvider="{_selectedDataProvider}" 
+             dropEnabled="true" 
+             labelField="{selectedLabelField}"
+             labelFunction="selectedLabelFieldFunction" 
+             dragEnabled="true" allowMultipleSelection="true" 
+             dragMoveEnabled="true"
+             dragComplete="dragCompleteHandler(event)"
+             itemClick="onSelectedListItemClick()"
+             doubleClick="onRemoveClick()"
+             doubleClickEnabled="true"/>  
+  </mx:VBox>
+</mx:HBox>

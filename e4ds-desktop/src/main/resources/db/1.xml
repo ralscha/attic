@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd
+    http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+	<changeSet author="dev" id="1">
+		<createTable tableName="logging_event">
+			<column name="timestmp" type="BIGINT">
+				<constraints nullable="false" />
+			</column>
+			<column name="formatted_message" type="CLOB">
+				<constraints nullable="false" />
+			</column>
+			<column name="logger_name" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="level_string" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="thread_name" type="VARCHAR(255)" />
+			<column name="reference_flag" type="SMALLINT" />
+			<column name="arg0" type="VARCHAR(255)" />
+			<column name="arg1" type="VARCHAR(255)" />
+			<column name="arg2" type="VARCHAR(255)" />
+			<column name="arg3" type="VARCHAR(255)" />
+			<column name="caller_filename" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="caller_class" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="caller_method" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="caller_line" type="CHAR(4)">
+				<constraints nullable="false" />
+			</column>
+			<column autoIncrement="true" name="event_id" type="BIGINT">
+				<constraints nullable="false" primaryKey="true" />
+			</column>
+		</createTable>
+	</changeSet>
+
+	<changeSet author="dev" id="2">
+		<createTable tableName="logging_event_exception">
+			<column name="event_id" type="BIGINT">
+				<constraints nullable="false" />
+			</column>
+			<column name="i" type="SMALLINT">
+				<constraints nullable="false" />
+			</column>
+			<column name="trace_line" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+		</createTable>
+	</changeSet>
+
+	<changeSet author="dev" id="3">
+		<createTable tableName="logging_event_property">
+			<column name="event_id" type="BIGINT">
+				<constraints nullable="false" />
+			</column>
+			<column name="mapped_key" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="mapped_value" type="VARCHAR(1024)" />
+		</createTable>
+	</changeSet>
+
+	<changeSet author="dev" id="4">
+		<addPrimaryKey columnNames="event_id, i" constraintName="PK_log_event_ex" tableName="logging_event_exception" />
+	</changeSet>
+
+	<changeSet author="dev" id="5">
+		<addPrimaryKey columnNames="event_id, mapped_key" constraintName="PK_log_event_prop" tableName="logging_event_property" />
+	</changeSet>
+
+	<changeSet author="dev" id="6">
+		<addForeignKeyConstraint baseColumnNames="event_id" baseTableName="logging_event_exception" constraintName="FK_log_event_ex_event"
+			referencedColumnNames="event_id"
+			referencedTableName="logging_event" />
+	</changeSet>
+
+	<changeSet author="dev" id="7">
+		<addForeignKeyConstraint baseColumnNames="event_id" baseTableName="logging_event_property" constraintName="FK_log_event_prop_event"
+			referencedColumnNames="event_id"
+			referencedTableName="logging_event" />
+	</changeSet>
+
+	<changeSet author="dev" id="8">
+		<createTable tableName="AppUser">
+			<column autoIncrement="true" name="id" type="BIGINT">
+				<constraints nullable="false" primaryKey="true" primaryKeyName="PK_AppUser" />
+			</column>
+
+			<column name="name" type="varchar(255)" />
+			<column name="firstName" type="varchar(255)" />
+
+			<column name="email" type="varchar(255)">
+				<constraints nullable="false" unique="true" />
+			</column>
+			
+			<column name="passwordHash" type="varchar(80)" />
+                        <column name="locale" type="varchar(8)" />			
+			<column name="enabled" type="BOOLEAN" />			
+			<column name="settings" type="varchar(1000)" />						
+                        <column name="failedLogins" type="INT" />
+                        <column name="lockedOut" type="datetime" />
+                        <column name="lastLogin" type="datetime" />
+		</createTable>
+	</changeSet>
+
+	<changeSet author="dev" id="9">
+		<createTable tableName="Role">
+			<column autoIncrement="true" name="id" type="BIGINT">
+				<constraints nullable="false" primaryKey="true" primaryKeyName="PK_Role" />
+			</column>
+
+			<column name="name" type="varchar(50)">
+				<constraints nullable="false" />
+			</column>
+		</createTable>
+	</changeSet>
+
+	<changeSet author="dev" id="10">
+		<createTable tableName="AppUserRoles">
+			<column name="userId" type="BIGINT">
+				<constraints nullable="false"/>
+			</column>
+
+			<column name="roleId" type="BIGINT">
+				<constraints nullable="false" />
+			</column>
+		</createTable>
+		<addPrimaryKey columnNames="userId,roleId" constraintName="PK_AppUserRoles" tableName="AppUserRoles" />
+		
+		<addForeignKeyConstraint baseColumnNames="userId" baseTableName="AppUserRoles" constraintName="FK_AppUserRoles_AppUser"
+			referencedColumnNames="id"
+			referencedTableName="AppUser" />		
+		
+		<addForeignKeyConstraint baseColumnNames="roleId" baseTableName="AppUserRoles" constraintName="FK_AppUserRoles_Role"
+			referencedColumnNames="id"
+			referencedTableName="Role" />			
+	</changeSet>
+	
+	<changeSet author="dev" id="11">
+	  <insert tableName="Role">
+	  	<column name="name" value="ROLE_ADMIN"/>
+	  </insert>
+	  <insert tableName="Role">
+	  	<column name="name" value="ROLE_USER"/>
+	  </insert>	  
+	</changeSet>
+	
+	<changeSet author="dev" id="12">
+		<createTable tableName="AccessLog">
+			<column autoIncrement="true" name="id" type="BIGINT">
+				<constraints nullable="false" primaryKey="true" primaryKeyName="PK_AccessLog" />
+			</column>	
+			
+			<column name="sessionId" type="varchar(100)" />
+			<column name="userName" type="varchar(255)" />
+			<column name="logIn" type="DATETIME" />
+			<column name="logOut" type="DATETIME" />
+			<column name="userAgent" type="varchar(255)" />
+
+		</createTable>
+	</changeSet>	
+	
+	<changeSet author="dev" id="13">
+		<createTable tableName="persistent_logins">
+			<column name="series" type="varchar(64)">
+				<constraints nullable="false" primaryKey="true" primaryKeyName="pk_persistent_logins" />
+			</column>	
+						
+			<column name="username" type="varchar(255)">
+               <constraints nullable="false"/>
+			</column>
+
+			<column name="token" type="varchar(64)">
+               <constraints nullable="false"/>
+			</column>			
+
+			<column name="last_used" type="TIMESTAMP">
+               <constraints nullable="false"/>
+			</column>	
+		</createTable>
+	</changeSet>		
+	
+	<changeSet author="dev" id="14">
+		<createTable tableName="Configuration">
+			<column autoIncrement="true" name="id" type="BIGINT">
+				<constraints nullable="false" primaryKey="true" primaryKeyName="PK_Configuration" />
+			</column>	
+						
+			<column name="confKey" type="varchar(256)" />
+			<column name="confValue" type="varchar(1024)" />
+
+		</createTable>
+	</changeSet>    
+	
+	<changeSet author="dev" id="15">
+	  <sql>insert into Configuration(confKey, confValue) values('SMTP_SENDER', 'test@test.com')</sql>
+	  <sql>insert into Configuration(confKey, confValue) values('SMTP_SERVER', 'localhost')</sql>
+	  <sql>insert into Configuration(confKey, confValue) values('SMTP_PORT', '25')</sql>
+	</changeSet>	
+	
+</databaseChangeLog>

@@ -1,0 +1,17 @@
+body {
+	background-color: #C2C2C2;
+}
+
+.x-body {
+	background-color: #C2C2C2;
+}
+
+.appHeader {
+	padding: 8px 0px 0px 5px;
+	font-size: 22px;
+	font-weight: 200;
+}
+
+.monospace {
+	font-family: Consolas, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
+}

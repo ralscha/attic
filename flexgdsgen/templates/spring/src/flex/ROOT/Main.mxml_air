@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:WindowedApplication xmlns:mx="http://www.adobe.com/2006/mxml"
+                        xmlns:component="@packageProject@.component.*" 
+                        layout="absolute"
+                        preinitialize="preinit()"
+                        creationComplete="init()" showStatusBar="false">
+  
+  <mx:Metadata>
+    [ResourceBundle("common")]
+    [ResourceBundle("user")]
+    [ResourceBundle("login")]
+    [ResourceBundle("configuration")]
+  </mx:Metadata>  
+                
+  <mx:Script>
+    <![CDATA[
+      import air.update.ApplicationUpdater;
+      import air.update.events.StatusUpdateEvent;
+      import air.update.events.UpdateEvent;
+      import @packageProject@.control.MainModule;
+      import @packageProject@.entity.Role;
+      import mx.events.IndexChangedEvent;
+      
+      import org.granite.tide.service.DefaultServiceInitializer;
+      import org.granite.tide.spring.Identity;
+      import org.granite.tide.spring.Spring;
+      
+      private var dummyRole:Role;
+      
+      [Bindable]
+      public var versionString:String;
+
+      [Bindable]
+      [In]
+      public var identity:Identity;
+
+      private var appUpdater:ApplicationUpdater = new ApplicationUpdater();
+
+      private function onChange(e:IndexChangedEvent):void {
+        applicationView.onClickHome();
+      }
+      
+      private function preinit():void {
+        Spring.getInstance().initApplication();
+        
+        Spring.getInstance().addComponentWithFactory("serviceInitializer", DefaultServiceInitializer, 
+          { contextRoot: "/@projectNameLowerCase@", serverName: "127.0.0.1", serverPort: "8080"});
+        
+        Spring.getInstance().addModule(MainModule);        
+      }      
+      
+      private function init():void {      
+        FramerateThrottler.initialize();
+  
+        appUpdater.configurationFile = new File("app:/updateConfig.xml");
+        
+        appUpdater.addEventListener(UpdateEvent.INITIALIZED, onInitzialized);      
+        appUpdater.addEventListener(StatusUpdateEvent.UPDATE_STATUS, onUpdateStatus);   
+        appUpdater.addEventListener(ProgressEvent.PROGRESS, onProgress);       
+        appUpdater.initialize();
+        
+        var appDescriptor:XML = NativeApplication.nativeApplication.applicationDescriptor;
+
+        var ns:Namespace = appDescriptor.namespace();
+        versionString = appDescriptor.ns::version;
+        
+        switch (Capabilities.language) {
+          case "de":
+            resourceManager.localeChain = [ "de_CH" ];
+            break;
+          default:
+            resourceManager.localeChain = [ "en_US" ];              
+        }
+
+      }
+      
+      private function onInitzialized(event:UpdateEvent):void {
+        appUpdater.checkNow();
+      }
+      
+      private function onUpdateStatus(event:StatusUpdateEvent):void {
+        if (event.available) {
+          mainVS.selectedIndex = 2;
+        } 
+      }
+      
+      private function onProgress(event:ProgressEvent):void {
+        updatePB.setProgress(event.bytesLoaded, event.bytesTotal);
+      }
+
+            
+    ]]>
+  </mx:Script>                
+                
+  <mx:Style source="/assets/main.css"/>
+  
+  <mx:ViewStack id="mainVS"
+                width="100%" height="100%"
+                paddingLeft="0" paddingRight="0" paddingTop="0" 
+                change="onChange(event)" 
+                selectedIndex="{identity.loggedIn ? 1 : 0}">
+
+    <component:LoginView id="loginView"/>
+    <component:ApplicationView id="applicationView"/>
+    
+    <mx:VBox width="100%" horizontalAlign="center" verticalAlign="middle" height="100%">
+      <mx:Label text="New Version of the Application is available. Updating ..." fontWeight="bold"/>
+      <mx:ProgressBar mode="manual" labelPlacement="right" label="%3%%" id="updatePB"/>
+    </mx:VBox>
+      
+    
+  </mx:ViewStack>
+</mx:WindowedApplication>

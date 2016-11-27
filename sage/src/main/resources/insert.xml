@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<entry xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://www.w3.org/2005/Atom">
+	<id/>
+	<title/>
+	<updated>2015-01-20</updated>
+	<payload xmlns="http://schemas.sage.com/sdata/2008/1">
+		<Adresse xmlns="http://schemas.sage.com/ch/Sage50">
+			<Anrede />
+			<Briefanrede />
+			<Code />
+			<DruckInfo>0</DruckInfo>
+			<EMail />
+			<Firma>Aa Bb AG</Firma>
+			<Homepage />
+			<ID>10038</ID>
+			<IstIntern>True</IstIntern>
+			<Land>CH</Land>
+			<MahnSperrCode>False</MahnSperrCode>
+			<PLZ>3076</PLZ>
+			<Ort>Worb</Ort>
+			<SortID>ABEGGIMMOB</SortID>
+			<Sprache>D</Sprache>
+			<StampUser>b</StampUser>
+			<StampDate>2014-05-02</StampDate>
+			<Strasse>Münsterstrasse 5</Strasse>
+			<Telefon1>044 222 23 33</Telefon1>
+			<Telefon2>01 222 23 25</Telefon2>
+			<Telefon3 />
+			<Telefon4 />
+			<Zusatz1>Abteilung Unterhalt</Zusatz1>
+			<Zusatz2 />
+		</Adresse>
+	</payload>
+</entry>

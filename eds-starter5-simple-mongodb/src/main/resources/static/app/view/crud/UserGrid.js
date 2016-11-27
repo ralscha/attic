@@ -1,0 +1,126 @@
+Ext.define('SimpleApp.view.crud.UserGrid', {
+	extend: 'Ext.grid.Panel',
+	requires: [ 'SimpleApp.view.crud.UserController', 'SimpleApp.view.crud.UserModel' ],
+
+	controller: {
+		xclass: 'SimpleApp.view.crud.UserController'
+	},
+	viewModel: {
+		xclass: 'SimpleApp.view.crud.UserModel'
+	},
+
+	title: 'STORE_READ and STORE_MODIFY',
+	bind: {
+		store: '{users}',
+		selection: '{selectedUser}'
+	},
+
+	listeners: {
+		canceledit: 'onCancelEdit',
+		edit: 'onEdit'
+	},
+
+	columns: [ {
+		dataIndex: 'firstName',
+		text: 'First Name',
+		flex: 1,
+		editor: {
+			xtype: 'textfield',
+			allowBlank: false
+		}
+	}, {
+		dataIndex: 'lastName',
+		text: 'Last Name',
+		flex: 1,
+		editor: {
+			xtype: 'textfield',
+			allowBlank: false
+		}
+	}, {
+		dataIndex: 'email',
+		text: 'Email',
+		flex: 1,
+		editor: {
+			xtype: 'textfield',
+			allowBlank: false,
+			vtype: 'email'
+		}
+	}, {
+		dataIndex: 'department',
+		text: 'Department',
+		flex: 1,
+		editor: {
+			xtype: 'combobox',
+			store: 'Departments',
+			queryMode: 'local',
+			displayField: 'name',
+			valueField: 'name'
+		}
+	} ],
+
+	plugins: {
+		ptype: 'rowediting',
+		pluginId: 'storePanelRowEditing'
+	},
+
+	dockedItems: [ {
+		xtype: 'toolbar',
+		dock: 'top',
+		items: [ {
+			text: 'New',
+			handler: 'newUser'
+		}, {
+			text: 'Delete',
+			handler: 'deleteUser',
+			bind: {
+				disabled: '{!selectedUser}'
+			}
+		}, '->', {
+			emptyText: 'Name and Email Filter',
+			xtype: 'textfield',
+			listeners: {
+				change: {
+					fn: 'onNamefilterChange',
+					buffer: 350
+				}
+			},
+			triggers: {
+				clear: {
+					cls: 'x-form-clear-trigger',
+					weight: 1,
+					handler: function(tf) {
+						tf.reset();
+					}
+				}
+			}
+		}, {
+			xtype: 'combobox',
+			reference: 'departmentFilterCB',
+			emptyText: 'Departments Filter',
+			store: 'Departments',
+			width: 200,
+			queryMode: 'local',
+			displayField: 'name',
+			valueField: 'name',
+			publishes: 'value',
+			triggers: {
+				clear: {
+					cls: 'x-form-clear-trigger',
+					weight: 1,
+					handler: function(cb) {
+						cb.reset();
+					}
+				}
+			}
+		} ]
+	}, {
+		xtype: 'pagingtoolbar',
+		reference: 'pagingtoolbar',
+		dock: 'bottom',
+		displayInfo: true,
+		bind: {
+			store: '{users}'
+		}
+	} ]
+
+});

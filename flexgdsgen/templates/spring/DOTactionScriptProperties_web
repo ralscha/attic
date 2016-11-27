@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<actionScriptProperties mainApplicationPath="@projectNameLowerCase@.mxml" version="6">
+  <compiler additionalCompilerArguments="-locale=en_US,de_CH -allow-source-path-overlap=true -source-path=locale/{locale} -include-libraries ../build/flex-lib/granite-essentials.swc -keep-as3-metadata=Bindable,Managed,ChangeEvent,NonCommittingChangeEvent,Transient,Id,Version,Name,In,Out,Observer,ManagedEvent,Destroy,Constraint" autoRSLOrdering="false" copyDependentFiles="true" generateAccessible="false" htmlExpressInstall="true" htmlGenerate="false" htmlHistoryManagement="true" htmlPlayerVersionCheck="true" includeNetmonSwc="false" outputFolderPath="web" sourceFolderPath="flex-src" strict="true" targetPlayerVersion="9.0.124" useApolloConfig="false" useDebugRSLSwfs="true" verifyDigests="true" warn="true">
+    <compilerSourcePath/>
+    <libraryPath defaultLinkType="3">
+      <libraryPathEntry kind="4" path=""/>
+      <libraryPathEntry kind="1" linkType="1" path="build/flex-lib"/>
+      <libraryPathEntry kind="1" linkType="1" path="build/flex-lib/{locale}"/>
+    </libraryPath>
+    <sourceAttachmentPath/>
+  </compiler>
+  <applications>
+    <application path="@projectNameLowerCase@.mxml"/>
+  </applications>
+  <modules/>
+  <buildCSSFiles/>
+</actionScriptProperties>

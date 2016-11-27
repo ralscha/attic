@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:HDividedBox xmlns:mx="http://www.adobe.com/2006/mxml" width="100%" height="100%" xmlns:demo="@packageProject@.component.demo.*">
+  
+  <mx:Metadata>
+    [Name]
+  </mx:Metadata>  
+    
+  <mx:Script>
+    <![CDATA[
+      import mx.collections.ArrayCollection;
+      import mx.events.IndexChangedEvent;
+      
+      [Bindable]
+      public var menuAC:ArrayCollection;
+      
+      public function init():void {
+        demoVS.selectedIndex = 0;
+        demoList.selectedIndex = -1;
+        
+        menuAC = new ArrayCollection();
+        menuAC.addItem({label:"Upload", index:1});
+      }
+      
+      private function onListClick(e:MouseEvent):void {
+        if(demoList.selectedItem != null) {
+          demoVS.selectedIndex = demoList.selectedItem.index;          
+        }
+      }      
+      
+    ]]>
+  </mx:Script>
+  
+  <mx:Panel title="Demos" width="126" height="100%">
+    <mx:List width="100%" height="100%" id="demoList" click="onListClick(event)" styleName="noborder" dataProvider="{menuAC}" />
+  </mx:Panel>  
+  
+  <mx:ViewStack id="demoVS" width="100%" height="100%">
+      
+    <mx:Panel id="emptyPanel" title="{resourceManager.getString('configuration','Please_select_Menu')}" height="40" width="100%">
+    </mx:Panel>
+
+    <demo:UploadView id="uploadView" />
+
+  </mx:ViewStack>
+  
+</mx:HDividedBox>

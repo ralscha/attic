@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Panel xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute" width="100%" height="100%" title="{resourceManager.getString('configuration','My_Configuration')}" xmlns:component="@packageProject@.component.*">
+
+  <mx:Metadata>
+    [Name]
+  </mx:Metadata> 
+
+  <mx:Script>
+    <![CDATA[
+      import mx.collections.ArrayCollection;
+      import org.granite.tide.events.TideUIEvent;
+      
+      private function onLocaleSaveClick():void {
+        resourceManager.localeChain = [ localeCB.selectedLocale ];
+        dispatchEvent(new TideUIEvent("newLocale", localeCB.selectedLocale));             
+      }
+      
+      private function onChangePasswordClick():void {        
+        var results:Array = Validator.validateAll([newPasswordTIValidator,repeatNewPasswordTIValidator]);       
+        if (results.length == 0) {
+          dispatchEvent(new TideUIEvent("newPassword", newPasswordTI.text));
+        }
+      }
+      
+      [Observer("passwordChanged")]
+      public function passwordChanged():void {
+        newPasswordTI.text = "";
+        repeatNewPasswordTI.text = "";
+      }
+      
+      private function onInvalid():void {
+        dispatchEvent(new TideUIEvent("statusChange", resourceManager.getString("common", "Input_invalid"), StatusEnum.ERROR));
+      }
+    ]]>
+  </mx:Script>
+
+
+  <mx:Panel x="10" y="10" width="201" height="109" layout="absolute" title="{resourceManager.getString('configuration','Language')}">
+    <component:LocaleComboBox x="10" y="10" id="localeCB" selectedLocale="{new ArrayCollection(resourceManager.localeChain).getItemAt(0)}"/>
+    <mx:Button x="10" y="40" label="{resourceManager.getString('common','Save')}" id="localeSaveButton" click="onLocaleSaveClick()"/>
+  </mx:Panel>
+  
+  <component:SameTextValidator id="newPasswordTIValidator" source="{newPasswordTI}" property="text" required="true" invalid="onInvalid()"
+      otherProperty="text" otherSource="{repeatNewPasswordTI}" sameFieldError="{resourceManager.getString('configuration','PasswordNotEqualError')}"
+      trigger="{changePasswordButton}" triggerEvent="click"/>
+  <mx:Validator id="repeatNewPasswordTIValidator" source="{repeatNewPasswordTI}" property="text" required="true" invalid="onInvalid()"
+      trigger="{changePasswordButton}" triggerEvent="click"/>
+  
+  <mx:Panel y="10" width="459" height="176" layout="absolute" title="{resourceManager.getString('configuration','Change_Password')}" right="133">
+    <mx:Form x="10" y="10">
+      <mx:FormItem label="{resourceManager.getString('configuration','New_Password')}">
+        <mx:TextInput id="newPasswordTI" displayAsPassword="true"/>
+      </mx:FormItem>
+      <mx:FormItem label="{resourceManager.getString('configuration','Repeat_New_Password')}">
+        <mx:TextInput id="repeatNewPasswordTI" displayAsPassword="true" enter="onChangePasswordClick()"/>
+      </mx:FormItem>
+      <mx:FormItem>
+        <mx:Button label="{resourceManager.getString('configuration','Change_Password')}" click="onChangePasswordClick()" id="changePasswordButton"/>
+      </mx:FormItem>
+    </mx:Form>
+  </mx:Panel>
+  
+</mx:Panel>

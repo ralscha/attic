@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<graniteProperties version="2.0">
+  <gas3 uid="uid" as3TypeFactory="org.granite.generator.as3.DefaultAs3TypeFactory" remoteDestinationFactory="org.granite.generator.as3.DefaultRemoteDestinationFactory" debugEnabled="false" flexConfig="false">
+    <source path="src" includes="@packageServiceDir@/**.java;@packageEntityDir@/**.java" excludes="" output="flex-src;"/>
+    <template kind="ENTITY" uris="class:org/granite/generator/template/entity.gsp;class:org/granite/generator/template/tideEntityBase.gsp"/>
+    <template kind="REMOTE_DESTINATION" uris="class:org/granite/generator/template/remote.gsp;class:org/granite/generator/template/tideRemoteBase.gsp"/>
+    <template kind="ENUM" uris="class:org/granite/generator/template/enum.gsp"/>
+    <template kind="BEAN" uris="class:org/granite/generator/template/bean.gsp;class:org/granite/generator/template/beanBase.gsp"/>
+    <template kind="INTERFACE" uris="class:org/granite/generator/template/interface.gsp"/>
+    <transformer type="org.granite.generator.as3.JavaAs3GroovyTransformer"/>
+  </gas3>
+</graniteProperties>

@@ -1,0 +1,19 @@
+<Context swallowOutput="true" docBase="@webDir@" debug="2">
+
+  <Resource name="jdbc/@projectNameLowerCase@" auth="Container"
+            type="javax.sql.DataSource" 
+            username="@hibernate.connection.username@" 
+            password="@hibernate.connection.password@"
+            driverClassName="@hibernate.connection.driver_class@" 
+            url="@hibernate.connection.url@"
+            maxActive="5" maxIdle="1" maxWait="10000" 
+            defaultAutoCommit="false"/>    
+                                   
+  <Resource name="mail/session" auth="Container"
+            type="javax.mail.Session"
+            mail.smtp.host="127.0.0.1"
+            mail.from="test@test.ch"
+            mail.debug="true"/>
+                                   
+</Context>
+

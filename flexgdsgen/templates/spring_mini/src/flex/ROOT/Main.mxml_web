@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" 
+                layout="vertical"
+                preinitialize="preinit()">
+  <mx:Script>
+    <![CDATA[
+      import @packageProject@.service.HelloService;
+      
+      import mx.messaging.ChannelSet;
+      
+      import org.granite.tide.events.TideResultEvent;
+      import org.granite.tide.service.DefaultServiceInitializer;
+      import org.granite.tide.spring.Spring;
+      
+      private var graniteChannelSet:ChannelSet;
+            
+      [In]
+      public var helloService:HelloService;
+      
+      private function onClick():void {
+        helloService.hello(onHello);
+      }
+      
+      private function onHello(e:TideResultEvent):void {
+        serverOutputLabel.text = e.result as String;
+      }      
+      
+      private function preinit():void {
+        Spring.getInstance().initApplication(); 
+        
+        Spring.getInstance().addComponentWithFactory("serviceInitializer", DefaultServiceInitializer, 
+          { contextRoot: Application.application.parameters.contextPath });
+      }
+      
+    ]]>
+  </mx:Script>                
+                
+  <mx:Style source="/assets/main.css"/>
+  <mx:Button x="10" y="10" label="Hi Server" click="onClick()"/>
+  <mx:Label x="96" y="12" width="251" id="serverOutputLabel"/>
+  
+
+</mx:Application>
+

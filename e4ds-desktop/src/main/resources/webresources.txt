@@ -1,0 +1,40 @@
+# [d]   = dev only. script or link tag
+# [ps]  = prod only. script or link tag
+# [dps] = dev and prod. script or link tag
+# [dp]  = dev and prod. script/link tag in dev. concat and minify in prod
+# [p]   = prod only. contact and minify. can be ommited
+
+login_js:
+  /resources/extjs-gpl/{extjs.version}/ext-all-dev.js[d]
+  /resources/extjs-gpl/{extjs.version}/ext-all.js[ps]
+  /app/ux/window/Notification.js[dp]
+  /login.js[dp]
+  /resources/detect.js[dp]
+
+login_css:
+  /resources/extjs-gpl/{extjs.version}/resources/ext-theme-classic/ext-theme-classic-all.css[dps]
+  /resources/css/app.css[dp]
+  /resources/css/Notification.css[dp]
+
+app_js:
+  /resources/extjs-gpl/{extjs.version}/ext-all-dev.js[d]
+  /resources/extjs-gpl/{extjs.version}/ext-all.js[ps]
+  /overrides/
+  /resources/deft-debug.js[d]
+  /resources/deft.js
+  /api.js[d]
+  /api-{application.version}.js[ps]
+  /resources/extjs-gpl/{extjs.version}/ux/form/MultiSelect.js
+  /app/ux/
+  /app/model/
+  /app/store/
+  /app/controller/
+  /app/view/
+  /app.js[dp]
+  /resources/detect.js[dp]
+
+app_css:
+  /resources/extjs-gpl/{extjs.version}/resources/ext-theme-classic/ext-theme-classic-all.css[dps]
+  /resources/css/app.css[dp]
+  /resources/css/Notification.css[dp]
+  /resources/css/colorpicker.css[dp]

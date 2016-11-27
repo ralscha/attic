@@ -1,0 +1,14 @@
+<project name="build flexgdsgen" default="dist">
+	<target name="dist">
+		<delete file="flexgdsgen-1.1.0.zip"/>
+		<zip destfile="flexgdsgen-1.1.0.zip" basedir="${basedir}">
+			<exclude name="lib/h2*"/>
+			<exclude name="lib/postgres*"/>
+			<exclude name="lib/ant-1.7.1.jar"/>
+			<exclude name=".settings/*"/>
+			<exclude name="website/*"/>
+			<exclude name=".classpath"/>
+			<exclude name=".project"/>
+		</zip>
+	</target>
+</project>	

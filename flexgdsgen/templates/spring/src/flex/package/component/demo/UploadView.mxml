@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Panel xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute" width="100%" height="100%" title="Upload">
+
+  <mx:Script>
+    <![CDATA[
+      import @packageProject@.Constants;
+      import org.granite.tide.events.TideUIEvent;
+      import @packageProject@.component.StatusEnum;
+      
+      [Bindable]
+      private var fileRef:FileReference;
+
+      private function upload():void {
+        var urlRequest:URLRequest = new URLRequest(Constants.BASE_URL + "fileUpload.action");
+
+        var variables:URLVariables = new URLVariables();
+        variables.testParam = "a test parameter";
+        urlRequest.data = variables;
+
+        dispatchEvent(new TideUIEvent("statusChange", resourceManager.getString("common", "Working"), StatusEnum.WORKING, false, fileRef));        
+        fileRef.addEventListener(Event.COMPLETE, completeHandler);
+        fileRef.upload(urlRequest);
+      }
+
+      private function onFileSelectClick():void {
+        fileRef = new FileReference();
+        fileRef.addEventListener(Event.SELECT, onSelect);
+        fileRef.addEventListener(Event.CANCEL, onCancel);
+        fileRef.browse();
+      }
+      
+      private function onCancel(event:Event):void {
+        fileRef = null;
+      }
+      
+      private function onSelect(event:Event):void {        
+        fileNameTI.text = fileRef.name;        
+      } 
+      
+      private function completeHandler(e:Event):void {
+        dispatchEvent(new TideUIEvent("statusChange", "Upload successful", StatusEnum.SUCCESSFUL));      
+        fileRef = null;   
+        fileNameTI.text = null;   
+      }       
+      
+    ]]>
+  </mx:Script>
+  <mx:TextInput x="109" y="37" width="324" text="" id="fileNameTI"/>
+  <mx:Label x="27" y="39" text="File Name:"/>
+  <mx:Button x="441" y="37" label="Select File" click="onFileSelectClick()"/>
+  <mx:Button x="27" y="78" label="Upload" width="498" click="upload()" enabled="{fileRef != null}"/>
+
+</mx:Panel>

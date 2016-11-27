@@ -1,0 +1,103 @@
+
+Alert {
+  color : #0f3177;
+  title-style-name : "alertTitle";
+  header-height:19;
+  border-thickness: 1;
+  drop-shadow-enabled: true;
+  drop-shadow-color :#d1ddf7;
+  background-color: #ffffff;
+  corner-radius :6;
+  border-style :solid;
+  header-colors : #90a4d1, #5970a0;
+  footer-colors : #9db6d9, #ffffff;
+  border-color : #5970a0;
+  message-style-name: alertMessage; 
+   
+}
+
+.alertTitle {
+  font-family :Verdana;
+  font-size :10;
+  font-weight :bold;
+  text-align :left;
+  color :#ffffff;
+} 
+
+.homeTitle {
+  font-family :Verdana;
+  font-size :20;
+  font-weight :bold;
+  text-align :left;
+  color : black;
+}
+
+.selectedLinkButton {
+  color : white;
+}
+
+.alertMessage {
+  padding-top: 10;
+  padding-bottom: 10;
+}
+
+.applicationTitle {
+  font-family :Verdana;
+  font-size :18;
+  font-weight :bold;
+  text-align :left;
+  color: black;
+}
+
+Application {
+  background-color: #fafbfd;
+  background-gradient-colors: #fafbfd, #fafbfd;
+  backgroundGradientAlphas: 0.0, 0.2;
+}
+
+ApplicationControlBar {
+  fillAlphas: 1, 1;
+  fillColors: #c2cff1, #c2cff1; 
+  dropShadowEnabled: false;
+}
+
+List.noborder {
+  border-thickness: 0;
+}
+
+Panel {
+  borderColor: #c2cff1;
+  color: #000000;
+  borderAlpha: 0.6;
+  borderThicknessLeft: 1;
+  borderThicknessRight: 1;
+  borderThicknessTop: 1;
+  borderThicknessBottom: 1;
+	roundedBottomCorners: false;
+	cornerRadius: 4;
+	dropShadowEnabled: false;
+	headerHeight: 25;
+}
+
+Panel.statusBarReady {
+}
+
+Panel.statusBarSuccessful {
+  backgroundColor: #6cfa8d;
+}
+
+Panel.statusBarError {
+  backgroundColor: #fa9a65;
+}
+
+Label.statusBarLabel {
+  font-family :Verdana;
+  font-size :10;
+  font-weight :bold;
+}
+
+HBox.controlBar {
+  background-color: #d8e0f5;
+}
+
+

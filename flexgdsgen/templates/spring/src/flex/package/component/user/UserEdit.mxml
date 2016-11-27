@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Panel xmlns:mx="http://www.adobe.com/2006/mxml" 
+          layout="absolute" title="{resourceManager.getString('user','Edit_User')}" width="100%" height="100%"
+          creationComplete="init()" 
+          xmlns:component="@packageProject@.component.*">
+  
+  <mx:Metadata>
+    [Name]
+  </mx:Metadata>  
+  
+  <mx:Script>
+    <![CDATA[
+      import @packageProject@.component.StatusEnum;
+      import com.hurlant.util.Hex;
+      import mx.utils.StringUtil;
+      import com.hurlant.crypto.Crypto;
+      import com.hurlant.crypto.hash.IHash;
+      import mx.validators.Validator;
+      import org.granite.tide.events.TideUIEvent;
+      import @packageProject@.entity.User;
+      import mx.collections.ArrayCollection;
+
+      [Bindable]
+      [In]
+      [ArrayElementType("@packageProject@.entity.Role")]
+      public var rolesAC:ArrayCollection;
+      
+      [Bindable]
+      [In]
+      [ArrayElementType("@packageProject@.entity.Role")]
+      public var selectedRolesAC:ArrayCollection;      
+            
+      [Bindable]
+      [In]
+      public var user:User;
+      
+      
+      private function init():void {        
+        addEventListener(KeyboardEvent.KEY_UP, keyboardHandler, false, 0, true);
+      }
+
+      
+      private function keyboardHandler(e:KeyboardEvent):void {
+        if (e.keyCode == Keyboard.ESCAPE) {
+          dispatchEvent(new TideUIEvent("cancelUser"));
+        }
+        if (e.keyCode == Keyboard.F8) {
+          save();
+        }
+      }
+      
+      private function save():void {
+        var results:Array = Validator.validateAll([uniqueUserNameValidator, emailValidator]);       
+        if (results.length == 0) {
+          user.userName = userNameTI.text;
+          user.firstName = firstNameTI.text;                
+          user.name = nameTI.text;
+          user.email = emailTI.text;   
+          user.locale = localeCB.selectedLocale;                                                                           
+          user.enabled = enabledCB.selected;
+          user.roles = selectedRolesAC;
+          
+          if (!(StringUtil.trim(passwordTI.text) == '') && passwordTI.text != user.passwordHash) {
+            var hash:IHash = Crypto.getHash("sha1");
+            var result:ByteArray = hash.hash(Hex.toArray(Hex.fromString(passwordTI.text)));
+            user.passwordHash = Hex.fromArray(result);            
+          }          
+
+          dispatchEvent(new TideUIEvent("mergeUser"));
+        }    
+      }
+      
+      private function onInvalid():void {
+        dispatchEvent(new TideUIEvent("statusChange", resourceManager.getString('common','Input_invalid'), StatusEnum.ERROR));
+      }
+
+      private function onUserNameTIFocusOut():void {
+        uniqueUserNameValidator.validate();
+      }
+    ]]>
+  </mx:Script>
+  
+  <component:UniquePropertyValidator id="uniqueUserNameValidator" source="{userNameTI}" property="text"
+    required="true" uniqueFieldError="{resourceManager.getString('user','Username_is_not_unique')}"
+    excludeMyselfId="{user.id}" 
+    invalid="onInvalid()" 
+    trigger="{saveButton}" triggerEvent="click" entityProperty="userName" entityName="User" />
+    
+  <mx:EmailValidator id="emailValidator" source="{emailTI}" property="text" 
+    required="true" invalid="onInvalid()" trigger="{saveButton}" triggerEvent="click"/>
+    
+  
+  <mx:Form top="10" left="10" bottom="10" right="10">
+
+      <mx:FormItem label="{resourceManager.getString('user','Username')}" required="true">
+      <mx:TextInput text="{user.userName}" width="250" id="userNameTI" focusOut="onUserNameTIFocusOut()"/>
+      </mx:FormItem> 
+
+      <mx:FormItem label="{resourceManager.getString('user','Email')}" required="true">
+      <mx:TextInput text="{user.email}" width="250" id="emailTI"/>
+      </mx:FormItem>      
+      
+      <mx:FormItem label="{resourceManager.getString('user','Password')}">
+      <mx:TextInput text="{user.passwordHash}" width="250" id="passwordTI" displayAsPassword="true"/>
+      </mx:FormItem>      
+      
+      <mx:FormItem label="{resourceManager.getString('user','First_Name')}">
+      <mx:TextInput text="{user.firstName}" width="250" id="firstNameTI"/>
+      </mx:FormItem>
+      
+      <mx:FormItem label="{resourceManager.getString('user','Last_Name')}">
+      <mx:TextInput text="{user.name}" width="250" id="nameTI"/>
+      </mx:FormItem>
+      
+      <mx:FormItem label="{resourceManager.getString('user','Language')}">
+        <component:LocaleComboBox id="localeCB" selectedLocale="{user.locale}"/>
+      </mx:FormItem>      
+
+      <mx:FormItem label="{resourceManager.getString('user','Enabled')}">
+        <mx:CheckBox selected="{user.enabled}" id="enabledCB"/>
+      </mx:FormItem>       
+                  
+      <mx:FormItem label="{resourceManager.getString('user','Roles')}">          
+        <component:ListShuttle id="rolesLS"
+                               availableDataProvider="{rolesAC}" 
+                               selectedDataProvider="{selectedRolesAC}" 
+                               availableLabelField="name" selectedLabelField="name"/>          
+      </mx:FormItem>   
+   
+  </mx:Form>
+  
+  <mx:ControlBar height="40">        
+    <mx:Button label="{resourceManager.getString('common','Save')}" click="save()" id="saveButton"/>
+    <mx:Button label="{resourceManager.getString('common','Cancel')}" click="dispatchEvent(new TideUIEvent('cancelUser'));" />
+  </mx:ControlBar>
+  
+</mx:Panel>

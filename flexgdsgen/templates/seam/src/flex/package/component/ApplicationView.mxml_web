@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Canvas xmlns:mx="http://www.adobe.com/2006/mxml"
+    width="100%"
+    height="100%"
+    xmlns:user="@packageProject@.component.user.*" 
+    xmlns:component="@packageProject@.component.*">
+
+  <mx:Metadata>
+    [Name]
+  </mx:Metadata>
+
+  <mx:Script>
+  <![CDATA[
+    import org.granite.tide.seam.security.Identity;
+    import mx.events.IndexChangedEvent;
+
+  
+    [Bindable] 
+    [In]
+    public var identity:Identity;
+    
+    private function resetStyles():void {
+      homeLB.styleName = null;
+      configurationLB.styleName = null;
+    }  
+            
+    private function onClickConfiguration():void {
+      resetStyles();
+      mainVS.selectedIndex = 1;
+    }  
+      
+    public function onClickHome():void {
+      resetStyles();
+      homeLB.styleName = 'selectedLinkButton';
+      mainVS.selectedIndex = 0;      
+    }
+      
+    private function onChange(e:IndexChangedEvent):void {
+      if (e.newIndex == 1) {
+        configurationView.init();
+        configurationLB.styleName = 'selectedLinkButton';
+      }
+    }
+      
+  ]]>
+  </mx:Script>
+  
+  <mx:ApplicationControlBar id="appBar" left="10" top="5" right="10">
+    <mx:Label text="@projectName@" styleName="applicationTitle"/>
+    <mx:Spacer width="40"/>
+    
+    <mx:LinkButton label="Home" id="homeLB" click="onClickHome()" styleName="selectedLinkButton" 
+                   visible="{identity.hasRole('admin') || identity.hasRole('user')}"/>
+                   
+    <mx:LinkButton label="{resourceManager.getString('configuration','Configuration')}" id="configurationLB" click="onClickConfiguration()" visible="{identity.hasRole('admin')||identity.hasRole('user')}"/>
+    <mx:Spacer width="100%"/>
+
+    <mx:Label text="{resourceManager.getString('login','Logged_on')}: {identity.username}"/>
+        
+    <mx:Button label="{resourceManager.getString('login','Logout')}" click="identity.logout()" id="logoutButton"/>
+  </mx:ApplicationControlBar>
+  
+  <mx:ViewStack id="mainVS" top="55" bottom="40" right="10" left="10" change="onChange(event)">
+    <component:HomeView id="homeView" />
+    <component:ConfigurationView id="configurationView" />  
+  </mx:ViewStack>
+  
+  <component:StatusBar left="10" bottom="7" right="10" />
+  
+
+</mx:Canvas>

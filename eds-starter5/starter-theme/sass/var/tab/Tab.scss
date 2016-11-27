@@ -1,0 +1,9 @@
+$tab-base-color: $base-light-color !default;
+$tab-base-color-active: mix(#fff, $base-highlight-color, 10%) !default;
+$tab-base-color-over: lighten($tab-base-color-active, 15%) !default;
+
+$tab-color-active: #fff !default;
+$tab-color: $base-color !default;
+$tab-color-over: darken($tab-color-active, 5%) !default;
+
+$tab-inner-border-width-focus: 0px !default;

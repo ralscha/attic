@@ -1,0 +1,1262 @@
+  <?xml version="1.0" encoding="utf-8" ?>
+-
+<feed xmlns:atom="http://www.w3.org/2005/Atom" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:cf="http://www.microsoft.com/schemas/rss/core/2005" xmlns="http://www.w3.org/2005/Atom"
+	xmlns:sdatasync="http://schemas.sage.com/sdata/sync/2008/1"
+	xmlns:sdata="http://schemas.sage.com/sdata/2008/1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/" xmlns:sme="http://schemas.sage.com/sdata/sme/2007"
+	xmlns:http="http://schemas.sage.com/sdata/http/2008/1">
+	-
+	<author>
+		<name>Sage Schweiz AG</name>
+		<uri>http://www.sageschweiz.ch</uri>
+		<email>info@sagechweiz.ch</email>
+	</author>
+	<category term="collection" />
+	<generator />
+	<id>http://w8dvl:5493/sdata/Sage50/Sage50/SageDemo14/Adressen?count=10&startIndex=1
+	</id>
+	<link
+		href="http://w8dvl:5493/sdata/Sage50/Sage50/SageDemo14/Adressen?count=10&startIndex=1"
+		rel="first" type="application/atom+xml" />
+	<link
+		href="http://w8dvl:5493/sdata/Sage50/Sage50/SageDemo14/Adressen?count=10&startIndex=31"
+		rel="last" type="application/atom+xml" />
+	<link
+		href="http://w8dvl:5493/sdata/Sage50/Sage50/SageDemo14/Adressen?count=10&startIndex=11"
+		rel="next" type="application/atom+xml" />
+	<link
+		href="http://w8dvl:5493/sdata/Sage50/Sage50/SageDemo14/Adressen?count=10&startIndex=1"
+		rel="self" type="application/atom+xml" title="Self" />
+	<link
+		href="http://w8dvl:5493/sdata/Sage50/Sage50/SageDemo14/Adressen/$schema"
+		rel="schemas.sage.com/sdata/link-relations/schema" type="application/xml"
+		title="Schema" />
+	<link
+		href="http://w8dvl:5493/sdata/Sage50/Sage50/SageDemo14/Adressen/$template"
+		rel="schemas.sage.com/sdata/link-relations/template" type="application/atom+xml;type=entry"
+		title="Template" />
+	<link href="http://w8dvl:5493/sdata/Sage50/Sage50/SageDemo14/Adressen"
+		rel="schemas.sage.com/sdata/link-relations/post" type="application/atom+xml;type=entry"
+		title="Post" />
+	<title>Sage50 | SageDemo14 | Adressen</title>
+	<updated>2015-01-20T08:18:26.940+01:00</updated>
+	-
+	<entry>
+		<author />
+		+
+		<content type="html">
+			- <![CDATA[ 
+<html>
+  <head>
+    <META http-equiv="Content-Type" content="text/html; charset=utf-8">
+  </head>
+  <body style="font-family: Verdana;">
+    <table cellpadding="4" cellspacing="0" style="background-color: white; font-family: Arial;border: 1px solid darkgray;font-size: x-small;">
+      <tr style="background-color: lavender;">
+        <td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">Anrede</td>
+        <td nowrap valign="top" style="&#xA;					width:7em&#xA;				">
+        </td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: white;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">Briefanrede</td>
+        <td nowrap valign="top" style="&#xA;					width:16em&#xA;				">
+        </td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: lavender;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">Code</td>
+        <td nowrap valign="top" style="&#xA;					width:2em&#xA;				">
+        </td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: white;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">DruckInfo</td>
+        <td nowrap valign="top" style="&#xA;					width:6em&#xA;				">0</td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: lavender;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">EMail</td>
+        <td nowrap valign="top" style="&#xA;					width:15em&#xA;				">
+        </td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: white;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">Firma</td>
+        <td nowrap valign="top" style="&#xA;					width:7em&#xA;				">Abegg Immobilien AG</td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: lavender;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">Homepage</td>
+        <td nowrap valign="top" style="&#xA;					width:15em&#xA;				">
+        </td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: white;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">ID</td>
+        <td nowrap valign="top" style="&#xA;					width:3em&#xA;				">10000</td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: lavender;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">IstIntern</td>
+        <td nowrap valign="top" style="&#xA;					width:2em&#xA;				">true</td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: white;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">Land</td>
+        <td nowrap valign="top" style="&#xA;					width:0em&#xA;				">CH</td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: lavender;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">MahnSperrCode</td>
+        <td nowrap valign="top" style="&#xA;					width:2em&#xA;				">false</td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: white;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">PLZ</td>
+        <td nowrap valign="top" style="&#xA;					width:1em&#xA;				">8000</td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: lavender;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">Ort</td>
+        <td nowrap valign="top" style="&#xA;					width:6em&#xA;				">Zürich</td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: white;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">SortID</td>
+        <td nowrap valign="top" style="&#xA;					width:2em&#xA;				">ABEGGIMMOB</td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: lavender;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">Sprache</td>
+        <td style=";vertical-align: top;" nowrap valign="top">D</td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: white;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">StampUser</td>
+        <td style=";vertical-align: top;" nowrap valign="top">b</td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: lavender;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">StampDate</td>
+        <td nowrap valign="top" style="&#xA;					width:16em&#xA;				">02.05.2014 11:01:38</td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: white;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">Strasse</td>
+        <td nowrap valign="top" style="&#xA;					width:7em&#xA;				">Münsterstrasse 5</td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: lavender;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">Telefon1</td>
+        <td nowrap valign="top" style="&#xA;					width:5em&#xA;				">044 222 23 33</td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: white;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">Telefon2</td>
+        <td nowrap valign="top" style="&#xA;					width:5em&#xA;				">01 222 23 25</td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: lavender;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">Telefon3</td>
+        <td nowrap valign="top" style="&#xA;					width:5em&#xA;				">
+        </td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: white;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">Telefon4</td>
+        <td nowrap valign="top" style="&#xA;					width:5em&#xA;				">
+        </td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: lavender;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">Zusatz1</td>
+        <td nowrap valign="top" style="&#xA;					width:7em&#xA;				">Abteilung Unterhalt</td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: white;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">Zusatz2</td>
+        <td nowrap valign="top" style="&#xA;					width:7em&#xA;				">
+        </td>
+        <td colspan="32">&#x00A0;</td>
+      </tr>
+    </table>
+  </body>
+</html>
+
+  ]]>
+		</content>
+		<id>http://w8dvl:5493/sdata/Sage50/Sage50/SageDemo14/Adressen('10000')?format=atomentry
+		</id>
+		<link
+			href="http://w8dvl:5493/sdata/Sage50/Sage50/SageDemo14/Adressen('10000')?format=atomentry"
+			rel="self" type="application/atom+xml" title="Self" />
+		<title>10000</title>
+		<updated>2015-01-20T08:18:26.940+01:00</updated>
+		<http:httpStatus>200</http:httpStatus>
+		<http:location>http://w8dvl:5493/sdata/Sage50/Sage50/SageDemo14/Adressen('10000')?format=atomentry
+		</http:location>
+		-
+		<sdata:payload>
+			-
+			<Adresse sdata:key="10000"
+				sdata:url="http://w8dvl:5493/sdata/Sage50/Sage50/SageDemo14/Adressen('10000')?format=atomentry"
+				xmlns="http://schemas.sage.com/ch/Sage50">
+				<Anrede />
+				<Briefanrede />
+				<Code />
+				<DruckInfo>0</DruckInfo>
+				<EMail />
+				<Firma>Abegg Immobilien AG</Firma>
+				<Homepage />
+				<ID>10000</ID>
+				<IstIntern>true</IstIntern>
+				<Land>CH</Land>
+				<MahnSperrCode>false</MahnSperrCode>
+				<PLZ>8000</PLZ>
+				<Ort>Zürich</Ort>
+				<SortID>ABEGGIMMOB</SortID>
+				<Sprache>D</Sprache>
+				<StampUser>b</StampUser>
+				<StampDate>2014-05-02T11:01:38.986+02:00</StampDate>
+				<Strasse>Münsterstrasse 5</Strasse>
+				<Telefon1>044 222 23 33</Telefon1>
+				<Telefon2>01 222 23 25</Telefon2>
+				<Telefon3 />
+				<Telefon4 />
+				<Zusatz1>Abteilung Unterhalt</Zusatz1>
+				<Zusatz2 />
+			</Adresse>
+		</sdata:payload>
+	</entry>
+	+
+	<entry>
+		<author />
+		-
+		<content type="html">
+			- <![CDATA[ 
+<html>
+  <head>
+    <META http-equiv="Content-Type" content="text/html; charset=utf-8">
+  </head>
+  <body style="font-family: Verdana;">
+    <table cellpadding="4" cellspacing="0" style="background-color: white; font-family: Arial;border: 1px solid darkgray;font-size: x-small;">
+      <tr style="background-color: lavender;">
+        <td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">Anrede</td>
+        <td nowrap valign="top" style="&#xA;					width:7em&#xA;				">
+        </td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: white;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">Briefanrede</td>
+        <td nowrap valign="top" style="&#xA;					width:16em&#xA;				">Sehr geehrter Herr</td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: lavender;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">Code</td>
+        <td nowrap valign="top" style="&#xA;					width:2em&#xA;				">
+        </td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: white;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">DruckInfo</td>
+        <td nowrap valign="top" style="&#xA;					width:6em&#xA;				">0</td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: lavender;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">EMail</td>
+        <td nowrap valign="top" style="&#xA;					width:15em&#xA;				">
+        </td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: white;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">Firma</td>
+        <td nowrap valign="top" style="&#xA;					width:7em&#xA;				">Erwin Ackermann AG</td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: lavender;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">Homepage</td>
+        <td nowrap valign="top" style="&#xA;					width:15em&#xA;				">
+        </td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: white;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">ID</td>
+        <td nowrap valign="top" style="&#xA;					width:3em&#xA;				">10001</td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: lavender;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">IstIntern</td>
+        <td nowrap valign="top" style="&#xA;					width:2em&#xA;				">true</td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: white;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">Land</td>
+        <td nowrap valign="top" style="&#xA;					width:0em&#xA;				">CH</td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: lavender;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">MahnSperrCode</td>
+        <td nowrap valign="top" style="&#xA;					width:2em&#xA;				">false</td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: white;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">PLZ</td>
+        <td nowrap valign="top" style="&#xA;					width:1em&#xA;				">8135</td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: lavender;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">Ort</td>
+        <td nowrap valign="top" style="&#xA;					width:6em&#xA;				">Langnau am Albis</td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: white;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">SortID</td>
+        <td nowrap valign="top" style="&#xA;					width:2em&#xA;				">ERWINACKER</td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: lavender;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">Sprache</td>
+        <td style=";vertical-align: top;" nowrap valign="top">D</td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: white;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">StampUser</td>
+        <td style=";vertical-align: top;" nowrap valign="top">b</td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: lavender;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">StampDate</td>
+        <td nowrap valign="top" style="&#xA;					width:16em&#xA;				">02.05.2014 11:01:38</td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: white;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">Strasse</td>
+        <td nowrap valign="top" style="&#xA;					width:7em&#xA;				">Sonnenstrasse 3</td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: lavender;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">Telefon1</td>
+        <td nowrap valign="top" style="&#xA;					width:5em&#xA;				">044 813 23 44</td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: white;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">Telefon2</td>
+        <td nowrap valign="top" style="&#xA;					width:5em&#xA;				">044 745 27 63</td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: lavender;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">Telefon3</td>
+        <td nowrap valign="top" style="&#xA;					width:5em&#xA;				">078 777 85 61</td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: white;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">Telefon4</td>
+        <td nowrap valign="top" style="&#xA;					width:5em&#xA;				">
+        </td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: lavender;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">Zusatz1</td>
+        <td nowrap valign="top" style="&#xA;					width:7em&#xA;				">W. Müller</td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: white;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">Zusatz2</td>
+        <td nowrap valign="top" style="&#xA;					width:7em&#xA;				">OTZ/PK</td>
+        <td colspan="32">&#x00A0;</td>
+      </tr>
+    </table>
+  </body>
+</html>
+
+  ]]>
+		</content>
+		<id>http://w8dvl:5493/sdata/Sage50/Sage50/SageDemo14/Adressen('10001')?format=atomentry
+		</id>
+		<link
+			href="http://w8dvl:5493/sdata/Sage50/Sage50/SageDemo14/Adressen('10001')?format=atomentry"
+			rel="self" type="application/atom+xml" title="Self" />
+		<title>10001</title>
+		<updated>2015-01-20T08:18:26.940+01:00</updated>
+		<http:httpStatus>200</http:httpStatus>
+		<http:location>http://w8dvl:5493/sdata/Sage50/Sage50/SageDemo14/Adressen('10001')?format=atomentry
+		</http:location>
+		-
+		<sdata:payload>
+			-
+			<Adresse sdata:key="10001"
+				sdata:url="http://w8dvl:5493/sdata/Sage50/Sage50/SageDemo14/Adressen('10001')?format=atomentry"
+				xmlns="http://schemas.sage.com/ch/Sage50">
+				<Anrede />
+				<Briefanrede>Sehr geehrter Herr</Briefanrede>
+				<Code />
+				<DruckInfo>0</DruckInfo>
+				<EMail />
+				<Firma>Erwin Ackermann AG</Firma>
+				<Homepage />
+				<ID>10001</ID>
+				<IstIntern>true</IstIntern>
+				<Land>CH</Land>
+				<MahnSperrCode>false</MahnSperrCode>
+				<PLZ>8135</PLZ>
+				<Ort>Langnau am Albis</Ort>
+				<SortID>ERWINACKER</SortID>
+				<Sprache>D</Sprache>
+				<StampUser>b</StampUser>
+				<StampDate>2014-05-02T11:01:38.986+02:00</StampDate>
+				<Strasse>Sonnenstrasse 3</Strasse>
+				<Telefon1>044 813 23 44</Telefon1>
+				<Telefon2>044 745 27 63</Telefon2>
+				<Telefon3>078 777 85 61</Telefon3>
+				<Telefon4 />
+				<Zusatz1>W. Müller</Zusatz1>
+				<Zusatz2>OTZ/PK</Zusatz2>
+			</Adresse>
+		</sdata:payload>
+	</entry>
+	-
+	<entry>
+		<author />
+		-
+		<content type="html">
+			- <![CDATA[ 
+<html>
+  <head>
+    <META http-equiv="Content-Type" content="text/html; charset=utf-8">
+  </head>
+  <body style="font-family: Verdana;">
+    <table cellpadding="4" cellspacing="0" style="background-color: white; font-family: Arial;border: 1px solid darkgray;font-size: x-small;">
+      <tr style="background-color: lavender;">
+        <td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">Anrede</td>
+        <td nowrap valign="top" style="&#xA;					width:7em&#xA;				">
+        </td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: white;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">Briefanrede</td>
+        <td nowrap valign="top" style="&#xA;					width:16em&#xA;				">
+        </td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: lavender;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">Code</td>
+        <td nowrap valign="top" style="&#xA;					width:2em&#xA;				">
+        </td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: white;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">DruckInfo</td>
+        <td nowrap valign="top" style="&#xA;					width:6em&#xA;				">0</td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: lavender;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">EMail</td>
+        <td nowrap valign="top" style="&#xA;					width:15em&#xA;				">
+        </td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: white;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">Firma</td>
+        <td nowrap valign="top" style="&#xA;					width:7em&#xA;				">Steiner Metallbau</td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: lavender;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">Homepage</td>
+        <td nowrap valign="top" style="&#xA;					width:15em&#xA;				">
+        </td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: white;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">ID</td>
+        <td nowrap valign="top" style="&#xA;					width:3em&#xA;				">10002</td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: lavender;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">IstIntern</td>
+        <td nowrap valign="top" style="&#xA;					width:2em&#xA;				">true</td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: white;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">Land</td>
+        <td nowrap valign="top" style="&#xA;					width:0em&#xA;				">CH</td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: lavender;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">MahnSperrCode</td>
+        <td nowrap valign="top" style="&#xA;					width:2em&#xA;				">false</td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: white;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">PLZ</td>
+        <td nowrap valign="top" style="&#xA;					width:1em&#xA;				">6340</td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: lavender;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">Ort</td>
+        <td nowrap valign="top" style="&#xA;					width:6em&#xA;				">Baar</td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: white;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">SortID</td>
+        <td nowrap valign="top" style="&#xA;					width:2em&#xA;				">STEINERMET</td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: lavender;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">Sprache</td>
+        <td style=";vertical-align: top;" nowrap valign="top">D</td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: white;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">StampUser</td>
+        <td style=";vertical-align: top;" nowrap valign="top">b</td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: lavender;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">StampDate</td>
+        <td nowrap valign="top" style="&#xA;					width:16em&#xA;				">02.05.2014 11:01:38</td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: white;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">Strasse</td>
+        <td nowrap valign="top" style="&#xA;					width:7em&#xA;				">Hauptstrasse 76</td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: lavender;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">Telefon1</td>
+        <td nowrap valign="top" style="&#xA;					width:5em&#xA;				">
+        </td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: white;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">Telefon2</td>
+        <td nowrap valign="top" style="&#xA;					width:5em&#xA;				">
+        </td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: lavender;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">Telefon3</td>
+        <td nowrap valign="top" style="&#xA;					width:5em&#xA;				">
+        </td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: white;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">Telefon4</td>
+        <td nowrap valign="top" style="&#xA;					width:5em&#xA;				">
+        </td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: lavender;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">Zusatz1</td>
+        <td nowrap valign="top" style="&#xA;					width:7em&#xA;				">
+        </td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: white;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">Zusatz2</td>
+        <td nowrap valign="top" style="&#xA;					width:7em&#xA;				">
+        </td>
+        <td colspan="32">&#x00A0;</td>
+      </tr>
+    </table>
+  </body>
+</html>
+
+  ]]>
+		</content>
+		<id>http://w8dvl:5493/sdata/Sage50/Sage50/SageDemo14/Adressen('10002')?format=atomentry
+		</id>
+		<link
+			href="http://w8dvl:5493/sdata/Sage50/Sage50/SageDemo14/Adressen('10002')?format=atomentry"
+			rel="self" type="application/atom+xml" title="Self" />
+		<title>10002</title>
+		<updated>2015-01-20T08:18:26.940+01:00</updated>
+		<http:httpStatus>200</http:httpStatus>
+		<http:location>http://w8dvl:5493/sdata/Sage50/Sage50/SageDemo14/Adressen('10002')?format=atomentry
+		</http:location>
+		-
+		<sdata:payload>
+			-
+			<Adresse sdata:key="10002"
+				sdata:url="http://w8dvl:5493/sdata/Sage50/Sage50/SageDemo14/Adressen('10002')?format=atomentry"
+				xmlns="http://schemas.sage.com/ch/Sage50">
+				<Anrede />
+				<Briefanrede />
+				<Code />
+				<DruckInfo>0</DruckInfo>
+				<EMail />
+				<Firma>Steiner Metallbau</Firma>
+				<Homepage />
+				<ID>10002</ID>
+				<IstIntern>true</IstIntern>
+				<Land>CH</Land>
+				<MahnSperrCode>false</MahnSperrCode>
+				<PLZ>6340</PLZ>
+				<Ort>Baar</Ort>
+				<SortID>STEINERMET</SortID>
+				<Sprache>D</Sprache>
+				<StampUser>b</StampUser>
+				<StampDate>2014-05-02T11:01:38.986+02:00</StampDate>
+				<Strasse>Hauptstrasse 76</Strasse>
+				<Telefon1 />
+				<Telefon2 />
+				<Telefon3 />
+				<Telefon4 />
+				<Zusatz1 />
+				<Zusatz2 />
+			</Adresse>
+		</sdata:payload>
+	</entry>
+	-
+	<entry>
+		<author />
+		-
+		<content type="html">
+			- <![CDATA[ 
+<html>
+  <head>
+    <META http-equiv="Content-Type" content="text/html; charset=utf-8">
+  </head>
+  <body style="font-family: Verdana;">
+    <table cellpadding="4" cellspacing="0" style="background-color: white; font-family: Arial;border: 1px solid darkgray;font-size: x-small;">
+      <tr style="background-color: lavender;">
+        <td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">Anrede</td>
+        <td nowrap valign="top" style="&#xA;					width:7em&#xA;				">
+        </td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: white;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">Briefanrede</td>
+        <td nowrap valign="top" style="&#xA;					width:16em&#xA;				">
+        </td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: lavender;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">Code</td>
+        <td nowrap valign="top" style="&#xA;					width:2em&#xA;				">
+        </td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: white;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">DruckInfo</td>
+        <td nowrap valign="top" style="&#xA;					width:6em&#xA;				">0</td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: lavender;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">EMail</td>
+        <td nowrap valign="top" style="&#xA;					width:15em&#xA;				">
+        </td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: white;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">Firma</td>
+        <td nowrap valign="top" style="&#xA;					width:7em&#xA;				">Steffen &amp; Partner GmbH</td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: lavender;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">Homepage</td>
+        <td nowrap valign="top" style="&#xA;					width:15em&#xA;				">
+        </td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: white;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">ID</td>
+        <td nowrap valign="top" style="&#xA;					width:3em&#xA;				">10003</td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: lavender;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">IstIntern</td>
+        <td nowrap valign="top" style="&#xA;					width:2em&#xA;				">true</td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: white;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">Land</td>
+        <td nowrap valign="top" style="&#xA;					width:0em&#xA;				">CH</td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: lavender;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">MahnSperrCode</td>
+        <td nowrap valign="top" style="&#xA;					width:2em&#xA;				">false</td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: white;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">PLZ</td>
+        <td nowrap valign="top" style="&#xA;					width:1em&#xA;				">6000</td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: lavender;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">Ort</td>
+        <td nowrap valign="top" style="&#xA;					width:6em&#xA;				">Luzern</td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: white;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">SortID</td>
+        <td nowrap valign="top" style="&#xA;					width:2em&#xA;				">STEFFENPA</td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: lavender;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">Sprache</td>
+        <td style=";vertical-align: top;" nowrap valign="top">D</td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: white;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">StampUser</td>
+        <td style=";vertical-align: top;" nowrap valign="top">b</td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: lavender;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">StampDate</td>
+        <td nowrap valign="top" style="&#xA;					width:16em&#xA;				">02.05.2014 11:01:38</td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: white;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">Strasse</td>
+        <td nowrap valign="top" style="&#xA;					width:7em&#xA;				">Pilatusstrasse 13</td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: lavender;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">Telefon1</td>
+        <td nowrap valign="top" style="&#xA;					width:5em&#xA;				">
+        </td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: white;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">Telefon2</td>
+        <td nowrap valign="top" style="&#xA;					width:5em&#xA;				">
+        </td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: lavender;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">Telefon3</td>
+        <td nowrap valign="top" style="&#xA;					width:5em&#xA;				">
+        </td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: white;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">Telefon4</td>
+        <td nowrap valign="top" style="&#xA;					width:5em&#xA;				">
+        </td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: lavender;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">Zusatz1</td>
+        <td nowrap valign="top" style="&#xA;					width:7em&#xA;				">
+        </td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: white;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">Zusatz2</td>
+        <td nowrap valign="top" style="&#xA;					width:7em&#xA;				">
+        </td>
+        <td colspan="32">&#x00A0;</td>
+      </tr>
+    </table>
+  </body>
+</html>
+
+  ]]>
+		</content>
+		<id>http://w8dvl:5493/sdata/Sage50/Sage50/SageDemo14/Adressen('10003')?format=atomentry
+		</id>
+		<link
+			href="http://w8dvl:5493/sdata/Sage50/Sage50/SageDemo14/Adressen('10003')?format=atomentry"
+			rel="self" type="application/atom+xml" title="Self" />
+		<title>10003</title>
+		<updated>2015-01-20T08:18:26.940+01:00</updated>
+		<http:httpStatus>200</http:httpStatus>
+		<http:location>http://w8dvl:5493/sdata/Sage50/Sage50/SageDemo14/Adressen('10003')?format=atomentry
+		</http:location>
+		-
+		<sdata:payload>
+			-
+			<Adresse sdata:key="10003"
+				sdata:url="http://w8dvl:5493/sdata/Sage50/Sage50/SageDemo14/Adressen('10003')?format=atomentry"
+				xmlns="http://schemas.sage.com/ch/Sage50">
+				<Anrede />
+				<Briefanrede />
+				<Code />
+				<DruckInfo>0</DruckInfo>
+				<EMail />
+				<Firma>Steffen & Partner GmbH</Firma>
+				<Homepage />
+				<ID>10003</ID>
+				<IstIntern>true</IstIntern>
+				<Land>CH</Land>
+				<MahnSperrCode>false</MahnSperrCode>
+				<PLZ>6000</PLZ>
+				<Ort>Luzern</Ort>
+				<SortID>STEFFENPA</SortID>
+				<Sprache>D</Sprache>
+				<StampUser>b</StampUser>
+				<StampDate>2014-05-02T11:01:38.986+02:00</StampDate>
+				<Strasse>Pilatusstrasse 13</Strasse>
+				<Telefon1 />
+				<Telefon2 />
+				<Telefon3 />
+				<Telefon4 />
+				<Zusatz1 />
+				<Zusatz2 />
+			</Adresse>
+		</sdata:payload>
+	</entry>
+	-
+	<entry>
+		<author />
+		-
+		<content type="html">
+			- <![CDATA[ 
+<html>
+  <head>
+    <META http-equiv="Content-Type" content="text/html; charset=utf-8">
+  </head>
+  <body style="font-family: Verdana;">
+    <table cellpadding="4" cellspacing="0" style="background-color: white; font-family: Arial;border: 1px solid darkgray;font-size: x-small;">
+      <tr style="background-color: lavender;">
+        <td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">Anrede</td>
+        <td nowrap valign="top" style="&#xA;					width:7em&#xA;				">
+        </td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: white;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">Briefanrede</td>
+        <td nowrap valign="top" style="&#xA;					width:16em&#xA;				">
+        </td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: lavender;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">Code</td>
+        <td nowrap valign="top" style="&#xA;					width:2em&#xA;				">
+        </td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: white;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">DruckInfo</td>
+        <td nowrap valign="top" style="&#xA;					width:6em&#xA;				">0</td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: lavender;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">EMail</td>
+        <td nowrap valign="top" style="&#xA;					width:15em&#xA;				">
+        </td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: white;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">Firma</td>
+        <td nowrap valign="top" style="&#xA;					width:7em&#xA;				">Kummer &amp; Matter AG</td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: lavender;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">Homepage</td>
+        <td nowrap valign="top" style="&#xA;					width:15em&#xA;				">http://www.kundm.ch</td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: white;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">ID</td>
+        <td nowrap valign="top" style="&#xA;					width:3em&#xA;				">10004</td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: lavender;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">IstIntern</td>
+        <td nowrap valign="top" style="&#xA;					width:2em&#xA;				">true</td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: white;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">Land</td>
+        <td nowrap valign="top" style="&#xA;					width:0em&#xA;				">CH</td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: lavender;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">MahnSperrCode</td>
+        <td nowrap valign="top" style="&#xA;					width:2em&#xA;				">false</td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: white;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">PLZ</td>
+        <td nowrap valign="top" style="&#xA;					width:1em&#xA;				">6103</td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: lavender;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">Ort</td>
+        <td nowrap valign="top" style="&#xA;					width:6em&#xA;				">Schwarzenberg LU</td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: white;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">SortID</td>
+        <td nowrap valign="top" style="&#xA;					width:2em&#xA;				">KUMMER</td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: lavender;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">Sprache</td>
+        <td style=";vertical-align: top;" nowrap valign="top">D</td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: white;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">StampUser</td>
+        <td style=";vertical-align: top;" nowrap valign="top">b</td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: lavender;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">StampDate</td>
+        <td nowrap valign="top" style="&#xA;					width:16em&#xA;				">02.05.2014 11:01:38</td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: white;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">Strasse</td>
+        <td nowrap valign="top" style="&#xA;					width:7em&#xA;				">Auweg 80</td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: lavender;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">Telefon1</td>
+        <td nowrap valign="top" style="&#xA;					width:5em&#xA;				">
+        </td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: white;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">Telefon2</td>
+        <td nowrap valign="top" style="&#xA;					width:5em&#xA;				">
+        </td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: lavender;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">Telefon3</td>
+        <td nowrap valign="top" style="&#xA;					width:5em&#xA;				">
+        </td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: white;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">Telefon4</td>
+        <td nowrap valign="top" style="&#xA;					width:5em&#xA;				">
+        </td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: lavender;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">Zusatz1</td>
+        <td nowrap valign="top" style="&#xA;					width:7em&#xA;				">
+        </td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: white;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">Zusatz2</td>
+        <td nowrap valign="top" style="&#xA;					width:7em&#xA;				">
+        </td>
+        <td colspan="32">&#x00A0;</td>
+      </tr>
+    </table>
+  </body>
+</html>
+
+  ]]>
+		</content>
+		<id>http://w8dvl:5493/sdata/Sage50/Sage50/SageDemo14/Adressen('10004')?format=atomentry
+		</id>
+		<link
+			href="http://w8dvl:5493/sdata/Sage50/Sage50/SageDemo14/Adressen('10004')?format=atomentry"
+			rel="self" type="application/atom+xml" title="Self" />
+		<title>10004</title>
+		<updated>2015-01-20T08:18:26.940+01:00</updated>
+		<http:httpStatus>200</http:httpStatus>
+		<http:location>http://w8dvl:5493/sdata/Sage50/Sage50/SageDemo14/Adressen('10004')?format=atomentry
+		</http:location>
+		-
+		<sdata:payload>
+			-
+			<Adresse sdata:key="10004"
+				sdata:url="http://w8dvl:5493/sdata/Sage50/Sage50/SageDemo14/Adressen('10004')?format=atomentry"
+				xmlns="http://schemas.sage.com/ch/Sage50">
+				<Anrede />
+				<Briefanrede />
+				<Code />
+				<DruckInfo>0</DruckInfo>
+				<EMail />
+				<Firma>Kummer & Matter AG</Firma>
+				<Homepage>http://www.kundm.ch</Homepage>
+				<ID>10004</ID>
+				<IstIntern>true</IstIntern>
+				<Land>CH</Land>
+				<MahnSperrCode>false</MahnSperrCode>
+				<PLZ>6103</PLZ>
+				<Ort>Schwarzenberg LU</Ort>
+				<SortID>KUMMER</SortID>
+				<Sprache>D</Sprache>
+				<StampUser>b</StampUser>
+				<StampDate>2014-05-02T11:01:38.986+02:00</StampDate>
+				<Strasse>Auweg 80</Strasse>
+				<Telefon1 />
+				<Telefon2 />
+				<Telefon3 />
+				<Telefon4 />
+				<Zusatz1 />
+				<Zusatz2 />
+			</Adresse>
+		</sdata:payload>
+	</entry>
+	-
+	<entry>
+		<author />
+		-
+		<content type="html">
+			- <![CDATA[ 
+<html>
+  <head>
+    <META http-equiv="Content-Type" content="text/html; charset=utf-8">
+  </head>
+  <body style="font-family: Verdana;">
+    <table cellpadding="4" cellspacing="0" style="background-color: white; font-family: Arial;border: 1px solid darkgray;font-size: x-small;">
+      <tr style="background-color: lavender;">
+        <td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">Anrede</td>
+        <td nowrap valign="top" style="&#xA;					width:7em&#xA;				">
+        </td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: white;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">Briefanrede</td>
+        <td nowrap valign="top" style="&#xA;					width:16em&#xA;				">
+        </td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: lavender;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">Code</td>
+        <td nowrap valign="top" style="&#xA;					width:2em&#xA;				">
+        </td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: white;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">DruckInfo</td>
+        <td nowrap valign="top" style="&#xA;					width:6em&#xA;				">0</td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: lavender;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">EMail</td>
+        <td nowrap valign="top" style="&#xA;					width:15em&#xA;				">
+        </td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: white;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">Firma</td>
+        <td nowrap valign="top" style="&#xA;					width:7em&#xA;				">Amstutz Schlüssel AG</td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: lavender;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">Homepage</td>
+        <td nowrap valign="top" style="&#xA;					width:15em&#xA;				">
+        </td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: white;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">ID</td>
+        <td nowrap valign="top" style="&#xA;					width:3em&#xA;				">10005</td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: lavender;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">IstIntern</td>
+        <td nowrap valign="top" style="&#xA;					width:2em&#xA;				">true</td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: white;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">Land</td>
+        <td nowrap valign="top" style="&#xA;					width:0em&#xA;				">CH</td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: lavender;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">MahnSperrCode</td>
+        <td nowrap valign="top" style="&#xA;					width:2em&#xA;				">false</td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: white;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">PLZ</td>
+        <td nowrap valign="top" style="&#xA;					width:1em&#xA;				">6206</td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: lavender;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">Ort</td>
+        <td nowrap valign="top" style="&#xA;					width:6em&#xA;				">Neuenkirch</td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: white;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">SortID</td>
+        <td nowrap valign="top" style="&#xA;					width:2em&#xA;				">AMSTUTZSCH</td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: lavender;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">Sprache</td>
+        <td style=";vertical-align: top;" nowrap valign="top">D</td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: white;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">StampUser</td>
+        <td style=";vertical-align: top;" nowrap valign="top">b</td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: lavender;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">StampDate</td>
+        <td nowrap valign="top" style="&#xA;					width:16em&#xA;				">02.05.2014 11:01:38</td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: white;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">Strasse</td>
+        <td nowrap valign="top" style="&#xA;					width:7em&#xA;				">Kursstrasse 8</td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: lavender;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">Telefon1</td>
+        <td nowrap valign="top" style="&#xA;					width:5em&#xA;				">041 210 23 25</td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: white;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">Telefon2</td>
+        <td nowrap valign="top" style="&#xA;					width:5em&#xA;				">
+        </td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: lavender;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">Telefon3</td>
+        <td nowrap valign="top" style="&#xA;					width:5em&#xA;				">
+        </td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: white;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">Telefon4</td>
+        <td nowrap valign="top" style="&#xA;					width:5em&#xA;				">
+        </td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: lavender;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">Zusatz1</td>
+        <td nowrap valign="top" style="&#xA;					width:7em&#xA;				">
+        </td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: white;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">Zusatz2</td>
+        <td nowrap valign="top" style="&#xA;					width:7em&#xA;				">
+        </td>
+        <td colspan="32">&#x00A0;</td>
+      </tr>
+    </table>
+  </body>
+</html>
+
+  ]]>
+		</content>
+		<id>http://w8dvl:5493/sdata/Sage50/Sage50/SageDemo14/Adressen('10005')?format=atomentry
+		</id>
+		<link
+			href="http://w8dvl:5493/sdata/Sage50/Sage50/SageDemo14/Adressen('10005')?format=atomentry"
+			rel="self" type="application/atom+xml" title="Self" />
+		<title>10005</title>
+		<updated>2015-01-20T08:18:26.940+01:00</updated>
+		<http:httpStatus>200</http:httpStatus>
+		<http:location>http://w8dvl:5493/sdata/Sage50/Sage50/SageDemo14/Adressen('10005')?format=atomentry
+		</http:location>
+		-
+		<sdata:payload>
+			-
+			<Adresse sdata:key="10005"
+				sdata:url="http://w8dvl:5493/sdata/Sage50/Sage50/SageDemo14/Adressen('10005')?format=atomentry"
+				xmlns="http://schemas.sage.com/ch/Sage50">
+				<Anrede />
+				<Briefanrede />
+				<Code />
+				<DruckInfo>0</DruckInfo>
+				<EMail />
+				<Firma>Amstutz Schlüssel AG</Firma>
+				<Homepage />
+				<ID>10005</ID>
+				<IstIntern>true</IstIntern>
+				<Land>CH</Land>
+				<MahnSperrCode>false</MahnSperrCode>
+				<PLZ>6206</PLZ>
+				<Ort>Neuenkirch</Ort>
+				<SortID>AMSTUTZSCH</SortID>
+				<Sprache>D</Sprache>
+				<StampUser>b</StampUser>
+				<StampDate>2014-05-02T11:01:38.986+02:00</StampDate>
+				<Strasse>Kursstrasse 8</Strasse>
+				<Telefon1>041 210 23 25</Telefon1>
+				<Telefon2 />
+				<Telefon3 />
+				<Telefon4 />
+				<Zusatz1 />
+				<Zusatz2 />
+			</Adresse>
+		</sdata:payload>
+	</entry>
+	-
+	<entry>
+		<author />
+		-
+		<content type="html">
+			- <![CDATA[ 
+<html>
+  <head>
+    <META http-equiv="Content-Type" content="text/html; charset=utf-8">
+  </head>
+  <body style="font-family: Verdana;">
+    <table cellpadding="4" cellspacing="0" style="background-color: white; font-family: Arial;border: 1px solid darkgray;font-size: x-small;">
+      <tr style="background-color: lavender;">
+        <td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">Anrede</td>
+        <td nowrap valign="top" style="&#xA;					width:7em&#xA;				">
+        </td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: white;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">Briefanrede</td>
+        <td nowrap valign="top" style="&#xA;					width:16em&#xA;				">
+        </td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: lavender;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">Code</td>
+        <td nowrap valign="top" style="&#xA;					width:2em&#xA;				">
+        </td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: white;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">DruckInfo</td>
+        <td nowrap valign="top" style="&#xA;					width:6em&#xA;				">0</td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: lavender;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">EMail</td>
+        <td nowrap valign="top" style="&#xA;					width:15em&#xA;				">
+        </td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: white;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">Firma</td>
+        <td nowrap valign="top" style="&#xA;					width:7em&#xA;				">Bernhard Bau GmbH</td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: lavender;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">Homepage</td>
+        <td nowrap valign="top" style="&#xA;					width:15em&#xA;				">
+        </td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: white;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">ID</td>
+        <td nowrap valign="top" style="&#xA;					width:3em&#xA;				">10006</td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: lavender;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">IstIntern</td>
+        <td nowrap valign="top" style="&#xA;					width:2em&#xA;				">true</td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: white;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">Land</td>
+        <td nowrap valign="top" style="&#xA;					width:0em&#xA;				">CH</td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: lavender;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">MahnSperrCode</td>
+        <td nowrap valign="top" style="&#xA;					width:2em&#xA;				">false</td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: white;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">PLZ</td>
+        <td nowrap valign="top" style="&#xA;					width:1em&#xA;				">5400</td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: lavender;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">Ort</td>
+        <td nowrap valign="top" style="&#xA;					width:6em&#xA;				">Baden</td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: white;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">SortID</td>
+        <td nowrap valign="top" style="&#xA;					width:2em&#xA;				">BERNHARDBA</td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: lavender;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">Sprache</td>
+        <td style=";vertical-align: top;" nowrap valign="top">D</td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: white;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">StampUser</td>
+        <td style=";vertical-align: top;" nowrap valign="top">b</td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: lavender;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">StampDate</td>
+        <td nowrap valign="top" style="&#xA;					width:16em&#xA;				">02.05.2014 11:01:38</td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: white;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">Strasse</td>
+        <td nowrap valign="top" style="&#xA;					width:7em&#xA;				">Feldstrasse 90</td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: lavender;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">Telefon1</td>
+        <td nowrap valign="top" style="&#xA;					width:5em&#xA;				">056 999 99 99</td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: white;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">Telefon2</td>
+        <td nowrap valign="top" style="&#xA;					width:5em&#xA;				">
+        </td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: lavender;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">Telefon3</td>
+        <td nowrap valign="top" style="&#xA;					width:5em&#xA;				">
+        </td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: white;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">Telefon4</td>
+        <td nowrap valign="top" style="&#xA;					width:5em&#xA;				">
+        </td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: lavender;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">Zusatz1</td>
+        <td nowrap valign="top" style="&#xA;					width:7em&#xA;				">
+        </td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: white;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">Zusatz2</td>
+        <td nowrap valign="top" style="&#xA;					width:7em&#xA;				">
+        </td>
+        <td colspan="32">&#x00A0;</td>
+      </tr>
+    </table>
+  </body>
+</html>
+
+  ]]>
+		</content>
+		<id>http://w8dvl:5493/sdata/Sage50/Sage50/SageDemo14/Adressen('10006')?format=atomentry
+		</id>
+		<link
+			href="http://w8dvl:5493/sdata/Sage50/Sage50/SageDemo14/Adressen('10006')?format=atomentry"
+			rel="self" type="application/atom+xml" title="Self" />
+		<title>10006</title>
+		<updated>2015-01-20T08:18:26.940+01:00</updated>
+		<http:httpStatus>200</http:httpStatus>
+		<http:location>http://w8dvl:5493/sdata/Sage50/Sage50/SageDemo14/Adressen('10006')?format=atomentry
+		</http:location>
+		-
+		<sdata:payload>
+			-
+			<Adresse sdata:key="10006"
+				sdata:url="http://w8dvl:5493/sdata/Sage50/Sage50/SageDemo14/Adressen('10006')?format=atomentry"
+				xmlns="http://schemas.sage.com/ch/Sage50">
+				<Anrede />
+				<Briefanrede />
+				<Code />
+				<DruckInfo>0</DruckInfo>
+				<EMail />
+				<Firma>Bernhard Bau GmbH</Firma>
+				<Homepage />
+				<ID>10006</ID>
+				<IstIntern>true</IstIntern>
+				<Land>CH</Land>
+				<MahnSperrCode>false</MahnSperrCode>
+				<PLZ>5400</PLZ>
+				<Ort>Baden</Ort>
+				<SortID>BERNHARDBA</SortID>
+				<Sprache>D</Sprache>
+				<StampUser>b</StampUser>
+				<StampDate>2014-05-02T11:01:38.986+02:00</StampDate>
+				<Strasse>Feldstrasse 90</Strasse>
+				<Telefon1>056 999 99 99</Telefon1>
+				<Telefon2 />
+				<Telefon3 />
+				<Telefon4 />
+				<Zusatz1 />
+				<Zusatz2 />
+			</Adresse>
+		</sdata:payload>
+	</entry>
+	-
+	<entry>
+		<author />
+		-
+		<content type="html">
+			- <![CDATA[ 
+<html>
+  <head>
+    <META http-equiv="Content-Type" content="text/html; charset=utf-8">
+  </head>
+  <body style="font-family: Verdana;">
+    <table cellpadding="4" cellspacing="0" style="background-color: white; font-family: Arial;border: 1px solid darkgray;font-size: x-small;">
+      <tr style="background-color: lavender;">
+        <td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">Anrede</td>
+        <td nowrap valign="top" style="&#xA;					width:7em&#xA;				">
+        </td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: white;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">Briefanrede</td>
+        <td nowrap valign="top" style="&#xA;					width:16em&#xA;				">
+        </td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: lavender;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">Code</td>
+        <td nowrap valign="top" style="&#xA;					width:2em&#xA;				">
+        </td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: white;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">DruckInfo</td>
+        <td nowrap valign="top" style="&#xA;					width:6em&#xA;				">0</td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: lavender;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">EMail</td>
+        <td nowrap valign="top" style="&#xA;					width:15em&#xA;				">
+        </td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: white;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">Firma</td>
+        <td nowrap valign="top" style="&#xA;					width:7em&#xA;				">Kleinert AG</td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: lavender;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">Homepage</td>
+        <td nowrap valign="top" style="&#xA;					width:15em&#xA;				">
+        </td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: white;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">ID</td>
+        <td nowrap valign="top" style="&#xA;					width:3em&#xA;				">10007</td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: lavender;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">IstIntern</td>
+        <td nowrap valign="top" style="&#xA;					width:2em&#xA;				">true</td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: white;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">Land</td>
+        <td nowrap valign="top" style="&#xA;					width:0em&#xA;				">CH</td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: lavender;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">MahnSperrCode</td>
+        <td nowrap valign="top" style="&#xA;					width:2em&#xA;				">false</td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: white;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">PLZ</td>
+        <td nowrap valign="top" style="&#xA;					width:1em&#xA;				">2500</td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: lavender;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">Ort</td>
+        <td nowrap valign="top" style="&#xA;					width:6em&#xA;				">Biel/Bienne</td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: white;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">SortID</td>
+        <td nowrap valign="top" style="&#xA;					width:2em&#xA;				">KLEINERTAG</td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: lavender;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">Sprache</td>
+        <td style=";vertical-align: top;" nowrap valign="top">D</td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: white;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">StampUser</td>
+        <td style=";vertical-align: top;" nowrap valign="top">b</td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: lavender;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">StampDate</td>
+        <td nowrap valign="top" style="&#xA;					width:16em&#xA;				">02.05.2014 11:01:38</td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: white;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">Strasse</td>
+        <td nowrap valign="top" style="&#xA;					width:7em&#xA;				">Breite 54</td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: lavender;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">Telefon1</td>
+        <td nowrap valign="top" style="&#xA;					width:5em&#xA;				">032 123 45 67</td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: white;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">Telefon2</td>
+        <td nowrap valign="top" style="&#xA;					width:5em&#xA;				">032 123 45 69</td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: lavender;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">Telefon3</td>
+        <td nowrap valign="top" style="&#xA;					width:5em&#xA;				">
+        </td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: white;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">Telefon4</td>
+        <td nowrap valign="top" style="&#xA;					width:5em&#xA;				">
+        </td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: lavender;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">Zusatz1</td>
+        <td nowrap valign="top" style="&#xA;					width:7em&#xA;				">Schlosserei</td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: white;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">Zusatz2</td>
+        <td nowrap valign="top" style="&#xA;					width:7em&#xA;				">
+        </td>
+        <td colspan="32">&#x00A0;</td>
+      </tr>
+    </table>
+  </body>
+</html>
+
+  ]]>
+		</content>
+		<id>http://w8dvl:5493/sdata/Sage50/Sage50/SageDemo14/Adressen('10007')?format=atomentry
+		</id>
+		<link
+			href="http://w8dvl:5493/sdata/Sage50/Sage50/SageDemo14/Adressen('10007')?format=atomentry"
+			rel="self" type="application/atom+xml" title="Self" />
+		<title>10007</title>
+		<updated>2015-01-20T08:18:26.940+01:00</updated>
+		<http:httpStatus>200</http:httpStatus>
+		<http:location>http://w8dvl:5493/sdata/Sage50/Sage50/SageDemo14/Adressen('10007')?format=atomentry
+		</http:location>
+		-
+		<sdata:payload>
+			-
+			<Adresse sdata:key="10007"
+				sdata:url="http://w8dvl:5493/sdata/Sage50/Sage50/SageDemo14/Adressen('10007')?format=atomentry"
+				xmlns="http://schemas.sage.com/ch/Sage50">
+				<Anrede />
+				<Briefanrede />
+				<Code />
+				<DruckInfo>0</DruckInfo>
+				<EMail />
+				<Firma>Kleinert AG</Firma>
+				<Homepage />
+				<ID>10007</ID>
+				<IstIntern>true</IstIntern>
+				<Land>CH</Land>
+				<MahnSperrCode>false</MahnSperrCode>
+				<PLZ>2500</PLZ>
+				<Ort>Biel/Bienne</Ort>
+				<SortID>KLEINERTAG</SortID>
+				<Sprache>D</Sprache>
+				<StampUser>b</StampUser>
+				<StampDate>2014-05-02T11:01:38.986+02:00</StampDate>
+				<Strasse>Breite 54</Strasse>
+				<Telefon1>032 123 45 67</Telefon1>
+				<Telefon2>032 123 45 69</Telefon2>
+				<Telefon3 />
+				<Telefon4 />
+				<Zusatz1>Schlosserei</Zusatz1>
+				<Zusatz2 />
+			</Adresse>
+		</sdata:payload>
+	</entry>
+	-
+	<entry>
+		<author />
+		-
+		<content type="html">
+			- <![CDATA[ 
+<html>
+  <head>
+    <META http-equiv="Content-Type" content="text/html; charset=utf-8">
+  </head>
+  <body style="font-family: Verdana;">
+    <table cellpadding="4" cellspacing="0" style="background-color: white; font-family: Arial;border: 1px solid darkgray;font-size: x-small;">
+      <tr style="background-color: lavender;">
+        <td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">Anrede</td>
+        <td nowrap valign="top" style="&#xA;					width:7em&#xA;				">
+        </td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: white;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">Briefanrede</td>
+        <td nowrap valign="top" style="&#xA;					width:16em&#xA;				">
+        </td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: lavender;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">Code</td>
+        <td nowrap valign="top" style="&#xA;					width:2em&#xA;				">
+        </td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: white;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">DruckInfo</td>
+        <td nowrap valign="top" style="&#xA;					width:6em&#xA;				">0</td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: lavender;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">EMail</td>
+        <td nowrap valign="top" style="&#xA;					width:15em&#xA;				">
+        </td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: white;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">Firma</td>
+        <td nowrap valign="top" style="&#xA;					width:7em&#xA;				">Schlüssel Rauber GmbH</td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: lavender;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">Homepage</td>
+        <td nowrap valign="top" style="&#xA;					width:15em&#xA;				">
+        </td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: white;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">ID</td>
+        <td nowrap valign="top" style="&#xA;					width:3em&#xA;				">10008</td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: lavender;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">IstIntern</td>
+        <td nowrap valign="top" style="&#xA;					width:2em&#xA;				">true</td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: white;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">Land</td>
+        <td nowrap valign="top" style="&#xA;					width:0em&#xA;				">CH</td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: lavender;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">MahnSperrCode</td>
+        <td nowrap valign="top" style="&#xA;					width:2em&#xA;				">false</td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: white;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">PLZ</td>
+        <td nowrap valign="top" style="&#xA;					width:1em&#xA;				">4000</td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: lavender;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">Ort</td>
+        <td nowrap valign="top" style="&#xA;					width:6em&#xA;				">Basel</td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: white;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">SortID</td>
+        <td nowrap valign="top" style="&#xA;					width:2em&#xA;				">SCHLüSSELR</td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: lavender;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">Sprache</td>
+        <td style=";vertical-align: top;" nowrap valign="top">D</td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: white;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">StampUser</td>
+        <td style=";vertical-align: top;" nowrap valign="top">b</td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: lavender;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">StampDate</td>
+        <td nowrap valign="top" style="&#xA;					width:16em&#xA;				">02.05.2014 11:01:38</td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: white;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">Strasse</td>
+        <td nowrap valign="top" style="&#xA;					width:7em&#xA;				">Zürcherstrasse 2</td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: lavender;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">Telefon1</td>
+        <td nowrap valign="top" style="&#xA;					width:5em&#xA;				">
+        </td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: white;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">Telefon2</td>
+        <td nowrap valign="top" style="&#xA;					width:5em&#xA;				">
+        </td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: lavender;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">Telefon3</td>
+        <td nowrap valign="top" style="&#xA;					width:5em&#xA;				">
+        </td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: white;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">Telefon4</td>
+        <td nowrap valign="top" style="&#xA;					width:5em&#xA;				">
+        </td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: lavender;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">Zusatz1</td>
+        <td nowrap valign="top" style="&#xA;					width:7em&#xA;				">
+        </td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: white;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">Zusatz2</td>
+        <td nowrap valign="top" style="&#xA;					width:7em&#xA;				">
+        </td>
+        <td colspan="32">&#x00A0;</td>
+      </tr>
+    </table>
+  </body>
+</html>
+
+  ]]>
+		</content>
+		<id>http://w8dvl:5493/sdata/Sage50/Sage50/SageDemo14/Adressen('10008')?format=atomentry
+		</id>
+		<link
+			href="http://w8dvl:5493/sdata/Sage50/Sage50/SageDemo14/Adressen('10008')?format=atomentry"
+			rel="self" type="application/atom+xml" title="Self" />
+		<title>10008</title>
+		<updated>2015-01-20T08:18:26.940+01:00</updated>
+		<http:httpStatus>200</http:httpStatus>
+		<http:location>http://w8dvl:5493/sdata/Sage50/Sage50/SageDemo14/Adressen('10008')?format=atomentry
+		</http:location>
+		-
+		<sdata:payload>
+			-
+			<Adresse sdata:key="10008"
+				sdata:url="http://w8dvl:5493/sdata/Sage50/Sage50/SageDemo14/Adressen('10008')?format=atomentry"
+				xmlns="http://schemas.sage.com/ch/Sage50">
+				<Anrede />
+				<Briefanrede />
+				<Code />
+				<DruckInfo>0</DruckInfo>
+				<EMail />
+				<Firma>Schlüssel Rauber GmbH</Firma>
+				<Homepage />
+				<ID>10008</ID>
+				<IstIntern>true</IstIntern>
+				<Land>CH</Land>
+				<MahnSperrCode>false</MahnSperrCode>
+				<PLZ>4000</PLZ>
+				<Ort>Basel</Ort>
+				<SortID>SCHLüSSELR</SortID>
+				<Sprache>D</Sprache>
+				<StampUser>b</StampUser>
+				<StampDate>2014-05-02T11:01:38.986+02:00</StampDate>
+				<Strasse>Zürcherstrasse 2</Strasse>
+				<Telefon1 />
+				<Telefon2 />
+				<Telefon3 />
+				<Telefon4 />
+				<Zusatz1 />
+				<Zusatz2 />
+			</Adresse>
+		</sdata:payload>
+	</entry>
+	-
+	<entry>
+		<author />
+		-
+		<content type="html">
+			- <![CDATA[ 
+<html>
+  <head>
+    <META http-equiv="Content-Type" content="text/html; charset=utf-8">
+  </head>
+  <body style="font-family: Verdana;">
+    <table cellpadding="4" cellspacing="0" style="background-color: white; font-family: Arial;border: 1px solid darkgray;font-size: x-small;">
+      <tr style="background-color: lavender;">
+        <td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">Anrede</td>
+        <td nowrap valign="top" style="&#xA;					width:7em&#xA;				">
+        </td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: white;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">Briefanrede</td>
+        <td nowrap valign="top" style="&#xA;					width:16em&#xA;				">
+        </td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: lavender;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">Code</td>
+        <td nowrap valign="top" style="&#xA;					width:2em&#xA;				">
+        </td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: white;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">DruckInfo</td>
+        <td nowrap valign="top" style="&#xA;					width:6em&#xA;				">0</td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: lavender;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">EMail</td>
+        <td nowrap valign="top" style="&#xA;					width:15em&#xA;				">
+        </td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: white;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">Firma</td>
+        <td nowrap valign="top" style="&#xA;					width:7em&#xA;				">K+K Schlüssel AG</td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: lavender;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">Homepage</td>
+        <td nowrap valign="top" style="&#xA;					width:15em&#xA;				">
+        </td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: white;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">ID</td>
+        <td nowrap valign="top" style="&#xA;					width:3em&#xA;				">10009</td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: lavender;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">IstIntern</td>
+        <td nowrap valign="top" style="&#xA;					width:2em&#xA;				">true</td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: white;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">Land</td>
+        <td nowrap valign="top" style="&#xA;					width:0em&#xA;				">CH</td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: lavender;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">MahnSperrCode</td>
+        <td nowrap valign="top" style="&#xA;					width:2em&#xA;				">false</td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: white;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">PLZ</td>
+        <td nowrap valign="top" style="&#xA;					width:1em&#xA;				">6300</td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: lavender;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">Ort</td>
+        <td nowrap valign="top" style="&#xA;					width:6em&#xA;				">Zug</td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: white;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">SortID</td>
+        <td nowrap valign="top" style="&#xA;					width:2em&#xA;				">KKSCHLÜSS</td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: lavender;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">Sprache</td>
+        <td style=";vertical-align: top;" nowrap valign="top">D</td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: white;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">StampUser</td>
+        <td style=";vertical-align: top;" nowrap valign="top">b</td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: lavender;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">StampDate</td>
+        <td nowrap valign="top" style="&#xA;					width:16em&#xA;				">02.05.2014 11:01:38</td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: white;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">Strasse</td>
+        <td nowrap valign="top" style="&#xA;					width:7em&#xA;				">Peter Amstutz Strasse 5</td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: lavender;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">Telefon1</td>
+        <td nowrap valign="top" style="&#xA;					width:5em&#xA;				">
+        </td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: white;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">Telefon2</td>
+        <td nowrap valign="top" style="&#xA;					width:5em&#xA;				">
+        </td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: lavender;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">Telefon3</td>
+        <td nowrap valign="top" style="&#xA;					width:5em&#xA;				">
+        </td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: white;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">Telefon4</td>
+        <td nowrap valign="top" style="&#xA;					width:5em&#xA;				">
+        </td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: lavender;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">Zusatz1</td>
+        <td nowrap valign="top" style="&#xA;					width:7em&#xA;				">
+        </td>
+        <td colspan="32">&#x00A0;</td></tr><tr style="background-color: white;"><td nowrap style="font-weight: bold;text-align: right;vertical-align: top;">Zusatz2</td>
+        <td nowrap valign="top" style="&#xA;					width:7em&#xA;				">
+        </td>
+        <td colspan="32">&#x00A0;</td>
+      </tr>
+    </table>
+  </body>
+</html>
+
+  ]]>
+		</content>
+		<id>http://w8dvl:5493/sdata/Sage50/Sage50/SageDemo14/Adressen('10009')?format=atomentry
+		</id>
+		<link
+			href="http://w8dvl:5493/sdata/Sage50/Sage50/SageDemo14/Adressen('10009')?format=atomentry"
+			rel="self" type="application/atom+xml" title="Self" />
+		<title>10009</title>
+		<updated>2015-01-20T08:18:26.940+01:00</updated>
+		<http:httpStatus>200</http:httpStatus>
+		<http:location>http://w8dvl:5493/sdata/Sage50/Sage50/SageDemo14/Adressen('10009')?format=atomentry
+		</http:location>
+		-
+		<sdata:payload>
+			-
+			<Adresse sdata:key="10009"
+				sdata:url="http://w8dvl:5493/sdata/Sage50/Sage50/SageDemo14/Adressen('10009')?format=atomentry"
+				xmlns="http://schemas.sage.com/ch/Sage50">
+				<Anrede />
+				<Briefanrede />
+				<Code />
+				<DruckInfo>0</DruckInfo>
+				<EMail />
+				<Firma>K+K Schlüssel AG</Firma>
+				<Homepage />
+				<ID>10009</ID>
+				<IstIntern>true</IstIntern>
+				<Land>CH</Land>
+				<MahnSperrCode>false</MahnSperrCode>
+				<PLZ>6300</PLZ>
+				<Ort>Zug</Ort>
+				<SortID>KKSCHLÜSS</SortID>
+				<Sprache>D</Sprache>
+				<StampUser>b</StampUser>
+				<StampDate>2014-05-02T11:01:38.986+02:00</StampDate>
+				<Strasse>Peter Amstutz Strasse 5</Strasse>
+				<Telefon1 />
+				<Telefon2 />
+				<Telefon3 />
+				<Telefon4 />
+				<Zusatz1 />
+				<Zusatz2 />
+			</Adresse>
+		</sdata:payload>
+	</entry>
+	<opensearch:totalResults>35</opensearch:totalResults>
+	<opensearch:startIndex>1</opensearch:startIndex>
+	<opensearch:itemsPerPage>10</opensearch:itemsPerPage>
+</feed>

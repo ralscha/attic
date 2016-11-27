@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" 
+                layout="absolute" 
+                xmlns:component="@packageProject@.component.*"
+                preinitialize="Seam.getInstance().initApplication()"
+                creationComplete="init()">
+  
+  <mx:Metadata>
+    [ResourceBundle("common")]
+    [ResourceBundle("user")]
+    [ResourceBundle("login")]
+    [ResourceBundle("configuration")]
+  </mx:Metadata>  
+                
+  <mx:Script>
+    <![CDATA[
+      import @packageProject@.control.MainModule;
+      import @packageProject@.entity.Role;
+      import mx.events.IndexChangedEvent;
+      import org.granite.tide.seam.security.Identity;
+      import org.granite.tide.seam.Seam;
+      
+      Seam.getInstance().addModule(MainModule);
+
+      private var dummyRole:Role;
+
+      [Bindable]
+      [In]
+      public var identity:Identity;
+
+      private function init():void {
+        identity.isLoggedIn();
+        
+        switch (Capabilities.language) {
+          case "de":
+            resourceManager.localeChain = [ "de_CH" ];
+            break;
+          default:
+            resourceManager.localeChain = [ "en_US" ];              
+        }        
+      }
+
+      private function onChange(e:IndexChangedEvent):void {
+        applicationView.onClickHome();
+      }
+            
+    ]]>
+  </mx:Script>                
+                
+  <mx:Style source="/assets/main.css"/>
+  
+  <mx:ViewStack width="100%" height="100%"
+                paddingLeft="0" paddingRight="0" paddingTop="0" 
+                change="onChange(event)" 
+                selectedIndex="{identity.loggedIn ? 1 : 0}">
+
+    <component:LoginView id="loginView"/>
+    <component:ApplicationView id="applicationView"/>
+
+  </mx:ViewStack>
+  
+  
+</mx:Application>
+

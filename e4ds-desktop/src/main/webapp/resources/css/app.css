@@ -1,0 +1,213 @@
+.appLabel, .appButton .x-btn-inner  {
+	color: black;
+	font-size: 18px;
+	font-weight: bold;
+}
+
+.x-grid-row-over .x-grid-cell-inner {
+	font-weight: bold;
+}
+
+.x-grid-row-selected .x-grid-cell-inner {
+	font-weight: bold;
+}
+
+/* Settings Wallpaper */
+div.settings-wallpaper-item {
+	padding: 5px;
+	cursor: default;
+}
+
+div.settings-wallpaper-item-selected {
+	background-color: #d3e1f1 !important;
+}
+
+div.view-over.settings-wallpaper-item {
+	background-color: #efefef;
+}
+
+/* Desktop Windows */
+.desktop-active-win {
+	
+}
+
+.desktop-inactive-win {
+	opacity: 0.90;
+}
+
+/* WindowBar */
+.windowbar .x-btn-inner,.x-nbr .windowbar .x-btn-icon-text-left button {
+	text-align: left !important;
+}
+
+.windowbar {
+	height: 26px;
+	padding: 0;
+}
+
+/* Desktop DataView */
+.wallpaper {
+	background-color: #3d71b8;
+	display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.wallpaper-center {
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+.wallpaper-tile {
+	background-repeat: repeat;
+}
+
+.desktop-shortcut {
+	cursor: pointer;
+	text-align: center;
+	padding: 8px;
+	margin: 8px;
+	width: 64px;
+}
+
+.desktop-shortcut-icon {
+	width: 48px;
+	height: 48px;
+	background-color: transparent;
+	background-repeat: no-repeat;
+}
+
+.desktop-shortcut-text {
+	font: normal 13px tahoma, arial, verdana, sans-serif;
+	text-decoration: none;
+	padding-top: 5px;
+	color: white;
+}
+
+.view-over .desktop-shortcut-text {
+	text-decoration: underline;
+}
+
+.cursor-pointer {
+	cursor: pointer;
+}
+
+/* Modules */
+.loggingevents-shortcut {
+	background-image: url(../images/loggingevents.png);
+}
+
+.loggingevents-icon {
+	background-image: url(../images/loggingevents-icon.png);
+}
+
+.accesslog-shortcut {
+	background-image: url(../images/accesslog.png);
+}
+
+.accesslog-icon {
+	background-image: url(../images/accesslog-icon.png);
+}
+
+.users-shortcut {
+	background-image: url(../images/users.png);
+}
+
+.users-icon {
+	background-image: url(../images/users-icon.png);
+}
+
+.configuration-shortcut {
+	background-image: url(../images/settings.png);
+}
+
+.configuration-icon {
+	background-image: url(../images/settings-icon.png);
+}
+
+.loggedOnLabel {
+	padding-right: 5px;
+	font-weight: bold;
+}
+
+.settings {
+	background-image: url(../images/settings-icon.png);
+}
+
+.logout {
+	background-image: url(../images/logout.png);
+}
+
+
+/* DEMO */
+.systemstatus-shortcut {
+	background-image: url(../images/demo/systemstatus.png);
+}
+
+.systemstatus-icon {
+	background-image: url(../images/demo/systemstatus-icon.png);
+}
+
+.grid-shortcut {
+	background-image: url(../images/demo/grid.png);
+}
+
+.grid-icon {
+	background-image: url(../images/demo/grid-icon.png);
+}
+
+.onlineusers-shortcut {
+	background-image: url(../images/demo/onlineusers.png);
+}
+
+.onlineusers-icon {
+	background-image: url(../images/demo/onlineusers-icon.png);
+}
+
+.notepad-shortcut {
+	background-image: url(../images/demo/notepad.png);
+}
+
+.notepad-icon {
+	background-image: url(../images/demo/notepad-icon.png);
+}
+
+.tabs-icon {
+	background-image: url(../images/demo/tabs-icon.gif);
+}
+
+user {
+	background-image: url(../images/demo/user.png);
+}
+
+.user-add {
+	background-image: url(../images/demo/user_add.png);
+}
+
+.user-delete {
+	background-image: url(../images/demo/user_delete.png);
+}
+
+.connect {
+	background-image: url(../images/demo/connect.png);
+}
+
+.user-girl {
+	background-image: url(../images/demo/user_female.png);
+}
+
+.user-kid {
+	background-image: url(../images/demo/user_green.png);
+}
+
+.add {
+	background-image: url(../images/demo/add.png);
+}
+
+.option {
+	background-image: url(../images/demo/plugin.png);
+}
+
+.remove {
+	background-image: url(../images/demo/delete.png);
+}
