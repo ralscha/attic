@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>SSE Sandbox</title>
+<script>
+    /*
+    var es = new EventSource("event1");
+
+	es.addEventListener('message', function(e) {
+		console.log(e);
+		es.close();
+	}, false); 
+	*/
+	
+	/*
+	var es = new EventSource("multiline");
+
+	es.addEventListener('message', function(e) {
+		console.log(e.data);
+		es.close();
+	}, false);
+	*/
+	
+	/*
+	var es = new EventSource("event");
+
+	es.addEventListener('message', function(e) {
+		console.log('inside message');
+		console.log(e.data);
+	}, false);
+	es.addEventListener('event1', function(e) {
+		console.log('inside event1');
+		console.log(e.data);
+	}, false);	
+	es.addEventListener('event2', function(e) {
+		console.log('inside event2');
+		console.log(e.data);
+	}, false);	
+	es.addEventListener('close', function(e) {
+		console.log('inside close');
+		console.log(e.data);
+		es.close();
+	}, false);	
+	*/
+	
+	var es = new EventSource("lastId");
+	es.addEventListener('message', function(e) {
+		console.log('Last Event Id: ' + e.lastEventId);
+		console.log(e.data);
+	}, false);
+</script>
+</head>
+<body>
+	<h1>Simple Examples of SSE</h1>
+	See Javascript Console
+</body>
+</html>
+
+
+
+

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta charset="utf-8">
+<title>EventSource</title>
+<link rel="stylesheet" href="//extjs.cachefly.net/ext/gpl/4.2.1/resources/css/ext-all.css">
+<script src="//extjs.cachefly.net/ext/gpl/4.2.1/ext-all.js"></script>
+<script>
+Ext.onReady(function() {
+
+	var panel = new Ext.panel.Panel({
+		title: 'EventSource',
+		xtype: 'panel',
+		width: 400,
+		height: 300,
+		renderTo: Ext.getBody(),
+		bodyPadding: 5,
+		tpl: '<p>{data}</p>',
+		tplWriteMode: 'insertFirst',
+		autoScroll: true,
+		
+		dockedItems: [{
+	        xtype: 'toolbar',
+	        dock: 'top',
+	        items: [{
+	            text: 'Start',
+	            itemId: 'startButton',
+	            handler: startPolling
+	        }, {
+	        	text: 'Stop',
+	        	itemId: 'stopButton',
+	        	disabled: true,
+	        	handler: stopPolling
+	        }]
+	    }]
+	});
+
+	var source;
+	
+	function startPolling() {
+		panel.down('#stopButton').enable();
+		panel.down('#startButton').disable();
+		source = new EventSource('datedata');
+		//source = new EventSource('http://localhost:8080/simpleservlet?userid=11');
+		//source = new EventSource('simpleservlet');
+		//source = new EventSource('simplestreaming');
+		//source = new EventSource('simplelong');
+		source.addEventListener('message', function(e) {
+			console.log('>>'+e.data+'<<');
+			//console.log(e.lastEventId);
+			
+			//var o = JSON.parse(e.data);
+			//console.log(o);
+			panel.update({
+				data: e.data
+			});
+		}, false);
+		
+		source.addEventListener('add', function(e) {
+			console.log('add: ' + e.data);
+		}, false);
+		
+		source.addEventListener('remove', function(e) {
+			console.log('remove: ' + e.data);
+		}, false);		
+		
+		source.addEventListener('open', function(e) {
+			//console.log('open', e);
+		}, false);
+		
+		source.addEventListener('error', function(e) {
+			//console.log('error', e);
+		}, false);		
+	}
+	
+	function stopPolling() {
+		panel.down('#stopButton').disable();
+		panel.down('#startButton').enable();
+		if (source) {
+			source.close();
+		}
+	}
+
+});
+</script>
+
+</head>
+<body></body>
+</html>
