@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blog: Feedback</title>
+<link rel="stylesheet" href="../resources/hplar1.css">
+</head>
+<body>
+
+  <header>
+    <h1>Blog</h1>
+    <p class="indexsubtitle">Send me a feedback</p>
+  </header>
+
+  <form action="../submitFeedback" method="post">
+     <div>
+	  	 <h3>Re: {{postTitle}}</h3>
+	  	 <input type="hidden" name="slug" value="{{postSlug}}">
+	  	
+	  	 <textarea name="feedback"></textarea>
+	  	 <label for="email">Email (optional, provide one when you expect a response)</label>
+  		 <input class="textfield" type="text" name="email"><br>
+	  	 <br>
+	  	 <input type="submit" value="Submit Feedback">
+  	 </div>
+  </form>
+
+</body>
+</html>
+

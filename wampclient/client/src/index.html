@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>WAMP</title>
+  <link rel="stylesheet" href="./main.css" />
+</head>
+
+<body>
+
+    <form id="inputForm" class="mui-form">
+    <legend>User</legend>
+    <div class="mui-textfield">
+        <input name="user" type="text">
+    </div>
+    
+    <legend>Pass</legend>
+    <div class="mui-textfield">
+        <input name="pass" type="text" placeholder="">
+    </div>
+   
+    <legend>Extension</legend>
+    <div class="mui-textfield">
+        <input name="extension" type="text" placeholder="">
+    </div>
+    <button id="submitButton"  type="button" class="mui-btn mui-btn--raised mui-btn--primary">Send RPC call</button>
+    </form>
+
+    <div style="margin-top:30px;" class="mui-divider"></div>
+    <div id="output" class="mui-panel">   
+    </div>
+
+    <div style="margin-top:30px;" class="mui-divider"></div>
+    <div id="outputPubSub" class="mui-panel">   
+    </div>
+
+    <button id="clearButton" type="button" class="mui-btn mui-btn--raised mui-btn--primary">Clear</button>
+
+    <script src="./main.js"></script>
+</body>
+
+</html>

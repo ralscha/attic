@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blog</title>
+<link rel="stylesheet" href="resources/hplar1.css">
+<link href="https://www.myblog.com/rss2" rel="alternate" type="application/rss+xml" title="Blog: RSS Feed" />
+<link href="https://www.myblog.com/atom1" rel="alternate" type="application/atom+xml" title="Blog: Atom Feed" />
+</head>
+<body>
+  <header>
+    <h1>Blog</h1>
+    <p class="indexsubtitle">about this and that <span class="small">(<a href="https://www.myblog.com/rss2">RSS</a> | <a href="https://www.myblog.com/atom1">Atom</a>)</span></p>
+  </header>
+{{#posts}}
+  <article class="indexarticle">
+    <h3><a href="p/{{slug}}">{{title}}</a></h3>
+    <p>{{published}}&nbsp;&nbsp;•&nbsp;&nbsp;{{#tags}}{{^-first}}, {{/-first}}<a href="index.html?tag={{#tagName}}{{this}}{{/tagName}}">{{#tagName}}{{this}}{{/tagName}}</a>{{/tags}}</p>
+    {{#summary}}<p class="summary">{{summary}}</p>{{/summary}}
+  </article>
+{{/posts}}
+</body>
+</html>
+

@@ -1,0 +1,1 @@
+cleancss.cmd -o resources/hplar1.css normalize.css resources/github-markdown.css resources/highlight_default.css public.css

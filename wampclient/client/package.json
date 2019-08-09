@@ -1,0 +1,27 @@
+{
+  "name": "client",
+  "version": "1.0.0",
+  "description": "",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "main": "index.html",
+  "scripts": {
+    "start": "parcel src/index.html",
+    "prebuild": "shx rm -rf dist/*",
+    "build": "parcel build src/index.html --public-url ./",
+    "watch": "parcel src/index.html"
+  },
+  "dependencies": {
+    "autobahn": "18.3.2",
+    "muicss": "0.9.39"
+  },
+  "devDependencies": {
+    "parcel-bundler": "1.10.3",
+    "shx": "0.3.2"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions"
+  ]
+}
