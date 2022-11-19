@@ -1,0 +1,15 @@
+spring:
+  main:
+    banner-mode: "off"
+
+app:
+  xodus-path: ./xodus  
+  backup-filename: ./smn.zip
+    
+logging:
+  level:
+    org.springframework: WARN
+    org.apache: WARN
+    jetbrains: WARN
+    ch: WARN
+  file: ./app.log  
