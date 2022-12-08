@@ -1,0 +1,46 @@
+{
+  "name": "sqrldemo",
+  "version": "0.0.1",
+  "scripts": {
+    "ng": "ng",
+    "start": "ng serve",
+    "build": "ng build",
+    "build-prod": "ng build --prod",
+    "lint": "ng lint",
+    "postbuild-prod": "bread-compressor dist/sqrldemo",
+    "serve-dist": "ws --hostname localhost -d dist/sqrldemo -p 1234 -o --log.format stats",
+    "serve-ssl": "ng serve --ssl true -o --ssl-cert ssl/server.crt --ssl-key ssl/server.key"
+  },
+  "private": true,
+  "dependencies": {
+    "@angular/animations": "8.2.14",
+    "@angular/common": "8.2.14",
+    "@angular/compiler": "8.2.14",
+    "@angular/core": "8.2.14",
+    "@angular/forms": "8.2.14",
+    "@angular/platform-browser": "8.2.14",
+    "@angular/platform-browser-dynamic": "8.2.14",
+    "@angular/router": "8.2.14",
+    "@ngx-loading-bar/core": "4.2.0",
+    "@ngx-loading-bar/http-client": "4.2.0",
+    "ngx-custom-validators": "8.0.0",
+    "primeicons": "2.0.0",
+    "primeng": "8.1.1",
+    "qrcode-generator": "1.4.4",
+    "rxjs": "6.6.7",
+    "tslib": "1.10.0",
+    "zone.js": "0.10.2"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "0.803.22",
+    "@angular/cli": "8.3.22",
+    "@angular/compiler-cli": "8.2.14",
+    "@angular/language-service": "8.2.14",
+    "@types/node": "13.1.5",
+    "bread-compressor-cli": "1.1.0",
+    "codelyzer": "6.0.2",
+    "local-web-server": "3.0.7",
+    "tslint": "5.20.1",
+    "typescript": "3.5.3"
+  }
+}
