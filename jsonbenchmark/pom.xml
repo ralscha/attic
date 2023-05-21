@@ -101,12 +101,6 @@
 			<artifactId>jmh-generator-annprocess</artifactId>
 			<version>1.21</version>
 		</dependency>
-		<dependency>
-			<groupId>com.google.code.findbugs</groupId>
-			<artifactId>jsr305</artifactId>
-			<version>3.0.2</version>
-			<scope>provided</scope>
-		</dependency>
 	</dependencies>
 
 
