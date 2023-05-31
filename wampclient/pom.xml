@@ -19,7 +19,7 @@
 		<dependency>
 			<groupId>io.crossbar.autobahn</groupId>
 			<artifactId>autobahn-java</artifactId>
-			<version>18.5.2</version>
+			<version>18.5.3</version>
 		</dependency>	
 		
 		<dependency>
