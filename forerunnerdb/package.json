@@ -21,7 +21,7 @@
     "@angular/router": "9.1.4",
     "@ionic/angular": "4.11.10",
     "forerunnerdb": "2.0.22",
-    "geolib": "3.2.1",
+    "geolib": "3.3.4",
     "rxjs": "6.5.5",
     "tslib": "1.11.2",
     "zone.js": "0.10.3"
