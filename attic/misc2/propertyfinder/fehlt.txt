@@ -1,0 +1,15 @@
+#fehlt
+#Wed Feb 06 13:48:52 CET 2002
+RahmenvertragText=Rahmenvertrag
+rekrutierung.offerte.attachments.zugross=Attachment ist zu gross. Maxmimale Gr&ouml;sse\: {0} Bytes
+supplier=- supplier -
+reporting.sollist.chooseinputh=OE ausw&auml;hlen
+buyer=- buyer -
+IstSollDescriptionEmaH=Ist/Plan Vergleich der Stunden pro Vertrag
+IstSollDescriptionEmaC=Ist/Plan Vergleich der Kosten pro Vertrag
+org.apache.struts.taglib.bean.format.int=\#\#\#\#\#\#
+rekrutierung.offerte.attachments.virus=Attachment enht&auml;lt Virus\: {0}
+IstSollDescriptionH=Ist/Plan Vergleich der Stunden
+IstSollDescriptionC=Ist/Plan Vergleich der Kosten
+Auswertungab=Auswertung ab
+blank=

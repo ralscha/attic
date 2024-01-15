@@ -1,0 +1,471 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<resources>
+  <resource key="login.passwordmail.body">    
+    <description locale="en">Passwordmail Body</description>
+    <description locale="de">Passwortmail Text</description>        
+
+    <text locale="en"><![CDATA[Your new password is:
+
+  $!{password}
+
+Please change it after the next log in!
+]]>    
+    </text>  
+    <text locale="de"><![CDATA[Ihr neues Passwort lautet:
+    
+  $!{password}
+  
+Bitte bei der naechsten Anmeldung aendern!
+]]>    
+    </text>  
+       
+    <variable name="password">      
+      <description locale="en">New password</description>
+      <description locale="de">Neues Passwort</description>        
+    </variable>    
+    
+  </resource>
+  
+
+  <resource key="login.passwordmail.subject">    
+    <description locale="en">Passwordmail Subject</description>
+    <description locale="de">Passwortmail Subjekt</description>        
+
+    <text locale="en"><![CDATA[New password for Addressbook Web Application]]></text>  
+    <text locale="de"><![CDATA[Neues Passwort fuer Adressbuch Web Applikation]]></text>  
+            
+  </resource>
+    
+    
+
+  <resource key="login.multiplemail.body">    
+    <description locale="en">Multiple Logons Mail Body</description>
+    <description locale="de">Mehrfache Anmeldeversuche Mail Text</description>        
+
+    <text locale="en"><![CDATA[User $!{user} (IP: $!{ip}) tried to login multiple times
+Number of tries: $!{tries}
+]]>    
+    </text>  
+    <text locale="de"><![CDATA[Benutzer $!{user} (IP: $!{ip}) hat mehrfach versucht sich anzumelden
+Anzahl Versuche: $!{tries}
+]]>    
+    </text>  
+       
+    <variable name="user">      
+      <description locale="en">User</description>
+      <description locale="de">Benutzer</description>        
+    </variable>    
+    <variable name="ip">      
+      <description locale="en">IP Address</description>
+      <description locale="de">IP Adresse</description>        
+    </variable>    
+    <variable name="tries">      
+      <description locale="en">Number of tries</description>
+      <description locale="de">Anzahl Versuche</description>        
+    </variable>    
+    
+  </resource>    
+
+  <resource key="login.multiplemail.subject">    
+    <description locale="en">Multiple Logons Mail Subject</description>
+    <description locale="de">Mehrfache Anmeldeversuche Mail Subjekt</description>        
+
+    <text locale="en"><![CDATA[Multiple Logon Tries]]></text>  
+    <text locale="de"><![CDATA[Mehrfache Anmeldungsversuche]]></text>  
+            
+  </resource>
+  
+  
+  <resource key="info.contact">    
+    <description locale="en">Contact info</description>
+    <description locale="de">Kontakt Info</description>        
+
+    <text locale="en"><![CDATA[
+<html>
+<head>
+<title></title>
+</head>
+<body>
+
+<table border=1><tr><td>
+<table>
+<tr><th align=left colspan=2>General</th></tr>
+<tr><td></td><td></td></tr>
+<tr>
+	<th align=left>Title: </th>
+	<td nowrap>${title}</td>
+</tr>
+<tr>
+	<th align=left nowrap>First name: </th>
+	<td nowrap>${firstName}</td>
+</tr>
+<tr>
+	<th align=left nowrap>Middle name: </th>
+	<td nowrap>${middleName}</td>
+</tr>
+<tr>
+	<th align=left>Name: </th>
+	<td nowrap>${lastName}</td>
+</tr>
+<tr>
+	<th align=left>Nickname: </th>
+	<td nowrap>${nickName}</td>
+</tr>
+<tr>
+	<th align=left>Street: </th>
+	<td nowrap>${addressStreet}</td>
+</tr>
+<tr>
+	<th align=left nowrap>PO Box: </th>
+	<td nowrap>${addressPOBox}</td>
+</tr>
+<tr>
+	<th align=left>State: </th>
+	<td nowrap>${addressState}</td>
+</tr>
+<tr>
+	<th align=left nowrap>Postal code: </th>
+	<td nowrap>${addressPostalCode}</td>
+</tr>
+<tr>
+	<th align=left>City: </th>
+	<td nowrap>${addressCity}</td>
+</tr>
+<tr>
+	<th align=left>Country: </th>
+	<td nowrap>${addressCountry}</td>
+</tr>
+<tr>
+	<th align=left nowrap>E-Mail: </th>
+	<td nowrap>${email}</td>
+</tr>
+<tr>
+	<th align=left>Homepage: </th>
+	<td nowrap>${homepage}</td>
+</tr>
+</table>
+</td><td valign=top>
+<table>
+<tr><th align=left colspan=2>Business</th></tr>
+<tr><td></td><td></td></tr>
+<tr>
+	<th align=left>Company: </th>
+	<td nowrap>${companyName}</td>
+</tr>
+<tr>
+	<th align=left nowrap>Phone number: </th>
+	<td nowrap>${businessNumber}</td>
+</tr>
+<tr>
+	<th align=left nowrap>Phone number 2: </th>
+	<td nowrap>${officeNumber2}</td>
+</tr>
+<tr>
+	<th align=left>Location: </th>
+	<td nowrap>${officeLocation}</td>
+</tr>
+<tr>
+	<th align=left>Department: </th>
+	<td nowrap>${departmentName}</td>
+</tr>
+<tr>
+	<th align=left nowrap>Main phone: </th>
+	<td nowrap>${companyMainPhoneNumber}</td>
+</tr>
+<tr>
+	<th align=left>Fax: </th>
+	<td nowrap>${fax}</td>
+</tr>
+<tr>
+	<th align=left nowrap>Mobile number: </th>
+	<td nowrap>${mobileNumber}</td>
+</tr>
+
+</table>
+</td><td valign=top>
+<table>
+<tr><th align=left colspan=2>Privat</th></tr>
+<tr><td></td><td></td></tr>
+<tr>
+	<th align=left nowrap>Phone number: </th>
+	<td nowrap>${homeNumber}</td>
+</tr>
+<tr>
+	<th align=left nowrap>Phone number 2: </th>
+	<td nowrap>${homeNumber2}</td>
+</tr>
+<tr>
+	<th align=left>Street: </th>
+	<td nowrap>${homeStreet}</td>
+</tr>
+<tr>
+	<th align=left nowrap>PO box: </th>
+	<td nowrap>${homePOBox}</td>
+</tr>
+<tr>
+	<th align=left>State: </th>
+	<td nowrap>${homeState}</td>
+</tr>
+<tr>
+	<th align=left nowrap>Postal code: </th>
+	<td nowrap>${homePostalCode}</td>
+</tr>
+<tr>
+	<th align=left>City: </th>
+	<td nowrap>${homeCity}</td>
+</tr>
+<tr>
+	<th align=left>Country: </th>
+	<td nowrap>${homeCountry}</td>
+</tr>
+
+</table>
+</td><td valign=top>
+<table>
+<tr><th align=left colspan=2>Other</th></tr>
+<tr><td></td><td></td></tr>
+<tr>
+	<th align=left nowrap>Phone number: </th>
+	<td nowrap>${otherNumber}</td>
+</tr>
+<tr>
+	<th align=left>Street: </th>
+	<td nowrap>${otherStreet}</td>
+</tr>
+<tr>
+	<th align=left nowrap>PO box: </th>
+	<td nowrap>${otherPOBox}</td>
+</tr>
+<tr>
+	<th align=left>State: </th>
+	<td nowrap>${otherState}</td>
+</tr>
+<tr>
+	<th align=left nowrap>Postal code: </th>
+	<td nowrap>${otherPostalCode}</td>
+</tr>
+<tr>
+	<th align=left>City: </th>
+	<td nowrap>${otherCity}</td>
+</tr>
+<tr>
+	<th align=left>Country: </th>
+	<td nowrap>${otherCountry}</td>
+</tr>
+<tr>
+	<th align=left>Comment: </th>
+	<td nowrap>${comment}</td>
+</tr>
+<tr>
+	<th align=left>Birthday: </th>
+	<td nowrap>${birthday}</td>
+</tr>
+
+</table>
+</td>
+</tr>
+</table>
+
+</body>
+</html>
+
+    
+    ]]></text>  
+    <text locale="de"><![CDATA[
+    
+<html>
+<head>
+<title></title>
+</head>
+<body>
+
+<table border=1><tr><td>
+<table>
+<tr><th align=left colspan=2>Allgemein</th></tr>
+<tr><td></td><td></td></tr>
+<tr>
+	<th align=left>Titel: </th>
+	<td nowrap>${title}</td>
+</tr>
+<tr>
+	<th align=left nowrap>Vorname: </th>
+	<td nowrap>${firstName}</td>
+</tr>
+<tr>
+	<th align=left nowrap>Mittelname: </th>
+	<td nowrap>${middleName}</td>
+</tr>
+<tr>
+	<th align=left>Name: </th>
+	<td nowrap>${lastName}</td>
+</tr>
+<tr>
+	<th align=left>Uebername: </th>
+	<td nowrap>${nickName}</td>
+</tr>
+<tr>
+	<th align=left>Strasse: </th>
+	<td nowrap>${addressStreet}</td>
+</tr>
+<tr>
+	<th align=left nowrap>Postfach: </th>
+	<td nowrap>${addressPOBox}</td>
+</tr>
+<tr>
+	<th align=left>Kanton: </th>
+	<td nowrap>${addressState}</td>
+</tr>
+<tr>
+	<th align=left nowrap>PLZ: </th>
+	<td nowrap>${addressPostalCode}</td>
+</tr>
+<tr>
+	<th align=left>Ort: </th>
+	<td nowrap>${addressCity}</td>
+</tr>
+<tr>
+	<th align=left>Land: </th>
+	<td nowrap>${addressCountry}</td>
+</tr>
+<tr>
+	<th align=left nowrap>E-Mail: </th>
+	<td nowrap>${email}</td>
+</tr>
+<tr>
+	<th align=left>Homepage: </th>
+	<td nowrap>${homepage}</td>
+</tr>
+</table>
+</td><td valign=top>
+<table>
+<tr><th align=left colspan=2>Gesch&auml;ft</th></tr>
+<tr><td></td><td></td></tr>
+<tr>
+	<th align=left>Firma: </th>
+	<td nowrap>${companyName}</td>
+</tr>
+<tr>
+	<th align=left nowrap>Telefonnummer: </th>
+	<td nowrap>${businessNumber}</td>
+</tr>
+<tr>
+	<th align=left nowrap>Telefonnummer 2: </th>
+	<td nowrap>${officeNumber2}</td>
+</tr>
+<tr>
+	<th align=left>Standort: </th>
+	<td nowrap>${officeLocation}</td>
+</tr>
+<tr>
+	<th align=left>Abteilung: </th>
+	<td nowrap>${departmentName}</td>
+</tr>
+<tr>
+	<th align=left nowrap>Haupttelefonnummer: </th>
+	<td nowrap>${companyMainPhoneNumber}</td>
+</tr>
+<tr>
+	<th align=left>Fax: </th>
+	<td nowrap>${fax}</td>
+</tr>
+<tr>
+	<th align=left>Mobile: </th>
+	<td nowrap>${mobileNumber}</td>
+</tr>
+
+</table>
+</td><td valign=top>
+<table>
+<tr><th align=left colspan=2>Privat</th></tr>
+<tr><td></td><td></td></tr>
+<tr>
+	<th align=left nowrap>Telefonnummer: </th>
+	<td nowrap>${homeNumber}</td>
+</tr>
+<tr>
+	<th align=left nowrap>Telefonnummer 2: </th>
+	<td nowrap>${homeNumber2}</td>
+</tr>
+<tr>
+	<th align=left>Strasse: </th>
+	<td nowrap>${homeStreet}</td>
+</tr>
+<tr>
+	<th align=left nowrap>Postfach: </th>
+	<td nowrap>${homePOBox}</td>
+</tr>
+<tr>
+	<th align=left>Kanton: </th>
+	<td nowrap>${homeState}</td>
+</tr>
+<tr>
+	<th align=left nowrap>PLZ: </th>
+	<td nowrap>${homePostalCode}</td>
+</tr>
+<tr>
+	<th align=left>Ort: </th>
+	<td nowrap>${homeCity}</td>
+</tr>
+<tr>
+	<th align=left>Land: </th>
+	<td nowrap>${homeCountry}</td>
+</tr>
+
+</table>
+</td><td valign=top>
+<table>
+<tr><th align=left colspan=2>Andere</th></tr>
+<tr><td></td><td></td></tr>
+<tr>
+	<th align=left nowrap>Telefonnummer: </th>
+	<td nowrap>${otherNumber}</td>
+</tr>
+<tr>
+	<th align=left>Strasse: </th>
+	<td nowrap>${otherStreet}</td>
+</tr>
+<tr>
+	<th align=left nowrap>Postfach: </th>
+	<td nowrap>${otherPOBox}</td>
+</tr>
+<tr>
+	<th align=left>Kanton: </th>
+	<td nowrap>${otherState}</td>
+</tr>
+<tr>
+	<th align=left nowrap>PLZ: </th>
+	<td nowrap>${otherPostalCode}</td>
+</tr>
+<tr>
+	<th align=left>Ort: </th>
+	<td nowrap>${otherCity}</td>
+</tr>
+<tr>
+	<th align=left>Land: </th>
+	<td nowrap>${otherCountry}</td>
+</tr>
+<tr>
+	<th align=left>Bemerkung: </th>
+	<td nowrap>${comment}</td>
+</tr>
+<tr>
+	<th align=left>Geburtstag: </th>
+	<td nowrap>${birthday}</td>
+</tr>
+
+</table>
+</td>
+</tr>
+</table>
+
+</body>
+</html>
+
+
+    
+    ]]></text>  
+            
+  </resource>
+  
+</resources>

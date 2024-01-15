@@ -1,0 +1,67 @@
+package ${actionPackage};
+
+import java.io.*;
+
+import javax.servlet.*;
+import javax.servlet.http.*;
+import org.apache.struts.action.*;
+
+import ch.ess.ct.web.base.*;
+import ${formPackage}.*;
+import ch.ess.ct.business.db.*;
+import ch.ess.ct.business.db.finder.*;
+import ch.ess.ct.web.security.*;
+import ch.ess.tag.table.*;
+import ch.ess.util.*;
+import com.objectmatter.bsf.*;
+
+
+public class List${dbClassName}Action extends ListBaseAction {
+  
+  public static final int COL_ID = 0;
+  #foreach( $constants in $constantsList )
+  public static final int COL_${constants} = ${velocityCount};
+  #end
+  #set( $constantsSize = $constantsList.size()+1)
+
+
+  public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response)
+                        throws Exception {
+
+    HttpSession session = request.getSession();
+    User theUser = getUser(session);
+    Database db = getDb(request);
+    List${dbClassName}Form lpForm = (List${dbClassName}Form)form;
+    Util.blank2nullBean(lpForm);
+    
+    String searchStr = lpForm.getSearchStr();
+    
+    EventlessTableModel dtm = new EventlessTableModel();
+    dtm.setColumnCount($constantsSize);
+
+    Object[] oArray = new Object[$constantsSize];
+
+    ${dbClassName}Finder finder = new ${dbClassName}Finder();
+    finder.setGeloescht(false);
+    
+    if (searchStr != null) {
+      finder.setSearchString(searchStr);
+    }
+
+    ${dbClassName}[] ${dbClassLowerName} = finder.execute(db);
+
+    for (int i = 0; ${dbClassLowerName} != null && i < ${dbClassLowerName}.length; i++) {
+      oArray[COL_ID] = ${dbClassLowerName}[i].get${objectName}Id();
+      #foreach( $constants in $constantsList )
+      oArray[COL_${constants}] = ${dbClassLowerName}[i].get...
+      #end
+      
+      removeNulls(oArray);
+      dtm.addRow(oArray);
+    }
+
+    JSPTableModel jtm = createJSPTableModel(session, dtm, "listmodel", true);
+
+    return (mapping.findForward("success"));
+  }
+}

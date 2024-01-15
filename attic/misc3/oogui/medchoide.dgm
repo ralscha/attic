@@ -1,0 +1,206 @@
+LIAR1
+#(#JVDiagramSpec 
+	#name: 'medchoide' 
+	#creationDateSeconds: 3137341634 
+	#modificationDateSeconds: 3137401916 
+	#author: #(#AD2Identity 
+		#nickName: '' 
+		#name: '' 
+		#company: '' ) 
+	#state: #(#AD2DiagramState 
+		#bits: 135 
+		#zoom: '100%' 
+		#translation: #(#Point 0 0 ) ) 
+	#settings: #(#AD2DiagramSettings 
+		#colors: 
+		#(#AD2Paint 
+			#symbolicColorDictionary: #(#diagramBackground #(#ColorValue #white ) #freeLine #(#ColorValue #black ) #interfaceBackground #(#ColorValue #salmon ) #association #(#ColorValue #black ) #classForeground #(#ColorValue #black ) #finalClassBackground #(#ColorValue 6553 8191 4096 ) #implementation #(#ColorValue #red ) #textForeground #(#ColorValue #black ) #inheritance #(#ColorValue #black ) #classBackground #(#ColorValue #lightYellow ) #abstractClassBackground #(#ColorValue 8191 6553 4096 ) #textBackground #(#ColorValue 4096 6553 8191 ) ) 
+			#indexedColors: #(#(#ColorValue #white ) #(#ColorValue 6143 6143 6143 ) #(#ColorValue #gray ) #(#ColorValue #black ) #(#ColorValue 8191 4096 6151 ) #(#ColorValue #salmon ) #(#ColorValue 8191 6553 4096 ) #(#ColorValue #lightYellow ) #(#ColorValue 6553 8191 4096 ) #(#ColorValue #paleGreen ) #(#ColorValue 4096 8191 6152 ) #(#ColorValue #lightCyan ) #(#ColorValue 4096 6553 8191 ) #(#ColorValue #royalBlue ) #(#ColorValue 6553 4096 8191 ) #(#ColorValue #orchid ) #(#ColorValue 4096 2048 2106 ) #(#ColorValue 4096 4096 2048 ) #(#ColorValue 2048 4096 2562 ) #(#ColorValue 2048 2048 4096 ) ) 
+			#coloredPrinting: true ) 
+		#notation: 
+		#(#AD2NotationPreferences 
+			#notationType: #UML 
+			#useColorScheme: true 
+			#useStereotypes: true 
+			#displayInheritanceSymbol: true 
+			#displayVisibilitySymbols: true 
+			#displayNavigabilitySymbol: false 
+			#suppressMissingCompartments: true 
+			#displayFullyQualifiedName: false 
+			#displayDynamicRelations: true ) 
+		#layout: 
+		#(#AD2LayoutPreferences 
+			#relationLayoutType: #straight 
+			#inheritanceLayoutType: #straight 
+			#implementsLayoutType: #straight 
+			#inheritanceOrientation: #topToBottom 
+			#equalizeClassSize: false ) ) 
+	#filter: #(#JVMethodFilter 
+		#attributesFilter: 
+		#(#JVFilter 
+			#bits: 0 
+			#negativeBits: 0 
+			#individuals: #() ) 
+		#servicesFilter: 
+		#(#JVFilter 
+			#bits: 0 
+			#negativeBits: 0 
+			#individuals: #() ) 
+		#dynamicRelationsFilter: 
+		#(#JVFilter 
+			#bits: 0 
+			#negativeBits: 0 
+			#individuals: #() ) ) 
+	#classes: #(
+		#(#'default.BothButton' 'd:\Projects\JavaPro\ObjectChoices\MedChoice\BothButton.java' 606 321 1 nil 
+			#layouts: #(
+				#(#JVLayoutSpec #'default.Kids' 
+					#attribute: 'kds' 
+					#lineLayout: #(#(#Point 597 321 ) #(#Point 592 182 ) ) 
+					#symbol: #plain ) 
+				#(#JVLayoutSpec #'default.Mediator' 
+					#attribute: 'med' 
+					#lineLayout: #(#(#Point 611 401 ) #(#Point 599 589 ) ) 
+					#symbol: #plain ) 
+				#(#JVLayoutSpec #'default.Mediator' 
+					#attribute: '«uses»' 
+					#lineLayout: #(#(#Point 596 401 ) #(#Point 584 589 ) ) 
+					#symbol: #littleStrokedArrow ) 
+				#(#JVLayoutSpec #'default.Kids' 
+					#attribute: '«uses»' 
+					#lineLayout: #(#(#Point 612 321 ) #(#Point 607 182 ) ) 
+					#symbol: #littleStrokedArrow ) ) 
+			#showAttributes: false 
+			#showServices: true ) 
+		#(#'default.MedChoice' 'd:\Projects\JavaPro\ObjectChoices\MedChoice\MedChoice.java' 338 242 1 nil 
+			#layouts: #(
+				#(#JVLayoutSpec #'default.BothButton' 
+					#attribute: 'both' 
+					#lineLayout: #(#(#Point 397 314 ) #(#Point 561 351 ) ) 
+					#symbol: #plain ) 
+				#(#JVLayoutSpec #'default.FemaleButton' 
+					#attribute: 'female' 
+					#lineLayout: #(#(#Point 397 327 ) #(#Point 415 335 ) ) 
+					#symbol: #plain ) 
+				#(#JVLayoutSpec #'default.JawtList' 
+					#attribute: 'kidList' 
+					#lineLayout: #(#(#Point 338 358 ) #(#Point 339 467 ) ) 
+					#symbol: #plain ) 
+				#(#JVLayoutSpec #'default.Swimmer' 
+					#attribute: 'sw' 
+					#lineLayout: #(#(#Point 278 304 ) #(#Point 222 308 ) ) 
+					#symbol: #plain ) 
+				#(#JVLayoutSpec #'default.Kids' 
+					#attribute: 'kds' 
+					#lineLayout: #(#(#Point 397 259 ) #(#Point 556 152 ) ) 
+					#symbol: #plain ) 
+				#(#JVLayoutSpec #'default.Mediator' 
+					#attribute: 'med' 
+					#lineLayout: #(#(#Point 381 358 ) #(#Point 558 589 ) ) 
+					#symbol: #plain ) 
+				#(#JVLayoutSpec #'default.MaleButton' 
+					#attribute: 'male' 
+					#lineLayout: #(#(#Point 397 308 ) #(#Point 703 351 ) ) 
+					#symbol: #plain ) ) 
+			#showAttributes: false 
+			#showServices: true ) 
+		#(#'default.JxFrame' 'd:\Projects\JavaPro\ObjectChoices\MedChoice\JxFrame.java' 337 120 1 nil 
+			#layouts: #(
+				#(#JVLayoutSpec #'default.MedChoice' 
+					#attribute: '#inheritance' 
+					#lineLayout: #(#(#Point 337 164 ) #(#Point 337 242 ) ) ) ) 
+			#showAttributes: false ) 
+		#(#'default.FemaleKids' 'd:\Projects\JavaPro\ObjectChoices\MedChoice\FemaleKids.java' 450 94 1 nil 
+			#layouts: #(
+				#(#JVLayoutSpec #'default.Kids' 
+					#attribute: '«uses»' 
+					#lineLayout: #(#(#Point 497 123 ) #(#Point 556 119 ) ) 
+					#symbol: #littleStrokedArrow ) ) 
+			#showAttributes: false 
+			#showServices: true ) 
+		#(#'default.MaleKids' 'd:\Projects\JavaPro\ObjectChoices\MedChoice\MaleKids.java' 728 96 1 nil 
+			#layouts: #(
+				#(#JVLayoutSpec #'default.Kids' 
+					#attribute: '«uses»' 
+					#lineLayout: #(#(#Point 689 125 ) #(#Point 639 120 ) ) 
+					#symbol: #littleStrokedArrow ) ) 
+			#showAttributes: false 
+			#showServices: true ) 
+		#(#'default.FemaleButton' 'd:\Projects\JavaPro\ObjectChoices\MedChoice\FemaleButton.java' 468 319 1 nil 
+			#layouts: #(
+				#(#JVLayoutSpec #'default.FemaleKids' 
+					#attribute: 'kds' 
+					#lineLayout: #(#(#Point 465 319 ) #(#Point 452 174 ) ) 
+					#symbol: #plain ) 
+				#(#JVLayoutSpec #'default.Mediator' 
+					#attribute: 'med' 
+					#lineLayout: #(#(#Point 478 399 ) #(#Point 563 589 ) ) 
+					#symbol: #plain ) 
+				#(#JVLayoutSpec #'default.Mediator' 
+					#attribute: '«uses»' 
+					#lineLayout: #(#(#Point 494 399 ) #(#Point 579 589 ) ) 
+					#symbol: #littleStrokedArrow ) 
+				#(#JVLayoutSpec #'default.Kids' 
+					#attribute: '«uses»' 
+					#lineLayout: #(#(#Point 490 319 ) #(#Point 565 182 ) ) 
+					#symbol: #littleStrokedArrow ) ) 
+			#showAttributes: false 
+			#showServices: true ) 
+		#(#'default.MaleButton' 'd:\Projects\JavaPro\ObjectChoices\MedChoice\MaleButton.class' 748 317 1 nil 
+			#layouts: #(
+				#(#JVLayoutSpec #'default.MaleKids' 
+					#attribute: 'kds' 
+					#lineLayout: #(#(#Point 744 317 ) #(#Point 732 176 ) ) 
+					#symbol: #plain ) 
+				#(#JVLayoutSpec #'default.Mediator' 
+					#attribute: 'med' 
+					#lineLayout: #(#(#Point 733 397 ) #(#Point 621 589 ) ) 
+					#symbol: #plain ) 
+				#(#JVLayoutSpec #'default.Mediator' 
+					#attribute: '«uses»' 
+					#lineLayout: #(#(#Point 716 397 ) #(#Point 604 589 ) ) 
+					#symbol: #littleStrokedArrow ) 
+				#(#JVLayoutSpec #'default.Kids' 
+					#attribute: '«uses»' 
+					#lineLayout: #(#(#Point 722 317 ) #(#Point 635 182 ) ) 
+					#symbol: #littleStrokedArrow ) ) 
+			#showAttributes: false 
+			#showServices: true ) 
+		#(#'default.Swimmer' 'd:\Projects\JavaPro\ObjectChoices\MedChoice\Swimmer.java' 170 227 1 nil 
+			#showAttributes: false 
+			#showServices: true ) #(#'default.JawtList' 'd:\Projects\JavaPro\ObjectChoices\MedChoice\JawtList.java' 340 467 1 nil ) 
+		#(#'default.Command' 'd:\Projects\JavaPro\ObjectChoices\MedChoice\Command.java' 764 579 1 nil 
+			#layouts: #(
+				#(#JVLayoutSpec #'default.BothButton' 
+					#attribute: '#implements' 
+					#lineLayout: #(#(#Point 740 579 ) #(#Point 630 401 ) ) ) 
+				#(#JVLayoutSpec #'default.FemaleButton' 
+					#attribute: '#implements' 
+					#lineLayout: #(#(#Point 723 583 ) #(#Point 514 399 ) ) ) 
+				#(#JVLayoutSpec #'default.MaleButton' 
+					#attribute: '#implements' 
+					#lineLayout: #(#(#Point 762 579 ) #(#Point 750 397 ) ) ) ) 
+			#showAttributes: false 
+			#showServices: true ) 
+		#(#'default.Mediator' 'd:\Projects\JavaPro\ObjectChoices\MedChoice\Mediator.java' 589 589 1 nil 
+			#layouts: #(
+				#(#JVLayoutSpec #'default.JawtList' 
+					#attribute: 'kidList' 
+					#lineLayout: #(#(#Point 552 619 ) #(#Point 387 538 ) ) 
+					#symbol: #plain ) 
+				#(#JVLayoutSpec #'default.JawtList' 
+					#attribute: '«uses»' 
+					#lineLayout: #(#(#Point 552 602 ) #(#Point 387 522 ) ) 
+					#symbol: #littleStrokedArrow ) ) 
+			#showAttributes: false 
+			#showServices: true ) 
+		#(#'default.Kids' 'd:\Projects\JavaPro\ObjectChoices\MedChoice\Kids.java' 597 66 1 nil 
+			#layouts: #(
+				#(#JVLayoutSpec #'default.MaleKids' 
+					#attribute: '#inheritance' 
+					#lineLayout: #(#(#Point 639 135 ) #(#Point 689 140 ) ) ) 
+				#(#JVLayoutSpec #'default.FemaleKids' 
+					#attribute: '#inheritance' 
+					#lineLayout: #(#(#Point 556 134 ) #(#Point 497 138 ) ) ) ) 
+			#showAttributes: false 
+			#showServices: true ) ) )

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report Top="1.0" Left="1.0" Bottom="1.0" Right="1.0" HeaderFromEdge="0.5" FooterFromEdge="0.75" PageNumbering="1" HorizontalWrap="false" TabStops="0.5,1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0,5.5,6.0,6.5,7.0,7.5,8.0">
+<Property Name0="TextMode" Value0="false">
+</Property>
+<TextElement ID="Text1" Alignment="2" Indent="0.0" Hindent="0" Font="Arial-BOLD-14" Foreground="-16777216" Spacing="0" Block="false" Continuation="false" Visible="true" KeepWithNext="false" FillStyle="0" TabStops="0.5,1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0,5.5,6.0,6.5,7.0,7.5,8.0" Justify="false" Orphan="false" TextAdvance="3">
+<![CDATA[A new report]]>
+</TextElement>
+<SeparatorElement ID="Separator1" Alignment="2" Indent="0.0" Hindent="0" Font="Serif-PLAIN-10" Foreground="-16777216" Spacing="0" Block="true" Continuation="false" Visible="true" KeepWithNext="false" Style="4099" SeparatorAdvance="4">
+</SeparatorElement>
+<TableElement ID="Table1" Alignment="66" Indent="0.0" Hindent="0" Font="Serif-PLAIN-10" Foreground="-16777216" Spacing="0" Block="true" Continuation="false" Visible="true" KeepWithNext="false" TableWidth="0.0" Layout="1" TableAdvance="1" OrphanControl="false" Padding="0,1,0,1" Style="List1" EmbedWidth="false" Embedded="true">
+<Style RowBorderC="true" ColBorderC="true" RowBorder="true" ColBorder="true" Insets="false" Alignment="false" Font="true" LineWrap="false" Foreground="true" Background="true" FirstRow="true" FirstCol="true" LastRow="false" LastCol="false"/>
+<RowGroup>
+</RowGroup>
+<ColGroup>
+</ColGroup>
+<Table Rows="2" Cols="2" HeaderRow="1" HeaderCol="0">
+<TR>
+<TD>""</TD><TD>""</TD></TR>
+<TR>
+<TD>""</TD><TD>""</TD></TR>
+</Table>
+</TableElement>
+</Report>

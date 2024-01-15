@@ -1,0 +1,65 @@
+
+Velocity Cracking Utilities v1.0 FAQ
+
+-------------------------------------------------------------------------------------------------
+
+Contents
+
+Where can I find ____?
+Why isn't ____ implimented?
+How do I use ____?
+I found a bug, what should I do?
+Why did you write VCU?
+
+
+-------------------------------------------------------------------------------------------------
+
+Q: Where can I find ____?
+A: If you're looking for anything related to this program, you can find it at, or through the VCU
+distribution site. The primary site is located at http://www.wilter.com/wf/vcu/. If you are
+looking for something else, try a search engine.
+
+
+-------------------------------------------------------------------------------------------------
+
+Q: Why isn't ____ implimented?
+A: ____ isn't implimented because I didn't think it would be usefull, or it wasn't possible for
+me to impliment it. Features that were requested such as "complete" wordlists (everything from a
+to ZZZZZZ, and such) weren't implimented because they're useless (you really want to crack using
+a wordlist of a few gigs?). Another highly requested feature, a front-end for Cracker Jack, was
+left out because, to my knowledge, Cracker Jack cannot be run under windows. Many other DOS based
+password crackers weren't implimented because I don't see a need, I've got the best cracker and
+some of the other most popular ones represented.
+
+
+-------------------------------------------------------------------------------------------------
+
+Q: How do I use ____?
+A: If it's a feature of VCU, read the docs (either vcu.txt, or the HTML documentation), if it's
+a feature of one of the password crackers I've created front-ends for, read the documentation for
+that program.
+
+
+-------------------------------------------------------------------------------------------------
+
+Q: I found a bug, what should I do?
+A: Tell me about it. Send e-mail to epicurus@wilter.com with "VCU -- BUG" in the subject line,
+I'll appreciate it, and fix it as soon as I can.
+
+
+-------------------------------------------------------------------------------------------------
+
+Q: Why did you write VCU?
+A: It started out as a way for me to pick up Delphi (the programming language/environment that I
+wrote it in). After I started getting lots of ideas for it, it just kept growing. VCU is just a
+suite of utilities that I wrote to make it far easier to create and manage wordlists, and to run
+password crackers from a nice interface. I'm also hoping that the release of VCU will help get
+system administrators that don't use shadowed password files to start using them. If all passwd
+files were shadowed, there wouldn't be much need for password crackers, and the world would be a
+better place.
+
+
+-------------------------------------------------------------------------------------------------
+
+Copyright © 1998-1999 Epicurus (epicurus@wilter.com)
+All Rights Reserved.

@@ -1,0 +1,4 @@
+db.driver = jdbc.idbDriver
+db.url = jdbc:idb=mvsdb.prp
+db.user =
+db.password =

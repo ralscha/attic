@@ -1,0 +1,415 @@
+//Microsoft App Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+#ifdef APSTUDIO_INVOKED
+//////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""res\\betrzlg.rc2""  // non-App Studio edited resources\r\n"
+    "\r\n"
+    "#include ""afxres.rc""  \011// Standard components\r\n"
+    "#include ""afxprint.rc""\011// printing/print preview resources\r\n"
+    "#include ""afxdb.rc""\011\011// Database resources\r\n"
+    "\0"
+END
+
+/////////////////////////////////////////////////////////////////////////////////////
+#endif    // APSTUDIO_INVOKED
+
+
+//////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+IDR_MAINFRAME           ICON    DISCARDABLE     "RES\\BETRZLG.ICO"
+
+//////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDR_MAINFRAME           BITMAP  MOVEABLE PURE   "RES\\TOOLBAR.BMP"
+
+//////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDR_MAINFRAME MENU PRELOAD DISCARDABLE 
+BEGIN
+    POPUP "&Datei"
+    BEGIN
+        MENUITEM "&Neu\tCtrl+N",                ID_FILE_NEW
+        MENUITEM "Ö&ffnen...\tCtrl+O",          ID_FILE_OPEN
+        MENUITEM "&Speichern\tCtrl+S",          ID_FILE_SAVE
+        MENUITEM "Speichern &unter...",         ID_FILE_SAVE_AS
+        MENUITEM SEPARATOR
+        MENUITEM "Seite ein&richten...",        ID_DATEI_SEITEEINRICHTEN
+        POPUP "&Drucken"
+        BEGIN
+            MENUITEM "&Intern...",                  ID_DATEI_DRUCKEN_INTERN
+            MENUITEM "E&xtern...",                  ID_DATEI_DRUCKEN_EXTERN
+        END
+        POPUP "Seitenansic&ht"
+        BEGIN
+            MENUITEM "&Intern",                     ID_DATEI_SEITENANSICHT_INTERN
+
+            MENUITEM "E&xtern",                     ID_DATEI_SEITENANSICHT_EXTERN
+
+        END
+        MENUITEM "Drucker &einrichten",         ID_FILE_PRINT_SETUP
+        MENUITEM SEPARATOR
+        MENUITEM "Recent File",                 ID_FILE_MRU_FILE1, GRAYED
+        MENUITEM SEPARATOR
+        MENUITEM "&Beenden",                    ID_APP_EXIT
+    END
+    POPUP "&Bearbeiten"
+    BEGIN
+        MENUITEM "&Wiederholen\tF5",            ID_BEARBEITEN_WIEDERHOLEN
+        MENUITEM "&Löschen",                    ID_BEARBEITEN_LSCHEN
+        MENUITEM "&Alles löschen",              ID_BEARBEITEN_ALLESLSCHEN
+    END
+    POPUP "&Ansicht"
+    BEGIN
+        MENUITEM "&Symbolleiste",               ID_VIEW_TOOLBAR
+        MENUITEM "S&tatuszeile",                ID_VIEW_STATUS_BAR
+    END
+    POPUP "E&xtras"
+    BEGIN
+        MENUITEM "&Optionen...",                ID_EXTRAS_OPTIONEN
+        MENUITEM "&ASCII-Export...",            ID_EXTRAS_HISTORY
+    END
+    POPUP "&?"
+    BEGIN
+        MENUITEM "Inf&o...",                    ID_APP_ABOUT
+    END
+END
+
+
+//////////////////////////////////////////////////////////////////////////////
+//
+// Accelerator
+//
+
+IDR_MAINFRAME ACCELERATORS PRELOAD MOVEABLE PURE 
+BEGIN
+    "C",            ID_EDIT_COPY,           VIRTKEY,CONTROL, NOINVERT
+    "N",            ID_FILE_NEW,            VIRTKEY,CONTROL, NOINVERT
+    "O",            ID_FILE_OPEN,           VIRTKEY,CONTROL, NOINVERT
+    "P",            ID_FILE_PRINT,          VIRTKEY,CONTROL, NOINVERT
+    "S",            ID_FILE_SAVE,           VIRTKEY,CONTROL, NOINVERT
+    "V",            ID_EDIT_PASTE,          VIRTKEY,CONTROL, NOINVERT
+    VK_BACK,        ID_EDIT_UNDO,           VIRTKEY,ALT, NOINVERT
+    VK_DELETE,      ID_EDIT_CUT,            VIRTKEY,SHIFT, NOINVERT
+    VK_F5,          ID_BEARBEITEN_WIEDERHOLEN,VIRTKEY,NOINVERT
+    VK_F6,          ID_NEXT_PANE,           VIRTKEY,NOINVERT
+    VK_F6,          ID_PREV_PANE,           VIRTKEY,SHIFT, NOINVERT
+    VK_INSERT,      ID_EDIT_COPY,           VIRTKEY,CONTROL, NOINVERT
+    VK_INSERT,      ID_EDIT_PASTE,          VIRTKEY,SHIFT, NOINVERT
+    "X",            ID_EDIT_CUT,            VIRTKEY,CONTROL, NOINVERT
+    "Z",            ID_EDIT_UNDO,           VIRTKEY,CONTROL, NOINVERT
+END
+
+
+//////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUTBOX DIALOG DISCARDABLE  34, 22, 217, 58
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Info"
+FONT 8, "MS Sans Serif"
+BEGIN
+    ICON            IDR_MAINFRAME,IDC_STATIC,11,17,18,20
+    LTEXT           "Betrzlg Version 3.0",IDC_STATIC,40,10,119,8
+    LTEXT           "Copyright \251 1995 by Ralph Sch\344r",IDC_STATIC,40,24,
+                    119,8
+    DEFPUSHBUTTON   "OK",IDOK,176,6,32,14,WS_GROUP
+    LTEXT           "Programmiert mit Visual C++ 1.5 und MFC 2.5",IDC_STATIC,
+                    40,38,152,8
+END
+
+IDD_BETRZLG_FORM DIALOG DISCARDABLE  0, 0, 328, 243
+STYLE WS_CHILD
+FONT 8, "MS Sans Serif"
+BEGIN
+    EDITTEXT        IDC_PCNR,38,159,70,12,ES_AUTOHSCROLL
+    LISTBOX         IDC_INHABER,169,178,146,53,LBS_SORT | 
+                    LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    EDITTEXT        IDC_BETRAG,38,178,55,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_UNR1,38,199,30,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_UNR2,76,199,30,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_UNR3,114,199,30,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_UNR4,38,220,30,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_UNR5,76,220,30,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_UNR6,114,220,30,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_AUFTRAGSNR,56,9,29,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_ANZAHL,201,9,27,12,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_TOTAL,268,9,47,12,ES_AUTOHSCROLL | ES_READONLY
+    LTEXT           "PC Nr.",IDC_STATIC,10,161,22,9
+    LTEXT           "Inhaber",IDC_STATIC,133,180,28,9
+    LTEXT           "Betrag",IDC_STATIC,10,180,25,9
+    LTEXT           "U-Nr.",IDC_STATIC,10,201,21,9
+    LTEXT           "Bank",IDC_STATIC,133,161,20,9
+    LTEXT           "Auftrags Nr.",IDC_STATIC,10,12,42,9
+    LTEXT           "Anzahl",IDC_STATIC,171,12,26,9
+    LTEXT           "Total",IDC_STATIC,243,12,20,9
+    LISTBOX         IDC_LISTBOX,10,30,305,120,LBS_USETABSTOPS | 
+                    LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    EDITTEXT        IDC_BANK,169,159,100,12,ES_AUTOHSCROLL | ES_READONLY
+    DEFPUSHBUTTON   "Add",IDC_ADD,281,157,35,15
+END
+
+IDD_BEARBEITENKONTO DIALOG DISCARDABLE  0, 0, 237, 112
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "Konto bearbeiten"
+FONT 8, "MS Sans Serif"
+BEGIN
+    EDITTEXT        IDC_BANK,60,34,161,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_INHABER,60,57,161,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_PCNR,60,13,58,12,ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "OK",IDOK,37,87,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,149,87,50,14
+    LTEXT           "PC Nr",IDC_STATIC,12,14,30,7
+    LTEXT           "Bank",IDC_STATIC,12,37,30,7
+    LTEXT           "Inhaber",IDC_STATIC,12,60,30,7
+END
+
+IDD_BEARBEITENZLG DIALOG DISCARDABLE  0, 0, 266, 209
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "Zahlung bearbeiten"
+FONT 8, "MS Sans Serif"
+BEGIN
+    EDITTEXT        IDC_BETRAG,48,122,55,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_UNR1,48,144,30,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_UNR2,88,144,30,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_UNR3,129,144,30,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_UNR4,48,166,30,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_UNR5,88,166,30,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_UNR6,129,166,30,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_PCNR,48,23,58,12,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_BANK,48,45,131,12,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_INHABER,48,67,131,12,ES_AUTOHSCROLL | ES_READONLY
+    DEFPUSHBUTTON   "OK",IDOK,207,10,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,207,42,50,14
+    LTEXT           "PC Nr.",IDC_STATIC,19,25,25,7
+    LTEXT           "Bank",IDC_STATIC,25,47,20,7
+    LTEXT           "Inhaber",IDC_STATIC,17,69,28,7
+    LTEXT           "Betrag",IDC_STATIC,18,124,23,8
+    LTEXT           "U-Nr.",IDC_STATIC,22,147,19,8
+    GROUPBOX        "Variabel",IDC_STATIC,9,103,164,91
+    GROUPBOX        "Statisch",IDC_STATIC,9,5,180,85
+END
+
+IDD_SEITEEINRICHTEN DIALOG DISCARDABLE  28, 50, 180, 114
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "Seite einrichten"
+FONT 8, "MS Sans Serif"
+BEGIN
+    EDITTEXT        IDC_ORAND,55,21,24,12
+    EDITTEXT        IDC_LRAND,55,42,24,12
+    EDITTEXT        IDC_RRAND,55,63,24,12
+    EDITTEXT        IDC_URAND,55,84,24,12
+    DEFPUSHBUTTON   "OK",IDOK,115,6,50,14
+    PUSHBUTTON      "Abbruch",IDCANCEL,115,24,50,14
+    GROUPBOX        "R\344nder (cm)",IDC_STATIC,17,3,80,103
+    LTEXT           "Oben",IDC_STATIC,27,21,24,8
+    LTEXT           "Unten",IDC_STATIC,27,84,21,8
+    LTEXT           "Links",IDC_STATIC,27,42,20,8
+    LTEXT           "Rechts",IDC_STATIC,27,63,26,8
+END
+
+IDD_OPTIONSDIALOG DIALOG DISCARDABLE  7, 15, 263, 199
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "Optionen"
+FONT 8, "MS Sans Serif"
+BEGIN
+    EDITTEXT        IDC_ZEILE1,33,23,197,12
+    EDITTEXT        IDC_ZEILE2,33,41,197,12
+    EDITTEXT        IDC_ZEILE3,33,59,197,12
+    EDITTEXT        IDC_ZEILE4,33,77,197,12
+    EDITTEXT        IDC_HISTNAME,79,129,148,12,ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "OK",IDOK,54,172,50,14
+    PUSHBUTTON      "Abbruch",IDCANCEL,159,172,50,14
+    GROUPBOX        "Kontoinhaber",IDC_STATIC,19,8,225,91
+    GROUPBOX        "Historydateiname",IDC_STATIC,19,114,225,39
+    LTEXT           "Dateiname",IDC_STATIC,33,132,43,7
+END
+
+IDD_DATUMDIALOG DIALOG DISCARDABLE  12, 19, 197, 73
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "Wann wurde der Zahlungsauftrag verschickt?"
+FONT 8, "MS Sans Serif"
+BEGIN
+    EDITTEXT        IDC_TAG,32,24,16,12
+    EDITTEXT        IDC_MONAT,55,24,16,12
+    EDITTEXT        IDC_JAHR,78,24,23,12
+    DEFPUSHBUTTON   "OK",IDOK,134,12,50,14
+    PUSHBUTTON      "Abbruch",IDCANCEL,134,32,50,14
+    GROUPBOX        "Datum",IDC_STATIC,12,11,106,51
+    LTEXT           "Format: TT MM JJJJ",IDC_STATIC,31,47,71,7
+END
+
+
+//////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDP_FAILED_OPEN_DATABASE "Datenbank konnte nicht ge\366ffnet werden"
+END
+
+STRINGTABLE PRELOAD DISCARDABLE 
+BEGIN
+    IDR_MAINFRAME           "Betrzlg V3.0\nunbenannt\n\nZAF Datei (*.zaf)\n.zaf"
+END
+
+STRINGTABLE PRELOAD DISCARDABLE 
+BEGIN
+    AFX_IDS_APP_TITLE       "Betrzlg V3.0"
+    AFX_IDS_IDLEMESSAGE     "Bereit"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_INDICATOR_EXT        "EXT"
+    ID_INDICATOR_CAPS       "CAP"
+    ID_INDICATOR_NUM        "NUM"
+    ID_INDICATOR_SCRL       "SCRL"
+    ID_INDICATOR_OVR        "OVR"
+    ID_INDICATOR_REC        "REC"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_FILE_NEW             "Neuen Zahlungsauftrag anlegen"
+    ID_FILE_OPEN            "Bestehenden Zahlungsauftrag \366ffnen"
+    ID_FILE_CLOSE           "Aktuellen Zahlungsauftrag schliessen"
+    ID_FILE_SAVE            "Aktuellen Zahlungsauftrag speichen"
+    ID_FILE_SAVE_AS         "Aktuellen Zahlungsauftrag unter einem neuen Namen speichern"
+    ID_FILE_PAGE_SETUP      "Seite einrichten"
+    ID_FILE_PRINT_SETUP     "Drucker- und Druckoptionen \344ndern"
+    ID_FILE_PRINT           "Aktuellen Zahlungsauftrag drucken"
+    ID_FILE_PRINT_PREVIEW   "Zeigt ganze Seiten entsprechend der Druckausgabe an."
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_APP_ABOUT            "Programminformation, Versionsnummer und Copyright Meldung anzeigen"
+    ID_APP_EXIT             "Anwendung beenden; Meldung zum Speichern des Zahlungsauftrages"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_FILE_MRU_FILE1       "Zahlungsauftrag \366ffnen"
+    ID_FILE_MRU_FILE2       "Zahlungsauftrag \366ffnen"
+    ID_FILE_MRU_FILE3       "Zahlungsauftrag \366ffnen"
+    ID_FILE_MRU_FILE4       "Zahlungsauftrag \366ffnen"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_NEXT_PANE            "Zum n\344chsten Fenster wechseln"
+    ID_PREV_PANE            "Zum vorhergehenden Fenster wechseln"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_EDIT_CLEAR           "Markierten Bereich l\366schen"
+    ID_EDIT_CLEAR_ALL       "Alles l\366schen"
+    ID_EDIT_COPY            "Markierten Berich kopieren und in die Zwischenablage stellen"
+    ID_EDIT_CUT             "Markierten Bereich ausschneiden und in die Zwischenablage stellen"
+    ID_EDIT_FIND            "Angegebenen Text suchen"
+    ID_EDIT_PASTE           "Inhalt der Zwischenablage einf\374gen"
+    ID_EDIT_REPEAT          "Letzte Aktion wiederholen"
+    ID_EDIT_REPLACE         "Ausgew\344hlten Text ersetzen"
+    ID_EDIT_SELECT_ALL      "Gesamtes Dokument selektieren"
+    ID_EDIT_UNDO            "Letzte Aktion r\374ckg\344ngig machen"
+    ID_EDIT_REDO            "Letzte r\374ckg\344ngig gemachte Aktion r\374ckg\344ngig machen"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_VIEW_TOOLBAR         "Symbolleiste anzeigen oder ausblenden"
+    ID_VIEW_STATUS_BAR      "Statuszeile anzeigen oder ausblenden"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    AFX_IDS_SCSIZE          "Ver\344ndert die Gr\366sse des Fensters"
+    AFX_IDS_SCMOVE          "Verschiebt das Fenster an eine andere Stelle"
+    AFX_IDS_SCMINIMIZE      "Verkleinert das Fenster zu einem Symbol."
+    AFX_IDS_SCMAXIMIZE      "Vergr\366ssert das Fenster zum Vollbild."
+    AFX_IDS_SCNEXTWINDOW    "Zum n\344chsten Dokument-Fenster wechseln"
+    AFX_IDS_SCPREVWINDOW    "Zum vorhergehenden Dokument-Fenster wechseln"
+    AFX_IDS_SCCLOSE         "Schliesst das Fenster."
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    AFX_IDS_SCRESTORE       "Stellt die vorherige Gr\366sse des Fenster wieder her."
+    AFX_IDS_SCTASKLIST      "\326ffnet die Task-Liste."
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_BEARBEITEN_LSCHEN    "Gew\344hlter Eintrag l\366schen"
+    ID_BEARBEITEN_ALLESLSCHEN "Alles l\366schen"
+    ID_BEARBEITEN_WIEDERHOLEN "Letzte Eingabe wiederholen"
+    ID_DATEI_DRUCKEN_INTERN "Zahlungsauftrag f\374r internen Gebrauch drucken"
+    ID_DATEI_DRUCKEN_EXTERN "Zahlungsauftrag f\374r externen Gebrauch drucken"
+    ID_DATEI_SEITENANSICHT_INTERN 
+                            "Zeigt ganze Seiten entsprechend der Druckausgabe an. (Interner)"
+    ID_DATEI_SEITENANSICHT_EXTERN 
+                            "Zeigt ganze Seiten entsprechend der Druckausgabe an. (Extern)"
+    ID_DATEI_SEITEEINRICHTEN "Seitenparameter \344ndern"
+    ID_EXTRAS_OPTIONEN      "Diverse Einstellungen"
+    ID_DATEI_EXPORTIEREN    "Zahlungsauftrag als ASCII-Datei exportieren."
+    ID_EXTRAS_HISTORY       "Zahlungsauftrag als ASCII-Datei exportieren"
+END
+
+
+#ifndef APSTUDIO_INVOKED
+////////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#include "res\betrzlg.rc2"  // non-App Studio edited resources
+
+#include "afxres.rc"  	// Standard components
+#include "afxprint.rc"	// printing/print preview resources
+#include "afxdb.rc"		// Database resources
+
+/////////////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

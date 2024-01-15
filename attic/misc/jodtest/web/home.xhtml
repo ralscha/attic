@@ -1,0 +1,41 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+                      "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:s="http://jboss.com/products/seam/taglib"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:rich="http://richfaces.org/rich"
+                template="layout/template.xhtml">
+
+<ui:define name="body">
+
+    <h:messages globalOnly="true" styleClass="message"/>
+    
+    <rich:panel>
+    <f:facet name="header">Test</f:facet>
+
+      <h:form enctype="multipart/form-data">
+        <table>
+        <tr><td>Bestellnummer:</td><td><h:inputText size="50" value="#{inputData.bestellnummer}" /></td></tr>        
+        <tr><td>Vertragsnummer:</td><td><h:inputText size="50" value="#{inputData.vertragsnummer}" /></td></tr>
+        <tr><td>Von:</td><td><h:inputText size="50" value="#{inputData.von}" /></td></tr>
+        <tr><td>Bis:</td><td><h:inputText size="50" value="#{inputData.bis}" /></td></tr>
+        <tr><td>Template:</td><td><s:fileUpload size="60" data="#{inputData.template}" /></td></tr>
+        <tr><td>Outputformat:</td><td>
+        
+          <h:selectOneMenu value="#{inputData.outputFormat}">
+            <f:selectItem itemLabel=".doc" itemValue="doc" />
+            <f:selectItem itemLabel=".pdf" itemValue="pdf" />
+          </h:selectOneMenu>
+        
+        </td></tr>
+        </table>
+        
+        <h:commandButton value="Submit" action="#{jodConverter.doIt}" />
+      </h:form>
+
+    </rich:panel>
+    
+</ui:define> 
+</ui:composition>

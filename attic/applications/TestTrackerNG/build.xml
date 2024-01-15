@@ -1,0 +1,247 @@
+<project name="testtracker" xmlns:ivy="antlib:org.apache.ivy.ant">
+
+  <property file="${user.home}/build.properties" /> 
+  <property file="${basedir}/build.properties" />
+
+  <property name="web.dir" value="${basedir}/web" />
+	<property name="build.dir" value="${basedir}/build" />
+	<property name="lib.dir" value="${web.dir}/WEB-INF/lib" />
+	<property name="classes.dir" value="${web.dir}/WEB-INF/classes" />
+	<property name="src.dir" value="${basedir}/src" />
+	<property name="flexsrc.dir" value="${basedir}/flex-src" />
+
+	<path id="ivy.lib.path">
+		<fileset dir="${build.dir}/lib" includes="*.jar" />
+	</path>
+
+	<path id="compile.classpath">
+		<fileset dir="${build.dir}/lib">
+			<include name="**/*.jar" />
+		</fileset>
+		<fileset dir="${lib.dir}">
+			<include name="**/*.jar" />
+		</fileset>
+	</path>
+
+	<taskdef resource="org/apache/ivy/ant/antlib.xml" uri="antlib:org.apache.ivy.ant" classpathref="ivy.lib.path" />
+
+	<ivy:settings file="${basedir}/ivysettings.xml" />
+
+	<taskdef resource="flexTasks.tasks" classpath="${basedir}/build/lib/flexTasks.jar" />
+
+	<target name="clean.java">
+		<delete dir="${classes.dir}" />
+	</target>
+
+	<target name="clean.flex">
+		<delete dir="${web.dir}/bin" />
+		<delete dir="${build.dir}/air" />
+	</target>
+
+	<target name="clean" depends="clean.java,clean.flex" >
+          <delete file="${build.dir}/testtracker.war" />
+        </target>
+	<target name="compile" depends="compile.java,compile.flex,wrapper" />
+
+	<target name="compile.flex">
+		<mkdir dir="${web.dir}/bin" />
+
+		<mxmlc file="${flexsrc.dir}/TestTracker.mxml" 
+			     keep-generated-actionscript="false" 
+			     output="${web.dir}/bin/testtracker.swf" 
+			     context-root="tt" debug="false"
+			     optimize="true" 
+			     accessible="false" 
+			     static-link-runtime-shared-libraries="false" 
+			     services="${web.dir}/WEB-INF/flex/services-config.xml">
+			
+			<load-config filename="${FLEX_HOME}/frameworks/flex-config.xml" />
+
+			<source-path path-element="${FLEX_HOME}/frameworks" />
+
+			<compiler.include-libraries dir="${build.dir}/flex-lib" append="true">
+				<include name="granite.swc" />
+				<include name="as3crypto.swc" />
+				<include name="UM_Cairngorm_221.swc" />				
+			</compiler.include-libraries>
+
+		</mxmlc>
+
+		<copy file="${FLEX_HOME}/frameworks/rsls/framework_3.0.0.477.swf" todir="${web.dir}/bin" />
+		<copy file="${FLEX_HOME}/frameworks/rsls/framework_3.0.0.477.swz" todir="${web.dir}/bin" />
+
+	</target>
+
+	<target name="wrapper">
+		<html-wrapper title="TestTracker" 
+			            height="100%" 
+			            width="100%" 
+			            bgcolor="white" 
+			            application="TestTracker" 
+			            swf="testtracker" 
+			            version-major="9" version-minor="0" version-revision="60" 
+			            history="false" 
+			            template="express-installation" 
+			            output="${web.dir}/bin" />
+	</target>
+
+	<target name="compile.java">
+		<mkdir dir="${classes.dir}" />
+
+		<javac srcdir="${src.dir}" 
+			     destdir="${classes.dir}" 
+			     deprecation="true" 
+			     optimize="true" 
+			     debug="false" 
+			     includeAntRuntime="no" 
+			     source="1.6" 
+			     target="1.6">
+			<classpath refid="compile.classpath" />
+		</javac>
+
+		<copy todir="${classes.dir}">
+			<fileset dir="${src.dir}" excludes="**/*.java" />
+		</copy>
+
+	</target>
+
+	
+	<target name="war" depends="clean,compile">
+		<move todir="${web.dir}">
+			<fileset dir="${web.dir}/bin" />
+		</move>	    
+		<delete dir="${web.dir}/bin"/>
+		
+		<delete file="${build.dir}/testtracker.war"/>
+		<jar compress="yes" jarfile="${build.dir}/testtracker.war" basedir="${web.dir}" /> 
+		
+		<mkdir dir="${web.dir}/bin"/>
+		<move file="${web.dir}/AC_OETags.js" todir="${web.dir}/bin"/>
+		<move file="${web.dir}/testtrackerswf" todir="${web.dir}/bin"/>
+		<move file="${web.dir}/index.html" todir="${web.dir}/bin"/>
+		<move file="${web.dir}/playerProductInstall.swf" todir="${web.dir}/bin"/>
+		<move file="${web.dir}/framework_3.0.0.477.swf" todir="${web.dir}/bin" />
+		<move file="${web.dir}/framework_3.0.0.477.swz" todir="${web.dir}/bin" />
+	</target>
+	
+	
+	<target name="clean.lib">
+		<delete dir="${lib.dir}" />
+		<mkdir dir="${lib.dir}" />
+	</target>
+
+	<target name="resolve" depends="clean.lib">
+		<ivy:retrieve />
+
+		<copy todir="${lib.dir}">
+			<fileset dir="${basedir}/lib">
+				<include name="**/*.jar" />
+			</fileset>
+			<mapper type="flatten" />
+		</copy>
+		
+		<copy todir="${lib.dir}">
+			<fileset dir="${build.dir}/runtimelib">
+				<include name="**/*.jar" />
+			</fileset>
+			<mapper type="flatten" />
+		</copy>
+
+		<delete dir="${basedir}/lib" />
+	</target>
+
+
+	<target name="generate.as3">				  
+		<gas3 outputdir="${flexsrc.dir}">
+			<classpath>
+				<pathelement location="${classes.dir}" />					
+			</classpath>		
+			<fileset dir="${classes.dir}">
+				<include name="ch/ess/tt/model/*.class" />
+			</fileset>
+		</gas3>
+	</target>
+
+	<target name="compile.air">
+		<mkdir dir="${build.dir}/air" />
+		
+		<replace file="${web.dir}/WEB-INF/flex/services-config.xml">
+		  <replacefilter token="{server.name}" value="www.ess.ch"/>
+		  <replacefilter token="{server.port}" value="85"/>
+    </replace>  		
+		
+		<mxmlc file="${flexsrc.dir}/MP3SearchAir.mxml" 
+			     output="${build.dir}/air/MP3SearchAir.swf" 
+			     keep-generated-actionscript="false" 
+			     context-root="mp3search" 
+			     services="${web.dir}/WEB-INF/flex/services-config.xml">
+
+			<load-config filename="${FLEX_HOME}/frameworks/air-config.xml" />
+
+			<source-path path-element="${FLEX_HOME}/frameworks" />
+
+      <compiler.include-libraries dir="${build.dir}/flex-lib" append="true">
+        <include name="granite.swc" />
+        <include name="um_cairngorm_221.swc" />
+      </compiler.include-libraries>
+
+			<compiler.debug>false</compiler.debug>
+		</mxmlc>
+
+    <replace file="${web.dir}/WEB-INF/flex/services-config.xml">
+      <replacefilter token="www.ess.ch" value="{server.name}"/>
+      <replacefilter token="85" value="{server.port}"/>
+    </replace>  		
+		
+		<copy file="${flexsrc.dir}/MP3Search-app.xml" toDir="${build.dir}/air" />
+		<copy file="${build.dir}/icons/radio16.png" toDir="${build.dir}/air" />
+		<copy file="${build.dir}/icons/radio32.png" toDir="${build.dir}/air" />
+		<copy file="${build.dir}/icons/radio48.png" toDir="${build.dir}/air" />
+		<copy file="${build.dir}/icons/radio128.png" toDir="${build.dir}/air" />
+	</target>
+
+	<target name="run-adl" depends="compile.air">
+		<exec dir="${build.dir}/air" executable="${AIR_HOME}\bin\adl.exe" spawn="false">
+			<arg value="MP3Search-app.xml" />
+		</exec>
+	</target>
+
+
+	<target name="create.certificate">
+		<exec dir="${build.dir}/air" executable="${AIR_HOME}\bin\adt.bat" spawn="false">
+			<arg value="-certificate" />
+			<arg value="-cn" />
+			<arg value="ess" />
+			<arg value="-ou" />
+			<arg value="ch.ess" />
+			<arg value="-o" />
+			<arg value="ch.ess" />
+			<arg value="2048-RSA" />
+			<arg value="ess.pfx" />
+			<arg value="mexiko" />
+		</exec>
+	</target>
+
+	<target name="package.air" depends="compile.air,create.certificate">
+		<exec dir="${build.dir}/air" executable="${AIR_HOME}\bin\adt.bat" spawn="false">
+			<arg value="-package" />
+
+			<arg value="-storetype" />
+			<arg value="pkcs12" />
+			<arg value="-keystore" />
+			<arg value="ess.pfx" />
+			<arg value="-storepass" />
+			<arg value="mexiko" />
+
+			<arg value="MP3Search.air" />
+			<arg value="MP3Search-app.xml" />
+			<arg value="MP3SearchAir.swf" />
+			<arg value="radio16.png" />
+			<arg value="radio32.png" />
+			<arg value="radio48.png" />
+			<arg value="radio128.png" />
+		</exec>
+		
+		<copy file="${build.dir}/air/MP3Search.air" todir="${web.dir}/air" />
+	</target>
+</project>

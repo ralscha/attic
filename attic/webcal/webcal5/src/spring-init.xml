@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xmlns:aop="http://www.springframework.org/schema/aop"
+	   xmlns:tx="http://www.springframework.org/schema/tx"	  
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+       http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.0.xsd
+       http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.0.xsd">
+ 
+ 
+  <bean id="loginCookieUtil" class="ch.ess.base.web.login.LoginCookieUtil">
+    <property name="cookieName" value="cal_remember"/>
+  </bean>
+
+
+  <bean id="configurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+    <property name="properties" ref="dbProperties"/>
+    <property name="order" value="1"/>
+  </bean>
+  
+  <!-- Query: -->
+  <!-- first col key, second col value -->
+  <bean id="dbProperties" class="ch.ess.base.service.DbPropertiesFactoryBean">
+    <property name="dataSource" ref="dataSource"/>
+    <property name="query" value="select name, prop_value from cal_configuration"/>
+    <property name="defaultValues">
+      <map>
+        <entry key="mail.smtppassword"><value></value></entry>
+        <entry key="mail.smtpuser"><value></value></entry>
+        <entry key="mail.smtpport"><value>25</value></entry>
+        <entry key="mail.smtphost"><value>mail.ess.ch</value></entry>                        
+        <entry key="mail.sender"><value>sr@ess.ch</value></entry> 
+      </map>
+    </property>
+    
+  </bean>
+
+  <!-- Message Source -->
+  <bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
+    <property name="basenames">
+      <list>
+        <value>ApplicationResources</value>
+      </list>
+    </property>
+  </bean>
+  
+ <bean id="freemarkerConfiguration" class="freemarker.template.Configuration"/>
+
+ <bean class="org.springframework.beans.factory.annotation.RequiredAnnotationBeanPostProcessor"/>
+
+</beans>

@@ -1,0 +1,170 @@
+// Decompiled by Jad v1.5.5.3. Copyright 1997-98 Pavel Kouznetsov.
+// Jad home page:      http://web.unicom.com.cy/~kpd/jad.html
+// Decompiler options: packimports(3) 
+// Source File Name:   Test.java
+
+import COM.odi.ObjectStore;
+import java.io.PrintStream;
+import lotto.Ausspielungen;
+import lotto.util.AppProperties;
+import lotto.util.DbManager;
+
+public class Test
+{
+
+    public Test()
+    {
+        Ausspielungen auss;
+        int ausstehend[];
+        int i;
+        int ai[];
+        int ai1[];
+        int ai2[];
+        int ai3[];
+        int ai4[];
+        ai = null;
+        ai1 = null;
+        ai2 = null;
+        ai3 = null;
+        ai4 = null;
+        super();
+        DbManager.initialize(AppProperties.getInstance().getProperty("database"), false);
+        auss = DbManager.getAusspielungen();
+        DbManager.startReadTransaction();
+        System.out.println(auss.getTotalGerade(0));
+        System.out.println(auss.getTotalUngerade(0));
+        System.out.println(auss.getAnzahlAusspielungen(0));
+        System.out.println("Ausstehend");
+        ausstehend = auss.getAusstehend();
+        i = 0;
+          goto _L1
+_L5:
+        System.out;
+        ausstehend;
+        JVM INSTR dup ;
+        ai;
+        JVM INSTR if_acmpeq 109;
+           goto _L2 _L3
+_L2:
+        JVM INSTR dup ;
+        ObjectStore.fetch();
+        JVM INSTR dup ;
+        ai;
+_L3:
+        i;
+        ;
+        println();
+        i++;
+_L1:
+        if(i < ausstehend.length) goto _L5; else goto _L4
+_L4:
+        int hauf[];
+        System.out.println("Haeufigkeit");
+        hauf = auss.getHaeufigkeit(0);
+        i = 0;
+          goto _L6
+_L10:
+        System.out;
+        hauf;
+        JVM INSTR dup ;
+        ai1;
+        JVM INSTR if_acmpeq 165;
+           goto _L7 _L8
+_L7:
+        JVM INSTR dup ;
+        ObjectStore.fetch();
+        JVM INSTR dup ;
+        ai1;
+_L8:
+        i;
+        ;
+        println();
+        i++;
+_L6:
+        if(i < hauf.length) goto _L10; else goto _L9
+_L9:
+        int total[];
+        System.out.println("TotalSumme");
+        total = auss.getTotalSumme(0);
+        i = 0;
+          goto _L11
+_L15:
+        System.out;
+        total;
+        JVM INSTR dup ;
+        ai2;
+        JVM INSTR if_acmpeq 221;
+           goto _L12 _L13
+_L12:
+        JVM INSTR dup ;
+        ObjectStore.fetch();
+        JVM INSTR dup ;
+        ai2;
+_L13:
+        i;
+        ;
+        println();
+        i++;
+_L11:
+        if(i < total.length) goto _L15; else goto _L14
+_L14:
+        int verbund[];
+        System.out.println("Verbund");
+        verbund = auss.getTotalVerbund(0);
+        i = 0;
+          goto _L16
+_L20:
+        System.out;
+        verbund;
+        JVM INSTR dup ;
+        ai3;
+        JVM INSTR if_acmpeq 277;
+           goto _L17 _L18
+_L17:
+        JVM INSTR dup ;
+        ObjectStore.fetch();
+        JVM INSTR dup ;
+        ai3;
+_L18:
+        i;
+        ;
+        println();
+        i++;
+_L16:
+        if(i < verbund.length) goto _L20; else goto _L19
+_L19:
+        int ger[];
+        System.out.println("Gerade");
+        ger = auss.getHaeufigkeitGerade(0);
+        i = 0;
+          goto _L21
+_L25:
+        System.out;
+        ger;
+        JVM INSTR dup ;
+        ai4;
+        JVM INSTR if_acmpeq 333;
+           goto _L22 _L23
+_L22:
+        JVM INSTR dup ;
+        ObjectStore.fetch();
+        JVM INSTR dup ;
+        ai4;
+_L23:
+        i;
+        ;
+        println();
+        i++;
+_L21:
+        if(i < ger.length) goto _L25; else goto _L24
+_L24:
+        DbManager.commitTransaction();
+        DbManager.shutdown();
+        return;
+    }
+
+    public static void main(String args[])
+    {
+        new Test();
+    }
+}

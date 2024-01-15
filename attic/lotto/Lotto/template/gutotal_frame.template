@@ -1,0 +1,13 @@
+<h2 align=center>Gerade / Ungerade<br>
+<font size=4>Total</font></h2>
+<div align=center><center>
+<table border=1 width="80%">
+<tr><th width="33%"></th><th width="18%">Gerade</th><th width="18%">Ungerade	</th></tr>
+<tr><th width="33%">alle Ausspielungen</th><td align=center width="18%">%%galle%%</td><td align=center width="18%">%%ualle%%</td></tr>
+<tr><th width="33%">ab Ausspielung Nr. 14/1979</th><td align=center width="18%">%%g1479%%</td><td align=center width="18%">%%u1479%%</td></tr>
+<tr><th width="33%">ab Ausspielung Nr. 1/1986</th><td align=center width="18%">%%g186%%</td><td align=center width="18%">%%u186%%</td></tr>
+<tr><th width="33%">ab Ausspielung Nr. 1/1997</th><td align=center width="18%">%%g1997%%</td><td align=center width="18%">%%u1997%%</td></tr>
+</table>
+</center></div>
+</body>
+</html>

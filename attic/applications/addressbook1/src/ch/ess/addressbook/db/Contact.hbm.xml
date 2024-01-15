@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping SYSTEM "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+<hibernate-mapping>
+
+	<class name="ch.ess.addressbook.db.Contact">
+		<id name="id" type="long" unsaved-value="null">
+			<generator class="vm"/>
+		</id>
+		
+		<version name="version"/>
+		<property name="category" type="string" length="10" not-null="true"/>	  
+		
+		<map name="attributes"
+		     table="ContactAttribute"
+		     cascade="all"
+		     >
+           <key column="contactId"/>
+           <index column="field" type="string" length="255"/>
+           <element column="value" type="string" length="500" not-null="true"/> 		     
+		</map>
+		
+	</class>
+
+	
+</hibernate-mapping>

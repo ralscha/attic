@@ -1,0 +1,2 @@
+():1: trace: system.main.main: ObjectSelfReferenceTest.run:11: ObjectSelfReferenceTest this = { int sampleInt = 1; String sampleString = "a string"; ObjectSelfReferenceTest sampleObject = {ref-1}; };
+

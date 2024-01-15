@@ -1,0 +1,83 @@
+<?xml version="1.0"?> 
+<!DOCTYPE wml PUBLIC "-//WAPFORUM//DTD WML 1.1//EN" "http://www.wapforum.org/DTD/wml_1.1.xml"> 
+ 
+<wml> 
+     
+  <card id="menu" title="CH Lotto: $date">      
+<p>
+<em>Ralph's Lotto Page</em><br/>
+<a href="#aktuell">Aktuell</a><br/>
+<a href="#lq">Lottoquoten</a><br/>
+<a href="#jq">Jokerquoten</a><br/>
+<a href="#stat">Statistiken</a><br/>
+<a href="#feed">Feedback</a>
+</p>
+  </card> 
+
+  <card id="aktuell" title="CH Lotto: Aktuell">
+    <do type="unknown" label="Menu"><go href="#menu"/></do> 
+    <p align="center">
+    <em>Ziehung Nr. $nr vom $date</em><br/>
+     $zahl1 $zahl2 $zahl3 $zahl4 $zahl5 $zahl6<br/>
+     Zusatzzahl: $zz<br/>
+     Joker: $joker
+    </p>
+  </card>
+
+  <card id="stat" title="CH Lotto: Statistik"> 
+    <do type="unknown" label="Menu"><go href="#menu"/></do> 
+     <p>
+		<a href="stat.wml#auss">Ausstehend</a><br/>
+		<a href="#menu">Menu</a>
+     </p>
+  </card> 
+
+  <card id="lq" title="CH Lotto Quoten">
+    <do type="unknown" label="Menu"><go href="#menu"/></do> 
+		<p>
+       $date<br/>
+       <br/>
+       6 Richtige<br/>
+       $lanz6 x $lbet6<br/>
+			5 Richtige plus Zz<br/>
+       $lanz5+ x $lbet5+<br/>
+			5 Richtige<br/>
+       $lanz5 x $lbet5<br/>
+			4 Richtige<br/>
+			$lanz4 x $lbet4<br/>
+			3 Richtige<br/>
+       $lanz3 x $lbet3<br/>
+			<br/>
+       Erwartete Gewinnsumme fuer $lerwartetdatum<br/>$lerwartetsumme
+		</p>
+  </card>
+
+  <card id="jq" title="CH Joker Quoten">
+    <do type="unknown" label="Menu"><go href="#menu"/></do> 
+		<p>
+       $date<br/>
+       <br/>
+       6 Richtige<br/>
+       $janz6 x $jbet6<br/>
+			5 Richtige<br/>
+       $janz5 x $jbet5<br/>
+			4 Richtige<br/>
+			$janz4 x $jbet4<br/>
+			3 Richtige<br/>
+       $janz3 x $jbet3<br/>
+			2 Richtige<br/>
+       $janz2 x $jbet2<br/>
+			<br/>
+       Erwartete Gewinnsumme fuer $jerwartetdatum<br/>$jerwartetsumme
+		</p>
+  </card>
+
+<card id="feed" title="Feedback">
+    <do type="unknown" label="Menu"><go href="#menu"/></do> 
+ <p>
+   Feedback an: rschaer@datacomm.ch<br/>
+   <br/>
+   URL: http://home.datacomm.ch/rschaer/lotto
+ </p>
+</card>
+</wml> 

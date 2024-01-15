@@ -1,0 +1,88 @@
+<%@ page language="java" import="java.util.*,ch.ess.ct.business.db.*,ch.ess.ct.web.dienste.action.*" errorPage="/error.jsp" %>
+<%@ include file="../taglib.jsp"%>
+<%@ include file="../include/head.inc"%>
+
+
+<app:step chain="9" step="1">
+<app:navigation direction="stop"><html:rewrite page="/descr.do"/></app:navigation>
+</app:step>
+
+<app:confirm key="${objectName}Loeschen" />
+
+</head>
+
+<body marginwidth="15" marginheight="5" leftmargin="15">
+<app:mainTitle key="${objectNames}"/>
+<p>
+
+<html:form action="/list${objectNames}" focus="value(searchStr)" method="post">
+<input type="hidden" name="search" value="search">
+<table cellspacing="0" cellpadding="0" border="0">
+<tr><td>
+<table width="100%" border="0" cellspacing="1" cellpadding="2" bgcolor="#000000">
+
+<tr bgcolor="#CFD0DA">
+  <td class="textbs"><bean:message key="${objectName}" /><br>
+	<html:text styleClass="texts" property="value(searchStr)" size="20" maxlength="50"/>
+  </td>
+  <jsp:useBean id="visbilityOption" scope="session" class="ch.ess.ct.web.VisibilityOptions">
+    <% visbilityOption.init(db, messages, theUser); %>
+  </jsp:useBean> 	  
+  <td class="textbs"><bean:message key="Sichtbarkeit" /><br>
+    <html:select styleClass="texts" property="value(sichtbarkeit)">
+	<html:options labelName="visbilityOption" name="visbilityOption" labelProperty="labels" property="values"/>
+	</html:select>		  
+  </td>  	
+
+  <td align="right" valign="bottom"><input type="submit" name="searchButton" value="<bean:message key="Anzeigen" />"></td>
+</tr>
+
+</table>
+</td>
+</tr>
+</table>
+
+</html:form>
+
+<t:table name="listmodel" url="/${objectLowercaseNames}.do" scope="session" maxPageItems="10">
+  <table border="0">   
+    <%@ include file="../include/tablepages.inc"%>
+   
+    <tr><td valign="top" bgcolor="#000000">
+      <table id="data" width="100%" border="0" cellspacing="1" cellpadding="2">
+            <tr>
+			<th bgcolor="White">&nbsp;</th>
+			<tx:colHeader col="<%= List${objectNames}Action.COL_NAME %>" cssclass="textbs" width="180" align="left" bgColor="White" key="${objectName}"/>
+			<app:hasPermission name="${recht}">
+			  <th bgcolor="White">&nbsp;</th>
+			</app:hasPermission>	
+		   </tr>
+   	 
+	     <% for (int r = 0; r < model.getRowCount(); r++) { 
+			  String bgcolor = (r % 2 == 0) ? "#CFD0DA" : "#EFEFF3";			  
+		  %>     
+      	     <tr bgcolor="<%= bgcolor %>">
+			    <td align="left"><a href="edit${objectName}.do?row=<%= r %>"><%@ include file="../include/editimg.inc"%></a></td>
+			    <td class="texts" align="left"><misc:truncate lower="24" upper="24"><%= model.getValueAt(r, List${objectNames}Action.COL_NAME) %></misc:truncate></td>				
+				<app:hasPermission name="${recht}">
+				  <c:set var="deletename" scope="page"><%= model.getValueAt(r, List${objectNames}Action.COL_NAME) %></c:set>
+				  <td class="texts" align="center"><a onclick="return confirmRequest('<c:out value="${deletename}"/>')" href="delete${objectName}.do?row=<%= r %>"><%@ include file="../include/delimg.inc"%></a></td>
+				</app:hasPermission>	
+			</tr>
+		   <% } %>
+   
+	</table>  
+   </td></tr>
+  </table>
+  
+</t:table>
+
+<app:hasPermission name="${recht}">
+<p>	
+<html:form action="/forward.do" method="post">
+<input type="hidden" name="value(path)" value="/add${objectName}.do" />
+<input type="submit" name="go" value="<bean:message key='${objectName}neu'/>" />
+</html:form>
+</app:hasPermission>
+
+</body></html>

@@ -1,0 +1,34 @@
+<!--\#include file="include/head_ht42.shtml"-->
+<!--\#include file="include/body.shtml"-->
+<br>
+<p class="subTitle">Tiefe / Hohe</p>
+<p class="nr">ab Ziehung Nr. 14/1979 (Einf&uuml;hrung von 41 und 42)</p>
+<br>
+<table border="1" class="tableContents">
+<tr>
+<th class="tableHeader">Tiefe / Hohe</th>
+<th class="tableHeader">Ausspielungen</th>
+<th class="tableHeader">Prozent</th>
+</tr>
+<tr><th class="text">0 / 6</th><td align="center" class="text">$ht0</td><td align="right" class="text">$htp0</td></tr>
+<tr><th class="text">1 / 5</th><td align="center" class="text">$ht1</td><td align="right" class="text">$htp1</td></tr>
+<tr><th class="text">2 / 4</th><td align="center" class="text">$ht2</td><td align="right" class="text">$htp2</td></tr>
+<tr><th class="text">3 / 3</th><td align="center" class="text">$ht3</td><td align="right" class="text">$htp3</td></tr>
+<tr><th class="text">4 / 2</th><td align="center" class="text">$ht4</td><td align="right" class="text">$htp4</td></tr>
+<tr><th class="text">5 / 1</th><td align="center" class="text">$ht5</td><td align="right" class="text">$htp5</td></tr>
+<tr><th class="text">6 / 0</th><td align="center" class="text">$ht6</td><td align="right" class="text">$htp6</td></tr>
+</table>
+<br>
+<p class="text">
+<a href="htalle.shtml">alle Ziehungen</a><BR>
+<b>ab Ziehung Nr. 14/1979 (Einf&uuml;hrung von 41 und 42)</b><BR>
+<a href="ht45.shtml">ab Ziehung Nr. 1/1986 (Einf&uuml;hrung von 43, 44 und 45)</a><BR>
+<a href="ht97.shtml">ab Ziehung Nr. 1/1997 (Einf&uuml;hrung Mittwochsziehung)</a><br>
+</p>
+<br>
+<HR>
+<br>
+<table class="text">
+<tr><td class="text">In dieser Analyse wird untersucht wie die Kombination der tiefen (1-22) und hohen Zahlen (23-45) aussieht</td></tr>
+</table>
+<!--\#include file="include/tail.shtml"-->

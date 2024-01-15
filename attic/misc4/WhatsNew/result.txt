@@ -1,0 +1,69 @@
+http://www.openlinksw.com/mark/opljava.html;HTTP/1.0 200 OK
+http://www.cyberus.ca/~rehan/JavaAI.html;HTTP/1.0 200 Document follows
+http://www.easynet.it/~jhl/java.html;HTTP/1.0 200 OK
+http://www.webfayre.com/pendragon/;HTTP/1.0 200 OK
+http://www.cybercom.net/~frog/javaide.html;HTTP/1.0 200 OK
+http://www.xenosys.com/java/;HTTP/1.0 200 OK
+http://www.ping.de/sites/maxwell/links/JAVA/java.html;HTTP/1.0 200 Document follows
+http://www.pro-sieben.de/ax/ax0000l.htm;HTTP/1.0 200 OK
+http://www.eunet.ch:80/ssr/;HTTP/1.0 302 Found
+http://www.hotelguide.ch/;HTTP/1.0 200 OK
+http://www.travelweb.com/;HTTP/1.0 200 Document follows
+http://www.wuerzburg.de/spec/rechtschreibreform/;HTTP/1.0 200 OK
+http://www.admin.ch/;HTTP/1.0 200 Document follows
+http://www.ix.de/ct/;HTTP/1.0 200 OK
+http://www.dippybird.com/;HTTP/1.0 200 OK
+http://www.panda.org/home.htm;HTTP/1.0 200 OK
+http://www.tourismus.ch/tour/;HTTP/1.0 200 OK
+http://www.greenpeace.org/;HTTP/1.0 200 OK
+http://herzberg.ca.sandia.gov/jlpr/;HTTP/1.0 200 Document follows
+http://www.windows95.com/apps/newapps.html;HTTP/1.0 200 OK
+http://www.princeton.edu/~dragones/ShowCase/;HTTP/1.0 200 OK
+http://www.year2000.com;HTTP/1.0 302 Moved Temporarily
+http://www.cecm.sfu.ca/~pborwein/;HTTP/1.0 200 Document follows
+http://www.arp-datacon.ch/;<TITLE>Server cannot spawn thread</TITLE>
+http://www.dcs.ed.ac.uk/%7Emxr/gfx/;HTTP/1.0 200 Document follows
+http://www.io.org/~mentor/jnIndex.html;HTTP/1.0 200 OK
+http://ncc.hursley.ibm.com/javainfo/;HTTP/1.0 200 Document follows
+http://www.iterated.com/;HTTP/1.0 200 OK
+http://www.duden.bifab.de/home.html;HTTP/1.0 200 OK
+http://www.demon.co.uk/cyba/java7.html;HTTP/1.0 200 OK
+http://www.program.com/;HTTP/1.0 200 OK
+http://www.ntxc.com/products/index.html;HTTP/1.0 200 OK
+http://www.bluewin.ch;HTTP/1.0 200 OK
+http://www.zdnet.com/~pcpro/;HTTP/1.0 302 Found
+http://www.windowsguide.ch/;HTTP/1.0 200 OK
+http://is.eunet.ch:80/travel/;HTTP/1.0 404 Not Found
+http://www.mlsoft.com/mct/mct.html;HTTP/1.0 200 OK
+http://www.access.ch/beobachter;HTTP/1.0 404 Not found
+http://www.netgeeks.com/jif.html;HTTP/1.0 200 OK
+http://is.eunet.ch:80/drs3/;HTTP/1.0 200 OK
+http://www.w3.org/pub/WWW/Jigsaw/;HTTP/1.0 200 Document follows
+http://www.acme.com/java/software/;HTTP/1.0 200 OK
+http://www.chip.de/;HTTP/1.0 200 OK
+http://www.taligent.com/products/Intl_Java/;HTTP/1.0 200 Document follows
+http://www.summus.com/;HTTP/1.0 200 OK
+http://www.nosc.mil/planet_earth/numbers.html;HTTP/1.0 200 Document follows
+http://198.105.232.5:80/DEVONLY/DEVONLY.HTM;HTTP/1.0 302 Temporary Redirect
+http://www.anonymizer.com:8080/http://www.aocomputer.com/;HTTP/1.0 404 Not found
+http://camoes.rnl.ist.utl.pt/~adlp/JavaZine/index.html;HTTP/1.0 200 OK
+http://www.hotelplan.ch/;HTTP/1.0 200 OK
+http://www.Spiegel.de;HTTP/1.0 200 OK
+http://www.winzip.com/;HTTP/1.0 200 Orl Korrect
+http://www.xjournal.ch/;HTTP/1.0 200 OK
+http://www.ora.com:80/ora/win;HTTP/1.0 404 Access denied, or file does not exist
+http://www.softbear.com/people/larry/javalm.htm;HTTP/1.0 200 OK
+http://www.zyxel.com/;HTTP/1.0 200 Document follows
+http://genealogy.org/~scottlee/calconvert.cgi;HTTP/1.0 200 Document follows
+http://www.mme.ch/;HTTP/1.0 200 OK
+IOException: java.net.SocketException: connect
+http://www.javasoft.com/products/apiOverview.html;HTTP/1.0 200 OK
+http://onramp.uscom.com/~isoft/;HTTP/1.0 200 OK
+http://www.ips.id.ethz.ch/~parish/standard.html;HTTP/1.0 200 Document follows
+http://rummelplatz.uni-mannheim.de/~skoch/javatut/kneedeep.htm;HTTP/1.0 200 Document follows
+http://www.digitalfocus.com/faq/resources.html;HTTP/1.0 200 OK
+http://www.mcafee.com/;HTTP/1.0 200 Document follows
+http://remus.rutgers.edu/~jszabo/myjava/Ftp.html;HTTP/1.0 200 OK
+IOException: java.net.SocketException: connect
+IOException: java.net.SocketException: connect
+IOException: java.net.SocketException: connect

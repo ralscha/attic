@@ -1,0 +1,10 @@
+<project name="openidtest" default="war">
+
+	<target name="war">		
+		<delete file="openidtest.war"/>
+		<delete dir="${basedir}/web/bin"/>
+		<move file="${basedir}/web/bin-release" tofile="${basedir}/web/bin"/>
+		<jar compress="yes" jarfile="openidtest.war" basedir="web" /> 		
+	</target>
+
+</project>

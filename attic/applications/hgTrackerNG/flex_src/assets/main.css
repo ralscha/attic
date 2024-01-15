@@ -1,0 +1,46 @@
+/* CSS file */
+Alert{
+  color: white;
+  font-weight: bold;
+  border-color: #00B32D;
+  background-color: #00B32D;
+}
+
+Application
+{
+  theme-color: haloGreen;
+  background-color: white;
+  background-gradient-colors: #33FF66, #33FF66;
+	backgroundGradientAlphas: 0.0, 0.2;
+}
+ApplicationControlBar
+{
+	fillAlphas: 0.4, 0.8;
+	fillColors: #00B32D, #00B32D;
+}
+TitleWindow
+{
+  borderColor: #00CC33;
+	cornerRadius: 4;
+	borderAlpha: 0.7;
+	titleStyleName: titleWindowTitle;
+}
+LinkBar
+{
+	disabledColor: white;	
+}
+
+Panel {
+	borderColor: #00B32D;
+	color: #000000;
+	borderAlpha: 0.4;
+
+}
+
+.titleWindowTitle
+{
+	color: #FFFFFF;
+	fontWeight: bold;
+}
+
+

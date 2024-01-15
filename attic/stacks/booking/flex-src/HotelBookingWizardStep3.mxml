@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+  GRANITE DATA SERVICES
+  Copyright (C) 2007-2008 ADEQUATE SYSTEMS SARL
+
+  This file is part of Granite Data Services.
+
+  Granite Data Services is free software; you can redistribute it and/or modify
+  it under the terms of the GNU Lesser General Public License as published by
+  the Free Software Foundation; either version 3 of the License, or (at your
+  option) any later version.
+
+  Granite Data Services is distributed in the hope that it will be useful, but
+  WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+  FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License
+  for more details.
+
+  You should have received a copy of the GNU Lesser General Public License
+  along with this library; if not, see <http://www.gnu.org/licenses/>.
+-->
+
+<mx:Canvas width="432" height="472" xmlns:mx="http://www.adobe.com/2006/mxml"
+    xmlns:tideval="org.granite.tide.validators.*"
+    initialize="initializeHandler(event)">
+
+    <mx:Script>
+        <![CDATA[
+          import ch.ess.booking.control.BookingProcessCtl;
+            import mx.managers.PopUpManager;
+            import mx.events.FlexEvent;
+            import mx.controls.Alert;
+            import mx.formatters.DateFormatter;
+            import mx.controls.DateField;
+            
+
+            [Bindable]
+            public var bookingProcessCtl:BookingProcessCtl;
+
+            //Initializes the default field values
+            private function initializeHandler(event:FlexEvent):void
+            {
+            }
+        ]]>
+    </mx:Script>
+
+
+    <!-- Data Binding -->
+    <mx:Binding source="creditcardName.text" destination="bookingProcessCtl.booking.creditCardName" />
+    <mx:Binding source="creditcardNum.text" destination="bookingProcessCtl.booking.creditCard" />
+    <mx:Binding source="Number(creditcardExpMonth.text)" destination="bookingProcessCtl.booking.creditCardExpiryMonth" />
+    <mx:Binding source="Number(creditcardExpYear.text)" destination="bookingProcessCtl.booking.creditCardExpiryYear" />
+
+    <!-- Validators -->
+    <mx:StringValidator id="cardNamevalidator" source="{creditcardName}" property="text" required="true" />
+    <tideval:TideValidator id="cardNameServerValidator" entity="{bookingProcessCtl.booking}" property="creditCardName" listener="{creditcardName}"/>
+
+    <!--
+     <mx:CreditCardValidator id="cardNumValidator"
+        cardTypeSource="{creditcardType}" cardTypeProperty="selectedItem"
+        cardNumberSource="{creditcardNum}" cardNumberProperty="text"
+        cardTypeListener="{creditcardType}"
+        cardNumberListener="{creditcardNum}"
+        trigger="{creditcardNum}" triggerEvent="{Event.CHANGE}"
+    />
+    -->
+
+     <mx:StringValidator id="cardNumValidator" source="{creditcardNum}" property="text" required="true"
+                          maxLength="16"  minLength="16"/>
+    <mx:NumberValidator id="creditcardExpMonthValidator" source="{creditcardExpMonth}" property="selectedItem"
+        required="true" />
+    <mx:NumberValidator id="creditcardExpYearValidator" source="{creditcardExpYear}" property="selectedItem"
+        required="true" />
+
+    <mx:transitions>
+    <mx:Transition>
+        <mx:Parallel>
+            <mx:Fade target="{authentication}" alphaFrom=".75" alphaTo="1" duration="500"  />
+        </mx:Parallel>
+    </mx:Transition>
+    </mx:transitions>
+
+    <mx:Panel label="Credit Card Information" id="authentication" title="Credit Card Information                                                         *Required Fields" width="425" height="245">
+        <mx:Form width="405" height="100%">
+            <mx:FormItem label="*Name on Credit Card:" required="true">
+                <mx:TextInput id="creditcardName" text="{bookingProcessCtl.booking.creditCardName}" />
+            </mx:FormItem>
+            <mx:FormItem label="*Credit Card Type:">
+                <mx:ComboBox id="creditcardType">
+                    <mx:dataProvider>
+                        <mx:Array>American Express</mx:Array>
+                        <mx:Array>Diners Club</mx:Array>
+                        <mx:Array>Discover</mx:Array>
+                        <mx:Array>MasterCard</mx:Array>
+                        <mx:Array>Visa</mx:Array>
+                    </mx:dataProvider>
+                </mx:ComboBox>
+            </mx:FormItem>
+            <mx:FormItem label="*Credit Card #:" required="true">
+                <mx:TextInput id="creditcardNum" text="{bookingProcessCtl.booking.creditCard}" maxChars="16" />
+            </mx:FormItem>
+            <mx:FormItem label="*Expiration Date:">
+                <mx:HBox>
+                    <mx:ComboBox width="75" id="creditcardExpMonth">
+                        <mx:dataProvider>
+                                <mx:String>Month</mx:String>
+                                <mx:String>01</mx:String>
+                                <mx:String>02</mx:String>
+                                <mx:String>03</mx:String>
+                                <mx:String>04</mx:String>
+                                <mx:String>05</mx:String>
+                                <mx:String>06</mx:String>
+                                <mx:String>07</mx:String>
+                                <mx:String>08</mx:String>
+                                <mx:String>09</mx:String>
+                                <mx:String>10</mx:String>
+                                <mx:String>11</mx:String>
+                                <mx:String>12</mx:String>
+                        </mx:dataProvider>
+                    </mx:ComboBox>
+                    <mx:ComboBox width="75" id="creditcardExpYear">
+                        <mx:dataProvider>
+                                <mx:String>Year</mx:String>
+                                <mx:String>2008</mx:String>
+                                <mx:String>2009</mx:String>
+                                <mx:String>2010</mx:String>
+                                <mx:String>2011</mx:String>
+                                <mx:String>2012</mx:String>
+                                <mx:String>2013</mx:String>
+                                <mx:String>2014</mx:String>
+                                <mx:String>2015</mx:String>
+                                <mx:String>2016</mx:String>
+                                <mx:String>2017</mx:String>
+                                <mx:String>2018</mx:String>
+                                <mx:String>2019</mx:String>
+                                <mx:String>2020</mx:String>
+                        </mx:dataProvider>
+                    </mx:ComboBox>
+                </mx:HBox>
+            </mx:FormItem>
+
+        </mx:Form>
+        <mx:ControlBar id="controlbar1">
+            <mx:Button label="Book Reservation" x="0" y="0" upSkin="myButton" downSkin="myButtonDown" overSkin="myButtonOver" disabledSkin="myButtonDisabled"
+                    click="bookingProcessCtl.confirmBooking(this);"/>
+            <mx:Button label="Cancel" x="0" y="0" upSkin="myButton" downSkin="myButtonDown" overSkin="myButtonOver" disabledSkin="myButtonDisabled"
+                    click="bookingProcessCtl.cancelBooking();"/>
+        </mx:ControlBar>
+    </mx:Panel>
+
+</mx:Canvas>

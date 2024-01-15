@@ -1,0 +1,291 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="GENERATOR" content="Mozilla/4.5 [en] (X11; I; SunOS 5.6 i86pc) [Netscape]">
+   <title>Java Log Facility - Example Output</title>
+</head>
+<body text="#000000" bgcolor="#FFFFFF">
+
+<center><img SRC="gkrwseat.jpg" NOSAVE height=200 width=135>
+<p><b><i><font size=+4>Runtime Controls</font></i></b></center>
+
+<div align=right><font size=-1>$Revision: 1.2 $</font></div>
+
+<div align=right><font size=-1>$Date: 1999/03/01 17:37:59 $</font></div>
+
+<p><br>&nbsp;The Java Log Facility can be configured at the start of the
+program using command line parameters. Currently, this is accomplished
+only by command line options.
+<p>When the program is started, the following Java properties may be specified
+to override the default configuration of the Log Facility.&nbsp; These
+options are given to the Java virtual machine as in the following example:
+<pre>&nbsp;&nbsp;&nbsp; $ java -Dlog.errors=true -Dlog.traces=false MyJavaProgram</pre>
+
+<table BORDER WIDTH="100%" NOSAVE >
+<tr BGCOLOR="#33CCFF" NOSAVE>
+<td NOSAVE>
+<center><b>Property</b></center>
+</td>
+
+<td>
+<center><b>Acceptable Values</b></center>
+</td>
+
+<td>
+<center><b>Default Value</b></center>
+</td>
+
+<td NOSAVE>
+<center><b>Description</b></center>
+</td>
+</tr>
+
+<tr>
+<td><font size=-1><a href="property.log.html">log</a></font></td>
+
+<td><font size=-1>true | false</font></td>
+
+<td><font size=-1>true</font></td>
+
+<td><font size=-1>This enables or disables the entire Log Facility.&nbsp;
+In other words, if false, no logging will be performed.</font></td>
+</tr>
+
+<tr NOSAVE>
+<td><font size=-1><a href="property.log.format.html">log.format</a></font></td>
+
+<td><font size=-1>&nbsp;%t, %r, %n, %e, %h, %c, %f, %F, %l, %m, %o, \n,
+\t</font></td>
+
+<td NOSAVE><font size=-1>%t(%r):%n: %e: %h: %c.%f:%l%(: %m)m%(: %j)o\n\n</font></td>
+
+<td NOSAVE><font size=-1>This is the main formatting string that controls
+the appearance of the each log event.&nbsp;</font></td>
+</tr>
+
+<tr NOSAVE>
+<td VALIGN=TOP NOSAVE><font size=-1><a href="property.log.errors.html">log.errors</a></font></td>
+
+<td><font size=-1>true | false</font></td>
+
+<td><font size=-1>true</font></td>
+
+<td><font size=-1>This enables or disables logging of errors.</font></td>
+</tr>
+
+<tr>
+<td><font size=-1><a href="property.log.warnings.html">log.warnings</a></font></td>
+
+<td><font size=-1>true | false</font></td>
+
+<td><font size=-1>true</font></td>
+
+<td><font size=-1>This enables or disables logging of warnings</font></td>
+</tr>
+
+<tr>
+<td><font size=-1><a href="property.log.notices.html">log.notices</a></font></td>
+
+<td><font size=-1>true | false</font></td>
+
+<td><font size=-1>true</font></td>
+
+<td><font size=-1>This enables or disables logging of notices</font></td>
+</tr>
+
+<tr>
+<td><font size=-1><a href="property.log.traces.html">log.traces</a></font></td>
+
+<td><font size=-1>true | false</font></td>
+
+<td><font size=-1>false</font></td>
+
+<td><font size=-1>This enables or disables logging of traces</font></td>
+</tr>
+
+<tr>
+<td><font size=-1><a href="property.log.time.format.html">log.time.format</a></font></td>
+
+<td><font size=-1>short | medium | long | full | 24 | <i>SimpleDateFormat</i></font></td>
+
+<td><font size=-1>24</font></td>
+
+<td><font size=-1>This specifies the format for the time field of each
+logged event.</font></td>
+</tr>
+
+<tr>
+<td><font size=-1><a href="property.log.time.relative.html">log.time.relative</a></font></td>
+
+<td><font size=-1>clock | days | hours | minutes | seconds</font></td>
+
+<td><i><font size=-1>none</font></i></td>
+
+<td><font size=-1>This controls whether a relative time (relative to start
+of program) is appended to the event time field in the log.</font></td>
+</tr>
+
+<tr>
+<td><font size=-1>log.time.zone</font></td>
+
+<td><font size=-1>GMT, etc.</font></td>
+
+<td><font size=-1>GMT</font></td>
+
+<td><font size=-1>This controls the time zone that is used to format the
+event time.</font></td>
+</tr>
+
+<tr>
+<td><font size=-1><a href="property.log.message.format.html">log.message.format</a></font></td>
+
+<td><font size=-1>short | long</font></td>
+
+<td><font size=-1>long</font></td>
+
+<td><font size=-1>This controls how much information is logged for each
+event.&nbsp; 'Short' is a summary of the event that only uses one line
+in the log file.&nbsp; 'Long' means all available information is placed
+in the log for the event.</font></td>
+</tr>
+
+<tr>
+<td><font size=-1><a href="property.log.thread.format.html">log.thread.format</a></font></td>
+
+<td><font size=-1>%n, %g, %G, %<i>punc</i>, text</font></td>
+
+<td><font size=-1>%m</font></td>
+
+<td><font size=-1>This controls the format of each event message that is
+formatted in the log.</font></td>
+</tr>
+
+<tr>
+<td><font size=-1><a href="property.log.exception.format.html">log.exception.format</a></font></td>
+
+<td><font size=-1>%c, %m, %s, text</font></td>
+
+<td><font size=-1>": %c: %m: %s"</font></td>
+
+<td><font size=-1>This controls that format of an exception that is entered
+into the log.</font></td>
+</tr>
+
+<tr>
+<td><font size=-1><a href="property.log.object.format.html">log.object.format</a></font></td>
+
+<td><font size=-1>%l, %L, %j, %J, %o, text</font></td>
+
+<td><font size=-1>%j</font></td>
+
+<td><font size=-1>This controls the format and appearance of user data
+obejcts that are written to the log.&nbsp;</font></td>
+</tr>
+
+<tr>
+<td><font size=-1><a href="property.log.functions.include.html">log.functions.include</a></font></td>
+
+<td><font size=-1>space separated list of regular expressions</font></td>
+
+<td><i>none</i></td>
+
+<td><font size=-1>Any event whose classname + filename matches one of the
+expressions is included.</font></td>
+</tr>
+
+<tr>
+<td><font size=-1><a href="property.log.functions.exclude.html">log.functions.exclude</a></font></td>
+
+<td><font size=-1>space separated list of regular expressions</font></td>
+
+<td><i>none</i></td>
+
+<td><font size=-1>Any event whose classname + filename matches one of the
+expressions is excluded.</font></td>
+</tr>
+
+<tr>
+<td><font size=-1><a href="property.log.handler.name.class.html">log.handler.<i>name</i>.class</a></font></td>
+
+<td><font size=-1><a href="../api/grace/log/FileHandler.html">FileHandler</a>
+| <a href="../api/grace/log/StandardOutHandler.html">StandardOutHandler</a>
+| ...</font></td>
+
+<td><font size=-1>StandardOutHandler</font></td>
+
+<td><font size=-1>This controls which <a href="../api/grace/log/Handler.html">Handlers</a>
+class is used by the <i>named</i> Handler.&nbsp; By default all output
+is sent to the standard output.&nbsp; Most users should use the log.handler.<i>name</i>.url
+only.</font></td>
+</tr>
+
+<tr>
+<td><font size=-1><a href="property.log.handler.name.events.html">log.handler.<i>name</i>.events</a></font></td>
+
+<td><font size=-1>error &amp;| warning &amp;| notice &amp;| trace &amp;|
+...</font></td>
+
+<td><i><font size=-1>all</font></i></td>
+
+<td><font size=-1>This controls which events the <i>named</i> <a href="../api/grace/log/Handler.html">Handler</a>
+will handle.&nbsp; Use an empyt string ("") to specify all events.</font></td>
+</tr>
+
+<tr>
+<td><font size=-1><a href="property.log.handler.name.url.html">log.handler.<i>name</i>.url</a></font></td>
+
+<td>
+<br><font size=-1>&nbsp;file:..., jdbc:..., rmi:...</font></td>
+
+<td><i><font size=-1>none</font></i></td>
+
+<td><font size=-1>This specifes the log facility to be used.&nbsp; Currently,
+files, standard output, JDBC, and remote (RMI) facilities are allowed.&nbsp;</font></td>
+</tr>
+
+<tr>
+<td><font size=-1>log.handler.name.server</font></td>
+
+<td><font size=-1>true | false</font></td>
+
+<td><font size=-1>false</font></td>
+
+<td><font size=-1>Specifies that remote clients can connect to this handler
+via rmi and log to this handler.&nbsp; To do this, the handler binds its
+name in the local rmi registry.</font></td>
+</tr>
+
+<tr>
+<td><font size=-1>log.handler.name.maxsize</font></td>
+
+<td><font size=-1><i>size</i> k | <i>size</i> m</font></td>
+
+<td><font size=-1>0 (<i>none</i>)</font></td>
+
+<td><font size=-1>This is used by the <a href="../api/grace/log/FileHandler.html">FileHandler</a>
+only.&nbsp; It sets the maximum file size of the log entries.</font></td>
+</tr>
+</table>
+
+<p>Note: in most cases where the user can enter text, the special sequencet
+'\n' can be used to insert a newline and the sequence '\t' can be used
+to insert a tab.
+<h3>
+Example Command Line</h3>
+The following command line does the following:
+<ul>
+<li>
+sets the format to log only the time, the event type, and the message,</li>
+
+<li>
+redirects the output to the file test.log</li>
+
+<li>
+sets the time zone to "European Central Time"</li>
+</ul>
+
+<pre>&nbsp;&nbsp;&nbsp; $java -Dlog.format="%t %e %m\n" -Dlog.handler.test.file=test.log -Dlog.time.zone=ECT MyLoggingProgram</pre>
+
+</body>
+</html>

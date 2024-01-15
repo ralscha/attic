@@ -1,0 +1,370 @@
+<project name="TomcatStartStop" xmlns:ivy="antlib:org.apache.ivy.ant">
+
+  <property file="${user.home}/build.properties" /> 
+  <property file="${basedir}/build.properties" />
+
+  <property name="web.dir" value="${basedir}/web" />
+	<property name="build.dir" value="${basedir}/build" />
+	<property name="lib.dir" value="${web.dir}/WEB-INF/lib" />
+	<property name="classes.dir" value="${web.dir}/WEB-INF/classes" />
+	<property name="src.dir" value="${basedir}/src" />
+	<property name="flexsrc.dir" value="${basedir}/flex-src" />
+
+	<path id="compile.classpath">
+		<fileset dir="${build.dir}/lib">
+			<include name="*.jar" />
+		</fileset>
+		<fileset dir="${lib.dir}">
+			<include name="*.jar" />
+		</fileset>
+	</path>
+
+	<path id="liquibase.classpath">
+		<path location="${jdbcDriverPath}" />
+    <fileset dir="${lib.dir}">
+      <include name="*.jar" />
+    </fileset>	
+		<pathelement location="${classes.dir}" />         
+	</path>
+
+
+	<taskdef resource="flexTasks.tasks" classpath="${FLEX_HOME}/ant/lib/flexTasks.jar" />
+
+
+	<target name="install.ivy">
+	  <mkdir dir="${build.dir}/lib"/>
+	  <echo message="installing ivy..."/>
+	  <get src="http://repo1.maven.org/maven2/org/apache/ivy/ivy/${ivy.revision}/ivy-${ivy.revision}.jar" 
+	       dest="${build.dir}/lib/ivy-${ivy.revision}.jar" usetimestamp="true"/>
+
+	  <taskdef resource="org/apache/ivy/ant/antlib.xml" uri="antlib:org.apache.ivy.ant">
+	    <classpath>
+	  	  <pathelement location="${build.dir}/lib/ivy-${ivy.revision}.jar" />         
+	  	</classpath>
+	  </taskdef>
+	</target>
+
+
+	<target name="clean.java">
+		<delete dir="${classes.dir}" />
+	</target>
+
+	<target name="clean.flex">
+		<delete dir="${web.dir}/bin" />
+    <delete dir="${build.dir}/air" />
+	</target>
+
+	<target name="clean" depends="clean.java,clean.flex" >
+    <delete file="${build.dir}/tomcatStartStop.war" />
+  </target>
+	
+	<target name="compile" depends="compile.java,compile.flex,wrapper" />
+
+	<target name="check.swf">
+	  <condition property="skip.mxmlc">	   
+      <uptodate targetfile="${web.dir}/bin/Main.swf">
+        <srcfiles dir="${FLEX_HOME}/frameworks" includes="**"/>
+      	<srcfiles dir="${build.dir}/flex-lib" includes="*.swc"/>
+        <srcfiles dir="${flexsrc.dir}" includes="**"/>
+        <srcfiles dir="${web.dir}" includes="WEB-INF/flex/services-config.xml"/>      	
+      </uptodate>	        
+	  </condition>
+	</target>
+
+	
+	<target name="compile.flex" depends="check.swf" unless="skip.mxmlc">
+		<mkdir dir="${web.dir}/bin" />
+
+		<mxmlc file="${flexsrc.dir}/Main.mxml" 
+			     keep-generated-actionscript="false" 
+			     output="${web.dir}/bin/Main.swf" 
+			     debug="false"
+			     optimize="true" 
+			     accessible="false" 
+			     static-link-runtime-shared-libraries="false" 
+			     services="${web.dir}/WEB-INF/flex/services-config.xml">
+			
+			<load-config filename="${FLEX_HOME}/frameworks/flex-config.xml" />
+
+			<source-path path-element="${FLEX_HOME}/frameworks" />
+
+			<compiler.include-libraries dir="${build.dir}/flex-lib" append="true">
+				<include name="*.swc" />
+			</compiler.include-libraries>
+
+		</mxmlc>
+
+		<copy file="${FLEX_HOME}/frameworks/rsls/framework_3.0.0.477.swf" todir="${web.dir}/bin" />
+		<copy file="${FLEX_HOME}/frameworks/rsls/framework_3.0.0.477.swz" todir="${web.dir}/bin" />
+
+	</target>
+
+  <target name="compile.air" if="air.support">
+    <mkdir dir="${build.dir}/air" />
+    
+    <!--
+		<replace file="${web.dir}/WEB-INF/flex/services-config.xml">
+		  <replacefilter token="{server.name}" value="www.ralscha.ch"/>
+		  <replacefilter token="{server.port}" value="85"/>
+    </replace>  
+    -->
+    
+    <mxmlc file="${flexsrc.dir}/MainAir.mxml" 
+           output="${build.dir}/air/MainAir.swf" 
+           keep-generated-actionscript="false" 
+           context-root="tomcatStartStop" 
+           services="${web.dir}/WEB-INF/flex/services-config.xml">
+
+      <load-config filename="${FLEX_HOME}/frameworks/air-config.xml" />
+
+      <source-path path-element="${FLEX_HOME}/frameworks" />
+
+      <compiler.include-libraries dir="${build.dir}/flex-lib" append="true">
+        <include name="*.swc" />
+      </compiler.include-libraries>
+
+      <compiler.debug>false</compiler.debug>
+    </mxmlc>
+
+    <!--
+    <replace file="${web.dir}/WEB-INF/flex/services-config.xml">
+      <replacefilter token="www.ralscha.ch" value="{server.name}"/>
+      <replacefilter token="85" value="{server.port}"/>
+    </replace>  
+    -->
+    
+    <copy file="${flexsrc.dir}/tomcatStartStop-app.xml" toDir="${build.dir}/air" />
+    <copy file="${build.dir}/icons/note16.png" toDir="${build.dir}/air" />
+    <copy file="${build.dir}/icons/note32.png" toDir="${build.dir}/air" />
+    <copy file="${build.dir}/icons/note48.png" toDir="${build.dir}/air" />
+    <copy file="${build.dir}/icons/note128.png" toDir="${build.dir}/air" />
+  </target>
+
+  <target name="run-adl" depends="compile.air" if="air.support">
+    <exec dir="${build.dir}/air" executable="${AIR_HOME}\bin\adl.exe" spawn="false">
+      <arg value="tomcatStartStop-app.xml" />
+    </exec>
+  </target>
+
+
+  <target name="create.certificate" if="air.support">
+    <exec dir="${build.dir}/air" executable="${AIR_HOME}\bin\adt.bat" spawn="false">
+      <arg value="-certificate" />
+      <arg value="-cn" />
+      <arg value="ess" />
+      <arg value="-ou" />
+      <arg value="ch.ralscha" />
+      <arg value="-o" />
+      <arg value="ch.ralscha" />
+      <arg value="2048-RSA" />
+      <arg value="ralscha.pfx" />
+      <arg value="changeme" />
+    </exec>
+  </target>
+
+  <target name="package.air" depends="compile.air,create.certificate" if="air.support">
+    <exec dir="${build.dir}/air" executable="${AIR_HOME}\bin\adt.bat" spawn="false">
+      <arg value="-package" />
+
+      <arg value="-storetype" />
+      <arg value="pkcs12" />
+      <arg value="-keystore" />
+      <arg value="ralscha.pfx" />
+      <arg value="-storepass" />
+      <arg value="changeme" />
+
+      <arg value="tomcatStartStop.air" />
+      <arg value="tomcatStartStop-app.xml" />
+      <arg value="MainAir.swf" />
+      <arg value="note16.png" />
+      <arg value="note32.png" />
+      <arg value="note48.png" />
+      <arg value="note128.png" />
+    </exec>
+
+    <copy file="${build.dir}/air/tomcatStartStop.air" todir="${web.dir}/air" />
+  </target>
+
+	<target name="wrapper">
+		<html-wrapper title="TomcatStartStop" 
+			            height="100%" 
+			            width="100%" 
+			            bgcolor="white" 
+			            application="tomcatStartStop" 
+			            swf="Main" 
+			            version-major="9" version-minor="0" version-revision="60" 
+			            history="false" 
+			            template="express-installation" 
+			            output="${web.dir}/bin" />
+	</target>
+
+	<target name="compile.java">
+		<mkdir dir="${classes.dir}" />
+
+		<javac srcdir="${src.dir}" 
+			     destdir="${classes.dir}" 
+			     deprecation="true" 
+			     optimize="true" 
+			     debug="false" 
+			     includeAntRuntime="no" 
+			     source="1.6" 
+			     target="1.6">
+			<classpath refid="compile.classpath" />
+		</javac>
+
+		<copy todir="${classes.dir}">
+			<fileset dir="${src.dir}" excludes="**/*.java" />
+		</copy>
+
+	</target>
+
+  <target name="war" depends="clean,compile,package.air">
+		<move todir="${web.dir}">
+			<fileset dir="${web.dir}/bin" />
+		</move>	    
+		<delete dir="${web.dir}/bin"/>
+		
+		<delete file="${build.dir}/tomcatStartStop.war"/>
+  	
+	  <move file="${web.dir}/WEB-INF/components.xml" todir="${build.dir}" />
+  	<move file="${web.dir}/WEB-INF/components_prod.xml" tofile="${web.dir}/WEB-INF/components.xml" />
+  	
+		<jar compress="yes" jarfile="${build.dir}/tomcatStartStop.war" basedir="${web.dir}" /> 
+		
+  	<move file="${web.dir}/WEB-INF/components.xml" tofile="${web.dir}/WEB-INF/components_prod.xml" />
+  	<move file="${build.dir}/components.xml" todir="${web.dir}/WEB-INF" />
+  	
+		<mkdir dir="${web.dir}/bin"/>
+		<move file="${web.dir}/AC_OETags.js" todir="${web.dir}/bin"/>
+		<move file="${web.dir}/Main.swf" todir="${web.dir}/bin"/>
+		<move file="${web.dir}/index.html" todir="${web.dir}/bin"/>
+		<move file="${web.dir}/playerProductInstall.swf" todir="${web.dir}/bin"/>
+		<move file="${web.dir}/framework_3.0.0.477.swf" todir="${web.dir}/bin" />
+		<move file="${web.dir}/framework_3.0.0.477.swz" todir="${web.dir}/bin" />
+	</target>
+	
+	
+	<target name="clean.lib">
+		<delete dir="${lib.dir}" />		
+		<mkdir dir="${lib.dir}" />
+		
+		<mkdir dir="${build.dir}/flex-lib" />
+		<mkdir dir="${build.dir}/lib/gas" />
+		<mkdir dir="${build.dir}/jetty/lib" />
+	</target>
+
+  <target name="resolve" depends="install.ivy,clean.lib">
+    <ivy:settings file="${basedir}/ivysettings.xml" />
+    <ivy:retrieve />
+
+    <move todir="${lib.dir}">
+      <fileset dir="${basedir}/lib">
+        <include name="*.jar" />
+        <exclude name="servlet*.jar" />
+        <exclude name="gas3*.jar" />
+        <exclude name="groovy-all*.jar" />
+        <exclude name="granite-generator*.jar" />
+      	<exclude name="jetty*.jar" />
+      	<exclude name="jsp*.jar" />
+      	<exclude name="core*.jar" />
+      </fileset>
+    </move>
+    <move todir="${build.dir}/lib">
+      <fileset dir="${basedir}/lib">
+        <include name="servlet*.jar" />
+      </fileset>
+    </move> 
+    <move todir="${build.dir}/lib/gas">
+      <fileset dir="${basedir}/lib">
+        <include name="gas3*.jar" />
+        <include name="groovy-all*.jar" />
+        <include name="granite-generator*.jar" />
+      </fileset>
+    </move>    
+    <move todir="${build.dir}/jetty/lib">
+      <fileset dir="${basedir}/lib">
+        <include name="jetty*.jar" />
+        <include name="jsp*.jar" />
+        <include name="core*.jar" />
+      </fileset>
+    </move>  	
+    <delete dir="${basedir}/lib" />
+    
+    <get src="http://repository.ralscha.ch/org/graniteds/granite-tide-swc/${granite.revision}/granite-tide-swc-${granite.revision}.swc" 
+         dest="${build.dir}/flex-lib/granite-tide.swc" verbose="true" usetimestamp="true"/>
+    <get src="http://repository.ralscha.ch/org/graniteds/granite-tide-hibernate-swc/${granite.revision}/granite-tide-hibernate-swc-${granite.revision}.swc" 
+         dest="${build.dir}/flex-lib/granite-tide-hibernate.swc" verbose="true" usetimestamp="true"/>
+    <get src="http://repository.ralscha.ch/org/graniteds/granite-tide-seam-swc/${granite.revision}/granite-tide-seam-swc-${granite.revision}.swc" 
+         dest="${build.dir}/flex-lib/granite-tide-seam.swc" verbose="true" usetimestamp="true"/>         	
+    <get src="http://repository.ralscha.ch/org/graniteds/gravity-swc/${granite.revision}/gravity-swc-${granite.revision}.swc" 
+         dest="${build.dir}/flex-lib/gravity.swc" verbose="true" usetimestamp="true"/>
+  	<get src="http://as3crypto.googlecode.com/files/as3crypto.swc" 
+  		   dest="${build.dir}/flex-lib/as3crypto.swc" verbose="true" usetimestamp="true"/>      
+  	  	
+  </target>
+
+
+	<target name="generate.as3" depends="compile.java">			
+		<taskdef name="gas3" classname="org.granite.generator.ant.AntJavaAs3Task">
+		  <classpath>
+		    <fileset dir="${build.dir}/lib/gas">
+		      <include name="*.jar" />
+		    </fileset>		  	
+		  	<path refid="compile.classpath"/>  		  	
+		  </classpath>	
+		</taskdef>
+			  
+		<gas3 outputdir="${flexsrc.dir}" tide="true">
+			<classpath>
+				<pathelement location="${classes.dir}" />					
+				<path refid="compile.classpath"/>
+			</classpath>		
+			<fileset dir="${classes.dir}">
+				<include name="ch/ess/startstop/entity/*.class" />
+			</fileset>
+		</gas3>
+	</target>
+
+
+	<target name="create.db.changelog">
+		<input addproperty="changelogFileName" message="Changelog Filename: " defaultvalue="changelog_1.xml"/>
+		<available file="${src.dir}/db/${changelogFileName}" property="changelogFileExists"/>    
+		<fail if="changelogFileExists" message="Changelog File already exists"/>
+		
+		<taskdef resource="liquibasetasks.properties" classpathref="liquibase.classpath" />  
+ 
+	  <mkdir dir="${src.dir}/db"/>
+	
+    <diffDatabaseToChangeLog
+            driver="${hibernate.connection.driver_class}"
+            url="${hibernate.connection.url}"
+            username="${hibernate.connection.username}"
+            password="${hibernate.connection.password}"
+            baseUrl="hibernate:hibernate.cfg.xml"	 
+            outputFile="${src.dir}/db/${changelogFileName}"
+            classpathref="liquibase.classpath">
+    </diffDatabaseToChangeLog>
+		
+		<echo level="info" message="Don't forget to add autoIncrement to the id column!!" />
+		
+	</target>
+
+
+	<target name="jetty" depends="compile">
+    <path id="jetty.classpath">
+      <fileset dir="${build.dir}/jetty/lib" includes="*.jar"/>
+      <fileset dir="${build.dir}/lib" includes="servlet*.jar"/>  
+      <pathelement path="${jdbcDriverPath}"/>
+    </path>
+
+    <java classname="org.mortbay.xml.XmlConfiguration" fork="yes">
+      <arg file="${build.dir}/jetty/jetty.xml"/>
+      <classpath refid="jetty.classpath"/>
+    </java>
+		
+		
+  </target>
+	
+
+
+</project>

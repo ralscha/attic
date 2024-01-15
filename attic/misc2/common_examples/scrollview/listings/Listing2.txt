@@ -1,0 +1,49 @@
+import java.awt.*;
+import javax.swing.*;
+
+public class JScrollViewPane extends JScrollPane
+{
+  protected CapturePanel capture;
+  protected boolean isDynamic;
+	
+  public JScrollViewPane(boolean isDynamic)
+  {
+    super();
+    this.isDynamic = isDynamic;
+  }
+	
+  public JScrollViewPane(Component view, boolean isDynamic)
+  {
+    super(view);
+    this.isDynamic = isDynamic;
+    setViewportView(view);
+  }
+	
+  public JScrollViewPane(
+    int vsbPolicy, int hsbPolicy, boolean isDynamic)
+  {
+    super(vsbPolicy, hsbPolicy);
+      this.isDynamic = isDynamic;
+  }
+
+  public JScrollViewPane(Component view,
+    int vsbPolicy, int hsbPolicy, boolean isDynamic)
+  {
+    super(view, vsbPolicy, hsbPolicy);
+    this.isDynamic = isDynamic;
+    setViewportView(view);
+  }
+	
+  public void setViewportView(Component view)
+  {
+    getViewport().setBackingStoreEnabled(false);
+    capture = new CapturePanel(view, isDynamic);
+    super.setViewportView(capture);
+  }
+	
+  public Image getImage()
+  {
+    return capture.getImage();
+  }
+}
+

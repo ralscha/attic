@@ -1,0 +1,53 @@
+<project name="ABBCVS Tools" default="jar" basedir=".">
+  
+  <!-- Home directory of the build process -->
+  <property name="bin.dir" value="${basedir}/bin"/>
+  <property name="lib.dir" value="${basedir}/lib"/>
+  <property name="src.dir" value="${basedir}/src"/>
+  <property name="tmp.dir" value="${basedir}/tmp"/>
+    
+  <path id="compile.classpath">
+    <fileset dir="${lib.dir}">
+      <include name="**/*.jar"/>
+    </fileset>   
+  </path>   
+
+
+  <target name="compile" description="Compile java sources">
+  
+    <mkdir dir="${bin.dir}"/>
+    
+    <javac srcdir="${src.dir}" 
+           destdir="${bin.dir}"
+           includeAntRuntime="no"
+           source="1.4">          
+      <classpath refid="compile.classpath"/>             
+    </javac>  
+        
+    <copy todir="${bin.dir}">
+      <fileset dir="${src.dir}" excludes="**/*.java"/>
+    </copy>
+    
+  </target>
+  
+
+
+  <target name="jar" depends="compile" description="Jar Decrypt Tool">
+    
+    <delete file="${basedir}/decrypt.jar"/>    
+    <delete dir="${tmp.dir}"/>
+    <mkdir dir="${tmp.dir}"/>
+         
+    <unjar src="${lib.dir}/commons-io-1.0.jar" overwrite="true" dest="${tmp.dir}"/>
+    
+    <copy file="${bin.dir}/Decrypt.class" toDir="${tmp.dir}"/>
+    <copy file="${bin.dir}/secret.txt" toDir="${tmp.dir}"/>
+
+            
+    <jar destfile="${basedir}/decrypt.jar" basedir="${tmp.dir}"         
+         manifest="${basedir}/manifest.config">          
+    </jar>
+    
+  </target>  
+
+</project>

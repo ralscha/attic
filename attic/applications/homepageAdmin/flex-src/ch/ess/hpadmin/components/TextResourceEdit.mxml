@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:TitleWindow xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute" width="900" height="610" 
+  title="Edit Textresource" showCloseButton="true" creationComplete="init()">
+  
+  <mx:Metadata>
+    [Event(name="dataUpdated")]
+  </mx:Metadata>
+  
+  <mx:Script>
+    <![CDATA[
+      import ch.ess.hpadmin.model.TextResource;
+      import mx.events.ValidationResultEvent;
+      import mx.binding.utils.BindingUtils;
+      import mx.managers.PopUpManager;
+      import mx.controls.Alert;
+      import mx.rpc.events.ResultEvent;
+      
+      [Bindable]
+      public var editTextResource:TextResource;
+      
+      private function save():void { 
+        editTextResource.fieldName = fieldNameText.text;
+        editTextResource.textDe = deTextArea.text;
+        editTextResource.textEn = enTextArea.text;
+        
+        textResourceService.update(editTextResource);        
+      }      
+            
+      private function onUpdateResult(e:ResultEvent):void {
+        var dataEvent:Event = new Event("dataUpdated");
+        dispatchEvent(dataEvent);
+        close();
+      }  
+            
+      private function init():void {
+        PopUpManager.centerPopUp(this);
+        this.addEventListener(Event.CLOSE, onCloseEvent);
+        fieldNameText.setFocus();
+        checkButtonEnable();       
+      }
+      
+      private function onCloseEvent(e:Event):void {
+        close();
+      }
+
+      private function close():void {
+        PopUpManager.removePopUp(this);
+      }   
+      
+      private function checkButtonEnable():void {
+        saveButton.enabled = validInput();
+      }
+        
+      private function validInput():Boolean {
+        return (fieldNameTextValidator.validate().type == ValidationResultEvent.VALID);        
+      }        
+      
+    ]]>
+  </mx:Script>
+  
+  <mx:RemoteObject id="textResourceService" showBusyCursor="true" destination="textResourceService">
+    <mx:method name="update" result="onUpdateResult(event)" />
+  </mx:RemoteObject>
+  
+  <mx:Form right="10" top="10" left="10">
+    <mx:FormItem label="Field Name" required="true">
+      <mx:TextInput id="fieldNameText" width="450" text="{editTextResource.fieldName}" change="checkButtonEnable()"/>
+    </mx:FormItem>  
+    <mx:FormItem label="Deutsch">
+      <mx:TextArea width="750" height="220" text="{editTextResource.textDe}" id="deTextArea"/>
+    </mx:FormItem>
+    <mx:FormItem label="Englisch">
+      <mx:TextArea width="750" height="220" text="{editTextResource.textEn}" id="enTextArea"/>
+    </mx:FormItem>
+    
+  </mx:Form>
+  <mx:Button label="Speichern" id="saveButton" bottom="10" left="10" click="save()"/>
+  <mx:Button label="Abbrechen" id="cancelButton" right="10" bottom="10" click="close()"/>
+  
+  <mx:Validator id="fieldNameTextValidator" source="{fieldNameText}" property="text" required="true"/>
+    
+</mx:TitleWindow>

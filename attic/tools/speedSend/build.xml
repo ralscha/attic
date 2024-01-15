@@ -1,0 +1,81 @@
+<project name="SpeedSend" default="serverdist" basedir=".">
+	<description>Create Server and Client Distribution</description>
+
+	<target name="clean">
+		<delete dir="logs" />
+		<delete dir="bin" />
+		<delete dir="serverdist" />
+		<delete dir="clientdist" />
+		<delete file="SpeedSendServer.zip"/>
+
+		<mkdir dir="logs" />
+		<mkdir dir="bin" />
+
+	</target>
+
+	<target name="compile" description="Compile java sources">
+
+		<mkdir dir="bin" />
+
+		<javac srcdir="src" destdir="bin" includeAntRuntime="no" source="1.5">
+		</javac>
+
+		<copy todir="bin">
+			<fileset dir="src" excludes="**/*.java" />
+		</copy>
+
+		<jar destfile="lib/ss.jar" basedir="bin" />
+
+	</target>
+
+	
+	<target name="clientdist" depends="compile">
+		<mkdir dir="clientdist" />
+		<copy file="lib/ss.jar" todir="clientdist/lib" />
+		<copy file="lib/forms-1.0.6.jar" todir="clientdist/lib" />
+		<copy file="lib/looks-2.0.1.jar" todir="clientdist/lib" />
+		<copy file="lib/swing-worker.jar" todir="clientdist/lib" />			
+		
+		<copy todir="clientdist/bsdiff">
+			<fileset dir="bsdiff" />
+		</copy>
+		<mkdir dir="clientdist/archiv" />
+		
+		<copy todir="clientdist/jre">
+			<fileset dir="jre" />
+		</copy>
+				
+  </target>
+	
+	<target name="serverdist" depends="compile">
+		<mkdir dir="serverdist" />
+
+		<copy file="lib/ss.jar" todir="serverdist/lib" />
+		<copy file="lib/wrapper.jar" todir="serverdist/lib" />
+		<copy file="lib/wrapper.dll" todir="serverdist/lib" />
+
+		<copy todir="serverdist/jre">
+			<fileset dir="jre" />
+		</copy>
+
+		<copy todir="serverdist/conf">
+			<fileset dir="conf" />
+		</copy>
+
+		<copy todir="serverdist/bsdiff">
+			<fileset dir="bsdiff" />
+		</copy>
+
+		<mkdir dir="serverdist/logs" />
+
+		<copy file="InstallApp-NT.bat" todir="serverdist" />
+		<copy file="SpeedSend.bat" todir="serverdist" />
+		<copy file="UninstallApp-NT.bat" todir="serverdist" />
+		<copy file="wrapper.exe" todir="serverdist" />		
+
+		<zip destfile="SpeedSendServer.zip" basedir="serverdist"/>
+	</target>
+
+
+</project>
+

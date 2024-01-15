@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<db>
+<database name="mvs" vendor="interbase">
+<driver class="interbase.interclient.Driver" url="jdbc:interbase://localhost/e:/interbase/db/lottowindb"/>
+<param name="user" value="sysdba"/>
+<param name="password" value="masterkey"/>
+</database>
+</db>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:ui="http://java.sun.com/jsf/facelets"
+  xmlns:h="http://java.sun.com/jsf/html"
+  xmlns:oui="http://www.oreilly.com/jsf">
+<head>
+  <title>Good Eats!</title>
+  <link rel="stylesheet" type="text/css" href="facelets-examples.css"/>
+</head>
+   <body>
+   ### This template client is example in the Facelets Shortcut.  ###
+  <ui:composition template="template.xhtml">
+  
+    <ui:define name="left-nav">
+      <oui:leftNav />
+    </ui:define>
+    <ui:define name="main-content">
+        <fieldset>
+        #{oui:formatName("WELCOME")}
+        <oui:panelList legendText="Recipe Search Page" bean="#{searchBean}"/>
+      </fieldset>
+    </ui:define>
+    
+
+     
+  </ui:composition>
+   </body>
+</html>

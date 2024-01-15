@@ -1,0 +1,61 @@
+<html>
+<head>
+   <title>Grace JavaLog</title>
+</head>
+<body text="#000000" bgcolor="#FFFFFF" link="#0000EE" vlink="#551A8B" alink="#FF0000">
+
+<table width=100%>
+<tr>
+<td><img SRC="../gk9.jpg" NOSAVE height=200 width=153>
+<td valign=top>
+  <table width="100%" bgcolor="#FFCC00">
+  <tr><td><font size=+4 color=Green><div align=right><b>Title</b></font>
+  </table>
+<div align=right><font size=+2 color=gray><b><i>Grace Software</b></i></font>
+<div align=right><font size=+2 color=gray><b><i>JavaLog</b></i></font>
+<br>
+<br>
+<div align=right><font size=-1 color="#B0B0B0">$Revision: 1.1 $</font></div>
+<div align=right><font size=-1 color="#B0B0B0">$Date: 1999/10/11 00:05:14 $</font></div>
+</table>
+
+<h2>Logging to a File</h2>
+
+JavaLog can log events to one or more files using the <a
+href=../../api/grace/log/FileHandler.html>FileHandler</a> class.  To
+enable logging to a file, use the command line property:
+
+<pre>
+    $ java -Dlog.handler.<i>name</i>.url=file:<i>filename</i> MyClass
+</pre>
+
+This will cause JavaLog to write all events to <i>filename</i>.  Here,
+<i>filename</i> can be either an absolute filename or a relative
+filename.  Absolute files have a path prefix like
+<i>/tmp/JavaLog/log.log</i>.  Relative paths have no path prefix like
+<i>log/log.log</i> and are relative to the current directory in which
+the java program is run.
+
+<h2>Limiting the file size</h2>
+
+If the JavaLog program is a server, it will run for extended periods
+of time and could eventually create huge log files.  JavaLog helps
+solve this problem by allowing the run time user to specify a maximum
+file size.  When this maximum file size is exceeded, the last half of
+the file is copied to new temporary file, and then copied back to the
+log file and logging continues.  The property that does this is:
+
+<pre>
+    $ java -Dlog.handler.<i>name</i>.maxsize=<i>size</i> MyClass
+</pre>
+
+Here <i>size</i> is a numeric value followed by a size character.  For
+example, the following command line starts <code>MyClass</code>
+logging with a 1500 Kbyte (1.5 Mbyte) max size.
+
+<pre>
+    $ java -Dlog.handler.file.maxsize=file:test.log -Dlog.handler.file.maxsize=1500k MyClass
+</pre>
+
+
+

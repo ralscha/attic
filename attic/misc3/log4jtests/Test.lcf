@@ -1,0 +1,26 @@
+
+log4j.rootCategory=, A1
+log4j.category.USER=INFO,user
+log4j.additivity.USER=false
+#log4j.appender.A1=org.apache.log4j.TextPaneAppender
+#log4j.appender.A1.layout=org.apache.log4j.PatternLayout
+#log4j.appender.A1.layout.ConversionPattern=%-4r %-5p %c{2} %M.%L %x - %m\n
+
+log4j.appender.A1=org.apache.log4j.RollingFileAppender
+log4j.appender.A1.Append=true
+log4j.appender.A1.File=test.log
+log4j.appender.A1.MaxFileSize=10KB
+log4j.appender.A1.MaxBackupIndex=3
+log4j.appender.A1.layout=org.apache.log4j.PatternLayout
+log4j.appender.A1.layout.ConversionPattern=%d{dd.MM.yyyy HH:mm:ss.SSS} %-5.5p %-20.20c %-10x - %m%n
+
+log4j.appender.user=org.apache.log4j.RollingFileAppender
+
+log4j.appender.user.Append=true
+log4j.appender.user.File=user.log
+log4j.appender.user.MaxFileSize=1KB
+log4j.appender.user.MaxBackupIndex=3
+log4j.appender.user.layout=org.apache.log4j.PatternLayout
+log4j.appender.user.layout.ConversionPattern=%d{dd.MM.yyyy HH:mm:ss.SSS} %-5.5p %m\n
+
+#log4j.shippedCodeFlagOverride=true

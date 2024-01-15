@@ -1,0 +1,54 @@
+<html>
+<head><title>LottoWin Application</title></head>
+<body bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#400040" alink="#FF0000">
+<h2>LottoWin Application</h2>
+<P>&nbsp;
+<P>
+Mit LottoWin l&auml;sst sich schnell ausrechnen ob man beim Lotto oder beim Joker
+etwas gewonnen hat.
+<P>
+<HR>
+<P>
+<H3>Installation</H3>
+Die beiden folgenden Dateien downloaden und in ein eigenes Verzeichnis kopieren 
+(z. B. c:\Lottowin) 
+<P>
+<A HREF="LottoWin.jar">LottoWin JAR-File</A><BR>
+<A HREF="winser.data">Datenfile</A>
+<HR>
+
+<H3>JRE</H3>
+Benutzer von Windows95 und WindowsNT, die noch kein Java installiert haben, empfehle ich
+das JRE (Java Runtime Environment) zu installieren. <P>
+<A HREF="http://www.javasoft.com/products/jdk/1.1/jre/index.html" TARGET="_top">DOWNLOADING THE JAVATM RUNTIME ENVIRONMENT (JRE)</A>
+<HR>
+<H3>Start</H3>
+LottoWin erlaubt es mit dem Menupunk Update die neuesten Lottozahlen herunterzuladen. Dazu muss
+allerding eine Verbindung zum Internet bestehen. Falls dein Computer via Proxy auf das Internet
+zugreifft muss dies beim Aufruf angegeben werden (meinproxyserver und port durch die entsprechenden Angaben ersetzen).
+<P>
+
+<B>mit JRE</B><BR>
+<PRE>ohne Proxy: jre -cp LottoWin.jar LottoWin 
+mit  Proxy: jre -Dhttp.proxyHost=<EM>meinproxyserver</EM> -Dhttp.proxyPort=<EM>port</EM>  -cp LottoWin.jar LottoWin </PRE>
+
+<B>wenn ein Java Development Kit (JDK) installiert ist</B><BR>
+<PRE>ohne Proxy: java -classpath %classpath%;LottoWin.jar LottoWin
+mit  Proxy: java -Dhttp.proxyHost=<EM>meinproxyserver</EM> -Dhttp.proxyPort=<EM>port</EM> -classpath %classpath%;LottoWin.jar LottoWin</PRE>
+<P>
+Am einfachsten ist es f&uuml;r den Start von LottoWin ein Batch-File zu erstellen. 
+
+<HR>
+<P>
+Das Programm sollte eigentlich selbsterkl&auml;rend sein (so hoffe ich wenigstens). Falls doch noch
+Fragen auftauchen, schreibt mir eine E-Mail.
+<P>
+Ich habe das Programm auf einem Windows95 und einem WindowsNT Computer getestet.
+Wenn jemand das Programm unter einem anderen Betriebsystem laufen l&auml;sst (erfolgreich oder
+nicht) bin ich an einer kurzen (oder auch l&auml;ngeren) E-Mail interessiert. 
+
+<P>
+Fragen, Feedback und Verbesserungsvorschl&auml;ge an <A HREF="mailto:ralph@bluewin.ch">ralph@bluewin.ch</A>
+<P>
+</body>
+</html>

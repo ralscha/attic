@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+ <!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 1.1//EN"
+       "http://jakarta.apache.org/struts/dtds/tiles-config_1_1.dtd">
+
+
+<!--
+     This is the default Tiles definition file
+-->
+
+<tiles-definitions>
+
+    <definition name=".default" path="/layout.jsp">
+        <put name="center" value="false"/>
+        <put name="menu"   value="/menu.jsp" />
+        <put name="body"   value="" />
+        <put name="error"   value="/errors.jsp" />
+    </definition>
+
+    <definition name=".logon" extends=".default">
+        <put name="center" value="true"/>    
+        <put name="menu"   value="" />
+        <put name="body"   value="/logon.jsp" />
+    </definition>   
+    
+    <definition name=".preferences.edit" extends=".default">
+        <put name="body"   value="/prefedit.jsp" />
+    </definition> 
+          
+    <definition name=".group.month" extends=".default">
+        <put name="body"   value="/groupmonth.jsp" />
+    </definition>     
+    
+      
+    
+</tiles-definitions>

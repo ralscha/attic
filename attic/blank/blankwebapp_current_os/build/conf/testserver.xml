@@ -1,0 +1,42 @@
+
+
+<Server port="8005" shutdown="SHUTDOWN" debug="0">
+
+  <Listener className="org.apache.catalina.mbeans.ServerLifecycleListener"
+            debug="0"/>
+  <Listener className="org.apache.catalina.mbeans.GlobalResourcesLifecycleListener"
+            debug="0"/>
+
+  <!-- Define the Tomcat Stand-Alone Service -->
+  <Service name="Catalina">
+
+    <!-- Define a non-SSL Coyote HTTP/1.1 Connector on port 8080 -->
+    <Connector port="8081"
+               maxThreads="150" minSpareThreads="25" maxSpareThreads="75"
+               enableLookups="false" redirectPort="8443" acceptCount="100"
+               debug="0" connectionTimeout="20000" 
+               disableUploadTimeout="true" />
+         
+    <!-- Define the top level container in our container hierarchy -->
+    <Engine name="Catalina" defaultHost="localhost" debug="0">
+
+      <!-- Global logger unless overridden at lower levels -->
+      <Logger className="org.apache.catalina.logger.FileLogger"
+              prefix="catalina_log." suffix=".txt"
+              timestamp="true"/>
+
+      <Host name="localhost" debug="0"
+       unpackWARs="true" autoDeploy="true"
+       xmlValidation="false" xmlNamespaceAware="false">
+
+        <Logger className="org.apache.catalina.logger.FileLogger"
+                 directory="logs"  prefix="localhost_log." suffix=".txt"
+            timestamp="true"/>
+
+      </Host>
+
+    </Engine>
+
+  </Service>
+
+</Server>

@@ -1,0 +1,260 @@
+
+
+
+
+
+
+
+
+
+
+
+<html>
+   <head><title>Rekrutierung: Suchergebnisse</title>
+	<script language="JavaScript">
+	<!--
+	  	
+	  function setNavigation() {
+		window.parent.navigation.setNext(     "javascript:submitForm('/rekrutierung/basket.jsp')");
+		window.parent.navigation.setBack('rekrutierung/quicksearch.jsp');
+		window.parent.navigation.setBackEnd('rekrutierung/quicksearch.jsp');
+		window.parent.navigation.setStop('rekrutierung/cancel.do');  
+	  }
+	//-->
+	</script>
+   
+   <script language="JavaScript" src="../common.js" type="text/javascript"></script>
+
+   <script language="JavaScript" type="text/javascript">
+     <!--
+		function submitForm(url1) {
+			document.addform.tourl.value = url1;
+			document.addform.submit();
+		}
+				
+     //-->
+   </script>		   
+   
+   <link rel="STYLESHEET" type="text/css" href="../css.css">
+   </head>
+<body bgcolor="#FFFFFF" text="#000000" link="#3A3D57" vlink="#3A3D57" alink="#3A3D57" topmargin="5" leftmargin="15" onLoad="parent.frames[0].location.href='../stepnavigation.jsp?typ=0&a=2'">      <p class="title">Suchergebnis</p>
+
+	  <p class="text">Suche nach:<br>
+       
+         <i>java</i>
+      	  
+      </p>	  
+	  
+      <p>
+      </p>
+    <form action="addKandidat.do" method="post" name="addform" id="addform">
+	<input type="hidden" name="tourl" value="">
+	
+<table>
+<tr>
+
+  <td bgcolor="#C0C0C0"><b>mit Kundenerfahrung (8)</b></td>
+  <td bgcolor="#FFFFFF"><a href="javascript:submitForm('/rekrutierung/treffer.jsp')">ohne Kundenerfahrung (8)</a></td>
+
+</tr>
+</table>	
+<p>
+	
+	 
+	 
+     <table border="0">
+
+         <tr><td>&nbsp;</td></tr>
+		 <tr><td align="left"><b>1 bis 8 von 8</b></td>
+	     <td align="right">          
+		  &nbsp;</td></tr>
+         <tr>
+            <td colspan="2" bgcolor="#000000">
+               <table width="100%" border="0" cellspacing="1" cellpadding="2">
+                  <tr bgcolor="#FFFFFF">				  
+					<th align="left">Kandidat</th>
+					
+					<th align="left"><a href="javascript:submitForm('/rekrutierung/treffer.jsp?with=1&page=1&sort=a2')">Alter</a></th>
+									  
+					
+					<th align="left"><a href="javascript:submitForm('/rekrutierung/treffer.jsp?with=1&page=1&sort=a3')">Pensum</a></th>
+									  
+					
+					<th align="left"><a href="javascript:submitForm('/rekrutierung/treffer.jsp?with=1&page=1&sort=a4')">Lieferant</a></th>
+									  
+					
+					<th align="left"><a href="javascript:submitForm('/rekrutierung/treffer.jsp?with=1&page=1&sort=a5')">Stdsatz von</a></th>
+									  
+					
+					<th align="left"><a href="javascript:submitForm('/rekrutierung/treffer.jsp?with=1&page=1&sort=a6')">bis</a></th>
+									  
+					<th align="left">Verf&uuml;gbar</th>
+					 
+                     <th align="center">ausw&auml;hlen</th>
+                  </tr>
+				  
+				   
+      		           <tr bgcolor="#EEEEEE">					 
+					   <td class="texts"><a href="javascript:submitForm('/rekrutierung/kanddetail.jsp?id=370&from=%2Frekrutierung%2Ftreffer.jsp%3Fwith%3D1')">370</a></td>
+                       <td class="texts">40&nbsp;-&nbsp;50&nbsp;</td>
+                       <td class="texts" align="right">&nbsp;</td>
+		   			   <td class="texts">Wittenwiller &amp; Co AG&nbsp;</td>
+					   <td class="texts">174.00&nbsp;</td>
+					   <td class="texts">174.00&nbsp;</td>
+                       <td><a href="javascript:newWindow('verfuegbar.jsp?id=370', 'verfuegbar', 380, 300, true)"><img src="../images/0.gif" border="0"><img src="../images/0.gif" border="0"><img src="../images/0.gif" border="0"><img src="../images/0.gif" border="0"></a></td>
+                        
+					 
+						
+							    
+	 			   
+					   <td align="center"><input type="checkbox" name="id" value="370"></td>
+                       
+					                        
+					   
+					   </tr>
+                 
+      		           <tr bgcolor="#FEFEFE">					 
+					   <td class="texts"><a href="javascript:submitForm('/rekrutierung/kanddetail.jsp?id=37&from=%2Frekrutierung%2Ftreffer.jsp%3Fwith%3D1')">37</a></td>
+                       <td class="texts">50&nbsp;-&nbsp;60&nbsp;</td>
+                       <td class="texts" align="right">&nbsp;</td>
+		   			   <td class="texts">Adecco Human Resources AG&nbsp;</td>
+					   <td class="texts">176.00&nbsp;</td>
+					   <td class="texts">176.00&nbsp;</td>
+                       <td><a href="javascript:newWindow('verfuegbar.jsp?id=37', 'verfuegbar', 380, 300, true)"><img src="../images/0.gif" border="0"><img src="../images/0.gif" border="0"><img src="../images/0.gif" border="0"><img src="../images/0.gif" border="0"></a></td>
+                        
+					 
+						
+							    
+	 			   
+					   <td align="center"><input type="checkbox" name="id" value="37"></td>
+                       
+					                        
+					   
+					   </tr>
+                 
+      		           <tr bgcolor="#EEEEEE">					 
+					   <td class="texts"><a href="javascript:submitForm('/rekrutierung/kanddetail.jsp?id=146&from=%2Frekrutierung%2Ftreffer.jsp%3Fwith%3D1')">146</a></td>
+                       <td class="texts">20&nbsp;-&nbsp;30&nbsp;</td>
+                       <td class="texts" align="right">&nbsp;</td>
+		   			   <td class="texts">Wittenwiller &amp; Co AG&nbsp;</td>
+					   <td class="texts">154.00&nbsp;</td>
+					   <td class="texts">154.00&nbsp;</td>
+                       <td><a href="javascript:newWindow('verfuegbar.jsp?id=146', 'verfuegbar', 380, 300, true)"><img src="../images/63.gif" border="0"><img src="../images/1.gif" border="0"><img src="../images/0.gif" border="0"><img src="../images/0.gif" border="0"></a></td>
+                        
+					 
+						
+							    
+	 			   
+					   <td align="center"><input type="checkbox" name="id" value="146"></td>
+                       
+					                        
+					   
+					   </tr>
+                 
+      		           <tr bgcolor="#FEFEFE">					 
+					   <td class="texts"><a href="javascript:submitForm('/rekrutierung/kanddetail.jsp?id=24&from=%2Frekrutierung%2Ftreffer.jsp%3Fwith%3D1')">24</a></td>
+                       <td class="texts">40&nbsp;-&nbsp;50&nbsp;</td>
+                       <td class="texts" align="right">&nbsp;</td>
+		   			   <td class="texts">Navigas AG&nbsp;</td>
+					   <td class="texts">186.00&nbsp;</td>
+					   <td class="texts">186.00&nbsp;</td>
+                       <td><a href="javascript:newWindow('verfuegbar.jsp?id=24', 'verfuegbar', 380, 300, true)"><img src="../images/60.gif" border="0"><img src="../images/7.gif" border="0"><img src="../images/0.gif" border="0"><img src="../images/0.gif" border="0"></a></td>
+                        
+					 
+						
+							    
+	 			   
+					   <td align="center"><input type="checkbox" name="id" value="24"></td>
+                       
+					                        
+					   
+					   </tr>
+                 
+      		           <tr bgcolor="#EEEEEE">					 
+					   <td class="texts"><a href="javascript:submitForm('/rekrutierung/kanddetail.jsp?id=207&from=%2Frekrutierung%2Ftreffer.jsp%3Fwith%3D1')">207</a></td>
+                       <td class="texts">20&nbsp;-&nbsp;30&nbsp;</td>
+                       <td class="texts" align="right">&nbsp;</td>
+		   			   <td class="texts">Born Informatik AG&nbsp;</td>
+					   <td class="texts">192.00&nbsp;</td>
+					   <td class="texts">192.00&nbsp;</td>
+                       <td><a href="javascript:newWindow('verfuegbar.jsp?id=207', 'verfuegbar', 380, 300, true)"><img src="../images/63.gif" border="0"><img src="../images/15.gif" border="0"><img src="../images/0.gif" border="0"><img src="../images/0.gif" border="0"></a></td>
+                        
+					 
+						
+							    
+	 			   
+					   <td align="center"><input type="checkbox" name="id" value="207"></td>
+                       
+					                        
+					   
+					   </tr>
+                 
+      		           <tr bgcolor="#FEFEFE">					 
+					   <td class="texts"><a href="javascript:submitForm('/rekrutierung/kanddetail.jsp?id=4&from=%2Frekrutierung%2Ftreffer.jsp%3Fwith%3D1')">Gilligana&nbsp;Remus</a></td>
+                       <td class="texts">20&nbsp;-&nbsp;30&nbsp;</td>
+                       <td class="texts" align="right">&nbsp;</td>
+		   			   <td class="texts">Manpower AG&nbsp;</td>
+					   <td class="texts">105.00&nbsp;</td>
+					   <td class="texts">105.00&nbsp;</td>
+                       <td><a href="javascript:newWindow('verfuegbar.jsp?id=4', 'verfuegbar', 380, 300, true)"><img src="../images/63.gif" border="0"><img src="../images/3.gif" border="0"><img src="../images/15.gif" border="0"><img src="../images/0.gif" border="0"></a></td>
+                        
+					 
+						
+							    
+	 			   
+					   <td align="center"><input type="checkbox" name="id" value="4"></td>
+                       
+					                        
+					   
+					   </tr>
+                 
+      		           <tr bgcolor="#EEEEEE">					 
+					   <td class="texts"><a href="javascript:submitForm('/rekrutierung/kanddetail.jsp?id=248&from=%2Frekrutierung%2Ftreffer.jsp%3Fwith%3D1')">248</a></td>
+                       <td class="texts">40&nbsp;-&nbsp;50&nbsp;</td>
+                       <td class="texts" align="right">&nbsp;</td>
+		   			   <td class="texts">Wittenwiller &amp; Co AG&nbsp;</td>
+					   <td class="texts">126.00&nbsp;</td>
+					   <td class="texts">126.00&nbsp;</td>
+                       <td><a href="javascript:newWindow('verfuegbar.jsp?id=248', 'verfuegbar', 380, 300, true)"><img src="../images/63.gif" border="0"><img src="../images/63.gif" border="0"><img src="../images/31.gif" border="0"><img src="../images/0.gif" border="0"></a></td>
+                        
+					 
+						
+							    
+	 			   
+					   <td align="center"><input type="checkbox" name="id" value="248"></td>
+                       
+					                        
+					   
+					   </tr>
+                 
+      		           <tr bgcolor="#FEFEFE">					 
+					   <td class="texts"><a href="javascript:submitForm('/rekrutierung/kanddetail.jsp?id=65&from=%2Frekrutierung%2Ftreffer.jsp%3Fwith%3D1')">65</a></td>
+                       <td class="texts">50&nbsp;-&nbsp;60&nbsp;</td>
+                       <td class="texts" align="right">&nbsp;</td>
+		   			   <td class="texts">dina.brooks@bluewin.ch&nbsp;</td>
+					   <td class="texts">149.00&nbsp;</td>
+					   <td class="texts">149.00&nbsp;</td>
+                       <td><a href="javascript:newWindow('verfuegbar.jsp?id=65', 'verfuegbar', 380, 300, true)"><img src="../images/63.gif" border="0"><img src="../images/63.gif" border="0"><img src="../images/63.gif" border="0"><img src="../images/7.gif" border="0"></a></td>
+                        
+					 
+						
+							    
+	 			   
+					   <td align="center"><input type="checkbox" name="id" value="65"></td>
+                       
+					                        
+					   
+					   </tr>
+                 
+				  
+               </table>
+            </td>
+         </tr>
+      </table>
+      	  
+	  </form>
+
+   </body>
+</html>
+
+       

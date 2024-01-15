@@ -1,0 +1,70 @@
+<html>
+<head>
+   <title>Grace JavaLog</title>
+</head>
+<body text="#000000" bgcolor="#FFFFFF" link="#0000EE" vlink="#551A8B" alink="#FF0000">
+
+<table width=100%>
+<tr>
+<td><img SRC="gk9.jpg" NOSAVE height=200 width=153>
+<td valign=top>
+  <table width="100%" bgcolor="#FFCC00">
+  <tr><td><font size=+4 color=Green><div align=right><b>Legacy System.out.print</b></font>
+  </table>
+<div align=right><font size=+2 color=gray><b><i>Grace Software</b></i></font>
+<div align=right><font size=+2 color=gray><b><i>JavaLog</b></i></font>
+<br>
+<br>
+<div align=right><font size=-1 color="#B0B0B0">$Revision: 1.1 $</font></div>
+<div align=right><font size=-1 color="#B0B0B0">$Date: 1999/10/11 00:05:13 $</font></div>
+</table>
+
+<h2>Legacy System.out.print() Integration</h2>
+
+If you are porting code that uses <code>System.out.print()</code> or
+<code>System.err.print()</code> statements, you can still use some of
+the features of JavaLog without changing the code.  JavaLog can be
+installed as the <code>System.out or err</code> stream such that all
+uses of the the <code>System.out or err</code> will be routed through
+JavaLog and thus can be filtered.
+
+<P>Using the PrintCatcher allows you to use your existing code with
+print statements but still use indirection, formatting, and filtering
+of JavaLog.  Currently, this functionality is experimental but will
+improve over time.  Of course, it is better to use the actual JavaLog
+interfaces.
+
+<P>Here's how to use it: before making any calls to
+<code>System.out</code> or <code>System.err</code>, instantiate and
+install the special java.log.PrintCatcher:
+
+    <pre>
+    import grace.log.PrintCatcher;
+    ...
+    public static void main(String[] args) 
+        PrintCatcher.install();
+	...
+	System.out.print("some starting text; now a number ");
+	System.out.print(1);
+	System.out.println(" some ending text.");
+
+	System.err.println("some error text that now goes through JavaLog");
+
+        PrintCatcher.uninstall(); // if you want to go back to old standard out and err
+    }
+    </pre>
+
+<P>Notice in the above example, the data printed using
+<code>print(...)</code> (as opposed to <code>println</code>) are
+buffered until a <code>println</code> call is made, and then the whole
+previously buffered line is written as a single log event.  This
+should probably be the desired behavior for most users but it can be
+changed using the <code>PrintCatcher.setBufferedPrints()</code>
+function.
+
+<P>Also note that the <code>PrintCatcher.install</code> and
+<code>PrintCatcher.uninstall()</code> can be called repeatedly to
+alternate between using JavaLog or not using it for print statements.
+
+</body>
+</html>

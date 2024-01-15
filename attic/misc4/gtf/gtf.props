@@ -1,0 +1,57 @@
+service.centers = LAU,LUG,ZUG,BAS
+
+db.driver=COM.ibm.db2.jdbc.net.DB2Driver
+
+LAU.name = Lausanne
+LAU.db.url = jdbc:db2://159.122.199.220:6789/gtflau
+LAU.db.user = db2admin
+LAU.db.password = ciaz8lug
+
+LUG.name = Lugano
+LUG.db.url = jdbc:db2://159.122.199.219:6789:6789/gtflug
+LUG.db.user = db2admin
+LUG.db.password = ciaz8adm
+
+ZUG.name = Zug
+ZUG.db.url = jdbc:db2://159.122.235.86:6789/gtfzug
+ZUG.db.user = db2admin
+ZUG.db.password = cial3adm
+   
+BAS.name = Basel
+BAS.db.url = jdbc:db2://159.122.199.220:6789/gtflau
+BAS.db.user = db2admin
+BAS.db.password = ciaz8lug
+
+
+awza.check.bookings.file=d:/projects/gtf/BOOKINGS_RZ2.txt
+awza.check.ok.file=d:/projects/gtf/ok.dat
+awza.check.overview.html.file=d:/projects/gtf/overview.html
+awza.check.overview.url=http://localhost:8001/
+awza.check.diff.html.path=d:/projects/gtf/
+awza.check.diff.html.prefix=bookingsDiff
+awza.check.ok.date=19990330
+awza.check.servlet=http://localhost:8001/servlet/AWZAok
+awza.check.balance.file=d:/projects/gtf/AWZA_RZ2.txt
+
+gtf.transfer.ok.file=d:/projects/gtf/FILETRANSFEROK
+
+gtf.polling.wait.seconds=60
+gtf.log.path=d:/temp
+
+kas477.check.rz2.input.file = d:/projects/gtf/aus477.dat
+kas477.check.rz2.output.file = d:/projects/gtf/kas477.html
+kas477.check.rz2.title = KAS 477 / 478  (RZ2)
+	
+kas406.check.rz2.input.file = d:/projects/gtf/aus406.dat
+kas406.check.rz2.output.file = d:/projects/gtf/kas406.html
+kas406.check.rz2.title = KAS 403,418 / 406  (RZ2)
+	
+kas405.check.rz3.input.file = d:/projects/gtf/aus405.dat
+kas405.check.rz3.output.file = d:/projects/gtf/kas405.html
+kas405.check.rz3.title = KAS 403,418 / 406  (RZ3)
+	
+liab.total.accounttype.001 = 478
+liab.total.accounttype.002 = 407
+liab.total.accounttype.003 = 406
+liab.total.accounttype.004 = 408
+liab.total.accounttype.005 = 405

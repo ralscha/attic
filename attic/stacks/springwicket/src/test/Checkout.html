@@ -1,0 +1,49 @@
+<html>
+<head>
+<title>Cheesr - checkout</title>
+<link href="style.css" rel="stylesheet" />
+</head>
+<body>
+<div id="container">
+<div id="header">
+<h1>Cheesr</h1>
+</div>
+<div id="contents">
+<div id="main">
+<div wicket:id="feedback" class="feedback"></div>
+<form wicket:id="form">
+<h3>Check out</h3>
+<p>Please enter your billing address.</p>
+<table>
+	<tr>
+		<th>Name</th>
+		<td><input wicket:id="name" type="text" /></td>
+	</tr>
+	<tr>
+		<th>Street</th>
+		<td><input wicket:id="street" type="text" /></td>
+	</tr>
+	<tr>
+		<th>Zip code</th>
+		<td><input wicket:id="zipcode" type="text" /></td>
+	</tr>
+	<tr>
+		<th>City</th>
+		<td><input wicket:id="city" type="text" /></td>
+	</tr>
+	<tr>
+		<th>&nbsp;</th>
+		<td><input type="button" wicket:id="cancel" value="Cancel" /> <input
+			type="submit" wicket:id="order" value="Order!" /></td>
+	</tr>
+
+</table>
+</form>
+</div>
+<div wicket:id="shoppingcart"></div>
+
+</div>
+</div>
+
+</body>
+</html>

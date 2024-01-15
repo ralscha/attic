@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+                      "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:s="http://jboss.com/products/seam/taglib">
+<head>    
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>testprj</title>
+</head>
+
+<body>
+  
+  <h:form>
+  
+	  <h:dataTable value="#{products}" var="prod">	    
+	    <h:column>
+	      <f:facet name="header">Title</f:facet>
+	      #{prod.title}
+	    </h:column>
+	    <h:column>
+	      <f:facet name="header">Description</f:facet>
+	      #{prod.description}
+	    </h:column>
+	    <h:column>
+	      <f:facet name="header">Price</f:facet>
+	      #{prod.price}
+	    </h:column>        
+      <h:column>
+        <f:facet name="header">Add to Cart</f:facet>
+        <h:commandButton action="#{search.select}" value="Buy it!" />
+        #{prod.price}
+      </h:column> 	    
+	    
+	  </h:dataTable>
+	  
+	  <h:commandButton action="#{search.prevPage}" value="Previous" rendered="#{not search.firstPage}" />
+	  #{search.currentPage} __ #{conversation.id}
+    <h:commandButton action="#{search.nextPage}" value="Next" rendered="#{not search.lastPage}" />
+    <h:commandButton action="#{search.purchase}" value="Purchase"  />
+   </h:form>
+   
+   
+   <h:dataTable value="#{cart.contents}" var="cartprod">    
+      <h:column>
+        <f:facet name="header">Title</f:facet>
+        #{cartprod.title}
+      </h:column>    
+   </h:dataTable>
+
+</body>
+</html>

@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE JavaXML:xmlrpc-config SYSTEM "DTD/XmlRpc.dtd">
+
+<JavaXML:xmlrpc-config 
+  xmlns:JavaXML="http://www.oreilly.com/catalog/javaxml/"
+>
+
+  <!-- Configuration Information for Server and Clients -->
+  <JavaXML:hostname>localhost</JavaXML:hostname>
+  <JavaXML:port type="unprotected">8585</JavaXML:port>
+  <JavaXML:parserClass>
+    org.apache.xerces.parsers.SAXParser
+  </JavaXML:parserClass>
+
+  <!-- Server Specific Configuration Information -->
+  <JavaXML:xmlrpc-server>
+
+    <!-- List of XML-RPC handlers to register -->
+    <JavaXML:handlers>
+      <JavaXML:handler>
+        <JavaXML:identifier>hello</JavaXML:identifier>
+        <JavaXML:class>HelloHandler</JavaXML:class>
+      </JavaXML:handler>
+
+      <JavaXML:handler>
+        <JavaXML:identifier>scheduler</JavaXML:identifier>
+        <JavaXML:class>Scheduler</JavaXML:class>
+      </JavaXML:handler>
+    </JavaXML:handlers>
+
+  </JavaXML:xmlrpc-server>
+
+</JavaXML:xmlrpc-config>

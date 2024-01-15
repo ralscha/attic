@@ -1,0 +1,577 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+
+<html>
+
+<head>
+
+<meta name="GENERATOR" content="Microsoft FrontPage 2.0">
+<title>Fortune Systems -- Zahlenanalyse und -Filterung</title>
+
+</head>
+
+<body text="#000000" link="#0000FF" vlink="#FF00FF" alink="#FF0000">
+<!--webbot bot="Include" u-include="header.htm" tag="BODY" startspan -->
+<form>
+</form>
+<!--webbot bot="Include" endspan i-checksum="29650" -->
+
+<p align="center"><font color="#FF0000" size="6"><b>Zahlenanalyse
+und -Filterung</b></font></p>
+
+<p>Die Version <font color="#FF0000"><b>LOTTO-STAR/Expert</b></font><font color="#000000"><b> </b>unserer Software</font>, widmet sich
+unter anderem dem Thema, bei der Generierung von Lotto-Tips
+solche Zahlen zu bevorzugen, die ein &quot;<font color="#FF0000"><strong>vielversprechendes</strong></font>&quot;
+Gewinnverhalten haben. </p>
+
+<p>Mit diesen neuen Funktionen wird der Versuch unternommen, von
+der rein zufälligen Tipp-Generierung wegzukommen und bei der
+Erstellung von Tips für Spielscheine die zufällig vom Programm
+erzeugten Zahlen anhand von Kriterien, die auf dem
+Ziehungsverhalten der Zahlen in der Vergangenheit und ihren
+statistisch zu erwartenden Häufigkeiten aufbauen, zu bewerten
+und daraufhin zu akzeptieren oder zu verwerfen. Man wird
+natürlich versuchen, solche Kombinationskonstellationen zu
+tippen, die bisher das häufigste Auftreten hatten, bzw. die im
+Häufigkeitsbereich der Gauß'schen Verteilung liegen. </p>
+
+<p>Natürlich kann das <font color="#FF0000"><b>nicht</b></font><b>
+</b>bedeuten, daß man dadurch nun <font color="#FF0000"><b>jede
+Woche</b></font><b> </b>gewinnt; aber man kann eine ganze Reihe
+von zufälligen Tipp-Vorschlägen des Programmes verwerfen, die
+in den Randbereichen des bisherigen Auftretens liegen.</p>
+
+<p><font color="#FF0000"><strong>Die schlechte Nachricht ist,
+daß natürlich &quot;nächste Woche&quot; gerade solche Zahlen
+gezogen werden können. </strong></font></p>
+
+<p>Um Filter-Kriterien zu erhalten, muß man natürlich zunächst
+einmal die vergangenen Ziehungen nach geeigneten Kriterien
+untersuchen, Vorschläge für solche Kriterien gibt es in der
+einschlägigen Literatur reichlich. Außerdem ist zu erwarten,
+daß bestimmte Kombinationskonstellationen weniger häufig
+auftreten, da es einfach weniger Kombinationsmöglichkeiten
+dafür gibt.. </p>
+
+<p>Da diese Kriterien sich ändern, müssen diese <font color="#FF0000"><b>für jede Spielwoche neu berechnet werden</b></font>,
+so daß es <font color="#FF0000"><b>keinen Sinn </b></font>mehr
+macht, Spielscheine mit einer <font color="#FF0000"><b>Laufzeit
+von mehr als einer Woche zu tippen</b></font>, weil ein Teil der
+ermittelten Kriterien eben nur für <font color="#FF0000"><b>einen</b></font><b>
+</b>bestimmten Zeitpunkt gelten. (Wie wir später sehen werden,
+sind das z.B. Kriterien der Intervallabfolge, Mehrlinge, Zahlen
+aus letzter Ziehung usw.) </p>
+
+<p>Um diese Filterfunktionen nutzen zu können, müssen also
+zunächst die aktuellen Werte der gewählten Filterbedingungen
+ermittelt werden, wir nennen das <font color="#FF0000"><b>Gewinnzahlen-Verteilungsanalyse</b></font><b>.</b>
+Da die Ergebnisse dieser Analyse recht interessant sind, stellen
+wir sie auch im Internet zur Verfügung und zur Diskussion. </p>
+
+<p>Das Ziehungsverhalten der Zahlen <font color="#FF0000"><b>ist</b></font><b>
+</b>grundsätzlich durch die <font color="#FF0000"><b>Gesetzmäßigkeiten
+des Lottomodelles</b></font> und der zugrundeliegenden Mathematik
+bestimmt. Wie wir später sehen werden, bestätigt diese Analyse
+in allen Belangen sehr schön die Gleichverteilung oder
+Gauß´sche Verteilung der Gewinnzahlen in der Vergangenheit, die
+von einigen immer wieder behaupteten Abweichungen der Zahlen vom
+theoretischen Modell findet erwartungsgemäß nicht statt. Wie
+wir feststellen werden, gibt es, bei den Kriterien, die nicht
+gleichverteilt sein müssen/können, auch eine <font color="#FF0000"><b>Gauß´sche Verteilung</b></font> der Werte
+(die berühmte <font color="#FF0000"><b>Glockenkurve</b></font>).
+</p>
+
+<p>Welche Analysen (die gleichzeitig auch spätere
+Filterkriterien sind) macht das Programm nun? </p>
+
+<p>Im Folgenden finden Sie ein Beispiel der Ergebenisse dieser
+Analyse für das deutsche Lotto 6 aus 49, anhand derer wir das
+Konzept erläutern wollen (bei anderen Lotto-Varianten und/oder
+Berücksichtigung der Zusatzzahl gibt es bei einigen Analysen
+etwas andere Überschriften).</p>
+
+<pre><b>    Analyse verschiedener Ziehungsstatistiken  ---  05.06.96 09:58
+              Basis: 2.115 Ziehungen von 42/55 bis 16/96
+
+</b><font color="#FF0000"><b>                     1. Verteilung der Quersummen
+</b></font><b>
+0 -  49     50 -  99    100 - 149    150 - 199    200 - 249      &gt;=250
+</b> 0,0%         5,4%        42,1%        45,3%         7,0%         0,2%
+
+<b>     </b><font color="#FF0000"><b>           2. Verteilung der Endziffern-Quersummen
+</b></font><b>
+0 - 14    15 - 19    20 - 24    25 - 29    30 - 34    35 - 39     &gt;=40
+</b> 2,4%       9,3%      20,8%      29,0%      23,0%      11,1%       4,3%
+
+<font color="#FF0000"><b>               3. Verteilung auf verschiedene 5-er Klassen
+</b></font><b>
+                 1      2      3      4      5      6
+</b>                0,0%   0,0%   3,5%  26,2%  50,0%  20,3%
+
+<font color="#FF0000"><b>                    4. Verteilung auf 5-er Klassen
+</b></font><b>
+   1      2      3      4      5      6      7      8      9     10
+</b> 10,3%  10,0%   9,5%  10,3%  10,3%   9,9%  10,5%  10,6%  10,1%   8,5%
+
+<font color="#FF0000"><b>              5. Verteilung auf verschiedene 8-er Klassen
+</b></font><b>
+            1        2        3        4        5        6
+</b>           0,0%     1,4%    18,7%    50,9%    27,2%     1,8%
+
+<font color="#FF0000"><b>                    6. Verteilung auf  8-er Klassen
+</b></font><b>
+            1        2        3        4        5        6
+</b>          16,2%    15,6%    16,6%    16,5%    16,6%    18,6%
+
+<font color="#FF0000"><b>             7. Verteilung auf verschiedene 10-er Klassen
+</b></font><b>
+                 1        2        3        4        5
+</b>                0,0%     2,7%    30,0%    53,1%    14,1%
+
+<font color="#FF0000"><b>                    8. Verteilung auf 10-er Klassen
+</b></font><b>
+                 1        2        3        4        5
+</b>               20,3%    19,9%    20,2%    21,1%    18,6%
+
+<font color="#FF0000"><b>            9. Anzahl von Zahlen aus vorhergehender Ziehung
+</b></font><b>
+        0        1        2        3        4        5        6
+</b>      43,0%    41,4%    14,2%     1,3%     0,0%     0,0%     0,0%
+
+<font color="#FF0000"><b>            10. Anzahl gleiche Endziffern in einer Ziehung
+</b></font><b>
+                 0        2        3        4        5
+</b>               19,7%    73,3%     9,0%     0,4%     0,0%
+
+<font color="#FF0000"><b>                 11. Anzahl Mehrlinge in einer Ziehung
+</b></font><b>
+            0        2        3        4        5        6
+</b>          48,6%    46,9%     4,6%     0,4%     0,0%     0,0%
+
+
+<font color="#FF0000"><b>    12. Verteilung der Hohen/Tiefen Zahlen (Zahlen 1-24 und 25-49)
+</b></font><b>
+       0/6      1/5      2/4      3/3      4/2      5/1      6/0
+</b>       0,0%     8,6%    25,7%    34,9%    21,8%     6,9%     0,7%
+
+<font color="#FF0000"><b>              13. Verteilung der Geraden/Ungeraden Zahlen
+</b></font><b>
+       0/6      1/5      2/4      3/3      4/2      5/1      6/0
+</b>       0,0%     8,2%    26,0%    34,1%    22,2%     7,1%     1,1%
+
+<font color="#FF0000"><b>           14. Verteilung der Endziffernbereiche 0-4 und 5-9
+</b></font><b>
+       0/6      1/5      2/4      3/3      4/2      5/1      6/0
+</b>       0,0%    10,2%    25,2%    32,5%    22,4%     7,8%     0,9%
+
+<font color="#FF0000"><b>                     15. Verteilung der Favoriten
+</b></font><b>
+       0/6      1/5      2/4      3/3      4/2      5/1      6/0
+</b>       0,0%     2,8%    12,9%    29,4%    50,6%     3,7%     0,0%
+
+<font color="#FF0000"><b>                     16. Verteilung der Ausbleiber
+</b></font><b>
+       0/6      1/5      2/4      3/3      4/2      5/1      6/0
+</b>       0,0%     5,5%    24,3%    35,7%    25,4%     6,5%     1,1%
+
+<font color="#FF0000"><b>     17. Verteilung der Geraden/Ungeraden bei Hohen/Tiefen Zahlen
+</b></font><b>
+         0/6      1/5      2/4      3/3      4/2      5/1      6/0
+</b>  <b>0/6</b>    0,0%     0,1%     0,6%     0,4%     0,3%     0,1%     0,0%
+  <b>1/5</b>    0,1%     0,6%     2,2%     2,9%     1,8%     0,7%     0,1%
+  <b>2/4</b>    0,3%     2,0%     6,6%     8,8%     5,4%     2,1%     0,4%
+  <b>3/3</b>    0,6%     2,8%     9,0%    11,8%     8,2%     2,2%     0,3%
+  <b>4/2</b>    0,2%     2,0%     6,0%     7,6%     4,4%     1,4%     0,2%
+  <b>5/1</b>    0,0%     0,5%     1,5%     2,5%     1,9%     0,4%     0,0%
+  <b>6/0</b>    0,0%     0,0%     0,1%     0,2%     0,2%     0,1%     0,0%
+
+<b>  Anteil der '2/4, 3/3, 4/2  ---  2/4, 3/3, 4/2'-Kombinationen: 67,8%
+
+</b><font color="#FF0000"><b>     18. Verteilung der Endziffernbereiche bei Hohen/Tiefen Zahlen
+</b></font><b>
+         0/6      1/5      2/4      3/3      4/2      5/1      6/0
+</b>  <b>0/6</b>    0,0%     0,3%     0,6%     0,5%     0,1%     0,0%     0,0%
+  <b>1/5</b>    0,0%     1,2%     3,3%     2,2%     1,5%     0,3%     0,0%
+  <b>2/4</b>    0,4%     3,3%     7,1%     8,4%     5,2%     1,1%     0,1%
+  <b>3/3</b>    0,5%     2,9%     7,9%    12,0%     8,0%     3,1%     0,6%
+  <b>4/2</b>    0,2%     1,9%     4,9%     7,2%     5,3%     2,2%     0,1%
+  <b>5/1</b>    0,0%     0,5%     1,2%     2,1%     2,0%     0,9%     0,0%
+  <b>6/0</b>    0,0%     0,0%     0,1%     0,1%     0,2%     0,1%     0,0%
+
+<b>  Anteil der '2/4, 3/3, 4/2  ---  2/4, 3/3, 4/2'-Kombinationen: 66,0%
+</b></pre>
+
+<p><font color="#FF0000" size="5"><b>Erläuterung der Analysen
+und Ergebnisse </b></font></p>
+
+<p><font color="#FF0000"><b>1. Verteilung der Quersummen</b></font><b><br>
+<br>
+</b>Bei dieser Untersuchnung werden einfach alle <b>Gewinnzahlen</b>
+in einer Ziehung addiert und in die Klassen <br>
+<font size="2"><b>Quersumme = 0 - 49, 50 - 99, 100 - 149, 150 -
+199, 200 - 249, &gt;=250</b> </font>aufgeschlüsselt. </p>
+
+<pre><font size="3"><b><tt>0 -  49     50 -  99    100 - 149    150 - 199    200 - 249      &gt;=250
+</tt></b><tt> 0,0%         5,4%        42,1%        45,3%         7,0%         0,2%</tt></font></pre>
+
+<p>Man sieht ganz deutlich die Häufung dieser Quersummen im
+Bereich 100 bis 199, die in 87% der Fälle aufgetreten ist. Das
+ist auch gar nicht verwunderlich, weil es einfach mehr mögliche
+Gewinnreihen in diesem Bereich gibt als in den Randbereichen. Wir
+können aber ohne weiteres diese Randbereiche verwerfen und
+büßen nur 13% unserer Gewinnchance ein.<br>
+<br>
+<font color="#FF0000"><b>2. Verteilung der Endziffern-Quersummen</b></font><b><br>
+<br>
+</b>Diese Untersuchnung ist eine Variation der Analyse 1, es hier
+werden einfach alle <b>Endziffern</b> der Gewinnzahlen in einer
+Ziehung addiert und in die Klassen <br>
+<b>Quersumme = 0 - 14, 15 - 19, 20 - 24, 25 - 29, 30 - 34, 35 -
+39, &gt;=40 </b>aufgeschlüsselt<b>. </b></p>
+
+<pre><font size="3"><b><tt>0 - 14    15 - 19    20 - 24    25 - 29    30 - 34    35 - 39     &gt;=40
+</tt></b><tt> 2,4%       9,3%      20,8%      29,0%      23,0%      11,1%       4,3%</tt></font></pre>
+
+<p>Man sieht ganz deutlich die Häufung dieser Quersummen im
+Bereich 20 bis 34, die in 73% der Fälle aufgetreten ist. Das ist
+auch gar nicht verwunderlich, weil es einfach mehr mögliche
+Gewinnreihen in diesem Bereich gibt als in den Randbereichen. Wir
+können aber ohne weiteres diese Randbereiche verwerfen und
+büßen nur 27% unserer Gewinnchance ein. Wenn wir auch den
+Bereich 15 bis 39 zulassen, decken wir sogar 93% der Fälle ab.<br>
+<br>
+<font color="#FF0000"><b>3. Verteilung auf verschiedene 5-er
+Klassen</b></font><b><br>
+<br>
+</b>Bei dieser Analyse untersucht man, in wieviel <b>verschiedenen</b>
+5-er Klassen (Zahlen 1 bis 5, 6 bis 10,..., 46-49) die
+Gewinnzahlen in jeder Ziehung lagen.</p>
+
+<pre><font size="3"><b><tt>                 1      2      3      4      5      6
+</tt></b><tt>                0,0%   0,0%   3,5%  26,2%  50,0%  20,3%</tt></font></pre>
+
+<p>Wie man am Ergebnis sieht, liegt hier eindeutig die Häufung
+der Fälle im Bereich 4 bis 6 verschiedene Klassen in jeder
+Ziehung. Jeder Tippvorschlag mit Zahlen, die auf weniger als 4
+Klassen verteilt sind, kann somit verworfen werden. </p>
+
+<p><font color="#FF0000"><b>4. Verteilung auf 5-er Klassen<br>
+<br>
+</b></font>Die nächste Analyse untersucht, wie die Gewinnzahlen
+sich auf die insgesamt möglichen 5-er Klassen verteilen. Das
+Ergebnis ist eindeutig: die <b>Gleichverteilung</b> ist gut
+gewährleistet (die letzte Klasse hat nur 4 Zahlen und muß daher
+einen niedrigeren Wert haben).</p>
+
+<pre><font size="3"><b><tt>   1      2      3      4      5      6      7      8      9     10
+</tt></b><tt> 10,3%  10,0%   9,5%  10,3%  10,3%   9,9%  10,5%  10,6%  10,1%   8,5%</tt></font></pre>
+
+<p><font color="#FF0000"><b>5. Verteilung auf verschiedene 8-er
+Klassen</b></font><b><br>
+<br>
+</b>Hier wird die gleiche Untersuchung angestellt wie in 3.,
+jetzt bezogen auf 8-er Klassen<br>
+(Zahlen 1 bis 8, 9 bis 16,..., 43 bis 49).</p>
+
+<pre><font size="3" face="Courier New"><b><tt>            1        2        3        4        5        6
+</tt></b><tt>           0,0%     1,4%    18,7%    50,9%    27,2%     1,8%</tt></font></pre>
+
+<p>Auch hier zeigt sich eindeutig die Verteilung der Zahlen auf
+mehrere Klassen, wobei die Häufung im Bereich 3 bis 5 Klassen
+liegt. Jeder Tippvorschlag mit Zahlen, die auf weniger als 3 oder
+mehr als 5 Klassen verteilt sind, kann somit verworfen werden.</p>
+
+<p><font color="#FF0000"><strong>6. Verteilung auf 8-er Klassen<br>
+</strong></font><font size="3" face="Courier New"><b><br>
+</b></font>Hier wird die gleiche Untersuchung angestellt wie in
+4., jetzt bezogen auf 8-er Klassen <br>
+(Zahlen 1 bis 8, 9 bis 16,..., 41 bis 49).<br>
+Auch hier zeigt sich eindeutig die Gleichverteilung der Zahlen
+auf die möglichen Klassen.</p>
+
+<pre><font size="3" face="Courier New"><b><tt>            1        2        3        4        5        6
+</tt></b><tt>          16,2%    15,6%    16,6%    16,5%    16,6%    18,6%</tt></font></pre>
+
+<p>Die letzte Klasse umfasst hier eine Zahl mehr, sie muß also
+einen höheren Wert haben.<br>
+<br>
+<font color="#FF0000"><strong>7. Verteilung auf verschiedene
+10-er Klassen</strong></font><br>
+<br>
+Hier wird die gleiche Untersuchung angestellt wie in 3., jetzt
+bezogen auf 10-er Klassen <br>
+(Zahlen 1 bis 10, 11 bis 20,..., 41 bis 49).</p>
+
+<pre><font size="3" face="Courier New"><b><tt>                1        2        3        4        5
+</tt></b><tt>               0,0%     2,7%    30,0%    53,1%    14,1%</tt></font></pre>
+
+<p>Auch hier zeigt sich eindeutig die Verteilung der Zahlen auf
+mehrere Klassen, die Häufung liegt bei 3 und 4 Klassen. Jeder
+Tippvorschlag mit Zahlen, die auf weniger als 3 und mehr als 4
+Klassen verteilt sind, kann somit verworfen werden.<br>
+<br>
+<font color="#FF0000"><strong>8. Verteilung auf 10-er Klassen</strong></font><br>
+<br>
+Hier wird die gleiche Untersuchung angestellt wie in 4., jetzt
+bezogen auf 10-er Klassen<br>
+(Zahlen 1 bis 10, 11 bis 20,..., 41 bis 49).</p>
+
+<pre><font size="3" face="Courier New"><b><tt>                 1        2        3        4        5
+</tt></b><tt>               20,3%    19,9%    20,2%    21,1%    18,6%</tt></font></pre>
+
+<p>Auch hier zeigt sich eindeutig die Gleichverteilung der Zahlen
+auf die möglichen Klassen. Die letzte 10-er Klasse hat eine Zahl
+weniger, muß also weniger oft vertreten sein.<br>
+<br>
+<font color="#FF0000"><strong>9. Anzahl von Zahlen aus
+vorhergehender Ziehung</strong></font><br>
+<br>
+Sehr interessant ist die Analyse, wieviele Zahlen aus der Ziehung
+der vorhergehenden Woche wieder aufgetreten sind</p>
+
+<pre><font size="3" face="Courier New"><b><tt>        0        1        2        3        4        5        6
+</tt></b><tt>      43,0%    41,4%    14,2%     1,3%     0,0%     0,0%     0,0%</tt></font></pre>
+
+<p>Mehr als zwei Zahlen sind so gut wie nie nochmals aufgetreten,
+wobei die Häufung eindeutig bei &quot;Keine&quot; bzw.
+&quot;Eine&quot; liegt. Dieser Filter zeigt, warum man bei
+Mehrwochenscheinen mögliche Chancen der Tipp-Zahlenreduktion
+vergibt, weil man ja erst nach jeder Ziehung weiß, welche Zahlen
+evtl. eliminiert werden können.<br>
+<br>
+<font color="#FF0000"><strong>10. Anzahl gleiche Endziffern in
+einer Ziehung</strong></font><br>
+<br>
+Hier wir untersucht, wieviele gleiche Endziffern in einer Ziehung
+aufgetreten sind. <br>
+Hier liegt der Schwerpunkt bei 2 gleichen Endziffern, mehr als 3
+verschieden Endziffern kommen so gut wie nicht vor.</p>
+
+<pre><font size="3" face="Courier New"><b><tt>                 0        2        3        4        5
+</tt></b><tt>               19,7%    73,3%     9,0%     0,4%     0,0%</tt></font></pre>
+
+<p><font color="#FF0000"><strong>11. Anzahl Mehrlinge in einer
+Ziehung<br>
+</strong></font><br>
+Interessante Ergebnisse liefert auch die Analyse, wieviele
+Mehrlinge (Zwillinge, Drillinge usw.) in den Ziehungen auftreten.<br>
+Es zeigt sich, daß in jeder zweiten Ziehung Mehrlinge auftreten,
+aber auch in jeder zweiten Ziehung keine.</p>
+
+<pre><font size="3" face="Courier New"><b><tt>            0        2        3        4        5        6
+</tt></b><tt>          48,6%    46,9%     4,6%     0,4%     0,0%     0,0%</tt></font></pre>
+
+<p>Dieser Filter zeigt ebenfalls, warum man bei
+Mehrwochenscheinen mögliche Chancen der Tipp-Zahlenreduktion
+vergibt, weil man ja erst nach jeder Ziehung weiß, ob man
+Mehrlinge zulassen soll oder nicht.<br>
+<br>
+<font color="#FF0000"><strong>12. Verteilung der Hohen/Tiefen
+Zahlen (Zahlen 1-24 und 25-49) <br>
+</strong></font><br>
+In dieser Analyse wird untersucht wie die Kombination der
+Zahlenklassen 1-24 und 25-49 aussieht, wobei eine Klassifizierung
+in die möglichen Kombinationen erfolgt (Anzahl hohe
+Zahlen/Anzahl tiefe Zahlen). <br>
+Eine eindeutige Häufung ist hier in den Kombinationen 2/4, 3/3,
+4/2 zur erkennen (Herr Gauß läßt grüßen!). </p>
+
+<pre><font size="3" face="Courier New"><b><tt>       0/6      1/5      2/4      3/3      4/2      5/1      6/0
+</tt></b><tt>       0,0%     8,6%    25,7%    34,9%    21,8%     6,9%     0,7%</tt></font></pre>
+
+<p>Das Ergebnis überrascht nicht, weil die Anzahl der möglichen
+Kombinationen in den bevorzugten Klassen einfach größer ist.<br>
+<br>
+<font color="#FF0000"><strong>13. Verteilung der
+Geraden/Ungeraden Zahlen<br>
+</strong></font><br>
+In dieser Analyse wird untersucht wie die Kombination der geraden
+und der ungeraden Zahlen aussieht, wobei eine Klassifizierung in
+die möglichen Kombinationen erfolgt (Anzahl gerade Zahlen/Anzahl
+ungerade Zahlen).<br>
+Auch hier ist eine eindeutige Häufung in den Kombinationen 2/4,
+3/3, 4/2 zur erkennen.</p>
+
+<pre><font size="3" face="Courier New"><b><tt>       0/6      1/5      2/4      3/3      4/2      5/1      6/0
+</tt></b><tt>       0,0%     8,2%    26,0%    34,1%    22,2%     7,1%     1,1%</tt></font></pre>
+
+<p>Das Ergebnis überrascht nicht, weil die Anzahl der möglichen
+Kombinationen in den bevorzugten Klassen einfach größer ist.<br>
+<br>
+<font color="#FF0000"><strong>14. Verteilung der
+Endziffernbereiche 0-4 und 5-9</strong></font><br>
+<br>
+Eine ähnliche Analyse wird auch für die Verteilung der hohen
+und tiefen Endziffern durchgeführt<br>
+Auch hier ist eine eindeutige Häufung in den Kombinationen 2/4,
+3/3, 4/2 zur erkennen.</p>
+
+<pre><font size="3" face="Courier New"><b><tt>       0/6      1/5      2/4      3/3      4/2      5/1      6/0
+</tt></b><tt>       0,0%     8,2%    26,0%    34,1%    22,2%     7,1%     1,1%</tt></font></pre>
+
+<p>Das Ergebnis überrascht nicht, weil die Anzahl der möglichen
+Kombinationen in den bevorzugten Klassen einfach größer ist.<br>
+<font color="#FF0000"><strong>15. Verteilung der Favoriten</strong></font><br>
+<br>
+Diese Analyse prüft das Auftreten der sog. Favoriten (das sind
+die Zahlen, die bis zur jeweiligen Ziehung am häufigsten
+aufgetreten sind). Wenn eine Ziehungszahl in der oberen Hälfte
+der Reihenfolge der bis dahin aufgetretenen häufigsten Zahlen
+liegt, wird sie als &quot;Favorit&quot; betrachtet. Das
+Analyseergebnis verwirft eine vielfach vertretene Theorie: das
+Tippen der jeweiligen Favoriten ist zwar insofern
+vielversprechend, als damit die Chancen auf Treffer mit 3 oder 4
+Richtigen 30% bzw. 50% sind. <strong>Den großen Treffer ab 5
+Richtigen wird man damit aber wahrscheinlich nicht erzielen</strong>!</p>
+
+<pre><font size="3" face="Courier New"><b><tt>       0/6      1/5      2/4      3/3      4/2      5/1      6/0
+</tt></b><tt>       0,0%     2,8%    12,9%    29,4%    50,6%     3,7%     0,0%</tt></font></pre>
+
+<p><font color="#FF0000"><strong>16. Verteilung der Ausbleiber</strong></font><br>
+<br>
+Diese Analyse prüft das Auftreten der sog. Ausbleiber (das sind
+die Zahlen, die bis zur jeweiligen Ziehung am längsten
+ausgeblieben sind, also einen Ziehungsrückstand haben). Wenn
+eine Ziehungszahl in der oberen Hälfte der Reihenfolge der bis
+dahin aufgetretenen Zahlen mit dem höchsten Ziehungsrückstand
+liegt, wird sie als &quot;Ausbleiber&quot; betrachtet. <br>
+Das Analyseergebnis ist hier noch weniger vielversprechend wie in
+15. Die Chancen, 3 Richtige zu haben ist zwar bei 35% aber 4
+Treffer sind dabei nur in 25% der Fälle zu erwarten. Die Chancen
+auf 5 und mehr Treffer sind hierbei etwas höher als bei den
+Favoriten.</p>
+
+<pre><font size="3" face="Courier New"><b><tt>       0/6      1/5      2/4      3/3      4/2      5/1      6/0
+</tt></b><tt>       0,0%     5,5%    24,3%    35,7%    25,4%     6,5%     1,1%</tt></font></pre>
+
+<p><font color="#FF0000"><strong>17. Verteilung der
+Geraden/Ungeraden bei Hohen/Tiefen Zahlen </strong></font><br>
+<br>
+Diese Analyse untersucht das gemeinsame Auftreten schon vorher
+untersuchter Einzelmerkmale (gerade/ungerade mit hohen/tiefen
+Zahlen).</p>
+
+<pre><font size="3" face="Courier New"><b><tt>         0/6      1/5      2/4      3/3      4/2      5/1      6/0
+  0/6</tt></b><tt>    0,0%     0,1%     0,6%     0,4%     0,3%     0,1%     0,0%
+  </tt><b><tt>1/5</tt></b><tt>    0,1%     0,6%     2,2%     2,9%     1,8%     0,7%     0,1%
+  </tt><b><tt>2/4</tt></b><tt>    0,3%     2,0%     6,6%     8,8%     5,4%     2,1%     0,4%
+  </tt><b><tt>3/3</tt></b><tt>    0,6%     2,8%     9,0%    11,8%     8,2%     2,2%     0,3%
+  </tt><b><tt>4/2</tt></b><tt>    0,2%     2,0%     6,0%     7,6%     4,4%     1,4%     0,2%
+  </tt><b><tt>5/1</tt></b><tt>    0,0%     0,5%     1,5%     2,5%     1,9%     0,4%     0,0%
+  </tt><b><tt>6/0</tt></b><tt>    0,0%     0,0%     0,1%     0,2%     0,2%     0,1%     0,0%
+
+</tt><b><tt>  Anteil der '2/4, 3/3, 4/2  ---  2/4, 3/3, 4/2'-Kombinationen: 67,8%</tt></b></font></pre>
+
+<p>Wie wir es mittlerweile schon gar nicht mehr anders erwarten,
+liegt die Häufung in den gemeinsamen mittleren Bereichen. <br>
+<br>
+<font color="#FF0000"><strong>18. Verteilung der
+Endziffernbereiche bei Hohen/Tiefen Zahlen </strong></font><br>
+<br>
+Ähnlich wie in 17. wird das gemeinsame Verhalten der
+Endziffernklassen und der hohen/tiefen Zahlen untersucht. Das
+Ergebnis entspricht auch hier den Erwartungen.</p>
+
+<pre><font size="3" face="Courier New"><b><tt>         0/6      1/5      2/4      3/3      4/2      5/1      6/0
+</tt></b><tt>  </tt><b><tt>0/6</tt></b><tt>    0,0%     0,3%     0,6%     0,5%     0,1%     0,0%     0,0%
+  </tt><b><tt>1/5</tt></b><tt>    0,0%     1,2%     3,3%     2,2%     1,5%     0,3%     0,0%
+  </tt><b><tt>2/4</tt></b><tt>    0,4%     3,3%     7,1%     8,4%     5,2%     1,1%     0,1%
+  </tt><b><tt>3/3</tt></b><tt>    0,5%     2,9%     7,9%    12,0%     8,0%     3,1%     0,6%
+  </tt><b><tt>4/2</tt></b><tt>    0,2%     1,9%     4,9%     7,2%     5,3%     2,2%     0,1%
+  </tt><b><tt>5/1</tt></b><tt>    0,0%     0,5%     1,2%     2,1%     2,0%     0,9%     0,0%
+  </tt><b><tt>6/0</tt></b><tt>    0,0%     0,0%     0,1%     0,1%     0,2%     0,1%     0,0%
+
+</tt><b><tt>  Anteil der '2/4, 3/3, 4/2  ---  2/4, 3/3, 4/2'-Kombinationen: 66,0%</tt></b></font></pre>
+
+<p>Die Ergebnis der Analysen 12. bis 18. stellen übrigens den
+Wert von Vollsystemen mit mehr als 8 Zahlen sehr in Frage! Warum
+das? Weil dort auch Zahlenreihen gespielt werden, die, wie unsere
+Analysen belegen, wenig bis gar nicht auftreten. Sie verschwenden
+dabei also Einsätze für Spielreihen, die eine geringe Chance
+haben!</p>
+
+<p><font color="#FF0000"><strong>Ziehungsintervallfolge der
+einzelnen Zahlen</strong></font></p>
+
+<p>Das Programm erstellt noch eine weitere Analyse, die
+allerdings nicht ausgedruckt, sondern nur als möglicher Filter
+verwendet wird. Es handelt sich dabei um die
+Ziehungsintervallfolge der einzelnen Zahlen. Was ist darunter nun
+wieder zu verstehen? Es wird für jede Zahl in der Vergangenheit
+untersucht, wieviele Wochen zwischen dem jeweiligen Auftreten
+vergangen sind. Dies dient später beim Tippen dazu, evtl. Zahlen
+zu finden, deren aktuelles Intervallmuster in der Vergangenheit
+schon (mehrmals) aufgetreten ist.</p>
+
+<p>Wir haben diese Analysen auch für andere Spielformen und
+Länder durchgeführt und festgestellt, daß die gezeigten Trends
+sich auch dort einstellen, so daß sie eine gute Basis für die
+Filterung von Tipp-Zahlen aus zufällig erzeugten
+Tipp-Vorschlägen bietet. Auf den ersten Blick überraschend war,
+daß auch die Fußball-Auswahlwette 6 aus 45 (bzw. TOTO-X in der
+Schweiz) diesen Gesetzen folgt, obwohl dort ja keine
+Zufallszahlen zur Gewinnermittlung gezogen werden, sondern die
+Ergebnisse von Fußballspielen den Gewinn bestimmen. Aber
+offensichtlich gehorchen auch diese Fußballtipps den gültigen
+statistischen Gesetzen!</p>
+
+<p><font color="#FF0000"><strong>Zusammenfassung der Ergebnisse</strong></font></p>
+
+<p>Aus unserer Sicht belegen diese Ergebnisse eindeutig, daß die
+Gesetze der Mathematik auch für unser Lotto immer noch gelten!
+Alle Versuche, aufgrund möglicher Abweichungen vom theoretischen
+Lottomodell, die Gewinnhancen zu erhöhen, sind daher zum
+Scheitern verurteilt, weil es diese Abweichungen nicht gibt! Wenn
+Ihnen jemand ein solches Konzept anbietet (meist für
+beträchtliches Geld!), vergessen Sie es einfach! Im besten Falle
+weiß es der Betreffende nicht besser, im schlimmsten Fall will
+man gezielt mit solchen untauglichen (aber immer wieder
+reizvollen!) Versprechungen an Ihr Geld gelangen.</p>
+
+<p>Die obigen Analysen kann man jedoch sinnvoll einsetzen, da sie
+helfen, die zu erstellenden Lotto-Tips in die Bereiche der
+größten Häufigkeiten zu positionieren und vom Programm
+vorgeschlagene und mögliche Zufallstips, die sich gemäß den
+Analysen in Randbereichen mit geringer Ausbeute bewegen, zu
+eliminieren. </p>
+
+<p>Die von uns verfolgte Konzeption zielt nicht darauf ab, (nicht
+vorhandene!) Annomalitäten zu suchen, vielmehr positionieren wir
+unsere Tips in die Bereiche, in denen gemäß der
+zugrundeliegenden Mathematik die häufigsten Möglichkeiten
+liegen müssen. Wir versuchen somit nicht, die Mathematik für
+ungültig zu erklären, sondern nutzen ihre Gesetzmäßigkeiten
+zur Eliminierung von Tips mit geringer Häufigkeit.</p>
+
+<p>&quot;Lotto hat kein Gedächtnis&quot; ist eine immer noch
+gültige Aussage, weil bei jeder Lottoziehung, unabhängig von
+der Vergangenheit, alle Chancen wieder gleichverteilt sind. Die
+obigen Analysen beschreiben auch nicht ein annomales Verhalten,
+vielmehr machen sie bewußt, daß das Lottospiel sich im Rahmen
+der Erwartungen bewegt und sich dieses zu nutzen lohnt. </p>
+
+<p><font color="#FF0000"><strong>Und noch einige bemerkenswerte
+Ergebnisse:</strong></font></p>
+
+<p><img src="images/balloran.gif" width="14" height="14"> Im Sinne eines
+strategischen Lottospiels sind Mehrwochenscheine zwar bequem aber
+kontraproduktiv. Das Verhalten von Mehrlingen und zu
+eliminierende Zahlen aus der vorherigen Ziehung kann man nur
+wochenweise bestimmen.</p>
+
+<p><a><img src="images/balloran.gif" width="14" height="14"></a>
+Vermeiden Sie Vollsysteme mit mehr als 7 Zahlen, Sie spielen
+sonst auch Spielreihen aus den Randbereichen der Häufigkeiten.
+Das kostet Einsatz und hat nur geringe Erfolgsaussichten!</p>
+
+<p>Wir würden uns freuen, Ihre Meinung zu diesem Thema zu
+erfahren, sei sie zustimmend oder kontrovers. Schicken Sie uns
+doch einfach eine eMail! <a href="mailto:lotto@fortune.de"><img src="images/balloran.gif" border="0" width="14" height="14">eMail-Mitteilung
+schicken</a> </p>
+
+<p><a href="fortordr.htm"><font color="#000000" size="3"><b>LOTTO-STAR Updates, Upgrades oder Daten bestellen</b></font></a></p>
+<!--webbot bot="Include" u-include="footer.htm" tag="BODY" startspan -->
+<form>
+</form>
+<!--webbot bot="Include" endspan i-checksum="29650" -->
+</body>
+</html>

@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Panel xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute" width="336" height="188" 
+  title="Anmeldung"
+  creationComplete="init()">
+  
+  <mx:Script>
+    <![CDATA[
+      import ch.ess.issue.events.LoginEvent;           
+      import ch.ess.issue.entity.User;
+      import mx.events.ValidationResultEvent;
+      import mx.rpc.events.ResultEvent;
+      import mx.controls.Alert;
+      
+      private function doLogin():void {
+
+        var myLSO:SharedObject = SharedObject.getLocal("loginData");
+        
+        if (rememberMeCheckbox.selected) {
+          myLSO.data.username = usernameText.text;
+          myLSO.data.password = passwordText.text;
+          myLSO.flush();
+        } else {
+          myLSO.clear();
+        }
+        
+        userService.login(usernameText.text, passwordText.text);        
+      }
+      
+      private function resultLogin(e:ResultEvent):void {
+        var user:User = User(e.result);
+        
+        if (user != null) {        
+          usernameText.text = "";
+          passwordText.text = "";
+          var le:LoginEvent = new LoginEvent(user, LoginEvent.LOGGED_ON);
+          dispatchEvent(le);
+        } else {
+          Alert.show("Login failed");          
+        }
+      }
+
+      public function init():void {
+        checkButtonEnable();
+        usernameText.setFocus(); 
+        
+        var myLSO:SharedObject = SharedObject.getLocal("loginData");
+        
+        if (myLSO.data.username != undefined) {
+          rememberMeCheckbox.selected = true;
+          usernameText.text = myLSO.data.username;
+          passwordText.text = myLSO.data.password;
+          doLogin();
+          //passwordText.setFocus();          
+        }     
+        
+      }
+            
+      private function checkButtonEnable():void {
+        loginButton.enabled = validInput();
+      }
+        
+      private function validInput():Boolean {
+        return (usernameTextValidator.validate().type == ValidationResultEvent.VALID &&
+                passwordTextValidator.validate().type == ValidationResultEvent.VALID);        
+      }          
+      
+      private function usernameKeyHandler(event:KeyboardEvent):void {
+        if (event.keyCode == 13) {
+          passwordText.setFocus();
+        }
+      }
+      
+      private function returnKeyHandler(event:KeyboardEvent):void {
+        if (event.keyCode == 13) {
+          doLogin();
+        }
+      }      
+    ]]>
+  </mx:Script>
+      
+  <mx:Metadata>
+    [Event(name="loggedOn", type="ch.ess.issue.events.LoginEvent")]
+  </mx:Metadata>
+  
+  <mx:RemoteObject id="userService" showBusyCursor="true" destination="userService" result="resultLogin(event)"/>
+  
+  <mx:Form>
+    <mx:FormItem label="Username" required="true">
+      <mx:TextInput id="usernameText" change="checkButtonEnable()" keyDown="usernameKeyHandler(event)"/>
+    </mx:FormItem>
+    <mx:FormItem label="Password" required="true">
+      <mx:TextInput id="passwordText" displayAsPassword="true" change="checkButtonEnable()" keyDown="returnKeyHandler(event)"/>
+    </mx:FormItem>
+    <mx:FormItem label="Remember Me">
+      <mx:CheckBox id="rememberMeCheckbox"/>
+    </mx:FormItem>
+    <mx:FormItem>
+      <mx:Button label="Anmelden" id="loginButton" click="doLogin()" keyDown="returnKeyHandler(event)"/>
+    </mx:FormItem>
+  </mx:Form>
+  
+  <mx:Validator id="usernameTextValidator" source="{usernameText}" property="text" required="true"/>
+  <mx:Validator id="passwordTextValidator" source="{passwordText}" property="text" required="true"/>  
+  
+</mx:Panel>

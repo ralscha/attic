@@ -1,0 +1,63 @@
+Build and Developement Libraries
+================================
+
+Hibern8IDE   Beta             http://www.xam.dk/hibern8ide
+Checkstyle   3.1              http://checkstyle.sourceforge.net/
+PMD          1.2.1            http://pmd.sourceforge.net/
+XDoclet      1.2b3            http://xdoclet.sourceforge.net/
+
+
+
+Runtime Libraries
+===================
+
+Struts       1.2              http://jakarta.apache.org/struts/
+Hibernate    2.1              http://hibernate.sf.net
+JSTL         1.0.3 (Apache)   http://jakarta.apache.org/taglibs/doc/standard-doc/intro.html
+Activation   1.0.2            http://java.sun.com/beans/glasgow/jaf.html
+Mail         1.3.1            http://java.sun.com/products/javamail/
+Cewolf       0.9              http://cewolf.sourceforge.net
+Concurrent   1.3.2            http://gee.cs.oswego.edu/dl/classes/EDU/oswego/cs/dl/util/concurrent/intro.html
+Displaytag   0.9              http://displaytag.sf.net
+Log4j        1.2.8            http://jakarta.apache.org/log4j/docs/index.html
+Lucene       1.3 RC2          http://jakarta.apache.org/lucene
+Quartz       1.2.0            http://www.part.net/quartz.html
+
+
+Dependent Libraries
+-------------------
+
+Cewolf
+------
+Batik                         http://xml.apache.org/batik/
+JCommon      0.8.0            http://www.jfree.org/jcommon/index.html
+JFreeChart   0.9.8            http://www.jfree.org/jfreechart/index.html               
+
+
+Hibernate
+---------
+Cglib        1.0              http://cglib.sourceforge.net/
+JCS          1.0              http://jakarta.apache.org/turbine/jcs/
+Dom4j        1.3              http://dom4j.sourceforge.net/
+
+
+JSTL
+----
+Jaxen        1.0              http://jaxen.org/          
+Saxpath      1.0              http://sourceforge.net/projects/saxpath/
+
+
+Struts, Hibernate, ...
+----------------------
+Beanutils    1.6.1            http://jakarta.apache.org/commons/beanutils.html
+Collections  2.1              http://jakarta.apache.org/commons/collections.html
+DBCP         1.0              http://jakarta.apache.org/commons/dbcp/
+Digester     1.5              http://jakarta.apache.org/commons/digester.html
+Fileupload   1.0              http://jakarta.apache.org/commons/fileupload/index.html
+Lang         1.0.1            http://jakarta.apache.org/commons/lang.html
+Logging      1.0.3            http://jakarta.apache.org/commons/logging.html
+Pool         1.0.1            http://jakarta.apache.org/commons/pool/
+Validator    1.0.2            http://jakarta.apache.org/commons/validator/index.html
+Jakarta-ORO  2.0.7            http://jakarta.apache.org/oro/
+
+

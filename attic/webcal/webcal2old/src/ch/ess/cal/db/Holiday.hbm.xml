@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping SYSTEM "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+<hibernate-mapping>
+
+	<class name="ch.ess.cal.db.Holiday" proxy="ch.ess.cal.db.Holiday" table="calHoliday">
+		<id name="holidayId" type="long" unsaved-value="null">
+			<generator class="native"/>
+		</id>		
+		<version name="version"/>
+		
+		<property name="name" type="string" length="255" not-null="true"/>
+    	<property name="description" type="string" length="500"/>
+    	<property name="colour" type="string" length="255"/>
+    	
+    	<property name="country" type="string" length="2"/>    	    	
+    	<property name="month" type="java.lang.Integer"/>    	
+    	<property name="dayOfMonth" type="integer"/>    	
+    	<property name="dayOfWeek" type="integer"/>    	
+    	
+    	<property name="fromYear" type="integer"/> 
+    	<property name="toYear" type="integer"/>     	    	
+    	
+    	<property name="builtin" type="boolean" not-null="true"/>
+		<property name="active" type="boolean" not-null="true"/>
+			
+					
+	</class>
+
+	
+</hibernate-mapping>

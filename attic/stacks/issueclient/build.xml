@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project name="HGTrackerNG" default="generate.as3">
+ 
+	<!--
+ <taskdef name="gas3" classname="org.granite.generator.ant.As3BeanAntTask">
+   <classpath>
+    <fileset dir="${basedir}/build/lib">
+      <include name="*.jar" />
+    </fileset>     	
+   </classpath>
+ </taskdef>
+ -->
+	
+	<target name="generate.as3">
+		<gas3 outputdir="${basedir}/src">
+			<classpath>
+				<pathelement location="${basedir}/../issueserver/target/classes" />					
+			</classpath>
+		
+			<fileset dir="${basedir}/../issueserver/target/classes">
+				<include name="ch/ess/issue/entity/*.class" />
+			</fileset>
+		</gas3>
+	</target>
+	
+
+	<target name="war" description="Create installation package">
+		<copy file="${basedir}/bin-release/HGTrackerNG.html" tofile="${basedir}/web/index.html" />
+		<copy file="${basedir}/bin-release/HGTrackerNG.swf" todir="${basedir}/web" />
+		<copy file="${basedir}/bin-release/AC_OETags.js" todir="${basedir}/web" />
+		<copy file="${basedir}/bin-release/playerProductInstall.swf" todir="${basedir}/web" />
+		
+		<copy file="${basedir}/bin-release/framework_3.0.189825.swf" todir="${basedir}/web" />
+		<copy file="${basedir}/bin-release/framework_3.0.189825.swz" todir="${basedir}/web" />
+		
+    <copy todir="${basedir}/web/history">
+      <fileset dir="${basedir}/bin-release/history" />
+    </copy>
+    
+    <copy todir="${basedir}/web/assets">
+      <fileset dir="${basedir}/bin-release/assets" />
+    </copy>    
+		
+		<delete dir="${basedir}/web/bin" />
+		
+    <delete file="hgttest.war"/>
+    <jar compress="yes" jarfile="hgttest.war" basedir="web"/>	
+		
+		<delete file="${basedir}/web/index.html" />
+		<delete file="${basedir}/web/HGTrackerNG.swf" />
+		<delete file="${basedir}/web/AC_OETags.js" />
+		<delete file="${basedir}/web/playerProductInstall.swf" />
+		
+		<delete file="${basedir}/web/framework_3.0.189825.swf" />
+		<delete file="${basedir}/web/framework_3.0.189825.swz" />
+		
+		<delete dir="${basedir}/web/history" />
+		<delete dir="${basedir}/web/assets" />
+		
+		
+  </target>
+  
+
+
+</project>

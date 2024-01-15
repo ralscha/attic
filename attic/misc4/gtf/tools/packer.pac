@@ -1,0 +1,9 @@
+execute=false
+includeResource=true
+output=D:\download\dce.jar
+compress=false
+manifest=true
+level=-1
+application=gtf.tools.DBCommandExecuter
+map=common/util/AppProperties.class;d:/projects\common\util\AppProperties.class,null,4060,true,false
+map=gtf/tools/DBCommandExecuter.class;d:/projects\gtf\tools\DBCommandExecuter.class,null,2216,true,false

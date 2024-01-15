@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE beans PUBLIC
+    "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans
+  default-autowire="no"
+  default-lazy-init="false"
+  default-dependency-check="none"
+>
+
+  <bean 
+     id="dataLoadService"
+      class="ch.ess.blankrc.service.impl.DataLoad"
+  >
+
+    <property name="permissionDao">
+      <ref local="permissionDao"/>
+    </property>
+    <property name="userDao">
+      <ref local="userDao"/>
+    </property>
+    <property name="userGroupDao">
+      <ref local="userGroupDao"/>
+    </property>
+    <property name="permissionData">
+      <ref bean="permissionData"/>
+    </property>
+  </bean>
+
+  <bean 
+     id="logonService"
+      class="ch.ess.blankrc.remote.impl.LogonServiceImpl"
+  >
+
+    <property name="principalRegistry">
+      <ref local="principalRegistry"/>
+    </property>
+    <property name="userService">
+      <ref local="userService"/>
+    </property>
+  </bean>
+
+  <bean 
+     id="configurationService"
+      class="ch.ess.blankrc.service.impl.ConfigurationServiceImpl"
+  >
+
+    <property name="dao">
+      <ref local="configurationDao"/>
+    </property>
+  </bean>
+
+  <bean 
+     id="appConfig"
+      class="ch.ess.blankrc.service.impl.AppConfig"
+      init-method="init"
+  >
+
+    <property name="configurationService">
+      <ref local="configurationService"/>
+    </property>
+  </bean>
+
+  <bean 
+     id="permissionDao"
+      class="ch.ess.blankrc.persistence.hibernate.PermissionDaoHibernate"
+  >
+
+    <property name="sessionFactory">
+      <ref bean="sessionFactory"/>
+    </property>
+    <property name="clazz">
+      <value>ch.ess.blankrc.model.Permission</value>
+    </property>
+  </bean>
+
+  <bean 
+     id="dataLoadCaller"
+      class="ch.ess.blankrc.service.impl.DataLoadCaller"
+      init-method="callDataLoad"
+  >
+
+    <property name="dataLoad">
+      <ref local="dataLoadService"/>
+    </property>
+  </bean>
+
+  <bean 
+     id="userService"
+      class="ch.ess.blankrc.service.impl.UserServiceImpl"
+  >
+
+    <property name="dao">
+      <ref local="userDao"/>
+    </property>
+  </bean>
+
+  <bean 
+     id="userGroupService"
+      class="ch.ess.blankrc.service.impl.UserGroupServiceImpl"
+  >
+
+    <property name="dao">
+      <ref local="userGroupDao"/>
+    </property>
+  </bean>
+
+  <bean 
+     id="userGroupDao"
+      class="ch.ess.blankrc.persistence.hibernate.UserGroupDaoHibernate"
+  >
+
+    <property name="sessionFactory">
+      <ref bean="sessionFactory"/>
+    </property>
+    <property name="clazz">
+      <value>ch.ess.blankrc.model.UserGroup</value>
+    </property>
+  </bean>
+
+  <bean 
+     id="userDao"
+      class="ch.ess.blankrc.persistence.hibernate.UserDaoHibernate"
+  >
+
+    <property name="sessionFactory">
+      <ref bean="sessionFactory"/>
+    </property>
+    <property name="clazz">
+      <value>ch.ess.blankrc.model.User</value>
+    </property>
+  </bean>
+
+  <bean 
+     id="echoService"
+      class="ch.ess.blankrc.remote.impl.EchoServiceImpl"
+  >
+
+  </bean>
+
+  <bean 
+     id="configurationDao"
+      class="ch.ess.blankrc.persistence.hibernate.ConfigurationDaoHibernate"
+  >
+
+    <property name="sessionFactory">
+      <ref bean="sessionFactory"/>
+    </property>
+    <property name="clazz">
+      <value>ch.ess.blankrc.model.Configuration</value>
+    </property>
+  </bean>
+
+  <bean 
+     id="principalRegistry"
+      class="ch.ess.blankrc.remote.support.PrincipalRegistry"
+  >
+
+  </bean>
+
+  <bean 
+     id="permissionService"
+      class="ch.ess.blankrc.service.impl.PermissionServiceImpl"
+  >
+
+    <property name="dao">
+      <ref local="permissionDao"/>
+    </property>
+  </bean>
+
+  <!--
+     To include additional bean definitions for Spring in the generated
+     application context file, add a file to your XDoclet merge directory
+     called spring-beans.xml that contains the <bean></bean> markup.
+  -->
+
+</beans>

@@ -1,0 +1,31 @@
+<WIDL NAME=qs>
+
+<SERVICE NAME=stockQuote INPUT=qsInput OUTPUT=qsOutput
+METHOD=POST URL="http://qs.cnnfn.com/cgi-bin/stockquote">
+
+<BINDING NAME=qsInput>
+<FIELD NAME=symbols>
+</BINDING>
+
+<BINDING NAME=qsOutput>
+<FIELD NAME=title VALUE=doc.title>
+<FIELD NAME=name VALUE=doc.tables[2].tr[0].td[0].value #VALUE="SUN MICROSYSTEMS (NA...">
+<FIELD NAME=date VALUE=doc.tables[2].tr[1].td[1].value #VALUE="10/18/1996">
+<FIELD NAME=time VALUE=doc.tables[2].tr[1].td[3].value #VALUE="17:28:00">
+<FIELD NAME=last VALUE=doc.tables[2].tr[2].td[1].value #VALUE="60">
+<FIELD NAME=change VALUE=doc.tables[2].tr[2].td[3].value #VALUE="-1/2">
+<FIELD NAME=todayhigh VALUE=doc.tables[3].tr[0].td[1].value #VALUE="60 5/8">
+<FIELD NAME=prevclose VALUE=doc.tables[3].tr[0].td[3].value #VALUE="60 1/2">
+<FIELD NAME=todaylow VALUE=doc.tables[3].tr[1].td[1].value #VALUE="59 3/8">
+<FIELD NAME=bid VALUE=doc.tables[3].tr[1].td[3].value #VALUE="59 7/8">
+<FIELD NAME=todayopen VALUE=doc.tables[3].tr[2].td[1].value #VALUE="60 1/2">
+<FIELD NAME=ask VALUE=doc.tables[3].tr[2].td[3].value #VALUE="60">
+<FIELD NAME=volume VALUE=doc.tables[3].tr[3].td[1].value #VALUE="6,981,600">
+<FIELD NAME=peratio VALUE=doc.tables[3].tr[3].td[3].value #VALUE="23">
+<FIELD NAME=week52high VALUE=doc.tables[3].tr[4].td[1].value #VALUE="70 1/4">
+<FIELD NAME=earnings VALUE=doc.tables[3].tr[4].td[3].value #VALUE="2.42">
+<FIELD NAME=week52low VALUE=doc.tables[3].tr[5].td[1].value #VALUE="34 1/4">
+<FIELD NAME=divpershare VALUE=doc.tables[3].tr[5].td[3].value #VALUE="0.00">
+</BINDING>
+</WIDL>
+

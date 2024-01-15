@@ -1,0 +1,100 @@
+<?xml version="1.0"?>
+<project name="sonne" default="all" basedir=".">
+
+  <!-- Where the GWT libs can be found -->
+  <property name="gwt.home" value="D:/JavaJSP/gwt/gwt-windows-1.0.21"/>
+
+  <!-- Use Linux or Windows gwt-dev jar -->
+  <property name="gwt.flavour" value="windows"/>
+
+  <!-- Location of bundled Jetty server -->
+  <property name="jetty.home" value="jetty"/>
+
+  <path id="compile-classpath">
+    <fileset dir="lib" includes="*.jar"/>
+    <pathelement location="${jetty.home}/lib/javax.servlet.jar"/>
+  </path>
+
+  <path id="gwt-classpath">
+    <!-- Adjust for Linux/Windows as necessary -->
+    <fileset dir="${gwt.home}" includes="gwt-dev-${gwt.flavour}.jar"/>
+  </path>
+
+  <target name="all" depends="compile,gwt-compile" description="Compile/generate all client- and server-side content"/>
+
+  <target name="clean" description="Delete all build artifacts">
+      <delete dir="www"/>
+      <delete dir="bin"/>
+      <delete dir="tomcat"/>
+      <delete file="${ant.project.name}.war" />
+      <delete file="${jetty.home}/webapps/${ant.project.name}.war" />
+      <delete file="${jetty.home}/ext/commons-logging-1.1.jar" />
+  </target>
+
+  <target name="compile" description="Compile Java classes required on serverside">
+      <mkdir dir="bin"/>
+      <javac classpathref="compile-classpath" sourcepath="" srcdir="src" destdir="bin">
+      <include name="**/server/**/*.java"/>
+      <include name="**/client/common/**/*.java"/>
+      </javac>
+  </target>
+
+  <target name="gwt-compile" description="Generate clientside content with GWT">
+    <mkdir dir="www"/>
+    <java classpathref="gwt-classpath" classname="com.google.gwt.dev.GWTCompiler" fork="true">
+      <classpath>
+        <pathelement path="src"/>
+        <fileset dir="lib">
+          <include name="**/*.jar"/>
+        </fileset>
+      </classpath>
+      <arg value="-out"/>
+      <arg value="www"/>
+      <arg value="-style"/>
+      <arg value="DETAILED"/>
+      <arg value="ch.ess.sonne.Sonne"/>
+    </java>
+  </target> 
+
+  <target name="gwt-shell" description="Launch App in GWT shell" depends="compile">
+    <java classpathref="gwt-classpath" classname="com.google.gwt.dev.GWTShell" fork="true">
+	    <classpath>
+	      <pathelement path="src"/>
+	      <pathelement path="bin"/>
+	      <fileset dir="lib" includes="*.jar"/>
+	    </classpath>
+	    <arg value="-out"/>
+	    <arg value="www"/>
+	    <arg value="ch.ess.sonne.Sonne/Sonne.html"/>
+    </java>
+  </target> 
+
+  <target name="dist" description="Package the web-application for deployment" depends="compile,gwt-compile">
+    <move file="${basedir}/www/ch.ess.sonne.Sonne/Sonne.html" tofile="${basedir}/www/ch.ess.sonne.Sonne/index.html"/>
+    <war destfile="${ant.project.name}.war" webxml="web.xml">
+    <lib dir="lib" includes="*.jar"/>
+    <classes dir="bin"/>
+    <fileset dir="www/ch.ess.sonne.Sonne" excludes="**/*.gwt.xml"/>
+    </war>
+  </target>
+
+  <target name="jetty-start" description="Launches the web-application in Jetty" depends="dist">
+    <copy file="lib/commons-logging-1.1.jar" todir="${jetty.home}/ext/"/>
+    <copy file="${ant.project.name}.war" todir="${jetty.home}/webapps/"/>
+    <echo>
+    ******************************************
+  * Starting Jetty...                          *
+  *                                            *
+  * When Jetty startup is complete, browse to  *
+  * http://localhost:8080/weather/Weather.html *
+    ******************************************
+    </echo>
+    <java classname="org.mortbay.jetty.Server" fork="true" dir="${jetty.home}">
+      <classpath>
+        <pathelement location="${jetty.home}/lib/org.mortbay.jetty.jar"/>
+        <pathelement location="${jetty.home}/lib/javax.servlet.jar"/>
+        <pathelement location="${jetty.home}/ext/commons-logging-1.1.jar"/>
+      </classpath>
+    </java>
+  </target>
+</project>

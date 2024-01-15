@@ -1,0 +1,150 @@
+// Decompiled by Jad v1.5.7. Copyright 1997-99 Pavel Kouznetsov.
+// Jad home page: http://www.geocities.com/SiliconValley/Bridge/8617/jad.html
+// Decompiler options: packimports(3) 
+// Source File Name:   JavaPrintWriter.java
+
+package grace.io;
+
+import java.io.*;
+
+// Referenced classes of package grace.io:
+//            PrintWriter
+
+public class JavaPrintWriter extends grace.io.PrintWriter
+{
+
+    public JavaPrintWriter(OutputStream stream)
+    {
+        super(stream);
+    }
+
+    public JavaPrintWriter(OutputStream stream, boolean autoFlush)
+    {
+        super(stream, autoFlush);
+    }
+
+    public JavaPrintWriter(Writer writer)
+    {
+        super(writer);
+    }
+
+    public JavaPrintWriter(Writer writer, boolean autoFlush)
+    {
+        super(writer, autoFlush);
+    }
+
+    public void print(String name, Object value)
+    {
+        if(value != null)
+            printType(value.getClass());
+        else
+            printRaw("Object");
+        separateTypeAndName();
+        printName(name);
+        separateNameAndValue();
+        print(value);
+        if(value instanceof String)
+            endPrimitiveValue();
+    }
+
+    public void print(String name, int value)
+    {
+        printName(name);
+        separateNameAndValue();
+        print(value);
+        endPrimitiveValue();
+    }
+
+    protected void printArrayType(Class clazz)
+    {
+        printRaw(shortenedTypeName(clazz.getComponentType()));
+        printRaw("[]");
+    }
+
+    protected void indent()
+    {
+        for(int i = 0; i < indent; i++)
+            printRaw("    ");
+
+    }
+
+    protected void newlineAndIndent()
+    {
+        printRaw("\n");
+        indent();
+    }
+
+    public void beginList()
+    {
+        printRaw("{");
+        indent++;
+        if(prettyOutput())
+            newlineAndIndent();
+    }
+
+    public void endList()
+    {
+        if(--indent < 0)
+            indent = 0;
+        if(prettyOutput())
+            newlineAndIndent();
+        printRaw("}");
+    }
+
+    public void beginObject()
+    {
+        beginList();
+    }
+
+    public void endObject()
+    {
+        endList();
+    }
+
+    public void endPrimitiveValue()
+    {
+        printRaw(";");
+    }
+
+    public void separateListItems()
+    {
+        if(prettyOutput())
+            newlineAndIndent();
+        else
+            printRaw(" ");
+    }
+
+    public void separateObjectItems()
+    {
+        if(prettyOutput())
+            newlineAndIndent();
+        else
+            printRaw(" ");
+    }
+
+    public void separateTypeAndName()
+    {
+        printRaw(" ");
+    }
+
+    public void separateNameAndValue()
+    {
+        if(prettyOutput())
+            printRaw(" = ");
+        else
+            printRaw("=");
+    }
+
+    protected void printNullString()
+    {
+        printRaw("null;");
+    }
+
+    protected void printNullObject()
+    {
+        printRaw("null;");
+    }
+
+    private int indent;
+    private static final String indentString = "    ";
+}

@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping SYSTEM "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+<hibernate-mapping>
+
+	<class name="ch.ess.cal.db.Permission" proxy="ch.ess.cal.db.Permission" table="calPermission">
+		<id name="permissionId" type="long" unsaved-value="null">
+			<generator class="native"/>
+		</id>		
+		<version name="version"/>
+				
+		<property name="name" type="string" length="255" not-null="true"/>
+		
+	    <set name="userGroups" lazy="true" table="calUserGroupPermissions">
+          <key column="permissionId"/>
+          <many-to-many class="ch.ess.cal.db.UserGroup" column="userGroupId"/>
+        </set>
+		
+	</class>
+
+	
+</hibernate-mapping>

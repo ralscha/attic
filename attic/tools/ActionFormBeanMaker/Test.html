@@ -1,0 +1,40 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+<title>Test for ActionFormBeanMaker</title>
+</head>
+<body bgcolor="Silver">
+<h1>Test for ActionFormBeanMaker</h1>
+
+<form action="maker.do" method="post" name="makerForm" id="makerForm">
+<input type="submit" name="submit" value="OK">
+<input type="submit" name="submit" value="Cancel"><p>
+Text: <input type="text" name="text" size="20" maxlength="20"><br>
+Password: <input type="password" name="password" size="20"><br>
+<input type="hidden" name="hidden" value="10232"><br>
+TextArea: <textarea cols="35" rows="6" name="textArea">hier steht was dazwischen
+oder nicht</textarea><p>
+Country: <select name="select" size="1">
+	<option value="1" SELECTED>Holland</option>
+	<option value="2">Belgien</option>
+	<option value="3">Deutschland</option>
+</select>
+Hobby:  <select name="selectmulti" size="5" multiple>
+	<option value="1">Books</option>
+	<option value="2">Sport</option>
+	<option value="3">Computer</option>
+</select><p>
+
+<input type="radio" name="radio" value="nullRadio">Null</input>
+<input type="radio" name="radio" value="firstRadio">First</input>
+<input type="radio" name="radio" value="secondRadio">Second</input>
+<input type="radio" name="radio" value="thirdRadio">Third</input><p>
+<input type="checkbox" name="checkbox" value="USA">USA</input>
+<input type="checkbox" name="checkbox" value="Canada">Canada</input>
+
+</form>
+
+
+</body>
+</html>

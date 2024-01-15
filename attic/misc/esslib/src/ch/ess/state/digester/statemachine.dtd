@@ -1,0 +1,54 @@
+
+<!ELEMENT statemachine (actions, states, events)>
+
+<!-- ACTIONS -->
+<!ELEMENT actions (action*)>
+<!ELEMENT action (enterAction?, mainAction?, leaveAction?, permissions*)>
+<!ATTLIST action
+	name CDATA #IMPLIED
+	base CDATA #IMPLIED
+>
+<!ELEMENT leaveAction (#PCDATA)>
+<!ELEMENT enterAction (#PCDATA)>
+<!ELEMENT mainAction (#PCDATA)>
+
+<!ELEMENT permissions (permission+)>
+<!ATTLIST permissions
+	role CDATA #IMPLIED
+>
+<!ELEMENT permission EMPTY>
+<!ATTLIST permission
+	name CDATA #REQUIRED	
+>
+
+<!-- STATES -->
+<!ELEMENT states (state+)>
+<!ELEMENT state (action?)>
+<!ATTLIST state
+	name CDATA #REQUIRED
+	number CDATA #REQUIRED
+	key CDATA #IMPLIED	
+	location CDATA #IMPLIED
+>
+
+<!-- EVENT -->
+<!ELEMENT events (event+)>
+<!ELEMENT event (transition+)>
+<!ATTLIST event
+	name CDATA #REQUIRED
+>
+<!ELEMENT transition EMPTY>
+<!ATTLIST transition
+	fromState CDATA #REQUIRED
+	toState CDATA #REQUIRED
+	guard CDATA #IMPLIED
+>
+
+
+
+
+
+
+
+
+

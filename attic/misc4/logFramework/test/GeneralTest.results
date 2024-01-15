@@ -1,0 +1,40 @@
+():1: notice: system.main.Test-Thread.0: GeneralTest.logSomeMessages:75: Examples of trace()
+
+():2: trace: system.main.Test-Thread.0: GeneralTest.logSomeMessages:76
+
+():3: trace: system.main.Test-Thread.0: GeneralTest.testFunction:29
+
+():4: trace: system.main.Test-Thread.0: GeneralTest.logSomeMessages:79: Example of trace(message)
+
+():5: trace: system.main.Test-Thread.0: GeneralTest.logSomeMessages:84: Vector plain-object = { String [0] = "Value1"; String [1] = "Value2"; };
+
+():6: trace: system.main.Test-Thread.0: GeneralTest.logSomeMessages:87: Vector recursive-object = { String [0] = "Value1"; String [1] = "Value2"; Vector [2] = {ref-1}; };
+
+():7: trace: system.main.Test-Thread.0: GeneralTest.logSomeMessages:91: GeneralTest$TestObject another-recursive-object = { int i = 123; double d = 123.45; String s = "a sample string"; Object nullString = null; Vector v = { String [0] = "Value1"; String [1] = "Value2"; Vector [2] = {ref-2}; }; Date date = "02/13/63 03:30:01"; };
+
+():8: warning: system.main.Test-Thread.0: GeneralTest.logSomeMessages:93: Example of warning(message)
+
+():9: error: system.main.Test-Thread.0: GeneralTest.logSomeMessages:94: Example of error(message)
+
+():10: error: system.main.Test-Thread.0: GeneralTest.testThrowFunction:35: java.io.IOException: Exception message
+	at grace.log.test.GeneralTest.testThrowFunction(GeneralTest.java:35)
+	at grace.log.test.GeneralTest.logSomeMessages(GeneralTest.java:96)
+	at grace.log.test.GeneralTest$1.run(GeneralTest.java:52)
+
+():11: error: system.main.Test-Thread.0: GeneralTest.testNullPointerException:40: java.lang.NullPointerException
+	at grace.log.test.GeneralTest.testNullPointerException(GeneralTest.java:40)
+	at grace.log.test.GeneralTest.logSomeMessages(GeneralTest.java:99)
+	at grace.log.test.GeneralTest$1.run(GeneralTest.java:52)
+
+():12: stats: system.main.Test-Thread.0: GeneralTest.logSomeMessages:102: Example of different log event type
+
+():13: notice: system.main.Test-Thread.0: GeneralTest.logSomeMessages:104: String Example of event handling = "test object";
+
+():14: notice: system.main.Test-Thread.0: GeneralTest.logSomeMessages:105: String Example of event handling = "test object";
+
+():15: notice: system.main.Test-Thread.0: GeneralTest.logRemoteObject:122: GeneralTest$TestRemoteClass remoteObject = { int value1 = 111; String value2 = "222"; float value3 = 333.333; };
+
+():16: trace: system.main.Test-Thread.0: GeneralTest.logSomeMessages:109: done
+
+():17: notice: system.main.main: GeneralTest.run:70: done
+

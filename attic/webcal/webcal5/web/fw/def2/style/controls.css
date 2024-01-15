@@ -1,0 +1,2034 @@
+/* ==========================================
+** THIS FILE IS GENERATED WITH
+** THE CC-RESOURCEFACTORY TOOL.
+**
+** USER...........: egli
+** PAINTER........: def2
+** BUILD-FACTORY..: v1.6.029
+** BUILD-DATE.....: Thu Sep 08 10:04:04 CEST 2011
+** BUILD-DIRECTORY: C:\Users\egli\workplatz\webcal5
+** BUILD-FILE.....: C:\Users\egli\workplatz\webcal5\build\resources\resources.xml
+**
+** DO NOT MODIFY!
+** ==========================================
+*/
+
+/* ==========================================
+** SchedulerControl (with frame)
+**
+** Acronym's
+** ------------------------------------------
+** shc    = Scheduler Control
+** header = header
+** c      = caption
+** d      = detail
+** ==========================================
+*/
+
+.shc .header {
+	font-family : Arial, Helvetica, Sans-Serif;
+	font-size : 9pt;
+	font-weight : bold;
+	background-color : #1E5C99;
+	color : #FFFFFF;
+	width : 100%;
+}
+
+.shc .header .c {
+	font-family : Arial, Helvetica, Sans-Serif;
+	font-size : 9pt;
+	font-weight : bold;
+	background-color : #1E5C99;
+	color: #FFFFFF;
+}
+
+.shc .header .d {
+	font-family : Arial, Helvetica, Sans-Serif;
+	font-size : 8pt;
+	font-weight : normal;
+	background-color : #1E5C99;
+	color: #FFFFFF;
+}
+
+.shc .body {
+	font-family : Arial, Helvetica, Sans-Serif;
+	font-size : 8pt;
+	font-weight : normal;
+	border-left: 1px solid #1E5C99;
+	border-right: 1px solid #1E5C99;
+	border-bottom: 1px solid #1E5C99;
+	background-color : #CFE1EB;
+	padding: 5px;
+}
+
+.shc .body .if {
+	font-family : Arial, Helvetica, Sans-Serif;
+	font-size : 8pt;
+	border: 1px solid #1E5C99;
+	background-color : #FFFFFF;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	padding: 5px;
+}
+
+.shc .body .ifnb {
+	font-family : Arial, Helvetica, Sans-Serif;
+	font-size : 8pt;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+/* today marker */
+.shc .body #today {
+	border: 2pt solid #FEA217;
+}
+
+/* format ofanchor elements */
+.shc .body A {
+	text-decoration: none;
+	color: #000000;
+}
+
+/* "more..." indicator */
+.shc .body .more {
+	margin : 3px;
+	text-align: right;
+}
+
+/* "more..." indicator */
+.shc .body .overflow {
+	background-color: #808080;
+	padding : 1px 1px 3px 1px;
+	text-align: right;
+}
+
+/* allday and multiday appointments */
+.shc .body .appa, .shc .body .appm {
+	font-family : Arial, Helvetica, Sans-Serif;
+	font-size : 8pt;
+	font-weight : normal;
+	border: 1px solid #000000;
+	background-color : #CECECE;
+	padding : 1px;
+	margin : 1px 3px 2px 3px;
+}
+
+/* normal appointments */
+.shc .body .app  {
+	font-family : Arial, Helvetica, Sans-Serif;
+	font-size : 8pt;
+	font-weight : normal;
+	padding : 1px;
+	margin : 1px 3px 2px 3px;
+}
+
+.shc .body .nav, .shc .body .nav A {
+	font-family : Arial, Helvetica, Sans-Serif;
+	font-size : 8pt;
+	font-weight : bold;
+	background-color : #1E5C99;
+	color : #FFFFFF;
+	height: 22px;
+}
+
+.shc .body .hidden {
+	background-color : #CFE1EB;
+}
+
+/* ========= */
+/* Year View */
+/* ========= */
+
+.shc .body .yearview {
+	font-family : Arial, Helvetica, Sans-Serif;
+	font-size : 8pt;
+}
+
+.shc .body .yearview TD {
+	font-family : Arial, Helvetica, Sans-Serif;
+	font-size : 8pt;
+	text-align: center;
+	vertical-align: center;
+}
+
+/* day header */
+.shc .body .yearview .days {
+	font-weight : bold;
+	background-color: #6384BD;
+	color: #FFFFFF;
+	height: 22px;
+}
+
+/* day outside month */
+.shc .body .yearview .dom {
+	height: 22px;
+	background-color : #D4D0C8;
+	font-weight: normal;
+	color: #000000;
+}
+
+/* day outside month with appointments */
+.shc .body .yearview .doma {
+	height: 22px;
+	background-color: #E7CD9F;
+	font-weight: bold;
+	color: #000000;
+}
+
+/* day inside month */
+.shc .body .yearview .dim {
+	height: 22px;
+	background-color : #FFFFFF;
+	font-weight: normal;
+	color: #000000;
+}
+
+/* day inside month with appointments */
+.shc .body .yearview .dima {
+	height: 22px;
+	background-color: #FFD791;
+	font-weight: bold;
+	color: #000000;
+}
+
+/* ========== */
+/* Month View */
+/* ========== */
+
+.shc .body .monthview {
+	font-family : Arial, Helvetica, Sans-Serif;
+	font-size : 8pt;
+	vertical-align : top;
+	background-color : #1E5C99;
+}
+
+.shc .body .monthview TD {
+	font-family : Arial, Helvetica, Sans-Serif;
+	font-size : 8pt;
+}
+
+/* day header */
+.shc .body .monthview .days {
+	font-weight : bold;
+	background-color: #6384BD;
+	color: #FFFFFF;
+	height: 22px;
+	text-align: center;
+	vertical-align: middle;
+}
+
+.shc .body .monthview .label {
+	font-weight: normal;
+	text-align: right;
+	vertical-align: middle;
+	height: 22px;
+	color: #000000;
+	padding-right: 3px;
+}
+
+/* day outside month */
+.shc .body .monthview .dom {
+	vertical-align : top;
+	font-weight: normal;
+	background-color : #D4D0C8;
+}
+
+/* day in month */
+.shc .body .monthview .dim {
+	vertical-align : top;
+	font-weight: normal;
+	background-color : #FFFFFF;
+}
+
+/* ========= */
+/* Week View */
+/* ========= */
+
+.shc .body .weekview {
+	font-family : Arial, Helvetica, Sans-Serif;
+	font-size : 8pt;
+	background-color : #1E5C99;
+	color: #000000;
+}
+
+.shc .body .weekview .day {
+	vertical-align: top;
+	background-color : #FFFFFF;
+}
+
+.shc .body .weekview .label {
+	font-size : 8pt;
+	color: #000000;
+	text-align: right;
+	vertical-align: middle;
+	height: 22px;
+	padding-right: 3px;
+}
+
+.shc .body .weekview .apps {
+	font-family : Arial, Helvetica, Sans-Serif;
+	font-size : 8pt;
+}
+
+/* ======== */
+/* Day View */
+/* ======== */
+
+.shc .body .dayview {
+	font-family : Arial, Helvetica, Sans-Serif;
+	font-size : 8pt;
+	vertical-align : top;
+	border: 1px solid #1E5C99;
+	background-color: #1E5C99;
+}
+
+/* day header */
+.shc .body .dayview .days, .shc .body .dayview .days A {
+	font-weight : bold;
+	background-color: #6384BD;
+	color: #FFFFFF;
+	height: 22px;
+	text-align: center;
+	vertical-align: middle;
+}
+
+/* allday section */
+.shc .body .dayview .allday {
+	background-color: #808080;
+	color: #FFFFFF;
+	font-size: 11pt;
+	height: 20px;
+	vertical-align : top;
+}
+
+/* hour navigation bar */
+.shc .body .dayview .hour {
+	border-top: 1px solid #1E5C99;
+	background-color : #6384BD;
+	color : #FFFFFF;
+	padding-right: 5px;
+	font-size: 12pt;
+	font-weight: bold;
+	vertical-align: top;
+	text-align: right;
+}
+
+/* interval (5; 15; 30 min) navigation bar */
+.shc .body .dayview .interval {
+	border-top: 1px solid #1E5C99;
+	background-color : #6384BD;
+	color : #FFFFFF;
+	padding-right: 5px;
+	font-size: 8pt;
+	vertical-align: top;
+}
+
+/* spare time */
+.shc .body .dayview .st {
+	height: 22px;
+	vertical-align: top;
+	background-color: #EDEFF0;
+	border-top: 1px solid #CFE1EB;
+}
+
+/* working time */
+.shc .body .dayview .wt {
+	height: 22px;
+	vertical-align: top;
+	background-color: #FFFFFF;
+	border-top: 1px solid #CFE1EB;
+}
+
+/* Appointments container */
+.shc .body .dayview .apps {
+	font-family : Arial, Helvetica, Sans-Serif;
+	font-size : 8pt;
+	font-weight : normal;
+	background-color: #FFFFE1;
+	border: 1px solid #CECECE;
+	vertical-align : top;
+}
+
+/* ==========================================
+** SchedulerControl (without frame)
+**
+** Acronym's
+** ------------------------------------------
+** shc_nf = Scheduler Control (no frame)
+** header = header
+** c      = caption
+** d      = detail
+** ==========================================
+*/
+
+.shc_nf .header {
+	font-family : Arial, Helvetica, Sans-Serif;
+	font-size : 9pt;
+	font-weight : bold;
+	color : #FFFFFF;
+	width : 100%;
+}
+
+.shc_nf .header .c {
+	font-family : Arial, Helvetica, Sans-Serif;
+	font-size : 9pt;
+	font-weight : bold;
+	background-color : #1E5C99;
+	color: #FFFFFF;
+}
+
+.shc_nf .header .d {
+	font-family : Arial, Helvetica, Sans-Serif;
+	font-size : 8pt;
+	font-weight : normal;
+	background-color : #1E5C99;
+	color: #FFFFFF;
+}
+
+.shc_nf .body {
+	font-family : Arial, Helvetica, Sans-Serif;
+	font-size : 8pt;
+	font-weight : normal;
+}
+
+.shc_nf .body .if {
+	font-family : Arial, Helvetica, Sans-Serif;
+	font-size : 8pt;
+	border: 1px solid #1E5C99;
+	background-color : #FFFFFF;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	padding: 5px;
+}
+
+.shc_nf .body .ifnb {
+	font-family : Arial, Helvetica, Sans-Serif;
+	font-size : 8pt;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+/* today marker */
+.shc_nf .body #today {
+	border: 2pt solid #FEA217;
+}
+
+/* format ofanchor elements */
+.shc_nf .body A {
+	text-decoration: none;
+	color: #000000;
+}
+
+/* "more..." indicator */
+.shc_nf .body .more {
+	margin : 3px;
+	text-align: right;
+}
+
+/* "more..." indicator */
+.shc_nf .body .overflow {
+	background-color: #808080;
+	padding : 1px 1px 3px 1px;
+	text-align: right;
+}
+
+/* allday and multiday appointments */
+.shc_nf .body .appa, .shc_nf .body .appm {
+	font-family : Arial, Helvetica, Sans-Serif;
+	font-size : 8pt;
+	font-weight : normal;
+	border: 1px solid #000000;
+	background-color : #CECECE;
+	padding : 1px;
+	margin : 1px 3px 2px 3px;
+}
+
+/* normal appointments */
+.shc_nf .body .app  {
+	font-family : Arial, Helvetica, Sans-Serif;
+	font-size : 8pt;
+	font-weight : normal;
+	padding : 1px;
+	margin : 1px 3px 2px 3px;
+}
+
+.shc_nf .body .nav, .shc_nf .body .nav A {
+	font-family : Arial, Helvetica, Sans-Serif;
+	font-size : 8pt;
+	font-weight : bold;
+	background-color : #1E5C99;
+	color : #FFFFFF;
+	height: 22px;
+}
+
+.shc_nf .body .hidden {
+	background-color : #CFE1EB;
+}
+
+/* ========= */
+/* Year View */
+/* ========= */
+
+.shc_nf .body .yearview {
+	font-family : Arial, Helvetica, Sans-Serif;
+	font-size : 8pt;
+}
+
+.shc_nf .body .yearview TD {
+	font-family : Arial, Helvetica, Sans-Serif;
+	font-size : 8pt;
+	text-align: center;
+	vertical-align: center;
+}
+
+/* day header */
+.shc_nf .body .yearview .days {
+	font-weight : bold;
+	background-color: #6384BD;
+	color: #FFFFFF;
+	height: 22px;
+}
+
+/* day outside month */
+.shc_nf .body .yearview .dom {
+	height: 22px;
+	background-color : #DDDDDD;
+	font-weight: normal;
+	color: #000000;
+}
+
+/* day outside month with appointments */
+.shc_nf .body .yearview .doma {
+	height: 22px;
+	background-color: #E7CD9F;
+	font-weight: bold;
+	color: #000000;
+}
+
+/* day inside month */
+.shc_nf .body .yearview .dim {
+	height: 22px;
+	background-color : #EDEFF0;
+	font-weight: normal;
+	color: #000000;
+}
+
+/* day inside month with appointments */
+.shc_nf .body .yearview .dima {
+	height: 22px;
+	background-color: #FFD791;
+	font-weight: bold;
+	color: #000000;
+}
+
+/* ========== */
+/* Month View */
+/* ========== */
+
+.shc_nf .body .monthview {
+	font-family : Arial, Helvetica, Sans-Serif;
+	font-size : 8pt;
+	vertical-align : top;
+	background-color : #1E5C99;
+}
+
+.shc_nf .body .monthview TD {
+	font-family : Arial, Helvetica, Sans-Serif;
+	font-size : 8pt;
+}
+
+/* day header */
+.shc_nf .body .monthview .days {
+	font-weight : bold;
+	background-color: #6384BD;
+	color: #FFFFFF;
+	height: 22px;
+	text-align: center;
+	vertical-align: middle;
+}
+
+.shc_nf .body .monthview .label {
+	font-weight: normal;
+	text-align: right;
+	vertical-align: middle;
+	height: 22px;
+	color: #000000;
+	padding-right: 3px;
+}
+
+/* day outside month */
+.shc_nf .body .monthview .dom {
+	vertical-align : top;
+	font-weight: normal;
+	background-color : #D4D0C8;
+}
+
+/* day in month */
+.shc_nf .body .monthview .dim {
+	vertical-align : top;
+	font-weight: normal;
+	background-color : #FFFFFF;
+}
+
+/* ========= */
+/* Week View */
+/* ========= */
+
+.shc_nf .body .weekview {
+	font-family : Arial, Helvetica, Sans-Serif;
+	font-size : 8pt;
+	background-color : #1E5C99;
+	color: #000000;
+}
+
+.shc_nf .body .weekview .day {
+	vertical-align: top;
+	background-color : #FFFFFF;
+}
+
+.shc_nf .body .weekview .label {
+	font-size : 8pt;
+	color: #000000;
+	text-align: right;
+	vertical-align: middle;
+	height: 22px;
+	padding-right: 3px;
+}
+
+.shc_nf .body .weekview .apps {
+	font-family : Arial, Helvetica, Sans-Serif;
+	font-size : 8pt;
+}
+
+/* ======== */
+/* Day View */
+/* ======== */
+
+.shc_nf .body .dayview {
+	font-family : Arial, Helvetica, Sans-Serif;
+	font-size : 8pt;
+	vertical-align : top;
+	border: 1px solid #1E5C99;
+	background-color: #1E5C99;
+}
+
+/* day header */
+.shc_nf .body .dayview .days, .shc_nf .body .dayview .days A {
+	font-weight : bold;
+	background-color: #6384BD;
+	color: #FFFFFF;
+	height: 22px;
+	text-align: center;
+	vertical-align: middle;
+}
+
+/* allday section */
+.shc_nf .body .dayview .allday {
+	background-color: #808080;
+	color: #FFFFFF;
+	font-size: 11pt;
+	height: 20px;
+	vertical-align : top;
+}
+
+/* hour navigation bar */
+.shc_nf .body .dayview .hour {
+	border-top: 1px solid #1E5C99;
+	background-color : #6384BD;
+	color : #FFFFFF;
+	padding-right: 5px;
+	font-size: 12pt;
+	font-weight: bold;
+	vertical-align: top;
+	text-align: right;
+}
+
+/* interval (5; 15; 30 min) navigation bar */
+.shc_nf .body .dayview .interval {
+	border-top: 1px solid #1E5C99;
+	background-color : #6384BD;
+	color : #FFFFFF;
+	padding-right: 5px;
+	font-size: 8pt;
+	vertical-align: top;
+}
+
+/* spare time */
+.shc_nf .body .dayview .st {
+	height: 22px;
+	vertical-align: top;
+	background-color: #EDEFF0;
+	border-top: 1px solid #CFE1EB;
+}
+
+/* working time */
+.shc_nf .body .dayview .wt {
+	height: 22px;
+	vertical-align: top;
+	background-color: #FFFFFF;
+	border-top: 1px solid #CFE1EB;
+}
+
+/* Appointments container */
+.shc_nf .body .dayview .apps {
+	font-family : Arial, Helvetica, Sans-Serif;
+	font-size : 8pt;
+	font-weight : normal;
+	background-color: #FFFFE1;
+	border: 1px solid #CECECE;
+	vertical-align : top;
+}
+
+/* ==========================================
+** HeadlineControl
+**
+** Acronym's
+** ------------------------------------------
+** hdr = header
+** c   = caption
+** d   = detail
+** ==========================================
+*/
+
+.hdr .c {
+	font-family : Arial, Helvetica, Sans-Serif;
+	font-size : 11pt;
+	font-weight : bold;
+	color: #F57E17;
+	border-bottom: 1px solid #80ADBA;
+	padding-left : 2px;
+	padding-bottom : 2px;
+}
+
+/* Detail */
+.hdr .d {
+	font-family : Arial, Helvetica, Sans-Serif;
+	font-size : 8pt;
+	font-weight : bold;
+	color: #80ADBA;
+}
+
+/* ==========================================
+** HeadlineControl
+**
+** Acronym's
+** ------------------------------------------
+** hdr = header
+** c   = caption
+** d   = detail
+** ==========================================
+*/
+
+.hdr .c {
+	font-family : Arial, Helvetica, Sans-Serif;
+	font-size : 11pt;
+	font-weight : bold;
+	color: #F57E17;
+	border-bottom: 1px solid #6384BD;
+	padding-left : 2px;
+	padding-bottom : 2px;
+}
+
+/* Detail */
+.hdr .d {
+	font-family : Arial, Helvetica, Sans-Serif;
+	font-size : 8pt;
+	font-weight : bold;
+	color: #6384BD;
+}
+
+/* ==========================================
+** ListControl (with frame)
+**
+** Acronym's
+** ------------------------------------------
+** lc    = list control
+** lcb   = list control body
+** lch   = list control header
+** even  = even rows
+** evens = even rows selected
+** odd   = odd rows
+** odds  = odd rows selected
+** pg    = page thumb
+** pgsep = page thumb seperator
+** d     = detail
+** c     = caption
+** cl    = cell
+** ==========================================
+*/
+
+/* list control body */
+.lc .lcb {
+	font-family : Arial, Helvetica, Sans-Serif;
+	font-size : 8pt;
+	font-weight : normal;
+	border-left: 1px solid #1E5C99;
+	border-right: 1px solid #1E5C99;
+	border-bottom: 1px solid #1E5C99;
+	background-color : #CFE1EB;
+	padding: 5px;
+}
+
+.lc .lcb INPUT, .lc .lcb SELECT, .lc .lcb TEXTAREA {
+	font-family : Arial, Helvetica, Sans-Serif;
+	font-size : 8pt;
+	font-weight : normal;
+	color: black;
+	background-color : #FFFFFF;
+}
+
+.lc .lcb .if {
+	font-size : 8pt;
+	border: 1px solid #1E5C99;
+	background-color : #FFFFFF;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	padding: 5px;
+}
+
+.lc .lcb .ifnb {
+	font-size : 8pt;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+/* header (level 0) */
+.lc .lcb .header, .lc .lcb .header TD {
+	font-family : Arial, Helvetica, Sans-Serif;
+	font-size : 9pt;
+	font-weight : bold;
+	background-color : #6384BD;
+	color : #FFFFFF;
+	padding-left : 5px;
+	padding-right : 5px;
+	height : 20px;
+	vertical-align : middle;
+}
+
+.lc .lcb .header TD A {
+	color : #FFFFFF;
+}
+
+.lc .lcb .header SPAN {
+	font-family : Arial, Helvetica, Sans-Serif;
+	font-size : 9pt;
+	font-weight : bold;
+	color : #FFFFFF;
+	vertical-align : middle;
+}
+
+/* header1 (level 1) */
+.lc .lcb .header1, .lc .lcb .header1 TD {
+	font-family : Arial, Helvetica, Sans-Serif;
+	font-size : 9pt;
+	font-weight : bold;
+	background-color : #6384BD;
+	color : #FFFFFF;
+	padding-left : 5px;
+	padding-right : 5px;
+	height : 18px;
+	vertical-align : middle;
+}
+
+.lc .lcb .header1 TD A {
+	color : #FFFFFF;
+}
+
+.lc .lcb .header1 SPAN {
+	font-family : Arial, Helvetica, Sans-Serif;
+	font-size : 9pt;
+	font-weight : bold;
+	color : #FFFFFF;
+	vertical-align : middle;
+}
+
+/* header2 (level 2) */
+.lc .lcb .header2, .lc .lcb .header2 TD {
+	font-family : Arial, Helvetica, Sans-Serif;
+	font-size : 8pt;
+	font-weight : bold;
+	background-color : #6384BD;
+	color : #FFFFFF;
+	padding-left : 5px;
+	padding-right : 5px;
+	height : 18px;
+	vertical-align : middle;
+}
+
+.lc .lcb .header2 TD A {
+	color : #FFFFFF;
+}
+
+.lc .lcb .header2 SPAN {
+	font-family : Arial, Helvetica, Sans-Serif;
+	font-size : 8pt;
+	font-weight : normal;
+	color : #FFFFFF;
+	vertical-align : middle;
+}
+
+/* even rows */
+.lc .lcb .even {
+	background-color : #EDEFF0;
+}
+
+.lc .lcb .evens {
+	background-color : #FFCC99;
+}
+
+.lc .lcb .even td, .lc .lcb .evens td {
+	font-family : Arial, Helvetica, Sans-Serif;
+	font-size : 8pt;
+}
+
+.lc .lcb .even td.cl, .lc .lcb .evens td.cl {
+	padding-left : 5px;
+	padding-right : 5px;
+	height : 18px;
+}
+
+/* odd rows */
+.lc .lcb .odd  {
+	background-color : #FFFFFF;
+}
+
+.lc .lcb .odds  {
+	background-color : #FFCC99;
+}
+
+.lc .lcb .odd  td, .lc .lcb .odds  td {
+	font-family : Arial, Helvetica, Sans-Serif;
+	font-size : 8pt;
+}
+
+.lc .lcb .odd  td.cl, .lc .lcb .odds  td.cl {
+	padding-left : 5px;
+	padding-right : 5px;
+	height : 18px;
+}
+
+/* Hyperlinks */
+.lc .lcb tr td a {
+	font-family : Arial, Helvetica, Sans-Serif;
+	font-size : 8pt;
+	text-decoration : none;
+	color : #0000FF;
+}
+
+/* list control header */
+.lc .lch {
+	font-family : Arial, Helvetica, Sans-Serif;
+	font-size : 8pt;
+	font-weight : bold;
+	color : #FFFFFF;
+	background-color : #1E5C99;
+	width : 100%;
+}
+
+/* Caption */
+.lc .lch .c {
+	font-family : Arial, Helvetica, Sans-Serif;
+	font-size : 9pt;
+	font-weight : bold;
+	background-color : #1E5C99;
+	color: #FFFFFF;
+}
+
+/* Detail */
+.lc .lch .d {
+	font-family : Arial, Helvetica, Sans-Serif;
+	font-size : 8pt;
+	font-weight : normal;
+	background-color : #1E5C99;
+	color: #FFFFFF;
+}
+
+/* Page thumb */
+.lc .lch .pg {
+	font-family : Arial, Helvetica, Sans-Serif;
+	font-size : 9pt;
+	font-weight : bold;
+	color : white;
+	text-decoration : underline;
+	cursor: pointer;
+	cursor: hand;		/* compatibility with IE < 6.0 */
+}
+
+/* Page seperator */
+.lc .lch .pgsep {
+	font-family : Arial, Helvetica, Sans-Serif;
+	font-size : 9pt;
+	font-weight : bold;
+	color : white;
+}
+
+/* Page thumb */
+.lc .lch .pg:hover {
+}
+
+/* Page thumb selected */
+.lc .lch .pgs {
+	font-family : Arial, Helvetica, Sans-Serif;
+	font-size : 9pt;
+	font-weight : bold;
+	color : #FEA217;
+	cursor: pointer;
+	cursor: hand;		/* compatibility with IE < 6.0 */
+	text-decoration : underline;
+}
+
+/* ==========================================
+** ListControl (without frame)
+**
+** Acronym's
+** ------------------------------------------
+** lc_nf = list control without frame
+** lcb   = list control body
+** lch   = list control header
+** even  = even rows
+** evens = even rows selected
+** odd   = odd rows
+** odds  = odd rows selected
+** pg    = page thumb
+** pgsep = page thumb seperator
+** d     = detail
+** c     = caption
+** cl    = cell
+** ==========================================
+*/
+
+/* list control body */
+.lc_nf .lcb {
+	font-family : Arial, Helvetica, Sans-Serif;
+	font-size : 8pt;
+	font-weight : normal;
+	background-color : #CFE1EB;
+}
+
+.lc_nf .lcb INPUT, .lc_nf .lcb SELECT, .lc_nf .lcb TEXTAREA {
+	font-family : Arial, Helvetica, Sans-Serif;
+	font-size : 8pt;
+	font-weight : normal;
+	color: black;
+	background-color : #FFFFFF;
+}
+
+.lc_nf .lcb .if {
+	font-size : 8pt;
+	border: 1px solid #1E5C99;
+	background-color : #FFFFFF;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	padding: 5px;
+}
+
+.lc_nf .lcb .ifnb {
+	font-size : 8pt;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+/* header (level 0) */
+.lc_nf .lcb .header, .lc_nf .lcb .header TD {
+	font-family : Arial, Helvetica, Sans-Serif;
+	font-size : 9pt;
+	font-weight : bold;
+	background-color : #6384BD;
+	color : #FFFFFF;
+	padding-left : 5px;
+	padding-right : 5px;
+	height : 20px;
+	vertical-align : middle;
+}
+
+.lc_nf .lcb .header TD A {
+	color : #FFFFFF;
+}
+
+.lc_nf .lcb .header SPAN {
+	font-family : Arial, Helvetica, Sans-Serif;
+	font-size : 9pt;
+	font-weight : bold;
+	color : #FFFFFF;
+	vertical-align : middle;
+}
+
+/* header1 (level 1) */
+.lc_nf .lcb .header1, .lc_nf .lcb .header1 TD {
+	font-family : Arial, Helvetica, Sans-Serif;
+	font-size : 9pt;
+	font-weight : bold;
+	background-color : #6384BD;
+	color : #FFFFFF;
+	padding-left : 5px;
+	padding-right : 5px;
+	height : 18px;
+	vertical-align : middle;
+}
+
+.lc_nf .lcb .header1 TD A {
+	color : #FFFFFF;
+}
+
+.lc_nf .lcb .header1 SPAN {
+	font-family : Arial, Helvetica, Sans-Serif;
+	font-size : 9pt;
+	font-weight : normal;
+	color : #FFFFFF;
+	vertical-align : middle;
+}
+
+/* header2 (level 2) */
+.lc_nf .lcb .header2, .lc_nf .lcb .header2 TD {
+	font-family : Arial, Helvetica, Sans-Serif;
+	font-size : 8pt;
+	font-weight : bold;
+	background-color : #6384BD;
+	color : #FFFFFF;
+	padding-left : 5px;
+	padding-right : 5px;
+	height : 18px;
+	vertical-align : middle;
+}
+
+.lc_nf .lcb .header2 TD A {
+	color : #FFFFFF;
+}
+
+.lc_nf .lcb .header2 SPAN {
+	font-family : Arial, Helvetica, Sans-Serif;
+	font-size : 8pt;
+	font-weight : normal;
+	color : #FFFFFF;
+	vertical-align : middle;
+}
+
+/* even rows */
+.lc_nf .lcb .even {
+	background-color : #EDEFF0;
+}
+
+.lc_nf .lcb .evens {
+	background-color : #FFCC99;
+}
+
+.lc_nf .lcb .even td, .lc_nf .lcb .evens td {
+	font-family : Arial, Helvetica, Sans-Serif;
+	font-size : 8pt;
+}
+
+.lc_nf .lcb .even td.cl, .lc_nf .lcb .evens td.cl {
+	padding-left : 5px;
+	padding-right : 5px;
+	height : 18px;
+}
+
+/* odd rows */
+.lc_nf .lcb .odd  {
+	background-color : #FFFFFF;
+}
+
+.lc_nf .lcb .odds  {
+	background-color : #FFCC99;
+}
+
+.lc_nf .lcb .odd  td, .lc_nf .lcb .odds  td {
+	font-family : Arial, Helvetica, Sans-Serif;
+	font-size : 8pt;
+}
+
+.lc_nf .lcb .odd  td.cl, .lc_nf .lcb .odds  td.cl {
+	padding-left : 5px;
+	padding-right : 5px;
+	height : 18px;
+}
+
+/* Hyperlinks */
+.lc_nf .lcb tr td a {
+	font-family : Arial, Helvetica, Sans-Serif;
+	font-size : 8pt;
+	text-decoration : none;
+	color : #0000FF;
+}
+
+/* list control header */
+.lc_nf .lch {
+	font-family : Arial, Helvetica, Sans-Serif;
+	font-size : 8pt;
+	font-weight : bold;
+	color : #FFFFFF;
+	width : 100%;
+	padding: 2px;
+	margin-bottom: 2px;
+}
+
+/* Caption */
+.lc_nf .lch .c {
+	font-family : Arial, Helvetica, Sans-Serif;
+	font-size : 9pt;
+	font-weight : bold;
+	background-color : #1E5C99;
+	color: #FFFFFF;
+}
+
+/* Detail */
+.lc_nf .lch .d {
+	font-family : Arial, Helvetica, Sans-Serif;
+	font-size : 8pt;
+	font-weight : normal;
+	background-color : #1E5C99;
+	color: #FFFFFF;
+}
+
+/* Page thumb */
+.lc_nf .lch .pg {
+	font-family : Arial, Helvetica, Sans-Serif;
+	font-size : 9pt;
+	font-weight : bold;
+	color : black;
+	text-decoration : underline;
+	cursor: pointer;
+	cursor: hand;		/* compatibility with IE < 6.0 */
+}
+
+/* Page seperator */
+.lc_nf .lch .pgsep {
+	font-family : Arial, Helvetica, Sans-Serif;
+	font-size : 9pt;
+	font-weight : bold;
+	color : black;
+}
+
+/* Page thumb */
+.lc_nf .lch .pg:hover {
+}
+
+/* Page thumb selected */
+.lc_nf .lch .pgs {
+	font-family : Arial, Helvetica, Sans-Serif;
+	font-size : 9pt;
+	font-weight : bold;
+	color : #FEA217;
+	cursor: pointer;
+	cursor: hand;		/* compatibility with IE < 6.0 */
+	text-decoration : underline;
+}
+
+/* ==========================================
+** TreeListControl (with frame)
+**
+** Acronym's
+** ------------------------------------------
+** tlc    = tree list control
+** tlcb   = tree list control body
+** tlch   = tree list control header
+** even  = even rows
+** evens = even rows selected
+** odd   = odd rows
+** odds  = odd rows selected
+** pg    = page thumb
+** pgsep = page thumb seperator
+** d     = detail
+** c     = caption
+** cl    = cell
+** ti    = tree item
+** feact = act as formelement
+** ==========================================
+*/
+
+/* Treelist Control Body */
+.tlc .tlcb INPUT {
+	font-family : Arial, Helvetica, Sans-Serif;
+	font-size : 8pt;
+	font-weight : normal;
+	color: black;
+	background-color : #FFFFFF;
+}
+
+.tlc .tlcb SELECT {
+	font-family : Arial, Helvetica, Sans-Serif;
+	font-size : 8pt;
+	font-weight : normal;
+	color: black;
+	background-color : #FFFFFF;
+}
+
+.tlc .tlcb TEXTAREA {
+	font-family : Arial, Helvetica, Sans-Serif;
+	font-size : 8pt;
+	font-weight : normal;
+	color: black;
+	background-color : #FFFFFF;
+}
+
+.tlc .tlcb {
+	border-left: 1px solid #1E5C99;
+	border-right: 1px solid #1E5C99;
+	border-bottom: 1px solid #1E5C99;
+	background-color : #CFE1EB;
+	padding: 5px;
+}
+
+.tlc .tlcb .if {
+	font-size : 8pt;
+	border: 1px solid #1E5C99;
+	background-color : #FFFFFF;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	padding: 5px;
+}
+
+.tlc .tlcb .ifnb {
+	font-size : 8pt;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+/* header (level 0) */
+.tlc .tlcb .header, .tlc .tlcb .header TD, .tlc .tlcb .header TD A {
+	font-family : Arial, Helvetica, Sans-Serif;
+	font-size : 9pt;
+	font-weight : bold;
+	background-color : #6384BD;
+	color : #FFFFFF;
+	padding-left : 5px;
+	padding-right : 5px;
+	height : 20px;
+	vertical-align : middle;
+}
+
+/* header1 (level 1) */
+.tlc .tlcb .header1, .tlc .tlcb .header1 TD, .tlc .tlcb .header1 TD A {
+	font-family : Arial, Helvetica, Sans-Serif;
+	font-size : 9pt;
+	font-weight : bold;
+	background-color : #6384BD;
+	color : #FFFFFF;
+	padding-left : 5px;
+	padding-right : 5px;
+	height : 20px;
+	vertical-align : middle;
+}
+
+/* header2 (level 2) */
+.tlc .tlcb .header2, .tlc .tlcb .header2 TD, .tlc .tlcb .header2 TD A {
+	font-family : Arial, Helvetica, Sans-Serif;
+	font-size : 8pt;
+	font-weight : bold;
+	background-color : #6384BD;
+	color : #FFFFFF;
+	padding-left : 5px;
+	padding-right : 5px;
+	height : 20px;
+	vertical-align : middle;
+}
+
+/* even rows */
+.tlc .tlcb .even {
+	background-color : #EDEFF0;
+}
+
+.tlc .tlcb .evens {
+	background-color : #FFCC99;
+}
+
+.tlc .tlcb .even td, .tlc .tlcb .evens td {
+	font-family : Arial, Helvetica, Sans-Serif;
+	font-size : 8pt;
+}
+
+.tlc .tlcb .even td.cl, .tlc .tlcb .evens td.cl {
+	padding-left : 5px;
+	padding-right : 5px;
+	height : 18px;
+}
+
+/* even row tree column */
+.tlc .tlcb .even tr td, .tlc .tlcb .evens tr td {
+	padding-left : 0px;
+	padding-right : 0px;
+}
+
+/* odd rows */
+.tlc .tlcb .odd  {
+	background-color : #FFFFFF;
+}
+
+.tlc .tlcb .odds  {
+	background-color : #FFCC99;
+}
+
+.tlc .tlcb .odd  td, .tlc .tlcb .odds  td {
+	font-family : Arial, Helvetica, Sans-Serif;
+	font-size : 8pt;
+}
+
+.tlc .tlcb .odd  td.cl, .tlc .tlcb .odds  td.cl {
+	padding-left : 5px;
+	padding-right : 5px;
+	height : 18px;
+}
+
+.tlc .tlcb .ti .feact {
+	font-family : Arial, Helvetica, Sans-Serif;
+	font-size : 8pt;
+	padding-left : 6px;
+	color: blue;
+	cursor: pointer;
+	cursor: hand;		/* compatibility with IE < 6.0 */
+}
+
+/* odd row tree column */
+.tlc .tlcb .odd tr td, .tlc .tlcb .odds tr td {
+	padding-left : 0px;
+	padding-right : 0px;
+}
+
+/* Hyperlinks */
+.tlc .tlcb tr td a {
+	font-family : Arial, Helvetica, Sans-Serif;
+	font-size : 8pt;
+	text-decoration : none;
+	color : #0000FF;
+}
+
+/* Treelist Control Header */
+.tlc .tlch {
+	font-family : Arial, Helvetica, Sans-Serif;
+	font-size : 8pt;
+	font-weight : bold;
+	color : #FFFFFF;
+	background-color : #1E5C99;
+	width : 100%;
+}
+
+/* Caption */
+.tlc .tlch .c {
+	font-family : Arial, Helvetica, Sans-Serif;
+	font-size : 9pt;
+	font-weight : bold;
+	background-color : #1E5C99;
+	color: #FFFFFF;
+}
+
+/* Detail */
+.tlc .tlch .d {
+	font-family : Arial, Helvetica, Sans-Serif;
+	font-size : 8pt;
+	font-weight : normal;
+	background-color : #1E5C99;
+	color: #FFFFFF;
+}
+
+/* Page thumb */
+.tlc .tlch .pg {
+	font-family : Arial, Helvetica, Sans-Serif;
+	font-size : 9pt;
+	font-weight : bold;
+	color : white;
+	text-decoration : underline;
+	cursor: pointer;
+	cursor: hand;		/* compatibility with IE < 6.0 */
+}
+
+/* Page seperator */
+.tlc .tlch .pgsep {
+	font-family : Arial, Helvetica, Sans-Serif;
+	font-size : 9pt;
+	font-weight : bold;
+	color : white;
+}
+
+/* Page thumb */
+.tlc .tlch .pg:hover {
+}
+
+/* Page thumb selected */
+.tlc .tlch .pgs {
+	font-family : Arial, Helvetica, Sans-Serif;
+	font-size : 9pt;
+	font-weight : bold;
+	color : #FEA217;
+	cursor: pointer;
+	cursor: hand;		/* compatibility with IE < 6.0 */
+	text-decoration : underline;
+}
+
+/* ==========================================
+** TreeListControl (without frame)
+**
+** Acronym's
+** ------------------------------------------
+** tlc_nf = tree list control without frame
+** tlcb   = tree list control body
+** tlch   = tree list control header
+** even   = even rows
+** evens  = even rows selected
+** odd    = odd rows
+** odds   = odd rows selected
+** pg     = page thumb
+** pgsep  = page thumb seperator
+** d      = detail
+** c      = caption
+** cl    = cell
+** ti     = tree item
+** feact  = act as formelement
+** ==========================================
+*/
+
+/* Treelist Control Body */
+.tlc_nf .tlcb INPUT {
+	font-family : Arial, Helvetica, Sans-Serif;
+	font-size : 8pt;
+	font-weight : normal;
+	color: black;
+	background-color : #FFFFFF;
+}
+
+.tlc_nf .tlcb SELECT {
+	font-family : Arial, Helvetica, Sans-Serif;
+	font-size : 8pt;
+	font-weight : normal;
+	color: black;
+	background-color : #FFFFFF;
+}
+
+.tlc_nf .tlcb TEXTAREA {
+	font-family : Arial, Helvetica, Sans-Serif;
+	font-size : 8pt;
+	font-weight : normal;
+	color: black;
+	background-color : #FFFFFF;
+}
+
+.tlc_nf .tlcb {
+	background-color : #CFE1EB;
+}
+
+.tlc_nf .tlcb .if {
+	font-size : 8pt;
+	border: 1px solid #1E5C99;
+	background-color : #FFFFFF;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	padding: 5px;
+}
+
+.tlc_nf .tlcb .ifnb {
+	font-size : 8pt;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+/* header (level 0) */
+.tlc_nf .tlcb .header, .tlc_nf .tlcb .header TD, .tlc_nf .tlcb .header TD A {
+	font-family : Arial, Helvetica, Sans-Serif;
+	font-size : 9pt;
+	font-weight : bold;
+	background-color : #6384BD;
+	color : #FFFFFF;
+	padding-left : 5px;
+	padding-right : 5px;
+	height : 20px;
+	vertical-align : middle;
+}
+
+/* header1 (level 1) */
+.tlc_nf .tlcb .header1, .tlc_nf .tlcb .header1 TD, .tlc_nf .tlcb .header1 TD A {
+	font-family : Arial, Helvetica, Sans-Serif;
+	font-size : 9pt;
+	font-weight : bold;
+	background-color : #6384BD;
+	color : #FFFFFF;
+	padding-left : 5px;
+	padding-right : 5px;
+	height : 20px;
+	vertical-align : middle;
+}
+
+/* header2 (level 2) */
+.tlc_nf .tlcb .header2, .tlc_nf .tlcb .header2 TD, .tlc_nf .tlcb .header2 TD A {
+	font-family : Arial, Helvetica, Sans-Serif;
+	font-size : 8pt;
+	font-weight : bold;
+	background-color : #6384BD;
+	color : #FFFFFF;
+	padding-left : 5px;
+	padding-right : 5px;
+	height : 20px;
+	vertical-align : middle;
+}
+
+/* even rows */
+.tlc_nf .tlcb .even {
+	background-color : #EDEFF0;
+}
+
+.tlc_nf .tlcb .evens {
+	background-color : #FFCC99;
+}
+
+.tlc_nf .tlcb .even td, .tlc_nf .tlcb .evens td {
+	font-family : Arial, Helvetica, Sans-Serif;
+	font-size : 8pt;
+}
+
+.tlc_nf .tlcb .even td.cl, .tlc_nf .tlcb .evens td.cl {
+	padding-left : 5px;
+	padding-right : 5px;
+	height : 18px;
+}
+
+/* even row tree column */
+.tlc_nf .tlcb .even tr td, .tlc_nf .tlcb .evens tr td {
+	padding-left : 0px;
+	padding-right : 0px;
+}
+
+/* odd rows */
+.tlc_nf .tlcb .odd  {
+	background-color : #FFFFFF;
+}
+
+.tlc_nf .tlcb .odds  {
+	background-color : #FFCC99;
+}
+
+.tlc_nf .tlcb .odd  td, .tlc_nf .tlcb .odds  td {
+	font-family : Arial, Helvetica, Sans-Serif;
+	font-size : 8pt;
+}
+
+.tlc_nf .tlcb .odd  td.cl, .tlc_nf .tlcb .odds  td.cl {
+	padding-left : 5px;
+	padding-right : 5px;
+	height : 18px;
+}
+
+.tlc_nf .tlcb .ti .feact {
+	font-family : Arial, Helvetica, Sans-Serif;
+	font-size : 8pt;
+	padding-left : 6px;
+	color: blue;
+	cursor: pointer;
+	cursor: hand;		/* compatibility with IE < 6.0 */
+}
+
+/* odd row tree column */
+.tlc_nf .tlcb .odd tr td, .tlc_nf .tlcb .odds tr td {
+	padding-left : 0px;
+	padding-right : 0px;
+}
+
+/* Hyperlinks */
+.tlc_nf .tlcb tr td a {
+	font-family : Arial, Helvetica, Sans-Serif;
+	font-size : 8pt;
+	text-decoration : none;
+	color : #0000FF;
+}
+
+/* Treelist Control Header */
+.tlc_nf .tlch {
+	font-family : Arial, Helvetica, Sans-Serif;
+	font-size : 8pt;
+	font-weight : bold;
+	color : #FFFFFF;
+	width : 100%;
+	padding: 2px;
+	margin-bottom: 2px;
+}
+
+/* Caption */
+.tlc_nf .tlch .c {
+	font-family : Arial, Helvetica, Sans-Serif;
+	font-size : 9pt;
+	font-weight : bold;
+	background-color : #1E5C99;
+	color: #FFFFFF;
+}
+
+/* Detail */
+.tlc_nf .tlch .d {
+	font-family : Arial, Helvetica, Sans-Serif;
+	font-size : 8pt;
+	font-weight : normal;
+	background-color : #1E5C99;
+	color: #FFFFFF;
+}
+
+/* Page thumb */
+.tlc_nf .tlch .pg {
+	font-family : Arial, Helvetica, Sans-Serif;
+	font-size : 9pt;
+	font-weight : bold;
+	color : black;
+	text-decoration : underline;
+	cursor: pointer;
+	cursor: hand;		/* compatibility with IE < 6.0 */
+}
+
+/* Page seperator */
+.tlc_nf .tlch .pgsep {
+	font-family : Arial, Helvetica, Sans-Serif;
+	font-size : 9pt;
+	font-weight : bold;
+	color : black;
+}
+
+/* Page thumb */
+.tlc_nf .tlch .pg:hover {
+}
+
+/* Page thumb selected */
+.tlc_nf .tlch .pgs {
+	font-family : Arial, Helvetica, Sans-Serif;
+	font-size : 9pt;
+	font-weight : bold;
+	color : #FEA217;
+	cursor: pointer;
+	cursor: hand;		/* compatibility with IE < 6.0 */
+	text-decoration : underline;
+}
+
+/* ==========================================
+** TabsetControl
+**
+** Acronym's
+** ------------------------------------------
+** tsc           = TabSet Control
+** sel           = selected
+** unsel         = not selected
+** body          = body
+** disabled      = disabled
+** tabScrollBtnL = scroll button left
+** tabScrollBtnR = scroll button right
+** tabDetail     = detail
+** ==========================================
+*/
+
+.tsc  {
+	font-family : Arial, Helvetica, Sans-Serif;
+	font-size : 8pt;
+	font-weight : bold;
+	color: #000000;
+}
+
+.tsc .sel, .tsc .sel A {
+	color: #000000;
+	cursor : pointer;
+	cursor: hand;		/* compatibility with IE < 6.0 */
+	vertical-align : middle;
+}
+
+.tsc .body {
+	background-color : #EFEFEF;
+	border-left : 1px solid #1E5C99;
+	border-right : 1px solid #1E5C99;
+	border-bottom : 1px solid #1E5C99;
+}
+
+.tsc .unsel, .tsc .unsel A {
+	color: #FFFFFF;
+	cursor : pointer;
+	cursor: hand;		/* compatibility with IE < 6.0 */
+	vertical-align : middle;
+}
+
+.tsc .disabled {
+	color: #8D9DA1;
+	vertical-align : middle;
+}
+
+.tsc .tabScrollBtnL {
+	padding-left: 3px;
+	padding-top: 6px;
+	padding-right: 1px;
+	vertical-align : baseline;
+}
+
+.tsc .tabScrollBtnR {
+	padding-top: 6px;
+	padding-left: 0px;
+	padding-right: 3px;
+	vertical-align : baseline;
+}
+
+.tsc .tabDetail{
+	font-weight: normal;
+	padding-left: 20px;
+}
+
+/* Hyperlinks */
+.tsc a {
+	font-family : Arial, Helvetica, Sans-Serif;
+	font-size : 8pt;
+	text-decoration : none;
+	color : blue;
+}
+
+
+/* ==========================================
+** TreeControl
+**
+** Acronym's
+** ------------------------------------------
+** tc     = TreeControl
+** tlodd  = odd row
+** tleven = even row
+** ti     = tree item
+** tis    = selected tree item
+** tol    = outline
+** ==========================================
+*/
+
+/* TreeControl */
+.tc {
+	font-family : Arial, Helvetica, Sans-Serif;
+	font-size : 8pt;
+	font-weight : normal;
+	border : none;
+}
+
+.tc TD {
+	border : none;
+}
+
+/* odd rows */
+.tc .tlodd TR {
+	font-family : Arial, Helvetica, Sans-Serif;
+	font-size : 8pt;
+	font-weight : normal;
+	background-color : #FFFFFF;
+}
+
+.tc .tlodd TD {
+	border-bottom : 1px solid #DCE8EB;
+}
+
+/* even rows */
+.tc .tleven TR {
+	font-family : Arial, Helvetica, Sans-Serif;
+	font-size : 8pt;
+	font-weight : normal;
+	background-color : #F3F4F5;
+	border : none;
+}
+
+.tc .tleven TD {
+	border-bottom : 1px solid  #DCE8EB;
+}
+
+
+/* Tree Control Item */
+.ti {
+	width : 100%;
+	padding-left : 4px;
+}
+
+.ti A {
+	color : #000000;
+	padding-left : 4px;
+	text-decoration : none;
+}
+
+/* Selected Tree Control Item */
+.tis {
+	width : 100%;
+	padding-left : 4px;
+	background-color : #FEA217;
+}
+
+.tis A {
+	font-weight : normal;
+	color : #FFFFFF;
+	padding-left : 4px;
+	text-decoration : none;
+}
+
+/* Tree Outline */
+.tol TD  {
+	padding-left : 0;
+}
+
+/* ==========================================
+** Syle Textbutton
+**
+** Acronym's
+** ------------------------------------------
+** tbtn = Textbutton
+** ==========================================
+*/
+
+.tbtn {
+	font-family : Arial, Helvetica, Sans-Serif;
+	font-size : 11px;
+	font-weight: bold;
+	cursor: pointer;
+	cursor: hand;		/* compatibility with IE < 6.0 */
+}
+
+/* ==========================================
+** Syle Swap Select
+**
+** Acronym's
+** ------------------------------------------
+** sws = SwapSelect
+** ==========================================
+*/
+
+.sws {
+	font-family : Arial, Helvetica, Sans-Serif;
+}
+
+.sws select.left {
+	width : 100%;
+}
+
+.sws select.right {
+	width : 100%;
+}
+
+.sws .label_left {
+	font-size : 8pt;
+	font-weight : normal;
+	padding-left: 3px;
+	height: 12px;
+}
+
+.sws .label_right {
+	font-size : 8pt;
+	font-weight : normal;
+	padding-left: 3px;
+	height: 12px;
+}
+
+.sws .swsbtnh {
+	width: 40px;
+}
+
+.sws .swsbtnv {
+	height: 40px;
+}
+
+.sws .swsbtnh TD {
+	padding: 7px;
+}
+
+.sws .swsbtnv TD {
+	padding-left: 7px;
+	padding-right: 7px;
+}
+
+/* ==========================================
+** StyleSheet for the gauge control
+**
+** Acronym's
+** ------------------------------------------
+** gauge  : Gauge Control
+** ==========================================
+*/
+.gauge {
+	font-family: Arial, Helvetica, Sans-Serif;
+	font-size: 9pt;
+}
+
+/* ==========================================
+** Syles for setting formElement="true"
+**
+** Acronym's
+** ------------------------------------------
+** feact  = act as formelement
+** lch    = ListControl Header
+** lcb    = ListControl Body
+** tlch   = TreeLisControl Header
+** tlcb   = TreeLisControl Body
+** tc     = TreeControl
+** ti     = tree item
+** tis    = tree item selected
+** tsc    = TabSetControl
+** ==========================================
+*/
+
+/* List - links header */
+.lch .feact {
+	cursor: pointer;
+	cursor: hand;		/* compatibility with IE < 6.0 */
+}
+
+/* List - links body */
+.lcb .feact {
+	cursor: pointer;
+	cursor: hand;		/* compatibility with IE < 6.0 */
+	color: blue;
+}
+
+/* TreeList - links header */
+.tlch .feact {
+	cursor: pointer;
+	cursor: hand;		/* compatibility with IE < 6.0 */
+}
+
+/* TreeList - links body */
+.tlcb .feact {
+	cursor: pointer;
+	cursor: hand;		/* compatibility with IE < 6.0 */
+	color: blue;
+}
+
+/* Tree - links */
+.tc .feact {
+	cursor: pointer;
+	cursor: hand;		/* compatibility with IE < 6.0 */
+}
+
+/* Tree - label */
+.tc .ti .feact, .tc .tis .feact {
+	padding-left: 3px;
+	cursor: pointer;
+	cursor: hand;		/* compatibility with IE < 6.0 */
+}
+
+/* TabSet */
+.tsc .feact {
+	cursor: pointer;
+	cursor: hand;		/* compatibility with IE < 6.0 */
+}
+
+
+/* ==========================================
+** Popup Window
+**
+** Acronym's
+** ------------------------------------------
+**  popup - Popup Window
+**
+** ==========================================
+*/
+
+.popup {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size : 8pt;
+	position : absolute;
+	left : 0;
+	top : 0;
+	border : 1pt solid black;
+	padding : 1px;
+	z-index : 0;
+	color : black;
+	background-color : rgb(255,255,231);
+}
+
+.popup .header {
+	background-color : gray;
+	color: white;
+	font-weight: bold;
+}
+
+.popup A {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size : 8pt;
+	font-weight: normal;
+	color: black;
+	text-decoration: none;
+}

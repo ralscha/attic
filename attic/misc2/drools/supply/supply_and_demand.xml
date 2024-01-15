@@ -1,0 +1,42 @@
+
+<ruleset name="My Rule Set">
+
+	<import>supply.Seller</import>
+	<import>supply.Buyer</import>
+
+	<rule name="My Rule">
+
+		<param type="supply.Seller">seller</param>
+		<param type="supply.Buyer">buyer</param>
+
+		<decl type="int">avail</decl>
+
+		<when>
+			<cond>
+				seller.getQuantity() &gt; 0
+			</cond>
+			<cond>
+				buyer.getDesiredQuantity() &gt; 0 
+			</cond>
+			<cond>
+				seller.getPrice() &lt;= buyer.getPrice()
+			</cond>
+		</when>
+
+		<then>
+			int qty = buyer.buy( seller.sell( buyer.getDesiredQuantity() ) );
+			double price = seller.getPrice();
+
+			System.err.println( buyer.getName() + " bought " + qty + " from " + seller.getName() + " at " + price + " each.");
+
+			System.err.println( buyer );
+			System.err.println( seller );
+
+			modifyObject( buyer );
+			modifyObject( seller );
+
+		</then>
+	</rule>
+
+</ruleset>
+

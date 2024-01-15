@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:TitleWindow xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute" width="506" height="454" 
+  title="Club bearbeiten" showCloseButton="true" creationComplete="init()">
+  
+  <mx:Metadata>
+    [Event(name="dataInserted")]
+    [Event(name="dataUpdated")]
+  </mx:Metadata>
+  
+  <mx:Script>
+    <![CDATA[
+      import ch.ess.hgtracker.db.Club;
+      import mx.events.ValidationResultEvent;
+      import mx.binding.utils.BindingUtils;
+      import mx.managers.PopUpManager;
+      import mx.controls.Alert;
+      import mx.rpc.events.ResultEvent;
+      
+      [Bindable]
+      public var editClub:Club;
+      
+      private var validators:Array;
+      
+      private function save():void { 
+        editClub.hgName = hgNameText.text;
+        editClub.praesident = praesidentText.text;
+        editClub.strasse = strasseText.text;
+        editClub.plz = plzText.text;
+        editClub.ort = ortText.text;
+        editClub.benutzername = usernameText.text;
+        editClub.passwort = passwordText.text;
+        editClub.punkteMS = Number(punkteMsText.text);
+        editClub.webLogin = webLoginText.text;
+        
+        if (editClub.id == -1) {
+          clubService.insert(editClub);
+        } else {
+          clubService.update(editClub);
+        }
+      }      
+            
+      private function onUpdateResult(e:ResultEvent):void {
+        var dataEvent:Event = new Event("dataUpdated");
+        dispatchEvent(dataEvent);
+        close();
+      }  
+      
+      private function onInsertResult(e:ResultEvent):void {
+        var dataEvent:Event = new Event("dataInserted");
+        dispatchEvent(dataEvent);
+        close();
+      }  
+      
+      private function init():void {
+        PopUpManager.centerPopUp(this);
+        this.addEventListener(Event.CLOSE, onCloseEvent);
+        hgNameText.setFocus();
+        
+        validators = [hgNameTextValidator, usernameTextValidator, 
+                      passwordTextValidator, punkteMsTextValidator,
+                      webLoginTextValidator];
+        
+        checkButtonEnable();       
+      }
+      
+      private function onCloseEvent(e:Event):void {
+        close();
+      }
+
+      private function close():void {
+        PopUpManager.removePopUp(this);
+      }   
+      
+      public function checkButtonEnable():void {
+        saveButton.enabled = validInput();
+      }
+        
+      private function validInput():Boolean {
+        var errors:Array = Validator.validateAll(validators);
+        return (errors.length == 0);        
+      }        
+      
+    ]]>
+  </mx:Script>
+  
+  <mx:RemoteObject id="clubService" showBusyCursor="true" destination="clubService">
+    <mx:method name="update" result="onUpdateResult(event)" />
+    <mx:method name="insert" result="onInsertResult(event)" />
+  </mx:RemoteObject>
+  
+
+  <mx:Form left="10" top="10">
+    <mx:FormItem label="HG Name" required="true">
+      <mx:TextInput width="350" id="hgNameText" text="{editClub.hgName}" change="checkButtonEnable()"/>
+    </mx:FormItem>
+    <mx:FormItem label="Präsident">
+      <mx:TextInput width="350" id="praesidentText" text="{editClub.praesident}"/>
+    </mx:FormItem>
+    <mx:FormItem label="Strasse">
+      <mx:TextInput id="strasseText" width="350" text="{editClub.strasse}"/>
+    </mx:FormItem>
+    <mx:FormItem label="PLZ">
+      <mx:TextInput width="60" maxChars="4" restrict="0-9" id="plzText" text="{editClub.plz}"/>
+    </mx:FormItem>
+    <mx:FormItem label="Ort">
+      <mx:TextInput id="ortText" width="350" text="{editClub.ort}"/>
+    </mx:FormItem>  
+  </mx:Form>
+  
+  <mx:HRule width="453" height="2" bottom="230" left="10"/>
+  
+  <mx:Form left="10" bottom="176" width="453">
+    <mx:FormItem label="Punkte" required="true">
+      <mx:TextInput id="punkteMsText" width="60" restrict="0-9" text="{editClub.punkteMS}" 
+        toolTip="Punkte pro Meisterschaftsspiel. Für Rangepunkte Auswertung"/>
+    </mx:FormItem>  
+  </mx:Form>
+  
+  <mx:HRule width="453" left="10" bottom="168" height="2"/>
+    
+  <mx:Form left="10" bottom="50">
+    <mx:FormItem label="WebLogin" required="true">
+      <mx:TextInput width="242" id="webLoginText" text="{editClub.webLogin}" change="checkButtonEnable()"/>
+    </mx:FormItem>  
+    <mx:FormItem label="Benutzername" required="true">
+      <mx:TextInput width="242" id="usernameText" text="{editClub.benutzername}" change="checkButtonEnable()"/>
+    </mx:FormItem>
+    <mx:FormItem label="Passwort" required="true">
+      <mx:TextInput width="243" id="passwordText" displayAsPassword="true" text="{editClub.passwort}" change="checkButtonEnable()"/>
+    </mx:FormItem>
+  </mx:Form>
+
+  <mx:Button label="Speichern" id="saveButton" bottom="10" left="10" click="save()" icon="@Embed(source='assets/disk_green.png')"/>
+  <mx:Button label="Abbrechen" id="cancelButton" right="10" bottom="10" click="close()" icon="@Embed(source='assets/delete.png')"/>
+  
+  <mx:Validator id="hgNameTextValidator" source="{hgNameText}" property="text" 
+    required="true" requiredFieldError="HG Name ist eine Musseingabe"/>  
+
+  <mx:Validator id="usernameTextValidator" source="{usernameText}" property="text" 
+    required="true" requiredFieldError="Benutzername ist eine Musseingabe"/>
+    
+  <mx:Validator id="webLoginTextValidator" source="{webLoginText}" property="text" 
+    required="true" requiredFieldError="Web Login ist eine Musseingabe"/>    
+    
+  <mx:Validator id="passwordTextValidator" source="{passwordText}" property="text" 
+    required="true" requiredFieldError="Passwort ist eine Musseingabe"/>    
+
+  <mx:Validator id="punkteMsTextValidator" source="{punkteMsText}" property="text" 
+    required="true" requiredFieldError="Punkte pro Meisterschaftsspiel ist eine Musseingabe"/>   
+    
+</mx:TitleWindow>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:TitleWindow xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute" width="636" height="538" title="Tomcat Log"
+  creationComplete="init()">
+  <mx:Script>
+    <![CDATA[
+      import org.granite.tide.seam.Context;
+      import org.granite.tide.seam.Seam;
+      import mx.managers.PopUpManager;
+      
+      [Bindable]
+      public var ctx:Context = Seam.getInstance().getSeamContext();
+      
+      private function init():void {
+        PopUpManager.centerPopUp(this);
+        this.addEventListener(Event.CLOSE, onCloseEvent);    
+      }
+      
+      private function onCloseEvent(e:Event):void {
+        close();
+      }      
+      
+      private function close():void {
+        PopUpManager.removePopUp(this);
+      } 
+      
+    ]]>
+  </mx:Script>
+  
+  <mx:TextArea height="448" left="10" right="10" bottom="40" text="{ctx.userCtl.showLogString}"/>
+  <mx:Button label="Close" right="10" bottom="10" click="close()"/>
+  
+</mx:TitleWindow>

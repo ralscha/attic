@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping SYSTEM "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+<hibernate-mapping>
+
+	<class name="ch.ess.cal.db.Configuration" proxy="ch.ess.cal.db.Configuration" table="calConfiguration">
+		<id name="configurationId" type="long" unsaved-value="null">
+			<generator class="native"/>
+		</id>		
+		<property name="name" type="string" length="100" unique="true" not-null="true"/>
+    	<property name="propValue" type="string" length="1000"/>
+								
+	</class>
+
+	
+</hibernate-mapping>

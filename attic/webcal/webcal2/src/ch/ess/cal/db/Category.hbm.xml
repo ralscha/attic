@@ -1,0 +1,129 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd">
+
+<hibernate-mapping>
+    <class
+        name="ch.ess.cal.db.Category"
+        table="calCategory"
+        lazy="true"
+        dynamic-update="false"
+        dynamic-insert="false"
+    >
+
+        <id
+            name="id"
+            column="id"
+            type="java.lang.Long"
+            unsaved-value="null"
+        >
+            <generator class="native">
+            </generator>
+        </id>
+
+        <version
+            name="version"
+            type="int"
+            column="version"
+        />
+
+        <property
+            name="icalKey"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="icalKey"
+            length="100"
+            not-null="false"
+        />
+
+        <property
+            name="colour"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="colour"
+            length="6"
+            not-null="true"
+        />
+
+        <property
+            name="bwColour"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="bwColour"
+            length="6"
+            not-null="true"
+        />
+
+        <property
+            name="unknown"
+            type="boolean"
+            update="true"
+            insert="true"
+            column="unknown"
+            not-null="true"
+        />
+
+        <set
+            name="events"
+            table="calEventCategories"
+            lazy="true"
+            inverse="false"
+            cascade="none"
+            sort="unsorted"
+        >
+
+              <key
+                  column="categoryId"
+              />
+
+              <many-to-many
+                  class="ch.ess.cal.db.Event"
+                  column="eventId"
+                  outer-join="auto"
+              />
+
+        </set>
+
+        <map
+            name="translations"
+            table="calCategoryLocale"
+            lazy="false"
+            sort="unsorted"
+            inverse="false"
+            cascade="none"
+        >
+
+              <key
+                  column="categoryId"
+              />
+
+              <index
+                  column="locale"
+                  type="locale"
+                  length="10"
+              />
+
+              <element
+                  column="name"
+                  type="string"
+                  length="100"
+                  not-null="true"
+                  unique="false"
+              />
+
+        </map>
+
+        <!--
+            To add non XDoclet property mappings, create a file named
+                hibernate-properties-Category.xml
+            containing the additional properties and place it in your merge dir.
+        -->
+
+    </class>
+
+</hibernate-mapping>

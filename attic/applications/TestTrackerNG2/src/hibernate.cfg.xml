@@ -1,0 +1,36 @@
+<!DOCTYPE hibernate-configuration PUBLIC
+	"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+    <session-factory>
+        
+        <property name="connection.datasource">java:comp/env/jdbc/testTrackerNG2</property>
+        
+        <!--
+        <property name="connection.driver_class">net.sourceforge.jtds.jdbc.Driver</property>
+        <property name="connection.url">jdbc:jtds:sqlserver://localhost:1433/TestTrackerNG2</property>
+        <property name="connection.username">sa</property>
+        <property name="connection.password"></property>
+        -->
+        
+        <property name="dialect">org.hibernate.dialect.SQLServerDialect</property>
+                
+        <property name="show_sql">true</property>        
+        <property name="hbm2ddl.auto">none</property>
+        <property name="transaction.flush_before_completion">true</property>
+        <property name="transaction.factory_class">org.hibernate.transaction.JDBCTransactionFactory</property>
+        
+        <mapping class="ch.ess.testtracker.entity.AbstractEntity"/>
+        <mapping class="ch.ess.testtracker.entity.Principal" /> 
+        <mapping class="ch.ess.testtracker.entity.Authority" />
+        
+        <listener type="save" class="ch.ess.testtracker.util.SaveOrUpdateEventListener" />
+        <listener type="save-update" class="ch.ess.testtracker.util.SaveOrUpdateEventListener" />        
+        
+        
+
+    </session-factory>
+    
+    
+</hibernate-configuration>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering 
+  SYSTEM "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd" >
+
+<hibernate-reverse-engineering>
+
+
+<table-filter match-name="dt.*" exclude="true" /> 
+<table-filter match-name="sys.*" exclude="true" />
+
+</hibernate-reverse-engineering>

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+ 
+	<bean id="permissionData" class="org.springframework.beans.factory.config.SetFactoryBean">
+		<property name="sourceSet">
+      <set>        
+        <value>userconfig</value>
+        <value>systemconfig</value>
+        <value>user</value>
+        <value>usergroup</value>
+        <value>textresource</value>
+        <value>holiday</value>
+        <value>group</value>        
+        <value>resourcegroup</value>
+        <value>resource</value>        
+        <value>category</value>           
+        <value>event</value> 
+        <value>job</value>         
+      </set>
+		</property>
+		<property name="targetSetClass">
+			<value>java.util.HashSet</value>
+		</property>
+	</bean>
+  
+
+	<bean id="localeData" class="org.springframework.beans.factory.config.MapFactoryBean">
+		<property name="sourceMap">
+      <map>
+        <entry key="de"><value>user.language.german</value></entry>                                
+        <entry key="en"><value>user.language.english</value></entry>                                        
+      </map>            
+    </property>
+		<property name="targetMapClass">
+			<value>java.util.HashMap</value>
+		</property>
+  </bean>
+
+  <bean id="loginCookieUtil" class="ch.ess.cal.web.LoginCookieUtil">
+    <property name="cookieName"><value>cal_remember</value></property>
+  </bean>
+
+
+
+  <bean id="configurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+    <property name="properties"><ref local="dbProperties"/></property>
+    <property name="order"><value>1</value></property>
+  </bean>
+  
+  <!-- Query: -->
+  <!-- first col key, second col value -->
+  <bean id="dbProperties" class="ch.ess.cal.service.impl.DbPropertiesFactoryBean">
+    <property name="dataSource"><ref bean="dataSource"/></property>
+    <property name="query"><value>select name, prop_value from cal_configuration</value></property>    
+    <property name="defaultValues">
+      <map>
+        <entry key="mail.smtppassword"><value></value></entry>
+        <entry key="mail.smtpuser"><value></value></entry>
+        <entry key="mail.smtpport"><value>25</value></entry>
+        <entry key="mail.smtphost"><value>mail.ess.ch</value></entry>                        
+        <entry key="mail.sender"><value>sr@ess.ch</value></entry> 
+      </map>
+    </property>
+    
+  </bean>
+
+  <!-- Message Source -->
+  <bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
+    <property name="basenames">
+      <list>
+        <value>ApplicationResources</value>
+      </list>
+    </property>
+  </bean>
+  
+
+
+
+
+</beans>

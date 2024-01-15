@@ -1,0 +1,46 @@
+<html>
+<head>
+<title>Crapa Select</title>
+<link rel=stylesheet type="text/css" href="crapa.css">
+</head>
+<body>
+
+<form action="http://localhost:8000/servlet/CrapaStatistic" method="POST" target="main">
+<i>CRAPA</i>&nbsp;&nbsp;&nbsp;&nbsp;
+Branch:
+<select name="Branch">
+	   	<option value="0060">Basel</option>
+	   	<option value="0094">Bern</option>
+	   	<option value="0172">Chiasso</option>
+	   	<option value="0251">Genf</option>
+	   	<option value="0425">Lausanne</option>
+	   	<option value="0823">Zug</option>
+		<option value="0835" selected>Z&uuml;rich</option>
+		<option value="0881">Aarau</option>
+</select>
+&nbsp;
+Month
+<select name="Month" title="Month">
+		<option value="01">01</option>
+	   	<option value="02">02</option>
+	   	<option value="03">03</option>
+	   	<option value="04">04</option>
+	   	<option value="05">05</option>
+	   	<option value="06">06</option>
+	   	<option value="07">07</option>
+	   	<option value="08">08</option>
+	   	<option value="09">09</option>
+	   	<option value="10">10</option>
+	   	<option value="11">11</option>
+	   	<option value="12">12</option>
+</select>
+&nbsp;
+Year
+<select name="Year" title="Year">
+		<option value="1998">1998</option>
+	   	<option value="1999">1999</option>
+</select>
+&nbsp;
+<input type="Submit" name="Submit" value="Show">
+</form>
+</body></html>

@@ -1,0 +1,40 @@
+
+<sourcegen>
+  <javaOutputPath>c:/temp/test/src</javaOutputPath>
+  <jspOutputPath>c:/temp/test/jsp</jspOutputPath> 
+  <dropDownMenu>true</dropDownMenu>
+  
+  <classDescriptions>
+      <classDescription>    
+        <packageName>ch.ess.cal</packageName>
+        <name>Resource</name>
+        <sizeProperty>users</sizeProperty>
+        <focusProperty>resourceName</focusProperty>
+        <confirmProperty>resourceName</confirmProperty>
+        
+        
+        <!-- key NICHT angeben, z.B. projectId -->          
+        <properties>
+          <property>
+            <name>resourceName</name>
+            <modelType>String</modelType><!-- mögliche Werte String, Date, BigDecimal, Integer, Boolean -->
+            <validator>required</validator>
+            <finder>true</finder>  <!-- suchen nach diesem Property -->
+            <list>true</list> <!-- wenn true, wird in der Liste angezeigt -->      
+            <sort>ASCENDING</sort> <!-- Sortieren der Liste. mögliche Werte ASCENDING, DESCENDING -->    
+          </property>
+          
+          <property>
+            <name>resourceGroup</name>
+            <type>String</type>
+            <modelType>ResourceGroup</modelType>
+            <dao>ResourceGroup</dao>
+            <option>true</option>
+          </property>
+          
+
+         
+        </properties>
+      </classDescription>
+  </classDescriptions>  
+</sourcegen>

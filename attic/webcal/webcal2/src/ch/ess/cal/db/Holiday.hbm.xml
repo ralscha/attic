@@ -1,0 +1,161 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd">
+
+<hibernate-mapping>
+    <class
+        name="ch.ess.cal.db.Holiday"
+        table="calHoliday"
+        dynamic-update="false"
+        dynamic-insert="false"
+    >
+
+        <id
+            name="id"
+            column="id"
+            type="java.lang.Long"
+            unsaved-value="null"
+        >
+            <generator class="native">
+            </generator>
+        </id>
+
+        <version
+            name="version"
+            type="int"
+            column="version"
+        />
+
+        <property
+            name="internalKey"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="internalKey"
+            length="50"
+            not-null="true"
+        />
+
+        <property
+            name="colour"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="colour"
+            length="6"
+            not-null="false"
+        />
+
+        <property
+            name="country"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="country"
+            length="2"
+            not-null="false"
+        />
+
+        <property
+            name="month"
+            type="java.lang.Integer"
+            update="true"
+            insert="true"
+            column="month"
+            not-null="false"
+        />
+
+        <property
+            name="dayOfMonth"
+            type="int"
+            update="true"
+            insert="true"
+            column="dayOfMonth"
+            not-null="false"
+        />
+
+        <property
+            name="dayOfWeek"
+            type="int"
+            update="true"
+            insert="true"
+            column="dayOfWeek"
+            not-null="false"
+        />
+
+        <property
+            name="fromYear"
+            type="int"
+            update="true"
+            insert="true"
+            column="fromYear"
+            not-null="false"
+        />
+
+        <property
+            name="toYear"
+            type="int"
+            update="true"
+            insert="true"
+            column="toYear"
+            not-null="false"
+        />
+
+        <property
+            name="builtin"
+            type="boolean"
+            update="true"
+            insert="true"
+            column="builtin"
+            not-null="true"
+        />
+
+        <property
+            name="active"
+            type="boolean"
+            update="true"
+            insert="true"
+            column="active"
+            not-null="true"
+        />
+
+        <map
+            name="translations"
+            table="calHolidayLocale"
+            lazy="false"
+            sort="unsorted"
+            inverse="false"
+            cascade="none"
+        >
+
+              <key
+                  column="holidayId"
+              />
+
+              <index
+                  column="locale"
+                  type="locale"
+                  length="10"
+              />
+
+              <element
+                  column="name"
+                  type="string"
+                  length="100"
+                  not-null="true"
+                  unique="false"
+              />
+
+        </map>
+
+        <!--
+            To add non XDoclet property mappings, create a file named
+                hibernate-properties-Holiday.xml
+            containing the additional properties and place it in your merge dir.
+        -->
+
+    </class>
+
+</hibernate-mapping>

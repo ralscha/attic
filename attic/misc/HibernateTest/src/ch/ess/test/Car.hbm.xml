@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 13-Jul-2006 12:08:03 by Hibernate Tools 3.1.0.beta5 -->
+<hibernate-mapping>
+    <class name="ch.ess.test.Car" table="Car" schema="dbo" catalog="hibernatetest">
+        <id name="id" type="int">
+            <column name="id" />
+            <generator class="assigned" />
+        </id>
+        <version name="version" type="int">
+            <column name="version" not-null="true" />
+        </version>
+        <property name="name" type="string">
+            <column name="name" />
+        </property>
+        <property name="date" type="timestamp">
+            <column name="date" length="23" />
+        </property>
+        <property name="abzahlung" type="java.lang.Integer">
+            <column name="abzahlung" />
+        </property>
+        <property name="aktiv" type="java.lang.Byte">
+            <column name="aktiv" />
+        </property>
+        <property name="name2" type="string">
+            <column name="name2" />
+        </property>
+        <set name="parts" inverse="true">
+            <key>
+                <column name="carId" not-null="true" />
+            </key>
+            <one-to-many class="ch.ess.test.Part" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,33 @@
+body {
+	background-color: #f5f5f5;
+}
+
+.x-body {
+	background-color: #f5f5f5;
+}
+
+input[type=text]::-ms-clear {
+    display: none;
+}
+
+.appHeader {
+	padding: 8px 0px 0px 5px;
+	font-size: 22px;
+	font-weight: 200;
+}
+
+.monospace {
+	font-family: Consolas, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
+}
+
+.resources-assigned .sch-gantt-label-right
+{
+    background:url(../images/user.png) no-repeat left center !important;
+    padding-left:20px;
+    display:block;
+}
+
+.sch-assignment-cell
+{
+    color:#666;
+}

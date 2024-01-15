@@ -1,0 +1,67 @@
+<html>
+<head>
+   <title>Grace JavaLog</title>
+</head>
+<body text="#000000" bgcolor="#FFFFFF" link="#0000EE" vlink="#551A8B" alink="#FF0000">
+
+<table width=100%>
+<tr>
+<td><img SRC="gk5.jpg" NOSAVE height=200 width=153>
+<td valign=top>
+  <table width="100%" bgcolor="#FFCC00">
+  <tr><td><font size=+4 color=Green><div align=right><b>Installation</b></font>
+  </table>
+<div align=right><font size=+2 color=gray><b><i>Grace Software</b></i></font>
+<div align=right><font size=+2 color=gray><b><i>JavaLog</b></i></font>
+<br>
+<br>
+<div align=right><font size=-1 color="#B0B0B0">$Revision: 1.3 $</font></div>
+<div align=right><font size=-1 color="#B0B0B0">$Date: 1999/10/11 00:05:14 $</font></div>
+</table>
+
+<h2>Requirements</h2>
+
+<ul>
+<li><a href=http://java.sun.com/products>JDK 1.1 or 1.2</a> 
+    (1.0.2 - no way, 1.3 - not tested)
+<li><a href=http://www.cacas.org/~wes/java>
+    GNU Regular Expression library 1.0.8</a>
+<li>optional ANSI color terminal for color output; 
+    <a href=http://members.xoom.com/sashav/aterm>aterm</a> is a good one; 
+   color has not been tested under DOS.
+</ul>
+
+<i>
+Note: The GNU Regular Expression Library was bundled into the previous
+version (0.6) but now must be installed separately.
+</i>
+
+
+<h2>Installation</h2>
+
+<p>Installation is like most other Java packages. Unjar the downloaded
+file and set your classpath to include lib/grace.jar.  Don't unjar the
+grace.jar file.  This will just create redundant .class files because
+the lib/grace.jar is simply a jar of all the files in the classes
+directory.
+
+<pre><b>$ jar xvf grace-0.7.jar</b>
+12091 Sun Mar 07 20:56:02 GMT+04:30 1999 META-INF/MANIFEST.MF
+67121 Sun Mar 07 20:38:54 GMT+04:30 1999 grace-0.6/classes.jar
+0 Sun Mar 07 20:29:36 GMT+04:30 1999 grace-0.6/docs/
+0 Sun Mar 07 19:49:18 GMT+04:30 1999 grace-0.6/docs/api/
+...
+<b>$ export CLASSPATH=$CLASSPATH:$(pwd)/grace-0.6/classes.jar</b>
+<b>$ java grace.log.Log</b>
+03/07/99 16:29:57(0.014):1: notice: system.main.Test-Thread.0: Log$Test.logSomeMessages:1187: Examples of trace()
+03/07/99 16:29:57(0.066):2: trace: system.main.Test-Thread.0: Log$Test.logSomeMessages:1188
+03/07/99 16:29:57(0.066):3: trace: system.main.Test-Thread.0: Log$Test.testFunction:1145
+...
+</pre>
+
+<p>Thats it! If you're running Windoze then you're on your own.  No
+offense, but if you're not running UNIX , you really ought to think
+about upgrading. It's easy. Just say "NO" to DOS.
+
+</body>
+</html>

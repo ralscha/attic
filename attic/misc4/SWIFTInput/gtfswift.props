@@ -1,0 +1,25 @@
+swift.db.driver = jdbc.idbDriver
+swift.db.url = jdbc:idb:d:/projects/swiftinput/swift.prp
+swift.db.user = 
+swift.db.password = 
+swift.db.min.connections = 2
+swift.db.max.connections = 10
+swift.db.connectionbroker.logfile = connection.log
+swift.db.max.connectiontime = 0.2
+
+state.servlet.path = servlet/State
+swift.input.servlet.path = servlet/SWIFTInput
+swift.msg.servlet.path = servlet/Msg
+
+
+branches = basel,bern,zug,stgallen,lausanne,lugano,genf,zurich
+basel    = Basel,Basel,0060,0263,0504,0505
+bern     = Bern,Bern,0094,0097,0333,0223,0565,0520,0763,0207,0582,0374
+zug      = Zug,Zug,0823,0047,0352,0463
+stgallen = St. Gallen,St. Gallen,0637,0642,0344,0539
+lausanne = Lausanne,Lausanne,0425,0428,0427,0429,0589,0605
+lugano   = Lugano,Lugano,0456,0459,0458,0457,0455,0780,0573,0155,0469,0564,0579,0490,0512,0530,0413,0177,0172,0055,0592
+genf     = Genève,Gen&egrave;ve,0251,0254,0279,0271,0274,0280,0272,0266,0281,0267,0518,0748,0156,0747,0720,0311
+zurich   = Zürich,Z&uuml;rich,0835,0791
+
+swift.support.tel = 4 25 31

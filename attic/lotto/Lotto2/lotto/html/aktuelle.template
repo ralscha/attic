@@ -1,0 +1,40 @@
+<script language="JavaScript1.1"> 
+<!-- 
+if ((document.referrer.length > 0) && (document.images) && (document.referrer.toLowerCase().indexOf('rschaer') < 0)) { 
+refstat = new Image(1,1); 
+refstat.src = "http://www.webhits.de/cgi/refstat?df=19927&ref="+escape(document.referrer); 
+} 
+//--> 
+</script> 
+<IMG SRC="http://www.webhits.de/cgi/Count.cgi?sh=0&df=19927.dat" ALT="" WIDTH="1" HEIGHT="1">
+<div align=center><center>
+<font size="5" FACE="Verdana">Ausspielung vom %%datelong%%</font><BR>
+<P>
+<font size="4" FACE="Verdana">Nr. %%nr%%/%%year%%</font>
+<P>
+<table border=0 width="70%">
+<tr>
+  <td width="17%" align="CENTER" bgcolor="#D4D4D4"><font size="6" FACE="Verdana"><strong>%%zahl1%%</strong></font></td>
+  <td width="17%" align="CENTER" bgcolor="Silver"><font size="6" FACE="Verdana"><strong>%%zahl2%%</strong></font></td>
+  <td width="17%" align="CENTER" bgcolor="#D4D4D4"><font size="6" FACE="Verdana"><strong>%%zahl3%%</strong></font></td>
+  <td width="17%" align="CENTER" bgcolor="Silver"><font size="6" FACE="Verdana"><strong>%%zahl4%%</strong></font></td>
+  <td width="17%" align="CENTER" bgcolor="#D4D4D4"><font size="6" FACE="Verdana"><strong>%%zahl5%%</strong></font></td>
+  <td width="17%" align="CENTER" bgcolor="Silver"><font size="6" FACE="Verdana"><strong>%%zahl6%%</strong></font></td>
+</tr>
+</table>
+<P>
+<font size="5" FACE="Verdana">Zusatzzahl: </font><font size="6" FACE="Verdana"><strong>%%zz%%</strong></font><BR>
+<P>
+<font size="5" FACE="Verdana">Joker: <strong><FONT SIZE="6" FACE="Verdana">%%joker%%</FONT></strong></font>
+<p></p>
+<FONT FACE="Verdana" SIZE="3"><I>Alle Angaben ohne Gew&auml;hr</I></FONT>
+<P>
+<HR>
+<table width="70%" border="0">
+<tr><td align="center"><a href="http://www.vargasoft.ch/" class="text"><img src="signt_va1.gif" width=95 height=33 border=0 alt="www.vargasoft.ch"></a></td></tr>
+</table>
+<HR>
+<FONT FACE="Verdana">Kommentare und Anregungen an <a href="mailto:rschaer@datacomm.ch">rschaer@datacomm.ch</a></FONT>
+</center></div>
+</body>
+</html>

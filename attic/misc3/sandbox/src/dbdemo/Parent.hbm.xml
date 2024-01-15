@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping SYSTEM "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+<hibernate-mapping>
+	
+	<class name="dbdemo.Parent">
+		<id name="id" type="long">
+			<generator class="native">
+			</generator>
+		</id>
+	    <set name="child" cascade="all" inverse="true" lazy="true">
+          <key column="parentId"/>
+          <one-to-many class="dbdemo.Child"/>
+        </set>
+        
+        <map name="childMap" table="childMap" lazy="false" inverse="false">
+          <key column="parentId" />
+          <index column="name" type="string" length="20" />
+          <element column="descr" type="string" length="100" not-null="true" unique="false"/>
+        </map>        
+	</class>
+	
+</hibernate-mapping>

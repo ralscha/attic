@@ -1,0 +1,38 @@
+<!--\#include file="include/head_summealle.shtml"-->
+<!--\#include file="include/body.shtml"-->
+<br>
+<p class="subTitle">Summe</p>
+<p class="nr">alle Ziehungen</p>
+<br>
+<table border="1" class="tableContents">
+<tr>
+<th class="tableHeader">Summe</th>
+<th class="tableHeader">Ausspielungen</th>
+<th class="tableHeader">Prozent</th>
+</tr>
+
+<tr><th class="tableRowHeader">0 - 49</th><td align="center" class="text">$s0</td>
+<td align="right" class="text">$sp0</td></tr>
+<tr><th class="tableRowHeader">50 - 99</th><td align="center" class="text">$s1</td>
+<td align="right" class="text">$sp1</td></tr>
+<tr><th class="tableRowHeader">100 - 149</th><td align="center" class="text">$s2</td>
+<td align="right" class="text">$sp2</td></tr>
+<tr><th class="tableRowHeader">150 - 199</th><td align="center" class="text">$s3</td>
+<td align="right" class="text">$sp3</td></tr>
+<tr><th class="tableRowHeader">200 - 255</th><td align="center" class="text">$s4</td>
+<td align="right" class="text">$sp4</td></tr>
+</table>
+<br>
+<p class="text">
+<b>alle Ziehungen</b><BR>
+<a href="summe42.shtml">ab Ziehung Nr. 14/1979 (Einf&uuml;hrung von 41 und 42)</a><BR>
+<a href="summe45.shtml">ab Ziehung Nr. 1/1986 (Einf&uuml;hrung von 43, 44 und 45)</a><BR>
+<a href="summe97.shtml">ab Ziehung Nr. 1/1997 (Einf&uuml;hrung Mittwochsziehung)</a>
+</p>
+<br>
+<HR>
+<br>
+<table class="text">
+<tr><td class="text">Alle Zahlen einer Ziehung werden addiert und in die entsprechende Kategorie eingeteilt</td></tr>
+</table>
+<!--\#include file="include/tail.shtml"-->

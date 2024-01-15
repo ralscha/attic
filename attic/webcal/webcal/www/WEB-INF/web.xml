@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<!DOCTYPE web-app
+  PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.2//EN"
+  "http://java.sun.com/j2ee/dtds/web-app_2.2.dtd">
+
+
+
+<web-app>
+ <description>ESS Web Calendar</description>
+
+ 
+   <servlet>
+    <servlet-name>reminder</servlet-name>
+    <servlet-class>ch.ess.calendar.tools.ReminderServlet</servlet-class>
+    <init-param>
+      <param-name>waittime</param-name>
+      <param-value>60</param-value>
+    </init-param>
+    <init-param>
+      <param-name>smtp</param-name>
+      <param-value>mail.ess.ch</param-value>
+    </init-param>
+    <init-param>
+      <param-name>sender</param-name>
+      <param-value>office@ess.ch</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+ <session-config>
+  <session-timeout>30</session-timeout>
+ </session-config>
+ 
+ <mime-mapping>
+  <extension>
+   txt
+  </extension>
+  <mime-type>
+   text/plain
+  </mime-type>
+ </mime-mapping>
+ <mime-mapping>
+  <extension>
+   html
+  </extension>
+  <mime-type>
+   text/html
+  </mime-type>
+ </mime-mapping>
+ <welcome-file-list>
+  <welcome-file>
+   index.jsp
+  </welcome-file>
+  <welcome-file>
+   index.html
+  </welcome-file>
+ </welcome-file-list>
+
+ <taglib>
+      <taglib-uri>oscache</taglib-uri>
+      <taglib-location>/WEB-INF/oscache.tld</taglib-location>
+  </taglib> 
+ <taglib>
+      <taglib-uri>misc</taglib-uri>
+      <taglib-location>/WEB-INF/taglib-misc.tld</taglib-location>
+  </taglib> 
+</web-app>

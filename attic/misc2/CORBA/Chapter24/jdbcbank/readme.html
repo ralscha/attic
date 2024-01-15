@@ -1,0 +1,95 @@
+<HTML>
+<HEAD>
+   <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+   <META NAME="GENERATOR" CONTENT="Mozilla/4.04 [en] (WinNT; I) [Netscape]">
+   <TITLE>Readme</TITLE>
+</HEAD>
+<BODY>
+
+<H1>
+JDBC Bank Readme</H1>
+This sudirectory contains the VisiBroker for Java and JDBC programs developed
+in Chapters 23-26. Prior to running the programs in this subdirectory,
+please review the <A HREF="file:///I|/CorbaJavaBook.2e/readme.html">installation
+and setup information</A> in the overview readme for these sample programs.
+<H2>
+Prerequisite Software</H2>
+
+<UL>
+<LI>
+VisiBroker for Java 3.1</LI>
+
+<LI>
+VisiBroker for Java Naming Service</LI>
+
+<LI>
+Symantec Visual Caf&eacute; 2.1</LI>
+
+<LI>
+SQL Server 6.5</LI>
+</UL>
+
+<H2>
+Running the Programs</H2>
+Follow the instructions for running the programs as described in the chapters
+for each of the sample programs.&nbsp; You can also use the following batch
+files in the <I>CorbaJavaBook.2e</I> subdirectory to run the programs using
+the following steps:
+
+<P>start SQL Server via the Service Manager
+<BR><B>prompt></B> RunCreateBank
+<BR><B>prompt></B> start RunNaming
+<BR><B>prompt></B> start RunGatekeeper
+<BR><B>prompt></B> start RunCoordinator
+<BR>then load MultiConsole<I>.html</I> from your browser.
+
+<P>Then run
+<BR><B>prompt></B> start RunDebitCredit2TClient client-number database-server
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+or
+<BR><B>prompt></B> start RunDebitCreditServer database-server
+<BR><B>prompt></B> start RunDebitCredit3TClient client-number
+
+<P>At this point you can control the execution of your clients using the
+MultiConsole.
+<H2>
+Files in This Subdirectory</H2>
+
+<LI>
+DebitCredit.idl</LI>
+
+<LI>
+DebitCreditMultiClient.java</LI>
+
+<LI>
+DebitCredit2TClient.java</LI>
+
+<LI>
+ClientControlImpl.java</LI>
+
+<LI>
+CreateBank.java</LI>
+
+<LI>
+BankAdmin.java</LI>
+
+<LI>
+BankDB.java</LI>
+
+<LI>
+DebitCreditServer.java</LI>
+
+<LI>
+DispenserImpl.java</LI>
+
+<LI>
+DebitCreditImpl.java</LI>
+
+<LI>
+MultiConsole.html</LI>
+
+<LI>
+make.bat</LI>
+
+</BODY>
+</HTML>

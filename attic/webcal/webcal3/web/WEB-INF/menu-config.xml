@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<MenuConfig>
+  <Displayers>
+    <Displayer   name="MenuBar"
+                 type="ch.ess.cal.web.MenuBarDisplayer"/>                 
+  </Displayers>
+
+  <Menus>
+      <Menu name="m_mainmenu"> 
+        <Item  name="m_application" title="calendar"> 
+          <Item name="i_overview" title="calendar.overview" page="/groupMonth.do?clean=1"/>                  
+          <Item name="i_dayview" title="calendar.day" page="/dayView.do?clean=1"/>                            
+          <Item name="i_monthview" title="calendar.month" page="/monthView.do?clean=1"/>                            
+          <Item name="i_yearview" title="calendar.year" page="/yearView.do?clean=1"/>                                      
+          <Item name="i_events" title="event.menu" page="/preListEvent.do?clean=1" roles="event"/>        
+        </Item>
+        
+        <Item name="m_administration" title="application.administration" roles="userconfig,systemconfig,user,usergroup,textresource,group"> 
+          <Item name="i_userconfig" title="userconfig.menu" page="/userConfig.do?clean=1" roles="userconfig"/>    
+          <Item name="i_config" title="config.menu" page="/config.do?clean=1" roles="systemconfig"/>   
+          <Item name="i_textresources" title="textResource.menu" page="/listTextResource.do?clean=1" roles="textresource"/>        
+          <Item name="i_usergroups" title="userGroup.menu" page="/listUserGroup.do?clean=1" roles="usergroup"/>      
+          <Item name="i_users" title="user.menu" page="/listUser.do?clean=1" roles="user"/> 
+     
+          <Item name="i_holidays" title="holiday.menu" page="/listHoliday.do?clean=1" roles="holiday"/>              
+          <Item name="i_groups" title="group.menu" page="/listGroup.do?clean=1" roles="group"/>                        
+<!--      
+          <Item name="i_resourcegroups" title="resourceGroup.menu" page="/listResourceGroup.do?clean=1" roles="resourcegroup"/>  
+          <Item name="i_resources" title="resource.menu" page="/listResource.do?clean=1" roles="resource"/>     
+-->          
+          <Item name="i_categories" title="category.menu" page="/listCategory.do?clean=1" roles="category"/>  
+          <Item name="i_jobs" title="job.menu" page="/listJob.do?clean=1" roles="job"/>  
+        </Item>
+        <Item  name="m_logout" title="login.logout" page="/logout.do"/> 
+      </Menu>  
+
+  </Menus>
+
+</MenuConfig>

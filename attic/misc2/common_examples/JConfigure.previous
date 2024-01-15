@@ -1,0 +1,22 @@
+# Saved by JConfigure on 02.01.00 14:08
+options.environment.help.Language=English
+options.environment.help.File=English.hlp
+options.environment.confirm.Delete=true
+options.environment.confirm.Insert=false
+options.environment.confirm.Move=false
+options.environment.save.Automatic=true
+options.environment.save.Interval=9889,1,20000
+options.environment.save.Prompt=false
+options.layout.Main=0,0,800,600
+options.layout.HTTP=0,0,800,600
+options.layout.FTP=0,0,800,600
+options.protocol.sockets.Timeout=12000
+options.protocol.http.Host=www.atrieva.com
+options.protocol.http.Keep-Alive=false
+options.protocol.http.Methods=GET,POST,HEAD
+options.protocol.ftp.Host=ftp.atrieva.com
+options.protocol.ftp.Username=anonymous
+options.protocol.ftp.Password=anonymous
+options.security.Certificate=X509
+options.security.Signer=Verisign
+options.security.Expires=Never

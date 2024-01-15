@@ -1,0 +1,8 @@
+Manifest-Version: 1.0
+Specification-Title: Calendar Webapplication
+Specification-Vendor: ESS Development AG
+Specification-Version: 5.0.0
+Implementation-Title: Calendar Webapplication
+Implementation-Vendor: ESS Development AG
+Implementation-Vendor-Id: ch.ess
+Implementation-Version: 5.0.0

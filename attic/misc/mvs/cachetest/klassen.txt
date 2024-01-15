@@ -1,0 +1,75 @@
+Class mvs.BeginList Extends %Persistent [ ClassType = persistent, DdlAllowed, Owner = _SYSTEM, SqlRowIdPrivate, SqlTableName = BeginList, StorageStrategy =  ]
+{
+
+Projection JavaProjection As %Projection.Java(ROOTDIR = "c:\temp");
+
+Property total As %Library.Integer(MAXVAL = 2147483647, MINVAL = -2147483648) [ Required, SqlColumnNumber = 4 ];
+
+Property word1 As %Library.Integer(MAXVAL = 2147483647, MINVAL = -2147483648) [ Required, SqlColumnNumber = 2 ];
+
+Property word2 As %Library.Integer(MAXVAL = 2147483647, MINVAL = -2147483648) [ Required, SqlColumnNumber = 3 ];
+
+Index PKBEGINLIST On (word1, word2) [ PrimaryKey, SqlName = PK_BEGINLIST, Type = index, Unique ];
+
+}
+
+
+
+
+
+Class mvs.RefNo Extends %Persistent [ ClassType = persistent, DdlAllowed, Owner = _SYSTEM, SqlRowIdPrivate, SqlTableName = RefNo, StorageStrategy =  ]
+{
+Projection JavaProjection As %Projection.Java(ROOTDIR = "c:\temp");
+Property refno As %Library.Integer(MAXVAL = 2147483647, MINVAL = -2147483648) [ Required, SqlColumnNumber = 2 ];
+
+Index PKREFNO On refno [ PrimaryKey, SqlName = PK_REFNO, Type = index, Unique ];
+
+}
+
+
+
+
+Class mvs.Word12 Extends %Persistent [ ClassType = persistent, DdlAllowed, Owner = _SYSTEM, SqlRowIdPrivate, SqlTableName = Word12, StorageStrategy =  ]
+{
+Projection JavaProjection As %Projection.Java(ROOTDIR = "c:\temp");
+Property total As %Library.Integer(MAXVAL = 2147483647, MINVAL = -2147483648) [ Required, SqlColumnNumber = 5 ];
+
+Property word1 As %Library.Integer(MAXVAL = 2147483647, MINVAL = -2147483648) [ Required, SqlColumnNumber = 2 ];
+
+Property word2 As %Library.Integer(MAXVAL = 2147483647, MINVAL = -2147483648) [ Required, SqlColumnNumber = 3 ];
+
+Property word3ref As %Library.Integer(MAXVAL = 2147483647, MINVAL = -2147483648) [ Required, SqlColumnNumber = 4 ];
+
+Index PKWORD12 On (word1, word2, word3ref) [ PrimaryKey, SqlName = PK_WORD12, Type = index, Unique ];
+
+}
+
+
+
+
+Class mvs.Word3 Extends %Persistent [ ClassType = persistent, DdlAllowed, Owner = _SYSTEM, SqlRowIdPrivate, SqlTableName = Word3, StorageStrategy =  ]
+{
+Projection JavaProjection As %Projection.Java(ROOTDIR = "c:\temp");
+Property hits As %Library.Integer(MAXVAL = 2147483647, MINVAL = -2147483648) [ Required, SqlColumnNumber = 4 ];
+
+Property ref As %Library.Integer(MAXVAL = 2147483647, MINVAL = -2147483648) [ Required, SqlColumnNumber = 2 ];
+
+Property word3 As %Library.Integer(MAXVAL = 2147483647, MINVAL = -2147483648) [ Required, SqlColumnNumber = 3 ];
+
+Index PKWORD3 On (ref, word3) [ PrimaryKey, SqlName = PK_WORD3, Type = index, Unique ];
+
+}
+
+
+
+
+Class mvs.WordList Extends %Persistent [ ClassType = persistent, DdlAllowed, Owner = _SYSTEM, SqlRowIdPrivate, SqlTableName = WordList, StorageStrategy =  ]
+{
+Projection JavaProjection As %Projection.Java(ROOTDIR = "c:\temp");
+Property hash As %Library.Integer(MAXVAL = 2147483647, MINVAL = -2147483648) [ Required, SqlColumnNumber = 2 ];
+
+Property word As %Library.String(MAXLEN = 100) [ Required, SqlColumnNumber = 3 ];
+
+Index WordListKey1 On hash [ PrimaryKey, Type = index, Unique ];
+
+}

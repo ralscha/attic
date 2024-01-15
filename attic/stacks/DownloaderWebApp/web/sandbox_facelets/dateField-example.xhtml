@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:oui="http://www.oreilly.com/jsf">
+   <head>
+      <title>List Panel Example</title>
+   </head>
+   <body>
+   <!--  example 7.4 in the Facelets Shortcut -->
+     <h:form>
+     	<fieldset style="width:100px;margin:none;">
+     		<h:outputLabel for="jodaDate" value="Joda Date: " />
+     		<h:inputText id="jodaDate" size="10" maxlength="10"
+     			value="#{exampleBean.dateTime}">
+     			<oui:convertJodaDateTime pattern="MM/dd/yyyy" />
+     		</h:inputText>
+     		<p>
+     			<h:commandButton type="submit" value="Submit" action="#{exampleBean.submitAction}" />
+     		</p>
+     	</fieldset>
+     	<h:messages errorStyle="color:red;" />
+     </h:form>
+   </body>	  
+</html>

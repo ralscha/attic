@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+  
+  <bean id="namingStrategy" class="ch.ess.base.persistence.hibernate.AppNamingStrategy">
+    <property name="prefix"><value>blank_</value></property>
+  </bean>
+  
+  <bean id="sessionFactory" class="ch.ess.base.persistence.hibernate.AppLocalSessionFactoryBean">
+    <property name="schemaUpdate"><value>false</value></property>
+    <property name="existsQuery"><value>select count(name) from blank_configuration</value></property>
+    <property name="namingStrategy"><ref local="namingStrategy"/></property>
+    <property name="dataSource"><ref bean="dataSource"/></property> 
+       
+    <property name="annotatedPackages">
+     <list>
+       <value>ch.ess.base.model</value>
+     </list>
+    </property>
+    
+    <property name="annotatedClasses">
+      <list>     
+        <value>ch.ess.base.model.BaseObject</value>
+        <value>ch.ess.base.model.TranslateObject</value>        
+        <value>ch.ess.base.model.Configuration</value>
+        <value>ch.ess.base.model.Permission</value>
+        <value>ch.ess.base.model.TextResource</value>
+        <value>ch.ess.base.model.Translation</value>
+        <value>ch.ess.base.model.TranslationText</value>
+        <value>ch.ess.base.model.User</value>
+        <value>ch.ess.base.model.UserConfiguration</value>                                        
+        <value>ch.ess.base.model.UserGroup</value>                                        
+        <value>ch.ess.base.model.UserGroupPermission</value>                                        
+        <value>ch.ess.base.model.UserUserGroup</value>                                                                
+      </list>
+    </property>
+     
+    
+    <property name="defaultDriver"><value>org.hibernate.dialect.GenericDialect</value></property>
+    <property name="drivers">
+      <map>
+        <entry key="Microsoft SQL Server"><value>org.hibernate.dialect.SQLServerDialect</value></entry>
+        <entry key="SAP DB"><value>org.hibernate.dialect.SAPDBDialect</value></entry>
+        <entry key="MySQL"><value>org.hibernate.dialect.MySQLDialect</value></entry>
+        <entry key="DB2"><value>org.hibernate.dialect.DB2Dialect</value></entry>
+        <entry key="Oracle"><value>org.hibernate.dialect.OracleDialect</value></entry>        
+        <entry key="mckoi"><value>org.hibernate.dialect.MckoiDialect</value></entry>                
+        <entry key="pointbase"><value>org.hibernate.dialect.PointbaseDialect</value></entry>                        
+        <entry key="hsql"><value>org.hibernate.dialect.HSQLDialect</value></entry>                                
+      </map>
+    </property>        
+    
+    <property name="hibernateProperties"> 
+      <props> 
+        <prop key="hibernate.show_sql">false</prop>       
+        <prop key="hibernate.query.substitutions">true 1, false 0</prop>
+        <prop key="hibernate.generate_statistics">false</prop>
+      </props> 
+    </property> 
+  </bean> 
+  
+  <bean id="transactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager"> 
+    <property name="sessionFactory"><ref local="sessionFactory"/></property> 
+  </bean>
+  
+  <bean id="autoProxyCreator" class="org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator"/>
+  
+  <bean id="transactionAttributeSource" 
+    class="org.springframework.transaction.annotation.AnnotationTransactionAttributeSource"/>
+  
+  <bean id="transactionInterceptor" class="org.springframework.transaction.interceptor.TransactionInterceptor">
+    <property name="transactionManager" ref="transactionManager"/>
+    <property name="transactionAttributeSource" ref="transactionAttributeSource"/>
+  </bean>
+  
+  <bean id="transactionAdvisor" class="org.springframework.transaction.interceptor.TransactionAttributeSourceAdvisor">
+    <property name="transactionInterceptor" ref="transactionInterceptor"/>
+  </bean>
+  
+</beans>
+

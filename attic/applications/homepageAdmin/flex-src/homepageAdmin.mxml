@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute" creationComplete="init()" 
+  xmlns:comp="ch.ess.hpadmin.components.*" currentState="logonState">
+
+
+  <mx:Script>
+    <![CDATA[
+      import mx.rpc.events.ResultEvent;
+        
+      private function init():void {
+        
+      } 
+      
+      private function processLogin(event:Event):void {
+        currentState = '';              
+      }
+      
+      private function logout():void {
+        currentState = "logonState";
+      }
+      
+    ]]>
+  </mx:Script>
+  
+  <mx:ApplicationControlBar id="appBar" width="100%">
+    <mx:Label text="ESS Homepage Admin" fontSize="18" fontWeight="bold" color="white"  id="label1"/>
+    <mx:Spacer width="40" id="spacer2"/>
+    
+    <mx:LinkBar dataProvider="{objectView}" id="linkBar"/>
+    <mx:Spacer width="100%" id="spacer1"/>
+    <mx:Button label="Logoff" click="logout()"  id="button1"/>
+  </mx:ApplicationControlBar>
+  
+  <mx:RemoteObject id="userService" showBusyCursor="true" destination="userService" />
+  <mx:ViewStack id="objectView" top="60" bottom="60" left="10" right="20">
+    <comp:PageList id="pageList" label="Pages" width="100%" height="100%" />
+    <comp:TextResourceList id="textResourceList" label="Textresources" width="100%" height="100%" />
+  </mx:ViewStack>
+  
+  <mx:states>
+    <mx:State name="logonState">
+      <mx:AddChild position="lastChild">
+        <comp:LoginPanel id="loginPanel" horizontalCenter="0" verticalCenter="-50" loggedOn="processLogin(event)" />
+      </mx:AddChild>
+      <mx:RemoveChild target="{button1}"/>
+      <mx:RemoveChild target="{spacer1}"/>
+      <mx:RemoveChild target="{spacer2}"/>
+      <mx:RemoveChild target="{linkBar}"/>
+      <mx:RemoveChild target="{objectView}"/>
+    </mx:State>
+  </mx:states>
+  
+</mx:Application>

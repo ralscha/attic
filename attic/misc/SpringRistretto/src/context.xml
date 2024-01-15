@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+	
+  <bean id="test" name="/test1,/test2,/test3" class="TestBean">
+		<property name="dep"><ref local="depBean"/></property>
+	</bean>
+  
+  <bean id="depBean" class="DepBean">
+    <property name="name"><value>Dies ist der Name</value>      
+    </property>
+  </bean>
+
+</beans>

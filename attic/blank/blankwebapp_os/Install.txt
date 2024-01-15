@@ -1,0 +1,41 @@
+
+Prerequisites
+
+- Jakarta Tomcat 5.0.x installed  
+
+- Java 2 1.4.x installed
+
+- Database installed (for example mysql)
+  
+
+
+Installation
+
+1. Checkout from cvs
+
+2. Change directory into blankwebapp/build
+
+3. ant all
+
+4. Copy blankwebapp/build/dist/blank.war into webapps directory from tomcat
+
+5. Copy build/conf/blank_.xml into conf/Catalina/localhost directory. Change the parameters accordingly.
+
+6. Copy jdbc driver library jar into <tomcathome>/commons/lib
+
+7. Start database server.
+
+8. Create a database. (for example mysql: mysqladmin create mytestdb)
+
+7. Start Tomcat
+
+8. Start a browser and enter the url. 
+   For example (http://localhost:8080/blank)
+   
+   
+   
+   
+Test
+
+- Copy junit.jar into <ANT_HOME>/lib
+- Copy clover.jar into <ANT_HOME>/lib   

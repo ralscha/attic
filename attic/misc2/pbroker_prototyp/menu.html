@@ -1,0 +1,100 @@
+<%@ page info="PBroker Login" errorPage="error.jsp"%>
+<%@ taglib uri="/WEB-INF/struts.tld" prefix="struts" %>
+
+<struts:ifAttributeMissing name="pbroker.user" scope="session">
+  <jsp:forward page="login.jsp"/>
+</struts:ifAttributeMissing>
+
+<html>
+
+<head>
+	<meta http-equiv="Expires" content="Mon, 06 Jan 1990 00:00:01 GMT">
+<script LANGUAGE="JavaScript">
+<!--
+
+
+if (document.images) {
+            img1off = new Image();
+            img1off.src = "http://update.onstage.ch/images/help_off.gif";
+
+            img1on = new Image();
+            img1on.src = "http://update.onstage.ch/images/help_on.gif";
+}
+
+   function go(URL1, F1, URL2,F2, URL3, F3)
+   {  
+    parent.frames[F1].location.href=URL1;
+    parent.frames[F2].location.href=URL2;
+	parent.frames[F3].location.href=URL3;
+   }
+
+function imgOn(imgName) {
+        if (document.images) {
+            document[imgName].src = eval(imgName + "on.src");
+         }
+}
+
+function imgOff(imgName) {
+        if (document.images) {
+            document[imgName].src = eval(imgName + "off.src");
+        }
+}
+
+
+// -->
+</script>
+<title>Navi left</title>
+
+</head>
+
+<% String menu = request.getParameter("m");
+%>
+
+<body style="margin-top: 0px; margin-left: 0px" topmargin="0" marginwidth="0" marginheight="0" leftmargin="0" background="images/navi_nob.gif">
+<table border="0" width="160" cellpadding="0">
+  <tr>
+    <td width="100%" align="center"><img border="0" src="images/x.gif" width="120" height="50"></td>
+  </tr>
+  
+  <% if (!"s".equals(menu)) { %>
+  <tr>
+    <td width="100%" align="center"><a href="javascript:go('frames/top_step_1.htm',0,'menu.jsp?m=s', 1, 'description.html',2)"><img border="0" src="images/suche.gif" width="107" height="24" alt=" Kandidatensuche"></a></td>
+  </tr>
+  <% } else { %>
+  <tr>
+    <td width="100%" align="center">
+<!-- Image tags modified by LiveImage for Client Side Image Map insertion -->
+<IMG SRC="images/suche_aktiv.gif" USEMAP="#suche_aktiv" BORDER=0 WIDTH=107 HEIGHT=87 alt=" Kandidatensuche"></td>
+  </tr>
+  <% } %>
+  
+  <tr>
+    <td width="100%" align="center"><img border="0" src="images/verrechnung.gif" width="107" height="23" alt=" Verrechnung"></td>
+  </tr>
+  <tr>
+    <td width="100%" align="center"><img border="0" src="images/reporting.gif" width="107" height="23" alt=" Reporting"></td>
+  </tr>
+  <tr>
+    <td width="100%" align="center"><img border="0" src="images/hilfsprozesse.gif" width="107" height="22" alt=" Hilfsprozesse"></td>
+  </tr>
+  <tr>
+    <td width="100%" align="center"><struts:link href="logoff.do" target="_top"><img border="0" src="images/abmelden.gif" width="107" height="23" alt=" Abmelden"></struts:link></td>
+  </tr>
+</table>
+
+<!-- Start of Client Side Image Map information -->
+<MAP NAME="suche_aktiv">
+<!-- #$-:Created by LiveImage available at http://www.liveimage.com -->
+<!-- #$-:Registered to Registered -->
+<!-- #$VERSION:1.29d (build 54) -->
+<!-- #$DATE:Tue Jun 27 12:30:40 2000 -->
+<!-- #$GIF:suche_aktiv.gif -->
+<AREA SHAPE=RECT COORDS="0,0,107,23" HREF="suchebutton.html" ALT="">
+<AREA SHAPE=RECT COORDS="17,31,99,45" HREF="rekrutierung" ALT="">
+<AREA SHAPE=RECT COORDS="15,50,103,63" HREF="offerten" ALT="">
+<AREA SHAPE=RECT COORDS="13,68,103,81" HREF="verträge" ALT="">
+</MAP>
+<!-- End of Client Side Image Map information -->
+</body>
+
+</html>

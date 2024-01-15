@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE statemachine PUBLIC "-//ESS Development AG//DTD StateMachine 1.0//EN"
+                              "http://www.ess.ch/dtds/statemachine.dtd">
+
+<statemachine>
+
+  <actions>
+    <action name="default">
+      <enterAction>
+        <![CDATA[
+          System.out.println(state.getName() + ": enterAction");
+        ]]>
+      </enterAction>
+      <mainAction>
+        <![CDATA[
+              System.out.println(state.getName() + ": mainAction"); 
+			    ch.ess.state.test.Anfragen anfrage = (ch.ess.state.test.Anfragen)context.get("anfrage");
+			    if (anfrage != null) {
+			      anfrage.setStatus(state.getNumber());
+			    }
+			
+			    ch.ess.state.test.Angebote angebot = (ch.ess.state.test.Angebote)context.get("angebot");
+			    if (angebot != null) {
+			      angebot.setStatus(state.getNumber());
+			    }                       
+            ]]>
+            </mainAction>
+      <leaveAction>
+        <![CDATA[
+           System.out.println(state.getName() + ": leaveAction");
+        ]]>
+      </leaveAction>
+    </action>
+  </actions>
+  
+  
+  
+  <!-- STATES -->
+  <states>
+    <state name="Start" number="0">
+      <action base="default">
+      <permissions>
+        <permission name="beschaffung.anfragen.bearbeiten"/>
+        <permission name="beschaffung.bedarf.ansehen"/>
+        <permission name="beschaffung.bedarf.bearbeiten"/>        
+      </permissions>    
+      </action>
+    </state>
+    <state name="BedarfBearbeiten" number="1">
+      <action base="default">
+      <permissions>
+        <permission name="beschaffung.bedarf.ansehen"/>
+        <permission name="beschaffung.bedarf.bearbeiten"/>    
+      </permissions>    
+      </action>
+    </state>    
+    <state name="BedarfZurueckgewiesen" number="2">
+      <action base="default">
+      <permissions>
+        <permission name="beschaffung.bedarf.ansehen"/>
+        <permission name="beschaffung.bedarf.bearbeiten"/>    
+      </permissions>    
+      </action>
+    </state>   
+    <state name="BedarfFreigeben" number="3">
+      <action base="default">
+      <permissions>
+        <permission name="beschaffung.bedarf.ansehen"/>
+      </permissions>    
+      </action>
+    </state>   
+    <state name="BedarfLoeschen" number="4">
+      <action base="default">
+      <permissions>
+        <permission name="beschaffung.bedarf.ansehen"/>
+      </permissions>    
+      </action>
+    </state>   
+    <state name="AnfrageBearbeiten" number="5">
+      <action base="default">
+      <permissions>
+        <permission name="beschaffung.anfragen.ansehen"/>
+        <permission name="beschaffung.anfragen.bearbeiten"/>    
+      </permissions>    
+      </action>
+    </state>   
+    <state name="AnfrageLoeschen" number="6">
+      <action base="default">
+      <permissions>
+        <permission name="beschaffung.anfragen.ansehen"/>
+      </permissions>    
+      </action>
+    </state>   
+    <state name="AngebotBearbeiten" number="7">
+      <action base="default">
+      <permissions>
+        <permission name="beschaffung.anfragen.ansehen"/>
+        <permission name="beschaffung.angebote.ansehen"/>
+        <permission name="beschaffung.angebote.bearbeiten"/>    
+
+      </permissions>    
+      </action>
+    </state>   
+    <state name="AngebotFormalPruefung" number="8">
+      <action base="default">
+      <permissions>
+        <permission name="beschaffung.anfragen.ansehen"/>
+        <permission name="beschaffung.anfragen.bearbeiten"/>    
+        <permission name="beschaffung.angebote.ansehen"/>
+      </permissions>    
+      </action>
+    </state>   
+    <state name="AngebotTechPruefung" number="9">
+      <action base="default">
+      <permissions>
+        <permission name="beschaffung.anfragen.ansehen"/>
+        <permission name="beschaffung.anfragen.bearbeiten"/>    
+        <permission name="beschaffung.angebote.ansehen"/>
+      </permissions>    
+      </action>
+    </state>   
+    <state name="AngebotFreigeben" number="10">
+      <action base="default">
+      <permissions>
+        <permission name="beschaffung.anfragen.ansehen"/>
+        <permission name="beschaffung.angebote.ansehen"/>
+      </permissions>    
+      </action>
+    </state>                                   
+    <state name="AngebotLoeschen" number="11">
+      <action base="default">
+      <permissions>
+        <permission name="beschaffung.anfragen.ansehen"/>
+        <permission name="beschaffung.angebote.ansehen"/>
+      </permissions>    
+      </action>
+    </state>    
+    <state name="AngebotAktionen" number="12">
+      <action base="default">
+      <permissions>
+        <permission name="beschaffung.anfragen.ansehen"/>
+        <permission name="beschaffung.angebote.ansehen"/>
+      </permissions>    
+      </action>
+    </state> 
+    <state name="Verhandeln" number="13">
+      <action base="default">
+      <permissions>
+        <permission name="beschaffung.anfragen.ansehen"/>
+        <permission name="beschaffung.angebote.ansehen"/>
+      </permissions>    
+      </action>
+    </state>    
+    <state name="AnfrageFreigeben" number="14">
+      <action base="default">
+      <permissions>
+        <permission name="beschaffung.anfragen.ansehen"/>
+        <permission name="beschaffung.angebote.ansehen"/>
+      </permissions>    
+      </action>
+    </state>  
+    <state name="AngebotShortlist" number="15">
+      <action base="default">
+      <permissions>
+        <permission name="beschaffung.anfragen.ansehen"/>
+        <permission name="beschaffung.angebote.ansehen"/>
+      </permissions>    
+      </action>
+    </state> 
+    <state name="AngebotAblehnen" number="16">
+      <action base="default">
+      <permissions>
+        <permission name="beschaffung.anfragen.ansehen"/>
+        <permission name="beschaffung.angebote.ansehen"/>
+      </permissions>    
+      </action>
+    </state> 
+    <state name="AngebotRueckfrage" number="17">
+      <action base="default">
+      <permissions>
+        <permission name="beschaffung.anfragen.ansehen"/>
+        <permission name="beschaffung.angebote.ansehen"/>
+      </permissions>    
+      </action>
+    </state>                                   
+  </states>
+    
+  <!-- EVENTS -->
+  <events>
+    <event name="AnfrageAbschliessen">
+      <transition fromState="AngebotBearbeiten" toState="AngebotFormalPruefung" guard="beschaffung.anfragen.bearbeiten"/>
+    </event>
+    
+    <event name="AnfrageFreigeben">
+      <transition fromState="AnfrageBearbeiten" toState="AnfrageFreigeben" guard="beschaffung.anfragen.bearbeiten"/>
+    </event>    
+    
+    <event name="AnfrageLoeschen">
+      <transition fromState="AnfrageBearbeiten" toState="AnfrageLoeschen" guard="beschaffung.anfragen.bearbeiten"/>
+    </event>  
+
+    <event name="AnfrageNeu">
+      <transition fromState="Start" toState="AnfrageBearbeiten" guard="beschaffung.anfragen.bearbeiten"/>
+    </event>     
+    
+    <event name="AnfrageSpeichern">
+      <transition fromState="AnfrageBearbeiten" toState="AnfrageBearbeiten" guard="beschaffung.anfragen.bearbeiten"/>
+    </event>    
+    
+    <event name="AnfrageZurueckweisen">
+      <transition fromState="AnfrageBearbeiten" toState="BedarfZurueckgewiesen" guard="beschaffung.anfragen.bearbeiten"/>
+    </event>     
+
+    <event name="AngebotAblehnen">
+      <transition fromState="AngebotAktionen" toState="AngebotAblehnen" guard="beschaffung.anfragen.bearbeiten"/>
+    </event> 
+    
+    <event name="AngebotAktionen">
+      <transition fromState="AngebotAktionen" toState="AngebotAktionen" guard="beschaffung.anfragen.bearbeiten"/>
+    </event>     
+       
+    <event name="AngebotBewFreigeben">
+      <transition fromState="AngebotFormalPruefung" toState="AngebotTechPruefung" guard="beschaffung.anfragen.bearbeiten"/>
+      <transition fromState="AngebotTechPruefung" toState="AngebotAktionen" guard="beschaffung.bedarf.bearbeiten"/>
+    </event>          
+      
+    <event name="AngebotBewSpeichern">
+      <transition fromState="AngebotFormalPruefung" toState="AngebotFormalPruefung" guard="beschaffung.anfragen.bearbeiten"/>
+      <transition fromState="AngebotTechPruefung" toState="AngebotTechPruefung" guard="beschaffung.bedarf.bearbeiten"/>
+    </event>  
+    
+    <event name="AngebotBewUebernehmen">
+      <transition fromState="AngebotFreigeben" toState="AngebotAktionen" guard="beschaffung.anfragen.bearbeiten"/>
+    </event>   
+    
+    <event name="AngebotBewZurueckweisen">
+      <transition fromState="AngebotFreigeben" toState="AngebotTechPruefung" guard="beschaffung.anfragen.bearbeiten"/>
+    </event>  
+    
+    <event name="AngebotFreigeben">
+      <transition fromState="AngebotBearbeiten" toState="AngebotFormalPruefung" guard="beschaffung.angebote.bearbeiten"/>
+      <transition fromState="AngebotRueckfrage" toState="AngebotAktionen" guard="beschaffung.anfragen.bearbeiten"/>
+      <transition fromState="AngebotAblehnen" toState="AngebotAktionen" guard="beschaffung.anfragen.bearbeiten"/>
+      <transition fromState="AngebotShortlist" toState="AngebotAktionen" guard="beschaffung.anfragen.bearbeiten"/>            
+    </event>      
+            
+    <event name="AngebotLoeschen">
+      <transition fromState="AngebotFreigeben" toState="AngebotLoeschen" guard="beschaffung.anfragen.bearbeiten"/>
+    </event> 
+    
+    <event name="AngebotNeu">
+      <transition fromState="AnfrageFreigeben" toState="AngebotBearbeiten" guard="beschaffung.angebote.bearbeiten"/>
+    </event>       
+        
+    <event name="AngebotRueckfrage">
+      <transition fromState="AngebotAktionen" toState="AngebotRueckfrage" guard="beschaffung.anfragen.bearbeiten"/>
+    </event>              
+      
+    <event name="AngebotShortlist">
+      <transition fromState="AngebotAktionen" toState="AngebotShortlist" guard="beschaffung.anfragen.bearbeiten"/>
+    </event>          
+          
+    <event name="AngebotSpeichern">
+      <transition fromState="AngebotBearbeiten" toState="AngebotBearbeiten" guard="beschaffung.angebote.bearbeiten"/>
+    </event>           
+      
+    <event name="BedarfFreigeben">
+      <transition fromState="BedarfBearbeiten" toState="BedarfFreigeben" guard="beschaffung.bedarf.bearbeiten"/>
+    </event>         
+      
+    <event name="BedarfLoeschen">
+      <transition fromState="BedarfBearbeiten" toState="BedarfLoeschen" guard="beschaffung.bedarf.bearbeiten"/>
+      <transition fromState="BedarfFreigeben" toState="BedarfLoeschen" guard="beschaffung.anfragen.bearbeiten"/>      
+    </event>      
+        
+    <event name="BedarfNeu">
+      <transition fromState="Start" toState="BedarfBearbeiten" guard="beschaffung.bedarf.bearbeiten"/>
+    </event>        
+      
+    <event name="BedarfSpeichern">
+      <transition fromState="BedarfBearbeiten" toState="BedarfBearbeiten" guard="beschaffung.bedarf.bearbeiten"/>
+      <transition fromState="BedarfZurueckgewiesen" toState="BedarfBearbeiten" guard="beschaffung.bedarf.bearbeiten"/>      
+    </event>       
+          
+    <event name="BedarfUebernehmen">
+      <transition fromState="BedarfFreigeben" toState="AnfrageBearbeiten" guard="beschaffung.anfragen.bearbeiten"/>
+    </event>            
+    
+    <event name="BedarfZurueckweisen">
+      <transition fromState="BedarfFreigeben" toState="BedarfZurueckgewiesen" guard="beschaffung.anfragen.bearbeiten"/>
+    </event>           
+     
+    <event name="JournalSpeichern">
+      <transition fromState="BedarfBearbeiten" toState="BedarfBearbeiten" guard="beschaffung.bedarf.bearbeiten"/>
+      <transition fromState="BedarfZurueckgewiesen" toState="BedarfBearbeiten" guard="beschaffung.bedarf.bearbeiten"/>      
+      <transition fromState="BedarfFreigeben" toState="BedarfFreigeben" guard="beschaffung.anfragen.bearbeiten"/>            
+      <transition fromState="AnfrageBearbeiten" toState="AnfrageBearbeiten" guard="beschaffung.anfragen.bearbeiten"/>                  
+      <transition fromState="AngebotFormalPruefung" toState="AngebotFormalPruefung" guard="beschaffung.anfragen.bearbeiten"/>                        
+      <transition fromState="AngebotTechPruefung" toState="AngebotTechPruefung" guard="beschaffung.bedarf.bearbeiten"/>            
+      <transition fromState="AngebotFreigeben" toState="AngebotFreigeben" guard="beschaffung.anfragen.bearbeiten"/>                        
+      <transition fromState="AngebotAktionen" toState="AngebotAktionen" guard="beschaffung.anfragen.bearbeiten"/>                        
+      <transition fromState="AngebotShortlist" toState="AngebotShortlist" guard="beschaffung.anfragen.bearbeiten"/>                        
+      <transition fromState="AngebotAblehnen" toState="AngebotAblehnen" guard="beschaffung.anfragen.bearbeiten"/>                        
+      <transition fromState="AngebotRueckfrage" toState="AngebotRueckfrage" guard="beschaffung.anfragen.bearbeiten"/>                                                
+    </event>        
+        
+    <event name="LieferantenSpeichern">
+      <transition fromState="BedarfBearbeiten" toState="BedarfBearbeiten" guard="beschaffung.bedarf.bearbeiten"/>
+      <transition fromState="BedarfZurueckgewiesen" toState="BedarfBearbeiten" guard="beschaffung.bedarf.bearbeiten"/>      
+      <transition fromState="AnfrageBearbeiten" toState="AnfrageBearbeiten" guard="beschaffung.anfragen.bearbeiten"/>      
+      <transition fromState="AngebotAktionen" toState="AngebotAktionen" guard="beschaffung.anfragen.bearbeiten"/>                        
+    </event>          
+
+    <event name="Verhandeln">
+      <transition fromState="AngebotAktionen" toState="Verhandeln" guard="beschaffung.anfragen.bearbeiten"/>
+    </event> 
+
+                       
+  </events>
+  
+</statemachine>

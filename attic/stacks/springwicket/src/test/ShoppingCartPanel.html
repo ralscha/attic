@@ -1,0 +1,29 @@
+<html xmlns:wicket>
+<wicket:panel>
+   <h3>Your selection</h3>
+   <table>
+   <tbody>
+      <tr wicket:id="cart">
+         <td wicket:id="name">Gouda</td>
+         <td wicket:id="price">2.99</td>
+         <td><a wicket:id="remove" href="#">remove</a></td>
+      </tr>
+      <wicket:remove>
+      <tr>
+         <td>Emmental</td>
+         <td>$1.99</td>
+         <td><a href="#">remove</a></td>
+      </tr>
+      </wicket:remove>
+   </tbody>
+   <tfoot>
+      <tr class="total">
+         <th>Total</th>
+         <td wicket:id="total">$1.99</td>
+         <td>&nbsp;</td>
+      </tr>
+   </tfoot>
+   </table>
+</wicket:panel>
+</html>
+  

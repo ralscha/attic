@@ -1,0 +1,10 @@
+Doppelg„nger gesucht, c't 25/99, S. 252 (jo)
+---------------------------------------------
+
+Phonet.c          --     Quelltexte zum Programm phonet.c
+
+Die Regeln sollten fr den gr”áten Teil der deutschen Namen, Vornamen
+und W”rtern gengen. Bei der nderung der Regels„tze ist zu beachten,
+dass bereits kleine Modifikationen starke Nebenwirkungen haben.
+
+ 

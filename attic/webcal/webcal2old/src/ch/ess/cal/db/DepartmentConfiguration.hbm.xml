@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping SYSTEM "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+<hibernate-mapping>
+
+	<class name="ch.ess.cal.db.DepartmentConfiguration" proxy="ch.ess.cal.db.DepartmentConfiguration" table="calDepartmentConfiguration">
+		<id name="departmentConfigurationId" type="long" unsaved-value="null">
+			<generator class="native"/>
+		</id>		
+		<property name="name" type="string" length="100" not-null="true"/>
+    	<property name="propValue" type="string" length="1000"/>
+			
+		<many-to-one name="department" class="ch.ess.cal.db.Department" column="departmentId" not-null="true"/>			
+								
+	</class>
+
+	
+</hibernate-mapping>

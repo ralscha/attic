@@ -1,0 +1,78 @@
+/* --- menu styles ---
+note:
+	not all browsers render styles the same way so try out your style sheet
+	on different browsers before publishing;
+*/
+/* level 0 inner */
+.m0l0iout {
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	text-decoration: none;
+	padding: 4px;
+	color: #000000;
+}
+.m0l0iover {
+	font: 12px Verdana, Geneva, Arial, Helvetica, sans-serif; 
+	text-decoration: none;
+	padding: 4px;
+	color: #000000;
+}
+
+/* level 0 outer */
+.m0l0oout {
+	text-decoration : none;
+	border : 1px solid #999999;
+	background: #EEEEEE;
+}
+.m0l0oover {
+	text-decoration : none;
+	border : 1px solid #999999;
+	background: #DDDDDD;
+}
+
+/* level 1 inner */
+.m0l1iout {
+	font: 12px Verdana, Geneva, Arial, Helvetica, sans-serif; 
+	text-decoration: none;
+	padding: 4px;
+	color: #000000;
+}
+.m0l1iover {
+	font: 12px Verdana, Geneva, Arial, Helvetica, sans-serif; 
+	text-decoration : none;
+	padding: 4px;
+	color: #000000;
+}
+
+/* level 1 outer */
+.m0l1oout {
+	text-decoration : none;
+	border : 1px solid #999999;
+	background: #EEEEEE;
+	/*filter: alpha(opacity=85);*/
+}
+.m0l1oover {
+	text-decoration : none;
+	border : 1px solid #999999;
+	background: #DDDDDD;
+}
+
+/* level 2 inner */
+.m0l2iover {
+	font: 12px Verdana, Geneva, Arial, Helvetica, sans-serif; 
+	text-decoration : none;
+	padding: 4px;
+	color: #000000;
+}
+
+/* level 2 outer */
+.m0l2oout {
+	text-decoration : none;
+	border : 1px solid #999999;
+	background: #EEEEEE;
+}
+.m0l2oover {
+	text-decoration : none;
+	border : 1px solid #999999;
+	background: #DDDDDD;
+}

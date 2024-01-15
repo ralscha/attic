@@ -1,0 +1,92 @@
+<?xml version="1.0"?>
+
+<?cocoon-process type="xsp"?>
+<?cocoon-process type="xslt"?>
+<?xml-stylesheet href="XSL/JavaXML.fo.xsl" type="text/xsl"?>
+
+<xsp:page 
+  language="java" 
+  xmlns:xsp="http://www.apache.org/1999/XSP/Core"
+  xmlns:JavaXML="http://www.oreilly.com/catalog/javaxml/"
+>
+<book>
+ <cover>
+  <title>Java and XML</title>
+   <author>Brett McLaughlin</author>
+ </cover>
+
+ <contents>
+  <chapter id="chapterOne">
+   <title>
+        <JavaXML:draftTitle chapterNum="1" 
+                            chapterTitle="Introduction" 
+        />
+   </title>
+      
+   <paragraph>XML.  These three letters have brought shivers to 
+   almost every developer in the world today at some point in the
+   last two years.  While those shivers were often fear at another
+   acronym to memorize, excitement at the promise of a new technology,
+   or annoyance at another source of confusion for today's 
+   developer, they were shivers all the same.  Surprisingly, almost every
+   type of response was well merited with regard to XML.  It is another 
+   acronym to memorize, and in fact brings with it a dizzying array of 
+   companions: XSL, XSLT, PI, DTD, XHTML, and more.  It also brings with 
+   it a huge promise-what Java did for portability of code, XML claims 
+   to do for portability of data.  Sun has even been touting the 
+   rather ambitious slogan "Java + XML = Portable Code + Portable 
+   Data" in recent months.  And yes, XML does bring with it a 
+   significant amount of confusion.  We will seek to unravel and 
+   demystify XML, without being so abstract and general as to be 
+   useless, and without diving in so deeply that this becomes just 
+   another droll specification to wade through.  This 
+   is a book for you, the Java developer, who wants to understand the 
+   hype and use the tools that XML brings to the table.</paragraph>
+
+   <xsp:logic>
+    boolean authorOrEditor = false;
+
+    // Perform logic to see if user is an author or editor
+    <![CDATA[
+    String[] roleValues = request.getParameterValues("userRole");
+    String[] passwordValues = request.getParameterValues("password");
+    if ((roleValues != null) && (passwordValues != null)) {
+      String userRole = roleValues[0];
+      String password = passwordValues[0];
+      if (userRole.equals("author") && password.equals("brett")) {
+        authorOrEditor = true;
+      } else
+      if (userRole.equals("editor") && password.equals("mike")) {
+        authorOrEditor = true;
+      }
+    ]]>
+    }
+
+    if (authorOrEditor) {
+      <xsp:content>
+        <authorComment>Is the formatting of this first paragraph OK?  I 
+        wonder if we should break this into two separate paragraphs.  Let 
+        me know what you think, Mike.</authorComment>
+      </xsp:content>
+    }
+   </xsp:logic>
+
+   <paragraph>Today's web application now faces a wealth of problems
+   that were not even considered ten years ago.  Systems that are 
+   distributed across thousands of miles must perform quickly and 
+   flawlessly.  Data from heterogeneous systems, databases, directory 
+   services, and applications must be transferred without a single 
+   decimal place being lost.  Applications must be able to communicate 
+   not only with other business components, but other business systems 
+   altogether, often across companies as well as technologies.  Clients 
+   are no longer limited to thick clients, but can be web browsers that 
+   support HTML, mobile phones that support Wireless Application 
+   Protocol (WAP), or handheld organizers with entirely different markup 
+   languages altogether. Data, and the transformation of that data, has 
+   become the crucial centerpiece of every application being developed 
+   today.</paragraph>
+  </chapter>
+
+ </contents>
+</book>
+</xsp:page>

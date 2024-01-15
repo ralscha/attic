@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+
+<MenuConfig>
+
+  <Displayers>
+    <Displayer   name="DropDown"
+                 type="net.sf.navigator.displayer.DropDownMenuDisplayer"/>
+    <Displayer   name="Simple"
+                 type="net.sf.navigator.displayer.SimpleMenuDisplayer"/>
+    <Displayer   name="CoolMenu"
+                 type="net.sf.navigator.displayer.CoolMenuDisplayer"/>
+    <Displayer   name="CoolMenu4"
+                 type="net.sf.navigator.displayer.CoolMenuDisplayer4"/>
+    <Displayer   name="MenuForm"
+                 type="net.sf.navigator.example.PermissionsFormMenuDisplayer"/>
+    <Displayer   name="ListMenu"
+                 type="net.sf.navigator.displayer.ListMenuDisplayer"/>
+    <Displayer   name="TabbedMenu"
+                 type="net.sf.navigator.displayer.TabbedMenuDisplayer"/>
+    <Displayer   name="Velocity"
+                 type="ch.ess.common.web.VelocityMenuDisplayer"/>
+    <Displayer   name="MenuBar"
+                 type="ch.ess.common.web.MenuBarDisplayer"/>
+  </Displayers>
+
+  <Menus>
+
+    <!-- Main Menu -->
+    <Menu name="m_mainmenu" title="common.blank" roles="user,admin">
+      <Item name="m_application" title="Addressbook" roles="user,admin" page="/default.do"> 	    
+	  </Item>
+      <Item name="m_administration" title="application.administration"> 
+        <Item name="i_general" title="userconfig.personal" page="/editUserConfig.do" roles="user,admin"/>    
+        <Item name="i_system" title="config.system" page="/editConfig.do" roles="admin"/>
+        <Item name="i_resource" title="resource" page="/resources.do?clean=1" roles="admin"/>        
+        <Item name="i_users" title="user.users" page="/users.do?clean=1" roles="admin"/>      
+      </Item>  
+      <Item  name="m_logout" title="login.logout" roles="user,admin" page="/logout.jsp"/> 
+    </Menu>   
+
+      
+    
+  </Menus>
+
+</MenuConfig>

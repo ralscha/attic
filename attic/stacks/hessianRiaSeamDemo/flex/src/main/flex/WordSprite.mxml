@@ -1,0 +1,85 @@
+<?xml version="1.0"?>
+<mx:HBox 
+  xmlns:mx="http://www.adobe.com/2006/mxml" 
+  backgroundColor="yellow" 
+  borderColor="black" borderThickness="1" borderStyle="solid"
+  creationComplete="onCreationComplete(event)"
+  mouseDown="onMouseDown(event)" mouseUp="onMouseUp(event)">
+
+  <mx:Script>
+    <![CDATA[
+      import flash.events.MouseEvent;
+      import mx.events.FlexEvent;
+
+      private const _bound:Rectangle = new Rectangle(0, 0, 360, 160);
+
+      private var _initialX:int;
+      private var _initialY:int;
+      private var _word:Word;
+      private var _readOnly:Boolean = false;
+
+      public function onCreationComplete(event:FlexEvent):void
+      {
+        _initialX = x;
+        _initialY = y;
+      }
+
+      public function onMouseDown(event:MouseEvent):void
+      {
+        if (! _readOnly)
+          startDrag(false, _bound);
+      }
+
+      public function onMouseUp(event:MouseEvent):void
+      {
+        if (! _readOnly)
+          stopDrag();
+
+        if (x > 202)
+          used = true;
+        else
+          used = false;
+      }
+
+      public function reset():void
+      {
+        x = _initialX;
+        y = _initialY;
+        used = false;
+      }
+
+      public function get word():Word
+      {
+        if (_word == null)
+          _word = new Word(value);
+
+        _word._x = x;
+        _word._y = y;
+
+        return _word;
+      }
+
+      public function set word(word:Word):void
+      {
+        _word = word;
+        x = word._x;
+        y = word._y;
+        value = word._value.toString();
+      }
+
+      public function get readOnly():Boolean
+      {
+        return _readOnly;
+      }
+
+      public function set readOnly(value:Boolean):void
+      {
+        _readOnly = value;
+      }
+    ]]>
+  </mx:Script>
+
+  <mx:Label text="{value}"/>
+  <mx:String id="value"/>
+  <mx:Boolean id="used"/>
+</mx:HBox>

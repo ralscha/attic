@@ -1,0 +1,177 @@
+EINZELKONTO: 413 + 419                                                          
+SAMMELKONTO: 407                                                                
+                                                                                
+WAEHRUNG                      EINZELKONTO         SAMMELKONTO         DIFFERENZ 
+                                                                                
+0002     XEU                       0,000                0,000            0,000  
+0010     CHF                 789 900,890-         789 900,890            0,000  
+0022     BEF                       0,000                0,000            0,000  
+0037     DKK                       0,000                0,000            0,000  
+0044     DEM                 102 101,420-         102 101,420            0,000  
+0060     FIM                       0,000                0,000            0,000  
+0066     FRF                       0,000                0,000            0,000  
+0082     GRD                       0,000                0,000            0,000  
+0089     GBP                       0,000                0,000            0,000  
+0097     IEP                       0,000                0,000            0,000  
+0111     ITL                       0,000                0,000            0,000  
+0153     NLG                       0,000                0,000            0,000  
+0161     NOK                       0,000                0,000            0,000  
+0168     ATS                       0,000                0,000            0,000  
+0183     PTE                       0,000                0,000            0,000  
+0204     SEK                       0,000                0,000            0,000  
+0223     ESP                       0,000                0,000            0,000  
+0290     CNY                       0,000                0,000            0,000  
+0305     HKD                       0,000                0,000            0,000  
+0310     INR                       0,000                0,000            0,000  
+0335     JPY                       0,000                0,000            0,000  
+0355     QAR                       0,000                0,000            0,000  
+0370     KWD                       0,000                0,000            0,000  
+0415     PKR                       0,000                0,000            0,000  
+0425     SAR                       0,000                0,000            0,000  
+0440     SGD                       0,000                0,000            0,000  
+0443     TWD                       0,000                0,000            0,000  
+0445     THB                       0,000                0,000            0,000  
+0455     TRL                       0,000                0,000            0,000  
+0502     CFA                       0,000                0,000            0,000  
+0569     KES                       0,000                0,000            0,000  
+0605     MAD                       0,000                0,000            0,000  
+0625     NGN                       0,000                0,000            0,000  
+0673     ZAR                       0,000                0,000            0,000  
+0770     CAD                       0,000                0,000            0,000  
+0780     USD              17 327 035,330-       9 671 996,720    7 655 038,610-*
+0879     CRUZAD                    0,000                0,000            0,000  
+0881     CRUZEI                    0,000                0,000            0,000  
+0937     VEB                       0,000                0,000            0,000  
+0945     AUD                       0,000                0,000            0,000  
+0965     NZD                       0,000                0,000            0,000  
+                                                                                
+                                                                                
+W„HRUNGSCODE:         2  XEU                                                    
+                                                                                
+                                                                                
+W„HRUNGSCODE:        10  CHF                                                    
+0060                          52 433,910-          52 433,910            0,000  
+0835                         737 466,980-         737 466,980            0,000  
+                                                                                
+                                                                                
+W„HRUNGSCODE:        22  BEF                                                    
+                                                                                
+                                                                                
+W„HRUNGSCODE:        37  DKK                                                    
+                                                                                
+                                                                                
+W„HRUNGSCODE:        44  DEM                                                    
+0251                         102 101,420-         102 101,420            0,000  
+                                                                                
+                                                                                
+W„HRUNGSCODE:        60  FIM                                                    
+                                                                                
+                                                                                
+W„HRUNGSCODE:        66  FRF                                                    
+                                                                                
+                                                                                
+W„HRUNGSCODE:        82  GRD                                                    
+                                                                                
+                                                                                
+W„HRUNGSCODE:        89  GBP                                                    
+                                                                                
+                                                                                
+W„HRUNGSCODE:        97  IEP                                                    
+                                                                                
+                                                                                
+W„HRUNGSCODE:       111  ITL                                                    
+                                                                                
+                                                                                
+W„HRUNGSCODE:       153  NLG                                                    
+                                                                                
+                                                                                
+W„HRUNGSCODE:       161  NOK                                                    
+                                                                                
+                                                                                
+W„HRUNGSCODE:       168  ATS                                                    
+                                                                                
+                                                                                
+W„HRUNGSCODE:       183  PTE                                                    
+                                                                                
+                                                                                
+W„HRUNGSCODE:       204  SEK                                                    
+                                                                                
+                                                                                
+W„HRUNGSCODE:       223  ESP                                                    
+                                                                                
+                                                                                
+W„HRUNGSCODE:       290  CNY                                                    
+                                                                                
+                                                                                
+W„HRUNGSCODE:       305  HKD                                                    
+                                                                                
+                                                                                
+W„HRUNGSCODE:       310  INR                                                    
+                                                                                
+                                                                                
+W„HRUNGSCODE:       335  JPY                                                    
+                                                                                
+                                                                                
+W„HRUNGSCODE:       355  QAR                                                    
+                                                                                
+                                                                                
+W„HRUNGSCODE:       370  KWD                                                    
+                                                                                
+                                                                                
+W„HRUNGSCODE:       415  PKR                                                    
+                                                                                
+                                                                                
+W„HRUNGSCODE:       425  SAR                                                    
+                                                                                
+                                                                                
+W„HRUNGSCODE:       440  SGD                                                    
+                                                                                
+                                                                                
+W„HRUNGSCODE:       443  TWD                                                    
+                                                                                
+                                                                                
+W„HRUNGSCODE:       445  THB                                                    
+                                                                                
+                                                                                
+W„HRUNGSCODE:       455  TRL                                                    
+                                                                                
+                                                                                
+W„HRUNGSCODE:       502  CFA                                                    
+                                                                                
+                                                                                
+W„HRUNGSCODE:       569  KES                                                    
+                                                                                
+                                                                                
+W„HRUNGSCODE:       605  MAD                                                    
+                                                                                
+                                                                                
+W„HRUNGSCODE:       625  NGN                                                    
+                                                                                
+                                                                                
+W„HRUNGSCODE:       673  ZAR                                                    
+                                                                                
+                                                                                
+W„HRUNGSCODE:       770  CAD                                                    
+                                                                                
+                                                                                
+W„HRUNGSCODE:       780  USD                                                    
+0060                         290 554,000-         290 554,000            0,000  
+0094                          47 800,000-          47 800,000            0,000  
+0251                       7 458 993,750-         196 044,860-   7 655 038,610-*
+0425                         480 000,000-         480 000,000            0,000  
+0835                       9 049 687,580-       9 049 687,580            0,000  
+                                                                                
+                                                                                
+W„HRUNGSCODE:       879  CRUZAD                                                 
+                                                                                
+                                                                                
+W„HRUNGSCODE:       881  CRUZEI                                                 
+                                                                                
+                                                                                
+W„HRUNGSCODE:       937  VEB                                                    
+                                                                                
+                                                                                
+W„HRUNGSCODE:       945  AUD                                                    
+                                                                                
+                                                                                
+W„HRUNGSCODE:       965  NZD                                                    

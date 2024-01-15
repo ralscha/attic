@@ -1,0 +1,627 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Canvas xmlns:mx="http://www.adobe.com/2006/mxml" width="100%" height="100%" 
+  xmlns:business="ch.ess.mp3search.business.*" xmlns:control="ch.ess.mp3search.events.*"
+  creationComplete="init()" xmlns:components="ch.ess.mp3search.components.*">
+
+  <mx:Script>
+    <![CDATA[
+      import ch.ess.mp3search.model.Info;
+      import ch.ess.mp3search.events.GetInfoEvent;
+      import mx.utils.StringUtil;
+      import mx.managers.DragManager;
+      import mx.events.DragEvent;
+      import mx.collections.ArrayCollection;
+      import ch.ess.mp3search.events.DownloadEvent;
+      import mx.events.DataGridEvent;
+      import mx.controls.Alert;
+      import mx.rpc.Fault;
+      import mx.rpc.events.ResultEvent;
+      import com.universalmind.cairngorm.events.Callbacks;
+      import ch.ess.mp3search.model.ModelLocator;
+      import ch.ess.mp3search.events.SearchEvent;
+      import mx.events.ListEvent;
+      import ch.ess.mp3search.model.Songs;
+      
+      [Bindable]
+      public var sound:Sound;
+      
+      [Bindable]
+      public var soundChannel:SoundChannel;
+                
+      public var playingSong:String;                
+      private var pausePosition:Number;            
+            
+      [Bindable]
+      private var model:ModelLocator = ModelLocator.getInstance();      
+
+      private var isDragging:Boolean = false;
+      
+      [Bindable]
+      private var isPaused:Boolean = false;
+      
+      [Bindable]
+      private var isLoading:Boolean = false;
+
+      private function returnKeyHandler(event:KeyboardEvent):void {
+        if (event.keyCode == 13) {
+          search();
+        }
+      }   
+      
+      public function init():void {
+        queryTI.setFocus();
+        var event:GetInfoEvent = new GetInfoEvent();
+        event.dispatch();
+      }  
+
+      //Search Event            
+      private function search():void {
+        if (StringUtil.trim(queryTI.text) != "" && StringUtil.trim(queryTI.text) != "*") {
+          searchButton.enabled = false;
+          foundLabel.visible = false;
+          var callbacks:Callbacks = new Callbacks(result, fault);
+          var event:SearchEvent = new SearchEvent(queryTI.text, callbacks);
+          event.dispatch();
+        }
+      }
+      
+      private function result(event:ResultEvent):void {
+        searchButton.enabled = true;
+        foundLabel.visible = true;
+      }
+      
+      private function fault(event:Event):void {
+        searchButton.enabled = true;
+        trace(event.toString());
+        Alert.show("Communication Error", "Error"); 
+        foundLabel.visible = false;   
+      }
+      
+      
+      
+      //Download
+      private function download(event:MouseEvent):void {
+        var selectedSongs:ArrayCollection = new ArrayCollection();
+                        
+        for(var i:uint; i < model.songsAC.length; i++) {
+          if (model.songsAC.getItemAt(i).selected) {
+            selectedSongs.addItem(model.songsAC.getItemAt(i).directory);
+          }
+        } 
+
+        if (selectedSongs.length > 0) { 
+          downloadButton.enabled = false;
+          var callbacks:Callbacks = new Callbacks(resultDownload, faultDownload);         
+          var downloadEvent:DownloadEvent = new DownloadEvent(selectedSongs, progressBar, callbacks);
+          downloadEvent.dispatch();
+        } else {
+          Alert.show("No Songs selected");          
+        }
+      }
+      
+      private function downloadPlaylist(event:MouseEvent):void {
+        var selectedSongs:ArrayCollection = new ArrayCollection();
+                        
+        for(var i:uint; i < model.playlistAC.length; i++) {
+          selectedSongs.addItem(model.playlistAC.getItemAt(i).directory);
+        } 
+
+        if (selectedSongs.length > 0) { 
+          downloadPlaylistButton.enabled = false;
+          var callbacks:Callbacks = new Callbacks(resultDownload, faultDownload);         
+          var downloadEvent:DownloadEvent = new DownloadEvent(selectedSongs, progressPlaylistBar, callbacks);
+          downloadEvent.dispatch();
+        } else {
+          Alert.show("No Songs in Playlist");          
+        }
+      }      
+      
+      private function resultDownload(event:Event):void {
+        downloadButton.enabled = true;
+        downloadPlaylistButton.enabled = true;
+      }
+      
+      private function faultDownload(event:Event):void {
+        downloadButton.enabled = true;
+        downloadPlaylistButton.enabled = true;
+        trace(event.toString());
+        Alert.show("Communication Error", "Error");    
+      }      
+      
+      
+      ///////////////
+      //PLAY SONGS
+      ///////////////
+      
+      private function play():void {
+        
+        if (isPaused) {
+          if (playlistDG.selectedItem == null || playlistDG.selectedItem.directory == playingSong) {
+              soundChannel = null;
+              soundChannel = sound.play(pausePosition);
+              setVolume();
+              isPaused = false;
+              pausePosition = 0;
+              positionSlider.enabled = true;                        
+              addEventListener(Event.ENTER_FRAME, onEnterFrame);
+              return;
+          }   
+          
+          isPaused = false;
+          pausePosition = 0;               
+        }
+        
+        if (playlistDG.selectedItem != null) {
+          
+          stop();
+          
+          addEventListener(Event.ENTER_FRAME, onEnterFrame);
+          
+          var request:URLRequest = new URLRequest(model.baseURL + "downloadMp3.action");
+          
+          var variables:URLVariables = new URLVariables();
+          playingSong = playlistDG.selectedItem.directory;
+          variables.fileName = playlistDG.selectedItem.directory;  
+          request.data = variables;   
+          
+          positionSlider.enabled = false;
+          playButton.enabled = false;
+          stopButton.enabled = true;
+          
+          sound = new Sound();
+          sound.addEventListener(Event.COMPLETE, completeLoadSong);
+          sound.addEventListener(Event.ID3, id3Handler);
+          sound.addEventListener(IOErrorEvent.IO_ERROR, faultLoadSong);
+          sound.addEventListener(Event.OPEN, openHandler);
+          sound.load(request);
+          
+          soundChannel = sound.play(); 
+          setVolume();
+          soundChannel.addEventListener(Event.SOUND_COMPLETE, soundComplete);
+                    
+          showVisualization();
+          
+        }
+      }
+      
+      
+      public function faultLoadSong(event:Event):void { 
+        isLoading = false;       
+        songProgressBar.visible = false;
+        playButton.enabled = true;
+        trace(event.toString());
+        Alert.show("Communication Error", "Error");    
+      }
+    
+      private function completeLoadSong(event:Event):void {
+        isLoading = false;
+        songProgressBar.visible = false;
+        playButton.enabled = true;
+        positionSlider.enabled = true;                               
+      }
+      
+      private function changeShowVisualization():void {
+        if (visualizationCB.selected) {
+          showVisualization();
+        } else {
+          stopVisualization();
+        }
+      }
+      
+      private function showVisualization():void {
+        
+        stopVisualization();
+        if (visualizationCB.selected) {
+          visualizationCanvas.visible = true;
+          var visObj:Object = new Object();
+          visObj.waveHeight = 150;
+          visObj.leftBase = 20;
+          visObj.rightBase = 20;
+          visObj.visLoc = new Point(0,0);
+          visObj.visScale = 1;
+          visObj.fft = false;
+          visualizationCanvas.init(visObj);
+          visualizationCanvas.stage.frameRate = 18;
+        }      
+      }
+      
+      private function stopVisualization():void {
+        visualizationCanvas.removeVisTimer();
+        visualizationCanvas.visible = false;
+      }
+      
+      
+      public function next():void {
+        for (var i:uint = 0; i < model.playlistAC.length; i++) {
+          if (model.playlistAC.getItemAt(i).directory == playlistDG.selectedItem.directory) {
+            if (i < model.playlistAC.length-1) {
+              stop();
+              playlistDG.selectedItem = model.playlistAC.getItemAt(i+1);
+              playlistDG.scrollToIndex(i+1);
+              play();
+              return;
+            }
+          }
+        }
+        
+      }
+      
+      public function prev():void {
+        for (var i:uint; i < model.playlistAC.length; i++) {
+          if (model.playlistAC.getItemAt(i).directory == playlistDG.selectedItem.directory) {
+            if (i > 0) {
+              stop();
+              playlistDG.selectedItem = model.playlistAC.getItemAt(i-1);
+              play();
+              return;
+            }
+          }
+        }
+      }
+      
+      private function openHandler(event:Event):void {
+        songProgressBar.visible = true;
+        songProgressBar.source = sound;
+        isLoading = true;
+      }
+      
+      private function id3Handler(event:Event):void {
+        albumLabel.text = sound.id3.album;
+        artistLabel.text = sound.id3.artist;
+        titleLabel.text = sound.id3.songName;
+      }
+
+
+      private function pause():void {        
+        if (soundChannel != null) {
+          isPaused = true;
+          pausePosition = soundChannel.position;
+          
+          soundChannel.stop();
+          positionSlider.enabled = false;
+          removeEventListener(Event.ENTER_FRAME, onEnterFrame);
+        }
+      }
+
+      private function stop():void {
+        stopVisualization();
+        
+        if (soundChannel != null) {
+          
+          try {
+            sound.close();
+            songProgressBar.visible = false;
+            playButton.enabled = true;
+          } catch (e:IOError) {
+            //no action here
+          }
+          
+          soundChannel.stop();
+          soundChannel = null;
+          sound = null;
+
+          positionSlider.enabled = false;
+          
+          playingSong = null;
+          
+          albumLabel.text = null;
+          artistLabel.text = null;
+          titleLabel.text = null;
+          songTotalTimeLabel.text = null;
+          songTimeLabel.text = null;          
+          
+          positionSlider.value = 0;
+          
+          removeEventListener(Event.ENTER_FRAME, onEnterFrame);
+        }
+        stopButton.enabled = false;
+      }
+      
+      private function setVolume():void {
+        if (soundChannel != null){
+          var transform:SoundTransform = soundChannel.soundTransform;
+          transform.volume = volumeControl.value;
+          soundChannel.soundTransform = transform;
+        }
+      }     
+      
+      private function changeSize(event:Event):void {
+        if (soundChannel != null) {
+          var songLength:Number = sound.length * 1000;
+          soundChannel.stop();
+          var playhead:Number = positionSlider.value *.01;
+          soundChannel = sound.play((playhead * songLength) / 1000);
+          soundChannel.addEventListener(Event.SOUND_COMPLETE, soundComplete);
+          setVolume();
+        }
+      }
+      
+      private function soundComplete(event:Event):void {
+        stop();
+        next();
+      }
+      
+      
+
+
+      private function onEnterFrame(event:Event):void{
+        if (!isDragging && !isPaused) {
+          if (soundChannel != null) {                  
+            var length:Number = sound.length;
+            var position:Number = soundChannel.position; 
+            var newX:int = ((position / length) * positionSlider.width);
+            positionSlider.getThumbAt(0).x = newX;
+            
+            // set up times
+            var minutes:Number = Math.floor(position / 1000 / 60);
+            var seconds:Number = Math.floor(position / 1000) % 60;
+            var totalMins:Number = Math.floor(length / 1000 / 60);
+            var totalSec:Number = Math.floor(length / 1000) % 60;
+            
+            songTimeLabel.text = ((minutes < 10) ? "0" + minutes : minutes) + ":" + ((seconds < 10) ? "0" + seconds : seconds);
+            songTotalTimeLabel.text = ((totalMins < 10) ? "0" + totalMins : totalMins) + ":" + ((totalSec < 10) ? "0" + totalSec : totalSec); 
+                          
+          }
+        }
+      } 
+      
+      private function copyToPlaylist():void {
+        if (songsDG.selectedItem != null) {
+          if (!songExistsInPlaylist(songsDG.selectedItem.directory)) {
+            model.playlistAC.addItem(songsDG.selectedItem);
+          }
+        }
+      }
+      
+      private function songExistsInPlaylist(name:String):Boolean {
+        for(var i:uint; i < model.playlistAC.length; i++) {
+          if (model.playlistAC.getItemAt(i).directory == name) {
+            return true;
+          }
+        }
+        return false;
+      }
+      
+      
+      private function dragCompleteHandler(event:DragEvent):void {
+        if (event.action != DragManager.NONE) {          
+          var items:Array = event.dragSource.dataForFormat("items") as Array;
+                    
+          for(var j:uint = 0; j < items.length; j++) {         
+            var arrayPos:Array = new Array();
+            
+            for(var i:uint = 0; i < model.playlistAC.length; i++) {
+              if (model.playlistAC.getItemAt(i).directory == items[j].directory) {
+                arrayPos.push(i);
+              }
+            }          
+            
+            if (arrayPos.length > 1) {
+              model.playlistAC.removeItemAt(arrayPos[arrayPos.length-1]);
+            }
+          }
+        }
+      }
+      
+      private function positionSliderDataTipFormatter(value:Number):String { 
+        var length:Number = sound.length;
+        var pos:Number = length / 100 * value;
+        
+        var minutes:Number = Math.floor(pos / 1000 / 60);
+        var seconds:Number = Math.floor(pos / 1000) % 60;
+        
+        return ((minutes < 10) ? "0" + minutes : minutes) + ":" + ((seconds < 10) ? "0" + seconds : seconds);
+      }
+      
+      
+      private function volumeControlDataTipFormatter(value:Number):String {
+        return Math.floor(value * 100) + " %";
+      }
+      
+      private function onItemClick(e:ListEvent):void {
+        if (e.columnIndex == 4) {
+          deleteSong();
+        }      
+      }   
+      
+      private function deleteSong():void {
+        if (playlistDG.selectedItem != null) {
+          var s:Songs = Songs(playlistDG.selectedItem);
+          if (s.directory == playingSong) {
+            stop();
+          }
+          
+          for(var i:uint; i < model.playlistAC.length; i++) {
+            if (s.directory == model.playlistAC.getItemAt(i).directory) {
+              model.playlistAC.removeItemAt(i);
+            }
+          }   
+        }                    
+      }  
+      
+      private function clearPlaylist():void {
+        stop();
+        model.playlistAC.removeAll();
+      } 
+      
+      private function dataTipTitleFunction(item:Object):String {
+        if (item.title != null) {
+          return item.title;
+        }
+        return "";
+      }
+      
+      private function dataTipAlbumFunction(item:Object):String {
+        if (item.album!= null) {
+          return item.album;
+        }
+        return "";
+      }      
+
+      private function dataTipArtistFunction(item:Object):String {
+        if (item.artist != null) {
+          return item.artist;
+        }
+        return "";
+      }     
+      
+      private function durationLabelFunction(item:Object, column:DataGridColumn):String {
+        if (item.duration != null) {
+          var minutes:Number = Math.floor(item.duration / 60);
+          var seconds:Number = Math.floor(item.duration % 60);
+        
+          return ((minutes < 10) ? "0" + minutes : minutes) + ":" + ((seconds < 10) ? "0" + seconds : seconds);
+          
+        }
+        return "";
+        
+      }
+      
+      private function getTotalLabel(info:Info):String {
+        var str:String = "";
+        str += "Total "; 
+        str += info.noOfSongs;
+        str += " Songs (";
+        
+        var m:Number = info.totalDuration / 60;        
+        var h:Number = m / 60;
+        var days:Number = Math.floor(h/24);
+        
+        var hours:Number = Math.floor(h % 24);
+        var minutes:Number = Math.floor(m % 60);        
+        var seconds:Number = Math.floor(info.totalDuration % 60);
+        
+        str += days + " Days " + hours + " Hours " + minutes + " Minutes " + seconds + " Seconds";
+        str += ")";
+        return str;
+      }
+      
+    ]]>
+  </mx:Script>
+  
+    
+  <!-- the ServiceLocator where we specify the remote services  -->
+  <business:Services id="services" />
+
+  <!-- the FrontController, containing Commands specific to this app  -->
+  <control:Controller id="controller" />
+  
+  <mx:Label top="0" left="30" text="{getTotalLabel(model.info)}" width="100%"/>
+ 
+  <mx:HBox width="100%" top="20" left="30">
+    <mx:TextInput id="queryTI" width="300" keyDown="returnKeyHandler(event)"/>
+    <mx:Button label="Search" click="search()" id="searchButton" icon="@Embed(source='/assets/find.png')" 
+      enabled="{StringUtil.trim(queryTI.text) != '' &amp;&amp; StringUtil.trim(queryTI.text) != '*'}"/>
+    <mx:Label text="Found {model.songsAC.length} Songs" id="foundLabel" fontWeight="bold" visible="false"/>
+  </mx:HBox>
+  <mx:DataGrid dataProvider="{model.songsAC}" id="songsDG" top="50" left="30" right="30" 
+   editable="true" dragEnabled="true" doubleClick="copyToPlaylist()" doubleClickEnabled="true"
+   dragComplete="dragCompleteHandler(event)" bottom="300" allowMultipleSelection="true">
+    <mx:columns>
+      <mx:DataGridColumn headerText="Title" dataField="title" dataTipFunction="dataTipTitleFunction" showDataTips="true" editable="false"/>
+      <mx:DataGridColumn headerText="Album" dataField="album" dataTipFunction="dataTipAlbumFunction" showDataTips="true" editable="false"/>
+      <mx:DataGridColumn headerText="Artist" dataField="artist" dataTipFunction="dataTipArtistFunction" showDataTips="true" editable="false"/>
+      <mx:DataGridColumn headerText="Year" dataField="year" width="70" editable="false"/>    
+      <mx:DataGridColumn headerText="Duration" dataField="duration" width="75" editable="false" labelFunction="durationLabelFunction"/>  
+      <mx:DataGridColumn headerText="File" dataField="fileName" dataTipField="fileName" showDataTips="true" editable="false"/> 
+      <mx:DataGridColumn headerText="" dataField="selected" rendererIsEditor="true"
+        editorDataField="selected" textAlign="center" width="50" itemRenderer="mx.controls.CheckBox" />
+        
+    </mx:columns>
+  </mx:DataGrid>
+  <mx:HBox width="100%" left="30" bottom="265" height="28">
+    <mx:Button label="Download Selected" click="download(event)" id="downloadButton" icon="@Embed(source='/assets/export1.png')"/>
+    <mx:ProgressBar id="progressBar" visible="false" />
+    <mx:Spacer width="100%" />
+    <mx:CheckBox label="Show Visualization" id="visualizationCB" selected="true" change="changeShowVisualization()"/>
+    <components:VisualizationCanvas width="300" id="visualizationCanvas" left="0"/>
+  </mx:HBox>  
+  
+  
+  <mx:VBox bottom="30" left="30" height="210" right="460" width="100%">
+    <mx:DataGrid dataProvider="{model.playlistAC}" width="100%" height="100%" draggableColumns="false"      
+      dropEnabled="true" id="playlistDG" doubleClick="play()" doubleClickEnabled="true" itemClick="onItemClick(event)">
+      <mx:columns>
+        <mx:DataGridColumn headerText="Title" dataField="title" dataTipFunction="dataTipTitleFunction" showDataTips="true"/>
+        <mx:DataGridColumn headerText="Album" dataField="album" dataTipFunction="dataTipAlbumFunction" showDataTips="true"/>
+        <mx:DataGridColumn headerText="Artist" dataField="artist" dataTipFunction="dataTipArtistFunction" showDataTips="true"/>
+        <mx:DataGridColumn headerText="Duration" dataField="duration" width="75" labelFunction="durationLabelFunction"/>
+        
+        <mx:DataGridColumn sortable="false" width="60" headerText="Delete">
+          <mx:itemRenderer>
+            <mx:Component>
+              <mx:Image source="@Embed(source='/assets/delete2.png')" width="16" height="16" verticalAlign="middle" horizontalAlign="center" scaleContent="false"/>
+            </mx:Component>
+          </mx:itemRenderer>      
+        </mx:DataGridColumn>        
+        
+      </mx:columns>
+    </mx:DataGrid>
+    
+    <mx:HBox width="100%">
+      <mx:Button label="Clear Playlist" click="clearPlaylist()" icon="@Embed(source='/assets/delete2.png')"/>
+      <mx:Button label="Download Playlist" click="downloadPlaylist(event)" id="downloadPlaylistButton" icon="@Embed(source='/assets/export1.png')"/>
+      <mx:ProgressBar id="progressPlaylistBar" visible="false" />
+    </mx:HBox>    
+  </mx:VBox>
+  
+  <mx:VBox bottom="30" height="210" right="400">
+    <mx:Button label="" 
+      icon="@Embed(source='/assets/media_rewind.png')" 
+      enabled="{model.playlistAC.length > 1 &amp;&amp; playlistDG.selectedIndex > 0}" click="prev()"/>
+    <mx:Button label="" id="playButton" click="play()"
+      icon="@Embed(source='/assets/media_play_green.png')"       
+      enabled="{model.playlistAC.length > 0 &amp;&amp; playlistDG.selectedItem != null}"/>    
+    <mx:Button label="" id="pauseButton" click="pause()"
+      icon="@Embed(source='/assets/media_pause.png')"       
+      enabled="{soundChannel != null &amp;&amp; !isPaused &amp;&amp; !isLoading}"/>        
+    <mx:Button label="" id="stopButton" 
+      icon="@Embed(source='/assets/media_stop_red.png')" 
+      enabled="false" click="stop()"/>
+    <mx:Button label="" 
+      icon="@Embed(source='/assets/media_fast_forward.png')"
+      enabled="{model.playlistAC.length > 1 &amp;&amp; playlistDG.selectedIndex &lt; model.playlistAC.length-1}" click="next()"/>
+  </mx:VBox>
+  
+  <mx:VBox right="60" bottom="60" height="180" width="320">
+    
+    <mx:ProgressBar id="songProgressBar" visible="false"/>
+    
+    <mx:Form>
+      <mx:FormItem label="Title">
+        <mx:Label width="150" id="titleLabel" fontWeight="bold"/>
+      </mx:FormItem>
+      <mx:FormItem label="Album">
+        <mx:Label width="150" id="albumLabel" fontWeight="bold"/>
+      </mx:FormItem>
+      <mx:FormItem label="Artist">
+        <mx:Label width="150" id="artistLabel" fontWeight="bold"/>
+      </mx:FormItem>      
+      <mx:FormItem label="Duration">
+        <mx:Label width="150" id="songTotalTimeLabel" fontWeight="bold"/>
+      </mx:FormItem>      
+      <mx:FormItem label="Position">
+        <mx:Label width="150" id="songTimeLabel" fontWeight="bold"/>
+      </mx:FormItem>      
+      
+    </mx:Form>
+    
+  </mx:VBox>  
+  
+  <mx:HSlider id="positionSlider" maximum="100" toolTip="Position" toolTipShow="true"
+          dataTipFormatFunction="positionSliderDataTipFormatter"
+          dataTipPlacement="top" 
+          allowTrackClick="false"
+          liveDragging="true" 
+          enabled="false"
+          thumbPress="{isDragging=true}"
+          thumbRelease="{isDragging=false}"
+          thumbDrag="changeSize(event)" bottom="30" right="60" width="320"/>
+  
+  <mx:VSlider id="volumeControl" allowTrackClick="false" toolTip="Volume" toolTipShow="true"
+              dataTipFormatFunction="volumeControlDataTipFormatter" enabled="{soundChannel != null}"
+              liveDragging="true" thumbDrag="setVolume()" value=".5" maximum="1" minimum="0" 
+              right="30" bottom="30" height="160"/>
+  
+  
+</mx:Canvas>

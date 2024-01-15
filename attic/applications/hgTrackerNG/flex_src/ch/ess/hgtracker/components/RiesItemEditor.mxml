@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:HBox xmlns:mx="http://www.adobe.com/2006/mxml" horizontalAlign="right" 
+  verticalAlign="middle">
+  <mx:CheckBox id="nrCheckbox"/>
+  <mx:TextInput width="40" id="riesInputText" restrict="0-9"/>
+        
+</mx:HBox>

@@ -1,0 +1,74 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:c="http://java.sun.com/jstl/core"
+      xmlns:s="http://jboss.com/products/seam/taglib">
+
+<c:set var="spacer" value=" " />
+
+	<head>
+	  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	
+		<title>#{messages.application_title}#{spacer}|#{spacer}<ui:insert
+				name="title">???Title???</ui:insert>
+		</title>
+	
+		<!-- CSS: To make it pretty -->
+		<style type="text/css" media="screen">
+	      @import url(styles/greeny_blu.css);
+	    </style>
+	
+		<ui:insert name="head" />
+	
+	</head>
+
+		<body>
+			<div id="container">
+				<div id="header">
+					<h1>
+						<ui:insert name="sitename">#{messages.application_title}</ui:insert>
+					</h1>
+					<p>
+						<ui:insert name="slogan">#{messages.application_slogan}</ui:insert>
+					</p>
+				</div>
+				<p class="accessibility">
+					<a href="#content" title="Scroll page to the main content">Skip
+						to Content &#187;</a>
+				</p>
+				
+				<ui:include src="/sandbox/fragments/menu.xhtml" />
+				
+				<div id="content">
+					<!-- to show all messages, use facesMessages.currentMessages and globalOnly="false" -->
+					<!-- to only show global messages, use facesMessages.currentGlobalMessages and globalOnly="true" -->
+					<c:if test="#{not empty facesMessages.currentGlobalMessages}">
+						<div id="messages">
+							<h:messages infoClass="info" warnClass="warn" errorClass="error"
+								globalOnly="true" />
+						</div>
+					</c:if>
+					<div id="main">
+						<h2 id="overview">
+							<ui:insert name="title">???Title???</ui:insert>
+							<span class="action"><ui:insert name="action" />
+							</span>
+						</h2>
+						<ui:insert name="body">???Body???</ui:insert>
+					</div>
+					<div id="fringe">
+						<ui:insert name="fringe" />
+					</div>
+				</div>
+				<div id="footer">
+					<p>
+						#{messages.application_footer}
+					</p>
+				</div>
+			</div>
+		</body>
+	</html>
+
+

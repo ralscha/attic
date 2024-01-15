@@ -1,0 +1,22 @@
+<!DOCTYPE form-validation PUBLIC
+          "-//Apache Software Foundation//DTD Commons Validator Rules Configuration 1.0//EN"
+          "http://jakarta.apache.org/commons/dtds/validator_1_0.dtd">
+
+<form-validation>
+
+   <global>
+
+      <validator name="identical"
+            classname="ch.ess.cal.common.Validator"
+               method="validateIdentical"               
+         methodParams="java.lang.Object,
+                       org.apache.commons.validator.ValidatorAction,
+                       org.apache.commons.validator.Field,
+                       org.apache.struts.action.ActionErrors,
+                       javax.servlet.http.HttpServletRequest"               
+                  msg="errors.identical">         
+      </validator>     
+
+   </global>
+
+</form-validation>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.6" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.6 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.6.xsd">
+    <changeSet author="sr (generated)" id="1214125877556-1">
+        <createTable tableName="Authority">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="entityUid" type="varchar(36)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column name="version" type="int"/>
+            <column name="authority" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="principal_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="sr (generated)" id="1214125877556-2">
+        <createTable tableName="Principal">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="entityUid" type="varchar(36)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column name="version" type="int"/>
+            <column name="email" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="enabled" type="tinyint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="firstName" type="varchar(100)"/>
+            <column name="locale" type="varchar(10)"/>
+            <column name="name" type="varchar(100)"/>
+            <column name="oe" type="varchar(100)"/>
+            <column name="passwordHash" type="varchar(40)"/>
+            <column name="userName" type="varchar(100)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="sr (generated)" id="1214125877556-3">
+        <addForeignKeyConstraint baseColumnNames="principal_id" baseTableName="Authority" constraintName="FKCF66272360BFF149" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="Principal"/>
+    </changeSet>
+</databaseChangeLog>

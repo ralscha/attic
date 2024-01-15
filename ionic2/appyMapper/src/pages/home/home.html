@@ -1,0 +1,99 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Appy Mapper
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+  <div id="map"></div>
+  <span class="map-information">{{ summary }}</span>
+
+  <ion-card>
+    <ion-card-header>
+      <button
+        ion-button
+        color="primary"
+        text-align
+        block
+        (click)="displayLocationFilters()">{{ filtersText }}
+      </button>
+    </ion-card-header>
+
+    <div *ngIf="displayFilters" padding>
+      <ion-segment [(ngModel)]="filters">
+        <ion-segment-button value="country">
+          Country
+        </ion-segment-button>
+        <ion-segment-button value="byNearest">
+          Nearest
+        </ion-segment-button>
+      </ion-segment>
+
+      <div class="filters" [ngSwitch]="filters">
+        <ion-list>
+          <ion-item *ngSwitchCase="'country'">
+            <ion-label>Country</ion-label>
+            <ion-select
+              [(ngModel)]="byCountry"
+              (ionChange)="filterLocationsByCountry(byCountry)">
+              <ion-option>Select a country...</ion-option>
+              <ion-option *ngFor="let country of countries" value="{{ country.id }}">{{ country.country }}</ion-option>
+            </ion-select>
+          </ion-item>
+
+          <ion-item *ngSwitchCase="'byNearest'">
+            <ion-label>Nearest store to me:</ion-label>
+            <ion-select
+              [(ngModel)]="byNearest"
+              (ionChange)="filterLocationsByNearest(byNearest)">
+              <ion-option value="50">50 Miles</ion-option>
+              <ion-option value="100">100 Miles</ion-option>
+              <ion-option value="250">250 Miles</ion-option>
+              <ion-option value="500">500 Miles</ion-option>
+              <ion-option value="1000">1000 Miles</ion-option>
+            </ion-select>
+          </ion-item>
+        </ion-list>
+      </div>
+
+      <button class="reset"
+              ion-button
+              color="secondary"
+              text-align
+              block
+              (click)="renderAllStoreLocations()">Display ALL Stores
+      </button>
+    </div>
+
+  </ion-card>
+
+  <div *ngIf="locationsPresent">
+
+    <ion-card *ngFor="let location of locations">
+      <ion-card-header>
+        <ion-item class="heading">
+          <ion-icon ios="logo-apple" md="logo-apple" item-left></ion-icon>
+          <h2>{{ location.name }}</h2>
+        </ion-item>
+      </ion-card-header>
+      <ion-card-content>
+        <div class="location-address" [innerHTML]="location.address | sanitiser"></div>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card>
+      <button
+        ion-button
+        color="secondary"
+        text-align
+        block
+        (click)="scrollToTopOfScreen()">Back to Top
+      </button>
+    </ion-card>
+  </div>
+
+
+</ion-content>

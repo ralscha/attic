@@ -1,0 +1,86 @@
+<?xml version="1.0" ?>
+<web-app xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
+
+  <display-name>TestTrackerNG2</display-name>
+
+  <context-param>
+      <param-name>LIQUIBASE_CHANGELOG</param-name>
+      <param-value>db/changelog.xml</param-value>
+  </context-param>
+   
+  <context-param>
+      <param-name>LIQUIBASE_DATA_SOURCE</param-name>
+      <param-value>java:comp/env/jdbc/testTrackerNG2</param-value>
+  </context-param>
+   
+  <!--  
+  <context-param>
+      <param-name>LIQUIBASE_HOST_EXCLUDES</param-name>
+      <param-value>production1.example.com, production2.example.com</param-value>
+  </context-param>
+  -->
+  
+  <context-param>
+      <param-name>LIQUIBASE_FAIL_ON_ERROR</param-name>
+      <param-value>true</param-value>
+  </context-param>
+  
+  <!--  
+  <context-param>
+      <param-name>LIQUIBASE_CONTEXTS</param-name>
+      <param-value>production</param-value>
+  </context-param>
+  -->
+  
+  <listener>
+      <listener-class>liquibase.servlet.LiquibaseServletListener</listener-class>
+  </listener>    
+
+	<listener>
+		<listener-class>org.jboss.seam.servlet.SeamListener</listener-class>
+	</listener>
+
+	<filter>
+		<filter-name>AMFMessageFilter</filter-name>
+		<filter-class>org.granite.messaging.webapp.AMFMessageFilter</filter-class>
+	</filter>
+
+	<filter-mapping>
+		<filter-name>AMFMessageFilter</filter-name>
+		<url-pattern>/graniteamf/*</url-pattern>
+	</filter-mapping>
+
+	<servlet>
+		<servlet-name>AMFMessageServlet</servlet-name>
+		<servlet-class>org.granite.messaging.webapp.AMFMessageServlet</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+
+  <servlet>
+    <servlet-name>Faces Servlet</servlet-name>
+    <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  
+  <servlet>
+    <servlet-name>uploadTest</servlet-name>
+    <servlet-class>ch.ess.testtracker.web.UploadTestServlet</servlet-class>
+  </servlet>
+
+	<servlet-mapping>
+		<servlet-name>AMFMessageServlet</servlet-name>
+		<url-pattern>/graniteamf/*</url-pattern>
+	</servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>Faces Servlet</servlet-name>
+    <url-pattern>*.seam</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>uploadTest</servlet-name>
+    <url-pattern>/uploadTest</url-pattern>
+  </servlet-mapping>
+
+</web-app>

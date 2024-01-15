@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<!DOCTYPE outlook SYSTEM "outlook.dtd">
+<outlook userid="sr">
+<appointment allday="false">
+<start>11.05.2000 05:00:00</start>
+<end>11.05.2000 12:30:00</end>
+<subject>Test</subject>
+</appointment>
+</outlook>

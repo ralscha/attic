@@ -1,0 +1,56 @@
+<HTML>
+<HEAD>
+<TITLE>Tidestone Technologies, Inc. - Technology for delivering SPREADSHEETS EVERYWHERE</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html">
+<META HTTP-EQUIV="Owner" CONTENT="Tidestone Technologies, Inc.">
+<META NAME="Description" CONTENT="Tidestone Technologies, Inc., delivers Formula One Professional, industry-leading Java and ActiveX spreadsheet technology for developers, Webmasters, and end users.">
+<META NAME="Keywords" CONTENT="spreadsheet, spreadsheets, Java, formula one, JavaBean, applet, ActiveX, Excel compatible, calculations, JDBC, server, internet, intranet, applications, software">
+</HEAD>
+
+<BODY BGCOLOR="#5F8090">
+
+<!--Call DisplayJPGServlet in the ACTION statement to process the form input data when submitted-->
+<FORM METHOD=GET ACTION="/f1/servlet/DisplayJPGServlet" TARGET="right">
+
+<TABLE WIDTH=220>
+<TR>
+<TD WIDTH=220 ALIGN=MIDDLE COLSPAN=2>
+<IMG SRC="house.gif" WIDTH=150 HEIGHT=150><BR>&nbsp;<BR></TD>
+</TR>
+
+<!--Ask the price of the house; name it price-->
+<TR>
+<TD WIDTH=120 VALIGN=MIDDLE ALIGN=RIGHT><FONT SIZE="-1" FACE="ARIAL, HELVETICA" COLOR="#FFFFF7"><B>List Price: </B></FONT></TD>
+<TD WIDTH=100 VALIGN=TOP ALIGN=LEFT><INPUT NAME="price" TYPE="TEXT" SIZE="7"></TD></TR>
+
+<!--Ask for the percent of the price being put down; name it down-->
+<TR>
+<TD WIDTH=120 VALIGN=MIDDLE ALIGN=RIGHT><FONT SIZE="-1" FACE="ARIAL, HELVETICA" COLOR="#FFFFF7"><B>Money Down %:</B></FONT></TD>
+<TD WIDTH=100 VALIGN=TOP ALIGN=LEFT><INPUT NAME="down" TYPE="TEXT" SIZE="7"></TD></TR>
+
+<!--Ask for the percent of the closing cost; name it closing-->
+<TR>
+<TD WIDTH=120 VALIGN=MIDDLE ALIGN=RIGHT><FONT SIZE="-1" FACE="ARIAL, HELVETICA" COLOR="#FFFFF7"><B>Closing %:</B></FONT></TD>
+<TD WIDTH=100 VALIGN=TOP ALIGN=LEFT><INPUT NAME="closing" TYPE="TEXT" SIZE="7"></TD></TR>
+
+<!--Ask for a 15 or 30 year termon the loan, name it years-->
+<TR>
+<TD WIDTH=120 VALIGN=MIDDLE ALIGN=RIGHT><FONT SIZE="-1" FACE="ARIAL, HELVETICA" COLOR="#FFFFF7"><B>Years:</B></FONT></TD>
+<TD WIDTH=100 VALIGN=TOP ALIGN=LEFT><SELECT NAME="years"> 
+<OPTION SELECTED>15</OPTION> 
+<OPTION>30</OPTION>
+</SELECT></TD></TR>
+
+<!--Ask for the rate of the loan, name it interest-->
+<TR>
+<TD WIDTH=120 VALIGN=MIDDLE ALIGN=RIGHT><FONT SIZE="-1" FACE="ARIAL, HELVETICA" COLOR="#FFFFF7"><B>Interest:</B></FONT></TD>
+<TD WIDTH=100 VALIGN=TOP ALIGN=LEFT><INPUT NAME="interest" TYPE="TEXT" VALUE="7.0" SIZE="3"></TD></TR>
+
+<TR>
+<TD WIDTH=220 COLSPAN=2 ALIGN=MIDDLE><BR>&nbsp;<BR><INPUT TYPE="Submit" value="Display Chart"></TD></TR>
+</TABLE>
+
+</FORM>
+
+</BODY>
+</HTML>

@@ -1,0 +1,59 @@
+<!--#include file="include/head_v45.shtml"-->
+<!--#include file="include/body.shtml"-->
+<br>
+<p class="subTitle">Aufeinanderfolgende Zahlen</p>
+<p class="nr">ab Ziehung Nr. 1/1986 (Einf&uuml;hrung von 43, 44 und 45)</p>
+<br>
+<table border="1" class="tableContents">
+<tr>
+<th class="tableHeader">Aufeinanderfolgende<br>Zahlen pro Ausspielung</th>
+<th class="tableHeader">Ausspielungen</th>
+<th class="tableHeader">Prozent</th>
+</tr>
+
+<tr><th class="tableRowHeader">0</th><td align="center" class="text">%%auf0%%</td>
+<td align="center" class="text">%%per0%%</td></tr>
+<tr><th class="tableRowHeader">2</th><td align="center" class="text">%%auf1%%</td>
+<td align="center" class="text">%%per1%%</td></tr>
+<tr><th class="tableRowHeader">3</th><td align="center" class="text">%%auf2%%</td>
+<td align="center" class="text">%%per2%%</td></tr>
+<tr><th class="tableRowHeader">4</th><td align="center" class="text">%%auf3%%</td>
+<td align="center" class="text">%%per3%%</td></tr>
+<tr><th class="tableRowHeader">5</th><td align="center" class="text">%%auf4%%</td>
+<td align="center" class="text">%%per4%%</td></tr>
+<tr><th class="tableRowHeader">6</th><td align="center" class="text">%%auf5%%</td>
+<td align="center" class="text">%%per5%%</td></tr>
+<tr><th class="tableRowHeader">2 + 2</th><td align="center" class="text">%%auf6%%</td>
+<td align="center" class="text">%%per6%%</td></tr>
+<tr><th class="tableRowHeader">3 + 3</th><td align="center" class="text">%%auf7%%</td>
+<td align="center" class="text">%%per7%%</td></tr>
+<tr><th class="tableRowHeader">2 + 3</th><td align="center" class="text">%%auf8%%</td>
+<td align="center" class="text">%%per8%%</td></tr>
+<tr><th class="tableRowHeader">2 + 2 + 2</th><td align="center" class="text">%%auf9%%</td>
+<td align="center" class="text">%%per9%%</td></tr>
+<tr><th class="tableRowHeader">2 + 4</th><td align="center" class="text">%%auf10%%</td>
+<td align="center" class="text">%%per10%%</td></tr>
+</table>
+<br>
+<p class="text">
+<a href="Verbundalle.shtml">alle Ziehungen</a><BR>
+<a href="Verbund42.shtml">ab Ziehung Nr. 14/1979 (Einf&uuml;hrung von 41 und 42)</a><BR>
+<b>ab Ziehung Nr. 1/1986 (Einf&uuml;hrung von 43, 44 und 45)</b><BR>
+<a href="Verbund97.shtml">ab Ziehung Nr. 1/1997 (Einf&uuml;hrung Mittwochsziehung)</a>
+</p>
+<br>
+<HR>
+<br>
+<p class="text">
+<b>Beispiele</b>
+</p>
+<table class="text">
+<tr><td class="text">Ausspielung: 18/1994 4, 23, 37, 38, 40, 44<br>
+Die Zahlen 37 und 38 sind Nachbarn auf der Zahlengerade und damit 
+geh&ouml;rt die Ziehung zur Kategorie: <i>Aufeinanderfolgende Zahlen 2</i></td></tr>
+<tr><td></td></tr>
+<tr><td class="text">Ausspielung: 19/1994 6, 7, 8, 25, 26, 36<br>
+6, 7 und 8 sowie 25 und 26 folgen unmittelbar aufeinander. Daher 
+Kategorie: <i>Aufeinanderfolgende Zahlen 2 + 3</i></td></tr>
+</table>
+<!--#include file="include/tail.shtml"-->

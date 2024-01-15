@@ -1,0 +1,343 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd">
+
+<hibernate-mapping>
+    <class
+        name="ch.ess.cal.db.Event"
+        table="calEvent"
+        lazy="true"
+        dynamic-update="false"
+        dynamic-insert="false"
+    >
+
+        <id
+            name="id"
+            column="id"
+            type="java.lang.Long"
+            unsaved-value="null"
+        >
+            <generator class="native">
+            </generator>
+        </id>
+
+        <version
+            name="version"
+            type="int"
+            column="version"
+        />
+
+        <property
+            name="startDate"
+            type="long"
+            update="true"
+            insert="true"
+            column="startDate"
+            not-null="true"
+        />
+
+        <property
+            name="endDate"
+            type="long"
+            update="true"
+            insert="true"
+            column="endDate"
+            not-null="false"
+        />
+
+        <property
+            name="allDay"
+            type="boolean"
+            update="true"
+            insert="true"
+            column="allDay"
+            not-null="true"
+        />
+
+        <property
+            name="sensitivity"
+            type="ch.ess.cal.db.SensitivityEnum"
+            update="true"
+            insert="true"
+            column="sensitivity"
+            not-null="true"
+        />
+
+        <property
+            name="importance"
+            type="ch.ess.cal.db.ImportanceEnum"
+            update="true"
+            insert="true"
+            column="importance"
+            not-null="true"
+        />
+
+        <property
+            name="description"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="description"
+            length="1000"
+            not-null="false"
+        />
+
+        <property
+            name="location"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="location"
+            length="255"
+            not-null="false"
+        />
+
+        <property
+            name="subject"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="subject"
+            length="255"
+            not-null="false"
+        />
+
+        <property
+            name="uid"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="uid"
+            length="255"
+            not-null="false"
+        />
+
+        <property
+            name="createDate"
+            type="long"
+            update="true"
+            insert="true"
+            column="createDate"
+            not-null="false"
+        />
+
+        <property
+            name="modificationDate"
+            type="long"
+            update="true"
+            insert="true"
+            column="modificationDate"
+            not-null="false"
+        />
+
+        <property
+            name="calVersion"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="calVersion"
+            length="5"
+            not-null="false"
+        />
+
+        <property
+            name="sequence"
+            type="int"
+            update="true"
+            insert="true"
+            column="sequence"
+            not-null="true"
+        />
+
+        <property
+            name="priority"
+            type="int"
+            update="true"
+            insert="true"
+            column="priority"
+            not-null="true"
+        />
+
+        <property
+            name="timeZone"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="timeZone"
+            length="50"
+            not-null="true"
+        />
+
+        <many-to-one
+            name="resource"
+            class="ch.ess.cal.db.Resource"
+            cascade="none"
+            outer-join="auto"
+            update="true"
+            insert="true"
+        >
+            <column
+                name="resourceId"
+                index="FK_Event_Resource"
+                not-null="false"
+            />
+        </many-to-one>
+
+        <many-to-one
+            name="department"
+            class="ch.ess.cal.db.Department"
+            cascade="none"
+            outer-join="auto"
+            update="true"
+            insert="true"
+        >
+            <column
+                name="departmentId"
+                index="FK_Event_Department"
+                not-null="false"
+            />
+        </many-to-one>
+
+        <set
+            name="properties"
+            table="calEventProp"
+            lazy="true"
+            inverse="false"
+            cascade="all-delete-orphan"
+            sort="unsorted"
+        >
+
+              <key
+                  column="eventId"
+              />
+
+              <composite-element
+                  class="ch.ess.cal.db.EventProperty"
+              >
+        <property
+            name="name"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="name"
+            length="100"
+            not-null="true"
+        />
+
+        <property
+            name="propValue"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="propValue"
+            length="255"
+        />
+
+              </composite-element>
+
+        </set>
+
+        <set
+            name="users"
+            table="calUserEvents"
+            lazy="true"
+            inverse="false"
+            cascade="none"
+            sort="unsorted"
+        >
+
+              <key
+                  column="eventId"
+              />
+
+              <many-to-many
+                  class="ch.ess.cal.db.User"
+                  column="userId"
+                  outer-join="auto"
+              />
+
+        </set>
+
+        <set
+            name="recurrences"
+            lazy="true"
+            inverse="true"
+            cascade="all-delete-orphan"
+            sort="unsorted"
+        >
+
+              <key
+                  column="eventId"
+              />
+
+              <one-to-many
+                  class="ch.ess.cal.db.Recurrence"
+              />
+        </set>
+
+        <set
+            name="reminders"
+            lazy="true"
+            inverse="true"
+            cascade="all-delete-orphan"
+            sort="unsorted"
+        >
+
+              <key
+                  column="eventId"
+              />
+
+              <one-to-many
+                  class="ch.ess.cal.db.Reminder"
+              />
+        </set>
+
+        <set
+            name="attachments"
+            lazy="true"
+            inverse="true"
+            cascade="all-delete-orphan"
+            sort="unsorted"
+        >
+
+              <key
+                  column="eventId"
+              />
+
+              <one-to-many
+                  class="ch.ess.cal.db.Attachment"
+              />
+        </set>
+
+        <set
+            name="categories"
+            table="calEventCategories"
+            lazy="true"
+            inverse="false"
+            cascade="none"
+            sort="unsorted"
+        >
+
+              <key
+                  column="eventId"
+              />
+
+              <many-to-many
+                  class="ch.ess.cal.db.Category"
+                  column="categoryId"
+                  outer-join="auto"
+              />
+
+        </set>
+
+        <!--
+            To add non XDoclet property mappings, create a file named
+                hibernate-properties-Event.xml
+            containing the additional properties and place it in your merge dir.
+        -->
+
+    </class>
+
+</hibernate-mapping>

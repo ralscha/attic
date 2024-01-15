@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE statemachine PUBLIC "-//ESS Development AG//DTD StateMachine 1.0//EN"
+                              "http://www.ess.ch/dtds/statemachine.dtd">
+
+<statemachine>
+
+  <!-- GLOBAL ACTIONS -->
+  <!-- WICHTIG: name attribut muss unique sein -->
+  <actions>
+    <action name="default">
+      <enterAction>
+        <![CDATA[
+          System.out.println("default: enterAction"); 
+        ]]>
+      </enterAction>
+      <mainAction>
+        <![CDATA[
+              System.out.println("status nummer: " + state.getNumber());       
+            ]]>
+            </mainAction>
+      <leaveAction>
+        <![CDATA[
+          System.out.println("default: leaveAction"); 
+        ]]>
+      </leaveAction>
+      <permissions>
+        <permission name="bedarf.ansehen"/>
+        <permission name="bedarf.bearbeiten"/>
+      </permissions>
+    </action>
+  </actions>
+  
+  <!-- STATES -->
+  <states>
+    <state name="one" number="1">
+      <action base="default">
+      <permissions>
+        <permission name="bedarf.ansehen"/>
+        <permission name="bedarf.bearbeiten"/>
+      </permissions>    
+      </action>
+    </state>
+    <state name="three" number="3"><action base="default"/></state>
+    <state name="two" number="2">
+      <action>
+        <enterAction>
+          <![CDATA[
+            System.out.println("enterAction from status two"); 
+          ]]>
+        </enterAction>
+        <mainAction>
+          <![CDATA[
+              System.out.println("status nummer: " + state.getNumber());    
+              Object testObj = context.get("testObj");
+              if (testObj != null) {
+                System.out.println("testObj: " + testObj);
+              }   
+            ]]>
+          </mainAction>
+        <leaveAction>
+          <![CDATA[
+            System.out.println("leaveAction"); 
+          ]]>
+        </leaveAction>
+        <permissions>
+          <permission name="bedarf.ansehen"/>
+        </permissions>
+      </action>
+    </state>
+  </states>
+    
+  <!-- EVENTS -->
+  <events>
+    <event name="goTo">
+      <transition fromState="one" toState="two" guard="bedarf.ansehen"/>
+      <transition fromState="two" toState="three" guard="bedarf.ansehen"/>
+    </event>
+  </events>
+  
+</statemachine>

@@ -1,0 +1,13 @@
+<ivysettings>
+  <settings defaultResolver="chain"/>
+  <resolvers>
+    <chain name="chain">
+      
+			<url name="archiva" m2compatible="true">
+			  <artifact pattern="http://dev.ess.ch/archiva/repository/internal/[organisation]/[module]/[revision]/[artifact]-[revision].[ext]" />
+			</url>      
+      
+      <ibiblio name="ibiblio" m2compatible="true" usepoms="false"/>
+    </chain>
+  </resolvers>
+</ivysettings>

@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<document>
+
+	<properties>
+		<title>User Guide</title>		
+	</properties>
+
+	<body>
+		<section name="User Guide">
+		<p>
+			Recurrance is my answer to the fact that almost everything needs recurring dates
+			and no one has implemented a simple, yet fully featured tool for handling date
+			recurrance that is not permanently bolted into something else.  The goal for this
+			project is very simple.  Take an input string describing the rules for recurrance
+			and answer questions about dates in relation to that rule.  The rule is defined in
+			one of two ways:
+		</p>
+		<p>
+    <ul>
+      <li>A slightly simplified version of the RRULE/RECUR tag in rfc2445	(nice for standards compliance)</li>
+      <li>My user-friendly xml version of rfc2445 split out into human readable xml. (nice for doing something other than fiddling with rfcs all day)</li>	   
+    </ul>
+    </p>
+    <p>
+		The index.jsp file in this display allows you to play with the system without having
+		to learn much about the rules.  It also is helpful for teaching you the rules by
+		letting you enter what you want and then telling you what rule you'd need in order
+		to get the same effect.
+    </p>
+
+    <p>
+			You can also union rules togeter to get even more funky rule setting, and so that you
+			can specify exceptions.  For example, you might have an event every third friday, plus
+			the first of march.  So you'd have one rule for the recurrance and one rule that only
+			happened on the first of march and you could work with the union of the rules.  This
+			makes rule writting a bit simpler.
+		</p>
+		<br />
+		<p>
+		The RecurranceRule object supports these operations:
+		</p>
+		
+<source><![CDATA[
+/***
+Creates a recurrance object based on the rule.  The parses will figure out
+whether the rule is xml or RRULE formated and behave appropriately
+@param rule the rule description
+@param start the inclusive start of the range over which to recurr
+@param end the inclusive end of the range over which to recurr
+***/
+RecurranceRule(String rule, Calendar start, Calendar end)
+]]></source>
+<source><![CDATA[
+/***
+Returns a List of Calendar objects which match the given rule.  You can then create 
+a whatever for each of those dates if you want to.  Note that the start and end
+may be a subset of the rules start and end range.
+@param start the inclusive start of the range over which to return dates
+@param end the inclusive end of the range over which to dates
+@return a list of dates
+***/
+List giveAllMatchingDatesOverRange(Calendar start, Calendar end)
+]]></source>
+<source><![CDATA[  
+/***
+@return true if the given date appears as a recurrance in the rule set.
+***/
+boolean matches(Calendar value)
+]]></source>
+<source><![CDATA[ 
+/***
+@return the next date in the recurrance after the given one, or null if there is no
+such date.  Note that even if value is a match, this will return the one after it.
+***/
+Calendar next(Calendar value)
+ ]]></source>
+ <source><![CDATA[ 
+/***
+@return the previous date in the recurrance before the given one, or null if there 
+is no such date.  Note that even if value is a match, this will return the one 
+before it.
+***/
+Calendar prev(Calendar value)
+]]></source>
+		
+
+		</section>
+					
+		<section name="Project Status">
+			<p>
+				<![CDATA[ <!--#include virtual="projectinfo.inc"--> ]]>
+			</p>
+		</section>
+		
+
+	</body>
+</document>

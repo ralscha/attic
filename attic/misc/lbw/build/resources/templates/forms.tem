@@ -1,0 +1,649 @@
+/* ==========================================
+** THIS FILE IS GENERATED WITH
+** THE CC-RESOURCEFACTORY TOOL.
+**
+** USER...........: ${user.name}
+** PAINTER........: ${painter}
+** BUILD-FACTORY..: ${build.factory}
+** BUILD-DATE.....: ${build.date}
+** BUILD-DIRECTORY: ${build.dir}
+** BUILD-FILE.....: ${build.file}
+**
+** DO NOT MODIFY!
+** ==========================================
+*/
+
+/* ==========================================
+** Frame Control (with frame)
+**
+** Acronym's
+** ------------------------------------------
+** frc     : FormControl
+** frcb    : body
+** frch    : control header
+** c       : caption
+** d       : detail
+** ==========================================
+*/
+
+.frc {
+	font-family : ${frame.font.body.family};
+	font-size : ${frame.font.body.size};
+	font-weight : ${frame.font.body.weight};
+}
+
+/* FormBody */
+.frc .frcb {
+	font-size : ${frame.font.body.size};
+	border-left: 1px solid ${frame.color.border};
+	border-right: 1px solid ${frame.color.border};
+	border-bottom: 1px solid ${frame.color.border};
+	padding-left: 5px;
+	padding-right: 5px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	background-color : ${frame.color.bg};
+}
+
+.frc .frcb .if {
+	font-family : ${frame.font.body.family};
+	font-size : ${frame.font.body.size};
+	border: 1px solid ${frame.color.border};
+	background-color : ${frame.color.bg.if};
+	margin-top: 5px;
+	margin-bottom: 5px;
+	padding: 5px;
+}
+
+.frc .frcb .ifnb {
+	font-family : ${frame.font.body.family};
+	font-size : ${frame.font.body.size};
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+/* FormBody: nested tables*/
+.frc .frcb TABLE {
+	font-size : ${frame.font.body.size};
+}
+
+/* FormControlHeader */
+.frc .frch {
+	font-family : ${frame.font.header.family};
+	font-size : ${frame.font.header.size};
+	font-weight : ${frame.font.header.weight};
+	color : ${frame.color.text.header};
+	background-color : ${frame.color.bg.header};
+}
+
+/* Caption */
+.frc .frch .c {
+	font-family : ${frame.font.header.family};
+	font-size : ${frame.font.header.size + 1};
+	font-weight : ${frame.font.header.weight};
+	color: ${frame.color.text.caption};
+}
+
+/* Detail */
+.frc .frch .d {
+	font-family : ${frame.font.header.family};
+	font-size : ${frame.font.header.size};
+	font-weight : normal;
+	background-color : ${frame.color.bg.header};
+	color: ${frame.color.text.detail};
+}
+
+/* ==========================================
+** FormApplet (with frame)
+**
+** Acronym's
+** ------------------------------------------
+** fc      : FormControl
+** fcb     : body
+** fls     : left spacer
+** frs     : right spacer
+** fe      : error spacer
+** fl      : form label
+** fd      : form display
+** fsl     : search label
+** fhl     : header label 
+** fch     : control header
+** fb      : form button
+** section : Section
+** c       : caption
+** d       : detail
+** ==========================================
+*/
+
+.fc {
+	font-family : ${form.font.body.family};
+	font-size : ${form.font.body.size};
+	font-weight : ${form.font.body.weight};
+}
+
+/* FormBody */
+.fc .fcb {
+	font-size : ${form.font.body.size};
+	border-left: 1px solid ${form.color.border};
+	border-right: 1px solid ${form.color.border};
+	border-bottom: 1px solid ${form.color.border};
+}
+
+.fc .fcb .if {
+	font-family : ${form.font.body.family};
+	font-size : ${form.font.body.size};
+	border: 1px solid ${form.color.border};
+	background-color : ${form.color.bg.if};
+	margin-top: 5px;
+	margin-bottom: 5px;
+	padding: 5px;
+}
+
+.fc .fcb .ifnb {
+	font-family : ${form.font.body.family};
+	font-size : ${form.font.body.size};
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+/* FormBody: nested tables*/
+.fc .fcb TABLE {
+	font-size : ${form.font.body.size};
+}
+
+/* FormLeftSpacer */
+.fc .fls {
+	background-color : ${form.color.bg};
+	width : 4px;
+}
+
+/* FormRightSpacer */
+.fc .frs {
+	background-color : ${form.color.bg.field};
+	width : 4px;
+}
+
+/* FormErrorSpacer */
+.fc .fe {
+	background-color : ${form.color.bg.label};
+	width : 16px;	
+	padding-left: 5px;
+	padding-right: 2px;
+}
+
+/* FormLabel */
+.fc .fl {
+	background-color : ${form.color.bg.label};
+	padding: 5px;
+	width: ${label.width}px;
+	word-wrap: break-word;
+	font-weight : ${form.font.label.weight};
+	text-align : right;
+}
+
+/* FormDisplay */
+.fc .fd {
+	background-color : ${form.color.bg.field};
+	padding: 5px;
+}
+
+/* FormInput --> Input-Tag, Select-Tag  */
+.fc .fd INPUT, .fc .fd SELECT, .fc .fd TEXTAREA {
+	font-family : ${form.font.body.family};
+	font-size : ${form.font.body.size};
+}
+
+/* FormSearchLabel */
+.fc .fsl {
+	color : ${form.color.text.header};
+	background-color : ${form.color.bg.header};
+	width : 100%;
+	font-family : ${form.font.label.family};
+	font-size : ${form.font.label.size};
+	font-weight : ${form.font.label.weight};
+}
+
+/* FormButton */
+.fc .fb {
+	background-color : ${form.color.bg.field};
+	text-align : right;
+	padding: 7px;
+}
+
+/* Section within a form */
+.fc .section {
+	font-family : ${form.font.header.family};
+	font-size : ${form.font.header.size};
+	font-weight : ${form.font.header.weight};
+	color: ${form.color.text.section};
+	padding-left: 20px;
+	border-top: 1px solid ${form.color.border.section};
+	border-bottom: 1px solid ${form.color.border.section};
+	background-color: ${form.color.bg.section};
+}
+
+/* FormHeaderLabel */
+.fc .fhl {
+	color : ${form.color.text.header};
+	background-color : ${form.color.bg.header};
+	width : 100%;
+}
+
+/* FormControlHeader */
+.fc .fch {
+	font-family : ${form.font.header.family};
+	font-size : ${form.font.header.size};
+	font-weight : ${form.font.header.weight};
+	color : ${form.color.text.header};
+	background-color : ${form.color.bg.header};
+	width : 100%;
+}
+
+/* Caption */
+.fc .fch .c {
+	font-family : ${form.font.header.family};
+	font-size : ${form.font.header.size + 1};
+	font-weight : ${form.font.header.weight};
+	background-color : ${form.color.bg.header};
+	color: ${form.color.text.caption};
+}
+
+/* Detail */
+.fc .fch .d {
+	font-family : ${form.font.header.family};
+	font-size : ${form.font.header.size};
+	font-weight : normal;
+	background-color : ${form.color.bg.header};
+	color: ${form.color.text.detail};
+}
+
+/* ==========================================
+** FormApplet (without frame)
+**
+** Acronym's
+** ------------------------------------------
+**
+** ==========================================
+*/
+
+.fc_nf {
+	font-family : ${form.font.body.family};
+	font-size : ${form.font.body.size};
+	font-weight : ${form.font.body.weight};
+}
+
+/* FormBody */
+.fc_nf .fcb {
+	font-size : ${form.font.body.size};
+	border-left: none;
+	border-right: none;
+	border-bottom: none;
+}
+
+.fc_nf .fcb .if {
+	font-family : ${form.font.body.family};
+	font-size : ${form.font.body.size};
+	border: 1px solid ${form.color.border};
+	background-color : ${form.color.bg.if};
+	margin-top: 5px;
+	margin-bottom: 5px;
+	padding: 5px;
+}
+
+.fc_nf .fcb .ifnb {
+	font-family : ${form.font.body.family};
+	font-size : ${form.font.body.size};
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+/* FormBody: nested tables*/
+.fc_nf .fcb TABLE {
+	font-size : ${form.font.body.size};
+}
+
+/* FormLeftSpacer */
+.fc_nf .fls {
+	background-color : ${form.color.bg};
+	width : 4px;
+}
+
+/* FormRightSpacer */
+.fc_nf .frs {
+	background-color : ${form.color.bg.field};
+	width : 4px;
+}
+
+/* FormErrorSpacer */
+.fc_nf .fe {
+	background-color : ${form.color.bg.label};
+	width : 16px;	
+	padding-left: 5px;
+	padding-right: 2px;
+}
+
+/* FormLabel */
+.fc_nf .fl {
+	background-color : ${form.color.bg.label};
+	padding: 5px;
+	width: ${label.width}px;
+	word-wrap: break-word;
+	font-weight : ${form.font.label.weight};
+	text-align : right;
+}
+
+/* FormDisplay */
+.fc_nf .fd {
+	background-color : ${form.color.bg.field};
+	padding: 5px;
+}
+
+/* FormInput --> Input-Tag, Select-Tag  */
+.fc_nf .fd INPUT, .fc_nf .fd SELECT, .fc_nf .fd TEXTAREA {
+	font-family : ${form.font.body.family};
+	font-size : ${form.font.body.size};
+}
+
+/* FormSearchLabel */
+.fc_nf .fsl {
+	color : ${form.color.text.header};
+	background-color : ${form.color.bg.header};
+	width : 100%;
+	font-family : ${form.font.label.family};
+	font-size : ${form.font.label.size};
+	font-weight : ${form.font.label.weight};
+}
+
+/* FormButton */
+.fc_nf .fb {
+	background-color : ${form.color.bg.field};
+	text-align : right;
+	padding: 7px;
+}
+
+/* Section within a form */
+.fc_nf .section {
+	font-family : ${form.font.header.family};
+	font-size : ${form.font.header.size};
+	font-weight : ${form.font.header.weight};
+	color: ${form.color.text.section};
+	padding-left: 20px;
+	border-top: 1px solid ${form.color.border.section};
+	border-bottom: 1px solid ${form.color.border.section};
+	background-color: ${form.color.bg.section};
+}
+
+/* FormHeaderLabel */
+.fc_nf .fhl {
+	color : ${form.color.text.header};
+	background-color : ${form.color.bg.header};
+	width : 100%;
+}
+
+/* FormControlHeader */
+.fc_nf .fch {
+	font-family : ${form.font.header.family};
+	font-size : ${form.font.header.size};
+	font-weight : ${form.font.header.weight};
+	color : ${form.color.text.header};
+	background-color : ${form.color.bg.header};
+	width : 100%;
+}
+
+/* Caption */
+.fc_nf .fch .c {
+	font-family : ${form.font.header.family};
+	font-size : ${form.font.header.size + 1};
+	font-weight : ${form.font.header.weight};
+	background-color : ${form.color.bg.header};
+	color: ${form.color.text.caption};
+}
+
+/* Detail */
+.fc_nf .fch .d {
+	font-family : ${form.font.header.family};
+	font-size : ${form.font.header.size};
+	font-weight : normal;
+	background-color : ${form.color.bg.header};
+	color: ${form.color.text.detail};
+}
+
+/* ==========================================
+** Info Applet
+**
+** Acronym's
+** ------------------------------------------
+** ifc    : InfoHeaderControl
+** header : header
+** body   : Body
+** data   : Data
+** ==========================================
+*/
+
+/* InfoHeaderLabel */
+.ifc .header {
+	font-family : ${info.font.header.family};
+	font-size : ${info.font.header.size};
+	font-weight : ${info.font.header.weight};
+	color : White;
+	background-color : ${info.color.bg.header};
+	width : 100%;
+}
+
+/* InfoTableBody */
+.ifc .body {
+	border-left: 1px solid ${info.color.border};
+	border-right: 1px solid ${info.color.border};
+	border-bottom: 1px solid ${info.color.border};
+	background-color : ${info.color.bg.body};
+}
+
+/* InfoBodyDisplay */
+.ifc .data {
+	font-family : ${info.font.body.family};
+	font-size : ${info.font.body.size};
+	font-weight : ${info.font.body.weight};
+	color : ${info.color.text};
+}
+
+/* ==========================================
+** Warning Applet
+**
+** Acronym's
+** ------------------------------------------
+** wfc    : WarningHeaderControl
+** header : header
+** body   : Body
+** data   : Data
+** ==========================================
+*/
+
+/* InfoHeaderLabel */
+.wfc .header {
+	font-family : ${warning.font.header.family};
+	font-size : ${warning.font.header.size};
+	font-weight : ${warning.font.header.weight};
+	color : White;
+	background-color : ${warning.color.bg.header};
+	width : 100%;
+}
+
+/* InfoTableBody */
+.wfc .body {
+	border-left: 1px solid ${warning.color.border};
+	border-right: 1px solid ${warning.color.border};
+	border-bottom: 1px solid ${warning.color.border};
+	background-color : ${warning.color.bg.body};
+}
+
+/* InfoBodyDisplay */
+.wfc .data {
+	font-family : ${warning.font.body.family};
+	font-size : ${warning.font.body.size};
+	font-weight : ${warning.font.body.weight};
+	color : ${warning.color.text};
+}
+
+/* ==========================================
+** Error Applet
+**
+** Acronym's
+** ------------------------------------------
+** efc    : InfoHeaderControl
+** header : header
+** body   : Body
+** data   : Data
+** ==========================================
+*/
+
+/* ErrorHeaderLabel */
+.efc .header {
+	font-family : ${error.font.header.family};
+	font-size : ${error.font.header.size};
+	font-weight : ${error.font.header.weight};
+	color : White;
+	background-color : ${error.color.bg.header};
+	width : 100%;
+}
+
+/* ErrorBody */
+.efc .body {
+	border-left: 1px solid ${error.color.border};
+	border-right: 1px solid ${error.color.border};
+	border-bottom: 1px solid ${error.color.border};
+	background-color : ${error.color.bg.body};
+}
+
+/* ErrorBodyDisplay */
+.efc .data {
+	font-family : ${error.font.body.family};
+	font-size : ${error.font.body.size};
+	font-weight : ${error.font.body.weight};
+	color : ${error.color.text};
+	vertical-align : top;
+}
+
+
+/* ==========================================
+** Severity Applet
+**
+** Acronym's
+** ------------------------------------------
+** sevfc  : InfoHeaderControl
+** header : header
+** body   : Body
+** data   : Data
+** ==========================================
+*/
+
+/* SeverityHeaderLabel */
+.sevfc .header {
+	font-family : ${severity.font.header.family};
+	font-size : ${severity.font.header.size};
+	font-weight : ${severity.font.header.weight};
+	color : White;
+	background-color : ${severity.color.bg.header};
+	width : 100%;
+}
+
+/* SeverityBody */
+.sevfc .body {
+	border-left: 1px solid ${severity.color.border};
+	border-right: 1px solid ${severity.color.border};
+	border-bottom: 1px solid ${severity.color.border};
+	background-color : ${severity.color.bg.body};
+}
+
+/* SeverityBodyDisplay */
+.sevfc .data {
+	font-family : ${severity.font.body.family};
+	font-size : ${severity.font.body.size};
+	font-weight : ${severity.font.body.weight};
+	color : ${severity.color.text};
+	vertical-align : top;
+}
+
+
+/* ==========================================
+** Headline Applet
+**
+** Acronym's
+** ------------------------------------------
+** fc   : FormControl
+** hb   : Headline Applet Body
+** hl   : Headline Applet Label
+** hd   : Headline Applet Detail text
+** ==========================================
+*/
+
+/* Body */
+.fc .hb {
+	border-left: 1px solid ${head.color.border};
+	border-right: 1px solid ${head.color.border};
+	border-bottom: 1px solid ${head.color.border};
+	background-color : ${head.color.bg};
+}
+
+/* Label */
+.fc .hl {
+	font-family : ${head.font.label.family};
+	font-size : ${head.font.label.size};
+	font-weight : ${head.font.label.weight};
+	padding: 5px;
+	width: ${label.width}px;
+	text-align : right;
+	border-right: 2px dotted ${head.color.separator};
+}
+
+/* DisplayText */
+.fc .hd, .fc .hd td {
+	font-family : ${head.font.label.family};
+	font-size : ${head.font.label.size};
+	padding-left: 5px;
+}
+
+/* LeftSpacer */
+.fc .hb .fls {
+	background-color : ${form.color.bg};
+	width : 2px;
+}
+
+/* RightSpacer */
+.fc .hb .frs {
+	background-color : ${form.color.bg};
+	width : 2px;
+}
+
+/* ==========================================
+** Help Info Form
+**
+** Acronym's
+** ------------------------------------------
+** info : InfoControl
+** ==========================================
+*/
+
+.info {
+	font-family : ${help.font.body.family};
+	font-size : ${help.font.body.size};
+	font-weight : ${help.font.body.weight};
+	margin-top: 12px;
+	margin-bottom: 12px;
+	color: ${help.color.text};
+	background-color : ${help.color.bg};
+	padding : 5px;
+	border: 1px solid ${help.color.border};
+}
+
+/* ==========================================
+** Help button
+**
+** Acronym's
+** ------------------------------------------
+** help : Help Button
+** ==========================================
+*/
+
+.help {
+	cursor: help;
+}

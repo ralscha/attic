@@ -1,0 +1,30 @@
+<HTML>
+<HEAD>
+<TITLE>Formula One for Java - The Internet Spreadsheet: Amortization Demo</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF">
+<FONT FACE="ARIAL, HELVETICA" COLOR="#FF0000"><B>Amortization Demo</B></FONT>
+<br>
+<FONT FACE="ARIAL, HELVETICA" COLOR="#000030" SIZE="-1">
+This example application demonstrates how use Formula One on a web server to create dynamic content. This demo requires a web server that supports servlets as well as page compilation.
+</FONT>
+<p>
+<FONT FACE="ARIAL, HELVETICA" COLOR="#FF0000" SIZE="-1"><B>How to Build</B></FONT><br>
+<FONT FACE="ARIAL, HELVETICA" COLOR="#000030" SIZE="-1">
+First choose a location on your web server to install all of the files in the demo directory except DisplayJPGServlet.java. All of the files should be located together in a single directory. Then open up DisplayJPGServlet.java in a text editor and find where the file "mortgage.vts" is referenced. Edit this reference so that it points to the correct location of "mortgage.vts" on your server. This will be a local reference instead of a URL since DisplayJPGServlet will be running on your web server. Now compile DisplayJPGServlet. You will need to include the javax.servlet.* packages in your classpath as well as F1J8Swing.jar. The command will look something like the following depending on the location of these items on your system.<br>
+<pre>
+    javac -cp .;\jsdk2.0\jsdk.jar;\f1java\F1J8Swing.jar DisplayJPGServlet.java
+</pre>
+</FONT>
+<p>
+<FONT FACE="ARIAL, HELVETICA" COLOR="#FF0000" SIZE="-1"><B>How to Deploy</B></FONT><br>
+<FONT FACE="ARIAL, HELVETICA" COLOR="#000030" SIZE="-1">
+The first step in deployment was done before building the DisplayJPGServlet servlet by copying the files to your web server. Now look in the web server directory with the demo and edit the file "loan.jhtml". This file has a reference to mortgatge.vts which will need to be updated as was done to DisplayJPGServlet.java. Again, this will be a local reference instead of a URL. The embedded java gets compiled and executed on the server rather than on the client system. Once this file location is updated, you are done with deployment.
+</FONT>
+<p>
+<FONT FACE="ARIAL, HELVETICA" COLOR="#FF0000" SIZE="-1"><B>How to Execute</B></FONT><br>
+<FONT FACE="ARIAL, HELVETICA" COLOR="#000030" SIZE="-1">
+To use the demo simply point your browser to the amortization.htm file on your web server.
+<p>
+</BODY>
+</HTML>

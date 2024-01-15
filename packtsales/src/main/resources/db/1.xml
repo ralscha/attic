@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd
+    http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+	<changeSet author="dev" id="1">
+		<createTable tableName="AppUser">
+			<column autoIncrement="true" name="id" type="BIGINT">
+				<constraints nullable="false" primaryKey="true" primaryKeyName="PK_AppUser" />
+			</column>
+
+			<column name="status" type="int">
+				<constraints nullable="false" />
+			</column>
+
+			<column name="email" type="varchar(255)">
+				<constraints nullable="false" />
+			</column>
+
+			<column name="passwd" type="varchar(100)">
+				<constraints nullable="false" />
+			</column>
+
+			<column name="lastname" type="varchar(100)">
+				<constraints nullable="false" />
+			</column>
+
+			<column name="firstname" type="varchar(100)">
+				<constraints nullable="false" />
+			</column>
+
+			<column name="modified" type="datetime" />
+
+			<column name="created" type="datetime">
+				<constraints nullable="false" />
+			</column>
+		</createTable>						
+	</changeSet>
+	
+	<changeSet author="dev" id="2">
+		<createTable tableName="Customer">
+			<column autoIncrement="true" name="id" type="BIGINT">
+				<constraints nullable="false" primaryKey="true" primaryKeyName="PK_Customer" />
+			</column>
+
+			<column name="status" type="int">
+				<constraints nullable="false" />
+			</column>
+
+			<column name="name" type="varchar(255)">
+				<constraints nullable="false" />
+			</column>
+
+			<column name="addr1" type="varchar(255)">
+				<constraints nullable="false" />
+			</column>
+
+			<column name="addr2" type="varchar(255)" />
+
+			<column name="city" type="varchar(100)">
+				<constraints nullable="false" />
+			</column>
+
+			<column name="state" type="varchar(50)">
+				<constraints nullable="false" />
+			</column>
+
+			<column name="zip" type="varchar(10)">
+				<constraints nullable="false" />
+			</column>
+
+			<column name="country" type="varchar(50)">
+				<constraints nullable="false" />
+			</column>
+
+			<column name="phone" type="varchar(50)">
+				<constraints nullable="false" />
+			</column>
+
+			<column name="fax" type="varchar(50)" />
+
+			<column name="modified" type="datetime" />
+
+			<column name="created" type="datetime">
+				<constraints nullable="false" />
+			</column>
+		</createTable>
+	</changeSet>
+	
+	<changeSet author="dev" id="3">
+		<createTable tableName="Quotation">
+			<column autoIncrement="true" name="id" type="BIGINT">
+				<constraints nullable="false" primaryKey="true" primaryKeyName="PK_Quotation" />
+			</column>
+
+			<column name="status" type="int">
+				<constraints nullable="false" />
+			</column>
+
+			<column name="customerId" type="bigint">
+				<constraints nullable="false" />
+			</column>
+
+            <column name="note" type="clob" />
+
+			<column name="modified" type="datetime" />
+
+			<column name="created" type="datetime">
+				<constraints nullable="false" />
+			</column>
+		</createTable>						
+	</changeSet>
+	
+	<changeSet author="dev" id="4">
+		<createTable tableName="QuotationItem">
+			<column autoIncrement="true" name="id" type="BIGINT">
+				<constraints nullable="false" primaryKey="true" primaryKeyName="PK_QuotationItem" />
+			</column>
+
+			<column name="status" type="int">
+				<constraints nullable="false" />
+			</column>
+
+			<column name="quotationId" type="bigint">
+				<constraints nullable="false" />
+			</column>
+
+            <column name="description" type="varchar(255)">
+				<constraints nullable="false" />
+			</column>
+			
+            <column name="qty" type="int">
+				<constraints nullable="false" />
+			</column>
+			
+            <column name="price" type="int">
+				<constraints nullable="false" />
+			</column>
+			
+            <column name="sum" type="int">
+				<constraints nullable="false" />
+			</column>
+
+			<column name="modified" type="datetime" />
+
+			<column name="created" type="datetime">
+				<constraints nullable="false" />
+			</column>
+		</createTable>						
+	</changeSet>
+
+	<changeSet author="dev" id="5">
+		<createTable tableName="Bill">
+			<column autoIncrement="true" name="id" type="BIGINT">
+				<constraints nullable="false" primaryKey="true" primaryKeyName="PK_Bill" />
+			</column>
+
+			<column name="status" type="int">
+				<constraints nullable="false" />
+			</column>
+            
+            <column name="quotationId" type="bigint" />
+            
+			<column name="customerId" type="bigint">
+				<constraints nullable="false" />
+			</column>
+
+            <column name="note" type="clob">
+				<constraints nullable="false" />
+			</column>
+
+			<column name="modified" type="datetime" />
+
+			<column name="created" type="datetime">
+				<constraints nullable="false" />
+			</column>
+		</createTable>						
+	</changeSet>
+
+	<changeSet author="dev" id="6">
+		<createTable tableName="BillItem">
+			<column autoIncrement="true" name="id" type="BIGINT">
+				<constraints nullable="false" primaryKey="true" primaryKeyName="PK_BillItem" />
+			</column>
+
+			<column name="status" type="int">
+				<constraints nullable="false" />
+			</column>
+
+			<column name="billId" type="bigint">
+				<constraints nullable="false" />
+			</column>
+
+            <column name="description" type="varchar(255)">
+				<constraints nullable="false" />
+			</column>
+			
+            <column name="qty" type="int">
+				<constraints nullable="false" />
+			</column>
+			
+            <column name="price" type="int">
+				<constraints nullable="false" />
+			</column>
+			
+            <column name="sum" type="int">
+				<constraints nullable="false" />
+			</column>
+
+			<column name="modified" type="datetime" />
+
+			<column name="created" type="datetime">
+				<constraints nullable="false" />
+			</column>
+		</createTable>						
+	</changeSet>	
+	
+	<changeSet id="7" author="dev">
+		<addForeignKeyConstraint baseColumnNames="customerId" baseTableName="Quotation" constraintName="FK_Quotation_Customer"
+			referencedColumnNames="id"
+			referencedTableName="Customer" />
+		
+		<addForeignKeyConstraint baseColumnNames="customerId" baseTableName="Bill" constraintName="FK_Bill_Customer"
+			referencedColumnNames="id"
+			referencedTableName="Customer" />	
+
+		<addForeignKeyConstraint baseColumnNames="quotationId" baseTableName="Bill" constraintName="FK_Bill_Quotation"
+			referencedColumnNames="id"
+			referencedTableName="Quotation" />	
+
+		<addForeignKeyConstraint baseColumnNames="quotationId" baseTableName="QuotationItem" constraintName="FK_QuotationItem_Quotation"
+			referencedColumnNames="id"
+			referencedTableName="Quotation" />	
+			
+		<addForeignKeyConstraint baseColumnNames="billId" baseTableName="BillItem" constraintName="FK_BillItem_Bill"
+			referencedColumnNames="id"
+			referencedTableName="Bill" />				
+			
+	</changeSet>
+	
+</databaseChangeLog>

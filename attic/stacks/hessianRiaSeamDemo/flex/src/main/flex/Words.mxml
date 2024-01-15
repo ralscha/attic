@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<mx:Application 
+  xmlns:mx="http://www.adobe.com/2006/mxml" xmlns:word="*"
+  horizontalAlign="center" 
+  verticalAlign="center">
+
+  <hessian:HessianService xmlns:hessian="hessian.mxml.*" 
+    id="service" destination="seam/resource/hessian/wordService"/>
+
+  <mx:Panel 
+    title="Caucho Hessian Flash Demo: Word Play" 
+    height="320" width="425" 
+    paddingTop="10" paddingBottom="10" paddingLeft="10" paddingRight="10">
+
+    <mx:TabNavigator width="100%" height="100%">
+      <word:ComposeTab service="{service}"/>
+      <word:ReadTab service="{service}"/>
+      <word:AboutTab/>
+    </mx:TabNavigator>
+  </mx:Panel>  
+</mx:Application>

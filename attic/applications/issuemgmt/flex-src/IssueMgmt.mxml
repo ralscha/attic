@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute">
+  
+  <mx:Script>
+    <![CDATA[
+      import org.granite.tide.events.TideResultEvent;
+      import org.granite.tide.seam.Seam;
+      import org.granite.tide.seam.Context;
+      import ch.ess.issue.entity.Customer;
+      
+      private var localContext:Context;
+      
+      private function onClickButton(e:MouseEvent):void {
+        Seam.getInstance().getSeamContext().helloAction.start("Jimi", resultHandler);   
+      
+      }
+      
+      private function resultHandler(event:TideResultEvent):void {
+        localContext = event.context as Context;
+        resultLabel.text = localContext.customer.name;                          
+      }
+      
+      private function onClickEndButton(e:MouseEvent):void {
+        var c:Customer = new Customer();
+        c.name = "Ralph";
+        localContext.customer = c;                               
+        localContext.helloAction.end();
+      }
+      
+    ]]>
+  </mx:Script>
+  
+  
+  <mx:Button x="47" y="54" label="Start" click="onClickButton(event)"/>
+  <mx:Label x="158" y="144" text="Label" width="161" height="84" id="resultLabel"/>
+  <mx:Button x="129" y="54" label="End" click="onClickEndButton(event)" />
+  
+</mx:Application>

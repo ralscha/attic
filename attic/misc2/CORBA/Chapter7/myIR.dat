@@ -1,0 +1,14 @@
+/*
+  File : myIR.dat
+  Date : Sat Aug 22 07:40:53 CEST 1998
+  User : Administrator
+  Dir  : D:\Projects\CORBA\Chapter7
+*/
+module CounterPortable {
+  interface Count;
+  interface Count {
+    attribute long sum;
+    long increment();
+  };
+};
+

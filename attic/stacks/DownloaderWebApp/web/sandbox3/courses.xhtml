@@ -1,0 +1,268 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+                      "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:s="http://jboss.com/products/seam/taglib"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+  xmlns:a="http://richfaces.org/a4j"
+  xmlns:rich="http://richfaces.org/rich"
+	template="templates/master.xhtml">
+		<ui:define name="title">Courses</ui:define>
+		<ui:define name="head"> 
+<script src="http://maps.google.com/maps?file=api&amp;v=2&amp;key=ABQIAAAAKoSCK01hBi1SddxdGlp-ihTwM0brOpm-All5BF6PoaKBxRWWERQ3w6HFpRGaa6jpLaiyIfL0cVmmvw"
+      type="text/javascript"></script>
+<script type="text/javascript" src="../seam/resource/remoting/resource/remote.js"></script>
+<script type="text/javascript" src="../seam/resource/remoting/interface.js?courseAction"></script>
+<script type="text/javascript">
+// <![CDATA[
+var gmap = null;
+var geocoder = null;
+var markers = {};
+var currentMarker = null;
+var mapIsInitialized = false;
+
+
+window.onload = initializeMap;
+
+/**
+ * Create a new GMap2 Google Map and add markers (pins) for each of the courses.
+ */
+function initializeMap() {
+
+	if (!GBrowserIsCompatible()) return;
+	gmap = new GMap2(document.getElementById('map'));
+	gmap.addControl(new GLargeMapControl());
+	gmap.addControl(new GMapTypeControl());
+	// center on the U.S. (Lebenon, Kansas)
+	gmap.setCenter(new GLatLng(38.2, -95), 4);
+	geocoder = new GClientGeocoder();
+	GEvent.addDomListener(window, 'unload', GUnload);
+	addCourseMarkers();
+
+}
+
+/**
+ * Retrieve the collection of courses from the server and add cooresponding markers to the map.
+ */
+function addCourseMarkers() {
+	function onResult(courses) {
+	
+	/*
+		for (var i = 0, len = courses.length; i < len; i++) {
+			addCourseMarker(courses[i]);
+		}
+		*/
+		mapIsInitialized = true;
+		alert("finito");
+	}
+
+	Seam.Remoting.getContext().setConversationId("#{conversation.id}");
+	Seam.Component.getInstance("courseAction").getCourses(onResult);
+}
+
+/**
+ * Resolve the coordinates of the course to a GLatLng point and add a marker at that location.
+ */
+function addCourseMarker(course) {
+	var address = course.getAddress();
+	if (course.getPoint() != null) {
+		var point = course.getPoint();
+		createAndPlaceMarker(course, new GLatLng(point.getLatitude(), point.getLongitude()));
+	}
+	else {	
+		var addressAsString = [ address.getStreet(), address.getCity(), address.getState(), address.getPostalCode() ].join(" ");
+		geocoder.getLatLng(addressAsString, function(latlng) {
+			createAndPlaceMarker(course, latlng);
+		});
+	}
+}
+
+/**
+ * Instantiate a new GMarker, add it to the map as an overlay, and register events.
+ */
+function createAndPlaceMarker(course, latlng) {
+	// skip adding marker if no address is found
+	if (!latlng) return;
+	var marker = new GMarker(latlng, { draggable: true });
+	// hide the course directly on the marker
+	marker.courseBean = course;
+	markers[course.getId()] = marker;
+	gmap.addOverlay(marker);
+	
+	function showDetailBalloon() {
+		showCourseInfoBalloon(this);
+	}
+	
+	function assignPoint() {
+		var point = Seam.Remoting.createType("com.ibm.dw.open18.Point");
+		point.setLatitude(this.getPoint().lat());
+		point.setLongitude(this.getPoint().lng());
+		Seam.Component.getInstance("courseAction").setCoursePoint(this.courseBean.getId(), point);
+	}
+	
+	GEvent.addListener(marker, 'click', showDetailBalloon);
+	GEvent.addListener(marker, 'dragstart', closeInfoBalloon);
+	GEvent.addListener(marker, 'dragend', assignPoint);
+}
+
+/**
+ * Bring the marker for the given course into view and display the details in a balloon.
+ * This method is registered on the compass icon in each row in the course directory.
+ */
+function focusMarker(courseId, zoom) {
+	if (!GBrowserIsCompatible()) return;
+	if (!mapIsInitialized) {
+		alert("The map is still being initialized. Please wait a moment and try again.");
+		return;
+	}
+	var marker = markers[courseId];
+	if (!marker) {
+		alert("There is no cooresponding marker for the course selected.");
+		return;
+	}
+	
+	showCourseInfoBalloon(marker);
+	// only zoom if we are changing courses
+	if (zoom && courseId != currentMarker) {
+		gmap.setZoom(13);
+	}
+  
+	currentMarker = courseId;
+}
+
+/**
+ * Display the details of the course in a balloon caption for the specified marker.
+ */
+function showCourseInfoBalloon(marker) {
+	var course = marker.courseBean;
+	var address = course.getAddress();
+	var content = '<div style="margin-bottom: 0.5em;"><strong>' + course.getName() + '</strong></div>';
+	content += '<div>' + address.getStreet() + '</div>';
+	content += '<div>' + address.getCity() + ', ' + address.getState() + ' ' + address.getPostalCode() + '</div>';
+	if (course.getPhoneNumber() != null) {
+		var phone = course.getPhoneNumber();
+		var phone = '(' + phone.substring(0, 3) + ') ' + phone.substring(3, 6) + '-' + phone.substring(6, 10); 
+		content += '<div>' + phone + '</div>';
+	}
+	if (course.getUri() != null) {
+		content += '<div><a href="' + course.getUri() + '" target="_blank" title="Opens website in new window">' + course.getUri().replace('http://', '') + '</a></div>';
+	}
+	marker.openInfoWindowHtml(content);
+}
+
+/**
+ * Closes the currently opened info window
+ */
+function closeInfoBalloon() {
+	gmap.closeInfoWindow();
+}
+
+// ]]>
+</script>
+<script type="text/javascript">
+<!-- patch Seam Remoting to support url rewriting of Ajax request urls -->
+Seam.Remoting.sendAjaxRequest = function(envelope, path, callback, silent) { Seam.Remoting.log("Request packet:\n" + envelope); if (!silent) { Seam.Remoting.displayLoadingMessage(); } var asyncReq; if (window.XMLHttpRequest) { asyncReq = new XMLHttpRequest(); if (asyncReq.overrideMimeType) { asyncReq.overrideMimeType('text/xml'); } } else { asyncReq = new ActiveXObject("Microsoft.XMLHTTP"); } asyncReq.onreadystatechange = function() {Seam.Remoting.requestCallback(asyncReq, callback); }; var href = window.location.href; if (href.indexOf(';jsessionid=') >= 0) { var qpos = href.indexOf('?'); path += href.substring(href.indexOf(';jsessionid='), qpos >= 0 ? qpos : href.length()); } asyncReq.open("POST", Seam.Remoting.resourcePath + path, true); asyncReq.send(envelope); return asyncReq; }
+</script>
+		</ui:define>
+		<ui:define name="body">
+			<h:panelGroup rendered="#{courses.rowCount eq 0}">
+				<p><em class="noResults">No courses found.</em></p>
+			</h:panelGroup>
+			<h:form id="coursesForm">
+			<h:dataTable id="courses" var="_course" value="#{courses}"
+				rendered="#{courses.rowCount gt 0}" styleClass="listing"
+				columnClasses=",,fixed,,actions" footerClass="hide">
+				<f:facet name="footer">
+					<!-- -->
+				</f:facet>
+				<h:column>
+					<f:facet name="header">Course Name</f:facet>
+					<ui:remove>
+						<h:commandLink id="selectCourse" action="#{courseAction.selectCourse}" value="#{_course.name}" title="Show the details of this course" />
+					</ui:remove>
+					<a:commandLink id="selectCourse" action="#{courseAction.selectCourseNoNav}" value="#{_course.name}" title="Show the details of this course" oncomplete="focusMarker(#{_course.id}); window.location.hash = 'courseDetailForm:detail';" />
+					#{spacer}
+					<h:graphicImage value="/sandbox3/images/flags/#{fn:toLowerCase(_course.type)}-small.png" width="14" height="14" style="vertical-align: bottom;" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">City</f:facet>
+		            #{_course.address.city}
+		        </h:column>
+				<h:column>
+					<f:facet name="header">State</f:facet>
+		            #{_course.address.state}
+		        </h:column>
+		        <h:column>
+					<f:facet name="header">Pro Shop #</f:facet>
+					<h:outputText value="(#{fn:substring(_course.phoneNumber, 0, 3)}) #{fn:substring(_course.phoneNumber, 3, 6)}-#{fn:substring(_course.phoneNumber, 6, 10)}" rendered="#{not empty _course.phoneNumber}" />
+		        </h:column>
+				<h:column>
+					<f:facet name="header">Action</f:facet>
+					<h:panelGroup>
+						<h:graphicImage value="/sandbox3/images/compass.png" onclick="focusMarker(#{_course.id}, true);" alt="[ Zoom ]" title="Zoom to course on map" />
+						#{spacer}
+						<h:commandLink id="edit" action="#{courseAction.editCourse}">
+							<h:graphicImage value="/sandbox3/images/edit.png" alt="[ Edit ]" />
+						</h:commandLink>
+		            	#{spacer}
+		            	<h:commandLink id="delete"
+							action="#{courseAction.deleteCourse}">
+							<h:graphicImage value="/sandbox3/images/delete.png" alt="[ Delete ]" />
+						</h:commandLink>
+					</h:panelGroup>
+				</h:column>
+			</h:dataTable>
+			<p class="commands"><h:commandButton id="add" action="#{courseAction.addCourse}" value="Add Course" /></p>
+			</h:form>
+			<div id="map">Loading map...</div>
+			<h:form id="courseDetailForm">
+			<a:outputPanel id="detailPanel" ajaxRendered="true">
+			<h:panelGroup id="detail" rendered="#{course.id gt 0}">
+			<h3>Course Detail <span style="font-size: 0.8em; font-weight: normal !important;">#{spacer}-#{spacer}<a:commandLink id="hide" action="#{courseAction.clearSelectionNoNav}" value="hide" oncomplete="closeInfoBalloon();" /></span></h3>
+				<table class="detail">
+					<col width="20%" />
+					<col width="80%" />
+					<tr>
+						<th>Course Name</th>
+						<td>#{course.name} <span class="notation">(#{fn:replace(fn:toLowerCase(course.type), '_', '-')})</span></td>
+					</tr>
+					<tr>
+						<th>Website</th>
+						<td><h:outputLink value="#{course.uri}" rendered="#{not empty course.uri}">#{course.uri}</h:outputLink></td>
+					</tr>
+					<tr>
+						<th>Phone</th>
+						<td><h:outputText value="(#{fn:substring(course.phoneNumber, 0, 3)}) #{fn:substring(course.phoneNumber, 3, 6)}-#{fn:substring(course.phoneNumber, 6, 10)}" rendered="#{not empty course.phoneNumber}" /></td>
+					</tr>
+					<tr>
+						<th>Country</th>
+						<td>#{course.address.country}</td>
+					</tr>
+					<tr>
+						<th>State</th>
+						<td>#{course.address.state}</td>
+					</tr>
+					<tr>
+						<th>County</th>
+						<td>#{course.address.county}</td>
+					</tr>
+					<tr>
+						<th>City</th>
+						<td>#{course.address.city}</td>
+					</tr>
+					<tr>
+						<th>ZIP Code</th>
+						<td>#{course.address.postalCode}</td>
+					</tr>
+				</table>
+				<h:panelGroup rendered="#{not empty course.description}">
+				<p><q>...#{course.description}</q></p>
+				</h:panelGroup>
+			</h:panelGroup>
+			</a:outputPanel>
+			</h:form>
+		</ui:define>
+	</ui:composition>

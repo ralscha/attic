@@ -1,0 +1,17 @@
+! ** JCreator Workspace File (C)2000
+! ********** DO NOT EDIT *********
+
+VERSION := "1.00"
+LABEL := "webcal"
+
+! Start Project Structure
+#[BeginProject]SOURCE := "\\webcal.jcp" #[EndProject]
+
+! Start Last Document Structure
+#[BeginFile]SOURCE := "\\src\\ch\\ess\\calendar\\util\\CheckLicense.java" #[EndFile]
+#[BeginFile]SOURCE := "\\src\\ch\\ess\\calendar\\db\\Appointments.java" #[EndFile]
+#[BeginFile]SOURCE := "\\src\\ch\\ess\\calendar\\util\\Constants.java" #[EndFile]
+#[BeginFile]SOURCE := "\\src\\ch\\ess\\calendar\\AppointmentRequest.java" #[EndFile]
+
+! Start Breakpoint Structure
+

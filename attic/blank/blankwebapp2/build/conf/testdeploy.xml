@@ -1,0 +1,60 @@
+<Context path="/blank" swallowOutput="true" docBase="app/blank-cactus.war" debug="0">
+
+    <Logger className="org.apache.catalina.logger.FileLogger" 
+        prefix="blank_log." suffix=".txt" timestamp="true"/>
+
+  <Resource name="jdbc/blank" auth="Container" type="javax.sql.DataSource"/>
+  
+  <ResourceParams name="jdbc/blank">
+      <parameter>
+          <name>factory</name>
+          <value>org.apache.commons.dbcp.BasicDataSourceFactory</value>
+      </parameter>
+      <parameter>
+          <name>maxActive</name>
+          <value>50</value>
+      </parameter>
+      <parameter>
+          <name>maxIdle</name>
+          <value>10</value>
+      </parameter>
+      <parameter>
+          <name>maxWait</name>
+          <value>10000</value>
+      </parameter>      
+      <parameter>
+          <name>username</name>
+          <value>sa</value>
+      </parameter>
+      <parameter>
+          <name>password</name>
+          <value></value>
+      </parameter>
+      <parameter>
+          <name>driverClassName</name>
+          <value>net.sourceforge.jtds.jdbc.Driver</value>
+      </parameter>
+      <parameter>
+          <name>defaultAutoCommit</name>
+          <value>false</value>
+      </parameter>
+      <parameter>
+          <name>url</name>
+          <value>jdbc:jtds:sqlserver://localhost:1433/blank2test</value>
+      </parameter>
+      <parameter>
+          <name>removeAbandoned</name>
+          <value>true</value>
+      </parameter>
+      <parameter>
+          <name>removeAbandonedTimeout</name>
+          <value>60</value>
+      </parameter>
+      <parameter>
+          <name>logAbandoned</name>
+          <value>true</value>
+      </parameter>
+  </ResourceParams>
+     
+
+</Context>

@@ -1,0 +1,47 @@
+
+ int f[] = new int[37];
+ for (int n = 0; n < f.length; n++) 
+	f[n] = 0;
+
+ for (int i = 1; i <= 6; i++) {
+	for (int j = 1; j <= 6; j++) {
+		f[i*j]++;
+	}
+ }
+
+ double u = 0.0;
+ double u2 = 0.0;
+
+ for (int n = 0; n < f.length; n++) {
+    if (f[n] != 0) {
+		u  += (double)n*((double)f[n]/36.0);
+		u2 += ((double)n*(double)n)*((double)f[n]/36.0);
+	}
+ }
+ System.out.println("u = " + u);
+ System.out.println("u2 = " + u2);
+ double var = u2-(u*u);
+ System.out.println("Var(x) = " + var);
+ System.out.println("Standard = " + Math.sqrt(var));
+
+
+
+ java.util.Random rand = new java.util.Random();
+
+ int t = 0;
+ int i;       
+ for (i = 0; i < 5000000; i++) {
+
+	int z1 = Math.abs(rand.nextInt() % 6) + 1;
+	int z2 = Math.abs(rand.nextInt() % 6) + 1;
+
+	int p = z1 * z2;
+	if ((p < 7) || (p > 18)) {
+		t++;
+	}
+
+}
+
+System.out.println("T " + (float)t / (float)i);
+
+

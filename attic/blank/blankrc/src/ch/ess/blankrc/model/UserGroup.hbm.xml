@@ -1,0 +1,96 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd">
+
+<hibernate-mapping>
+    <class
+        name="ch.ess.blankrc.model.UserGroup"
+        table="UserGroup"
+        dynamic-update="false"
+        dynamic-insert="false"
+    >
+
+        <id
+            name="id"
+            column="id"
+            type="java.lang.Integer"
+            unsaved-value="null"
+        >
+            <generator class="native">
+            </generator>
+        </id>
+
+        <version
+            name="version"
+            type="int"
+            column="version"
+            access="property"
+            unsaved-value="undefined"
+        />
+
+        <property
+            name="groupName"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            access="property"
+            column="groupName"
+            length="255"
+            not-null="true"
+        />
+
+        <set
+            name="permissions"
+            table="UserGroupPermissions"
+            lazy="true"
+            inverse="false"
+            cascade="none"
+            sort="unsorted"
+        >
+
+              <key
+                  column="userGroupId"
+              >
+              </key>
+
+              <many-to-many
+                  class="ch.ess.blankrc.model.Permission"
+                  column="permissionId"
+                  outer-join="auto"
+               />
+
+        </set>
+
+        <set
+            name="users"
+            table="UserUserGroups"
+            lazy="true"
+            inverse="false"
+            cascade="none"
+            sort="unsorted"
+        >
+
+              <key
+                  column="userGroupId"
+              >
+              </key>
+
+              <many-to-many
+                  class="ch.ess.blankrc.model.User"
+                  column="userId"
+                  outer-join="auto"
+               />
+
+        </set>
+
+        <!--
+            To add non XDoclet property mappings, create a file named
+                hibernate-properties-UserGroup.xml
+            containing the additional properties and place it in your merge dir.
+        -->
+
+    </class>
+
+</hibernate-mapping>

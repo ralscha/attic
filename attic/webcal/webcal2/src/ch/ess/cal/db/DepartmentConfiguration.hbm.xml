@@ -1,0 +1,73 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd">
+
+<hibernate-mapping>
+    <class
+        name="ch.ess.cal.db.DepartmentConfiguration"
+        table="calDepartmentConfiguration"
+        dynamic-update="false"
+        dynamic-insert="false"
+    >
+
+        <id
+            name="id"
+            column="id"
+            type="java.lang.Long"
+            unsaved-value="null"
+        >
+            <generator class="native">
+            </generator>
+        </id>
+
+        <version
+            name="version"
+            type="int"
+            column="version"
+        />
+
+        <property
+            name="name"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="name"
+            length="100"
+            not-null="true"
+        />
+
+        <property
+            name="propValue"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="propValue"
+            length="255"
+        />
+
+        <many-to-one
+            name="department"
+            class="ch.ess.cal.db.Department"
+            cascade="none"
+            outer-join="auto"
+            update="true"
+            insert="true"
+        >
+            <column
+                name="departmentId"
+                index="FK_DepartmentConfig_Department"
+                not-null="true"
+            />
+        </many-to-one>
+
+        <!--
+            To add non XDoclet property mappings, create a file named
+                hibernate-properties-DepartmentConfiguration.xml
+            containing the additional properties and place it in your merge dir.
+        -->
+
+    </class>
+
+</hibernate-mapping>

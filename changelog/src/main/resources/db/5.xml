@@ -1,0 +1,49 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-2.0.xsd
+    http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <changeSet author="dev" id="47">
+        <createTable tableName="DocumentData">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_DocumentData"/>
+            </column>
+            <column name="documentId" type="BIGINT">
+                <constraints nullable="false" />
+            </column>
+            <column name="data" type="BLOB"/>
+        </createTable>
+
+        <createTable tableName="Documents">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_Documents"/>
+            </column>
+            <column name="customerId" type="BIGINT">
+                <constraints nullable="false" />
+            </column>
+            <column name="description" type="VARCHAR(255)"/>
+            <column name="contentType" type="VARCHAR(255)"/>
+            <column name="fileName" type="VARCHAR(255)"/>
+            <column name="date" type="DATETIME"/>
+            <column name="size" type="BIGINT"/>
+        </createTable>
+        
+        <addForeignKeyConstraint baseColumnNames="documentId" baseTableName="DocumentData" 
+                         	constraintName="FK_DocDat_Doc" 
+                         	referencedColumnNames="id" referencedTableName="Documents"/>
+
+        <addForeignKeyConstraint baseColumnNames="customerId" baseTableName="Documents"
+        					constraintName="FK_Doc_Cust"
+                  			referencedColumnNames="id" referencedTableName="Customer"/>
+    </changeSet>
+
+	<changeSet author="dev" id="48">
+		<createTable tableName="Configuration">
+			<column autoIncrement="true" name="id" type="BIGINT">
+				<constraints nullable="false" primaryKey="true" primaryKeyName="PK_Configuration" />
+			</column>
+			<column name="configurations" type="CLOB" />
+		</createTable>
+	</changeSet>
+	
+</databaseChangeLog>

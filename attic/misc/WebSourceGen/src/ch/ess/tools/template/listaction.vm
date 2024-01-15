@@ -1,0 +1,64 @@
+package ${package}.action;
+
+import org.apache.struts.action.ActionForward;
+
+import ch.ess.ct.business.db.${objectNames};
+import ch.ess.ct.web.base.ContextListBaseAction;
+import ch.ess.ct.web.base.WebContext;
+import ch.ess.struts.MapForm;
+import ch.ess.util.EventlessTableModel;
+
+import com.objectmatter.bsf.OQuery;
+
+/**
+ * @version $Revision: $ $Date: $
+ * @author $Author: $
+ */
+public class List${objectNames}Action extends ContextListBaseAction {
+
+  //todo columns
+  //start mit 1
+  public static final int COL_NAME = 1;
+ 
+  public static final int COL_COUNT = 2; //+1 für COL_ID
+  
+  public ActionForward execute() throws Exception {
+
+    WebContext ctx = WebContext.currentContext();
+    MapForm mapForm = (MapForm)ctx.getForm();   
+
+    String searchStr = mapForm.getStringValue("searchStr");
+    String sichtbarkeit = mapForm.getStringValue("sichtbarkeit");
+    
+    EventlessTableModel dtm = new EventlessTableModel();
+    dtm.setColumnCount(COL_COUNT);
+
+    Object[] oArray = new Object[COL_COUNT];
+    
+    OQuery query = new OQuery(${objectNames}.class);
+    if ("1".equals(sichtbarkeit)) {
+      query.add(true, "geloescht", OQuery.EQUAL);
+    } else {
+      query.add(false, "geloescht", OQuery.EQUAL);
+    }
+    
+    if (searchStr != null) {
+      query.add("%" + searchStr + "%", "beschreibung", OQuery.LIKE, OQuery.AND, OQuery.BEG_PAR);
+      query.add("%" + searchStr + "%", "name", OQuery.LIKE, OQuery.OR, OQuery.END_PAR);
+    }
+    
+    ${objectNames}[] ${objectLowercaseNames} = (${objectNames}[])query.execute(ctx.getDb());
+
+    for (int i = 0; ${objectLowercaseNames} != null && i < ${objectLowercaseNames}.length; i++) {
+      oArray[COL_NAME] = ${objectLowercaseNames}[i].getName();
+      oArray[COL_ID] = ${objectLowercaseNames}[i].get${objectName}Id();
+
+      removeNulls(oArray);
+      dtm.addRow(oArray);
+    }
+    
+    createJspTableModel(dtm, COL_NAME, "Keine${objectNames}gefunden");    
+    
+    return (findForward("success"));
+  }
+}

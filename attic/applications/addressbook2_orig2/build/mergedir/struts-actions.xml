@@ -1,0 +1,7 @@
+    <action path="/default" forward=".default" />
+    <action path="/error" forward="/error.jsp"/>
+
+    <action path="/users" forward=".user.list" roles="admin"/>    
+    <action path="/online" forward=".online.list" roles="admin"/> 
+    <action path="/onlineview" forward=".online.view" roles="admin"/> 
+    <action path="/resources" forward=".resource.list" roles="admin"/> 

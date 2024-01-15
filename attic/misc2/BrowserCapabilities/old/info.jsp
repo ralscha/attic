@@ -1,0 +1,30 @@
+<%@ page errorPage="error.jsp"%>
+<html><head>
+<META HTTP-EQUIV="Refresh" CONTENT="0; URL=<%= request.getAttribute("referer") %>?N"> 
+<title></title></head><body>
+<form action="<%= request.getAttribute("referer") %>" method="post">
+<input type="hidden" name="height" value="-1">
+<input type="hidden" name="width" value="-1">
+<input type="hidden" name="javaEnabled" value="false">
+</form>
+
+<script language="JavaScript1.2">
+<!--
+document.forms[0].height.value = screen.height;
+document.forms[0].width.value = screen.width;
+//-->
+</script>
+
+<script language="JavaScript1.3">
+<!--
+//-->
+</script>
+
+<script language="JavaScript1.1">
+<!--
+document.forms[0].javaEnabled.value = navigator.javaEnabled();
+document.forms[0].submit();
+//-->
+</script>
+
+</body></html>

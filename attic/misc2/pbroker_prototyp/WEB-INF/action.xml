@@ -1,0 +1,92 @@
+<action-mappings>
+
+  <action path="/login" actionClass="ch.ess.pbroker.action.LoginAction" formAttribute="loginForm"
+    formClass="ch.ess.pbroker.form.LoginForm">
+    
+    <forward name="login"      path="/login.jsp"/>
+    <forward name="success"    path="/index.jsp"/>
+  </action>
+
+  <action    path="/logoff" actionClass="ch.ess.pbroker.action.LogoffAction">
+    <forward name="login"      path="/login.jsp"/>
+  </action>
+
+  <action    path="/end" actionClass="ch.ess.pbroker.action.EndAction">
+    <forward name="start"      path="/description.html"/>
+  </action>
+
+  <action    path="/endofferte" actionClass="ch.ess.pbroker.action.EndOfferteAction">
+    <forward name="start"      path="/descriptionofferten.html"/>
+  </action>
+
+  <action    path="/showall" actionClass="ch.ess.pbroker.action.QuicksearchAction">
+    <forward name="login"      path="/login.jsp"/>  
+    <forward name="show"      path="/treffer.jsp?searchstring=alle"/>
+  </action>  
+  
+  <action    path="/addKandidat" actionClass="ch.ess.pbroker.action.AddKandidatenAction">
+    <forward name="login"      path="/login.jsp"/>  
+    <forward name="menu"      path="/basket.jsp"/>
+  </action>  
+
+  <action    path="/deleteBasketKandidat" actionClass="ch.ess.pbroker.action.DeleteBasketKandidatAction">
+    <forward name="login"      path="/login.jsp"/>    
+    <forward name="basket"      path="/basket.jsp"/>  
+  </action>  
+  
+  <action    path="/quicksearch" actionClass="ch.ess.pbroker.action.QuicksearchAction">
+    <forward name="login"      path="/login.jsp"/>    
+    <forward name="show"      path="/treffer.jsp"/>  
+    <forward name="notfound"  path="/quicksearch.jsp"/>
+  </action>  
+
+  <action    path="/kandidatdetail" actionClass="ch.ess.pbroker.action.KandidatenDetailAction">
+    <forward name="login"      path="/login.jsp"/>    
+    <forward name="show"      path="/detail.jsp"/>  
+  </action>   
+
+  <action    path="/offertanfrage" actionClass="ch.ess.pbroker.action.OffertanfrageAction">
+    <forward name="login"      path="/login.jsp"/>    
+    <forward name="next"      path="/offerten.jsp"/>  
+  </action>   
+
+  <action    path="/allgemeineoa" actionClass="ch.ess.pbroker.action.AllgemeineOffertanfrageAction">
+    <forward name="login"      path="/login.jsp"/>    
+    <forward name="next"      path="/offertanfrage.jsp"/>  
+  </action>   
+
+  <action    path="/konkreteoa" actionClass="ch.ess.pbroker.action.PersonenOffertanfrageAction">
+    <forward name="login"      path="/login.jsp"/>    
+    <forward name="next"      path="/offertanfrage.jsp"/>  
+  </action> 
+  
+  <action    path="/rekrutierung" actionClass="ch.ess.pbroker.action.RekrutierungAction" formAttribute="rekrutierung"
+    formClass="ch.ess.pbroker.session.Rekrutierung">
+    <forward name="login"   path="/login.jsp"/>    
+    <forward name="next"      path="/offertanfrage.jsp"/>  
+  </action>   
+  
+  
+  <action    path="/detailsearch" actionClass="ch.ess.pbroker.action.DetailSearchAction">
+    <forward name="login"      path="/login.jsp"/>    
+	  <forward name="show"      path="/treffer.jsp"/>      
+    <forward name="search"      path="/quicksearch.jsp"/>  
+  </action>     
+  
+  <action path="/hardcopy" actionClass="ch.ess.pbroker.action.HardCopyAction">
+	 <forward name="login"      path="/login.jsp"/>    
+	</action> 
+
+  <action path="/vorstellung" actionClass="ch.ess.pbroker.action.VorstellungAction">
+	 <forward name="login"      path="/login.jsp"/>    
+  </action>   
+
+  <action path="/info" actionClass="ch.ess.pbroker.action.InfoAction">
+	 <forward name="login"      path="/login.jsp"/>    
+  </action>   
+
+  <action path="/ablehnung" actionClass="ch.ess.pbroker.action.AblehnungAction">
+	 <forward name="login"      path="/login.jsp"/>    
+  </action>   
+	
+</action-mappings>

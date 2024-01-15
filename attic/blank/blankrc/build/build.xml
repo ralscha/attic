@@ -1,0 +1,489 @@
+<project name="Blank RCP Application" default="all" basedir="..">
+  <description>Blank RCP Application Build File</description> 
+
+  <!-- Home directory of the build process -->
+  <property name="build.dir" value="${basedir}/build"/>
+  
+  <!-- Load local and user build properties -->
+  <!--<property file="${user.home}/build.properties" /> -->
+  <property file="${build.dir}/build.properties" />
+ 
+  <!-- Should Java compilations set the debug compiler option? -->
+  <property name="compile.debug" value="true" />
+
+  <!-- Should Java compilations set the deprecation compiler option? -->
+  <property name="compile.deprecation" value="true" />
+
+  <!-- Should Java compilations set the optimize compiler option? -->
+  <property name="compile.optimize" value="false" /> 
+
+  <!-- Source directory -->
+  <property name="src.dir" value="${basedir}/src"/>
+  
+  <!-- Directory where build outputs are stored -->      
+  <property name="output.dir" value="${build.dir}/output"/>   
+
+  <!-- Temporary directory -->      
+  <property name="tmp.dir" value="${build.dir}/tmp"/>      
+
+  <!-- Web directories -->  
+  <property name="web.dir" value="${basedir}/web"/> 
+  <property name="webinf.dir" value="${web.dir}/WEB-INF"/>    
+  <property name="classes.dir" value="${webinf.dir}/classes"/>
+  <property name="lib.dir" value="${webinf.dir}/lib"/>   
+    
+
+  <!-- Doc directory -->  
+  <property name="doc.dir" value="${basedir}/docs"/>  
+  
+  <!-- Directory where release files are stored -->  
+  <property name="dist.dir" value="${build.dir}/dist"/>
+       
+        
+  <!-- XDoclet Force -->
+  <property name="xdoclet.force" value="false"/>   
+
+<!--
+  ========================================================================
+    DATATYPES
+  ========================================================================
+-->
+
+  <!-- Build classpath -->
+  <path id="build.classpath">
+    <fileset dir="${build.dir}/lib">
+      <include name="*.jar"/>    
+    </fileset>
+    <pathelement location="${build.dir}/lib/deployer/servlet-api.jar"/>     
+  </path>
+   
+  <!-- WEB-INF/lib -->
+  <path id="lib.classpath">
+    <fileset dir="${lib.dir}">
+      <include name="*.jar"/>
+    </fileset> 
+  </path>    
+   
+  <!-- Compilation classpath -->
+  <path id="compile.classpath">
+    <path refid="build.classpath"/>
+    <path refid="lib.classpath"/>      
+  </path>     
+
+  <path id="run.classpath">
+    <pathelement location="${classes.dir}"/>    
+    <path refid="lib.classpath"/>    
+  </path>
+
+  <fileset id="hibernate.mapping.files" dir="${src.dir}">
+    <include name="**/*.hbm.xml" />
+  </fileset>
+
+
+  <path id="deployer.classpath">
+    <fileset dir="${build.dir}/lib/deployer">
+      <include name="*.jar"/>    
+    </fileset>    
+  </path>
+
+  
+    
+<!--
+  ========================================================================
+    TASKDEFS
+  ========================================================================
+-->
+
+  <taskdef name="springdoclet" classname="xdoclet.modules.spring.SpringDocletTask">
+    <classpath>
+    <fileset dir="${build.dir}/lib/xdoclet">
+      <include name="**/*.jar"/>    
+    </fileset> 
+    <path refid="lib.classpath"/>    
+    </classpath> 
+  </taskdef>
+
+  <taskdef name="hibernatedoclet" classname="xdoclet.modules.hibernate.HibernateDocletTask">
+    <classpath>
+    <fileset dir="${build.dir}/lib/xdoclet">
+      <include name="**/*.jar"/>    
+    </fileset> 
+    <path refid="lib.classpath"/>    
+    </classpath> 
+  </taskdef>
+  
+  <taskdef name="webdoclet" classname="xdoclet.modules.web.WebDocletTask">
+    <classpath>
+    <pathelement location="${build.dir}/lib/deployer/servlet-api.jar"/> 
+    <pathelement location="${build.dir}/lib/deployer/jsp-api.jar"/> 
+    <fileset dir="${build.dir}/lib/xdoclet">
+      <include name="**/*.jar"/>    
+    </fileset> 
+    <path refid="lib.classpath"/>    
+    </classpath> 
+  </taskdef>
+
+  
+  <taskdef name="schemaexport" 
+           classname="net.sf.hibernate.tool.hbm2ddl.SchemaExportTask">
+    <classpath>
+    <path refid="run.classpath"/>    
+    <fileset dir="${build.dir}/lib">
+      <include name="**/*.jar"/>    
+    </fileset> 
+    <pathelement location="${jdbc.driver.jar}"/> 
+    </classpath> 
+           
+  </taskdef>
+                
+  <!-- Configure the custom Ant tasks for the Manager application -->
+  <taskdef name="deploy"    classname="org.apache.catalina.ant.DeployTask">
+    <classpath refid="deployer.classpath" />
+  </taskdef>
+  <taskdef name="list"      classname="org.apache.catalina.ant.ListTask">
+    <classpath refid="deployer.classpath" />
+  </taskdef>
+  <taskdef name="reload"    classname="org.apache.catalina.ant.ReloadTask">
+    <classpath refid="deployer.classpath" />
+  </taskdef>
+  <taskdef name="resources" classname="org.apache.catalina.ant.ResourcesTask">
+    <classpath refid="deployer.classpath" />
+  </taskdef>
+  <taskdef name="roles"     classname="org.apache.catalina.ant.RolesTask">
+    <classpath refid="deployer.classpath" />
+  </taskdef>
+  <taskdef name="start"     classname="org.apache.catalina.ant.StartTask">
+    <classpath refid="deployer.classpath" />
+  </taskdef>
+  <taskdef name="stop"      classname="org.apache.catalina.ant.StopTask">
+    <classpath refid="deployer.classpath" />
+  </taskdef>
+  <taskdef name="undeploy"  classname="org.apache.catalina.ant.UndeployTask">
+    <classpath refid="deployer.classpath" />
+  </taskdef>
+  <taskdef name="validator" classname="org.apache.catalina.ant.ValidatorTask">
+    <classpath refid="deployer.classpath" />
+  </taskdef>
+  
+
+<!--
+  ========================================================================
+    Init
+  ========================================================================
+-->
+  <target name="init" description="Initializes the build process">
+    <!-- Create the time stamp -->
+    <tstamp/>       
+    
+  </target> 
+  
+<!--
+  ========================================================================
+    Clean build directories
+  ========================================================================
+-->
+
+  <target name="clean" description="Clean build directories">
+    <delete dir="${classes.dir}"/>
+    <delete dir="${tmp.dir}"/>
+    <delete dir="${output.dir}"/>
+    <delete dir="${dist.dir}"/>          
+    <delete dir="${doc.dir}"/>          
+    <delete dir="${webinf.dir}/tmp"/>
+    <delete dir="${webinf.dir}/work"/>
+    
+    <delete file="${webinf.dir}/web.xml"/> 
+  
+  </target>
+ 
+<!--
+  ========================================================================
+    Compile java sources
+  ========================================================================
+--> 
+
+  
+  <target name="compile" depends="init" description="Compile java sources">
+  
+    <mkdir dir="${classes.dir}"/>
+    
+    <javac srcdir="${src.dir}" 
+           destdir="${classes.dir}"
+           deprecation="${compile.deprecation}"
+           optimize="${compile.optimize}" 
+           debug="${compile.debug}"
+           includeAntRuntime="no"
+           source="1.4">          
+      <classpath refid="compile.classpath"/>                   
+    </javac>  
+        
+    <copy todir="${classes.dir}">
+      <fileset dir="${src.dir}" excludes="**/*.java"/>
+    </copy>
+    
+  </target>
+  
+  <target name="generate" depends="generate.hibernate,generate.spring,generate.webxml"/>
+
+
+<!--
+  ========================================================================
+    XDoclet: Create Spring beans.xml
+  ========================================================================
+--> 
+ 
+  <target name="generate.spring" description="Generates Spring files" depends="compile">
+        
+    <springdoclet
+      destdir="${src.dir}"
+      excludedtags="@version,@author,@todo"
+      force="${xdoclet.force}"
+      mergeDir="${build.dir}/mergedir"
+      verbose="false">
+
+      <fileset dir="${src.dir}">
+        <include name="**/*.java"/>
+      </fileset>
+
+      <springXML destDir="${webinf.dir}" validateXML="true"/>
+  
+    </springdoclet>   
+    
+      
+  </target> 
+
+
+<!--
+  ========================================================================
+    XDoclet: Create hbm.xml Files for Hibernate
+  ========================================================================
+--> 
+ 
+  <target name="generate.hibernate" description="Generates Hibernate class descriptor files." depends="compile">
+        
+    <hibernatedoclet
+      destdir="${src.dir}"
+      excludedtags="@version,@author,@todo"
+      force="${xdoclet.force}"
+      mergedir="${src.dir}"
+      verbose="false">
+
+      <fileset dir="${src.dir}">
+        <include name="**/*.java"/>
+      </fileset>
+
+      <hibernate validatexml="true" version="2.0"/>
+
+    </hibernatedoclet>   
+    
+    <copy todir="${classes.dir}">
+      <fileset dir="${src.dir}" excludes="**/*.java"/>
+    </copy>    
+  </target> 
+     
+
+
+<!--
+  ========================================================================
+    XDoclet: Generates web.xml
+  ========================================================================
+--> 
+ 
+  <target name="generate.webxml" description="Generates web.xml" depends="compile">
+            
+    <webdoclet
+      destdir="${webinf.dir}"
+      mergeDir="${build.dir}/mergedir"
+      force="${xdoclet.force}"
+      verbose="true">
+
+      <fileset dir="${src.dir}">
+        <include name="**/*.java"/>
+      </fileset>
+
+      <deploymentdescriptor validatexml="true"
+         servletspec="2.3" sessiontimeout="5"
+         displayname="${ant.project.name}">      
+       <contextparam name="log4j-selector" value="org.apache.log4j.selector.ContextClassLoaderSelector" /> 
+       <contextparam name="log4j-config" value="WEB-INF/log4j.xml" />
+       <contextparam name="contextConfigLocation" value="/WEB-INF/spring.xml,/WEB-INF/spring-data.xml,/WEB-INF/spring-database.xml,/WEB-INF/spring-hibernate.xml" />       
+       
+      </deploymentdescriptor>
+      
+
+    </webdoclet>   
+
+    <antcall target="jsp2"/>    
+  </target> 
+ 
+
+<!--
+  ========================================================================
+    Create installation package
+  ========================================================================
+-->
+
+ 
+  <target name="dist" description="Compile web application"  depends="clean,generate,compile">
+    <mkdir dir="${dist.dir}"/>
+    <mkdir dir="${dist.dir}/web"/>
+    
+    <copy todir="${dist.dir}/web">
+      <fileset dir="${web.dir}"/>
+    </copy>
+
+	  <move todir="${dist.dir}/web" overwrite="true">
+	    <fileset dir="${dist.dir}/web"/>
+	    <mapper type="glob" from="*.dist" to="*" />
+	  </move>  
+    
+    <mkdir dir="${dist.dir}/web/META-INF" />
+    <copy file="${build.dir}/conf/${context.conf}" tofile="${dist.dir}/web/META-INF/context.xml"/>
+
+
+    <validator path="${dist.dir}/web" />
+
+    <mkdir dir="${dist.dir}/web/WEB-INF/classes"/>
+    <mkdir dir="${dist.dir}/web/WEB-INF/lib"/>
+
+    <javac destdir="${dist.dir}/web/WEB-INF/classes"
+           optimize="off"
+           debug="on" failonerror="false"
+           srcdir="${dist.dir}/web/WEB-INF/classes" 
+	   excludes="**/*.smap">
+      <classpath>
+        <fileset dir="${dist.dir}/web/WEB-INF/lib">
+          <include name="*.jar"/>
+        </fileset>
+    <fileset dir="${build.dir}/lib/deployer">
+      <include name="*.jar"/>    
+    </fileset>        
+      </classpath>
+      <include name="**" />
+      <exclude name="tags/**" />
+    </javac>
+
+    <jar destfile="${dist.dir}/blankrcp.war"
+         basedir="${dist.dir}/web/" />
+
+  </target> 
+ 
+<!--
+  ========================================================================
+    Clean and build application
+  ========================================================================
+-->
+  <target name="all" depends="splash,init,clean,compile,generate,dist" description="Clean and build application">
+  </target>
+  
+  <target name="splash">
+   <splash/>
+  </target>
+<!--
+  ========================================================================
+    Generate documentation
+  ========================================================================
+-->
+  <target name="docs" depends="compile" description="Generate documentation">
+    <mkdir dir="${doc.dir}/api"/>
+    
+    <javadoc destdir="${doc.dir}/api"
+             packagenames="ch.ess.blank.*"
+             sourcepath="${src.dir}"
+             use="true"
+             windowtitle="Blank RCP Application Documentation"
+             private="true">
+      <classpath refid="compile.classpath"/>
+    </javadoc>  
+  </target>
+
+
+
+<!--
+  ========================================================================
+    Generate DDL
+  ========================================================================
+--> 
+<target name="export.schema" description="Exports schema to database">
+
+  <schemaexport  properties="${build.dir}/hibernate.properties"
+                 quiet="no"
+                 text="no"
+                 drop="no"
+                 namingStrategy="ch.ess.common.db.AppNamingStrategy"
+                 output="${build.dir}/schema-export.sql">
+                 
+         <fileset dir="${classes.dir}">
+           <include name="**/*.hbm.xml"/>
+         </fileset>
+  </schemaexport>
+</target>
+
+
+<!--
+  ========================================================================
+    Convert to jsp2
+  ========================================================================
+-->
+  
+  <target name="jsp2">        
+
+            
+    <replaceregexp flags="g"
+     file="${web.dir}/WEB-INF/web.xml"
+     match='&lt;!DOCTYPE web-app PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN" "http://java.sun.com/dtd/web-app_2_3.dtd"&gt;'
+     replace=""/>
+
+    <replaceregexp flags="g"
+     file="${web.dir}/WEB-INF/web.xml"
+     match='&lt;web-app &gt;'
+     replace='&lt;web-app xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd" version="2.4"&gt;'/>            
+    
+    
+
+  
+    <replace file="${web.dir}/WEB-INF/web.xml">
+      <replacefilter token="&lt;!--&lt;jsp-config&gt;--&gt;" value="&lt;jsp-config&gt;"/>
+      <replacefilter token="&lt;!--&lt;/jsp-config&gt;--&gt;" value="&lt;/jsp-config&gt;"/>
+    </replace>   
+    
+    <replace file="${web.dir}/WEB-INF/web.xml">
+      <replacefilter token="&lt;description&gt;&lt;![CDATA[]]&gt;&lt;/description&gt;" value=""/>
+    </replace> 
+
+       
+  </target>          
+
+<!--
+  ========================================================================
+    Tomcat Manager
+  ========================================================================
+--> 
+  <target name="deploy" description="Deploy web application">
+    <deploy url="${url}" username="${username}" password="${password}"
+            path="${path}" war="${dist.dir}/${app.name}.war" update="true" />
+  </target>
+  <target name="undeploy" description="Undeploy web application">
+    <undeploy url="${url}" username="${username}" password="${password}"
+              path="${path}"/>
+  </target>
+
+  <!-- Webapp lifecycle control -->
+  <target name="start" description="Start web application">
+    <start url="${url}" username="${username}" password="${password}"
+           path="${path}"/>
+  </target>
+  <target name="reload" description="Reload web application">
+    <reload url="${url}" username="${username}" password="${password}"
+            path="${path}"/>
+  </target>
+  <target name="stop" description="Stop web application">
+    <stop url="${url}" username="${username}" password="${password}"
+          path="${path}"/>
+  </target>
+
+  <target name="list" description="Deploy web application">
+    <list url="${url}" username="${username}" password="${password}"/>
+  </target>
+    
+</project>

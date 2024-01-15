@@ -1,0 +1,411 @@
+a {
+	background-color: transparent;
+	color: #0000CC;
+}
+
+a:visited {
+	color: #0000CC;
+	background-color: transparent;
+}
+
+a:hover {
+	background-color: #DDDDDD;
+	color: #000033;
+}
+
+a:active {
+	background-color: transparent;
+	color: #0000CC;
+}
+
+a.title {
+	background-color: transparent;
+	color: #0000CC;
+	font-size: 12px;
+	font-weight: normal;
+	text-decoration: underline;
+}
+
+a.title:visited {
+	color: #0000CC;
+	background-color: transparent;
+}
+
+a.title:hover {
+	background-color: #DDDDDD;
+	color: #0000CC;
+}
+
+a.title:active {
+	background-color: transparent;
+	color: #0000CC;
+}
+
+
+a.smd-menu {
+	background-color: transparent;
+	color: Black;
+	font-size: 11px;
+	font-weight: normal;
+	text-decoration: none;
+}
+
+a.smd-menu:visited {
+	color: Black;
+	background-color: transparent;
+}
+
+a.smd-menu:hover {
+	background-color: #B7BFD4;
+	color: Black;
+}
+
+a.smd-menu:active {
+	background-color: transparent;
+	color: Black;
+}
+
+
+body{
+	background-color: #FFFFFF;
+	color: Black;
+	margin: 10px 20px 10px 20px;
+	padding: 0 0 0 0;
+}
+
+body, input, select, td, textarea{
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+}
+
+/* end display tag */
+div.errormessage {
+	background: #FFCC99;
+	color: Black;
+	border: 2px solid Black;
+	position: absolute;
+	right: 19px;
+	top: 60px;
+	visibility: visible;
+	z-index: 1000;
+}
+
+div.errormessage td, div.message td {
+	font-weight: bold;
+	list-style: square;
+}
+
+div.errormessage th, div.message th {
+	border-bottom: 1px solid Black;
+}
+
+div.exportlinks {
+	padding: 10px 0px;
+}
+
+div.message {
+	background: #66FF66;
+	color: Black;
+	border: 2px solid Black;
+	position: absolute;
+	right: 19px;
+	top: 60px;
+	visibility: visible;
+	z-index: 1000;
+}
+
+div.panel {
+	background-color: #EEEEEE;
+	color: Black;
+	border: 2px;
+	border-color: #999999;
+	border-style: outset;
+	font-family: sans-serif;
+	font-size: smaller;
+	height: 300px;
+	left: 0px;
+	margin: 0px;
+	padding: 6px;
+	position: absolute;
+	top: 28px;
+	width: 400px;
+}
+
+div.tab {
+	background-color: #EEEEEE;
+	color: Black;
+	border: 2px;
+	border-bottom-style: none;
+	border-color: #999999;
+	border-style: outset;
+	font-family: sans-serif;
+	font-weight: bold;
+	height: 30px;
+	line-height: 150%;
+	margin: 0px;
+	position: absolute;
+	text-align: center;
+	width: 90px;
+}
+
+div.title {
+	background-color: transparent;
+	color: Black;
+	font-size: 12px;
+	font-weight: bolder;
+}
+
+input.page {
+	background-color: #FFFFFF;
+	border: none;
+	color: #808080;
+	text-align: left;
+	text-decoration: none;
+}
+
+input.pageselected {
+	background-color: #EEEEEE;
+	border: none;
+	color: Black;
+	font-weight: bold;
+	text-align: left;
+}
+
+label.error {
+	background-color: #EEEEEE;
+	color: #FF0000;
+	font-weight: bold;
+}
+
+label.optional {
+	background-color: #EEEEEE;
+	color: Black;
+	font-weight: lighter;
+}
+
+label.required {
+	background-color: #EEEEEE;
+	color: Black;
+	font-weight: bold;
+}
+
+p {
+	margin-bottom: 0px;
+	margin-top: 0px;
+	text-align: left;
+}
+
+span#spanmonth {
+	color: #FFFFFF;
+	background-color: transparent;
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+}
+
+span#spanyear {
+	color: #FFFFFF;
+	background-color: transparent;
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+}
+
+span.csv {
+	background-image: url(../images/ico_file_csv.png);
+	background-repeat: no-repeat;
+}
+
+span.excel {
+	background-image: url(../images/ico_file_excel.png);
+	background-repeat: no-repeat;
+}
+
+span.export {
+	cursor: pointer;
+	display: inline;
+	padding: 0 4px 1px 20px;
+}
+
+span.pagebanner {
+	display: block;
+	padding: 2px 4px 2px 4px;
+}
+
+span.pagelinks {
+	display: block;
+	padding: 2px 4px 10px 4px;
+}
+
+span.xml {
+	background-image: url(../images/ico_file_xml.png);
+	background-repeat: no-repeat;
+}
+
+table.inputform {
+	border: 1px solid #999999;
+	color: Black;
+	background-color: White;
+	font-weight: normal;
+}
+
+table.inputform td {
+	background-color: #EEEEEE;
+	color: Black;
+}
+
+/* start display tag */
+table.list {
+	border: 1px solid #999999;
+	border-collapse: collapse;
+}
+
+table.list tbody td {
+	border: 1px solid #999999;
+	padding: 2px 4px 2px 4px;
+}
+
+table.list tbody tr.even {
+	background-color: #EEEEEE;
+	color: Black;
+}
+
+table.list tbody tr.odd {
+	background-color: #FFFFFF;
+	color: Black;
+}
+
+table.list tbody td a, table.list tbody td a:visited {
+	background-color: transparent;
+	color: Black;
+}
+
+table.list tbody td a:hover {
+	background: #FFD700;
+	color: Black;
+}
+
+table.list thead th {
+	background-image: url(../images/backmenu.gif);
+	background-repeat: no-repeat;
+	border: 1px solid #999999;
+	font-weight: bold;
+	padding: 2px 4px 2px 4px;
+	text-align: left;
+}
+
+table.list thead th a, table.list thead th a:visited {
+	background-color: transparent;
+	color: Black;
+	text-decoration: none;
+}
+
+table.list thead th a:hover {
+	background-color: transparent;
+	color: Black;
+	text-decoration: underline;
+}
+
+table.list thead th.sortable a {
+	background-image: url(../images/arrow_off.png);
+	background-position: right;
+	background-repeat: no-repeat;
+	display: block;
+}
+
+table.list thead th.order1 a {
+	background-image: url(../images/arrow_down.png);
+	background-repeat: no-repeat;
+}
+
+table.list thead th.order2 a {
+	background-image: url(../images/arrow_up.png);
+	background-repeat: no-repeat;
+}
+
+
+
+table.list thead th.sortable a:hover {
+	background-color: transparent;
+	color: Black;
+	text-decoration: underline;
+}
+
+table.list thead th.sorted {
+	background-image: url(../images/backmenuinvers.gif);
+	background-repeat: no-repeat;
+	color: Black;
+	background-color: transparent;
+}
+
+table.list thead th.sorted a:hover {
+	background-color: transparent;
+	color: Black;
+	text-decoration: underline;
+}
+
+table.list thead tr {
+	background-color: #DDDDDD;
+	color: Black;
+}
+
+/* highlight table row onmouseover */
+table.list tbody tr.tablerowover {
+	background: #FFFF8E;
+	border-bottom: 1px solid #C0C0C0;
+	border-top: 1px solid #C0C0C0;
+	color: Black;
+	cursor: pointer;
+}
+
+table.show {
+	border: 1px solid #999999;
+	color: Black;
+	background-color: transparent;
+	font-weight: normal;
+}
+
+table.show td {
+	background-color: #EEEEEE;
+	color: Black;
+}
+
+table.show th {
+	background-color: #EEEEEE;
+	color: Black;
+	font-weight: bold;
+}
+
+table.simplemenu {
+	background-color: #EEEEEE;
+	border: 1px solid #999999;
+	color: Black;
+}
+
+table.simplemenu td.smd-menu-top {
+	font-weight: bold;
+}
+
+table.title {
+	background-image: url(../images/backmenu.gif);
+	background-repeat: no-repeat;
+	border: 1px solid #999999;
+	color: Black;
+	background-color: transparent;
+}
+
+.filter {
+	background-color: #EEEEEE;
+	border: 1px solid #999999;
+	color: Black;
+}
+
+.titlebig {
+	background-color: transparent;
+	color: Black;
+	font-weight: bolder;
+}
+
+.titlesmall {
+	background-color: transparent;
+	color: Black;
+	font-size: 9px;
+}

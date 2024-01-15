@@ -1,0 +1,18 @@
+# Wedit Makefile for project phonet
+CFLAGS=-Ie:\lcc\include 
+CC=e:\lcc\bin\lcc.exe
+LINKER=e:\lcc\bin\lcclnk.exe
+OBJS=\
+	phonet.obj \
+
+LIBS=TCCONIO.LIB
+
+d:\javaprojects\private\phonet\phonet\lcc\phonet.exe:	$(OBJS) Makefile
+	$(LINKER)  -subsystem console -o d:\javaprojects\private\phonet\phonet\lcc\phonet.exe $(OBJS) $(LIBS)
+
+# Build PHONET.C
+PHONET_C=\
+
+phonet.obj: $(PHONET_C) d:\javaprojects\private\phonet\phonet\phonet.c
+	$(CC) -c $(CFLAGS) d:\javaprojects\private\phonet\phonet\phonet.c
+

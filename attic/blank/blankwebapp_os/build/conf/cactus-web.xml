@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE web-app
+    PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+    "http://java.sun.com/dtd/web-app_2_3.dtd">
+
+<web-app>
+
+    <servlet>    
+        <servlet-name>ServletRedirector</servlet-name>        
+        <servlet-class>org.apache.cactus.server.ServletTestRedirector</servlet-class>        
+    </servlet>    
+    <servlet>    
+        <servlet-name>JspRedirector</servlet-name>        
+        <jsp-file>/jspRedirector.jsp</jsp-file>        
+    </servlet>    
+    
+    <servlet-mapping>    
+        <servlet-name>ServletRedirector</servlet-name>        
+        <url-pattern>/ServletRedirector</url-pattern>        
+    </servlet-mapping>
+    <servlet-mapping>    
+        <servlet-name>ServletRedirector</servlet-name>        
+        <url-pattern>/ServletRedirectorSecure</url-pattern>        
+    </servlet-mapping>          
+    <servlet-mapping>    
+        <servlet-name>JspRedirector</servlet-name>        
+        <url-pattern>/JspRedirector</url-pattern>        
+    </servlet-mapping>
+    
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>Cactus Test Redirector</web-resource-name>
+            <url-pattern>/ServletRedirectorSecure</url-pattern>
+        </web-resource-collection>
+        <auth-constraint>
+            <role-name>admin</role-name>
+        </auth-constraint>
+    </security-constraint>    
+</web-app>

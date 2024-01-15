@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<registry>
+<query name="customers" type="jdbc" datasource="Order">
+<query_jdbc>
+<structured_sql>
+<select><![CDATA[select customers.customer_id,customers.contact,customers.company,customers.address,customers.city,customers.state,customers.zip,customers.reseller]]></select>
+<table>customers</table>
+</structured_sql>
+</query_jdbc>
+</query>
+<query name="sales by state" type="jdbc" datasource="Order">
+<query_jdbc>
+<sql><![CDATA[select state as 'State', sum(quantity*price*(1-discount)) as 'Sales' from
+orderdetails, orders, products, customers where (orderdetails.orderno =
+orders.orderno) and (orderdetails.product_id = products.product_id) and
+(customers.customer_id = orders.customer_id) group by state]]></sql>
+</query_jdbc>
+</query>
+<query name="Order details" type="jdbc" datasource="Order">
+<query_jdbc>
+<sql><![CDATA[select quantity * price * (1 - discount) as total,  customers.company,orderdetails.quantity,orders.discount,products.product_name,products.price,products.description from orders,products,orderdetails,customers where (orders.orderno = orderdetails.orderno) and (orders.customer_id = customers.customer_id) and (products.product_id = orderdetails.product_id) and quantity = 3]]></sql>
+</query_jdbc>
+</query>
+</registry>

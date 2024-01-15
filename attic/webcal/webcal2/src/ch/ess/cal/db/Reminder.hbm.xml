@@ -1,0 +1,103 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd">
+
+<hibernate-mapping>
+    <class
+        name="ch.ess.cal.db.Reminder"
+        table="calReminder"
+        lazy="true"
+        dynamic-update="false"
+        dynamic-insert="false"
+    >
+
+        <id
+            name="id"
+            column="id"
+            type="java.lang.Long"
+            unsaved-value="null"
+        >
+            <generator class="native">
+            </generator>
+        </id>
+
+        <version
+            name="version"
+            type="int"
+            column="version"
+        />
+
+        <property
+            name="minutesBefore"
+            type="int"
+            update="true"
+            insert="true"
+            column="minutesBefore"
+            not-null="true"
+        />
+
+        <many-to-one
+            name="event"
+            class="ch.ess.cal.db.Event"
+            cascade="none"
+            outer-join="auto"
+            update="true"
+            insert="true"
+        >
+            <column
+                name="eventId"
+                index="FK_Reminder_Event"
+                not-null="true"
+            />
+        </many-to-one>
+
+        <property
+            name="email"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="email"
+            length="100"
+            not-null="false"
+        />
+
+        <property
+            name="time"
+            type="int"
+            update="true"
+            insert="true"
+            column="time"
+            not-null="true"
+        />
+
+        <property
+            name="timeUnit"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="timeUnit"
+            length="15"
+            not-null="true"
+        />
+
+        <property
+            name="locale"
+            type="java.util.Locale"
+            update="true"
+            insert="true"
+            column="locale"
+            length="10"
+            not-null="true"
+        />
+
+        <!--
+            To add non XDoclet property mappings, create a file named
+                hibernate-properties-Reminder.xml
+            containing the additional properties and place it in your merge dir.
+        -->
+
+    </class>
+
+</hibernate-mapping>

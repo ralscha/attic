@@ -1,0 +1,80 @@
+<h2 align=center>Gewinnquoten</h2>
+<div align=center><center>
+<p>
+<H3>Lotto</H3>
+<table width="50%">
+<tr bgcolor="#101010">
+<th width="14%"><FONT color="#FFFFFF">Richtige</font></th>
+<th width="21%"><FONT color="#FFFFFF">Anzahl</font></th>
+<th><FONT color="#FFFFFF">Gewinn</font></th>
+</tr>
+<tr>
+<th bgcolor="#EEEEEE">6</th>
+<td bgcolor="#EEEEEE" align=right>%%lanz6%%</td>
+<td bgcolor="#EEEEEE" align=right>%%lbet6%%</td>
+</tr>
+<tr>
+<th bgcolor="#EEEEEE">5+</th>
+<td bgcolor="#EEEEEE" align=right>%%lanz5+%%</td>
+<td bgcolor="#EEEEEE" align=right>%%lbet5+%%</td>
+</tr>
+<tr>
+<th bgcolor="#EEEEEE">5</th>
+<td bgcolor="#EEEEEE" align=right>%%lanz5%%</td>
+<td bgcolor="#EEEEEE" align=right>%%lbet5%%</td>
+</tr>
+<tr>
+<th bgcolor="#EEEEEE">4</th>
+<td bgcolor="#EEEEEE" align=right>%%lanz4%%</td>
+<td bgcolor="#EEEEEE" align=right>%%lbet4%%</td>
+</tr>
+<tr>
+<th bgcolor="#EEEEEE">3</th>
+<td bgcolor="#EEEEEE" align=right>%%lanz3%%</td>
+<td bgcolor="#EEEEEE" align=right>%%lbet3%%</td>
+</tr>
+</TABLE>
+<P>
+Erwartete Gewinnsumme f&uuml;r 6 Richtige %%lerwartetdatum%%<BR>
+<B>%%lerwartetsumme%%</B>
+<P>
+<P>&nbsp;
+<H3>Joker</H3>
+<table width="50%">
+<tr bgcolor="#101010">
+<th width="14%"><FONT color="#FFFFFF">Richtige</font></th>
+<th width="21%"><FONT color="#FFFFFF">Anzahl</font></th>
+<th><FONT color="#FFFFFF">Gewinn</font></th>
+</tr>
+<tr>
+<th bgcolor="#EEEEEE">6</th>
+<td bgcolor="#EEEEEE" align=right>%%janz6%%</td>
+<td bgcolor="#EEEEEE" align=right>%%jbet6%%</td>
+</tr>
+<tr>
+<th bgcolor="#EEEEEE">5</th>
+<td bgcolor="#EEEEEE" align=right>%%janz5%%</td>
+<td bgcolor="#EEEEEE" align=right>%%jbet5%%</td>
+</tr>
+<tr>
+<th bgcolor="#EEEEEE">4</th>
+<td bgcolor="#EEEEEE" align=right>%%janz4%%</td>
+<td bgcolor="#EEEEEE" align=right>%%jbet4%%</td>
+</tr>
+<tr>
+<th bgcolor="#EEEEEE">3</th>
+<td bgcolor="#EEEEEE" align=right>%%janz3%%</td>
+<td bgcolor="#EEEEEE" align=right>%%jbet3%%</td>
+</tr>
+<tr>
+<th bgcolor="#EEEEEE">2</th>
+<td bgcolor="#EEEEEE" align=right>%%janz2%%</td>
+<td bgcolor="#EEEEEE" align=right>%%jbet2%%</td>
+</tr>
+</table>
+<P>
+Erwartete Gewinnsumme f&uuml;r 6 Richtige %%jerwartetdatum%%<BR>
+<B>%%jerwartetsumme%%</B>
+</center></div>
+</body>
+</html>

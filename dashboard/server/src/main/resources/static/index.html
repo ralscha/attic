@@ -1,0 +1,81 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Dashboard</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/main.css">
+    </head>
+    <body>
+
+	<template id="spielerTemplate">
+	   <tr>
+	     <td style="width:40px"></td>
+	     <td style="width:70px"></td>
+	     <td></td>
+	     <td></td>
+	     <td style="width:90px"></td>
+	     <td style="width:80px" class="ries"></td>
+	     <td style="width:80px" class="ries"></td>
+	     <td style="width:80px" class="ries"></td>
+	     <td style="width:80px" class="ries"></td>
+	     <td style="width:80px" class="ries riestotal"></td>
+	   </tr>
+	</template>
+
+		<table>
+		  <thead>
+		    <tr>
+		      <th>Pos.</th>
+		      <th>Lizenz</th>
+		      <th>Nachname</th>
+		      <th>Vorname</th>
+		      <th>Jahrgang</th>
+		      <th class="ries">1</th>
+		      <th class="ries">2</th>
+		      <th class="ries">3</th>
+		      <th class="ries">4</th>
+		      <th class="ries">Total</th>
+		    </tr>
+		  </thead>
+		  <tbody id="spielerBody">
+		  </tbody>
+		  <tfoot>
+		    <tr>
+		      <th colspan="5"></th>
+		      <th class="ries" id="col_5_total">0</th>
+		      <th class="ries" id="col_6_total">0</th>
+		      <th class="ries" id="col_7_total">0</th>
+		      <th class="ries" id="col_8_total">0</th>
+		      <th class="ries riestotal" id="col_9_total">0</th>
+		    </tr>		  
+		  </tfoot>
+		</table>
+
+		<table>
+		  <caption>Überzählige Spieler</caption>
+		  <thead>
+		    <tr>
+		      <th>Pos.</th>
+		      <th>Lizenz</th>
+		      <th>Nachname</th>
+		      <th>Vorname</th>
+		      <th>Jahrgang</th>
+		      <th class="ries">1</th>
+		      <th class="ries">2</th>
+		      <th class="ries">3</th>
+		      <th class="ries">4</th>
+		      <th class="ries">Total</th>
+		    </tr>
+		  </thead>		  
+		  <tbody id="ueberBody">		   
+		  </tbody>
+		</table>
+
+        <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+        <script src="js/main.js"></script>
+    </body>
+</html>

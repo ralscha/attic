@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+
+<project name="JUnitTest" default="main" basedir=".">
+  
+  <target name="main">
+
+<junit printsummary="yes" fork="yes" haltonfailure="yes">
+  <formatter type="plain" />
+  <test name="HelloWorldTest" />
+</junit>
+
+
+
+  </target>
+  
+  
+  
+</project>

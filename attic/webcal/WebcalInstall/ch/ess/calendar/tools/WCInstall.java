@@ -1,0 +1,204 @@
+package ch.ess.calendar.tools;
+
+import java.io.*;
+
+public class WCInstall {
+
+  private final static String ADDPATH = "tomcat/webapps/webcal/";
+  private final static String help = "java ch.ess.calendar.tools.WCInstall <smtp> <senderaddress> <webport>";
+  public static void main(String[] args) {
+    if (args.length == 3) {
+      String smtp   = args[0];
+      String sender = args[1];
+      int port = 80;
+      try {
+        port = Integer.parseInt(args[2]);
+      } catch (NumberFormatException nfe) {}
+      
+      install(smtp, sender, port);
+      System.out.println("install successful");
+
+    } else {
+      System.err.println(help);
+    }
+  }
+  
+
+  
+
+  public static void install(String smtp, String sender, int port) {
+    try {
+      File currentDir = new File(".");
+      String currentPathString = currentDir.getCanonicalPath();
+      currentPathString += File.separator;
+    
+      String currentPathStringR = replaceBackslash(currentPathString);
+    
+      createDbPropsFile(currentPathStringR);
+      createWebXMLFile(currentPathStringR, smtp, sender);
+      createPoolPropsFile(currentPathStringR);
+      createServerXMLFile(currentPathStringR, String.valueOf(port));
+
+      createBatchFiles98(currentPathString);
+      createBatchFilesNT(currentPathString);
+
+    } catch (IOException ioe) {
+      System.err.println(ioe);
+    }
+  
+  }
+
+  private static String replaceBackslash(String str) {
+    StringBuffer sb = new StringBuffer(str.length());
+    for (int i = 0; i < str.length(); i++) {
+      if (str.charAt(i) == '\\') {
+        sb.append("/");
+      } else {
+        sb.append(str.charAt(i));
+      }
+    }
+    return sb.toString();
+  }
+
+  private static void createDbPropsFile(String path) throws IOException {
+    BufferedReader br = new BufferedReader(new FileReader(path + ADDPATH + "db.props.template"));
+    PrintWriter pw = new PrintWriter(new FileWriter(path + ADDPATH + "db.props"));
+    
+    String line;
+    while ((line = br.readLine()) != null) {
+      int pos = line.indexOf("$WCDIR$");
+      if (pos != -1) {
+        String output = line.substring(0, pos);
+        output += (path+ADDPATH);
+        output += line.substring(pos+7);
+        pw.println(output);
+      } else {
+        pw.println(line);
+      }
+    }
+
+    pw.close();
+    br.close();
+  }
+
+
+  private static void createWebXMLFile(String path, String smtp, String sender) throws IOException {
+    BufferedReader br = new BufferedReader(new FileReader(path + ADDPATH + "WEB-INF" + File.separator + "web.xml.template"));
+    PrintWriter pw = new PrintWriter(new FileWriter(path + ADDPATH + "WEB-INF" + File.separator + "web.xml"));
+    
+    String line;
+    while ((line = br.readLine()) != null) {
+
+      int pos1 = line.indexOf("$SMTP$");
+      int pos2 = line.indexOf("$SENDER$");
+      int pos3 = line.indexOf("$TMPDIR$");
+
+      if (pos1 != -1) {
+        String output = line.substring(0, pos1);
+        output += smtp;
+        output += line.substring(pos1+6);
+        pw.println(output);
+      } else if (pos2 != -1) {
+        String output = line.substring(0, pos2);
+        output += sender;
+        output += line.substring(pos2+8);
+        pw.println(output);      
+      } else if (pos3 != -1) {
+        String output = line.substring(0, pos3);
+        output += (path+ADDPATH);
+        output += line.substring(pos3+8);
+        pw.println(output);            
+      } else {
+        pw.println(line);
+      }
+    }
+
+    pw.close();
+    br.close();
+  }
+
+
+  private static void createPoolPropsFile(String path) throws IOException {
+    BufferedReader br = new BufferedReader(new FileReader(path + ADDPATH + "WEB-INF" + File.separator + "classes" + File.separator + "poolman.props.template"));
+    PrintWriter pw = new PrintWriter(new FileWriter(path + ADDPATH + "WEB-INF" + File.separator + "classes" + File.separator + "poolman.props"));
+    
+    String line;
+    while ((line = br.readLine()) != null) {
+      int pos = line.indexOf("$DBURL$");
+      if (pos != -1) {
+        String output = line.substring(0, pos);
+        output += (path + ADDPATH +"db.props");
+        output += line.substring(pos+7);
+        pw.println(output);
+      } else {
+        pw.println(line);
+      }
+    }
+
+    pw.close();
+    br.close();
+  }
+
+  private static void createServerXMLFile(String path, String port) throws IOException {
+    BufferedReader br = new BufferedReader(new FileReader(path + "tomcat" + File.separator + "conf" + File.separator + "server.xml.template"));
+    PrintWriter pw = new PrintWriter(new FileWriter(path + "tomcat" + File.separator + "conf" + File.separator + "server.xml"));
+    
+    String line;
+    while ((line = br.readLine()) != null) {
+      int pos = line.indexOf("$HTTPPORT$");
+      if (pos != -1) {
+        String output = line.substring(0, pos);
+        output += port;
+        output += line.substring(pos+10);
+        pw.println(output);
+      } else {
+        pw.println(line);
+      }
+    }
+
+    pw.close();
+    br.close();
+  }
+
+  private static void createBatchFiles98(String path) throws IOException {
+    BufferedReader br = new BufferedReader(new FileReader(path + "st_win98.bat.template"));
+    PrintWriter pw = new PrintWriter(new FileWriter(path + "st_win98.bat"));
+    
+    String line;
+    while ((line = br.readLine()) != null) {
+      int pos = line.indexOf("$PATH$");
+      if (pos != -1) {
+        String output = line.substring(0, pos);
+        output += path;
+        output += line.substring(pos+6);
+        pw.println(output);
+      } else {
+        pw.println(line);
+      }
+    }
+
+    pw.close();
+    br.close();
+  }
+
+  private static void createBatchFilesNT(String path) throws IOException {
+    BufferedReader br = new BufferedReader(new FileReader(path + "st_winNT.bat.template"));
+    PrintWriter pw = new PrintWriter(new FileWriter(path + "st_winNT.bat"));
+    
+    String line;
+    while ((line = br.readLine()) != null) {
+      int pos = line.indexOf("$PATH$");
+      if (pos != -1) {
+        String output = line.substring(0, pos);
+        output += path;
+        output += line.substring(pos+6);
+        pw.println(output);
+      } else {
+        pw.println(line);
+      }
+    }
+
+    pw.close();
+    br.close();
+  }
+}

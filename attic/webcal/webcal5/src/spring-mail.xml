@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xmlns:aop="http://www.springframework.org/schema/aop"
+	   xmlns:tx="http://www.springframework.org/schema/tx"	   
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+       http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.0.xsd
+       http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.0.xsd">
+
+ 
+  <bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+    <property name="host" value="${mail.smtphost}"/>
+    <property name="port" value="${mail.smtpport}"/>
+    <property name="username" value="${mail.smtpuser}"/>
+    <property name="password" value="${mail.smtppassword}"/>
+  </bean>
+ 
+  <bean id="passwordMailSender" class="ch.ess.base.service.TemplateMailSender">
+    <property name="textResourceDao" ref="textResourceDao"/>
+    <property name="subject" value="login.passwordmail.subject"/>
+    <property name="body" value="login.passwordmail.body"/>
+    <property name="mailSender" ref="mailSender"/>
+  </bean>
+         
+  <bean id="eventMailSender" class="ch.ess.base.service.TemplateMailSender">
+    <property name="textResourceDao" ref="textResourceDao"/>
+    <property name="subject" value="event.reminder.subject"/>
+    <property name="body" value="event.reminder.body"/>
+    <property name="mailSender" ref="mailSender"/>
+  </bean>   
+  
+  <bean id="taskMailSender" class="ch.ess.base.service.TemplateMailSender">
+    <property name="textResourceDao" ref="textResourceDao"/>
+    <property name="subject" value="task.reminder.subject"/>
+    <property name="body" value="task.reminder.body"/>
+    <property name="mailSender" ref="mailSender"/>
+  </bean>             
+                									
+</beans>

@@ -1,0 +1,163 @@
+<project name="@projectName@" xmlns:ivy="antlib:org.apache.ivy.ant" default="jetty">
+
+  <property file="${user.home}/build.properties" />
+  <property file="${basedir}/build.properties" />
+
+  <property name="war.dir" value="${basedir}/war" />
+  <property name="build.dir" value="${basedir}/build" />
+  <property name="webinf.lib.dir" value="${war.dir}/WEB-INF/lib" />
+  <property name="classes.dir" value="${war.dir}/WEB-INF/classes" />
+  <property name="src.dir" value="${basedir}/src" />
+
+  <path id="compile.classpath">
+    <fileset dir="${build.dir}/jetty/lib">
+      <include name="servlet-api*.jar" />
+      <include name="mail*.jar" />
+    </fileset>
+    <fileset dir="${webinf.lib.dir}">
+      <include name="*.jar" />
+    </fileset>
+
+    <pathelement location="${gwt.home}/gwt-user.jar" />
+    <fileset dir="${gwt.home}" includes="gwt-dev*.jar" />
+  </path>
+
+
+  <target name="install.ivy">
+    <mkdir dir="${build.dir}/lib" />
+    <echo message="installing ivy..." />
+    <get src="http://repo1.maven.org/maven2/org/apache/ivy/ivy/${ivy.revision}/ivy-${ivy.revision}.jar" 
+         dest="${build.dir}/lib/ivy-${ivy.revision}.jar" 
+         usetimestamp="true" />
+
+    <taskdef resource="org/apache/ivy/ant/antlib.xml" uri="antlib:org.apache.ivy.ant">
+      <classpath>
+        <pathelement location="${build.dir}/lib/ivy-${ivy.revision}.jar" />
+      </classpath>
+    </taskdef>
+  </target>
+
+  <target name="clean">
+    <delete dir="${classes.dir}" failonerror="false" />
+    <delete dir="${war.dir}/startstop" failonerror="false" />
+    <delete file="${build.dir}/startstop.war" />
+  </target>
+
+  <target name="javac">
+    <mkdir dir="${classes.dir}" />
+
+    <javac srcdir="${src.dir}" 
+           destdir="${classes.dir}" 
+           encoding="utf-8" 
+           deprecation="true" 
+           debug="true" 
+           debuglevel="lines,vars,source" 
+           includeAntRuntime="no" 
+           source="1.6" target="1.6">
+      <classpath refid="compile.classpath" />
+    </javac>
+
+    <copy todir="${classes.dir}">
+      <fileset dir="${src.dir}" excludes="**/*.java" />
+    </copy>
+
+  </target>
+
+  <target name="upToDate">
+    <uptodate targetfile="${war.dir}/@projectNameLowerCase@/@projectNameLowerCase@.nocache.js" property="isUpToDate">
+      <srcfiles dir="${src.dir}" includes="**" />
+      <srcfiles dir="${classes.dir}" includes="**" />
+    </uptodate>
+  </target>
+
+  <target name="gwtc" depends="javac,upToDate" unless="isUpToDate" description="GWT compile to JavaScript">
+    <java failonerror="true" fork="true" classname="com.google.gwt.dev.Compiler">
+      <classpath>
+        <pathelement location="src" />
+        <pathelement location="${classes.dir}" />
+        <path refid="compile.classpath" />
+      </classpath>
+      <!-- add jvmarg -Xss16M or similar if you see a StackOverflowError -->
+      <jvmarg value="-Xmx256M" />
+
+      <!-- Additional arguments like -style PRETTY or -logLevel DEBUG -->
+      <arg value="@packageProject@.@projectName@" />
+
+      <arg value="-localWorkers" />
+      <arg value="2" />
+
+    </java>
+  </target>
+
+  <target name="hosted" depends="javac" description="Run hosted mode">
+    <java failonerror="true" fork="true" classname="com.google.gwt.dev.HostedMode">
+      <classpath>
+        <pathelement location="src" />
+        <pathelement location="${jdbc.driver.path}"/>
+        <path refid="compile.classpath" />
+      </classpath>
+      <jvmarg value="-Xmx256M" />
+      <arg value="-noserver" />
+      <arg value="-port" />
+      <arg value="8080" />
+      <arg value="-startupUrl" />
+      <arg value="@projectNameLowerCase@.html" />
+      <!-- Additional arguments like -style PRETTY or -logLevel DEBUG -->
+      <arg value="@packageProject@.@projectName@" />
+    </java>
+  </target>
+
+
+  <target name="war" depends="clean,gwtc">
+    <jar compress="yes" jarfile="${build.dir}/@projectNameLowerCase@.war" basedir="${war.dir}" excludes="**/client/**" />
+  </target>
+
+  <!-- =================================== -->
+
+  <target name="clean.lib">
+    <delete dir="${webinf.lib.dir}" failonerror="false" />
+    <delete dir="${build.dir}/jetty/lib" failonerror="false" />
+
+    <mkdir dir="${webinf.lib.dir}" />
+    <mkdir dir="${build.dir}/jetty/lib" />
+  </target>
+
+  <target name="resolve" depends="install.ivy,clean.lib">
+    <ivy:settings file="${basedir}/ivysettings.xml" />
+    <ivy:retrieve />
+
+    <move todir="${webinf.lib.dir}">
+      <fileset dir="${basedir}/lib">
+        <include name="*.jar" />
+        <exclude name="servlet*.jar" />
+        <exclude name="jetty*.jar" />
+        <exclude name="servlet*.jar" />
+        <exclude name="mail*.jar" />
+        <exclude name="jsp*.jar" />
+        <exclude name="core*.jar" />
+      </fileset>
+    </move>
+    <move todir="${build.dir}/jetty/lib">
+      <fileset dir="${basedir}/lib" />
+    </move>
+    <delete dir="${basedir}/lib" />
+
+    <copy file="${gwt.home}/gwt-servlet.jar" todir="${webinf.lib.dir}" />
+
+  </target>
+
+  <target name="jetty.hosted" depends="javac,jetty.nodep" />
+  <target name="jetty" depends="gwtc,jetty.nodep" />
+
+  <target name="jetty.nodep">
+    <java classname="org.mortbay.xml.XmlConfiguration" fork="yes">
+      <arg file="${build.dir}/jetty/jetty.xml" />
+      <classpath>
+        <fileset dir="${build.dir}/jetty/lib" includes="*.jar" />
+        <pathelement path="${build.dir}/jetty" />
+        <pathelement path="${jdbc.driver.path}" />
+      </classpath>
+    </java>
+  </target>
+
+</project>

@@ -1,0 +1,314 @@
+<project name="WebCal2 Main Build" default="all" basedir="..">
+  <description>WebCal2 Build File</description> 
+
+  <!-- Home directory of the build process -->
+  <property name="build.dir" value="${basedir}/build"/>
+  
+   <property file="${build.dir}/build.properties" />
+ 
+  <!-- Should Java compilations set the debug compiler option? -->
+  <property name="compile.debug" value="true" />
+
+  <!-- Should Java compilations set the deprecation compiler option? -->
+  <property name="compile.deprecation" value="true" />
+
+  <!-- Should Java compilations set the optimize compiler option? -->
+  <property name="compile.optimize" value="false" /> 
+ 
+ 
+  <!-- Ant directory -->
+  <property name="ant.dir" value="${build.dir}/ant"/>
+   
+  <!-- Source directory -->
+  <property name="src.dir" value="${basedir}/src"/>
+  
+  <!-- Directory where build outputs are stored -->      
+  <property name="output.dir" value="${build.dir}/output"/>   
+
+
+  <!-- Web directories -->  
+  <property name="web.dir" value="${basedir}/www"/> 
+  <property name="webinf.dir" value="${web.dir}/WEB-INF"/>    
+  <property name="classes.dir" value="${webinf.dir}/classes"/>
+  <property name="lib.dir" value="${webinf.dir}/lib"/>   
+    
+
+  <!-- Doc directory -->  
+  <property name="doc.dir" value="${basedir}/docs"/>  
+  
+  <!-- Directory where release files are stored -->  
+  <property name="dist.dir" value="${build.dir}/dist"/>
+    
+
+   
+  <!-- Temporary directory -->      
+  <property name="tmp.dir" value="${build.dir}/tmp"/>      
+        
+
+
+<!--
+  ========================================================================
+    DATATYPES
+  ========================================================================
+-->
+
+  <!-- Build classpath -->
+  <path id="build.classpath">
+    <fileset dir="${build.dir}/lib">
+      <include name="**/*.jar"/>    
+    </fileset>
+  </path>
+   
+   
+  <!-- Compilation classpath -->
+  <path id="compile.classpath">
+    <path refid="build.classpath"/>
+    <fileset dir="${lib.dir}">
+      <include name="**/*.jar"/>
+    </fileset>   
+    <pathelement location="${ant.dir}/lib/junit.jar"/>
+  </path>    
+   
+  <path id="jasper.classpath">
+    <pathelement location="${ant.dir}/lib/jasper-compiler.jar"/>
+    <pathelement location="${ant.dir}/lib/jasper-runtime.jar"/>
+    <pathelement location="${build.dir}/lib/servlet.jar"/> 
+  </path>     
+
+  <path id="run.classpath">
+    <pathelement location="${classes.dir}"/>    
+    <fileset dir="${lib.dir}">
+      <include name="**/*.jar"/>
+    </fileset>      
+  </path>
+
+  <fileset id="hibernate.mapping.files" dir="${src.dir}">
+    <include name="**/*.hbm.xml" />
+  </fileset>
+
+
+
+<!--
+  ========================================================================
+    Init
+  ========================================================================
+-->
+  <target name="init" description="Initializes the build process">
+    <!-- Create the time stamp -->
+    <tstamp/>       
+    
+  </target> 
+  
+
+
+<!--
+  ========================================================================
+    Clean build directories
+  ========================================================================
+-->
+
+  <target name="clean" description="Clean build directories">
+    <delete dir="${classes.dir}"/>
+    <delete dir="${tmp.dir}"/>
+    <delete dir="${output.dir}"/>
+    <delete dir="${dist.dir}"/>          
+    <delete dir="${webinf.dir}/tmp"/>
+    <delete dir="${webinf.dir}/work"/>
+     
+  </target>
+ 
+<!--
+  ========================================================================
+    Compile java sources
+  ========================================================================
+--> 
+  <target name="compile" depends="init" description="Compile java sources">
+  
+    <mkdir dir="${classes.dir}"/>
+    
+    <javac srcdir="${src.dir}" 
+           destdir="${classes.dir}"
+           deprecation="${compile.deprecation}"
+           optimize="${compile.optimize}" 
+           debug="${compile.debug}"
+           includeAntRuntime="no">          
+      <classpath refid="compile.classpath"/>             
+    </javac>  
+        
+    <copy todir="${classes.dir}">
+      <fileset dir="${src.dir}" excludes="**/*.java"/>
+    </copy>
+    
+  </target>
+  
+
+ 
+<!--
+  ========================================================================
+    Compile jsp files
+  ========================================================================
+--> 
+
+
+  <target name="compile.jsp" depends="init,compile"> 
+    <mkdir dir="${tmp.dir}"/>
+    
+    <jspc srcdir="${web.dir}"
+          destdir="${tmp.dir}">            
+      <include name="**/*.jsp"/>
+      <classpath refid="jasper.classpath"/>      
+    </jspc>  
+
+   
+    
+    <delete dir="${tmp.dir}"/>
+  </target>
+ 
+
+<!--
+  ========================================================================
+    Create installation package
+  ========================================================================
+-->
+ 
+  <target name="dist" depends="clean,compile" description="Create installation package">
+    <mkdir dir="${dist.dir}"/>
+    <mkdir dir="${dist.dir}/www"/>
+	
+    <copy todir="${dist.dir}/www">
+      <fileset dir="${web.dir}"/>
+    </copy>
+	                	        
+    <jar compress="no" jarfile="${dist.dir}/ab.war" basedir="${dist.dir}/www" /> 
+  
+  </target>  
+ 
+<!--
+  ========================================================================
+    Clean and build application
+  ========================================================================
+-->
+  <target name="all" depends="init,clean,compile,compile.jsp,dist" description="Clean and build application">
+    <property name="compile.debuglevel" value="lines"/>
+  </target>
+  
+<!--
+  ========================================================================
+    Generate documentation
+  ========================================================================
+-->
+  <target name="docs" depends="compile" description="Generate documentation">
+    <mkdir dir="${doc.dir}/api"/>
+    
+    <javadoc destdir="${doc.dir}/api"
+             packagenames="ch.ess.ct.*"
+             sourcepath="${src.dir}"
+             use="true"
+             windowtitle="ct documentation"
+             private="true">
+      <classpath refid="compile.classpath"/>
+    </javadoc>  
+  </target>
+
+
+
+<!--
+  ========================================================================
+    Generate DDL
+  ========================================================================
+--> 
+<target name="export.schema" description="Exports schema to database">
+  <taskdef name="schemaexport" classpathref="run.classpath" classname="net.sf.hibernate.tool.hbm2ddl.SchemaExportTask"/>
+
+  <schemaexport  properties="${classes.dir}/hibernate.properties"
+                 quiet="no"
+                 text="no"
+                 drop="no"
+                 output="${build.dir}/schema-export.sql">
+                 
+         <fileset dir="${classes.dir}">
+           <include name="**/*.hbm.xml"/>
+         </fileset>
+  </schemaexport>
+</target>
+
+
+<!--
+  ========================================================================
+    Create Java Source
+  ========================================================================
+--> 
+
+<target name="create.source">
+
+    <property file="${classes.dir}/hibernate.properties" /> 
+    
+    <pathconvert refid="hibernate.mapping.files" property="hibernate.mappings" pathsep=" "/>
+    <echo>${hibernate.mappings}</echo>
+    
+    <java classname="net.sf.hibernate.tool.hbm2java.CodeGenerator">
+        <!-- mapping file -->
+        <arg line="--output=${src.dir}"/>
+        <arg line="${hibernate.mappings}"/>
+        
+        <classpath refid="run.classpath"/>        
+        <classpath refid="build.classpath"/> 
+   </java>
+</target>
+
+
+<!--
+  ========================================================================
+    JUnit
+  ========================================================================
+--> 
+
+
+  <target name="junit" depends="init" description="JUnit TestCases">
+    <mkdir dir="${output.dir}"/> 
+    <mkdir dir="${tmp.dir}"/> 
+    <delete file="${tmp.dir}/junit.properties"/>
+    
+    
+    <junit printsummary="false"
+         errorProperty="test.failed"
+         failureProperty="test.failed"
+         fork="true">  
+      <formatter type="xml"/>
+   
+      <classpath>
+         <pathelement location="${classes.dir}"/>           
+         <fileset dir="${lib.dir}" includes="**/*.jar"/>
+         <path refid="build.classpath"/>	
+      </classpath>
+
+      <sysproperty key="test.db.driver" value="${jdbc.driver}"/>
+      <sysproperty key="test.db.url" value="${jdbc.url}"/>
+      <sysproperty key="test.db.user" value="${jdbc.user}"/>
+      <sysproperty key="test.db.password" value="${jdbc.password}"/>
+
+
+      <test todir="${output.dir}" name="ch.ess.ct.tests.AppConfigTest"/>
+      <test todir="${output.dir}" name="com.managestar.recurrance.DailyTest"/>
+      <test todir="${output.dir}" name="com.managestar.recurrance.HourlyTest"/>
+      <test todir="${output.dir}" name="com.managestar.recurrance.MinutelyTest"/>
+      <test todir="${output.dir}" name="com.managestar.recurrance.MiscTest"/>
+      <test todir="${output.dir}" name="com.managestar.recurrance.MonthlyTest"/>
+      <test todir="${output.dir}" name="com.managestar.recurrance.SecondlyTest"/>
+      <test todir="${output.dir}" name="com.managestar.recurrance.WeeklyTest"/>                                    
+      <test todir="${output.dir}" name="com.managestar.recurrance.YearlyTest"/>                                          
+    </junit>  
+      
+    <junitreport todir="${output.dir}">
+      <fileset dir="${output.dir}">
+        <include name="TEST-*.xml"/>
+      </fileset>
+      <report format="frames" todir="${output.dir}/junit"/>
+    </junitreport>
+                      
+    <property file="${tmp.dir}/junit.properties" />     
+    <fail message="Tests failed. Check log and/or reports." if="test.failed"/>   
+    
+  </target>
+
+</project>

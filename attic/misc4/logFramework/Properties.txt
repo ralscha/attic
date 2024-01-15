@@ -1,0 +1,155 @@
+Allgemeine Properties
+
+	log						default: true
+	log.errors 			default: true
+	log.warnings 			default: true
+	log.notices 			default: true
+	log.traces 			default: true
+	
+	log.format				default: "%t(%r):%n: %e: %h: %c.%f:%l%(: %m)m%(: %j)o\n\n"
+	log.time.format 		default: 24
+	log.time.zone			default: CET
+	log.time.relative		default: clock
+	log.exception.format	default: ": %c: %m: %s"
+	log.message.format	default: "%m"
+	log.thread.format		default: "%G.%n"
+	log.object.format		default: "%j"
+	
+	log.handler.[name].class     
+	log.handler.[name].events
+	
+	log.color 				default: false
+
+
+
+event-format is composed of a concatenation of the following items: 
+
+     %t is time 
+     %(time-format)t is time with custom format 
+     %r is relative time 
+     %e is event type 
+     %h is the thread name(s) 
+     %(thread-format)h is the thread name(s) with custom format 
+     %c is classname 
+     %n is event sequence number 
+     %(class-format)c is classname with custom format 
+     %f is function name 
+     %F is file name 
+     %(filename-format)F is file name with custom format 
+     %l is line number in function 
+     %m is message 
+     %(message-format)m is message with custom format 
+     %o is object 
+     %(object-format)o is object with custom format 
+     text 
+
+time-format is one of the following: 
+
+     short 
+     medium 
+     long 
+     full 
+     24 
+     java.text.SimpleDateFormat 
+
+relative-time-format is one of the following: 
+
+     clock 
+     days 
+     hours 
+     minutes 
+     seconds 
+
+thread-format is: 
+
+     %g is the thread's group name 
+     %G are all of the thread's group names delimited by %punct 
+     %n is the name of the thread 
+     %punct sets the delimiter of %G 
+     plain-text 
+
+
+Note: to specify the entire hierarchy of group names, use the syntax: %g.%g where the '.', which can be any character, will be used to delimit each thread group
+name. 
+
+class-format is: 
+
+     short - class name without the package name 
+     full - class name with the package name 
+
+filename-format is: 
+
+     short - filename without the path 
+     full - filename with the path 
+
+message-format is: 
+
+     %m is the message 
+     plain-text 
+
+object-format is: 
+
+     java with grace.io.JavaPrintWriter 
+     Java with grace.io.JavaPrintWriter pretty 
+
+
+exception-format is: 
+
+     %c exception classname 
+     %m message 
+     %s stack trace 
+     plain-text 
+
+In this scheme, the current format would be: "%t(%r):%n: %e: %c.%f:%l: %m: %o\n" 
+
+
+StandardOutHandler
+	keine Properties
+
+
+
+FileHandler
+
+	log.handler.[name].path      (default: [name].log)
+
+	Beispiele:
+	'week'yyyyww'.log'
+	'test.log'
+	yyyyMMdd HHmmssSSS
+	(Beschreibung SimpleDateFormat)
+	
+	
+	
+
+SplitFileHandler
+
+	File wird nach erreichen der maxsize aufgeteilt. 
+	Die erste Hälfte wird gelöscht.
+
+	log.handler.[name].path      wie FileHandler
+	log.handler.[name].maxsize
+
+	Beispiele:	
+	10k    /* 10 Kilobyte */ 
+	40m    /* 40 Megabyte */
+	
+	Eine Grösse von 0 ergibt FileHandler (kein Split)
+	
+	
+	
+SMTPHandler
+
+	log.handler.[name].sender 
+	log.handler.[name].receiver 
+	log.handler.[name].subject 
+	log.handler.[name].smtp
+	
+	
+	
+	
+ConsoleHandler
+
+	log.handler.[name].title    Frametitle Default: Log Console
+	log.handler.[name].width    Default: 800
+	log.handler.[name].height   Default: 400
+	

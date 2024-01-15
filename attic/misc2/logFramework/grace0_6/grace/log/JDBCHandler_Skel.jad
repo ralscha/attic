@@ -1,0 +1,76 @@
+// Decompiled by Jad v1.5.7. Copyright 1997-99 Pavel Kouznetsov.
+// Jad home page: http://www.geocities.com/SiliconValley/Bridge/8617/jad.html
+// Decompiler options: packimports(3) 
+// Source File Name:   JDBCHandler_Skel.java
+
+package grace.log;
+
+import java.io.IOException;
+import java.io.ObjectInput;
+import java.rmi.*;
+import java.rmi.server.*;
+
+// Referenced classes of package grace.log:
+//            Event, JDBCHandler
+
+public final class JDBCHandler_Skel
+    implements Skeleton
+{
+
+    public Operation[] getOperations()
+    {
+        return (Operation[])operations.clone();
+    }
+
+    public void dispatch(Remote remote, RemoteCall remotecall, int i, long l)
+        throws Exception
+    {
+        if(l != 0x9b041157519a4937L)
+            throw new SkeletonMismatchException("interface hash mismatch");
+        JDBCHandler jdbchandler = (JDBCHandler)remote;
+        switch(i)
+        {
+        case 0: // '\0'
+            Event event;
+            try
+            {
+                ObjectInput objectinput = remotecall.getInputStream();
+                event = (Event)objectinput.readObject();
+            }
+            catch(IOException ioexception1)
+            {
+                throw new UnmarshalException("error unmarshalling arguments", ioexception1);
+            }
+            catch(ClassNotFoundException classnotfoundexception)
+            {
+                throw new UnmarshalException("error unmarshalling arguments", classnotfoundexception);
+            }
+            finally
+            {
+                remotecall.releaseInputStream();
+            }
+            jdbchandler.handle(event);
+            try
+            {
+                remotecall.getResultStream(true);
+                return;
+            }
+            catch(IOException ioexception)
+            {
+                throw new MarshalException("error marshalling return", ioexception);
+            }
+
+        }
+        throw new UnmarshalException("invalid method number");
+    }
+
+    public JDBCHandler_Skel()
+    {
+    }
+
+    private static final Operation operations[] = {
+        new Operation("void handle(grace.log.Event)")
+    };
+    private static final long interfaceHash = 0x9b041157519a4937L;
+
+}

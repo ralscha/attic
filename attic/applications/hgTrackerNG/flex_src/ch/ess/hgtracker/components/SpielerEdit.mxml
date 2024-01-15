@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:TitleWindow xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute" width="488" height="468" 
+  title="Spieler bearbeiten" showCloseButton="true" creationComplete="init()">
+  
+  <mx:Metadata>
+    [Event(name="dataInserted")]
+    [Event(name="dataUpdated")]
+  </mx:Metadata>
+  
+  <mx:Script>
+    <![CDATA[
+      import ch.ess.hgtracker.db.Club;
+      import mx.events.ValidationResultEvent;
+      import mx.binding.utils.BindingUtils;
+      import mx.managers.PopUpManager;
+      import mx.controls.Alert;
+      import mx.rpc.events.ResultEvent;
+      import ch.ess.hgtracker.db.Spieler;
+      
+      [Bindable]
+      public var editSpieler:Spieler;
+      
+      public var club:Club;
+      
+      private var validators:Array;
+      
+      private function save():void { 
+        editSpieler.club = club;
+        
+        editSpieler.nachname = nachnameText.text;
+        editSpieler.vorname = vornameText.text;
+        editSpieler.strasse = strasseText.text;
+        editSpieler.plz = plzText.text;
+        editSpieler.ort = ortText.text;
+        
+        editSpieler.jahrgang = Number(jahrgangText.text);        
+        
+        editSpieler.aufgestellt = aufgestelltCheckbox.selected;
+        
+        if (reihenfolgeText.text != '' && reihenfolgeText.text != '0') {
+          editSpieler.reihenfolge = Number(reihenfolgeText.text);
+        } else {
+          editSpieler.reihenfolge = 0;
+        }
+        
+        editSpieler.email = emailText.text;
+        editSpieler.telNr = telText.text;
+        editSpieler.mobileNr = mobileText.text;
+        editSpieler.aktiv = aktivCheckbox.selected;
+        
+        if (editSpieler.id == -1) {
+          spielerService.insert(editSpieler);
+        } else {
+          spielerService.update(editSpieler);
+        }
+      }      
+            
+      private function onUpdateResult(e:ResultEvent):void {
+        var dataEvent:Event = new Event("dataUpdated");
+        dispatchEvent(dataEvent);
+        close();
+      }  
+      
+      private function onInsertResult(e:ResultEvent):void {
+        var dataEvent:Event = new Event("dataInserted");
+        dispatchEvent(dataEvent);
+        close();
+      }  
+      
+      private function init():void {
+        PopUpManager.centerPopUp(this);
+        this.addEventListener(Event.CLOSE, onCloseEvent); 
+        
+         validators = [nachnameTextValidator,vornameTextValidator,
+                       strasseTextValidator,plzTextValidator,
+                       ortTextValidator,jahrgangTextValidator,
+                       emailTextValidator];
+                       
+        checkButtonEnable();               
+        nachnameText.setFocus();
+        if (editSpieler.reihenfolge == 0) {
+          reihenfolgeText.text = '';
+        }
+              
+      }
+      
+      private function onCloseEvent(e:Event):void {
+        close();
+      }
+
+      private function close():void {
+        PopUpManager.removePopUp(this);
+      }   
+      
+      public function checkButtonEnable():void {
+        saveButton.enabled = validInput();
+      }
+        
+      private function validInput():Boolean {
+        var errors:Array = Validator.validateAll(validators);
+        return (errors.length == 0);        
+      }        
+      
+    ]]>
+  </mx:Script>
+  
+  <mx:RemoteObject id="spielerService" showBusyCursor="true" destination="spielerService">
+    <mx:method name="update" result="onUpdateResult(event)" />
+    <mx:method name="insert" result="onInsertResult(event)" />
+  </mx:RemoteObject>
+  
+  <mx:Form right="10" top="10" left="10">
+    <mx:FormItem label="Nachname" required="true">
+      <mx:TextInput id="nachnameText" width="300" text="{editSpieler.nachname}" change="checkButtonEnable()"/>
+    </mx:FormItem>  
+    <mx:FormItem label="Vorname" required="true">
+      <mx:TextInput id="vornameText" width="300" change="checkButtonEnable()" text="{editSpieler.vorname}"/>
+    </mx:FormItem>
+    <mx:FormItem label="Strasse" required="true">
+      <mx:TextInput id="strasseText" width="300" change="checkButtonEnable()" text="{editSpieler.strasse}"/>
+    </mx:FormItem>
+    <mx:FormItem label="PLZ" required="true">
+      <mx:TextInput id="plzText" width="70" change="checkButtonEnable()" text="{editSpieler.plz}" maxChars="4" restrict="0-9"/>
+    </mx:FormItem>
+    <mx:FormItem label="Ort" required="true">
+      <mx:TextInput id="ortText" width="300" change="checkButtonEnable()" text="{editSpieler.ort}"/>
+    </mx:FormItem>
+    <mx:FormItem label="Jahrgang" required="true">
+      <mx:TextInput id="jahrgangText" width="70" change="checkButtonEnable()" text="{editSpieler.jahrgang}" maxChars="4" restrict="0-9"/>
+    </mx:FormItem>
+    <mx:FormItem label="Aufgestellt">
+      <mx:CheckBox id="aufgestelltCheckbox" selected="{editSpieler.aufgestellt}"/>
+    </mx:FormItem>
+    <mx:FormItem label="Reihenfolge">
+      <mx:TextInput id="reihenfolgeText" width="35" text="{editSpieler.reihenfolge}" change="checkButtonEnable()" restrict="0-9"/>
+    </mx:FormItem>
+    <mx:FormItem label="E-Mail">
+      <mx:TextInput id="emailText" width="300" text="{editSpieler.email}" change="checkButtonEnable()" />
+    </mx:FormItem>
+    <mx:FormItem label="Telefonnummer">
+      <mx:TextInput id="telText" width="300" text="{editSpieler.telNr}"/>
+    </mx:FormItem>
+    <mx:FormItem label="Natelnummer">
+      <mx:TextInput id="mobileText" width="300" text="{editSpieler.mobileNr}"/>
+    </mx:FormItem>
+    <mx:FormItem label="Aktiv">
+      <mx:CheckBox id="aktivCheckbox" selected="{editSpieler.aktiv}"/>
+    </mx:FormItem>
+  </mx:Form>
+  <mx:Button label="Speichern" id="saveButton" bottom="10" left="10" click="save()" icon="@Embed(source='assets/disk_green.png')"/>
+  <mx:Button label="Abbrechen" id="cancelButton" right="10" bottom="10" click="close()" icon="@Embed(source='assets/delete.png')"/>
+    
+  
+  <mx:Validator id="nachnameTextValidator" source="{nachnameText}" property="text" required="true" requiredFieldError="Nachname ist eine Musseingabe"/>    
+  <mx:Validator id="vornameTextValidator" source="{vornameText}" property="text" required="true" requiredFieldError="Vorname ist eine Musseingabe"/>    
+  <mx:Validator id="strasseTextValidator" source="{strasseText}" property="text" required="true" requiredFieldError="Strasse ist eine Musseingabe"/>  
+  
+  <mx:Validator id="plzTextValidator" source="{plzText}" property="text" required="true" 
+    requiredFieldError="PLZ ist eine Musseingabe"/>  
+  
+  <mx:Validator id="ortTextValidator" source="{ortText}" property="text" required="true" requiredFieldError="Ort ist eine Musseingabe"/>
+
+  <mx:Validator id="jahrgangTextValidator" source="{jahrgangText}" property="text" required="true" 
+    requiredFieldError="Jahrgang ist eine Musseingabe" />
+
+  <mx:EmailValidator id="emailTextValidator" source="{emailText}" property="text" required="false" 
+    invalidCharError="Ungültige E-Mail Adresse" />
+    
+</mx:TitleWindow>

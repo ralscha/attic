@@ -1,0 +1,2 @@
+():1: trace: system.main.main: EnumerationTest.run:19: VectorEnumerator vector.elements() = { String [0] = "1"; String [1] = "2"; String [2] = "3"; String [3] = "4"; };
+

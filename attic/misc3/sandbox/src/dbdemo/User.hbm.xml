@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+   "-//Hibernate/Hibernate Mapping DTD//EN"
+   "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd">
+
+<hibernate-mapping>
+	<class name="dbdemo.User" table="users">
+
+		<id name="userID" column="LogonId" type="string">
+				<generator class="assigned"/>
+		</id>
+		<property name="userName" column="Name" type="string"/>
+		<property name="password" column="Password" type="string"/>
+		<property name="emailAddress" column="EmailAddress" type="string"/>
+		<property name="lastLogon" column="LastLogon" type="date"/>
+	</class>
+	
+	
+	
+</hibernate-mapping>

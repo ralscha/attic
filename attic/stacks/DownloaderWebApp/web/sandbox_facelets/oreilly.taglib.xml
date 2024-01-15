@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!DOCTYPE facelet-taglib PUBLIC
+  "-//Sun Microsystems, Inc.//DTD Facelet Taglib 1.0//EN"
+  "http://java.sun.com/dtd/facelet-taglib_1_0.dtd">
+<facelet-taglib>
+	<namespace>http://www.oreilly.com/jsf</namespace>
+		<tag>
+			<tag-name>leftNav</tag-name>
+			<source>leftNav.xhtml</source>
+		</tag>		
+		
+    <tag>
+      <tag-name>panelList</tag-name>
+      <source>panel-list.xhtml</source>
+    </tag>		
+    
+    <tag>
+      <tag-name>convertJodaDateTime</tag-name>
+      <converter>
+        <converter-id>ch.ess.sandbox.facelets.JodaDateTimeConverter</converter-id>
+      </converter>
+    </tag>    
+    
+    <function>
+      <function-name>formatName</function-name>
+        <function-class>ch.ess.sandbox.facelets.StringUtils</function-class>
+        <function-signature>java.lang.String formatName(java.lang.String)</function-signature>
+    </function>    
+</facelet-taglib>

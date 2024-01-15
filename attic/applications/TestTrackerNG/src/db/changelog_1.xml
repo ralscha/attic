@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.5"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.5 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.5.xsd">
+ 
+    <changeSet id="1" author="sr">
+        
+        <createTable tableName="bewertung">
+            <column autoIncrement="true" name="id" type="int">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            
+            <column name="abgeschlossen" type="BOOLEAN"/>
+            <column name="datum" type="DATETIME"/>
+            <column name="principalId" type="int">
+                <constraints nullable="false"/>
+            </column>
+            
+            <column name="testId" type="int">
+                <constraints nullable="false"/>
+            </column>
+            
+            <column name="nummer" type="varchar(255)"/>
+            <column name="bemerkung" type="CLOB"/>
+            <column name="benutzername" type="varchar(255)"/>
+            <column name="passwort" type="varchar(255)"/>
+            <column name="referenz" type="varchar(255)"/>
+            <column name="rolle" type="varchar(255)"/>
+        </createTable>
+
+        <createTable tableName="configuration">
+            <column autoIncrement="true" name="id" type="int">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="name" type="varchar(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="propValue" type="varchar(255)"/>
+        </createTable>
+
+
+        <createTable tableName="fall">
+            <column autoIncrement="true" name="id" type="int">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="nummer" type="int"/>
+            <column name="testNummer" type="int" />
+            <column name="anweisung" type="CLOB" />
+            <column name="ereigniss" type="CLOB" />
+            <column name="navigation" type="varchar(255)"/>
+            
+            <column name="schrittId" type="int">
+                <constraints nullable="false"/>
+            </column>
+            
+        </createTable>
+
+        <createTable tableName="konsolidierung">
+            <column autoIncrement="true" name="id" type="int">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="abgeschlossen" type="BOOLEAN"/>
+            <column name="datum" type="DATETIME"/>
+            <column name="testId" type="int">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <createTable tableName="konsolidierungResultat">
+            <column autoIncrement="true" name="id" type="int">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="ok" type="BOOLEAN">
+                <constraints nullable="false"/>
+            </column>
+            <column name="fehlerklasse" type="varchar(2)"/>
+            <column name="beschreibung" type="CLOB"/>
+            <column name="fallId" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="konsolidierungId" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="dateiFileName" type="varchar(255)"/>
+            <column name="dateiContentType" type="varchar(255)"/>
+            <column name="dateiContentSize" type="int"/>
+            <column name="dateiContent" type="BLOB"/>
+        </createTable>
+
+        <createTable tableName="resultat">
+            <column autoIncrement="true" name="id" type="int">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+
+            <column name="ok" type="BOOLEAN">
+                <constraints nullable="false"/>
+            </column>
+            <column name="fehlerklasse" type="varchar(2)"/>
+            <column name="beschreibung" type="CLOB"/>
+            <column name="bewertungId" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="fallId" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="dateiFileName" type="varchar(255)"/>
+            <column name="dateiContentType" type="varchar(255)"/>
+            <column name="dateiContentSize" type="int"/>
+            <column name="dateiContent" type="BLOB"/>
+        </createTable>
+
+        <createTable tableName="schritt">
+            <column autoIncrement="true" name="id" type="int">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            
+            <column name="nummer" type="int" />
+            <column name="titel" type="varchar(255)" />
+            
+            <column name="testId" type="int">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <createTable tableName="test">
+            <column autoIncrement="true" name="id" type="int">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="name" type="varchar(255)" />
+            <column name="status" type="varchar(20)" />
+            <column name="f1" type="int" />
+            <column name="f2" type="int" />
+            <column name="f3" type="int" />
+            <column name="f4" type="int" />
+            <column name="datum" type="DATETIME" />
+            <column name="versionTest" type="varchar(255)" />
+            <column name="beschreibung" type="CLOB"/>
+            <column name="f1text" type="varchar(255)"/>
+            <column name="f2text" type="varchar(255)"/>
+            <column name="f3text" type="varchar(255)"/>
+            <column name="f4text" type="varchar(255)"/>
+            <column name="system" type="varchar(255)"/>
+            <column name="informationen" type="CLOB"/>
+            <column name="sprache" type="varchar(255)"/>
+            <column name="kurzbezeichnung" type="varchar(255)"/>
+            
+            <column name="dateiFileName1" type="varchar(255)"/>
+            <column name="dateiFileName2" type="varchar(255)"/>
+            <column name="dateiFileName3" type="varchar(255)"/>
+            
+            <column name="dateiContentType1" type="varchar(255)"/>
+            <column name="dateiContentType2" type="varchar(255)"/>
+            <column name="dateiContentType3" type="varchar(255)"/>
+                        
+            <column name="dateiContentSize1" type="int"/>
+            <column name="dateiContentSize2" type="int"/>
+            <column name="dateiContentSize3" type="int"/>
+            
+            <column name="dateiContent1" type="BLOB"/>
+            <column name="dateiContent2" type="BLOB"/>
+            <column name="dateiContent3" type="BLOB"/>
+        </createTable>
+
+        <createTable tableName="principal">
+            <column autoIncrement="true" name="id" type="int">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>    
+            <column name="name" type="varchar(100)" />
+            <column name="locale" type="varchar(10)" />
+            <column name="firstName" type="varchar(100)" />
+            
+            <column name="enabled" type="BOOLEAN">
+                <constraints nullable="false"/>
+            </column>
+            
+            <column name="passwordHash" type="varchar(40)"/>
+            <column name="userName" type="varchar(100)" />
+            
+            <column name="email" type="varchar(255)" />
+            <column name="oe" type="varchar(100)"/>
+        </createTable>
+
+
+
+        <createTable tableName="authorities">
+            <column autoIncrement="true" name="id" type="int">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="principalId" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="authority" type="varchar(255)">
+              <constraints nullable="false"/>
+            </column>            
+        </createTable>
+
+        <createTable tableName="principalConfiguration">
+            <column autoIncrement="true" name="id" type="int">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="name" type="varchar(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="propValue" type="varchar(255)"/>
+            <column name="principalId" type="int">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+       
+
+
+        <createIndex indexName="configurationNameIx" tableName="configuration">
+            <column name="name"/>
+        </createIndex>
+        
+        <createIndex indexName="principalUserNameIx" tableName="principal">
+            <column name="userName"/>
+        </createIndex>
+
+        <addForeignKeyConstraint baseColumnNames="testId" baseTableName="bewertung" 
+         constraintName="bewertungTest" deferrable="false" initiallyDeferred="false" 
+         referencedColumnNames="id" referencedTableName="test"/>
+
+        <addForeignKeyConstraint baseColumnNames="principalId" baseTableName="bewertung" 
+         constraintName="bewertungPrincipal" deferrable="false" initiallyDeferred="false" 
+         referencedColumnNames="id" referencedTableName="principal"/>
+
+        <addForeignKeyConstraint baseColumnNames="schrittId" baseTableName="fall" 
+         constraintName="fallSchritt" deferrable="false" initiallyDeferred="false" 
+         referencedColumnNames="id" referencedTableName="schritt"/>
+
+        <addForeignKeyConstraint baseColumnNames="testId" baseTableName="konsolidierung" 
+         constraintName="konsolidierungTest" deferrable="false" initiallyDeferred="false" 
+         referencedColumnNames="id" referencedTableName="test"/>
+
+        <addForeignKeyConstraint baseColumnNames="fallId" baseTableName="konsolidierungResultat" 
+         constraintName="konsilidierungResultatFall" deferrable="false" initiallyDeferred="false" 
+         referencedColumnNames="id" referencedTableName="fall"/>
+
+        <addForeignKeyConstraint baseColumnNames="konsolidierungId" baseTableName="konsolidierungResultat" 
+         constraintName="konsolidierungResultatKonsolidierung" deferrable="false" initiallyDeferred="false" 
+         referencedColumnNames="id" referencedTableName="konsolidierung"/>
+
+        <addForeignKeyConstraint baseColumnNames="bewertungId" baseTableName="resultat" 
+         constraintName="resultatBewertung" deferrable="false" initiallyDeferred="false" 
+         referencedColumnNames="id" referencedTableName="bewertung"/>
+
+        <addForeignKeyConstraint baseColumnNames="fallId" baseTableName="resultat" 
+         constraintName="resultatFall" deferrable="false" initiallyDeferred="false" 
+         referencedColumnNames="id" referencedTableName="fall"/>
+
+        <addForeignKeyConstraint baseColumnNames="testId" baseTableName="schritt" 
+         constraintName="schrittTest" deferrable="false" initiallyDeferred="false" 
+         referencedColumnNames="id" referencedTableName="test"/>
+
+        <addForeignKeyConstraint baseColumnNames="principalId" baseTableName="principalConfiguration" 
+         constraintName="principalConfigurationPrincipal" deferrable="false" initiallyDeferred="false" 
+         referencedColumnNames="id" referencedTableName="principal"/>
+
+        <addForeignKeyConstraint baseColumnNames="principalId" baseTableName="authorities" 
+         constraintName="authoritiesPrincipal" deferrable="false" initiallyDeferred="false" 
+         referencedColumnNames="id" referencedTableName="principal"/>
+        
+    </changeSet>
+ 
+</databaseChangeLog>

@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+  GRANITE DATA SERVICES
+  Copyright (C) 2007-2008 ADEQUATE SYSTEMS SARL
+
+  This file is part of Granite Data Services.
+
+  Granite Data Services is free software; you can redistribute it and/or modify
+  it under the terms of the GNU Lesser General Public License as published by
+  the Free Software Foundation; either version 3 of the License, or (at your
+  option) any later version.
+
+  Granite Data Services is distributed in the hope that it will be useful, but
+  WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+  FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License
+  for more details.
+
+  You should have received a copy of the GNU Lesser General Public License
+  along with this library; if not, see <http://www.gnu.org/licenses/>.
+-->
+
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml"
+    xmlns="*"
+    xmlns:local="*"
+    layout="absolute"
+    backgroundGradientColors="[#ffffff,#ffffff]"
+    updateComplete="currentState='zoomedState'"
+    initialize="tideContext.userCtl.init()"
+    xmlns:extendedTab="ch.ess.booking.view.extendedTab.*"
+    >
+
+    <mx:Style source="styles/styles.css"/>
+
+    <mx:Script>
+
+        <![CDATA[
+          import ch.ess.booking.entity.Hotel;
+          import ch.ess.booking.control.BookingProcessCtl;
+          import ch.ess.booking.control.BookingsCtl;
+          import ch.ess.booking.control.HotelsCtl;
+          import ch.ess.booking.control.UserCtl;
+            import org.granite.tide.seam.Seam;
+            import org.granite.tide.seam.Context;
+            import org.granite.tide.events.TideLoginEvent;
+            import org.granite.tide.hibernate.ValidatorExceptionHandler;
+
+            import mx.controls.Image;
+            import mx.containers.Panel;
+            import mx.core.ComponentDescriptor;
+            import mx.managers.PopUpManager;
+            import mx.containers.TitleWindow;
+
+            import mx.controls.Alert;
+
+            private var myPopUp:TitleWindow;
+            private var myPopUpAuthentication:TitleWindow;
+
+            [Bindable]
+            [Embed(source="images/icons/Cancel.png")]
+            private var Cancel:Class;
+
+            [Bindable]
+            private var tideContext:Context = Seam.getInstance().getSeamContext();
+            
+            {
+                Seam.getInstance().addComponent("userCtl", UserCtl, false);
+                Seam.getInstance().addComponent("hotelsCtl", HotelsCtl, false);
+                Seam.getInstance().addComponent("bookingsCtl", BookingsCtl, false);
+                Seam.getInstance().addComponent("bookingProcessCtl", BookingProcessCtl, true);
+                Seam.getInstance().addExceptionHandler(ValidatorExceptionHandler);
+            }
+        ]]>
+    </mx:Script>
+
+    <!-- EXTENDED TAB CODE END -->
+    <mx:states>
+        <mx:State name="zoomedState" />
+    </mx:states>
+
+    <mx:transitions>
+        <mx:Transition fromState="" toState="zoomedState">
+            <mx:Parallel>
+                <mx:Fade target="{zoomPanel}" alphaFrom="0.01" alphaTo="1" />
+                <mx:Zoom target="{zoomPanel}" zoomHeightFrom="0.01" zoomHeightTo="1" zoomWidthFrom="0.01" zoomWidthTo="1" duration="700" />
+                <mx:Fade target="{zoomPanel2}" duration="2000" alphaFrom="0.01" alphaTo="1"  />
+                <mx:Zoom target="{zoomPanel3}" zoomHeightFrom="0.01" zoomHeightTo="1" zoomWidthFrom="0.01" zoomWidthTo="1" startDelay="600" duration="700" />
+                <mx:WipeRight target="{zoomPanelHeader}" startDelay="200" duration="600" />
+            </mx:Parallel>
+        </mx:Transition>
+    </mx:transitions>
+
+    <mx:Canvas styleName="bgCanvas" id="mainCanvas">
+        <mx:VBox id="zoomPanel">
+            <mx:VBox id="zoomPanelHeader" width="100%" verticalGap="0">
+                <mx:Box width="100%" height="75" paddingBottom="0" paddingTop="0">
+                    <mx:SWFLoader source="header.swf" x="0" y="0" autoLoad="true"/>
+                </mx:Box>
+            </mx:VBox>
+            <mx:VBox id="zoomPanel2"
+                paddingTop="0"
+                paddingBottom="0"
+                paddingRight="0"
+                paddingLeft="0">
+                <mx:VBox styleName="tabsmain">
+                    <mx:VBox label="Flex Booking" id="idFlexBooking" width="100%" backgroundColor="#ffffff">
+                        <mx:HBox styleName="paddingZero">
+                            <mx:HBox id="zoomPanel3" width="740" height="100%" styleName="boxBorders">
+                                <mx:HBox height="45" styleName="boxBordersGreen" verticalAlign="middle">
+                                    <mx:Label text="Search" styleName="headers"/>
+                                </mx:HBox>
+                                <mx:HBox height="45" width="100%" styleName="tabssub" backgroundColor="#e2e5d5" borderColor="#c0c0c0" paddingLeft="10" paddingTop="5" paddingRight="5" paddingBottom="5">
+                                    <mx:HBox direction="horizontal" paddingBottom="5" paddingLeft="0" paddingRight="0" paddingTop="5" width="100%" >
+                                        <mx:TextInput id="txtQueryString" width="200" color="#C0C0C0" />
+                                        <!-- <mx:Label text="Results" paddingRight="-5"/> -->
+                                        <mx:ComboBox id="cmbResultSize" width="58" x="0" y="0" upSkin="myCombobox" downSkin="myComboboxDown" overSkin="myComboboxOver" disabledSkin="myComboboxDisabled" 
+                                            dataProvider="{tideContext.hotelsCtl.pageSizes}">
+                                        </mx:ComboBox>
+                                        <mx:Spacer width="5"/>
+                                        <mx:Button label="Search" x="0" y="0"
+                                            click="tideContext.hotelsCtl.searchForHotels(txtQueryString.text, Number(cmbResultSize.selectedLabel));"
+                                            upSkin="myButton" downSkin="myButtonDown" overSkin="myButtonOver" disabledSkin="myButtonDisabled"   />
+                                    </mx:HBox>
+                                </mx:HBox>
+                            </mx:HBox>
+                            <mx:ViewStack id="LoginViewStack" selectedIndex="{tideContext.identity.loggedIn ? 1 : 0}" width="240">
+                                   <mx:VBox styleName="boxBorders" backgroundColor="#e2e5d5" width="240" >
+                                    <mx:TextInput text="Please Login" fontSize="9" enabled="false"  backgroundDisabledColor="#e3f2e7" disabledColor="#2d5974" textAlign="center" width="100%" height="20" />
+                                    <mx:HBox width="100%">
+                                        <mx:Button label="Register"
+                                            click="tideContext.userCtl.showRegistrationForm(this);"
+                                            x="0" y="0" upSkin="myButton" downSkin="myButtonDown" overSkin="myButtonOver" disabledSkin="myButtonDisabled"   width="50%"/>
+                                        <mx:Button label="Login"
+                                            click="tideContext.userCtl.showLoginForm(this);"
+                                            x="0" y="0" upSkin="myButton" downSkin="myButtonDown" overSkin="myButtonOver" disabledSkin="myButtonDisabled"   width="50%"/>
+                                    </mx:HBox>
+                                </mx:VBox>
+                                   <mx:VBox styleName="boxBorders" backgroundColor="#e2e5d5" width="240" >
+                                    <mx:TextInput text="{tideContext.userCtl.welcomeMessage}" enabled="false" fontSize="9" backgroundDisabledColor="#e3f2e7" disabledColor="#2d5974" textAlign="center" width="100%" height="20"/>
+                                    <mx:HBox width="100%">
+                                        <mx:Button label="Account Settings"
+                                            click="tideContext.userCtl.showChangePasswordForm(this);"
+                                            x="0" y="0" upSkin="myButton" downSkin="myButtonDown" overSkin="myButtonOver" disabledSkin="myButtonDisabled"   width="50%"/>
+                                        <mx:Button label="Logout"
+                                            click="tideContext.userCtl.logout();"
+                                            x="0" y="0" upSkin="myButton" downSkin="myButtonDown" overSkin="myButtonOver" disabledSkin="myButtonDisabled"   width="50%"/>
+                                    </mx:HBox>
+                               </mx:VBox>
+                               </mx:ViewStack>
+                        </mx:HBox>
+                        <mx:HBox width="100%" paddingTop="5">
+                            <mx:VBox styleName="boxBorders" width="740">
+                                <mx:HBox width="100%" styleName="boxBordersGreen">
+                                    <mx:Label text="Hotel Search Results" styleName="headers"/>
+                                </mx:HBox>
+                                <mx:VBox height="360" width="100%" styleName="boxBordersSubbgSkin">
+                                    <mx:Box backgroundColor="#e2e5d5" borderColor="#c0c0c0" styleName="tabssub" width="100%">
+                                    <mx:DataGrid click="tideContext.hotelsCtl.selectHotel(tabNavigator, hotelSearchResults.selectedItem as Hotel);"
+                                        dataProvider="{tideContext.hotelsCtl.hotels}"
+                                        id="hotelSearchResults" rowCount="6" width="100%">
+                                        <mx:columns>
+                                            <mx:DataGridColumn itemRenderer="components.ImageRender" width="25"  />
+                                            <mx:DataGridColumn dataField="name" width="175"  />
+                                            <mx:DataGridColumn dataField="address" width="175"  />
+                                            <mx:DataGridColumn dataField="city" width="100"  />
+                                            <mx:DataGridColumn dataField="state" width="75" />
+                                            <mx:DataGridColumn dataField="zip" width="50"  />
+                                        </mx:columns>
+                                    </mx:DataGrid>
+                                    <mx:ControlBar styleName="paddingZero">
+                                    </mx:ControlBar>
+                                    </mx:Box>
+                                    <mx:Spacer height="0"/>
+                                    <mx:Box width="100%" height="150" backgroundColor="#e2e5d5" borderColor="#c0c0c0" styleName="tabssub">
+
+                                    <extendedTab:extended_TabNavigator id="tabNavigator" styleName="tabssub" width="100%" height="138"
+                                        backgroundColor="#e2e5d5" borderColor="#c0c0c0"
+                                        useHandCursor="true" buttonMode="true"/>
+
+
+                                    </mx:Box>
+                                </mx:VBox>
+
+                            </mx:VBox>
+                            <mx:VBox styleName="boxBorders" width="240">
+                                <mx:HBox width="100%" styleName="boxBordersGreen">
+                                    <mx:Label text="Current Hotel Reservations" styleName="headers"/>
+                                </mx:HBox>
+                                <mx:VBox height="360" width="100%" styleName="boxBordersSubbgSkin">
+                                <mx:Accordion width="100%" height="100%" selectedIndex="{tideContext.bookingsCtl.bookings.length}">
+                                    <mx:Repeater dataProvider="{tideContext.bookingsCtl.bookings}" id="hotelBookingList">
+                                        <local:BookingDetail booking="{hotelBookingList.currentItem}" bookingsCtl="{tideContext.bookingsCtl}"/>
+                                    </mx:Repeater>
+                                </mx:Accordion>
+                                </mx:VBox>
+                            </mx:VBox>
+                        </mx:HBox>
+                    </mx:VBox>
+                </mx:VBox>
+            </mx:VBox>
+        </mx:VBox>
+    </mx:Canvas>
+</mx:Application>

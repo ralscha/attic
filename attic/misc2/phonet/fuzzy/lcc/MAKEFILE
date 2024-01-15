@@ -1,0 +1,18 @@
+# Wedit Makefile for project Fuzzy
+CFLAGS=-Ie:\lcc\include  -g2 
+CC=e:\lcc\bin\lcc.exe
+LINKER=e:\lcc\bin\lcclnk.exe
+OBJS=\
+	fuzzy.obj
+
+LIBS= tcconio.lib
+
+d:\javaprojects\private\phonet\fuzzy\lcc\fuzzy.exe:	$(OBJS) Makefile
+	$(LINKER)  -subsystem console -o d:\javaprojects\private\phonet\fuzzy\lcc\fuzzy.exe $(OBJS) $(LIBS)
+
+# Build FUZZY.C
+FUZZY_C=\
+
+fuzzy.obj: $(FUZZY_C) d:\javaprojects\private\phonet\fuzzy\fuzzy.c
+	$(CC) -c $(CFLAGS) d:\javaprojects\private\phonet\fuzzy\fuzzy.c
+

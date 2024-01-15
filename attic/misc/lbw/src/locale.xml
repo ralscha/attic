@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<locales>
+  
+  <locale key="en" default="true">
+    <text locale="en">English</text>
+    <text locale="de">Englisch</text>
+  </locale>
+   
+  <locale key="de">
+    <text locale="en">German</text>
+    <text locale="de">Deutsch</text>
+  </locale>
+
+
+</locales>

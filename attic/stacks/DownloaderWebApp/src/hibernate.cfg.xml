@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+<session-factory>
+	<property name="show_sql">true</property>
+	<property name="hbm2ddl.auto">update</property>
+	<property name="connection.datasource">java:comp/env/jdbc/downloader</property>
+	
+	<!-- 
+	<property name="connection.url">jdbc:jtds:sqlserver://localhost/down</property>
+	<property name="connection.username">sa</property>
+	<property name="connection.password"></property>
+	<property name="connection.driver_class">net.sourceforge.jtds.jdbc.Driver</property>
+	 -->
+	 
+	<!-- 
+	<property name="dialect">org.hibernate.dialect.SQLServerDialect</property>
+	-->
+	
+	<property name="cache.provider_class">org.hibernate.cache.HashtableCacheProvider</property>
+		
+    
+  <property name="transaction.flush_before_completion">true</property>
+  <property name="transaction.factory_class">org.hibernate.transaction.JDBCTransactionFactory</property>
+	 
+	
+	<mapping class="ch.ess.downloader.model.BaseObject" />
+	<mapping class="ch.ess.downloader.model.File" />
+	<mapping class="ch.ess.downloader.model.Folder" />
+	<mapping class="ch.ess.downloader.model.User" />
+	<mapping class="ch.ess.downloader.model.UserFolder" />
+	
+	<mapping class="ch.ess.sandbox.Course" />
+	<mapping class="ch.ess.sandbox.Product" />
+	
+</session-factory>
+
+</hibernate-configuration>
+

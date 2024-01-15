@@ -1,0 +1,15 @@
+Compile the four java classes:
+
+$ javac DownloadSite.java
+$ javac Downloader.java
+$ javac URLlist.java
+$ javac ExtendedURL.java
+
+Run the application:
+
+$ java DownloadSite site_name destination
+
+For example, to download http://www.w3.org/ in /work/tp/w3 directory, type
+
+$ java DownloadSite http://www.w3.org/ /work/tp/w3
+

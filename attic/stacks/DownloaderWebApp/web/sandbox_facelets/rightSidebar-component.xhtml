@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html">
+   <head>
+      <title>Right Sidebar Component</title>
+   </head>
+   <body>
+    Example 5.6 in the Facelets Shortcut
+    Facelets trims text outside of the component tag.
+	<ui:component id="rsidebar-comp" binding="${rightSidebarBean.rightSidebar}">
+		<fieldset class="right-sidebar">
+		  	<legend>#{legendText}</legend>
+		  	<ul class="right-sidebar">
+		  	<ui:repeat value="${rightSidebarBean.itemList}" var="item" >
+		  		<h:panelGroup rendered="${item.type == 'outputText'}">
+		  			<li>	
+		  			    <p class="heading">${item.label}</p>
+		  			</li>
+		  		</h:panelGroup>
+		  		<h:panelGroup rendered="${item.type == 'commandLink'}">	
+		  			<li>
+		  				<h:commandLink action="${rightSidebarBean[item.action]}" >
+		  					<h:outputText value="${item.label}" />
+		  				</h:commandLink>
+		  			</li>
+		  		</h:panelGroup>
+		  	</ui:repeat>
+		  	</ul>
+			<fieldset style="width:100px;">
+				<legend>Site Services</legend>
+				<ui:fragment id="rs-fragment" binding="${rightSidebarBean.siteServices}" >
+				</ui:fragment>
+			</fieldset>
+		</fieldset>
+
+	</ui:component>
+	Facelets trims text outside of the component tag.
+   </body>	  
+</html>

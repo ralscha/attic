@@ -1,0 +1,13 @@
+<html>
+<head>
+<META NAME="ROBOTS" CONTENT="noindex">
+<script language="JavaScript" type="text/javascript">
+	<!-- Hide script from older browsers
+	function changePage() {
+		if (self.parent.frames.length == 0)
+			self.parent.location="http://home.datacomm.ch/rschaer/Lotto/index.html";
+	}	
+	// end hiding contents -->
+</script>
+<title>%%title%%</title></head>
+<body bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#400040" alink="#FF0000" onLoad="changePage()">

@@ -1,0 +1,485 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE resource-factory PUBLIC
+	"-//common-controls//DTD ResourceFactory 1.2//EN"
+	"http://www.common-controls.com/dtds/resource-factory_1_2.dtd">
+
+<resource-factory version="1.2">
+
+	<!--
+	use color macros to reduce the number of
+	different color values so it's more easy
+	to change the entire stylesheet
+	-->
+
+	<property name="ctrlfont"  value="Arial, Helvetica, Sans-Serif"/>
+	<property name="label.width" value="110"/>
+
+	<property name="col00"  value="#000000"/>
+	<property name="col01"  value="#0000ff"/>
+	<property name="col02"  value="#1e5c99"/>
+	<property name="col03"  value="#6384bd"/>
+	<property name="col04"  value="#84adbd"/>
+	<property name="col05"  value="#9cb9d0"/>
+	<property name="col06"  value="#8d9da1"/>
+	<property name="col07"  value="#a5c4cb"/>
+	<property name="col08"  value="#9cb9d0"/>
+	<property name="col09"  value="#b4ced4"/>
+	<property name="col10"  value="#bdbdbd"/>
+	<property name="col11"  value="#ccdaea"/>
+	<property name="col12"  value="#c4c8c9"/>
+	<property name="col13"  value="#c7003c"/>
+	<property name="col14"  value="#cecece"/>
+	<property name="col15"  value="#cfe1eb"/>
+	<property name="col16"  value="#dce8eb"/>
+	<property name="col17"  value="#edeff0"/>
+	<property name="col18"  value="#efefef"/>
+	<property name="col19"  value="#f3f4f5"/>
+	<property name="col20"  value="#f57e17"/>
+	<property name="col21"  value="#fae4c2"/>
+	<property name="col22"  value="#fea217"/>
+	<property name="col23"  value="#ffa510"/>
+	<property name="col24"  value="#ffd3d3"/>
+	<property name="col25"  value="#ffffe1"/>
+	<property name="col26"  value="#ffffff"/>
+	<property name="col27"  value="gray"/>
+	<property name="col28"  value="#ffcc99"/>
+	<property name="col29"  value="#aaaaaa"/>
+	<property name="col30"  value="#808080"/>
+	<property name="col31"  value="#ffffe7"/>
+	<property name="col32"  value="#e7eef3"/>
+	<property name="col33"  value="#b8cbe1"/>
+	<property name="col34"  value="#004882"/>
+	<property name="col35"  value="#f8fafb"/>
+	<property name="col36"  value="#789dba"/>
+	<property name="col37"  value="#c2e2ff"/>
+	<property name="col38"  value="#FAD00E"/>
+	<property name="col39"  value="#FEEEA4"/>
+
+	<environment>
+
+		<!-- ======================================== -->
+		<!-- Color and Font Definitions               -->
+		<!--                                          -->
+		<!-- Use the fontlist task to view all        -->
+		<!-- available fonts. Note: If you specify a  -->
+		<!-- font which does not exists on            -->
+		<!-- your system a default font will be used  -->
+		<!-- ======================================== -->
+
+		<definitions code="selection" name="Generic: Selection">
+			<definitions code="color" name="Colortable">
+				<color code="bg"                name="Background color"                           value="${col22}"/>
+			</definitions>
+		</definitions>
+
+		<definitions code="form" name="Forms: Form">
+			<definitions code="font"  name="Fonts">
+				<font code="header" family="${ctrlfont}" weight="bold"   size="8pt"/>
+				<font code="body"   family="${ctrlfont}" weight="normal" size="8pt"/>
+				<font code="label"  family="${ctrlfont}" weight="bold"   size="9pt"/>
+			</definitions>
+
+			<definitions code="color" name="Colortable">
+				<color code="bg.field"          name="Background field"                           value="${col18}"/>
+				<color code="bg.header"         name="Background caption"                         value="${col02}"/>
+				<color code="bg.label"          name="Background label"                           value="${col15}"/>
+				<color code="bg.section"        name="Background section"                         value="${col08}"/>
+				<color code="bg.if"             name="Background inner frame"                     value="${col26}"/>
+				<color code="bg"                name="Background color"                           value="${col15}"/>
+				<color code="border.item"       name="Border row"                                 value="${col10}"/>
+				<color code="border.section"    name="Border section"                             value="${col02}"/>
+				<color code="border"            name="Border"                                     value="${col02}"/>
+				<color code="text.caption"      name="Text color caption"                         value="${col26}"/>
+				<color code="text.detail"       name="Text color detail"                          value="${col26}"/>
+				<color code="text.header"       name="Text color header"                          value="${col26}"/>
+				<color code="text.section"      name="Text color section"                         value="${col02}"/>
+			</definitions>
+		</definitions>
+
+		<definitions code="frame" name="Forms: Frame">
+			<definitions code="font"  name="Fonts">
+				<font code="header" family="${ctrlfont}" weight="bold"   size="8pt"/>
+				<font code="body"   family="${ctrlfont}" weight="normal" size="8pt"/>
+			</definitions>
+
+			<definitions code="color" name="Colortable">
+				<color code="bg.header"         name="Background caption"                         value="${col02}"/>
+				<color code="bg.if"             name="Background inner frame"                     value="${col26}"/>
+				<color code="bg"                name="Background color"                           value="${col15}"/>
+				<color code="border"            name="Border"                                     value="${col02}"/>
+				<color code="text.caption"      name="Text color caption"                         value="${col26}"/>
+				<color code="text.detail"       name="Text color detail"                          value="${col26}"/>
+				<color code="text.header"       name="Text color header"                          value="${col26}"/>
+			</definitions>
+		</definitions>
+
+		<definitions code="error" name="Forms: Error form">
+			<definitions code="font"  name="Fonts">
+				<font code="header" family="${ctrlfont}" weight="bold" size="8pt"/>
+				<font code="body"   family="${ctrlfont}" weight="bold" size="9pt"/>
+			</definitions>
+
+			<definitions code="color" name="Colortable">
+				<color code="bg.header"         name="Background caption"                         value="${col13}"/>
+				<color code="bg.body"           name="Background body"                            value="${col24}"/>
+				<color code="border"            name="Border color"                               value="${col13}"/>
+				<color code="text"              name="Text color"                                 value="${col13}"/>
+			</definitions>
+		</definitions>
+
+		<definitions code="warning" name="Forms: Warning form">
+			<definitions code="font"  name="Fonts">
+				<font code="header" family="${ctrlfont}" weight="bold" size="8pt"/>
+				<font code="body"   family="${ctrlfont}" weight="bold" size="9pt"/>
+			</definitions>
+
+			<definitions code="color" name="Colortable">
+				<color code="bg.header"         name="Background caption"                         value="${col38}"/>
+				<color code="bg.body"           name="Background body"                            value="${col39}"/>
+				<color code="border"            name="Border color"                               value="${col38}"/>
+				<color code="text"              name="Text color"                                 value="${col38}"/>
+			</definitions>
+		</definitions>
+
+		<definitions code="info" name="Forms: Message form">
+			<definitions code="font"  name="Fonts">
+				<font code="header" family="${ctrlfont}" weight="bold" size="8pt"/>
+				<font code="body"   family="${ctrlfont}" weight="bold" size="9pt"/>
+			</definitions>
+
+			<definitions code="color" name="Colortable">
+				<color code="bg.header"         name="Background caption"                         value="${col07}"/>
+				<color code="bg.body"           name="Background body"                            value="${col16}"/>
+				<color code="border"            name="Border color"                               value="${col07}"/>
+				<color code="text"              name="Text color"                                 value="${col02}"/>
+			</definitions>
+		</definitions>
+
+		<definitions code="help" name="Forms: Help">
+			<definitions code="font"  name="Fonts">
+				<font code="body"   family="${ctrlfont}" weight="normal" size="8pt"/>
+			</definitions>
+
+			<definitions code="color" name="Colortable">
+				<color code="bg"                name="Background"                                 value="${col25}"/>
+				<color code="border"            name="Border"                                     value="${col00}"/>
+				<color code="text"              name="Text"                                       value="${col00}"/>
+			</definitions>
+		</definitions>
+
+		<definitions code="severity" name="Forms: Severity form">
+			<definitions code="font"  name="Fonts">
+				<font code="header" family="${ctrlfont}" weight="bold" size="8pt"/>
+				<font code="body"   family="${ctrlfont}" weight="bold" size="9pt"/>
+			</definitions>
+
+			<definitions code="color" name="Colortable">
+				<color code="bg.header"         name="Background caption"                         value="${col30}"/>
+				<color code="bg.body"           name="Background body"                            value="${col31}"/>
+				<color code="border"            name="Border color"                               value="${col30}"/>
+				<color code="text"              name="Text color"                                 value="${col00}"/>
+			</definitions>
+		</definitions>
+
+		<definitions code="head" name="Forms: Header Form">
+			<definitions code="font"  name="Fonts">
+				<font code="label" family="${ctrlfont}" weight="bold" size="8pt"/>
+			</definitions>
+
+			<definitions code="color" name="Colortable">
+				<color code="bg"                name="Background"                                 value="${col15}"/>
+				<color code="border"            name="Border color"                               value="${col02}"/>
+				<color code="separator"         name="Separator"                                  value="${col26}"/>
+			</definitions>
+		</definitions>
+
+		<definitions code="hmenu" name="Controls: Horizontal Menu">
+			<definitions code="font"  name="Fonts">
+				<font code="label" family="${ctrlfont}" weight="bold" size="8pt"/>
+			</definitions>
+
+			<definitions code="color" name="Colortable">
+				<color code="bg"                name="Background"                                 value="${col09}"/>
+			</definitions>
+		</definitions>
+
+		<definitions code="vmenu1" name="Controls: Vertical menu level 1">
+			<definitions code="font"  name="Fonts">
+				<font code="label" family="${ctrlfont}" weight="bold" size="9pt"/>
+			</definitions>
+
+			<definitions code="color" name="Colortable">
+				<color code="bg"                name="Background level 1"                         value="${col05}"/>
+				<color code="bg.sel"            name="Background level 1 selected"                value="${col05}"/>
+				<color code="bg.disabled"       name="Background level 1 disabled"                value="${col05}"/>
+				<color code="border"            name="Border level 1"                             value="${col26}"/>
+				<color code="text.A"            name="Text hyperlink level 1"                     value="${col02}"/>
+				<color code="text.A.sel"        name="Text hyperlink level 1 selected"            value="${col02}"/>
+				<color code="text.disabled"     name="Text level 1 disabled"                      value="${col11}"/>
+			</definitions>
+		</definitions>
+
+		<definitions code="vmenu2" name="Controls: Vertical menu level 2">
+			<definitions code="font"  name="Fonts">
+				<font code="label" family="${ctrlfont}" weight="bold" size="8pt"/>
+			</definitions>
+
+			<definitions code="color" name="Colortable">
+				<color code="bg"                name="Background level 2"                         value="${col11}"/>
+				<color code="bg.sel"            name="Background level 2 selected"                value="${col22}"/>
+				<color code="bg.disabled"       name="Background level 2 disabled"                value="${col11}"/>
+				<color code="border"            name="Border level 2"                             value="${col26}"/>
+				<color code="text.A"            name="Text hyperlink level 2"                     value="${col02}"/>
+				<color code="text.A.sel"        name="Text hyperlink level 2 selected"            value="${col26}"/>
+				<color code="text"              name="Text level 2"                               value="${col02}"/>
+				<color code="text.sel"          name="Text level 2 selected"                      value="${col26}"/>
+				<color code="text.disabled"     name="Text level 2 disabled"                      value="${col27}"/>
+			</definitions>
+		</definitions>
+
+		<definitions code="vmenu3" name="Controls: Vertical menu level 3">
+			<definitions code="font"  name="Fonts">
+				<font code="label" family="${ctrlfont}" weight="bold" size="8pt"/>
+			</definitions>
+
+			<definitions code="color" name="Colortable">
+				<color code="bg"                name="Background level 3"                         value="${col21}"/>
+				<color code="bg.sel"            name="Background level 3 selected"                value="${col21}"/>
+				<color code="bg.disabled"       name="Background level 3 disabled"                value="${col21}"/>
+				<color code="border"            name="Border level 3"                             value="${col26}"/>
+				<color code="text"              name="Text level 3"                               value="${col00}"/>
+				<color code="text.disabled"     name="Text level 3 disabled"                      value="${col27}"/>
+				<color code="text.A"            name="Text hyperlink level 3"                     value="${col00}"/>
+				<color code="text.A.sel"        name="Text hyperlink level 3 selected"            value="${col00}"/>
+			</definitions>
+		</definitions>
+
+		<definitions code="list" name="Controls: List">
+			<definitions code="font"  name="Fonts">
+				<font code="header"    family="${ctrlfont}" weight="bold"   size="9pt"/>
+				<font code="body"      family="${ctrlfont}" weight="normal" size="8pt"/>
+				<font code="row"       family="${ctrlfont}" weight="normal" size="8pt"/>
+			</definitions>
+
+			<definitions code="color" name="Colortable">
+				<color code="bg.hover"          name="Row Highlighting color"                     value="#dce8ec"/>
+				<color code="bg.body"           name="Background body"                            value="${col15}"/>
+				<color code="bg.colheader"      name="Background column header (level 0)"         value="${col03}"/>
+				<color code="bg.colheader1"     name="Background column header (level 1)"         value="${col03}"/>
+				<color code="bg.colheader2"     name="Background column header (level 2)"         value="${col03}"/>
+				<color code="bg.even"           name="Background even Rows"                       value="${col17}"/>
+				<color code="bg.evens"          name="Background even Rows selected"              value="${col28}"/>
+				<color code="bg.header"         name="Background header"                          value="${col02}"/>
+				<color code="bg.INPUT"          name="Background input field"                     value="${col26}"/>
+				<color code="bg.odd"            name="Background odd Rows"                        value="${col26}"/>
+				<color code="bg.odds"           name="Background odd Rows selected"               value="${col28}"/>
+				<color code="bg.if"             name="Background inner frame"                     value="${col26}"/>
+				<color code="border.if"         name="Border inner frame"                         value="${col02}"/>
+				<color code="border.body"       name="Border body"                                value="${col02}"/>
+				<color code="border.INPUT"      name="Border input field"                         value="${col02}"/>
+				<color code="text.A"            name="Text color Hyperlink"                       value="${col01}"/>
+				<color code="text.colheader"    name="Text colot column label (level 0)"          value="${col26}"/>
+				<color code="text.colheader1"   name="Text colot column label (level 1)"          value="${col26}"/>
+				<color code="text.colheader2"   name="Text colot column label (level 2)"          value="${col26}"/>
+				<color code="text.caption"      name="Text color caption"                         value="${col26}"/>
+				<color code="text.detail"       name="Text color detail text"                     value="${col26}"/>
+				<color code="text.header"       name="Text color header"                          value="${col26}"/>
+			</definitions>
+		</definitions>
+
+		<definitions code="tree" name="Controls: Tree">
+			<definitions code="font"  name="Fonts">
+				<font code="label" family="${ctrlfont}" weight="normal" size="8pt"/>
+			</definitions>
+
+			<definitions code="color" name="Colortable">
+				<color code="bg.even"           name="Background even row"                        value="${col19}"/>
+				<color code="bg.odd"            name="Background odd row"                         value="${col26}"/>
+				<color code="bg.sel"            name="Background selected row"                    value="${col22}"/>
+				<color code="border"            name="Border row"                                 value="${col16}"/>
+				<color code="text.A.sel"        name="Text color hyperlink selected row"          value="${col26}"/>
+				<color code="text.A"            name="Text color hyperlink"                       value="${col00}"/>
+			</definitions>
+		</definitions>
+
+		<definitions code="tabset" name="Controls: Tabset">
+			<definitions code="font"  name="Fonts">
+				<font code="label" family="${ctrlfont}" weight="bold" size="8pt"/>
+			</definitions>
+
+			<definitions code="color" name="Colortable">
+				<color code="bg.disabled"       name="Background inactiv Tab"                     value="${col06}"/>
+				<color code="bg.level1"         name="Background level 1"                         value="${col18}"/>
+				<color code="bg.level2"         name="Background level 2"                         value="${col15}"/>
+				<color code="bg.level3"         name="Background level 3"                         value="${col12}"/>
+				<color code="border"            name="Border"                                     value="${col02}"/>
+				<color code="text"              name="Text color"                                 value="${col00}"/>
+				<color code="text.sel"          name="Text selected Tab"                          value="${col00}"/>
+				<color code="text.unsel"        name="Text unselected Tab"                        value="${col26}"/>
+			</definitions>
+		</definitions>
+
+		<definitions code="tabbar" name="Controls: Tabbar">
+			<definitions code="font"  name="Fonts">
+				<font code="label" family="${ctrlfont}" weight="bold" size="8pt"/>
+			</definitions>
+
+			<definitions code="color" name="Colortable">
+				<color code="bg.disabled"       name="Background inactiv Tab"                     value="${col06}"/>
+				<color code="bg.level1"         name="Background level 1"                         value="${col18}"/>
+				<color code="bg.level2"         name="Background level 2"                         value="${col15}"/>
+				<color code="bg.level3"         name="Background level 3"                         value="${col12}"/>
+				<color code="border"            name="Border"                                     value="${col02}"/>
+				<color code="text"              name="Text color"                                 value="${col00}"/>
+				<color code="text.sel"          name="Text selected Tab"                          value="${col00}"/>
+				<color code="text.unsel"        name="Text unselected Tab"                        value="${col26}"/>
+			</definitions>
+		</definitions>
+
+		<definitions code="scheduler" name="Controls: Scheduler">
+			<definitions code="font"  name="Fonts">
+				<font code="header"    family="${ctrlfont}" weight="bold"   size="9pt"/>
+				<font code="body"      family="${ctrlfont}" weight="normal" size="8pt"/>
+				<font code="nav"       family="${ctrlfont}" weight="bold"   size="8pt"/>
+				<font code="app"       family="${ctrlfont}" weight="normal" size="8pt"/>
+			</definitions>
+
+			<definitions code="color" name="Colortable">
+				<color code="bg.body"           name="Background body"                            value="${col15}"/>
+				<color code="bg.header"         name="Background header"                          value="${col02}"/>
+				<color code="bg.overflow"       name="Background overflow area"                   value="${col30}"/>
+				<color code="bg.nav"            name="Background navigation header"               value="${col02}"/>
+				<color code="bg.app"            name="Background multiday appointment"            value="${col14}"/>
+				<color code="bg.days"           name="Background days header"                     value="${col03}"/>
+				<color code="bg.if"             name="Background inner frame"                     value="${col26}"/>
+				<color code="border.if"         name="Border inner frame"                         value="${col02}"/>
+				<color code="border.body"       name="Border body"                                value="${col02}"/>
+				<color code="border.today"      name="Border today"                               value="${col22}"/>
+				<color code="border.app"        name="Border multiday appointment"                value="${col00}"/>
+				<color code="border.days"       name="Border days header"                         value="${col02}"/>
+				<color code="text.A"            name="Text color hyperlink"                       value="${col00}"/>
+				<color code="text.nav"          name="Text navigation header"                     value="${col26}"/>
+				<color code="text.header"       name="Text color label"                           value="${col26}"/>
+				<color code="text.caption"      name="Text color caption"                         value="${col26}"/>
+				<color code="text.detail"       name="Text color detail text"                     value="${col26}"/>
+				<color code="text.days"         name="Text days header"                           value="${col26}"/>
+
+				<definitions code="yearview" name="year view">
+					<color code="bg.dom"        name="Background year view (day outside month)"   value="#D4D0C8"/>
+					<color code="bg.dom_nf"     name="Background year view (day outside month)"   value="#DDDDDD"/>
+					<color code="bg.dom.apps"   name="Background year view (day outside month)"   value="#E7CD9F"/>
+					<color code="bg.dim"        name="Background year view (day in month)"        value="${col26}"/>
+					<color code="bg.dim_nf"     name="Background year view (day in month)"        value="${col17}"/>
+					<color code="bg.dim.apps"   name="Background year view (day in month)"        value="#FFD791"/>
+					<color code="text"          name="Text year view"                             value="${col00}"/>
+				</definitions>
+
+				<definitions code="monthview" name="month view">
+					<color code="bg"            name="Background month view"                      value="${col02}"/>
+					<color code="bg.dom"        name="Background month view (day outside month)"  value="#D4D0C8"/>
+					<color code="bg.dim"        name="Background month view (day in month)"       value="${col26}"/>
+					<color code="text"          name="Text month view"                            value="${col00}"/>
+				</definitions>
+
+				<definitions code="weekview" name="week view">
+					<color code="bg"            name="Background week view"                       value="${col26}"/>
+					<color code="border"        name="Border week view"                           value="${col02}"/>
+					<color code="text"          name="Text week view"                             value="${col00}"/>
+				</definitions>
+
+				<definitions code="dayview" name="day view">
+					<color code="bg"            name="Background day view"                        value="${col02}"/>
+					<color code="bg.st"         name="Background spare time"                      value="${col17}"/>
+					<color code="bg.wt"         name="Background working time"                    value="${col26}"/>
+					<color code="bg.apps"       name="Background appointment container"           value="${col25}"/>
+					<color code="bg.allday"     name="Background day view (all day area)"         value="${col30}"/>
+					<color code="border"        name="Border day view"                            value="${col02}"/>
+					<color code="border.table"  name="Border of the time table"                   value="${col15}"/>
+					<color code="border.apps"   name="Border appointment container"               value="${col14}"/>
+					<color code="text"          name="Text day view"                              value="${col00}"/>
+					<color code="text.allday"   name="Text day view (all day area)"               value="${col26}"/>
+				</definitions>
+			</definitions>
+		</definitions>
+
+		<definitions code="header" name="Controls: Header">
+			<definitions code="font"  name="Fonts">
+				<font code="label"  family="${ctrlfont}" weight="bold"   size="11pt"/>
+			</definitions>
+
+			<definitions code="color" name="Colortable">
+				<color code="border"            name="Border"                                     value="${col03}"/>
+				<color code="text.caption"      name="Text caption"                               value="${col20}"/>
+				<color code="text.detail"       name="Text detail"                                value="${col03}"/>
+			</definitions>
+		</definitions>
+
+		<definitions code="panel" name="Controls: Panel">
+			<definitions code="font"  name="Fonts">
+				<font code="header" family="${ctrlfont}" weight="bold"   size="10pt"/>
+				<font code="body"   family="${ctrlfont}" weight="normal" size="8pt"/>
+			</definitions>
+
+			<definitions code="color" name="Colortable">
+				<color code="bg.header"         name="Background header"                          value="${col33}"/>
+				<color code="border.header"     name="Border header"                              value="${col26}"/>
+				<color code="text.header"       name="Text header"                                value="${col34}"/>
+				<color code="bg.body"           name="Background body"                            value="${col32}"/>
+				<color code="border.body"       name="border body"                                value="${col32}"/>
+				<color code="item.border"       name="Item border"                                value="${col27}"/>
+			</definitions>
+		</definitions>
+
+		<definitions code="crumb" name="Controls: Crumb">
+			<definitions code="font"  name="Fonts">
+				<font code="label" family="${ctrlfont}" weight="normal" size="9pt"/>
+			</definitions>
+
+			<definitions code="color" name="Colortable">
+				<color code="text.disabled"     name="Disabled text"                              value="${col29}"/>
+			</definitions>
+		</definitions>
+
+		<definitions code="gauge" name="Controls: Gauge">
+			<definitions code="font"  name="Fonts">
+				<font code="label" family="${ctrlfont}" weight="normal" size="9pt"/>
+			</definitions>
+		</definitions>
+
+		<definitions code="swap" name="Controls: SwapControl">
+			<definitions code="font"  name="Fonts">
+				<font code="label" family="${ctrlfont}" weight="normal" size="8pt"/>
+			</definitions>
+		</definitions>
+
+		<!-- ======================================== -->
+		<!-- Button Style Definitions                 -->
+		<!-- ======================================== -->
+
+		<definitions code="button" name="Buttons">
+			<definitions code="font"  name="Fonts">
+				<font code="label" family="${ctrlfont}" weight="bold" size="11px"/>
+				<font code="face" family="HelveticaNeue LT 57 Cn" weight="bold" size="12"/>
+			</definitions>
+
+			<definitions code="color" name="Colortable">
+				<color code="bg"                name="Background"                                 value="${col26}"/>
+				<color code="border"            name="Border"                                     value="${col34}"/>
+				<color code="border.inactive"   name="Border inactiv button"                      value="${col05}"/>
+				<color code="text.active"       name="Button label"                               value="${col34}"/>
+				<color code="text.inactive"     name="Button label inactiv button"                value="${col05}"/>
+				<color code="state.active"      name="State activ (State id = 1)"                 value="${col34}"/>
+				<color code="state.inactive"    name="State inactiv (State id = 2)"               value="${col35}"/>
+				<color code="state.hover"       name="State hover (State id = 3)"                 value="${col22}"/>
+				<color code="state.down"        name="State down (State id = 4)"                  value="${col36}"/>
+
+				<!-- You can define the colors of the given pattern, but not the pattern itself -->
+				<color code="pattern.active"    name="Pattern activ (State id = 1)"               value="${col37}"/>
+				<color code="pattern.inactive"  name="Pattern inactiv (State id = 2)"             value="${col34}"/>
+				<color code="pattern.hover"     name="Pattern hover (State id = 3)"               value="${col34}"/>
+				<color code="pattern.down"      name="Pattern down (State id = 4)"                value="${col34}"/>
+			</definitions>
+		</definitions>
+	</environment>
+
+</resource-factory>

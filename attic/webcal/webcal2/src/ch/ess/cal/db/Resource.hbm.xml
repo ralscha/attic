@@ -1,0 +1,101 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd">
+
+<hibernate-mapping>
+    <class
+        name="ch.ess.cal.db.Resource"
+        table="calResource"
+        lazy="true"
+        dynamic-update="false"
+        dynamic-insert="false"
+    >
+
+        <id
+            name="id"
+            column="id"
+            type="java.lang.Long"
+            unsaved-value="null"
+        >
+            <generator class="native">
+            </generator>
+        </id>
+
+        <version
+            name="version"
+            type="int"
+            column="version"
+        />
+
+        <many-to-one
+            name="resourceGroup"
+            class="ch.ess.cal.db.ResourceGroup"
+            cascade="none"
+            outer-join="auto"
+            update="true"
+            insert="true"
+        >
+            <column
+                name="resourceGroupId"
+                index="FK_Resource_ResourceGroup"
+                not-null="true"
+            />
+        </many-to-one>
+
+        <set
+            name="events"
+            lazy="true"
+            inverse="true"
+            cascade="none"
+            sort="unsorted"
+        >
+
+              <key
+                  column="resourceId"
+              />
+
+              <one-to-many
+                  class="ch.ess.cal.db.Event"
+              />
+        </set>
+
+        <map
+            name="translations"
+            table="calResourceLocale"
+            lazy="false"
+            sort="unsorted"
+            inverse="false"
+            cascade="none"
+        >
+
+              <key
+                  column="resourceId"
+              />
+
+              <index
+                  column="locale"
+                  type="locale"
+                  length="10"
+              />
+
+              <element
+                  column="name"
+                  type="string"
+                  length="100"
+                  not-null="true"
+                  unique="false"
+              />
+
+        </map>
+
+        <!--
+            To add non XDoclet property mappings, create a file named
+                hibernate-properties-Resource.xml
+            containing the additional properties and place it in your merge dir.
+        -->
+
+    </class>
+
+</hibernate-mapping>

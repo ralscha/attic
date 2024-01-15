@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Panel xmlns:mx="http://www.adobe.com/2006/mxml" title="Spiele" 
+  layout="absolute" creationComplete="init()"><!--creationComplete="init()" -->
+  
+  <mx:Script>
+    <![CDATA[
+      import ch.ess.hgtracker.model.JahrItem;
+      import ch.ess.hgtracker.db.Club;
+      import mx.managers.PopUpManager;
+      import mx.events.CloseEvent;
+      import mx.controls.Alert;
+      import mx.collections.SortField;
+      import mx.collections.Sort;
+      import mx.collections.ArrayCollection;
+      import mx.rpc.events.ResultEvent;
+      import ch.ess.hgtracker.db.Spiel;      
+      
+      [Bindable]
+      public var club:Club;  
+      
+      [Bindable]
+      [ArrayElementType("ch.ess.hgtracker.model.JahrItem")]
+      private var jahrModel:ArrayCollection = new ArrayCollection();    
+      
+      [Bindable]
+      [ArrayElementType("ch.ess.hgtracker.db.Art")]
+      private var artModel:ArrayCollection = new ArrayCollection();
+      
+      [Bindable]
+      [ArrayElementType("ch.ess.hgtracker.db.Spiel")]
+      private var spielModel:ArrayCollection = new ArrayCollection();
+      
+      private var selectedSpiel:Spiel;
+      
+      private function edit():void {        
+        var spielEdit:SpielEdit = PopUpManager.createPopUp(this, SpielEdit, true) as SpielEdit;
+        
+        spielEdit.init(club, selectedSpiel, reportService.getArtenOnly.lastResult);
+        spielEdit.addEventListener("dataInserted", onDataInserted);   
+      }
+      
+      private function aufstellung():void {
+        var aufstellungEdit:AufstellungEdit = PopUpManager.createPopUp(this, AufstellungEdit, true) as AufstellungEdit;
+        aufstellungEdit.addEventListener("dataInserted", onDataInserted);
+        aufstellungEdit.club = club;
+        aufstellungEdit.spiel = selectedSpiel;        
+      }
+      
+      private function punkte():void {
+        var punkteEdit:PunkteEdit = PopUpManager.createPopUp(this, PunkteEdit, true) as PunkteEdit;
+        punkteEdit.addEventListener("dataInserted", onDataInserted);
+        punkteEdit.spiel = selectedSpiel;
+      }
+            
+      private function deleteSpiel():void {
+        
+        Alert.show('Dieses Spiel wirklich löschen?', 'Frage', (Alert.YES | Alert.NO), this,
+                    function(event:CloseEvent):void {
+                      if (event.detail == Alert.YES) {
+                        spielService.deleteSpiel(selectedSpiel.id);
+                        
+                        spielDataGrid.selectedIndex = -1;
+                        spielDataGrid.selectedItem = null;
+                        selectedSpiel = null;
+                                
+                        spielService.getAll();
+                      }
+                    }
+                );
+
+      }
+      
+      private function neu():void {        
+        
+        spielDataGrid.selectedIndex = -1;
+        spielDataGrid.selectedItem = null;
+        editButton.enabled = false;
+        aufstellungButton.enabled = false;
+        deleteButton.enabled = false; 
+        punkteButton.enabled = false;
+        
+        selectedSpiel = new Spiel();
+        selectedSpiel.id = -1; 
+        
+        var spielEdit:SpielEdit = PopUpManager.createPopUp(this, SpielEdit, true) as SpielEdit;
+        
+        spielEdit.init(club, selectedSpiel, reportService.getArtenOnly.lastResult);
+        spielEdit.addEventListener("dataInserted", onDataInserted);       
+      }
+      
+      public function init():void { 
+        reportService.getArtenOnly();                
+        reportService.getJahreWithAll();
+        reportService.getArten(); 
+        spielService.getAll();          
+      }
+      
+      private function onItemClick():void {
+        editButton.enabled = true;
+        aufstellungButton.enabled = true;
+        selectedSpiel = Spiel(spielDataGrid.selectedItem);
+        
+        deleteButton.enabled = true;  
+        
+        punkteButton.enabled = selectedSpiel.hasAufstellung;
+      }
+      
+      private function onJahreChange():void {
+        var ji:JahrItem = JahrItem(jahreCombobox.selectedItem);
+        spielService.getAll(club, ji, artCombobox.selectedItem);
+      } 
+      
+      private function onArtChange():void {
+        spielService.getAll();
+      }
+      
+      private function onGetAllResult(event:ResultEvent):void {
+                
+        var selSpiel:Spiel = Spiel(spielDataGrid.selectedItem);        
+        var spielSort:Sort = (spielDataGrid.dataProvider ? ArrayCollection(spielDataGrid.dataProvider).sort : null);
+        spielModel = ArrayCollection(event.result);
+
+        if (spielSort) {
+          spielModel.sort = spielSort;
+               
+        } else {
+          var sort:Sort = new Sort();
+          sort.fields = [new SortField("datum", false, true)];
+          
+          spielModel.sort = sort;
+        }    
+        spielModel.refresh(); 
+        
+        if (selSpiel) {
+          
+          var sel2:Spiel = null;
+          
+          for (var i:int = 0; i < spielModel.length; i++) {
+            if (selSpiel.id == spielModel.getItemAt(i).id) {
+              sel2 = Spiel(spielModel.getItemAt(i));
+              break;
+            }
+          }
+          
+          if (sel2 != null) {
+            spielDataGrid.selectedItem = sel2;
+            spielDataGrid.selectedIndex = spielModel.getItemIndex(sel2);
+            selectedSpiel = sel2;
+            punkteButton.enabled = selectedSpiel.hasAufstellung;
+          } else {
+            selectedSpiel = null;
+            editButton.enabled = false;
+            aufstellungButton.enabled = false;
+            deleteButton.enabled = false; 
+            punkteButton.enabled = false;
+          }
+        }
+                               
+      }   
+            
+      private function onDataInserted(event:Event):void {  
+        spielService.getAll();
+      }      
+      
+      private function onGetJahre(event:ResultEvent):void {      
+        jahrModel = ArrayCollection(event.result);        
+        jahreCombobox.selectedIndex = 0;
+
+      }    
+      
+      private function onGetArten(event:ResultEvent):void {
+        artModel = ArrayCollection(event.result);
+        artCombobox.selectedIndex = 0;
+      }        
+      
+      private function datumLabel(item:Object, column:DataGridColumn):String {
+        if (item.datum.hours == 0 && item.datum.minutes == 0) {
+          return dayDateFormatter.format(item.datum);
+        } else {
+          return dateFormatter.format(item.datum);
+        }
+      }
+      
+//      private function spielNumberLabel(item:Object, column:DataGridColumn):String {
+//        
+//        if (isNaN(item.schlagPunkteGegner) || item.schlagPunkteGegner == 0) {
+//          return "";
+//        }
+//        
+//        var value:int = item[column.dataField];
+//        if (isNaN(value)) {
+//          return "";
+//        }
+//        return value.toString();
+//      }
+      
+      private function punkteNumberLabel(item:Object, column:DataGridColumn):String {
+        if (isNaN(item.schlagPunkte) || item.schlagPunkte == 0) {
+          return "";
+        }
+        
+        return item[column.dataField];
+      }      
+      
+    ]]>
+  </mx:Script>
+      
+  <mx:RemoteObject id="spielService" showBusyCursor="true" destination="spielService">
+    <mx:method name="getAll" result="onGetAllResult(event)">
+      <mx:arguments>
+        <club>{club}</club>
+        <jahr>{JahrItem(jahreCombobox.selectedItem)}</jahr>
+        <art>{artCombobox.selectedItem}</art>
+      </mx:arguments>
+    </mx:method>
+  </mx:RemoteObject>
+  
+  <mx:RemoteObject id="reportService" showBusyCursor="true" destination="reportService">    
+    <mx:method name="getJahreWithAll" result="onGetJahre(event)">
+      <mx:arguments>
+        <club>{club}</club>
+      </mx:arguments>
+    </mx:method> 
+    <mx:method name="getArten" result="onGetArten(event)">
+      <mx:arguments>
+        <club>{club}</club>
+      </mx:arguments>
+    </mx:method>    
+    <mx:method name="getArtenOnly">
+      <mx:arguments>
+        <club>{club}</club>
+      </mx:arguments>
+    </mx:method>    
+    
+  </mx:RemoteObject>  
+  
+  <mx:Canvas width="100%" height="100%">
+    
+    <mx:HBox top="10" left="10">
+    <mx:ComboBox id="jahreCombobox" dataProvider="{jahrModel}"  change="onJahreChange()" labelField="label"/>
+    <mx:ComboBox id="artCombobox" dataProvider="{artModel}" change="onArtChange()" labelField="spielArt" />
+    </mx:HBox>
+    
+    <mx:DataGrid id="spielDataGrid" dataProvider="{spielModel}" change="onItemClick()" bottom="60" top="40" left="10" right="10">
+      <mx:columns>
+        <mx:DataGridColumn headerText="Datum" width="130" dataField="datum" labelFunction="datumLabel" showDataTips="true" dataTipField="wochentag"/>
+        <mx:DataGridColumn headerText="Art" dataField="artName" width="130" showDataTips="true" dataTipField="artName"/>
+        <mx:DataGridColumn headerText="Ort" dataField="ort" width="70"/>
+        <mx:DataGridColumn headerText="Gegner" dataField="gegner" showDataTips="true" dataTipField="gegner"/>
+        <mx:DataGridColumn headerText="Total Nr." dataField="totalNr" width="70" textAlign="right" paddingRight="5" labelFunction="punkteNumberLabel"/>
+        <mx:DataGridColumn headerText="Schlag Punkte" dataField="schlagPunkte" width="110" textAlign="right" paddingRight="5" labelFunction="punkteNumberLabel"/>
+        <mx:DataGridColumn headerText="Total Nr. Gegner" dataField="totalNrGegner" width="120" textAlign="right" paddingRight="5" labelFunction="punkteNumberLabel"/>
+        <mx:DataGridColumn headerText="Schlag Punkte Gegner" dataField="schlagPunkteGegner" width="150" textAlign="right" paddingRight="5" labelFunction="punkteNumberLabel"/>        
+      </mx:columns>
+    </mx:DataGrid>
+    <mx:HBox left="10" bottom="20" right="10">
+      <mx:Button label="Neues Spiel" id="newButton" click="neu()" icon="@Embed(source='assets/form_green_add.png')"/>
+      <mx:Button label="Spiel editieren" id="editButton" enabled="false" click="edit()" icon="@Embed(source='assets/form_green_edit.png')"/>
+      <mx:Button label="Aufstellung" id="aufstellungButton" enabled="false" click="aufstellung()" icon="@Embed(source='assets/users3.png')"/>
+      <mx:Button label="Punkte" id="punkteButton" enabled="false" click="punkte()" />
+      <mx:Spacer width="100%" />
+      <mx:Button label="Spiel löschen" id="deleteButton" enabled="false" click="deleteSpiel()" icon="@Embed(source='assets/form_green_delete.png')"/>
+    </mx:HBox>
+  
+  </mx:Canvas>
+  
+  <mx:DateFormatter id="dateFormatter" formatString="DD.MM.YYYY HH:NN" />
+  <mx:DateFormatter id="dayDateFormatter" formatString="DD.MM.YYYY" />
+  
+</mx:Panel>

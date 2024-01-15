@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<web-app xmlns="http://java.sun.com/xml/ns/javaee" 
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee web-app_2_5.xsd" version="2.5">
+	
+	<display-name>ntlmtest</display-name>
+
+
+	<filter>
+	    <filter-name>NtlmHttpFilter</filter-name>
+	    <filter-class>jcifs.http.NtlmHttpFilter</filter-class>
+	
+	    <init-param>
+	        <param-name>jcifs.netbios.wins</param-name>
+	        <param-value>192.168.20.202</param-value>
+	    </init-param>
+	    <init-param>
+	        <param-name>jcifs.smb.client.domain</param-name>
+	        <param-value>ANET</param-value>
+	    </init-param>
+	    <init-param>
+	        <param-name>jcifs.smb.client.username</param-name>
+	        <param-value>user</param-value>
+	    </init-param>
+	    <init-param>
+	        <param-name>jcifs.smb.client.password</param-name>
+	        <param-value>password</param-value>
+	    </init-param>
+	</filter>
+	
+	<filter-mapping>
+	    <filter-name>NtlmHttpFilter</filter-name>
+	    <url-pattern>/*</url-pattern>
+	</filter-mapping>
+
+</web-app>

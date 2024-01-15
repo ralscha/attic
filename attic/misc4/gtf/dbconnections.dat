@@ -1,0 +1,128 @@
+serviceCenters = LAU,LUG,ZRH,ZUG,BAS,TEST
+dbDriver=COM.ibm.db2.jdbc.net.DB2Driver
+
+ipLAU = 159.122.199.220:6789
+dbNameLAU = gtflau
+userLAU = db2admin
+pwLAU = ciaz8lug
+ibbbLAU = 0425
+
+ipLUG = 159.122.199.219:6789
+dbNameLUG = gtflug
+userLUG = db2admin
+pwLUG = ciaz8adm
+ibbbLUG = 0456
+
+ipZRH = 159.122.136.252:6789
+dbNameZRH = gtfzrh
+userZRH = db2admin
+pwZRH = cial3adm
+ibbbZRH = 0835
+
+ipZUG = 159.122.235.86:6789
+dbNameZUG = gtfzug
+userZUG = db2admin
+pwZUG = cial3adm
+ibbbZUG = 0823
+
+ipBAS = 159.122.199.220:6789
+dbNameBAS = gtfbasel
+userBAS = db2admin
+pwBAS = ciaz8lug
+ibbbBAS = 0060
+
+ipTEST = 159.122.248.91:6789
+dbNameTEST = gtfdb
+userTEST = db2admin
+pwTEST = db2admin
+ibbbTEST = 0835
+
+LU=L5A4FI1
+path.connectdirect=c:/apps/condir/
+
+file.liability.account=e:/lct/liability_account.dat
+
+file.liq.TEST=liqTEST.dat
+path.liq.TEST=e:/lct/
+file.liq.LAU=liqLAU.dat
+path.liq.LAU=e:/lct/
+file.liq.LUG=liqLUG.dat
+path.liq.LUG=e:/lct/
+file.liq.BAS=liqBAS.dat
+path.liq.BAS=e:/lct/
+file.liq.ZUG=liqZUG.dat
+path.liq.ZUG=e:/lct/
+file.liq.ZRH=liqZRH.dat
+path.liq.ZRH=e:/lct/
+
+file.crapa.ZRH=czrh.dat
+path.crapa.ZRH=e:/lct/crapa/zurich/
+file.crapa.LAU=clau.dat
+path.crapa.LAU=e:/lct/crapa/lausanne/
+file.crapa.BAS=cbas.dat
+path.crapa.BAS=e:/lct/crapa/basel/
+file.crapa.LUG=clug.dat
+path.crapa.LUG=e:/lct/crapa/lugano/
+file.crapa.ZUG=czug.dat
+path.crapa.ZUG=e:/lct/crapa/zug/
+file.crapa.TEST=ctest.dat
+path.crapa.TEST=e:/lct/crapa/test/
+batch.cd.crapa=c:/apps/condir/TransferCrapa_P.cmd
+batch.cd.crapa.test=c:/apps/condir/TransferCrapa_ST.cmd
+
+file.liability.ZRH=lzrh.dat
+path.liability.ZRH=e:/lct/liability/zurich/
+file.liability.LAU=llau.dat
+path.liability.LAU=e:/lct/liability/lausanne/
+file.liability.BAS=lbas.dat
+path.liability.BAS=e:/lct/liability/basel/
+file.liability.LUG=llug.dat
+path.liability.LUG=e:/lct/liability/lugano/
+file.liability.ZUG=lzug.dat
+path.liability.ZUG=e:/lct/liability/zug/
+file.liability.TEST=ltest.dat
+path.liability.TEST=e:/lct/liability/test/
+file.cd.liability=liab.dat
+batch.cd.liability=c:/apps/condir/TransferLiability_P.cmd
+batch.cd.liability.test=c:/apps/condir/TransferLiability_ST.cmd
+
+file.account.LAU=alau.dat
+outfile.account.LAU=e:/lct/acct/uaLAU.dat
+update.batch.LAU=e:/lct/upd_acct.cmd
+file.account.BAS=abas.dat
+outfile.account.BAS=e:/lct/acct/uaBAS.dat
+update.batch.BAS=e:/lct/upd_acct.cmd
+file.account.LUG=alug.dat
+outfile.account.LUG=e:/lct/acct/uaLUG.dat
+update.batch.LUG=e:/lct/upd_acct.cmd
+file.account.ZUG=azug.dat
+outfile.account.ZUG=e:/lct/acct/uaZUG.dat
+update.batch.ZUG=e:/lct/upd_acct.cmd
+file.account.TEST=atest.dat
+outfile.account.TEST=e:/lct/acct/uaTEST.dat
+update.batch.TEST=e:/lct/upd7acct.cmd
+batch.cd.account=c:/apps/condir/TransferAccount_P.cmd
+batch.cd.account.test=c:/apps/condir/TransferAccount_ST.cmd
+dsn.account.test=@LC.U0000.P0.ACCTOUT.DATA
+dsn.account=LC.U0000.P0.ACCTOUT.DATA
+
+
+file.payment.LAU=plau.dat
+path.payment.LAU=e:/lct/payment/lausanne/
+file.payment.BAS=pbas.dat
+path.payment.BAS=e:/lct/payment/basel/
+file.payment.LUG=plug.dat
+path.payment.LUG=e:/lct/payment/lugano/
+file.payment.ZUG=pzug.dat
+path.payment.ZUG=e:/lct/payment/zug/
+file.payment.TEST=ptest.dat
+path.payment.TEST=e:/lct/payment/test/
+batch.cd.payment=c:/apps/condir/TransferPayment_ST.cmd
+batch.cd.payment.test=c:/apps/condir/TransferPayment_ST.cmd 
+
+path.exchangerate.backup=e:/lct/fx/data/
+file.exchangerate=e:/lct/fx/data/devkurs.dat
+file.currency=e:/lct/fx/data/devname.dat
+
+log.path=e:/lct/log
+

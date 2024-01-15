@@ -1,0 +1,338 @@
+/*
+   JavaServer Faces in Action example code, Copyright (C) 2004 Kito D. Mann.
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+
+*/
+
+body a:hover {
+    text-decoration : underline;
+}
+.login-heading {
+  font-family: Arial, sans-serif;
+  font-size: 26pt;
+  font-weight: normal;
+  text-align: left;
+}
+
+.user-name {
+  font-family: Arial, sans-serif;
+  font-size: 9pt;
+  font-style: italic;
+}
+
+.table-background {
+  background-color: rgb(233, 249, 244);
+  border: 2px outset #71A5A5;
+  border-collapse: collapse;
+  font-family: Arial, sans-serif;
+  font-size: 10pt;
+  text-align: left;
+  width: 100%;
+}
+
+.project-background {
+  background-color: rgb(233, 249, 244);
+  border: 2px outset #71A5A5;
+  border-collapse: collapse;
+  font-family: Arial, sans-serif;
+  font-size: 10pt;
+  text-align: left;
+  width: 100%;
+}
+
+.project-row {
+  font-size: 10pt;
+  background-color: rgb(233, 249, 244);
+}
+
+.project-data {
+  font-size: 10pt;
+  color: rgb(42, 47, 255);
+}
+
+.project-input {
+  font-size: 10pt;
+}
+
+.box {
+  border: 2px outset #71A5A5;
+  border-collapse: collapse;
+}
+.table-header {
+  font-weight: bold;
+}
+
+.table-header a:link {
+  color: black;
+}
+
+.table-header a:hover {
+  color: blue;
+}
+
+.table-odd-row {
+  font-size: 10pt;
+  background-color: rgb(233, 249, 244);
+}
+
+.table-even-row {
+  font-size: 10pt;
+  background-color: rgb(232, 255, 225);
+}
+
+.table-odd-column {
+  font-size: 10pt;
+  background-color: rgb(233, 249, 244);
+}
+
+.table-even-column {
+  font-size: 10pt;
+  background-color: rgb(232, 255, 225);
+}
+
+.table-simple-row {
+  font-size: 10pt;
+}
+/*
+.table-data-column {
+  font-size: 10pt;
+  color: rgb(42, 47, 255);
+}
+*/
+.page-header {
+  text-align: left;
+  font-family: helvetica,arial,sans-serif;
+  font-weight: bold;
+  font-size: 12pt;
+  background-color: rgb(231, 232, 216);
+}
+
+.page-background {
+  background-color: rgb(244, 247, 255);
+  font-family: Arial, sans-serif;
+  font-size: 10pt;
+  text-align: left;
+}
+
+.header {
+  background-color: rgb(217, 223, 248);
+  border-collapse: collapse;
+  font-family: Arial, sans-serif;
+  text-align: left;
+/*  margin-bottom: 10px;*/
+}
+
+.toolbar-header {
+  font-size: 14pt;
+}
+
+.toolbar-command {
+  font-size: 9pt;
+}
+
+.toolbar-command a:link, a:visited {
+    text-decoration : none;
+	color: #0000CC;
+}
+
+.toolbar-command a:hover {
+    text-decoration : underline;
+}
+
+.toolbar-selected-command {
+    font-size: 9pt;
+}
+
+
+.toolbar-icon {
+    margin-left: 0px;
+    margin-right: 10px;
+    border: 0px;
+    vertical-align: middle;
+}
+
+.toolbar-icon-label {
+  padding-left: 5px;
+}
+
+
+.language-select
+{
+  font-size: 10pt;
+  padding-right: 7px;
+}
+
+.language-select-button
+{
+  font-size: 10pt;
+  border: 1px;
+  border-style: solid;
+  border-color: black;
+  color: blue;
+  padding: 1px;
+}
+
+.error-heading {
+  font-size: 20pt;
+  color: red;
+}
+
+.errors {
+/*   background-color: rgb(233, 249, 244); */
+  font-weight: normal;
+  font-size: 10pt;
+  color: red;
+}
+
+.bottom-header {
+  font-family: Arial, sans-serif;
+  font-size: 10pt;
+  text-align: left;
+}
+
+.simple-text {
+  font-family: Arial, sans-serif;
+  font-size: 10pt;
+  font-weight: normal;
+}
+
+/*****/
+
+.form-background {
+  background-color: #7171A5;
+  border: 5px outset #71A5A5;
+  border-collapse: collapse;
+  font-family: sans-serif;
+  font-size: 14pt;
+  padding: 10px;
+}
+
+.form-footer {
+  color: #FFFFFF;
+  font-size: 75%;
+  text-align: center;
+}
+
+.form-header {
+  background-color: #A5A5A5;
+  color: #FFFFFF;
+  font-weight: bold;
+  text-align: center;
+}
+
+.form-prompt {
+  color: #FFFFFF;
+  margin: 3px 5px 3px 15px;
+  text-align: right;
+}
+
+.form-field {
+  text-align: left;
+}
+
+.form-row-even {
+}
+
+.form-row-odd {
+  background-color: #717171;
+}
+
+
+.list-background {
+  background-color: #7171A5;
+  border: 5px outset #71A5A5;
+  border-collapse: collapse;
+  font-family: sans-serif;
+  font-size: 14pt;
+  padding: 10px;
+  width: 100%;
+}
+
+.list-column-center {
+  text-align: center;
+  width: 15%;
+}
+
+.list-column-left {
+  text-align: left;
+  width: 70%;
+}
+
+.list-column-right {
+  text-align: right;
+  width: 15%;
+}
+
+.list-header {
+  background-color: #A5A5A5;
+  color: #FFFFFF;
+  font-weight: bold;
+  text-align: center;
+}
+
+.list-row-even {
+}
+
+.list-row-odd {
+  background-color: #717171;
+}
+
+
+.tabbed-pane {
+  background-color: #999999;
+  font-family: sans-serif;
+  font-size: 12pt;
+  padding: 5px;
+  width: 100%;
+}
+
+.tabbed-content {
+  background-color: #CCCCCC;
+  color: #000000;
+}
+
+.tabbed-selected {
+  background-color: #CCCCCC;
+  border: 2px 5px 0px 5px;
+  color: #FFFFFF;
+  font-weight: bold;
+  text-align: center;
+}
+
+.tabbed-unselected {
+  background-color: #9999CC;
+  border: 2px 5px 0px 5px;
+  color: #000000;
+  text-align: center;
+}
+
+
+.select-columns-label {
+	font-weight: bold;
+    font-family: Arial;
+	font-size: 10pt;
+}
+
+.select-columns {
+    font-family: Arial;
+	font-weight: normal;
+	font-size: 10pt;
+}
+
+.small {
+  font-size: 8pt;
+  color: grey;
+  font-family: Arial;
+  font-style: italic;
+}

@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Panel xmlns:mx="http://www.adobe.com/2006/mxml" title="Rangpunkte" 
+  layout="absolute" creationComplete="init()">
+  
+  <mx:Script>
+    <![CDATA[
+      import mx.controls.dataGridClasses.DataGridColumn;
+      import ch.ess.hgtracker.db.Club;
+      import mx.managers.PopUpManager;
+      import mx.events.CloseEvent;
+      import mx.controls.Alert;
+      import mx.collections.SortField;
+      import mx.collections.Sort;
+      import mx.collections.ArrayCollection;
+      import mx.rpc.events.ResultEvent;     
+      
+      [Bindable]
+      [ArrayElementType("ch.ess.hgtracker.model.Rangpunkte")]
+      private var rangpunkteModel:ArrayCollection = new ArrayCollection();
+            
+      [Bindable]
+      private var jahrModel:ArrayCollection = new ArrayCollection();      
+            
+      [Bindable]      
+      public var club:Club;
+    
+      public function init():void {
+        reportService.getJahre();
+      }
+      
+        
+      private function onGetRangpunkte(event:ResultEvent):void {
+        
+        var sort:Sort = (rangpunkteDataGrid.dataProvider ? ArrayCollection(rangpunkteDataGrid.dataProvider).sort : null);
+        
+        rangpunkteModel = ArrayCollection(event.result);
+        
+        if (sort) {
+          rangpunkteModel.sort = sort;               
+        } else {
+          sort = new Sort();
+          sort.fields = [new SortField("rangpunkte", false, true)];      
+          rangpunkteModel.sort = sort;
+        }
+                
+        rangpunkteModel.refresh();                
+      }   
+      
+      private function onGetJahre(event:ResultEvent):void {
+        jahrModel = ArrayCollection(event.result);
+        jahreCombobox.selectedIndex = 0;
+        reportService.getRangpunkte();
+      }
+            
+      private function onJahreChange():void {
+        reportService.getRangpunkte();
+      }      
+
+      private function schnittLabel(item:Object, column:DataGridColumn):String {
+        return numberFormatter.format(item.schnitt);
+      }
+      
+      private function punkteDataTip(item:Object):String {
+        return "Total der erreichten Punkte in der Meisterschaft: " + item.punkte;
+      }
+      
+      private function stricheDataTip(item:Object):String {
+        return "Total geschlagene Striche in der Meisterschaft: " + item.striche;
+      }      
+      
+      private function schnittDataTip(item:Object):String {
+        return "Bisheriger Durchschnitt der Striche in der Meisterschaft: " + item.schnitt;
+      }     
+      
+      private function punkteProSpielDataTip(item:Object):String {
+        return "Zukünftige Punkte der noch anstehenden Meisterschaftsspielen um den Kranz zu erreichen: " + item.punkteProSpiel;
+      }          
+      
+      private function rangpunkteDataTip(item:Object):String {
+        return "Total der Rangpunkte in der Meisterschaft: " + item.rangpunkte;
+      }       
+      
+    ]]>
+  </mx:Script>
+  
+  <mx:RemoteObject id="reportService" showBusyCursor="true" destination="reportService">
+    <mx:method name="getRangpunkte" result="onGetRangpunkte(event)" >
+      <mx:arguments>
+        <club>{club}</club>
+        <jahr>{jahreCombobox.selectedItem}</jahr>
+      </mx:arguments>
+    </mx:method>
+    <mx:method name="getJahre" result="onGetJahre(event)">
+      <mx:arguments>
+        <club>{club}</club>
+      </mx:arguments>
+    </mx:method>    
+  </mx:RemoteObject>
+  
+  <mx:SeriesInterpolate id="interpolate" elementOffset="15" />
+  
+  
+  <mx:Canvas width="100%" height="100%">
+      
+    <mx:ComboBox id="jahreCombobox" dataProvider="{jahrModel}" top="10" left="10" change="onJahreChange()"/>
+    <mx:TabNavigator height="100%" width="100%" bottom="10" top="40" left="10" right="10">
+      <mx:Canvas width="100%" height="100%" label="Tabelle">        
+        <mx:DataGrid id="rangpunkteDataGrid" dataProvider="{rangpunkteModel}" bottom="10" top="10" left="10" right="10">
+          <mx:columns>
+            <mx:DataGridColumn headerText="Nachname" dataField="nachname" width="120"/>
+            <mx:DataGridColumn headerText="Vorname" dataField="vorname" width="120"/>        
+            <mx:DataGridColumn headerText="Jahrgang" dataField="jahrgang" width="100"/>
+            
+            <mx:DataGridColumn headerText="Punkte" dataField="punkte" width="100" 
+              textAlign="right" paddingRight="5" showDataTips="true" dataTipFunction="punkteDataTip"/>
+            
+            <mx:DataGridColumn headerText="Striche" dataField="striche" width="100" 
+              textAlign="right" paddingRight="5" showDataTips="true" dataTipFunction="stricheDataTip"/>
+              
+            <mx:DataGridColumn headerText="Schnitt" dataField="schnitt" width="100" 
+              textAlign="right" paddingRight="5" showDataTips="true" dataTipFunction="schnittDataTip" 
+              labelFunction="schnittLabel"/>
+              
+            <mx:DataGridColumn headerText="Punkte pro Spiel" dataField="punkteProSpiel" width="120" 
+              textAlign="right" paddingRight="5" showDataTips="true" dataTipFunction="punkteProSpielDataTip"/>  
+            
+            <mx:DataGridColumn headerText="Rangpunkte" dataField="rangpunkte" width="120" 
+              textAlign="right" paddingRight="5" showDataTips="true" dataTipFunction="rangpunkteDataTip"/>  
+            
+          </mx:columns>
+        </mx:DataGrid>
+      </mx:Canvas>
+      <mx:Canvas width="100%" height="100%" label="Grafik">
+        <mx:ColumnChart dataProvider="{rangpunkteModel}" width="100%" height="100%">
+          <mx:horizontalAxis>
+            <mx:CategoryAxis categoryField="chartLabel"  />
+          </mx:horizontalAxis>
+          <mx:series>                      
+            <mx:ColumnSeries yField="rangpunkte" xField="chartLabel" 
+              displayName="Rangpunkte"
+              showDataEffect="interpolate">
+              
+              <mx:fill>
+                <mx:LinearGradient>
+                  <mx:entries>
+                    <mx:GradientEntry color="#33FF66" ratio="0" alpha="1" />
+                    <mx:GradientEntry color="#00E639" ratio=".1" alpha="1" />
+                    <mx:GradientEntry color="#00CC33" ratio=".9" alpha="1" />
+                    <mx:GradientEntry color="#00B32D" ratio="1" alpha="1" />
+                  </mx:entries>
+                </mx:LinearGradient>
+              </mx:fill>  
+              
+            </mx:ColumnSeries>              
+          </mx:series>
+          
+        </mx:ColumnChart>
+      </mx:Canvas>
+    </mx:TabNavigator>
+    
+  </mx:Canvas>
+  
+  <mx:NumberFormatter id="numberFormatter" precision="2" />
+  
+</mx:Panel>

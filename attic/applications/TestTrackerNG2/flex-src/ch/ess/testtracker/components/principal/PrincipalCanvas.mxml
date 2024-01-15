@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Canvas xmlns:mx="http://www.adobe.com/2006/mxml" width="100%" height="100%" 
+  label="Benutzer" xmlns:principalComponents="ch.ess.testtracker.components.principal.*"
+  creationComplete="init()">
+  
+  <mx:Script>
+    <![CDATA[
+      import ch.ess.testtracker.util.ContextTideEvent;
+      import org.granite.tide.events.TideEvent;
+      import org.granite.tide.seam.Seam;
+      import org.granite.tide.seam.Context;
+      import mx.core.Container;
+
+      [Bindable]
+      private var tideContext:Context = Seam.getInstance().getSeamContext();
+      
+      private function init():void {
+        principalVS.selectedIndex = 0;
+        tideContext.addEventListener("showPrincipalEdit", showPrincipalEditHandler);
+        
+      }
+      
+      private function showPrincipalEditHandler(event:ContextTideEvent):void {
+        principalEdit.localContext = event.localContext;
+        principalVS.selectedIndex = 1;
+        principalEdit.localContext.addEventListener("showPrincipalList", showPrincipalListHandler);
+      }
+      
+      private function showPrincipalListHandler(event:TideEvent):void {
+        principalVS.selectedIndex = 0;
+      }
+                  
+    ]]>
+  </mx:Script>
+  
+  <mx:ViewStack width="100%" height="100%" id="principalVS">
+    <principalComponents:PrincipalList id="principalList" tideContext="{tideContext}"/>
+    <principalComponents:PrincipalEdit id="principalEdit" />  
+  </mx:ViewStack>
+  
+</mx:Canvas>

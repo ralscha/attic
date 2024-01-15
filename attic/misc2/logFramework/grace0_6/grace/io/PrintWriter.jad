@@ -1,0 +1,575 @@
+// Decompiled by Jad v1.5.7. Copyright 1997-99 Pavel Kouznetsov.
+// Jad home page: http://www.geocities.com/SiliconValley/Bridge/8617/jad.html
+// Decompiler options: packimports(3) 
+// Source File Name:   PrintWriter.java
+
+package grace.io;
+
+import java.io.OutputStream;
+import java.io.Writer;
+import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+import java.lang.reflect.Modifier;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Enumeration;
+import java.util.Hashtable;
+import java.util.TimeZone;
+import java.util.Vector;
+
+public abstract class PrintWriter extends java.io.PrintWriter
+{
+    protected static class Handle
+    {
+
+        public int hashCode()
+        {
+            return System.identityHashCode(object);
+        }
+
+        public boolean equals(Object that)
+        {
+            return this == that;
+        }
+
+        private Object object;
+
+        public Handle(Object object)
+        {
+            this.object = object;
+        }
+    }
+
+
+    public PrintWriter(OutputStream stream)
+    {
+        super(stream, false);
+        dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+        dateFormat.setTimeZone(TimeZone.getTimeZone("GMT"));
+        autoFlush = false;
+        pretty = true;
+        printedObjects = new Hashtable();
+        printObjectsOnlyOnce = true;
+        autoFlush = false;
+    }
+
+    public PrintWriter(OutputStream stream, boolean autoFlush)
+    {
+        super(stream, autoFlush);
+        dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+        dateFormat.setTimeZone(TimeZone.getTimeZone("GMT"));
+        this.autoFlush = false;
+        pretty = true;
+        printedObjects = new Hashtable();
+        printObjectsOnlyOnce = true;
+        this.autoFlush = autoFlush;
+    }
+
+    public PrintWriter(Writer writer)
+    {
+        super(writer, false);
+        dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+        dateFormat.setTimeZone(TimeZone.getTimeZone("GMT"));
+        autoFlush = false;
+        pretty = true;
+        printedObjects = new Hashtable();
+        printObjectsOnlyOnce = true;
+        autoFlush = false;
+    }
+
+    public PrintWriter(Writer writer, boolean autoFlush)
+    {
+        super(writer, autoFlush);
+        dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+        dateFormat.setTimeZone(TimeZone.getTimeZone("GMT"));
+        this.autoFlush = false;
+        pretty = true;
+        printedObjects = new Hashtable();
+        printObjectsOnlyOnce = true;
+        this.autoFlush = autoFlush;
+    }
+
+    public abstract void print(String s, Object obj);
+
+    public abstract void print(String s, int i);
+
+    protected void printNullString()
+    {
+        printNullObject();
+    }
+
+    protected void printNullObject()
+    {
+        super.print("null");
+    }
+
+    public void printRaw(String string)
+    {
+        super.print(string);
+    }
+
+    public void printlnRaw(String string)
+    {
+        super.println(string);
+    }
+
+    public void print(String string)
+    {
+        if(string == null)
+        {
+            printNullString();
+        }
+        else
+        {
+            beginString();
+            super.print(string);
+            endString();
+        }
+    }
+
+    public void println(String string)
+    {
+        print(string);
+        println();
+        if(autoFlush)
+            flush();
+    }
+
+    public void print(Object array[])
+    {
+        beginList();
+        boolean appendedOne = false;
+        int count = 0;
+        for(int i = 0; i < array.length; i++)
+        {
+            if(appendedOne)
+                separateListItems();
+            appendedOne = true;
+            print("[" + count + "]", array[i]);
+            count++;
+        }
+
+        endList();
+    }
+
+    public void println(Object array[])
+    {
+        print(array);
+        println();
+        if(autoFlush)
+            flush();
+    }
+
+    public void print(Vector vector)
+    {
+        beginList();
+        boolean appendedOne = false;
+        int count = 0;
+        for(int i = 0; i < vector.size(); i++)
+        {
+            if(appendedOne)
+                separateListItems();
+            appendedOne = true;
+            print("[" + count + "]", vector.elementAt(i));
+            count++;
+        }
+
+        endList();
+    }
+
+    public void println(Vector vector)
+    {
+        print(vector);
+        println();
+        if(autoFlush)
+            flush();
+    }
+
+    public void print(Hashtable table)
+    {
+        Enumeration keys = table.keys();
+        Enumeration elements = table.elements();
+        beginList();
+        boolean appendedOne = false;
+        for(; keys.hasMoreElements() && elements.hasMoreElements(); print(keys.nextElement().toString(), elements.nextElement()))
+        {
+            if(appendedOne)
+                separateListItems();
+            appendedOne = true;
+        }
+
+        endList();
+        if(autoFlush)
+            flush();
+    }
+
+    public void println(Hashtable table)
+    {
+        print(table);
+        println();
+        if(autoFlush)
+            flush();
+    }
+
+    public void print(Date date)
+    {
+        print(dateFormat.format(date));
+    }
+
+    public void println(Date date)
+    {
+        print(dateFormat.format(date));
+        println();
+        if(autoFlush)
+            flush();
+    }
+
+    public void print(Object object)
+    {
+        if(object == null)
+            printNullObject();
+        else
+            dispatchPrintHandler(object);
+    }
+
+    public void println(Object object)
+    {
+        print(object);
+        println();
+        if(autoFlush)
+            flush();
+    }
+
+    protected void dispatchPrintHandler(Object object)
+    {
+        Class clazz = object.getClass();
+        if(clazz.isArray())
+            print((Object[])object);
+        else
+        if(clazz.isPrimitive() || clazz == (class$java$lang$Integer == null ? (class$java$lang$Integer = class$("java.lang.Integer")) : class$java$lang$Integer) || clazz == (class$java$lang$Long == null ? (class$java$lang$Long = class$("java.lang.Long")) : class$java$lang$Long) || clazz == (class$java$lang$Byte == null ? (class$java$lang$Byte = class$("java.lang.Byte")) : class$java$lang$Byte) || clazz == (class$java$lang$Boolean == null ? (class$java$lang$Boolean = class$("java.lang.Boolean")) : class$java$lang$Boolean) || clazz == (class$java$lang$Float == null ? (class$java$lang$Float = class$("java.lang.Float")) : class$java$lang$Float) || clazz == (class$java$lang$Double == null ? (class$java$lang$Double = class$("java.lang.Double")) : class$java$lang$Double) || clazz == (class$java$lang$Character == null ? (class$java$lang$Character = class$("java.lang.Character")) : class$java$lang$Character))
+        {
+            super.print(object.toString());
+            endPrimitiveValue();
+        }
+        else
+        if(!alreadyPrinted(object))
+        {
+            if(!(object instanceof String))
+                rememberPrinted(object);
+            Method handler = getPrintHandler(clazz);
+            if(handler != null)
+                try
+                {
+                    Object args[] = {
+                        object
+                    };
+                    handler.invoke(this, args);
+                }
+                catch(InvocationTargetException e)
+                {
+                    e.printStackTrace();
+                    e.getTargetException().printStackTrace();
+                }
+                catch(Exception e)
+                {
+                    e.printStackTrace();
+                }
+            else
+            if(!printKnownObject(object, clazz) && !printUnknownObject(object))
+                print(object.toString());
+        }
+        else
+        {
+            print(System.identityHashCode(object));
+        }
+    }
+
+    protected static Method getPrintHandler(Class toFind)
+    {
+        Method method = (Method)printHandlers.get(toFind);
+        if(method == null)
+        {
+            for(Enumeration enum = printHandlers.keys(); enum.hasMoreElements();)
+            {
+                Class clazz = (Class)enum.nextElement();
+                if(clazz.isAssignableFrom(toFind))
+                    return (Method)printHandlers.get(clazz);
+            }
+
+        }
+        return method;
+    }
+
+    protected String shortenedTypeName(Class type)
+    {
+        String name = type.getName();
+        if(name.startsWith("java"))
+        {
+            int lastDot = name.lastIndexOf(46);
+            if(lastDot != -1)
+                name = name.substring(lastDot + 1);
+        }
+        return name;
+    }
+
+    public void printType(Class type)
+    {
+        if(type.isArray())
+            printArrayType(type);
+        else
+            printRaw(shortenedTypeName(type));
+    }
+
+    protected void printArrayType(Class type)
+    {
+        printRaw(type.getName());
+    }
+
+    public void printName(Object name)
+    {
+        if(name instanceof String)
+            printRaw((String)name);
+        else
+            print(name);
+    }
+
+    protected static void addPrintHandler(Class type)
+    {
+        try
+        {
+            Class types[] = {
+                type
+            };
+            Method method = (class$grace$io$PrintWriter == null ? (class$grace$io$PrintWriter = class$("grace.io.PrintWriter")) : class$grace$io$PrintWriter).getDeclaredMethod("print", types);
+            if(method != null)
+                printHandlers.put(type, method);
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+    }
+
+    protected boolean printKnownObject(Object object, Class clazz)
+    {
+        try
+        {
+            Method printMethod = getPrintMethod(clazz);
+            if(printMethod != null)
+            {
+                beginObject();
+                printMethod.invoke(object, new Object[] {
+                    this
+                });
+                endObject();
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        catch(Exception _ex)
+        {
+            return false;
+        }
+    }
+
+    protected Vector add(Object first[], Vector second)
+    {
+        Vector result = new Vector(first.length + second.size());
+        for(int i = 0; i < first.length; i++)
+            result.addElement(first[i]);
+
+        for(int i = 0; i < second.size(); i++)
+            result.addElement(second.elementAt(i));
+
+        return result;
+    }
+
+    protected boolean printUnknownObject(Object object)
+    {
+        Class clazz = object.getClass();
+        Vector fields = new Vector();
+        for(Class inspectClass = clazz; inspectClass != (class$java$lang$Object == null ? (class$java$lang$Object = class$("java.lang.Object")) : class$java$lang$Object); inspectClass = inspectClass.getSuperclass())
+            fields = add(inspectClass.getDeclaredFields(), fields);
+
+        boolean appendedOne = false;
+        for(int i = 0; i < fields.size(); i++)
+        {
+            Field field = (Field)fields.elementAt(i);
+            if((field.getModifiers() & 0x8) == 0)
+            {
+                String fieldName = field.getName();
+                String methodName = "get" + Character.toUpperCase(fieldName.charAt(0)) + fieldName.substring(1);
+                try
+                {
+                    Method getMethod = clazz.getMethod(methodName, null);
+                    if(appendedOne)
+                        separateListItems();
+                    else
+                        beginObject();
+                    appendedOne = true;
+                    print(field.getName(), getMethod.invoke(object, null));
+                }
+                catch(NoSuchMethodException _ex) { }
+                catch(IllegalAccessException _ex)
+                {
+                    print(field.getName(), "<private>");
+                }
+                catch(Exception e)
+                {
+                    e.printStackTrace();
+                }
+            }
+        }
+
+        if(appendedOne)
+            endObject();
+        return appendedOne;
+    }
+
+    public boolean prettyOutput()
+    {
+        return pretty;
+    }
+
+    public void setPrettyOutput(boolean pretty)
+    {
+        this.pretty = pretty;
+    }
+
+    public boolean getPrintObjectsOnlyOnce()
+    {
+        return printObjectsOnlyOnce;
+    }
+
+    public void setPrintObjectsOnlyOnce(boolean value)
+    {
+        printObjectsOnlyOnce = value;
+    }
+
+    public abstract void beginList();
+
+    public void separateListItems()
+    {
+        super.print(" ");
+    }
+
+    public abstract void endList();
+
+    public abstract void beginObject();
+
+    public void separateObjectItems()
+    {
+        super.print(" ");
+    }
+
+    public abstract void endObject();
+
+    public void endPrimitiveValue()
+    {
+    }
+
+    protected void beginString()
+    {
+        super.print("\"");
+    }
+
+    protected void endString()
+    {
+        super.print("\"");
+    }
+
+    protected Method getPrintMethod(Class objectClass)
+    {
+        try
+        {
+            return objectClass.getDeclaredMethod("printTo", printMethodArguments);
+        }
+        catch(Exception _ex)
+        {
+            return null;
+        }
+    }
+
+    protected boolean objectIsCollection(Object object)
+    {
+        Class clazz = object.getClass();
+        if(clazz.isArray() || clazz == (class$java$util$Vector == null ? (class$java$util$Vector = class$("java.util.Vector")) : class$java$util$Vector))
+            return true;
+        try
+        {
+            Class collection = Class.forName("java.util.Collection");
+            if(collection != null && collection.isInstance(object))
+                return true;
+        }
+        catch(Exception _ex) { }
+        return false;
+    }
+
+    protected void rememberPrinted(Object object)
+    {
+        if(printObjectsOnlyOnce)
+            printedObjects.put(new Handle(object), object);
+    }
+
+    protected boolean alreadyPrinted(Object object)
+    {
+        if(printObjectsOnlyOnce)
+            return printedObjects.contains(object);
+        else
+            return false;
+    }
+
+    protected boolean autoFlush()
+    {
+        return autoFlush;
+    }
+
+    static Class class$(String class$)
+    {
+        try
+        {
+            return Class.forName(class$);
+        }
+        catch(ClassNotFoundException forName)
+        {
+            throw new NoClassDefFoundError(forName.getMessage());
+        }
+    }
+
+    protected DateFormat dateFormat;
+    private boolean autoFlush;
+    private boolean pretty;
+    private Hashtable printedObjects;
+    private boolean printObjectsOnlyOnce;
+    private static Class printMethodArguments[];
+    private static Hashtable printHandlers = new Hashtable();
+    static Class class$grace$io$PrintWriter; /* synthetic field */
+    static Class class$java$lang$String; /* synthetic field */
+    static Class class$java$util$Date; /* synthetic field */
+    static Class class$java$util$Vector; /* synthetic field */
+    static Class class$java$util$Hashtable; /* synthetic field */
+    static Class class$java$lang$Integer; /* synthetic field */
+    static Class class$java$lang$Long; /* synthetic field */
+    static Class class$java$lang$Byte; /* synthetic field */
+    static Class class$java$lang$Boolean; /* synthetic field */
+    static Class class$java$lang$Float; /* synthetic field */
+    static Class class$java$lang$Double; /* synthetic field */
+    static Class class$java$lang$Character; /* synthetic field */
+    static Class class$java$lang$Object; /* synthetic field */
+
+    static 
+    {
+        printMethodArguments = (new Class[] {
+            class$grace$io$PrintWriter == null ? (class$grace$io$PrintWriter = class$("grace.io.PrintWriter")) : class$grace$io$PrintWriter
+        });
+        addPrintHandler(class$java$lang$String == null ? (class$java$lang$String = class$("java.lang.String")) : class$java$lang$String);
+        addPrintHandler(class$java$util$Date == null ? (class$java$util$Date = class$("java.util.Date")) : class$java$util$Date);
+        addPrintHandler(class$java$util$Vector == null ? (class$java$util$Vector = class$("java.util.Vector")) : class$java$util$Vector);
+        addPrintHandler(class$java$util$Hashtable == null ? (class$java$util$Hashtable = class$("java.util.Hashtable")) : class$java$util$Hashtable);
+    }
+}

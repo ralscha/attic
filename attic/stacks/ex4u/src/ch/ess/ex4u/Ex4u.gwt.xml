@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module rename-to='ex4u'>
+
+  <inherits name='com.google.gwt.user.User'/>
+  <inherits name='com.smartgwtee.SmartGwtEE'/>  
+  <inherits name="com.smartgwtee.tools.Tools"/>
+  
+  <entry-point class='ch.ess.ex4u.client.Main'/>
+
+  <!-- packages available by the client --> 
+  <source path='client'/>
+  <source path='shared'/>
+
+</module>

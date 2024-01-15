@@ -1,0 +1,23 @@
+<project name="Optimize" default="optimize" basedir=".">
+  
+  <taskdef name="db4ooptimize"
+    classname="com.db4o.nativequery.main.Db4oFileEnhancerAntTask">
+   <classpath>
+			<path path="lib/db4o-5.5-java5.jar" />
+			<path path="lib/db4o-5.5-nqopt.jar" />
+			<path path="lib/bloat-1.0.jar" />
+   </classpath>
+  </taskdef>
+
+  <target name="optimize">
+   <db4ooptimize
+       srcdir="bin"
+       targetdir="instrumented"
+       >
+    <classpath>    
+      <path path="lib/db4o-5.5-java5.jar" />
+    </classpath>
+   </db4ooptimize>  
+  </target>
+  
+</project>  

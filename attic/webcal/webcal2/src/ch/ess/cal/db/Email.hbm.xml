@@ -1,0 +1,98 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd">
+
+<hibernate-mapping>
+    <class
+        name="ch.ess.cal.db.Email"
+        table="calEmail"
+        lazy="true"
+        dynamic-update="false"
+        dynamic-insert="false"
+    >
+
+        <id
+            name="id"
+            column="id"
+            type="java.lang.Long"
+            unsaved-value="null"
+        >
+            <generator class="native">
+            </generator>
+        </id>
+
+        <version
+            name="version"
+            type="int"
+            column="version"
+        />
+
+        <property
+            name="sequence"
+            type="int"
+            update="true"
+            insert="true"
+            column="sequence"
+            not-null="true"
+        />
+
+        <property
+            name="email"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="email"
+            length="100"
+            not-null="true"
+        />
+
+        <property
+            name="defaultEmail"
+            type="boolean"
+            update="true"
+            insert="true"
+            column="defaultEmail"
+            not-null="true"
+        />
+
+        <many-to-one
+            name="user"
+            class="ch.ess.cal.db.User"
+            cascade="none"
+            outer-join="auto"
+            update="true"
+            insert="true"
+        >
+            <column
+                name="userId"
+                index="FK_Email_User"
+                not-null="false"
+            />
+        </many-to-one>
+
+        <many-to-one
+            name="department"
+            class="ch.ess.cal.db.Department"
+            cascade="none"
+            outer-join="auto"
+            update="true"
+            insert="true"
+        >
+            <column
+                name="departmentId"
+                index="FK_Email_Department"
+                not-null="false"
+            />
+        </many-to-one>
+
+        <!--
+            To add non XDoclet property mappings, create a file named
+                hibernate-properties-Email.xml
+            containing the additional properties and place it in your merge dir.
+        -->
+
+    </class>
+
+</hibernate-mapping>

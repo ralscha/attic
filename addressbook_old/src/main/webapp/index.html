@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Detect</title>
+</head>
+<body>
+<script>
+
+	var isMobile = navigator.userAgent.toLowerCase().match(/(iPad)|(iPhone)|(iPod)|(android)|(webOS)/i);
+	if (isMobile) {
+		top.window.location = 'mobile/index.html';
+	}
+	else {
+		window.location = 'desktop/index.html';
+	}
+
+</script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+ 
+  <bean id="permissionData" class="ch.ess.blankrc.service.impl.PermissionData">
+    <property name="permissions">
+      <set>        
+        <value>systemconfig</value>
+        <value>user</value>
+        <value>usergroup</value>
+      </set>
+    </property>
+  </bean>
+
+</beans>

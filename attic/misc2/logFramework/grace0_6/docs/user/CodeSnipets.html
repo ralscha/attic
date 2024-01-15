@@ -1,0 +1,127 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="GENERATOR" content="Mozilla/4.5 [en] (X11; I; SunOS 5.6 i86pc) [Netscape]">
+   <title>Java Log Facility - Example Output</title>
+</head>
+<body text="#000000" bgcolor="#FFFFFF">
+
+<center><img SRC="gkrwflow.jpg" NOSAVE height=200 width=97></center>
+&nbsp;
+<center><b><i><font size=+4>Example Code</font></i></b></center>
+
+<div align=right><font size=-1>$Revision: 1.1 $</font></div>
+
+<div align=right><font size=-1>$Date: 1999/03/01 17:24:19 $</font></div>
+
+<br><font size=-1></font>&nbsp;The programmer interfaces with the Log Facility
+using the grace.log.Log class. This section describes the interface to
+this class and gives examples of common uses for each function. The Log
+Facility handles 4 distinct predefined event types as well as any user
+defined event type.
+<ul>
+<li>
+<b>Error</b> - indicates an exception or situation that will corrupt or
+has already corrupted the running program.</li>
+
+<li>
+<b>Warning</b> - indicates a situation that will not affect the operability
+of the program but could potentially affect the programs operation.</li>
+
+<li>
+<b>Notice</b> - used to simple log informational messages and data. Notices
+typically indicate a program's state.</li>
+
+<li>
+<b>Trace</b> - used to log the program's current position. Note, the difference
+between a notice and a trace is that tracing is turned off in the normal
+operation of a program. Therefore tracing is intended to be used for debugging
+by the programmer whereas notices are intended to be used by users of the
+program.</li>
+
+<li>
+<b>User Defined</b> - used to log events of any type defined by the user.</li>
+</ul>
+
+<h3>
+Errors (and Exceptions)</h3>
+There are four error handling functions.
+<pre>&nbsp;&nbsp;&nbsp; public static void error(Exception);
+&nbsp;&nbsp;&nbsp; public static void error(String message);
+&nbsp;&nbsp;&nbsp; public static void error(String message, Object userData);
+&nbsp;&nbsp;&nbsp; public static void error(String message, Exception);</pre>
+The first of these functions is the most useful for handling exceptions.
+It can be used as follows:
+<pre>&nbsp;&nbsp;&nbsp; try {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ... code that throws an exception ...
+&nbsp;&nbsp;&nbsp; }
+&nbsp;&nbsp;&nbsp; catch (Exception e) {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; grace.log.Log.error(e);
+&nbsp;&nbsp;&nbsp; }</pre>
+The second of these functions can be used if an error has occurred but
+there is no exception to accompany it:
+<pre>&nbsp;&nbsp;&nbsp; if (can_not_open_file) {&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; grace.log.Log.error("can't open file");
+&nbsp;&nbsp;&nbsp; }</pre>
+The third function is useful also where there is no exception to accompany
+the error but it allows the caller to log an object in the log:
+<pre>&nbsp;&nbsp;&nbsp; if (!object.isValid()) {&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; grace.log.Log.error("invalid object state", object);
+&nbsp;&nbsp;&nbsp; }</pre>
+
+<h3>
+Warnings</h3>
+
+<pre>public static void warning(String message);
+public static void warning(String message, Object userData);
+public static void warning(String message, Exception);</pre>
+These functions are identical to their "error" counterparts other than
+the fact that they log a warning instead of an error.
+<h3>
+Notices</h3>
+
+<pre>public static void notice(String message);
+public static void notice(String message, Object userData);</pre>
+These functions allow the user to log information. They allows the programmer
+to write a simple message or a message and a user object. These messages
+should always be intended to be read by the user of the program (i.e. not
+just the programmer).
+<pre>&nbsp;&nbsp;&nbsp; grace.log.Log.notice("program is operational");</pre>
+
+<h3>
+Traces</h3>
+
+<pre>public static void trace();
+public static void trace(String message);
+public static void trace(Object userData);
+public static void trace(String message, Object userData);</pre>
+Tracing is intended as a debugging tool for the programmer. Log output
+is normally disabled in the normal operation of the program. The following
+example simply logs the entry and exit from a function called "cancel".
+<pre>&nbsp;&nbsp;&nbsp; public void cancel(Flight flight) {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; grace.log.Log.trace("begin", flight);
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ...
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; grace.log.Log.trace("end");
+&nbsp;&nbsp;&nbsp; }</pre>
+
+<h3>
+User Defined Event Types</h3>
+
+<pre>public static void log(String eventType, String message);
+public static void log(String eventType, Object userData);
+public static void log(String eventType, String message, Object userData);</pre>
+The above three functions allow the programmer to log events that are of
+any event type. In these functions, the eventType is passed as a user defined
+string. Using the event types "Error", "Warning", "Notice", or "Trace"
+is equivalent to calling the Log.error(), Log.warning(), Log.notice(),
+or Log.trace() function, respectively.
+<pre>&nbsp;&nbsp;&nbsp; double transactionRate;
+&nbsp;&nbsp;&nbsp; ...
+&nbsp;&nbsp;&nbsp; grace.log.Log.log("statistics", "transaction-rate=" + transactionRate);</pre>
+Note, in the above code, the <tt>transactionRate</tt> double variable is
+appended to the <tt>"transaction-rate="</tt> string instead of passing
+it as userData. This is because the Log interfaces do not accept primitive
+types currently. This may be an addition in the future.
+</body>
+</html>

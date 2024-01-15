@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:ComboBox xmlns:mx="http://www.adobe.com/2006/mxml" labelField="label" prompt="Sprache auswählen">
+
+  <mx:Script>
+    <![CDATA[
+                  
+      public function set selectedLocale(locale:String):void {
+        for (var i:uint = 0; i < dataProvider.length; i++) {
+          if (dataProvider[i].data == locale) {
+            selectedItem = dataProvider[i];
+            return;
+          }
+        }
+        selectedItem = null;
+      }
+      
+      public function get selectedLocale():String {
+        if (selectedItem != null) {
+          return selectedItem.data;
+        } else {
+          return null;
+        }
+      }
+      
+      
+    ]]>
+  </mx:Script>
+  <mx:dataProvider>      
+    <mx:Array>
+      <mx:Object data="de" label="Deutsch"/>
+      <mx:Object data="en" label="Englisch"/>
+      <mx:Object data="fr" label="Französisch"/>
+      <mx:Object data="it" label="Italienisch"/>
+    </mx:Array>  
+  </mx:dataProvider>
+</mx:ComboBox>

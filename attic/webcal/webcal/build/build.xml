@@ -1,0 +1,283 @@
+<project name="webcal" default="dist" basedir="..">
+  
+  <description>WebCal Build File</description> 
+
+  <!-- Home directory of the build process -->
+  <property name="build.dir" value="${basedir}/build"/>
+  
+ 
+  <!-- Should Java compilations set the debug compiler option? -->
+  <property name="compile.debug" value="true" />
+
+  <!-- Should Java compilations set the deprecation compiler option? -->
+  <property name="compile.deprecation" value="true" />
+
+  <!-- Should Java compilations set the optimize compiler option? -->
+  <property name="compile.optimize" value="false" /> 
+ 
+ 
+  <!-- Ant directory -->
+  <property name="ant.dir" value="${build.dir}/ant"/>
+   
+  <!-- Source directory -->
+  <property name="src.dir" value="${basedir}/src"/>
+  
+  <property name="index.page" value="index.html"/>
+
+  <!-- Web directories -->  
+  <property name="web.dir" value="${basedir}/www"/> 
+  <property name="webinf.dir" value="${web.dir}/WEB-INF"/>    
+  <property name="classes.dir" value="${webinf.dir}/classes"/>
+  <property name="lib.dir" value="${webinf.dir}/lib"/>   
+    
+
+  <!-- Doc directory -->  
+  <property name="doc.dir" value="${basedir}/docs"/>  
+  
+  <!-- Directory where release files are stored -->  
+  <property name="dist.dir" value="${build.dir}/dist"/>
+    
+  <!-- Temporary directory -->      
+  <property name="tmp.dir" value="${build.dir}/tmp"/>      
+
+
+  <!-- Jetty Home -->
+  <property name="jetty.dir" value="${build.dir}/jetty"/>          
+
+
+<!--
+  ========================================================================
+    DATATYPES
+  ========================================================================
+-->
+
+  <!-- Build classpath -->
+  <path id="build.classpath">
+    <fileset dir="${jetty.dir}/lib">
+      <include name="**/*.jar"/>    
+    </fileset>    
+  </path>
+   
+   
+  <!-- Compilation classpath -->
+  <path id="compile.classpath">
+    <path refid="build.classpath"/>
+    <fileset dir="${lib.dir}">
+      <include name="**/*.jar"/>
+    </fileset>   
+    <pathelement location="${ant.dir}/lib/junit.jar"/>
+  </path>    
+   
+  <path id="jasper.classpath">
+    <pathelement location="${ant.dir}/lib/jasper-compiler.jar"/>
+    <pathelement location="${ant.dir}/lib/jasper-runtime.jar"/>
+    <pathelement location="${build.dir}/jetty/lib/javax.servlet.jar "/> 
+  </path>     
+
+  <path id="run.classpath">
+    <pathelement location="${classes.dir}"/>    
+    <fileset dir="${lib.dir}">
+      <include name="**/*.jar"/>
+    </fileset>      
+  </path>
+
+
+<!--
+  ========================================================================
+    Init
+  ========================================================================
+-->
+  <target name="init" description="Initializes the build process">
+    <!-- Create the time stamp -->
+    <tstamp/>       
+    
+  </target> 
+  
+
+
+<!--
+  ========================================================================
+    Clean build directories
+  ========================================================================
+-->
+
+  <target name="clean" description="Clean build directories">
+    <delete dir="${classes.dir}"/>
+    <delete dir="${tmp.dir}"/>
+    <delete dir="${output.dir}"/>
+    <delete dir="${dist.dir}"/>          
+    <delete dir="${webinf.dir}/tmp"/>
+    <delete dir="${webinf.dir}/work"/>
+    
+  </target>
+ 
+<!--
+  ========================================================================
+    Compile java sources
+  ========================================================================
+--> 
+  <target name="compile" depends="init" description="Compile java sources">
+  
+    <mkdir dir="${classes.dir}"/>
+    
+    <javac srcdir="${src.dir}" 
+           destdir="${classes.dir}"
+           deprecation="${compile.deprecation}"
+           optimize="${compile.optimize}" 
+           debug="${compile.debug}"
+           includeAntRuntime="no">          
+      <classpath refid="compile.classpath"/>             
+    </javac>  
+        
+    <copy todir="${classes.dir}">
+      <fileset dir="${src.dir}" excludes="**/*.java"/>
+    </copy>
+    
+  </target>
+  
+
+ 
+<!--
+  ========================================================================
+    Compile jsp files
+  ========================================================================
+--> 
+
+
+  <target name="compile.jsp" depends="init,compile"> 
+    <mkdir dir="${tmp.dir}"/>
+    
+    <jspc srcdir="${web.dir}"
+          destdir="${tmp.dir}">            
+      <include name="**/*.jsp"/>
+      <classpath refid="jasper.classpath"/>      
+    </jspc>  
+
+   
+    
+    <delete dir="${tmp.dir}"/>
+  </target>
+ 
+
+<!--
+  ========================================================================
+    Create installation package
+  ========================================================================  
+-->
+ 
+  <target name="dist" depends="clean,compile" description="Create installation package">
+    <mkdir dir="${dist.dir}"/>
+    <mkdir dir="${dist.dir}/www"/>
+    <mkdir dir="${dist.dir}/webapps"/>
+	  <mkdir dir="${dist.dir}/jre"/>
+	  <mkdir dir="${dist.dir}/logs"/>
+	
+    <copy todir="${dist.dir}/www">
+      <fileset dir="${web.dir}"/>
+    </copy>
+    
+    <copy overwrite="true" file="${dist.dir}/www/${index.page}" tofile="${dist.dir}/www/index.html"/>
+
+    <!--
+    <jar compress="no" jarfile="${dist.dir}/webapps/webcal.war" basedir="${dist.dir}/www" /> 
+    -->
+
+    <mkdir dir="${dist.dir}/webapps/webcal"/>
+    <copy todir="${dist.dir}/webapps/webcal">
+      <fileset dir="${dist.dir}/www"/>
+    </copy>  
+    
+    <copy todir="${dist.dir}/jre">
+      <fileset dir="${java.home}"/>
+    </copy>  
+    
+    
+    <copy todir="${dist.dir}">
+      <fileset dir="${jetty.dir}"/>
+    </copy>
+    <delete file="${dist.dir}/etc/jetty.xml"/>
+    
+    <copy file="${ant.dir}/lib/ant.jar" todir="${dist.dir}/ext"/>
+    <move file="${dist.dir}/etc/jetty.xml.template" tofile="${dist.dir}/etc/jetty.xml.template" />         
+    <copy file="${build.dir}/go.bat" todir="${dist.dir}"/> 
+    <copy file="${build.dir}/install.bat" todir="${dist.dir}"/> 
+    <copy file="${build.dir}/db.conf" todir="${dist.dir}"/> 
+    <copy file="${webinf.dir}/web.xml.template" todir="${dist.dir}"/>
+
+		<copy file="${build.dir}/install_nt_service.bat.template" todir="${dist.dir}"/> 
+		<copy file="${build.dir}/remove_nt_service.bat" todir="${dist.dir}"/> 
+
+    <java classname="com.mckoi.runtime.McKoiDBMain"
+          dir="${dist.dir}"
+          fork="yes"
+          failonerror="yes">
+       <classpath>
+         <pathelement location="${lib.dir}/mckoidb.jar"/>
+       </classpath>
+       <arg line="-create admin admin" />
+    </java>        
+  
+  <java classname="ch.ess.calendar.tools.CreateMcKoiTables"
+          dir="${dist.dir}"
+          fork="yes"
+          failonerror="yes">
+       <classpath>
+         <pathelement location="${lib.dir}/mckoidb.jar"/>
+         <pathelement location="${classes.dir}"/>
+       </classpath>
+       <arg line="CREATE com.mckoi.JDBCDriver jdbc:mckoi:local://./db.conf admin admin" />       
+    </java>          
+  
+  <java classname="ch.ess.calendar.tools.CreateMcKoiTables"
+          dir="${dist.dir}"
+          fork="yes"
+          failonerror="yes">
+       <classpath>
+         <pathelement location="${lib.dir}/mckoidb.jar"/>
+         <pathelement location="${classes.dir}"/>
+       </classpath>
+       <arg line="INSERT com.mckoi.JDBCDriver jdbc:mckoi:local://./db.conf admin admin" />       
+    </java>       
+  
+  
+    <delete dir="${dist.dir}/www"/>
+  
+    <jar destfile="${dist.dir}/install.jar" basedir="${classes.dir}"         
+         manifest="${build.dir}/manifest" includes="ch/ess/calendar/tools/UpdateJar.class,ch/ess/calendar/tools/WCInstall.class,ch/ess/calendar/tools/WCInstall*.class" >          
+    </jar>  
+  
+  </target>  
+ 
+<!--
+  ========================================================================
+    Clean and build application
+  ========================================================================
+-->
+  <target name="all" depends="init,clean,compile,compile.jsp,dist" description="Clean and build application">
+    <property name="compile.debuglevel" value="lines"/>
+  </target>
+  
+<!--
+  ========================================================================
+    Generate documentation
+  ========================================================================
+-->
+  <target name="docs" depends="compile" description="Generate documentation">
+    <mkdir dir="${doc.dir}/api"/>
+    
+    <javadoc destdir="${doc.dir}/api"
+             packagenames="ch.ess.ct.*"
+             sourcepath="${src.dir}"
+             use="true"
+             windowtitle="webcal documentation"
+             private="true">
+      <classpath refid="compile.classpath"/>
+    </javadoc>  
+  </target>
+    
+
+
+
+
+
+</project>

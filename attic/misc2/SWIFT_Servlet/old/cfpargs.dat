@@ -1,0 +1,7 @@
+-inplace -dest .
+-persistcapable
+MessageLine
+SWIFTHeader
+State
+Booking
+

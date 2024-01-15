@@ -1,0 +1,120 @@
+# dev = development profile
+# prod = production profile
+# script/link = script/link tag
+
+--- 
+  variable: login_js
+  resources:
+  - path: /resources/ext/{ext.version}/ext-all-debug.js
+    dev: script
+    prod: ignore
+    
+  - path: /resources/ext/{ext.version}/ext-all.js
+    dev: ignore
+    prod: script
+    
+  - path: /resources/ext/{ext.version}/ext-theme-crisp-touch/ext-theme-crisp-touch.js
+    dev: script
+    prod: script
+  
+  - path: /login.js
+    classpath: /static
+    dev: script
+    prod: concat_minify
+---
+  variable: passwordreset_js
+  resources:
+  - path: /resources/ext/{ext.version}/ext-all-debug.js
+    dev: script
+    prod: ignore
+    
+  - path: /resources/ext/{ext.version}/ext-all.js
+    dev: ignore
+    prod: script
+    
+  - path: /resources/ext/{ext.version}/ext-theme-crisp-touch/ext-theme-crisp-touch.js
+    dev: script
+    prod: script
+  
+  - path: /passwordreset.js
+    classpath: /static
+    dev: script
+    prod: concat_minify
+
+--- 
+  variable: app_js
+  resources:
+
+  - path: /resources/sockjs-1.0.3.min.js
+    classpath: /static
+    dev: script
+    prod: script
+
+  - path: /resources/autobahn-0.8.2.min.js
+    classpath: /static
+    dev: script
+    prod: script 
+
+  - path: /resources/echarts/2.2.7/echarts.js
+    dev: script
+    prod: script
+
+  - path: /resources/echarts/2.2.7/chart/pie.js
+    dev: script
+    prod: script
+
+  - path: /resources/echarts/2.2.7/chart/bar.js
+    dev: script
+    prod: script
+
+  - path: /resources/echarts/2.2.7/chart/radar.js
+    dev: script
+    prod: script
+
+  - path: /resources/ext/{ext.version}/ext-all-debug.js
+    dev: script
+    prod: ignore
+    
+  - path: /resources/ext/{ext.version}/ext-all.js
+    dev: ignore
+    prod: script
+
+  - path: /resources/ext/{ext.version}/ext-theme-crisp-touch/ext-theme-crisp-touch.js
+    dev: script
+    prod: script
+
+  - path: /api.js
+    dev: script
+    prod: ignore
+      
+  - path: /api-{application.version}.js
+    dev: ignore
+    prod: script
+      
+  - path: /app/
+    classpath: /static
+    dev: ignore
+    prod: concat_minify
+    
+  - path: /app.js
+    classpath: /static
+    dev: script
+    prod: concat_minify
+
+---
+  variable: app_css
+  resources:
+  - path: /resources/ext/{ext.version}/ext-theme-crisp-touch/ext-theme-crisp-touch-all_01.css
+    dev: link
+    prod: link
+  - path: /resources/ext/{ext.version}/ext-theme-crisp-touch/ext-theme-crisp-touch-all_02.css
+    dev: link
+    prod: link
+  - path: /resources/fontello/css/custom.css
+    classpath: /static
+    dev: link
+    prod: concat_minify
+  - path: /resources/css/app.css
+    classpath: /static
+    dev: link
+    prod: concat_minify

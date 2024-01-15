@@ -1,0 +1,13 @@
+
+#Diese Beans werden jedesmal aus der Session gelöscht
+#wenn der Parameter "clean" im Request auftaucht
+
+MapForm
+TextResourceForm
+UserForm
+UserConfigForm
+ConfigForm
+listControl
+UserGroupForm
+WerkForm
+LieferantForm

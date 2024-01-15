@@ -1,0 +1,11 @@
+set TOMCAT_HOME=$PATH$tomcat
+set CLASSPATH=%TOMCAT_HOME%\lib\webserver.jar;.;
+set CLASSPATH=%CLASSPATH%;%TOMCAT_HOME%\lib\jasper.jar
+set CLASSPATH=%CLASSPATH%;%TOMCAT_HOME%\lib\xml.jar
+set CLASSPATH=%CLASSPATH%;%TOMCAT_HOME%\lib\servlet.jar
+set CLASSPATH=%CLASSPATH%;%TOMCAT_HOME%\lib\tools.jar
+
+$PATH$jre\1.3\bin\javaw -Dtomcat.home="%TOMCAT_HOME%" ch.ess.calendar.tools.TomcatStarter
+
+
+

@@ -1,0 +1,36 @@
+.headline {
+	font-family : Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-style : normal;
+	font-variant : normal;
+	font-weight : bold;
+	font-size : 10pt;
+}
+
+.source {
+	font-family : Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-style : normal;
+	font-variant : normal;
+	font-weight : normal;
+	font-size : 8pt;
+	color : Gray;
+}
+
+.menuon {
+	font-family : Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-style : normal;
+	font-variant : normal;
+	font-weight : bold;
+	font-size : 10pt;
+	background-color : Teal;
+	color : White;
+}
+
+.menuoff {
+	font-family : Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-style : normal;
+	font-variant : normal;
+	font-weight : normal;
+	font-size : 10pt;
+	background-color : Silver;
+	color : Black;
+}

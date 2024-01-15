@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping SYSTEM "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+<hibernate-mapping>
+
+	<class name="ch.ess.cal.db.Reminder" proxy="ch.ess.cal.db.Reminder" table="calReminder">
+		<id name="reminderId" type="long" unsaved-value="null">
+			<generator class="native"/>
+		</id>		
+		
+		
+		<property name="minutesBefore" type="integer" not-null="true"/>		
+
+		<many-to-one name="event" class="ch.ess.cal.db.Event" 
+		             column="eventId" not-null="true"/>			
+		
+		
+        <set name="emails" lazy="true" table="calReminderEmails">
+          <key column="reminderId"/>
+          <many-to-many class="ch.ess.cal.db.Email" column="emailId"/>
+        </set>		
+				
+	</class>
+
+	
+</hibernate-mapping>

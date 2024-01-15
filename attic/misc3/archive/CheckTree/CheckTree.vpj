@@ -1,0 +1,62 @@
+[COMPILER]
+INCLUDEDIRS=
+compile=concur|capture|:Compile:&Compile,javac %f
+make=:Build:&Build,javamake
+rebuild=concur|capture|:Rebuild:&Rebuild,
+debug=concur|capture|:Debug:&Debug,jdb %n
+execute=concur|capture|:Execute:E&xecute,java %n
+user1=hide|:User 1:User 1,
+user2=hide|:User 2:User 2,
+workingdir=
+includedirs=
+tagfiles=
+reffile=
+MACRO=\n
+FILTEREXPANSION=1 0 0 0 0
+[ASSOCIATION]
+[FILES]
+D:\Projects\JavaPro\JTree\CheckTree\CheckListener.java
+D:\Projects\JavaPro\JTree\CheckTree\CheckRenderer.java
+D:\Projects\JavaPro\JTree\CheckTree\JxFrame.java
+D:\Projects\JavaPro\JTree\CheckTree\SelectNode.java
+D:\Projects\JavaPro\JTree\CheckTree\TreeDemo.java
+[STATE]
+SCREEN: 1280 1024 244 -3 846 707 0 0 N 0 0 0 0 597 470
+CWD: D:\Projects\JavaPro\JTree\CheckTree
+BUFFER: BN="D:\Projects\JavaPro\JTree\CheckTree\CheckRenderer.java"
+BI: MA=1 74 1  TABS=1 9  WWS=1 IWT=0 ST=0 IN=2 BW=0 US=32000 RO=0 SE=1 SN=0 BIN=0 MN=Java	HM=0 MF=296
+VIEW: LN=.1035 CL=3 LE=0 CX=2 CY=35 WI=5 BI=19 HT=0 HN=0 HF=0 HC=4
+BUFFER: BN="D:\Projects\JavaPro\JTree\CheckTree\TreeDemo.java"
+BI: MA=1 74 1  TABS=1 9  WWS=1 IWT=0 ST=0 IN=2 BW=0 US=32000 RO=0 SE=1 SN=0 BIN=0 MN=Java	HM=0 MF=296
+VIEW: LN=.414 CL=25 LE=0 CX=24 CY=18 WI=5 BI=20 HT=0 HN=0 HF=0 HC=4
+BUFFER: BN="D:\Projects\JavaPro\JTree\CheckTree\CheckListener.java"
+BI: MA=1 74 1  TABS=1 9  WWS=1 IWT=0 ST=0 IN=2 BW=0 US=32000 RO=0 SE=1 SN=0 BIN=0 MN=Java	HM=0 MF=8
+VIEW: LN=.377 CL=9 LE=0 CX=8 CY=12 WI=5 BI=23 HT=0 HN=0 HF=0 HC=4
+BUFFER: BN="D:\Projects\JavaPro\JTree\CheckTree\SelectNode.java"
+BI: MA=1 74 1  TABS=1 9  WWS=1 IWT=0 ST=0 IN=2 BW=0 US=32000 RO=0 SE=1 SN=0 BIN=0 MN=Java	HM=0 MF=296
+VIEW: LN=.18 CL=19 LE=0 CX=18 CY=1 WI=5 BI=17 HT=0 HN=0 HF=0 HC=4
+WINDOW: 132 132 443 316 -1 -1 N  WF=0 WT=5 "OEM Fixed Font,10,0"
+BUFFER: BN="D:\Projects\JavaPro\JTree\CheckTree\CheckListener.java"
+VIEW: LN=.377 CL=9 LE=0 CX=8 CY=12 WI=210 BI=23 HT=0 HN=0 HF=0 HC=4
+WINDOW: 154 154 443 316 -1 -1 N  WF=0 WT=4 "OEM Fixed Font,10,0"
+BUFFER: BN="D:\Projects\JavaPro\JTree\CheckTree\SelectNode.java"
+VIEW: LN=.18 CL=19 LE=0 CX=18 CY=1 WI=209 BI=17 HT=0 HN=0 HF=0 HC=4
+WINDOW: 88 88 443 323 -1 -1 N  WF=0 WT=1 "OEM Fixed Font,10,0"
+BUFFER: BN="D:\Projects\JavaPro\JTree\CheckTree\CheckRenderer.java"
+VIEW: LN=.1035 CL=3 LE=0 CX=2 CY=22 WI=212 BI=19 HT=0 HN=0 HF=0 HC=4
+WINDOW: 0 0 443 316 -1 -1 M  WF=0 WT=3 "OEM Fixed Font,10,0"
+BUFFER: BN="D:\Projects\JavaPro\JTree\CheckTree\TreeDemo.java"
+VIEW: LN=.414 CL=25 LE=0 CX=24 CY=18 WI=211 BI=20 HT=0 HN=0 HF=0 HC=4
+FILEHIST: 9
+D:\Projects\PatternJava\Programs\Swing\Table\SimpleTable.java
+D:\Projects\PatternJava\Programs\Swing\Table\RenderTable.java
+D:\Projects\PatternJava\Programs\Swing\Tree\TreeDemo.java
+D:\Projects\PatternJava\Programs\Swing\Tree\JxFrame.java
+D:\Projects\JavaPro\JTree\SimpleTree\TreeDemo.java
+D:\Projects\JavaPro\JTree\CheckTree\TreeDemo.java
+D:\Projects\JavaPro\JTree\CheckTree\CheckListener.java
+D:\Projects\JavaPro\JTree\CheckTree\SelectNode.java
+D:\Projects\JavaPro\JTree\CheckTree\CheckRenderer.java
+PRINTER: 2
+
+PRINTER: 2

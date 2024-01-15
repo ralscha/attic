@@ -1,0 +1,57 @@
+<html>
+<head>
+   <title>Grace JavaLog</title>
+</head>
+<body text="#000000" bgcolor="#FFFFFF" link="#0000EE" vlink="#551A8B" alink="#FF0000">
+
+<table width=100%>
+<tr>
+<td><img SRC="gk9.jpg" NOSAVE height=200 width=153>
+<td valign=top>
+  <table width="100%" bgcolor="#FFCC00">
+  <tr><td><font size=+4 color=Green><div align=right><b>Code Controls</b></font>
+  </table>
+<div align=right><font size=+2 color=gray><b><i>Grace Software</b></i></font>
+<div align=right><font size=+2 color=gray><b><i>JavaLog</b></i></font>
+<br>
+<br>
+<div align=right><font size=-1 color="#B0B0B0">$Revision: 1.3 $</font></div>
+<div align=right><font size=-1 color="#B0B0B0">$Date: 1999/10/11 00:05:12 $</font></div>
+</table>
+
+<i>This page is currently under construction</i>
+
+<h2>Introduction</h2>
+
+The following functions control the run-time operation of the Log
+Facility.  These functions will override the default configuration as
+well as the user properties specified on the command line. These
+functions are accessible only by Java, currently. There is also no
+ability currently to alter the log format or perform more advanced
+filtering at run-time.
+
+<pre>
+public static void enableErrors(boolean);
+public static void enableWarnings(boolean);
+public static void enableNotices(boolean);
+public static void enableTraces(boolean);
+</pre>
+
+Additionally, the Log Facility can be configured, in Java, to use a
+different or another <a
+href="../api/grace/log/Handler.html">Handler</a>.&nbsp; A Handler is
+class that takes log Events and writes them or displays them to the
+particular log device.&nbsp; A Handler can be installed in the Log
+Facility using the call:
+
+<pre>
+    MyHandler handler = new MyHandler();
+    Log.addHandler(handler, "errors");
+    Log.addHandler(handler, "errors");
+</pre>
+
+In this case, one instance of MyHandler was added to handle errors and
+warnings.
+
+</body>
+</html>

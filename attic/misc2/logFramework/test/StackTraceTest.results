@@ -1,0 +1,10 @@
+class=grace.log.test.StackTraceTest function=run file=StackTraceTest.java line=18
+class=grace.log.test.StackTraceTest function=testThrow file=StackTraceTest.java line=7
+class=grace.log.test.StackTraceTest function=testThrow file=StackTraceTest.java line=7
+java.lang.StringIndexOutOfBoundsException: String index out of range: 20
+	at java.lang.String.charAt(String.java)
+	at grace.log.test.StackTraceTest.run(StackTraceTest.java:34)
+	at grace.log.test.StackTraceTest.main(StackTraceTest.java:55)
+class=java.lang.String function=charAt file=String.java line=0
+class=grace.log.test.StackTraceTest function=testThrow file=StackTraceTest.java line=7
+class=grace.log.test.StackTraceTest function=testThrow file=StackTraceTest.java line=7

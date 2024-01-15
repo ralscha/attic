@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Panel xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute" width="100%" height="100%" title="Testdrehbücher"
+  creationComplete="init()">
+
+  <mx:Script>
+    <![CDATA[
+      import mx.core.UIComponent;
+      import mx.controls.Alert;
+      import mx.events.CloseEvent;
+      import ch.ess.tt.util.CairngormUtils;
+      import ch.ess.tt.control.EventNames;
+      import flexed.widgets.alerts.CAlert;
+      import mx.events.ListEvent;
+      import ch.ess.tt.model.Test;
+      import ch.ess.tt.model.ModelLocator;
+      
+      [Bindable]
+      public var model:ModelLocator = ModelLocator.getInstance();
+      
+      private function init():void {
+        model.testDataGrid = testDataGrid;
+      }
+      
+      private function itemClickHandler(e:ListEvent):void {
+        if (e.columnIndex == 4) {
+          //workaround. only a change of the property will trigger the binding events
+          model.selectedTest = null;
+          model.selectedTest = Test(testDataGrid.selectedItem);
+          model.delete1Attachment = false;
+          model.delete2Attachment = false;
+          model.delete3Attachment = false;
+          model.testWorkflowState = ModelLocator.VIEWING_EDIT_SCREEN;
+        } else if (e.columnIndex == 5) {
+          model.testWorkflowState = ModelLocator.VIEWING_TREE_SCREEN;
+        } else if (e.columnIndex == 6) {
+          deleteTest();
+        }      
+      }      
+      
+      private function newTest():void {
+        model.selectedTest = new Test();
+        model.delete1Attachment = false;
+        model.delete2Attachment = false;
+        model.delete3Attachment = false;
+        model.testWorkflowState = ModelLocator.VIEWING_EDIT_SCREEN;
+      }
+      
+      private function deleteTest():void {
+        CAlert.confirm('Dieses Testdrehbuch löschen?', closeEventHandler);
+      }
+      
+      private function closeEventHandler(event:CloseEvent):void {
+        if (event.detail == Alert.YES) {
+          CairngormUtils.dispatchEvent(EventNames.DELETE_TEST, {id: testDataGrid.selectedItem.id});
+          testDataGrid.selectedIndex = -1;
+          testDataGrid.selectedItem = null;
+        }
+      }  
+      
+      public function dateLabel(item:Object, column:DataGridColumn):String {
+       return dateFormatter.format(item[column.dataField]);
+      }
+    ]]>
+  </mx:Script>    
+    
+  <mx:DateFormatter id="dateFormatter" formatString="DD.MM.YYYY" />  
+    
+  <mx:DataGrid id="testDataGrid" bottom="60" top="10" left="10" right="10" 
+    dataProvider="{model.testsAC}" itemClick="itemClickHandler(event)">
+    <mx:columns>
+      <mx:DataGridColumn headerText="Name" dataField="name"/>
+      <mx:DataGridColumn headerText="Datum" dataField="datum" labelFunction="dateLabel"/>
+      <mx:DataGridColumn headerText="Status" dataField="status"/>
+      <mx:DataGridColumn headerText="Version" dataField="versionTest"/>
+      
+      <mx:DataGridColumn width="75" headerText="Bearbeiten" dataField="id" sortable="false" textAlign="center">
+        <mx:itemRenderer>
+          <mx:Component>
+            <mx:Image source="@Embed(source='/assets/edit.png')" width="16" height="16" verticalAlign="middle" horizontalAlign="center" scaleContent="false"/>
+          </mx:Component>
+        </mx:itemRenderer>
+      </mx:DataGridColumn>
+      
+      <mx:DataGridColumn width="75" headerText="Tests" dataField="id" sortable="false" textAlign="center">
+        <mx:itemRenderer>
+          <mx:Component>
+            <mx:Image source="@Embed(source='/assets/text_tree.png')" width="16" height="16" verticalAlign="middle" horizontalAlign="center" scaleContent="false"/>
+          </mx:Component>
+        </mx:itemRenderer>
+      </mx:DataGridColumn>      
+      
+      <mx:DataGridColumn width="75" headerText="Löschen" dataField="id" sortable="false" textAlign="center">
+        <mx:itemRenderer>
+          <mx:Component>
+            <mx:Image source="@Embed(source='/assets/delete2.png')" width="16" height="16" verticalAlign="middle" horizontalAlign="center" scaleContent="false"/>
+          </mx:Component>
+        </mx:itemRenderer>      
+      </mx:DataGridColumn>      
+    </mx:columns>
+  </mx:DataGrid>
+  
+  <mx:HBox left="10" bottom="20" right="10" id="newButtonBox">
+    <mx:Button label="Neues Testdrehbuch" id="newButton" click="newTest()" icon="@Embed(source='/assets/businessman_add.png')"/>
+  </mx:HBox>
+  
+</mx:Panel>

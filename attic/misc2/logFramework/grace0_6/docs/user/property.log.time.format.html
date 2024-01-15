@@ -1,0 +1,121 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="GENERATOR" content="Mozilla/4.5 [en] (X11; I; SunOS 5.6 i86pc) [Netscape]">
+   <title>Java Log Facility - Example Output</title>
+</head>
+<body text="#000000" bgcolor="#FFFFFF">
+
+<center><img SRC="Grace_darka.jpg" NOSAVE height=200 width=150></center>
+
+<div align=right><font size=-1>$Revision: 1.1 $</font></div>
+
+<div align=right><font size=-1>$Date: 1999/03/01 17:38:01 $</font></div>
+
+<div align=right>
+<hr WIDTH="100%"></div>
+
+<table WIDTH="100%" NOSAVE >
+<tr NOSAVE>
+<td ALIGN=LEFT VALIGN=TOP NOSAVE><font color="#999999">Name:</font></td>
+
+<td NOSAVE><font color="#009900">log.time.format</font></td>
+</tr>
+
+<tr NOSAVE>
+<td ALIGN=LEFT VALIGN=TOP NOSAVE><font color="#999999">Description:</font></td>
+
+<td ALIGN=LEFT VALIGN=TOP NOSAVE><font color="#000000">This controls the
+apearance of the time when written to a text type output device.&nbsp;
+It may also apply to graphic displays but it is not necessary.</font></td>
+</tr>
+
+<tr NOSAVE>
+<td NOSAVE><font color="#999999">Type:</font></td>
+
+<td><font color="#009900">String</font></td>
+</tr>
+
+<tr NOSAVE>
+<td ALIGN=LEFT VALIGN=TOP NOSAVE><font color="#999999">Acceptable Values:</font></td>
+
+<td>
+<table BORDER WIDTH="100%" NOSAVE >
+<tr NOSAVE>
+<td NOSAVE><font color="#009900">short</font></td>
+
+<td>Based on java.text.DateFormat.SHORT.&nbsp; Probably looks like "3/5/99
+5:13 PM".</td>
+</tr>
+
+<tr>
+<td><font color="#009900">medium</font></td>
+
+<td>Based on java.text.DateFormat.MEDIUM.&nbsp; Probably looks like "05-Mar-99
+5:16:21 PM"</td>
+</tr>
+
+<tr>
+<td><font color="#009900">long</font></td>
+
+<td>Based on java.text.DateFormat.LONG.&nbsp; Probably looks like "March
+5, 1999 5:17:02 PM GMT"</td>
+</tr>
+
+<tr>
+<td><font color="#009900">full</font></td>
+
+<td>Based on java.text.DateFormat.FULL.&nbsp; Probably looks like "Friday,
+March 5, 1999 5:17:37 o'clock PM GMT"</td>
+</tr>
+
+<tr>
+<td><font color="#009900">24</font></td>
+
+<td>Based on SimpleDateFormat("MM/dd/yy HH:mm:ss").&nbsp;</td>
+</tr>
+
+<tr>
+<td><i><font color="#009900">SimpleDateFormat</font></i></td>
+
+<td>If not one of the above, the specified string is passed to the constructor
+of java.text.SimpleDateFormat.</td>
+</tr>
+</table>
+&nbsp;</td>
+</tr>
+
+<tr NOSAVE>
+<td NOSAVE><font color="#999999">Default Value:</font></td>
+
+<td><font color="#009900">24</font></td>
+</tr>
+
+<tr NOSAVE>
+<td ALIGN=LEFT VALIGN=TOP NOSAVE><font color="#999999">Example Usage:</font></td>
+
+<td>
+<table BORDER WIDTH="100%" NOSAVE >
+<tr NOSAVE>
+<td NOSAVE>$ java -D<font color="#009900">log.time.format</font>=<font color="#009900">long</font>
+...</td>
+
+<td>Writes times in log as specified above for long format.</td>
+</tr>
+
+<tr>
+<td>$ java -D<font color="#009900">log.time.format</font>=<font color="#009900">HH:mm:ss</font>
+...</td>
+
+<td>Writes times in log as hours. minutes, and seconds, each separated
+by a ':'.</td>
+</tr>
+</table>
+&nbsp;</td>
+</tr>
+</table>
+
+<br>&nbsp;
+</body>
+</html>

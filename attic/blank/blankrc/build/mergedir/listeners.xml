@@ -1,0 +1,9 @@
+<listener>
+  <listener-class>org.apache.log4j.servlet.ServletContextLogAppenderListener</listener-class>
+</listener>
+<listener>
+  <listener-class>org.apache.log4j.servlet.InitContextListener</listener-class>
+</listener>
+<listener>
+  <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+</listener>

@@ -1,0 +1,67 @@
+<Context path="/cal" swallowOutput="true" docBase="D:\eclipse\workspace\webcal2\web" debug="0">
+
+    <Logger className="org.apache.catalina.logger.FileLogger" 
+        prefix="cal_log." suffix=".txt" timestamp="true"/>
+
+    <Realm className="org.apache.catalina.realm.JDBCRealm" debug="99"
+          driverName="com.inet.tds.TdsDriver"
+       connectionURL="jdbc:inetdae7:localhost:1433?database=cal"
+      connectionName="sa" connectionPassword=""
+           userTable="calUser" userNameCol="userName" userCredCol="passwordHash"
+       userRoleTable="calUserRole" roleNameCol="roleName" />
+
+  <Resource name="jdbc/cal" auth="Container" type="javax.sql.DataSource"/>
+  
+  <ResourceParams name="jdbc/cal">
+      <parameter>
+          <name>factory</name>
+          <value>org.apache.commons.dbcp.BasicDataSourceFactory</value>
+      </parameter>
+      <parameter>
+          <name>maxActive</name>
+          <value>50</value>
+      </parameter>
+      <parameter>
+          <name>maxIdle</name>
+          <value>10</value>
+      </parameter>
+      <parameter>
+          <name>maxWait</name>
+          <value>10000</value>
+      </parameter>      
+      <parameter>
+          <name>username</name>
+          <value>sa</value>
+      </parameter>
+      <parameter>
+          <name>password</name>
+          <value></value>
+      </parameter>
+      <parameter>
+          <name>driverClassName</name>
+          <value>com.inet.tds.TdsDriver</value>
+      </parameter>
+      <parameter>
+          <name>defaultAutoCommit</name>
+          <value>false</value>
+      </parameter>
+      <parameter>
+          <name>url</name>
+          <value>jdbc:inetdae7:localhost:1433?database=cal</value>
+      </parameter>
+      <parameter>
+          <name>removeAbandoned</name>
+          <value>true</value>
+      </parameter>
+      <parameter>
+          <name>removeAbandonedTimeout</name>
+          <value>60</value>
+      </parameter>
+      <parameter>
+          <name>logAbandoned</name>
+          <value>true</value>
+      </parameter>
+  </ResourceParams>
+     
+
+</Context>

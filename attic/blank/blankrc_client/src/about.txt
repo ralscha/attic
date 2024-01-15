@@ -1,0 +1,2 @@
+Blank RC Sample Application
+Copyright - ESS Development AG, 2004

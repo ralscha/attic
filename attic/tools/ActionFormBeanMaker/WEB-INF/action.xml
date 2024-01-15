@@ -1,0 +1,8 @@
+<action-mappings>
+
+  <action path="/maker" actionClass="MakerAction" formAttribute="makerForm"
+    formClass="MakerForm">
+    <forward name="test"    path="/test.jsp"/>
+  </action>
+
+</action-mappings>

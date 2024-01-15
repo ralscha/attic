@@ -1,0 +1,55 @@
+package common.ui.scrollview;
+
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+import javax.swing.border.*;
+
+public class ScrollViewWindow extends JWindow implements MouseListener, ActionListener {
+	protected JScrollView scrollview;
+	protected Timer timer;
+
+	public ScrollViewWindow(JScrollPane scrollpane, int size) {
+		scrollview = new JScrollView(scrollpane, size, true);
+		getContentPane().setLayout(new BorderLayout());
+		JPanel panel = new JPanel(new BorderLayout());
+		panel.add(BorderLayout.CENTER, scrollview);
+		panel.setBorder(new BevelBorder(BevelBorder.RAISED));
+		getContentPane().add(BorderLayout.CENTER, panel);
+		scrollview.addMouseListener(this);
+		pack();
+	}
+
+	public void mouseClicked(MouseEvent event) {}
+	public void mousePressed(MouseEvent event) {}
+
+	public void mouseReleased(MouseEvent event) {
+		setVisible(false);
+		if (timer != null) {
+			timer.stop();
+			timer = null;
+		}
+	}
+
+	public void mouseEntered(MouseEvent event) {
+		if (timer != null) {
+			timer.stop();
+			timer = null;
+		}
+	}
+
+	public void mouseExited(MouseEvent event) {
+		if (isVisible()) {
+			timer = new Timer(500, this);
+			timer.start();
+		}
+	}
+
+	public void actionPerformed(ActionEvent event) {
+		setVisible(false);
+		if (timer != null) {
+			timer.stop();
+			timer = null;
+		}
+	}
+}

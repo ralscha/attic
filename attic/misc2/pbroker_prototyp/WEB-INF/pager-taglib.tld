@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE taglib
+  PUBLIC "-//Sun Microsystems, Inc.//DTD JSP Tag Library 1.1//EN"
+  "http://java.sun.com/j2ee/dtds/web-jsptaglibrary_1_1.dtd">
+
+<taglib>
+  <tlibversion>1.0</tlibversion>
+  <jspversion>1.1</jspversion>
+  <shortname>pg</shortname>
+  <uri>http://jsptags.com/tags/navigation/pager</uri>
+  <info>
+    The Pager Tag Library helps generate Google[sm] and AltaVista®
+    style search result navigators. It will take multiple pages worth of
+    information, dynamically split it up into page sized pieces and generate
+    a browsable index. It does this in a flexible way that allows designers
+    to give the index just about any look desired.
+  </info>
+
+  <tag>
+    <name>pager</name>
+    <tagclass>com.jsptags.navigation.pager.PagerTag</tagclass>
+    <teiclass>com.jsptags.navigation.pager.PagerTagExtraInfo</teiclass>
+    <bodycontent>JSP</bodycontent>
+    <attribute>
+      <name>id</name>
+      <required>false</required>
+    </attribute>
+    <attribute>
+      <name>url</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>maxItems</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>maxPageItems</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>maxIndexPages</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>isOffset</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+  </tag>
+
+  <tag>
+    <name>param</name>
+    <tagclass>com.jsptags.navigation.pager.ParamTag</tagclass>
+    <bodycontent>empty</bodycontent>
+    <attribute>
+      <name>name</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>value</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+  </tag>
+
+  <tag>
+    <name>item</name>
+    <tagclass>com.jsptags.navigation.pager.ItemTag</tagclass>
+    <bodycontent>JSP</bodycontent>
+  </tag>
+
+  <tag>
+    <name>index</name>
+    <tagclass>com.jsptags.navigation.pager.IndexTag</tagclass>
+    <bodycontent>JSP</bodycontent>
+  </tag>
+
+  <tag>
+    <name>prev</name>
+    <tagclass>com.jsptags.navigation.pager.PrevTag</tagclass>
+    <teiclass>com.jsptags.navigation.pager.IndexTagExtraInfo</teiclass>
+    <bodycontent>JSP</bodycontent>
+    <attribute>
+      <name>ifnull</name>
+      <required>false</required>
+    </attribute>
+  </tag>
+
+  <tag>
+    <name>pages</name>
+    <tagclass>com.jsptags.navigation.pager.PagesTag</tagclass>
+    <teiclass>com.jsptags.navigation.pager.IndexTagExtraInfo</teiclass>
+    <bodycontent>JSP</bodycontent>
+  </tag>
+
+  <tag>
+    <name>next</name>
+    <tagclass>com.jsptags.navigation.pager.NextTag</tagclass>
+    <teiclass>com.jsptags.navigation.pager.IndexTagExtraInfo</teiclass>
+    <bodycontent>JSP</bodycontent>
+    <attribute>
+      <name>ifnull</name>
+      <required>false</required>
+    </attribute>
+  </tag>
+</taglib>

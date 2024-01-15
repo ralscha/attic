@@ -1,0 +1,367 @@
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html;charset=iso-8859-1">
+	<title>Swiss Lotto and Joker prize information</title>
+  <!--- ***** Left menu buttons preload ***** --->
+	<csscriptdict>
+<script><!--
+function CSScriptInit() {
+CSILoad('jeux',new Array(/*URL*/'/img/btn/jeux_loterie_small3_en.gif',/*URL*/'/img/btn/jeux_loterie_small3_en.gif',/*URL*/'','Lottery games'));
+CSILoad('resultats',new Array(/*URL*/'/img/btn/resultats_light_small2_en.gif',/*URL*/'/img/btn/resultats_light_small3_en.gif',/*URL*/'','Draw results'));
+CSILoad('button',new Array(/*URL*/'/img/btn/informations_light_small2_e.gif',/*URL*/'/img/btn/informations_light_small3_e.gif',/*URL*/'','Informations'));
+}
+CSAg = window.navigator.userAgent; CSBVers = parseInt(CSAg.charAt(CSAg.indexOf("/")+1),10);
+function IsIE() { return CSAg.indexOf("MSIE") > 0;}
+function CSIEStyl(s) { return document.all.tags("div")[s].style; }
+function CSNSStyl(s) { return CSFindElement(s,0); }
+function CSFindElement(n,ly) { if (CSBVers < 4) return document[n];
+	var curDoc = ly ? ly.document : document; var elem = curDoc[n];
+	if (!elem) { for (var i=0;i<curDoc.layers.length;i++) {
+		elem = CSFindElement(n,curDoc.layers[i]); if (elem) return elem; }}
+	return elem;
+}
+function CSButtonReturn () {
+	var bAgent = window.navigator.userAgent; 
+	var bAppName = window.navigator.appName;
+	if ((bAppName.indexOf("Explorer") >= 0) && (bAgent.indexOf("Mozilla/3") >= 0) && (bAgent.indexOf("Mac") >= 0))
+		return false; // follow link
+	else return true; // follow link
+}
+CSIm = new Object();
+function CSIShow(n,i) {
+	if (document.images) {
+		if (CSIm[n]) {
+			var img = (!IsIE()) ? CSFindElement(n,0) : document[n];
+			if (img) {img.src = CSIm[n][i].src; self.status = CSIm[n][3];}
+			return true;
+		}
+	}
+	return false;
+}
+function CSILoad(im,ar) {
+	if (document.images) {
+		CSIm[im] = new Object();
+		for (var i=0;i<3;i++) {
+			if (ar[i] != '') { CSIm[im][i] = new Image(); CSIm[im][i].src = ar[i]; }
+			else CSIm[im][i] = 0;
+		}
+		CSIm[im][3] = ar[3];
+	}
+}
+function CSAction(array) { 
+	var result;
+	for (var i=0;i<array.length;i++) {
+		result = CSAct[array[i]][0](CSAct[array[i]]); 
+	}
+	return result;
+}
+CSAct = new Object;
+CSImages=new Array();
+function CSPreloadImage(action) {
+	if (document.images) { CSImages[CSImages.length]=new Image(); CSImages[CSImages.length-1].src=action[1]; }
+}
+function CSSetImageURL(action) {
+	var img = null;
+	if (document.images) {
+		if (!IsIE()) img = CSFindElement(action[1],0);
+		else img = document.images[action[1]];
+		if (img) img.src = action[2];
+	}
+}
+CSAct['B2A3CC0A35'] = new Array(CSPreloadImage,/*URL*/ '/img/btn/on-01-01.gif');
+CSAct['B2A3CC0A36'] = new Array(CSSetImageURL,'jeux',/*URL*/ '/img/btn/on-01-01.gif');
+CSAct['B2A3CC0A37'] = new Array(CSPreloadImage,/*URL*/ '/img/btn/on-01-02.gif');
+CSAct['B2A3CC0A38'] = new Array(CSSetImageURL,'resultats',/*URL*/ '/img/btn/on-01-02.gif');
+CSAct['B2A3CC0A39'] = new Array(CSSetImageURL,'resultats',/*URL*/ '/img/btn/off-01-02.gif');
+// --></script>
+</csscriptdict>
+<csactions>
+<csaction name="B2A3CC0A35" class="Preload Image" val0="/img/btn/on-01-01.gif">
+<csaction name="B2A3CC0A36" class="Set Image URL" val0="jeux" val1="/img/btn/on-01-01.gif">
+<csaction name="B2A3CC0A37" class="Preload Image" val0="/img/btn/on-01-02.gif">
+<csaction name="B2A3CC0A38" class="Set Image URL" val0="resultats" val1="/img/btn/on-01-02.gif">
+<csaction name="B2A3CC0A39" class="Set Image URL" val0="resultats" val1="/img/btn/off-01-02.gif">
+</csactions>
+ 
+</head>
+
+
+<body background="/img/bck/tile.gif" bgcolor="#ff9c31" link="#4273d6" vlink="#ff9c31" onload="CSScriptInit();" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table border="0" cellpadding="0" cellspacing="0">
+		<!--- first row --->
+		<tr height="106">
+			
+    <td width="143" height="106" valign="middle" align="center"> 
+      <!--- ***** Page header Loterie logo (cell 1) ***** --->
+      <A NAME="top"></A> <A HREF="/en/index.php"><IMG SRC="/img/lgo/loterie1.gif" WIDTH="80" HEIGHT="82" ALIGN="BOTTOM"	ALT="Loterie Romande" BORDER="0"></A>    </td>
+			<td width="590" height="106" valign="top">
+				<!--- ***** Page header picture (cell 2) ***** --->
+				<a href="swisslotto.php"><img src="/img/bnr/swisslotto.gif" width="590" height="105" align="BOTTOM" alt="Swiss Lotto" border="0"></a>			</td>
+		</tr> 
+
+		<!--- second row --->
+		<tr>
+			<td width="135" align="left" valign="top" align="center">
+				<!--- ***** Left menu buttons javascript (cell 3) ***** --->
+				
+<P><A HREF="/en/jeux/online/online.html" target="_self" title="jeux" csover="B2A3CC0A35,B2A3CC0A36" onmouseover="CSAction(new Array('B2A3CC0A35','B2A3CC0A36'));return true;"><csobj w="122" h="61" t="Button" ht="/img/btn/jeux_loterie_small3_en.gif"></A><A
+HREF="/en/jeux/index.html" onmouseover="return CSIShow('jeux',1)" onmouseout="return CSIShow('jeux',0)" onclick="return CSButtonReturn()"><IMG
+SRC="/img/btn/jeux_loterie_small3_en.gif" WIDTH="122" HEIGHT="61" ALIGN="BOTTOM" ALT="Lottery games"
+BORDER="0" name="jeux"></A></A></csobj><BR>
+<A HREF="/en/resultats/index.html" target="_self" title="resultats" csover="B2A3CC0A37,B2A3CC0A38"
+csout="B2A3CC0A39" onmouseover="CSAction(new Array('B2A3CC0A37','B2A3CC0A38'));return true;" onmouseout="CSAction(new Array('B2A3CC0A39'));"><csobj w="130" h="61" t="Button" ht="/img/btn/resultats_light_small3_en.gif"></A><A
+HREF="/en/resultats/index.html" onmouseover="return CSIShow('resultats',1)" onmouseout="return CSIShow('resultats',0)"
+onclick="return CSButtonReturn()"><IMG SRC="/img/btn/resultats_light_small2_en.gif" WIDTH="130" HEIGHT="61"
+ALIGN="BOTTOM" ALT="Draw results" BORDER="0" name="resultats"></A></A></csobj><BR>
+<csobj w="130" h="35" t="Button" ht="/img/btn/informations_light_small3_e.gif"><A HREF="/en/infos/index.html"
+onmouseover="return CSIShow('button',1)" onmouseout="return CSIShow('button',0)" onclick="return CSButtonReturn()"><IMG
+SRC="/img/btn/informations_light_small2_e.gif" WIDTH="130" HEIGHT="35" ALIGN="BOTTOM" ALT="Informations"
+BORDER="0" name="button"></A></A></csobj>
+ 
+			<td width="590" valign="top" align="center">  
+				<!--- ***** Top menu buttons (cell 4) ***** --->
+				<TABLE BORDER="0" CELLPADDING="0" WIDTH="580" align="center">
+	<TR>
+		<TD WIDTH="90">&nbsp;</TD>
+		<TD ALIGN="CENTER">
+			<form action="" method="POST">
+				<SELECT NAME="navigation" onchange="location.href = options[selectedIndex].value;">
+					<OPTION value="#top" SELECTED>Make your choice in the Swiss Lotto menu </OPTION>
+					<OPTION value="#">DRAW RESULTS... </OPTION>
+					<OPTION value="resultat.php">- Draw result </OPTION>
+					<OPTION value="rapports.php">- Lotto & Joker prize information </OPTION>
+					<OPTION value="historiques.php">- Draw histories </OPTION>
+					<OPTION value="mises_a_jour.php">- Information updating</OPTION>
+					<OPTION value="#">INFORMATIONS... </OPTION>
+					<OPTION value="swisslotto.php">- Swiss Lotto Homepage </OPTION>
+					<OPTION value="mercredi_samedi.php">- Two draws a week </OPTION>
+					<OPTION value="generateur.php">- Number generator </OPTION>
+				</SELECT>
+			</form>
+		</TD>
+		<TD WIDTH="90">&nbsp;</TD>
+	</TR>
+</TABLE><!--- Begin data cell here (cell 4) --------------------------------------------------------------------------- --->
+
+				<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" WIDTH="95%">
+	<TR>
+		<TD WIDTH="100%">
+			<CENTER>
+			<B><FONT SIZE="5" COLOR="#4273D6" FACE="Verdana, Arial, Helvetica">Swiss Lotto &  	Joker prize information</FONT>
+			<BR>
+			<BR>
+			<FONT SIZE="4" COLOR="DD0000" FACE="Verdana, Arial, Helvetica">
+				Draw # 44 of Saturday 01 June 2002</FONT></B>
+			<BR>
+			<BR>
+			<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="1">
+				<TR>
+					<TD VALIGN="TOP"><B><FONT SIZE="4" FACE="Verdana, Arial, Helvetica">Loto</FONT></B></TD>
+					<TD WIDTH="15">&nbsp;</TD>
+					<TD BGCOLOR="4273D6">
+
+						<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="1" WIDTH="100%" BGCOLOR="4273D6">
+							<TR>
+								<TD>
+
+										<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="1" WIDTH="100%">
+										<TR>
+											<TD WIDTH="110" ALIGN="CENTER">
+												<FONT SIZE="2" COLOR="white" FACE="Verdana, Arial, Helvetica">Winning<BR>numbers<br></FONT>
+											</TD>
+											<TD WIDTH="110" ALIGN="CENTER">
+												<FONT SIZE="2" COLOR="white" FACE="Verdana, Arial, Helvetica">Number of<BR>winning tickets<br></FONT>
+											</TD>
+											<TD WIDTH="160" ALIGN="CENTER">
+												<FONT SIZE="2" COLOR="white" FACE="Verdana, Arial, Helvetica">Prize per<br>winning tickets<br></FONT>
+											</TD>
+										</TR>
+										<TR>
+											<TD WIDTH="110" ALIGN="CENTER" VALIGN="TOP" BGCOLOR="white" align="center">
+												<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" WIDTH="100%" align="center">
+													<TR>
+														<TD WIDTH="100%" align="center">
+															<B><FONT SIZE="2" FACE="Verdana, Arial, Helvetica">6<BR>
+															5+<BR>
+															5<BR>
+															4<BR>
+															3<br></FONT></B>
+														</TD>
+													</TR>
+												</TABLE>
+											</TD>
+	
+											<TD WIDTH="110" ALIGN="RIGHT" VALIGN="TOP" BGCOLOR="white" align="center">
+												<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" WIDTH="90%" align="center">
+													<TR>
+														<TD WIDTH="100%" align="right">
+																<FONT SIZE="2" FACE="Verdana, Arial, Helvetica"><B>
+								1 at</B><BR>
+								2 at<BR>
+								162 at<BR>
+								10'062 at<BR>
+								160'562 at<br></FONT>
+														</TD>
+													</TR>
+												</TABLE>
+											</TD>
+											<TD WIDTH="160" ALIGN="RIGHT" VALIGN="TOP" BGCOLOR="white" align="center">
+												<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" WIDTH="90%" align="center">
+													<TR>
+														<TD WIDTH="100%" align="right">
+															<FONT SIZE="2" FACE="Verdana, Arial, Helvetica"><B>
+															SFr. 1'012'408.50</B><BR>
+															SFr. 136'871.90<BR>
+															SFr. 3'077.80<BR>
+															SFr. 50.00<BR>
+															SFr. 6.00<br></FONT>
+														</TD>
+													</TR>
+												</TABLE>
+											</TD>
+										</TR>
+									</TABLE>
+
+								</TD>
+							</TR>
+						</TABLE>
+					</TD>
+				</TR>
+
+
+				<TR>
+					<TD>&nbsp;</TD>
+					<TD WIDTH="15">&nbsp;</TD>
+					<TD>&nbsp;</TD>
+				</TR>
+
+				<TR>
+					<TD VALIGN="TOP"><B><FONT SIZE="4" FACE="Verdana, Arial, Helvetica">Joker</FONT></B></TD>
+					<TD WIDTH="15">&nbsp;</TD>
+					<TD BGCOLOR="#4273D6">
+
+						<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="1" WIDTH="100%" BGCOLOR="4273D6">
+							<TR>
+								<TD align="center">
+								
+									<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="1" WIDTH="100%">
+										<TR>
+											<TD WIDTH="110" ALIGN="CENTER">
+												<FONT SIZE="2" COLOR="white" FACE="Verdana, Arial, Helvetica">Winning digits<BR>(from right to left)<br></FONT>
+											</TD>
+											<TD WIDTH="110" ALIGN="CENTER">
+												<FONT SIZE="2" COLOR="white" FACE="Verdana, Arial, Helvetica">Number of<BR>winning tickets<br></FONT>
+											</TD>
+											<TD WIDTH="160" ALIGN="CENTER">
+												<FONT SIZE="2" COLOR="white" FACE="Verdana, Arial, Helvetica">Prize per<br>winning tickets<br></FONT>
+											</TD>
+										</TR>
+										<TR>
+											<TD WIDTH="110" ALIGN="CENTER" VALIGN="TOP" BGCOLOR="white" align="center">
+												<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" WIDTH="90%">
+													<TR>
+														<TD WIDTH="100%" align="center">
+															<B><FONT SIZE="2" FACE="Verdana, Arial, Helvetica">6<BR>
+															5<BR>
+															4<BR>
+															3<BR>
+															2<BR></FONT></B>
+														</TD>
+													</TR>
+												</TABLE>
+											</TD>
+											<TD WIDTH="110" ALIGN="RIGHT" VALIGN="TOP" BGCOLOR="white" align="center">
+												<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" WIDTH="90%" align="center">
+													<TR>
+														<TD WIDTH="100%" align="right">
+																<FONT SIZE="2" FACE="Verdana, Arial, Helvetica"><B>
+								<B>Jackpot</B> at</B><BR>
+								4 at<BR>
+								40 at<BR>
+								396 at<BR>
+								3'843 at<br></FONT>
+														</TD>
+													</TR>
+												</TABLE>
+
+											</TD>
+											<TD WIDTH="160" ALIGN="RIGHT" VALIGN="TOP" BGCOLOR="white">
+												<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" WIDTH="90%" align="center">
+													<TR>
+														<TD WIDTH="100%" align="right">
+															<FONT SIZE="2" FACE="Verdana, Arial, Helvetica"><B>
+															SFr. 470'907.00</B><BR>
+															SFr. 10'000.00<BR>
+															SFr. 1'000.00<BR>
+															SFr. 100.00<BR>
+															SFr. 10.00<br></FONT>
+														</TD>
+													</TR>
+												</TABLE>
+											</TD>
+										</TR>
+									</TABLE>
+
+								</TD>
+							</TR>
+						</TABLE>
+					</TD>
+				</TR>
+
+
+				<TR>
+					<TD>&nbsp;</TD>
+					<TD WIDTH="15">&nbsp;</TD>
+					<TD>&nbsp;</TD>
+				</TR>
+
+
+				<TR>
+					<TD>&nbsp;</TD>
+					<TD WIDTH="15">&nbsp;</TD>
+					<TD align="center">
+						
+					</TD>
+				</TR>
+				
+			</TABLE>
+
+		</TD>
+	</TR>
+</TABLE>
+
+ 
+		  
+<!--- End data cell ------------------------------------------------------------------------------------------- --->
+			</td>
+		</tr>
+		<!--- third row --->
+		<tr>
+			
+    <td width="135"><img src="../../../../img/blt/pousse-135.gif" width="143" height="2"></td>
+			<td width="590">
+				<!--- ***** Bottom blue menu bar (cell 6) ***** --->
+				<img src="/img/bnr/base_e.gif" width="590" height="50" align="BOTTOM" border="0" usemap="#base"> 
+<MAP Name="base"> 
+  <AREA Shape="Rect" coords = "470,3,578,48"  HREF="/en/contact/index.html">
+	
+  <AREA Shape="Rect" coords = "303,3,447,48"  HREF="/en/screensaver/index.html">
+	<AREA Shape="Rect" coords = "145,3,271,51"  HREF="/en/sitemap.html">
+	
+  <AREA Shape="Rect" coords = "13,2,112,48"  HREF="/en/search.html">
+	<AREA Shape="Rect" coords = "70,24,73,30"  HREF="/en/contact/index.html">
+</MAP>
+<br>
+
+<center> 
+	<font size="2" face="Verdana,Arial,Helvetica">
+	<a href="/fr/jeux/online/swisslotto/rapports.php">en français</a> |
+	<a href="/de/jeux/online/swisslotto/rapports.php">auf deutsch</a>
+	</font>
+</center>
+   
+			</td>
+		</tr>
+	</table>
+</body>
+</html>

@@ -1,0 +1,16 @@
+<project name="HGTracker Web Application" default="war" basedir=".">
+
+    <target name="war" description="Create installation package">
+        <delete file="hgtracker.war"/>
+    	<move file="src/hibernate.properties" tofile="src/hibernate.properties.test"/>
+    	<move file="src/hibernate.properties.prod" tofile="src/hibernate.properties"/>
+    	<move file="web/WEB-INF/classes/hibernate.properties" tofile="web/WEB-INF/classes/hibernate.properties.test"/>
+    	<move file="web/WEB-INF/classes/hibernate.properties.prod" tofile="web/WEB-INF/classes/hibernate.properties"/>
+        <jar compress="yes" jarfile="hgtracker.war" basedir="web"/>
+    	<move file="src/hibernate.properties" tofile="src/hibernate.properties.prod"/>
+    	<move file="src/hibernate.properties.test" tofile="src/hibernate.properties"/>
+    	<move file="web/WEB-INF/classes/hibernate.properties" tofile="web/WEB-INF/classes/hibernate.properties.prod"/>
+    	<move file="web/WEB-INF/classes/hibernate.properties.test" tofile="web/WEB-INF/classes/hibernate.properties"/>
+    </target>
+
+</project>

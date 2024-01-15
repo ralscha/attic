@@ -1,0 +1,53 @@
+<project name="Create Application" default="create.app" basedir="..">
+
+  
+  <property name="build.dir" value="${basedir}/build"/>
+  <property name="web.dir" value="${basedir}/web"/> 
+  <property name="webinf.dir" value="${web.dir}/WEB-INF"/>    
+  <property name="src.dir" value="${basedir}/src"/>
+
+  <property file="${build.dir}/build.properties" />
+
+  <target name="create.app" description="Create new Application ">    
+    <delete file="${basedir}/.project" />
+
+    <delete dir="${src.dir}/ch/ess/test"/>
+
+    <delete includeemptydirs="true">
+      <fileset dir="${basedir}" includes="**/CVS/*" defaultexcludes="false"/>              
+      <fileset dir="${basedir}" includes="**/CVS" defaultexcludes="false"/>              
+    </delete> 
+    
+    <replace file="${src.dir}/textresource.xml">
+      <replacefilter token="Blank" value="${app.name.upperCase}"/>
+    </replace> 
+      
+    <replace file="${build.dir}/build.xml">
+      <replacefilter token="Blank" value="${app.name.upperCase}"/>
+    </replace>  
+        	
+    <replace file="${src.dir}/ApplicationResources_de.properties">
+      <replacefilter token="Blank" value="${app.name.upperCase}"/>
+    </replace>          	
+    <replace file="${src.dir}/ApplicationResources_en.properties">
+      <replacefilter token="Blank" value="${app.name.upperCase}"/>
+    </replace>          	
+        		  
+    <replace file="${src.dir}/spring-init.xml">
+      <replacefilter token="blank" value="${app.name}"/>
+    </replace>  
+
+    <replace file="${src.dir}/spring-datasource.xml">
+      <replacefilter token="blank" value="${app.name}"/>
+    </replace>  
+    
+    <replace file="${src.dir}/spring-hibernate.xml">
+      <replacefilter token="blank" value="${app.name}"/>
+    </replace>      
+    
+    <replace file="${web.dir}/META-INF/MANIFEST.MF">
+      <replacefilter token="Blank" value="${app.name.upperCase}"/>
+    </replace> 
+          
+</target>
+</project>

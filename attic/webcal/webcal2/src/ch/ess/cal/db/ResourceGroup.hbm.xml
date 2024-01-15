@@ -1,0 +1,128 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd">
+
+<hibernate-mapping>
+    <class
+        name="ch.ess.cal.db.ResourceGroup"
+        table="calResourceGroup"
+        lazy="true"
+        dynamic-update="false"
+        dynamic-insert="false"
+    >
+
+        <id
+            name="id"
+            column="id"
+            type="java.lang.Long"
+            unsaved-value="null"
+        >
+            <generator class="native">
+            </generator>
+        </id>
+
+        <version
+            name="version"
+            type="int"
+            column="version"
+        />
+
+        <set
+            name="resources"
+            lazy="true"
+            inverse="true"
+            cascade="none"
+            sort="unsorted"
+        >
+
+              <key
+                  column="resourceGroupId"
+              />
+
+              <one-to-many
+                  class="ch.ess.cal.db.Resource"
+              />
+        </set>
+
+        <set
+            name="departments"
+            table="calDepartmentResourceGroups"
+            lazy="true"
+            inverse="false"
+            cascade="none"
+            sort="unsorted"
+        >
+
+              <key
+                  column="resourceGroupId"
+              />
+
+              <many-to-many
+                  class="ch.ess.cal.db.Department"
+                  column="departmentId"
+                  outer-join="auto"
+              />
+
+        </set>
+
+        <set
+            name="users"
+            table="calUserResourceGroups"
+            lazy="true"
+            inverse="false"
+            cascade="none"
+            sort="unsorted"
+        >
+
+              <key
+                  column="resourceGroupId"
+              />
+
+              <many-to-many
+                  class="ch.ess.cal.db.User"
+                  column="userId"
+                  outer-join="auto"
+              />
+
+        </set>
+
+        <map
+            name="translations"
+            table="calResourceGroupLocale"
+            lazy="false"
+            sort="unsorted"
+            inverse="false"
+            cascade="none"
+        >
+
+              <key
+                  column="resourceGroupId"
+              />
+
+              <index
+                  column="locale"
+                  type="locale"
+                  length="10"
+              />
+
+              <element
+                  column="name"
+                  type="string"
+                  length="100"
+                  not-null="true"
+                  unique="false"
+              />
+
+        </map>
+
+        <!--
+            To add non XDoclet property mappings, create a file named
+                hibernate-properties-ResourceGroup.xml
+            containing the additional properties and place it in your merge dir.
+        -->
+
+    </class>
+
+</hibernate-mapping>

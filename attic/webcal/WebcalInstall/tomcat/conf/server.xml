@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<Server>
+    <!-- Debug low-level events in XmlMapper startup -->
+    <xmlmapper:debug level="0" />
+
+
+    <Logger name="tc_log" 
+            path="logs/tomcat.log"
+            customOutput="yes" />
+
+    <Logger name="servlet_log" 
+            path="logs/servlet.log"
+            customOutput="yes" />
+
+    <Logger name="JASPER_LOG" 
+	    path="logs/jasper.log"
+            verbosityLevel = "INFORMATION" />
+
+    <!-- Add "home" attribute if you want tomcat to be based on a different directory
+         "home" is used to create work and to read webapps, but not for libs or CLASSPATH.
+         Note that TOMCAT_HOME is where tomcat is installed, while ContextManager home is the
+         base directory for contexts, webapps/ and work/
+      -->
+    <ContextManager debug="0" workDir="work" >
+        <!-- ContextInterceptor className="org.apache.tomcat.context.LogEvents" / -->
+        <ContextInterceptor className="org.apache.tomcat.context.AutoSetup" />
+        <ContextInterceptor className="org.apache.tomcat.context.DefaultCMSetter" />
+        <ContextInterceptor className="org.apache.tomcat.context.WorkDirInterceptor" />
+        <ContextInterceptor className="org.apache.tomcat.context.WebXmlReader" />
+        <ContextInterceptor className="org.apache.tomcat.context.LoadOnStartupInterceptor" />
+        <!-- Request processing -->
+        <RequestInterceptor className="org.apache.tomcat.request.SimpleMapper" debug="0" />
+        <RequestInterceptor className="org.apache.tomcat.request.SessionInterceptor" />
+        <RequestInterceptor className="org.apache.tomcat.request.SecurityCheck" />
+        <RequestInterceptor className="org.apache.tomcat.request.FixHeaders" />
+
+        <Connector className="org.apache.tomcat.service.SimpleTcpConnector">
+            <Parameter name="handler" value="org.apache.tomcat.service.connector.Ajp12ConnectionHandler"/>
+            <Parameter name="port" value="8007"/>
+        </Connector>
+        
+        <Connector className="org.apache.tomcat.service.SimpleTcpConnector">
+            <Parameter name="handler" value="org.apache.tomcat.service.http.HttpConnectionHandler"/>
+            <Parameter name="port" value="81"/>
+        </Connector>
+
+        <Context path="" docBase="webapps/webcal" debug="0" reloadable="false" > 
+        </Context>
+		  
+		  <Context path="/webcal" docBase="webapps/webcal" debug="0" reloadable="false">
+		  </Context>
+			
+		
+    </ContextManager>
+</Server>

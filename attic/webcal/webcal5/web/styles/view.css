@@ -1,0 +1,324 @@
+td.week {
+  font-family: Arial, sans-serif;
+  font-size: 8pt;
+  font-weight: bold;
+  border: 1px solid black;  
+  background-color : #80ADBA;
+  color: White;
+}
+
+td.month {
+  font-family: Arial, sans-serif;
+  font-size: 8pt;
+  font-weight: bold;
+  border: 1px solid black;  
+  background-color : #EDEFF0;
+  color: black;
+}
+
+td.small {
+  font-family: Arial, sans-serif;
+  font-size: 8pt;
+  font-weight: bold;
+  border: 1px solid black;  
+  background-color : White;
+  color: Black;
+}
+
+
+
+td.smallholiday {
+	color: #000000;
+	font-family: Arial, sans-serif;
+	font-size: 8pt;
+	font-weight: bold;
+	border: 1px solid black;
+	background: #FFD700;
+}
+
+td.smalltoday {
+	color: #000000;
+	font-family: Arial, sans-serif;
+	font-size: 8pt;
+	font-weight: bold;
+	border: 1px solid black;
+	background: Lime;
+}
+
+td.smallweekend {
+	color: #000000;
+	font-family: Arial, sans-serif;
+	font-size: 8pt;
+	font-weight: bold;
+	border: 1px solid black;
+	background: #CFE1EB;
+}
+
+
+td.smaller {
+	font-family: Arial, sans-serif;
+	font-size: 8pt;
+	font-weight: normal;
+	border: 1px solid black;  
+	background-color : White;
+	color: Black;  
+}
+
+td.smallerholiday {
+	color: #000000;
+	font-family: Arial, sans-serif;
+	font-size: 8pt;
+	font-weight: normal;
+	border: 1px solid black;
+	background: #FFD700;	
+}
+
+td.smallertoday {
+	color: #000000;
+	font-family: Arial, sans-serif;
+	font-size: 8pt;
+	font-weight: normal;
+	border: 1px solid black;
+	background: Lime;	
+}
+
+td.smallerweekend {
+	color: #000000;
+	font-family: Arial, sans-serif;
+	font-size: 8pt;
+	font-weight: normal;
+	border: 1px solid black;
+	background: #CFE1EB;	
+}
+
+td.rowheader {
+  font-family: Arial, sans-serif;
+  font-size: 9pt;
+  font-weight: bold;
+  border: 1px solid black;
+  font-weight: bold;
+  background-color : #005A6B;
+  color: White;
+}
+
+td.rowheadersmall {
+  font-family: Arial, sans-serif;
+  font-size: 8pt;
+  font-weight: bold;
+  border: 1px solid black;
+  font-weight: bold;
+  background-color : #005A6B;
+  color: White;
+}
+
+td.rowheaderu {
+  font-family: Arial, sans-serif;
+  font-size: 9pt;
+  font-weight: bold;
+  border: 1px solid black;
+  font-weight: bold;
+  background-color : #EEEEE;
+  color: Black;
+}
+
+
+td.b {
+  border: 1px solid black;
+  font-weight: bold;
+  background-color : White;  
+}
+
+td.bt {
+  border: 1px solid black;  
+	background: Lime;	
+}
+
+td.bh {
+  border: 1px solid black;  
+	background: #FFD700;	  
+}
+
+td.bw {
+  border: 1px solid black;  
+	background: #CFE1EB;	    
+}
+
+table.border { 
+  border-collapse: collapse;
+  border-spacing: 0px;
+}
+
+
+table.day {  
+	border-collapse: collapse;
+	border-spacing: 0px;
+}
+
+table.day td.hour {
+	border: 1px solid #999999;
+}
+
+table.day td.dottedlinet {	
+	border-top: 1px solid #999999;	
+	border-left: 1px solid #999999;	
+	border-right: 1px solid #999999;			
+	border-bottom: 1px dashed #999999;	
+}
+
+
+table.day td.dottedline {	
+	border-top: 1px dashed #999999;	
+	border-right: 1px solid #999999;	
+}
+
+table.day td.normal {	
+	border: 1px solid #999999;	
+}
+
+/* MonthView */
+table.view {
+	border-collapse: collapse;
+	border-spacing: 0px;
+}
+
+table.view tr td {
+  border: 1px solid black;    
+}
+
+table.view thead th {
+  font-family: Arial, sans-serif;
+  font-size: 8pt;
+  font-weight: normal;
+  border: 1px solid black;  
+  background-color : #EEEEEE;
+  color: black;
+}
+
+table.view thead th.month {
+  font-family: Arial, sans-serif;
+  font-size: 10pt;
+  font-weight: bold;
+  border: 1px solid black;  
+  background-color : #005A6B;
+  color: White;
+}
+
+
+table.view td.weekno {
+  font-family: Arial, sans-serif;
+  font-size: 8pt;
+  font-weight: bold;
+  border: 1px solid black;  
+  background-color : #80ADBA;
+  color: White;
+}
+
+table.view td.dayevent {
+   border: none;
+	font-family: Arial, sans-serif;
+	font-size: 8pt;
+	font-weight: normal;
+	background-color : White;
+	color: Black;  
+}
+
+table.view td.day {
+   border: none;
+	font-family: Arial, sans-serif;
+	font-size: 9pt;
+	font-weight: normal;
+	background-color : White;
+	color: Black;  
+}
+
+table.view td.dayholiday {
+    border: none;
+	color: #000000;
+	font-family: Arial, sans-serif;
+	font-size: 9pt;
+	font-weight: normal;
+	background: #FFD700;	
+}
+
+table.view td.daytoday {
+   border: none;
+	color: #000000;
+	font-family: Arial, sans-serif;
+	font-size: 9pt;
+	font-weight: normal;
+	background: Lime;	
+}
+
+table.view td.dayweekend {
+   border: none;
+	color: #000000;
+	font-family: Arial, sans-serif;
+	font-size: 9pt;
+	font-weight: normal;
+	background: #CFE1EB;	
+}
+
+table.view td.daydayevent {
+   border: none;
+	font-family: Arial, sans-serif;
+	font-size: 9pt;
+	font-weight: bold;
+	background-color : White;
+	color: Black;  
+}
+
+
+table.view td.dayholidayevent {
+    border: none;
+	color: #000000;
+	font-family: Arial, sans-serif;
+	font-size: 9pt;
+	font-weight: bold;
+	background: #FFD700;	
+}
+
+table.view td.daytodayevent {
+   border: none;
+	color: #000000;
+	font-family: Arial, sans-serif;
+	font-size: 9pt;
+	font-weight: bold;
+	background: Lime;	
+}
+
+table.view td.dayweekendevent {
+   border: none;
+	color: #000000;
+	font-family: Arial, sans-serif;
+	font-size: 9pt;
+	font-weight: bold;
+	background: #CFE1EB;	
+}
+
+
+table.simplelist {
+	border : none;
+  font-family : Arial;
+	font-size : 8pt;
+	white-space: nowrap;
+}
+
+table.simplelist td {
+	white-space: nowrap;
+}
+
+table.tasktooltip {
+	border : none;
+  font-family : Arial;
+	font-size : 8pt;
+	white-space: nowrap;
+}
+
+span.formtitle {
+  font-family: Arial, sans-serif;
+  font-size: 8pt;
+  font-weight: bold;
+}
+
+
+

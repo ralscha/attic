@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application
+    xmlns:mx="http://www.adobe.com/2006/mxml"
+    xmlns:tt="ch.ess.testtracker.components.*"
+    layout="vertical"
+    horizontalAlign="center"
+    verticalAlign="top"
+    paddingLeft="0"
+    paddingRight="0"
+    paddingTop="0"
+    paddingBottom="0"
+    width="100%"
+    height="100%"
+    creationComplete="init()">
+  
+  <mx:Style source="/assets/main.css"/>  
+  
+  <mx:Script>
+    <![CDATA[
+      import ch.ess.testtracker.entity.Principal;
+      import org.granite.tide.init.Components;
+      import org.granite.tide.seam.Seam;
+      import org.granite.tide.seam.Context;
+      import ch.ess.testtracker.util.DebugMessage;     
+      import mx.core.Container;
+      
+      private var principal:Principal;
+      
+      [Bindable]
+      private var tideContext:Context = Seam.getInstance().getSeamContext();
+      
+      public static function debug(str:String):void {
+        application.debugPanel.addMessage(new DebugMessage(str));
+      }  
+      
+      private function init():void {
+        new Components(Seam.getInstance());
+      }
+                     
+    ]]>
+  </mx:Script>
+  
+  <mx:VDividedBox width="100%" height="100%">
+    <mx:ViewStack id="mainStack" width="100%" height="100%" selectedIndex="{tideContext.identity.loggedIn ? 1 : 0}">
+      <tt:LoginCanvas id="loginBox" tideContext="{tideContext}"/>
+      <tt:MainCanvas id="mainBox" tideContext="{tideContext}"/>
+    </mx:ViewStack>
+    <tt:DebugPanel id="debugPanel" width="100%" height="0%"/>
+  </mx:VDividedBox>  
+    
+</mx:Application>

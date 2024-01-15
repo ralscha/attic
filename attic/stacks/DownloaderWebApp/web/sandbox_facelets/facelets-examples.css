@@ -1,0 +1,168 @@
+P  {}
+
+H1  {}
+
+H2  {}
+
+H3  {}
+
+A  {}
+
+A:Visited  {}
+
+A:Active  {}
+
+A:Hover  {}
+
+fieldset {
+	border: 1px solid blue;
+}
+
+div {
+	border: 1px solid black;
+}
+
+html, body {
+	position: relative;
+	width: 100%;
+	height: 100%;
+}
+
+
+a:hover  {
+	color: red;
+	background-color : #EEE;
+}
+
+fieldset.right-sidebar {width: 100px;}
+ul.right-sidebar {list-style-type: none;}
+ul.right-sidebar li p.heading {
+	font-weight: bold;
+	margin-bottom:2px;
+	margin-left:-30px;
+}
+ul.right-sidebar li a {
+	display:block;
+	width:75px;
+	margin-left:-20px;
+}
+
+
+ul.left-nav {
+	height: 100%;
+	list-style-type: none;
+	display: block;
+	text-decoration: none;
+}
+
+
+ul.left-nav li {
+	
+	
+}
+
+
+ul.left-nav li a {
+	font-size: 12px;
+	font-weight: bold;
+	font-family: Chicago, Arial, sans-serif;
+	text-decoration: none;
+	width: 95%;
+	margin: 0 0 5px 0; 
+}
+
+
+
+/* 
+	Eeach major section of the page is 
+   	contained within a div and a fieldset. 
+   	The following are styles of those elements 
+*/
+
+#content-frame {
+	margin-left: 15px;
+	margin-top: 15px;
+	width: 90%;
+	height: 75%;
+	padding-bottom: 2px;
+	margin-bottom: 5px;
+}
+
+#header {
+	width: 100%;
+	height: 20%;
+	background-color: #FFF8DC;
+	padding-bottom: 2px;
+}
+
+#left-nav {
+	float: left;
+	width: 20%;
+	height: 60%;
+	background-color: #FFF8DC;
+	min-height: 500px; 
+	padding-bottom: 2px;
+}
+
+#main-content {
+	float: left;
+	width: 64%;
+	height: 60%;
+	background-color: #FFF8DC;
+	min-height: 500px;
+	padding-bottom: 2px
+}
+
+#right-sidebar {
+	float: left;
+	width: 15%;;
+	height: 60%;
+	background-color: #FFF8DC;
+	min-height: 500px;
+	padding-bottom: 2px;
+}
+
+#footer {
+	clear: both;
+	width: 100%;
+	height: 25%;
+	background-color: #FFF8DC;
+	min-height: 50px;
+	padding-bottom: 2px;
+}
+
+
+#header fieldset {
+	height: 20%;
+	margin: 5px;
+	padding: 2px;
+	min-height: 100px;
+}
+
+
+#left-nav fieldset {
+	heigth: 95%;
+	margin: 5px;
+	padding: 2px;
+	vertical-align: baseline;
+}
+
+#main-content fieldset {
+	height: 95%;
+	margin: 5px;
+	padding: 2px;
+}
+
+#right-sidebar fieldset {
+	height: 95%;
+	margin: 5px;
+	padding: 2px;
+}
+
+#footer fieldset {
+	height: 20%;
+	min-height: 50px;
+	margin: 5px;
+	padding: 2px;
+}
+

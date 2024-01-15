@@ -1,0 +1,17 @@
+<web-app>
+ <display-name>Default User Application</display-name>
+ <description>Default application for getting started</description>
+ <session-config>
+  <session-timeout>30</session-timeout>
+ </session-config>
+ <mime-mapping>
+  <extension>txt</extension>
+  <mime-type>text/plain</mime-type>
+ </mime-mapping>
+ <mime-mapping>
+  <extension>html</extension>
+  <mime-type>text/html</mime-type>
+ </mime-mapping>
+ <welcome-file-list><welcome-file>index.jsp</welcome-file><welcome-file>index.html</welcome-file></welcome-file-list>
+
+</web-app>

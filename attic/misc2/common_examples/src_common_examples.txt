@@ -1,0 +1,3 @@
+D:\JavaProjects\private\common_examples\borders\JBorderRounded.java
+D:\JavaProjects\private\common_examples\borders\JBorderPatterns.java
+D:\JavaProjects\private\common_examples\borders\JBorderExamples.java

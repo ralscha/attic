@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" 
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>HessianRiaSeamDemo</groupId>
+  <artifactId>HessianRiaSeamDemo</artifactId>
+  <packaging>pom</packaging>
+  <version>1.0.0</version>
+  <description>HessianRiaSeamDemo</description>
+  
+  <modules>
+    <module>flex</module>
+    <module>server</module>
+  </modules>
+  
+  <repositories>
+    <repository>
+      <id>JBossMaven2Repository</id>
+      <name>JBoss Maven2 Repository</name>
+      <url>http://repository.jboss.com/maven2</url>
+    </repository>
+    <repository>
+      <id>ESSRepository</id>
+      <name>ESS Maven2 Repository</name>
+      <url>http://dev.ess.ch/archiva/repository/internal/</url>
+    </repository>
+  </repositories>
+  
+  
+  <properties>
+    <flex.home>D:\JavaMisc\Adobe\Flex Builder 3 Plug-in\sdks\3.0.0</flex.home>
+  </properties>
+  
+  
+</project>

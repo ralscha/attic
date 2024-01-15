@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+
+  <bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+    <property name="host"><value>mail.ess.ch</value></property>
+  </bean>
+   
+  <bean id="sender" class="ch.ess.timemail.Sender">
+  	<property name="mailSender"><ref local="mailSender"/></property>
+  	
+  </bean> 
+   
+  <bean id="methodInvokingJobDetail" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+    <property name="targetObject"><ref local="sender"/></property>
+    <property name="targetMethod"><value>send</value></property>
+  </bean> 			
+ 		
+  <bean id="cronTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+    <property name="jobDetail"><ref local="methodInvokingJobDetail"/></property>
+    <property name="cronExpression"><value>0 4 4 1 JUN ?</value></property>
+  </bean> 		
+ 			
+  <bean class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+    <property name="triggers">
+      <list>
+        <ref local="cronTrigger"/>
+      </list>
+    </property>
+  </bean> 		
+ 		
+ 															
+</beans>

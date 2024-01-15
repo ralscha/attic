@@ -1,0 +1,137 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd">
+
+<hibernate-mapping>
+    <class
+        name="ch.ess.blankrc.model.User"
+        table="User"
+        dynamic-update="false"
+        dynamic-insert="false"
+    >
+
+        <id
+            name="id"
+            column="id"
+            type="java.lang.Integer"
+            unsaved-value="null"
+        >
+            <generator class="native">
+            </generator>
+        </id>
+
+        <version
+            name="version"
+            type="int"
+            column="version"
+            access="property"
+            unsaved-value="undefined"
+        />
+
+        <property
+            name="firstName"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            access="property"
+            column="firstName"
+            length="100"
+            not-null="false"
+        />
+
+        <property
+            name="locale"
+            type="java.util.Locale"
+            update="true"
+            insert="true"
+            access="property"
+            column="locale"
+            length="10"
+            not-null="true"
+        />
+
+        <property
+            name="name"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            access="property"
+            column="name"
+            length="100"
+            not-null="true"
+        />
+
+        <property
+            name="passwordHash"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            access="property"
+            column="passwordHash"
+            length="40"
+            not-null="false"
+        />
+
+        <property
+            name="userName"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            access="property"
+            column="userName"
+            length="100"
+            not-null="true"
+            unique="true"
+        />
+
+        <property
+            name="email"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            access="property"
+            column="email"
+            length="255"
+            not-null="true"
+        />
+
+        <set
+            name="userGroups"
+            table="UserUserGroups"
+            lazy="false"
+            inverse="false"
+            cascade="none"
+            sort="unsorted"
+        >
+
+              <key
+                  column="userId"
+              >
+              </key>
+
+              <many-to-many
+                  class="ch.ess.blankrc.model.UserGroup"
+                  column="userGroupId"
+                  outer-join="auto"
+               />
+
+        </set>
+
+        <!--
+            To add non XDoclet property mappings, create a file named
+                hibernate-properties-User.xml
+            containing the additional properties and place it in your merge dir.
+        -->
+
+    </class>
+
+        <query name="findWithUserNameAndPassword"><![CDATA[
+            from User as u where u.userName = ? AND u.passwordHash = ?
+        ]]></query>
+        <query name="findWithUserName"><![CDATA[
+            from User as u where u.userName = ?
+        ]]></query>
+
+</hibernate-mapping>

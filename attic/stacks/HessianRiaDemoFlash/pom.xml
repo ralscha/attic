@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>HessianRiaDemo</groupId>
+	<artifactId>HessianRiaDemoFlash</artifactId>
+	<packaging>swf</packaging>
+	<version>1.0.0</version>
+	<description>Hessian + Seam Flash</description>
+	
+  <repositories>
+		<repository>
+			<id>ESSRepository</id>
+			<name>ESS Maven2 Repository</name>
+			<url>http://dev.ess.ch/archiva/repository/internal/</url>
+		</repository>
+	</repositories>
+	
+  <build>
+    <plugins>
+	    <plugin>
+	      <groupId>net.israfil.mojo</groupId>
+	      <artifactId>maven-flex2-plugin</artifactId>
+	      <version>1.1</version>
+	      <extensions>true</extensions>
+	      <configuration>
+	          <flexHome>${flex.home}</flexHome>
+	          <useNetwork>true</useNetwork>
+	          <main>Words.mxml</main>
+	      </configuration>
+	    </plugin>
+    </plugins>
+  </build>
+  
+  <dependencies>
+	  <dependency>
+	    <groupId>com.caucho</groupId>
+	    <artifactId>hessian-flash</artifactId>
+	    <version>3.1.2</version>
+	    <type>swc</type>
+	  </dependency>
+  </dependencies>
+  
+	<properties>
+	  <flex.home>D:\JavaMisc\Adobe\Flex Builder 3 Plug-in\sdks\3.0.0</flex.home>
+	</properties>
+		
+</project>

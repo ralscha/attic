@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report Top="1.0" Left="1.0" Bottom="1.0" Right="1.0" HeaderFromEdge="0.5" FooterFromEdge="0.75" PageNumbering="1" HorizontalWrap="false" TabStops="0.5,1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0,5.5,6.0,6.5,7.0,7.5,8.0">
+<Property Name0="TextMode" Value0="false">
+</Property>
+<SectionElement ID="Section2" Alignment="1" Indent="0.0" Hindent="0" Font="Serif-PLAIN-10" Foreground="-16777216" Spacing="0" Block="true" Continuation="false" Visible="true" KeepWithNext="false">
+<property><name><![CDATA[query]]></name><value><![CDATA[customers]]></value></property>
+<Section>
+<SectionHeader>
+<SectionBand Height="0.5138889" Visible="true" ShrinkToFit="false" PageBefore="false" PageAfter="false" TopBorder="0" LeftBorder="0" BottomBorder="0" RightBorder="0" Elements="8">
+<TextElement ID="Text1" Alignment="1" Indent="0.0" Hindent="0" Font="Serif-PLAIN-10" Foreground="-16777216" Spacing="0" Block="false" Continuation="false" Visible="true" KeepWithNext="false" FillStyle="0" TabStops="0.5,1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0,5.5,6.0,6.5,7.0,7.5,8.0" Justify="false" Orphan="false" TextAdvance="3">
+<property><name><![CDATA[__column__]]></name><value><![CDATA[customer_id]]></value></property>
+<![CDATA[customer_id]]>
+</TextElement>
+<FieldProperty X="2" Y="0" Width="57" Height="14"/>
+<TextElement ID="Text2" Alignment="1" Indent="0.0" Hindent="0" Font="Serif-PLAIN-10" Foreground="-16777216" Spacing="0" Block="false" Continuation="false" Visible="true" KeepWithNext="false" FillStyle="0" TabStops="0.5,1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0,5.5,6.0,6.5,7.0,7.5,8.0" Justify="false" Orphan="false" TextAdvance="3">
+<property><name><![CDATA[__column__]]></name><value><![CDATA[contact]]></value></property>
+<![CDATA[contact]]>
+</TextElement>
+<FieldProperty X="63" Y="0" Width="50" Height="14"/>
+<TextElement ID="Text3" Alignment="1" Indent="0.0" Hindent="0" Font="Serif-PLAIN-10" Foreground="-16777216" Spacing="0" Block="false" Continuation="false" Visible="true" KeepWithNext="false" FillStyle="0" TabStops="0.5,1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0,5.5,6.0,6.5,7.0,7.5,8.0" Justify="false" Orphan="false" TextAdvance="3">
+<property><name><![CDATA[__column__]]></name><value><![CDATA[company]]></value></property>
+<![CDATA[company]]>
+</TextElement>
+<FieldProperty X="117" Y="0" Width="50" Height="14"/>
+<TextElement ID="Text4" Alignment="1" Indent="0.0" Hindent="0" Font="Serif-PLAIN-10" Foreground="-16777216" Spacing="0" Block="false" Continuation="false" Visible="true" KeepWithNext="false" FillStyle="0" TabStops="0.5,1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0,5.5,6.0,6.5,7.0,7.5,8.0" Justify="false" Orphan="false" TextAdvance="3">
+<property><name><![CDATA[__column__]]></name><value><![CDATA[address]]></value></property>
+<![CDATA[address]]>
+</TextElement>
+<FieldProperty X="171" Y="0" Width="50" Height="14"/>
+<TextElement ID="Text5" Alignment="1" Indent="0.0" Hindent="0" Font="Serif-PLAIN-10" Foreground="-16777216" Spacing="0" Block="false" Continuation="false" Visible="true" KeepWithNext="false" FillStyle="0" TabStops="0.5,1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0,5.5,6.0,6.5,7.0,7.5,8.0" Justify="false" Orphan="false" TextAdvance="3">
+<property><name><![CDATA[__column__]]></name><value><![CDATA[city]]></value></property>
+<![CDATA[city]]>
+</TextElement>
+<FieldProperty X="225" Y="0" Width="29" Height="14"/>
+<TextElement ID="Text6" Alignment="1" Indent="0.0" Hindent="0" Font="Serif-PLAIN-10" Foreground="-16777216" Spacing="0" Block="false" Continuation="false" Visible="true" KeepWithNext="false" FillStyle="0" TabStops="0.5,1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0,5.5,6.0,6.5,7.0,7.5,8.0" Justify="false" Orphan="false" TextAdvance="3">
+<property><name><![CDATA[__column__]]></name><value><![CDATA[state]]></value></property>
+<![CDATA[state]]>
+</TextElement>
+<FieldProperty X="258" Y="0" Width="36" Height="14"/>
+<TextElement ID="Text7" Alignment="1" Indent="0.0" Hindent="0" Font="Serif-PLAIN-10" Foreground="-16777216" Spacing="0" Block="false" Continuation="false" Visible="true" KeepWithNext="false" FillStyle="0" TabStops="0.5,1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0,5.5,6.0,6.5,7.0,7.5,8.0" Justify="false" Orphan="false" TextAdvance="3">
+<property><name><![CDATA[__column__]]></name><value><![CDATA[zip]]></value></property>
+<![CDATA[zip]]>
+</TextElement>
+<FieldProperty X="298" Y="0" Width="22" Height="14"/>
+<TextElement ID="Text8" Alignment="1" Indent="0.0" Hindent="0" Font="Serif-PLAIN-10" Foreground="-16777216" Spacing="0" Block="false" Continuation="false" Visible="true" KeepWithNext="false" FillStyle="0" TabStops="0.5,1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0,5.5,6.0,6.5,7.0,7.5,8.0" Justify="false" Orphan="false" TextAdvance="3">
+<property><name><![CDATA[__column__]]></name><value><![CDATA[reseller]]></value></property>
+<![CDATA[reseller]]>
+</TextElement>
+<FieldProperty X="324" Y="0" Width="57" Height="14"/>
+</SectionBand>
+</SectionHeader>
+<SectionContent>
+<SectionBand Height="0.5972222" Visible="true" ShrinkToFit="false" PageBefore="false" PageAfter="false" TopBorder="0" LeftBorder="0" BottomBorder="0" RightBorder="0" Elements="8">
+<TextElement ID="Text9" Alignment="1" Indent="0.0" Hindent="0" Font="Serif-PLAIN-10" Foreground="-16777216" Spacing="0" Block="false" Continuation="false" Visible="true" KeepWithNext="false" FillStyle="0" TabStops="0.5,1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0,5.5,6.0,6.5,7.0,7.5,8.0" Justify="false" Orphan="false" TextAdvance="3">
+<![CDATA[XXXXXXXX]]>
+</TextElement>
+<FieldProperty X="2" Y="2" Width="57" Height="14" Binding="customer_id"/>
+<TextElement ID="Text10" Alignment="1" Indent="0.0" Hindent="0" Font="Serif-PLAIN-10" Foreground="-16777216" Spacing="0" Block="false" Continuation="false" Visible="true" KeepWithNext="false" FillStyle="0" TabStops="0.5,1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0,5.5,6.0,6.5,7.0,7.5,8.0" Justify="false" Orphan="false" TextAdvance="3">
+<![CDATA[XXXXXXX]]>
+</TextElement>
+<FieldProperty X="45" Y="26" Width="50" Height="14" Binding="contact"/>
+<TextElement ID="Text11" Alignment="1" Indent="0.0" Hindent="0" Font="Serif-PLAIN-10" Foreground="-16777216" Spacing="0" Block="false" Continuation="false" Visible="true" KeepWithNext="false" FillStyle="0" TabStops="0.5,1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0,5.5,6.0,6.5,7.0,7.5,8.0" Justify="false" Orphan="false" TextAdvance="3">
+<![CDATA[XXXXXXX]]>
+</TextElement>
+<FieldProperty X="144" Y="26" Width="50" Height="14" Binding="company"/>
+<TextElement ID="Text12" Alignment="1" Indent="0.0" Hindent="0" Font="Serif-PLAIN-10" Foreground="-16777216" Spacing="0" Block="false" Continuation="false" Visible="true" KeepWithNext="false" FillStyle="0" TabStops="0.5,1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0,5.5,6.0,6.5,7.0,7.5,8.0" Justify="false" Orphan="false" TextAdvance="3">
+<![CDATA[XXXXXXX]]>
+</TextElement>
+<FieldProperty X="171" Y="0" Width="50" Height="14" Binding="address"/>
+<TextElement ID="Text13" Alignment="1" Indent="0.0" Hindent="0" Font="Serif-PLAIN-10" Foreground="-16777216" Spacing="0" Block="false" Continuation="false" Visible="true" KeepWithNext="false" FillStyle="0" TabStops="0.5,1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0,5.5,6.0,6.5,7.0,7.5,8.0" Justify="false" Orphan="false" TextAdvance="3">
+<![CDATA[XXXX]]>
+</TextElement>
+<FieldProperty X="225" Y="0" Width="29" Height="14" Binding="city"/>
+<TextElement ID="Text14" Alignment="1" Indent="0.0" Hindent="0" Font="Serif-PLAIN-10" Foreground="-16777216" Spacing="0" Block="false" Continuation="false" Visible="true" KeepWithNext="false" FillStyle="0" TabStops="0.5,1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0,5.5,6.0,6.5,7.0,7.5,8.0" Justify="false" Orphan="false" TextAdvance="3">
+<![CDATA[XXXXX]]>
+</TextElement>
+<FieldProperty X="258" Y="0" Width="36" Height="14" Binding="state"/>
+<TextElement ID="Text15" Alignment="1" Indent="0.0" Hindent="0" Font="Serif-PLAIN-10" Foreground="-16777216" Spacing="0" Block="false" Continuation="false" Visible="true" KeepWithNext="false" FillStyle="0" TabStops="0.5,1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0,5.5,6.0,6.5,7.0,7.5,8.0" Justify="false" Orphan="false" TextAdvance="3">
+<![CDATA[XXX]]>
+</TextElement>
+<FieldProperty X="298" Y="0" Width="22" Height="14" Binding="zip"/>
+<TextElement ID="Text16" Alignment="1" Indent="0.0" Hindent="0" Font="Serif-PLAIN-10" Foreground="-16777216" Spacing="0" Block="false" Continuation="false" Visible="true" KeepWithNext="false" FillStyle="0" TabStops="0.5,1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0,5.5,6.0,6.5,7.0,7.5,8.0" Justify="false" Orphan="false" TextAdvance="3">
+<![CDATA[XXXXXXXX]]>
+</TextElement>
+<FieldProperty X="369" Y="17" Width="57" Height="14" Binding="reseller"/>
+</SectionBand>
+</SectionContent>
+<SectionFooter>
+<SectionBand Height="0.3" Visible="false" ShrinkToFit="false" PageBefore="false" PageAfter="false" TopBorder="0" LeftBorder="0" BottomBorder="0" RightBorder="0" Elements="0">
+</SectionBand>
+</SectionFooter>
+</Section>
+</SectionElement>
+</Report>

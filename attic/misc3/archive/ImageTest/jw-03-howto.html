@@ -1,0 +1,706 @@
+<HTML>
+<HEAD>
+<TITLE>How Java uses the the producer/consumer model to handle images -- An insider's look - March 1997</TITLE>
+
+<META name="description" content="JavaWorld March 1997 -- How Java uses the the producer/consumer model to handle images -- An insider's look, Learn more about Java's powerful image-handling technique, then follow my simple procedures for building your own producer and consumer components">
+<META name="keywords" content="JavaWorld, Java,  class library, class, library, image producer, image consumer">
+<META name="author" content="Todd Sundsted">
+
+</HEAD>
+<BODY bgcolor="#FFFFFF" text="#000000" link="#0000FF" alink="#FF0000"
+vlink="#551a8b">
+
+
+
+<center>
+<a href="/javaworld/jw-03-1997/index.html"> <img border="0" width="73" height="20" src="/javaworld/icons/jw.home.red.gif" alt="[JavaWorld Main Page]"></a> 
+<a href="/javaworld/jw-03-1997/index.html#nuts"><img border="0" width="136" height="20" src="/javaworld/icons/jw.nuts2.gif" alt="[Nuts & Bolts]"></a> 
+<a href="/javaworld/jw-03-1997/index.html#news"><img border="0" width="136" height="20" src="/javaworld/icons/jw.news.gif" alt="[News & Views]"></a> 
+<a href="/javaworld/jw-03-1997/index.html#res"><img border="0" width="136" height="20" src="/javaworld/icons/jw.jr.gif" alt="[Java Resources]"></a> 
+</center>
+
+<CENTER><p><img src="/javaworld/icons/adbar.gif" width="468" height="10"><br><A HREF="http://ads03.focalink.com/SmartBanner/page/29.14-199814155349"><IMG VSPACE="8" SRC="http://ads03.focalink.com/SmartBanner/nph-graphic/29.14-199814155349" height="60" width="468" BORDER="0" ALT="Click here for MKS"></A></CENTER>
+
+
+<center>
+<img width="437" height="76" src="/javaworld/icons/c-how.to.gif" alt="How-to Java, by Todd Sundsted">
+
+<H1>How Java uses the producer/consumer model to handle images -- An insider's look</H1>
+
+<H3>Learn more about Java's powerful image-handling technique, then follow these simple procedures for building your own producer and consumer components</H3>
+
+</CENTER>
+
+<BLOCKQUOTE> <STRONG>Summary</STRONG><BR> 
+This month we slip behind the scenes to catch a glimpse of Java's
+image handling framework. We'll be examining two key
+components of the framework: the <CODE>ImageProducer</CODE> interface
+and the <CODE>ImageConsumer</CODE> interface. As a bonus, I'll also
+show you how to build your own image producers and image consumers.
+<em>(2,800 words)</em>
+</BLOCKQUOTE>
+
+<center><img width="432" height="7" src="/javaworld/icons/greenline.gif"></center>
+
+<P> 
+<font size="+3">N</font>ot content with the complete set of graphics
+primitives provided by the <CODE>Graphics</CODE>, many
+programmers still find that they need more flexibility; simply loading
+and displaying images within an applet or application often doesn't
+make the grade. In these cases, the only solution is to create images
+on the fly. Such a task is made possible by Java's powerful
+image-handling framework and the two interfaces that make it up.
+
+<P>
+Before we get too deep into our latest image endeavor, let's review
+what we learned about images in the preceeding <strong>How-To Java</strong> column.
+
+<p><font size="+1"><strong>A crash course in image handling</strong></font><br>
+
+Recall that delay is an inherent property of the network-based
+environment in which Java applets and many Java applications live.
+Because Java applets and many Java applications depend heavily on
+resources (classes and media) that are initially available only
+remotely, the designers of the Java class library had to address the
+delay posed by network transactions. The result of their efforts was a
+system in which images are fetched asynchronously, possibly in another thread.
+
+<P>
+The most visible player in the image game is the <CODE>Image</CODE>
+class. An instance of the <CODE>Image</CODE> class represents an image,
+but it does not need to contain the data that makes up the image -- the
+<CODE>Image</CODE> class provides methods for obtaining information
+about the image represented by an instance of the class. Due to network
+delay, information about an image might not be immediately available.
+Therefore, each method requires, as a parameter, an instance of a class
+that implements the <CODE>ImageObserver</CODE> interface.
+
+<P>
+Whew! That's a whole lot of information crammed into a very small
+space. If you find that you're scratching your head wondering what this
+is all about, check out <A HREF="/javaworld/jw-02-1997/jw-02-howto.html">last month's column</A>, for more information.
+
+<p><font size="+1"><strong>Uncovering the power of the the producer/consumer model</strong></font><br>
+
+The developers of the Java class library used the producer/consumer
+model as the basis for the library's low-level image-handling API. This
+model, which has several advantages we'll examine in a minute, consists
+of two tightly coupled components:  producers and consumers. You may
+have been able to guess the components' names, but understanding what
+they do requires some explanation. Let's take a look.
+
+<P>
+Image producers are objects that produce image data. An image producer
+may generate image data itself, or it may provide access to image data
+in a particular image format (GIF, JPEG). All image producers
+implement the <CODE>ImageProducer</CODE> interface. Image consumers, on
+the other hand, are objects that consume image data. Once the image
+data is consumed, the object is then free to use (or modify) it. All
+image consumers implement the <CODE>ImageConsumer</CODE> interface.
+
+<P>
+As I mentioned a moment ago, the producer/consumer model has several
+advantages: it's modular, which means that existing producers and
+consumers can be used interchangeably, and new producers and consumers
+fit seamlessly into the existing framework; and it lends itself to
+asynchronous interaction, which means that once a connection between a
+producer and a consumer is made, the producer notifies the consumer
+only when more information is available. Meanwhile, the applet or
+application is free to do other work.
+
+<P>
+In addition to these benefits, the producer/consumer model is also an
+intuitive description for two collaborating objects in a
+network-based environment. Producers represent resources located on the
+other side of the network; consumers represent the applet or
+application located on this side of the network. Together they
+provide the machinery that gets the resource data from there to here.
+
+<p><font size="+1"><strong>Observing the role of the producer and 
+consumer components </strong></font><br>
+
+Now that you've got the fundamentals of the producer/consumer model
+securely under your belt, take a look at Listing 1, which demonstrates
+the way images are typically created and used in an applet.
+
+<PRE>
+public class New extends Applet
+{
+   private Image _im = null;
+
+   public void init()
+   {
+      // getDocumentBase() returns the URL of the
+      //   document that contains this applet
+      _im = getImage(getDocumentBase(), &quot;fig.gif&quot;); // step 1
+
+      // because this is an applet, &quot;this&quot; refers to an
+      //   instance of the Applet class... which just
+      //   happens to be an image observer
+      prepareImage(_im, this);                      // step 2
+   }
+
+   public void paint(Graphics g)
+   {
+      // see the comment about &quot;this&quot; above... 
+      g.drawImage(_im, 50, 50, this);               // step 3
+   }
+}
+</PRE>
+
+<P>
+<CENTER><EM>Listing 1: Image handling in a typical applet</CENTER></EM><P>
+
+<P>
+Let's examine the three steps that take place in this listing:
+
+<OL>
+<LI>An instance of the <CODE>Image</CODE> class is created
+<LI>An instance of the <CODE>Image</CODE> class is prepared
+<LI>An image is drawn
+</OL>
+
+<P> 
+You may recall from last month's column that the two last steps cause
+image reconstruction to begin. The <CODE>prepareImage</CODE> and
+<CODE>drawImage</CODE> methods used in these two steps require an
+instance of an image observer, which is not really part of the
+producer/consumer model. Instead, image observers are a convenient
+appendage whose functionality is underwritten by the
+<CODE>Component</CODE> class. If a request can't be immediately
+satisfied because image reconstruction is not complete, the component
+notifies the image observer when reconstruction is complete. The image
+observer can then act upon this information. In order to learn what
+role image producers and image consumers play in the demonstration
+above, we must take a look behind the scenes.
+
+<P>
+First, the creation of an instance of the <CODE>Image</CODE> class
+requires the existence of an image producer. In our demonstration, code
+deep within the AWT creates the image producer; alternately, the
+programmer can supply the image producer when the <CODE>Image</CODE> object
+is created.
+
+<P>
+Second, attempting to prepare or to draw an instance of the <CODE>Image</CODE>
+class (in fact, attempting to invoke any of methods that require
+an image observer) causes an image consumer to be created deep
+within the AWT and reconstruction to begin.
+
+<P>
+Finally, as reconstruction occurs the image consumer stores the
+image data and ensures that the supplied image observer is
+notified.
+
+<P>
+If the applet itself is used as the image observer, as was the case in
+last month's demonstrations, we get a better magic show. The
+<CODE>Component</CODE> class (from which the <CODE>Applet</CODE> class
+is derived) supplies an <CODE>updateImage()</CODE> method that calls
+the <CODE>Component</CODE> object's <CODE>repaint()</CODE> method. This
+schedules another painting operation, during which the image (now
+containing additional image data) will be redrawn. 
+
+<p>
+<font size="+1"><strong>Creating your own custom image producer</strong></font><br>
+
+Last month I described how an <CODE>Image</CODE> object could be
+created from image data fetched across the network. I also mentioned
+two other ways to create an <CODE>Image</CODE> object: from an
+<CODE>Image</CODE> object representing an off-screen image and directly
+from an <CODE>ImageProducer</CODE> object. The first technique has been
+discussed at length elsewhere (due primarily to its role in animation
+-- see the <EM>JavaWorld</EM> article "<A HREF="/javaworld/jw-03-1996/jw-03-animation.html">Animation in Java Applets</A>" by Arthur van Hoff and Kathy Walrath for
+a detailed look at this technique), so we'll deal with the second. Take
+a look at the following method, which is provided by the
+<CODE>Component</CODE> class:
+
+<P>
+<CODE>public Image createImage(ImageProducer ip)</CODE>
+
+<P>
+The <CODE>createImage</CODE> method takes an instance of a class that
+implements the <CODE>ImageProducer</CODE> interface and creates an
+instance of the <CODE>Image</CODE> class. This <CODE>Image</CODE>
+object can then be manipulated in the same manner as any other
+<CODE>Image</CODE> object.
+
+<P>
+A class that implements the <CODE>ImageProducer</CODE> interface must
+provide definitions for five methods. The first three methods
+
+<P>
+<CODE>public void addConsumer(ImageConsumer ic)</CODE>
+
+<P>
+<CODE>public void removeConsumer(ImageConsumer ic)</CODE>
+
+<P>
+<CODE>public boolean isConsumer(ImageConsumer ic)</CODE>
+
+<P>
+are responsible for adding and removing image
+consumers from the list of those items that are interested in the state
+of the image producer. They require an instance of an
+<CODE>ImageConsumer</CODE> as a parameter. 
+
+<P>
+The method
+
+<P>
+<CODE>public void requestTopDownLeftRightResend(ImageConsumer ic)</CODE>
+
+<P>
+allows an image consumer to request that the image producer resend the
+image data in top-down, left-to-right order. If the image producer
+cannot resend the image data in this order, it may ignore this
+request.
+
+<P>
+Finally, the method
+
+<P>
+<CODE>public void startProduction(ImageConsumer ic)</CODE>
+
+<P>
+allows an image consumer to request that the image producer start image
+production.
+
+<P>
+Listing 2 shows the implementations of the first three methods. Note
+that the <CODE>_v</CODE> variable is a reference to an instance of the
+<CODE>Vector</CODE> class. Listing 3 shows one possible definition of
+the <CODE>startProduction()</CODE> method. In this example, the image
+producer generates the image data within the body of its
+<CODE>startProduction()</CODE> method; however, we could have easily
+started another thread and let it generate the image data.
+
+<P>
+Note: The definitions in these listings are part of an image producer that
+generates a small 128-by-128 pixel image.
+
+<PRE>
+public void addConsumer(ImageConsumer ic) 
+{
+   if (isConsumer(ic) == false) _v.addElement(ic); 
+}
+
+public void removeConsumer(ImageConsumer ic) 
+{
+   if (isConsumer(ic) == true) _v.removeElement(ic); 
+}
+
+public boolean isConsumer(ImageConsumer ic) 
+{
+   return _v.indexOf(ic) &gt; -1; 
+}
+</PRE>
+
+<P>
+<CENTER><EM>Listing 2: Image consumer maintenance</CENTER></EM><P>
+
+
+<PRE>
+public void startProduction(ImageConsumer ic)
+{
+   addConsumer(ic);
+
+   // create a 128x128 element buffer
+
+   int x = 128;
+   int y = 128;
+
+   int [] rgn = new int [x * y];
+
+   for (int i = 0; i < x * y; i++) rgn[i] = i * 2;
+
+   // create the properties hashtable
+
+   Hashtable ht = new Hashtable();
+
+   // create the default color model
+
+   ColorModel cm = new DirectColorModel(24, 0x0000FF, 0x00FF00, 0xFF0000);
+
+   // clone the vector containing consumers
+
+   Vector v = (Vector)_v.clone();
+
+   // loop over all consumers
+
+   Enumeration e = v.elements();
+
+   while (e.hasMoreElements())
+   {
+      ic = (ImageConsumer)e.nextElement();
+
+      // send information
+
+      ic.setColorModel(cm);
+      ic.setDimensions(x, y);
+      ic.setProperties(ht);
+      ic.setHints(ImageConsumer.RANDOMPIXELORDER);
+      ic.setPixels(0, 0, x, y, cm, rgn, 0, x);
+      ic.imageComplete(ImageConsumer.STATICIMAGEDONE);
+   }
+}
+</PRE>
+
+<P>
+<CENTER><EM>Listing 3: Generating image data within the body of the startProduction() method</CENTER></EM><P>
+
+<P>
+The complete source code is available <A HREF="/javaworld/jw-03-1997/howto/NewImageProducer.java">here</A>.
+
+<p><font size="+1"><strong>Creating your own custom image consumer</strong></font><br>
+
+The other half of the producer/consumer model is the image consumer.
+Unfortunately, image consumers are nowhere near as glamorous 
+as their counterparts; they simply provide front ends for image
+filters, image viewers, and a myriad of other tools. Once an image
+consumer has added itself to an image producer, as we discussed
+earlier, the image producer invokes methods implemented by the
+image consumer to route information about the image back to the image
+consumer.
+
+<P>
+As with the image producer, any class that implements the
+<CODE>ImageConsumer</CODE> interface must provide definitions for
+certain methods (in this case, seven methods). 
+We'll look at each method individually, so that I can provide some
+insight as we go along:
+
+<P>
+<CODE>public void setHints(int nHints)</CODE>
+
+<P>
+Hints are bits of information that describe how an image producer
+intends to deliver the image data. A &quot;smart&quot; image consumer
+can use this information to enhance its handling of the image
+data. An image producer invokes the <CODE>setHints()</CODE> method with
+a bit mask composed of the following values: COMPLETESCANLINES,
+TOPDOWNLEFTRIGHT, RANDOMPIXELORDER, SINGLEFRAME, and SINGLEPASS.
+RANDOMPIXELORDER is the most general case.
+
+<P>
+<CODE>public void setColorModel(ColorModel cm)</CODE>
+
+<P>
+An image producer invokes the <CODE>setColorModel()</CODE> method to
+set the default color model for subsequent set-pixel operations.
+A color model provides methods for translating from pixel values
+to color components.
+
+<P>
+<CODE>public void setDimensions(int w, int h)</CODE>
+
+<P>
+An image producer invokes the <CODE>setDimensions()</CODE> method to
+set the width, height, and properties of the image. These values are
+then available via <CODE>Image</CODE> class methods.
+
+<P>
+<CODE>public void setProperties(Hashtable htProps)</CODE>
+
+<P>
+As with the <CODE>setDimensions()</CODE> method, the image producer 
+invokes the <CODE>setProperties()</CODE> method to set the width, 
+height, and properties of the image. 
+
+<P>
+<CODE>public void setPixels(int x, int y, int w, int h, ColorModel cm,
+byte rgb[], int nOffset, int nScansize)</CODE>
+
+<P>
+<CODE>public void setPixels(int x, int y, int w, int h, ColorModel cm,
+int rgn[], int nOffset, int nScansize)</CODE>
+
+<P>
+An image producer invokes the <CODE>setPixels()</CODE> methods to deliver
+pixels to an image consumer. The array parameter contains the
+pixel values for a rectangular region within the image. The image
+producer can reinvoke the method as often as necessary.
+
+<P>
+<CODE>public void imageComplete(int nStatus)</CODE><BR>
+
+An image producer invokes the <CODE>imageComplete()</CODE> method to
+indicate that either the image reconstruction is complete or
+that something went wrong. The status parameter can be one of
+the following values: STATICIMAGEDONE, SINGLEFRAMEDONE, IMAGEERROR,
+or IMAGEABORTED.
+
+<P>
+Listing 4, which is part of a class that monitors the progress of an
+image producer, shows the implementation of the
+<CODE>imageComplete()</CODE> method along with three of its friends:
+<CODE>addImage()</CODE>,  <CODE>waitFor()</CODE>, and
+<CODE>run()</CODE> The <CODE>addImage()</CODE> method adds the image
+consumer to the image's list of consumers. The <CODE>waitFor()</CODE>
+and <CODE>run()</CODE> methods begin image reconstruction within a new
+thread while the original thread sleeps. The
+<CODE>imageComplete()</CODE> method is called when reconstruction is
+complete. It wakes up the original thread, which is now free to use the
+image. The complete source code is available 
+<A HREF="/javaworld/jw-03-1997/howto/NewImageConsumer.java">here</A>.
+
+
+<PRE>
+public void addImage(Image i)
+{
+   // add the image consumer
+
+   _ip = i.getSource();
+
+   _ip.addConsumer(this);
+
+   // keep track of the current thread
+
+   _thr = Thread.currentThread();
+
+   _f = false;
+
+   _n = -1;
+}
+
+public int waitFor()
+{
+   // start the thread that will begin image
+   //   reconstruction
+
+   new Thread(this).start();
+
+   // suspend until finished
+
+   while (_f == false) _thr.suspend();
+
+   return _n;
+}
+
+public void run()
+{
+   // start reconstruction
+
+   _ip.startProduction(this);
+}      
+
+public void imageComplete(int nStatus)
+{
+   // when reconstruction is finished, restart
+   //   the original thread
+
+   _f = true;
+
+   _n = nStatus;
+
+   _ip.removeConsumer(this);
+
+   _thr.resume();
+}
+</PRE>
+
+<P>
+<CENTER><EM>Listing 4: An imageComplete() method</CENTER></EM><P>
+
+
+<p><font size="+1"><strong>Piecing the components together</strong></font><br>
+
+I can't leave a monthly column without at least a small magic show, so
+for my final bit of fanfare, take a look at the applet in Figure 1,
+which shows both classes we created this month in action. Listing 5
+contains the code for the complete applet. Note how absolutely trivial
+it is to put all of the pieces together.
+
+<P>
+<applet codebase="/javaworld/jw-03-1997/howto/"
+	code="New.class"
+	width=230 
+	height=230>
+<strong>You need a Java-enabled browser to see this applet.</strong>
+</applet>
+
+<P>
+<CENTER><EM>Figure 1: Image handling with the NewImageProducer and 
+NewImageConsumer classes</CENTER></EM><P> 
+
+<PRE>
+import java.awt.*;
+import java.awt.image.*;
+import java.applet.*;
+
+public class New extends Applet
+{
+   private Image _im = null;
+
+   public void init()
+   {
+      // instatiate the custom producer
+
+      _im = createImage(new NewImageProducer());
+
+      // instatiate the custom consumer
+
+      NewImageConsumer nic = new NewImageConsumer();
+
+      nic.addImage(_im);
+      nic.waitFor();
+   }
+
+   public void paint(Graphics g)
+   {
+      g.drawImage(_im, 50, 50, this);
+   }
+}
+</PRE>
+
+<CENTER><EM>Listing 5: Image handling -- putting it all together</CENTER></EM><P>
+
+<P>
+<strong><font size="+1">Wrapping up</font></strong><br>
+
+In our next episode, we'll examine the <CODE>ImageProducer</CODE>
+interface in more detail. We'll also create several images using image
+producers that do some neat tricks -- without animation. You won't want
+to miss that one.
+<img width="8" height="8" src="/javaworld/icons/dingbat.gif" alt="[]">
+
+<p>
+<strong>About the author</strong><br>
+
+Todd Sundsted has been writing programs since computers became
+available in desktop models. Though originally interested in building
+distributed-object applications in C++, Todd moved to the Java
+programming language when Java became the obvious choice for that
+sort of thing. Todd is co-author of the <em>Java Language API SuperBible</em>,
+now in bookstores everywhere. In addition to writing, Todd provides
+Internet and Web consulting services to companies in the southeastern
+United States. Reach him at 
+<A NAME="author" HREF="/javaworld/cgi-bin/jw-mailto.cgi?todd.sundsted@javaworld.com+/javaworld/jw-03-1997/jw-03-howto.html+author">todd.sundsted@javaworld.com</A>.
+
+<P>
+
+<FORM METHOD="POST" ACTION="/javaworld/cgi-bin/jw-mini-survey.cgi?jw-03-1997-howto.html">
+<a name="mini-ditka">
+<strong>What did you think of this article?</strong><br>
+</a>
+ 
+<table width="100%" align="center" cellpadding="0" border="0">
+<tr>
+<td align="left" valign="top" rowspan="1" colspan="1">
+ 
+<INPUT TYPE="radio" NAME="worth" VALUE="3">-Very worth reading<br>
+<INPUT TYPE="radio" NAME="worth" VALUE="2">-Worth reading<br>
+<INPUT TYPE="radio" NAME="worth" VALUE="1">-Not worth reading<br>
+ 
+</td>
+<td align="left" valign="top" rowspan="1" colspan="1">
+ 
+<INPUT TYPE="radio" NAME="length" VALUE="3">-Too long<br>
+<INPUT TYPE="radio" NAME="length" VALUE="2">-Just right<br>
+<INPUT TYPE="radio" NAME="length" VALUE="1">-Too short<br>
+ 
+</td>
+<td align="left" valign="top" rowspan="1" colspan="1">
+ 
+<INPUT TYPE="radio" NAME="tech" VALUE="3">-Too technical<br>
+<INPUT TYPE="radio" NAME="tech" VALUE="2">-Just right<br>
+<INPUT TYPE="radio" NAME="tech" VALUE="1">-Not technical enough<br>
+ 
+</td>
+</tr>
+</table>
+
+<table align="center" cellpadding="0" border="0">
+<tr>
+<td align="left" valign="top" rowspan="1" colspan="1">
+ 
+<TEXTAREA NAME="comments" WRAP="virtual" COLS="40" ROWS="3">Comments: </TEXTAREA>
+&nbsp;&nbsp;&nbsp;&nbsp;
+
+</td>
+<td align="left" valign="bottom">
+
+<INPUT TYPE="submit" VALUE="Send data">
+ 
+</td>
+</tr>
+</table>
+ 
+</FORM>
+
+<P>
+
+<!-- begin buttons -->
+<center>
+<a href="/javaworld/jw-03-1997/index.html"><img border="0" width="73" height="20" src="/javaworld/icons/jw.home.red.gif" alt="[JavaWorld Main Page]"></a>
+<a href="/javaworld/jw-03-1997/index.html#nuts"><img border="0" width="136" height="20" src="/javaworld/icons/jw.nuts2.gif" alt="[Nuts & Bolts]"></a>
+<a href="/javaworld/jw-03-1997/index.html#news"><img border="0" width="136" height="20" src="/javaworld/icons/jw.news.gif" alt="[News & Views]"></a>
+<a href="/javaworld/jw-03-1997/index.html#res"><img border="0" width="136" height="20" src="/javaworld/icons/jw.jr.gif" alt="[Java Resources]"></a>
+</center>
+<!-- end buttons -->
+
+<p>
+<center><img width="432" height="7" src="/javaworld/icons/greenline.gif"></center>
+<p>
+
+<strong>Resources</strong>
+
+<p>
+<UL>
+<LI>The Class <CODE>Image</CODE> API<BR>
+<A HREF="http://www.javasoft.com/products/JDK/CurrentRelease/api/java.awt.Image.html">http://www.javasoft.com/products/JDK/CurrentRelease/api/java.awt.Image.html</A>
+
+<LI>The Class <CODE>ImageProducer</CODE> API<BR>
+<A HREF="http://www.javasoft.com/products/JDK/CurrentRelease/api/java.awt.ImageProducer.html">http://www.javasoft.com/products/JDK/CurrentRelease/api/java.awt.ImageProducer.html</A>
+
+<LI>The Class <CODE>ImageConsumer</CODE> API<BR>
+<A HREF="http://www.javasoft.com/products/JDK/CurrentRelease/api/java.awt.ImageConsumer.html">http://www.javasoft.com/products/JDK/CurrentRelease/api/java.awt.ImageConsumer.html</A>
+
+<LI>The Class <CODE>ImageObserver</CODE> API<BR>
+<A HREF="http://www.javasoft.com/products/JDK/CurrentRelease/api/java.awt.ImageObserver.html">http://www.javasoft.com/products/JDK/CurrentRelease/api/java.awt.ImageObserver.html</A>
+
+<LI>You can download this article, the source code, and the class files as a gzipped tar file<BR>
+<A HREF="/javaworld/jw-03-1997/howto/jw-03-howto.tar.gz">/javaworld/jw-03-1997/howto/jw-03-howto.tar.gz</A></UL>
+
+
+
+<P><strong>Previous How-To Java articles</strong>
+
+<P>
+
+<UL>
+<LI>"<A HREF="/javaworld/jw-02-1997/jw-02-howto.html">Learn how applets load network-based images asynchronously</A>" -- Here's a close look at the way Java applets handle images in a network-based environment.
+
+<LI>"<A HREF="/javaworld/jw-01-1997/jw-01-howto.html">Drawing text is easy with three Java classes</A>" -- Find outhow to create text that's visually appealing through this explanation of what classes to use and how they work together.
+
+<LI>"<A HREF="/javaworld/jw-12-1996/jw-12-howto.html">Examining HotSpot, an object-oriented drawing program</A>" -- Learn how the pieces of the Java language and class library fit together through a study of this Java. program
+
+<LI>"<A HREF="/javaworld/jw-11-1996/jw-11-howto.html">Using the Graphics class</A>" -- A close look at the Graphics class and the drawing primitives it provides, and a demonstration of its use.
+
+<LI>"<A HREF="/javaworld/jw-10-1996/jw-10-howto.html">Observer and Observable</A>" -- An introduction to the Observer interface and Observable class using the Model/View/Controller architecture as a guide.
+
+<LI>"<A HREF="/javaworld/jw-09-1996/jw-09-userint.html">The effective user interface</A>" -- An introduction to the Observer interface and Observable class using the Model/View/Controller architecture as a guide.
+
+<LI>"<A HREF="/javaworld/jw-08-1996/jw-08-event.html">Java and event handling</A>" -- How events are passed to user interface components, how to create event handlers, and more.
+
+<LI>"<A HREF="/javaworld/jw-07-1996/jw-07-awt.html">Introduction to the AWT</A>" -- A description of Java's user interface toolkit.
+</UL>
+
+<center>
+<P>
+<img width="432" height="7" src="/javaworld/icons/greenline.gif">
+<P>
+</center>
+
+<CENTER><A HREF="/javaworld/common/jw-copyright97.html"><IMG BORDER="0" width="338" height="20" SRC="/javaworld/icons/b-copyright97.gif" ALT="[(c) Copyright 1997 Web Publishing Inc., an IDG Communications company]"></A></CENTER>
+ 
+<P>
+If you have problems with this magazine, contact
+<A NAME="webmaster" HREF="/javaworld/cgi-bin/jw-mailto.cgi?webmaster@javaworld.com+/javaworld/jw-03-1997/jw-03-howto.html+webmaster">webmaster@javaworld.com</A>
+ 
+<BR>URL: http://www.javaworld.com/javaworld/jw-03-1997/jw-03-howto.html
+
+<BR> Last modified: Wednesday, September 03, 1997
+
+</BODY>
+</HTML>

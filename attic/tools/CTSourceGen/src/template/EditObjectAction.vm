@@ -1,0 +1,114 @@
+package ${actionPackage};
+
+import javax.servlet.http.*;
+import org.apache.struts.action.*;
+
+import ch.ess.ct.business.db.*;
+import ch.ess.ct.business.constants.db.*;
+import ch.ess.ct.business.db.delete.*;
+import ch.ess.ct.web.base.*;
+import ${formPackage}.*;
+import ch.ess.ct.web.security.*;
+import ch.ess.tag.table.*;
+import ch.ess.util.*;
+import com.objectmatter.bsf.*;
+
+
+public class Edit${objectName}Action extends CRUDAction {
+  
+  protected ActionForward store(Database db, User theUser, ActionMapping mapping,  
+                              ActionForm form, HttpServletRequest request, 
+                              HttpSession session) throws Exception {
+
+    if (!theUser.hasPermission(RechteConstants.${editPermissionUpper})) {
+      return mapping.findForward("success");
+    }
+
+    ActionErrors errors = new ActionErrors();
+    ActionMessages messages = new ActionMessages();
+    ${objectName}Form ${objectLowerName}Form = (${objectName}Form)form;
+    Util.blank2nullBean(${objectLowerName}Form);
+
+    ${dbClassName} ${objectLowerName};
+
+    if (${objectLowerName}Form.get${objectName}Id() > 0) {
+      // update
+      ${objectLowerName} = (${dbClassName})db.lookup(${dbClassName}.class, ${objectLowerName}Form.get${objectName}Id());
+    } else {
+      //insert
+      ${objectLowerName} = (${dbClassName})db.create(${dbClassName}.class);
+    }
+
+    ${objectLowerName}Form.form2db(db, ${objectLowerName});
+
+    try {
+      db.update(${objectLowerName});
+      ${objectLowerName}Form.db2form(${objectLowerName});
+    } catch (BOUpdateConflictException e) {
+      db.refresh(${objectLowerName});
+      ${objectLowerName}Form.db2form(${objectLowerName});
+      errors.add(ActionErrors.GLOBAL_ERROR, new ActionError("update.conflict"));
+    }
+
+    if (!errors.isEmpty()) {
+      saveErrors(request, errors);
+
+      return (new ActionForward(mapping.getInput()));
+    } else {
+      messages.add(ActionMessages.GLOBAL_MESSAGE, new ActionMessage("update.ok"));
+      saveMessages(request, messages);
+    }
+
+    return mapping.findForward("success");
+  }
+  
+  protected ActionForward delete(Database db, User theUser, ActionMapping mapping, ActionForm form, 
+                               HttpServletRequest request, HttpSession session) throws Exception { 
+
+    if (!theUser.hasPermission(RechteConstants.${editPermissionUpper})) {
+      return mapping.findForward("success");
+    }
+
+    int row = getRow(request);
+    
+    JSPTableModel tableModel = (JSPTableModel)session.getAttribute("listmodel");
+    Integer ${objectLowerName}Id = (Integer)tableModel.getValueAt(row, List${dbClassName}Action.COL_ID);
+    ${dbClassName} ${objectLowerName} = (${dbClassName})db.lookup(${dbClassName}.class, ${objectLowerName}Id.intValue());
+
+    if (${objectLowerName} != null) {
+      ${objectName}Deleter deleter = new ${objectName}Deleter(${objectLowerName});
+      deleter.delete(db);
+    }
+
+    return (mapping.findForward("success"));
+  }
+
+  protected ActionForward add(Database db, User theUser, ActionMapping mapping, ActionForm form, 
+                            HttpServletRequest request, HttpSession session) throws Exception {
+
+    ${objectName}Form ${objectLowerName}Form = new ${objectName}Form();
+    setForm2Attribute(mapping, request, session, ${objectLowerName}Form);
+    return mapping.findForward("success");    
+  }
+  
+  protected ActionForward edit(Database db, User theUser, ActionMapping mapping, ActionForm form,
+                             HttpServletRequest request, HttpSession session) throws Exception {
+
+    int row = getRow(request);
+
+    ${objectName}Form ${objectLowerName}Form = new ${objectName}Form();
+
+	JSPTableModel tableModel = (JSPTableModel)session.getAttribute("listmodel");
+	Integer ${objectLowerName}Id = (Integer)tableModel.getValueAt(row, List${dbClassName}Action.COL_ID);
+	${dbClassName} ${objectLowerName} = (${dbClassName})db.lookup(${dbClassName}.class, ${objectLowerName}Id.intValue());
+	    
+    if (${objectLowerName} != null) {
+      ${objectLowerName}Form.db2form(${objectLowerName});
+    }
+
+    setForm2Attribute(mapping, request, session, ${objectLowerName}Form);
+
+    return mapping.findForward("success");         
+  }
+  
+}

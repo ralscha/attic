@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE struts-config PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN"
+          "http://struts.apache.org/dtds/struts-config_1_3.dtd">
+<struts-config>
+	
+	<form-beans>
+		<form-bean type="ch.ess.hgtracker.web.login.LoginForm" name="loginForm" />
+		<form-bean type="ch.ess.hgtracker.web.spieler.SpielerForm" name="spielerForm" />
+		<form-bean type="ch.ess.hgtracker.web.spiel.SpielForm" name="spielForm" />
+		<form-bean type="ch.ess.hgtracker.web.spiel.SpielListForm" name="spielListForm" />
+        <form-bean type="ch.ess.hgtracker.web.durchschnitt.DurchschnittListForm" name="durchschnittListForm" />
+        <form-bean type="ch.ess.hgtracker.web.rangpunkte.RangpunkteListForm" name="rangpunkteListForm" />
+	</form-beans>
+	
+	<action-mappings>
+		
+		<action path="/login" type="ch.ess.hgtracker.web.login.LoginAction" 
+			name="loginForm" scope="request" validate="true" input="/login.jsp">
+			<forward path="/menu.jsp" name="weiter" />
+		</action>
+		
+		<action path="/logout" type="ch.ess.hgtracker.web.login.LogoutAction">
+			<forward path="/login.jsp" name="login" />
+		</action>
+		 
+		<!-- Start Spieler --> 
+		<action path="/spielerList" type="ch.ess.hgtracker.web.spieler.SpielerListAction" 
+			input="/spielerlist.jsp">
+			<forward path="/spielerListWeb.jsp" name="web" />
+			<forward path="/spielerListMobile.jsp" name="mobile" />
+		</action>
+		
+		<action path="/spielerDelete" type="ch.ess.hgtracker.web.spieler.SpielerDeleteAction">
+			<forward path="/spielerList.do" name="delete" />
+		</action>
+		
+		<action path="/spielerEdit" type="ch.ess.hgtracker.web.spieler.SpielerEditAction" name="spielerForm" 
+			scope="request" validate="false" input="/spieleredit.jsp" cancellable="true">
+		</action>
+		
+		<action path="/spielerSave" type="ch.ess.hgtracker.web.spieler.SpielerSaveAction" name="spielerForm" 
+			scope="request" validate="true" input="/spieleredit.jsp" cancellable="true">
+			<forward path="/spielerList.do" name="list" />
+		</action>
+		
+		<action path="/spielerNew" type="ch.ess.hgtracker.web.spieler.SpielerNewAction" name="spielerForm" 
+			scope="request" validate="false" input="/spieleredit.jsp" cancellable="true">
+		</action>
+		
+		<action path="/spielerExcel" type="ch.ess.hgtracker.web.export.SpielerExcelAction"/>
+		
+		<action path="/spielerPdf" type="ch.ess.hgtracker.web.export.SpielerPdfAction"/>
+		<!-- Ende Spieler --> 
+		
+		<!-- Start Spiel --> 
+		<action path="/spielList" type="ch.ess.hgtracker.web.spiel.SpielListAction" 
+			input="/spiellist.jsp" name="spielListForm" scope="session" cancellable="true">
+			<forward path="/spielListWeb.jsp" name="web" />
+			<forward path="/spielListWebSpielplan.jsp" name="spielplan" />
+		</action>
+		
+		<action path="/spielDelete" type="ch.ess.hgtracker.web.spiel.SpielDeleteAction">
+			<forward path="/spielList.do" name="delete" />
+		</action>
+		
+		<action path="/spielEdit" type="ch.ess.hgtracker.web.spiel.SpielEditAction" name="spielForm" 
+			scope="session" validate="false" input="/spieledit1.jsp" cancellable="true">
+		</action>
+		
+		<action path="/spielSave" type="ch.ess.hgtracker.web.spiel.SpielSaveAction" name="spielForm" 
+			scope="session" validate="true" input="/spieledit1.jsp" cancellable="true">
+			<forward path="/spielList.do" name="zurueck" />
+			<forward path="/spieledit1.jsp" name="save" />
+			<forward path="/spieledit2.jsp" name="weiter" />
+			<forward path="/punkteEdit.do" name="tabelle" />
+		</action>
+		
+		<action path="/spielNew" type="ch.ess.hgtracker.web.spiel.SpielNewAction" name="spielForm" 
+			scope="session" validate="false" input="/spieledit1.jsp">
+		</action>
+		
+		<action path="/aufstellung" type="ch.ess.hgtracker.web.spiel.AufstellungAction" name="spielForm" 
+			scope="session" validate="false" input="/spieledit2.jsp" cancellable="true">
+			<forward path="/spieledit1.jsp" name="zurueck" />
+			<forward path="/punkteEdit.do" name="weiter" />
+		</action>
+		
+		<action path="/punkteEdit" type="ch.ess.hgtracker.web.spiel.PunkteEditAction" name="spielForm" 
+			scope="session" validate="false" input="/spieledit3.jsp" cancellable="true">
+			<forward path="/spielPunkteWeb.jsp" name="punkteWeb" />
+		</action>
+		
+		<action path="/punkteSave" type="ch.ess.hgtracker.web.spiel.PunkteSaveAction" name="spielForm" 
+			scope="session" validate="false" input="/spieledit3.jsp" cancellable="true">
+			<forward path="/punkteEdit.do" name="tabelle" />
+			<forward path="/nrEdit.do" name="nrEdit" />
+		</action>
+		
+		<action path="/nrEdit" type="ch.ess.hgtracker.web.spiel.NrEditAction" name="spielForm" 
+			scope="session" validate="false" input="/nredit.jsp">
+		</action>
+		
+		<action path="/nrSave" type="ch.ess.hgtracker.web.spiel.NrSaveAction" name="spielForm" 
+			scope="session" validate="false" input="/nredit.jsp">
+			<forward path="/punkteEdit.do" name="tabelle" />
+		</action>
+		<!-- Ende Spiel --> 
+		
+		<!-- Start Durchschnitt -->
+		<action path="/durchschnittList" type="ch.ess.hgtracker.web.durchschnitt.DurchschnittAction" name="durchschnittListForm" 
+            scope="session" validate="false" input="/durchschnitt.jsp" cancellable="true">
+			<forward path="/durchschnitt.jsp" name="durchschnitt" />
+			<forward path="/durchschnittMobile.jsp" name="mobile" />
+		</action>
+		<!-- Ende Durchschnitt -->
+		
+		<!-- Start Rangpunkte -->
+		<action path="/rangpunkteList" type="ch.ess.hgtracker.web.rangpunkte.RangpunkteAction" name="rangpunkteListForm" 
+            scope="session" validate="false" input="/rangpunkte.jsp" cancellable="true">
+			<forward path="/rangpunkte.jsp" name="rangpunkte" />
+		</action>
+		<!-- Ende Rangpunkte -->
+		
+	</action-mappings>
+	<controller nocache="true"/>
+	<message-resources parameter="MessageResources" />
+  <plug-in className="org.apache.struts.validator.ValidatorPlugIn">
+    <set-property
+        property="pathnames"
+        value="/org/apache/struts/validator/validator-rules.xml,
+               /WEB-INF/validation.xml"/>
+  </plug-in>
+	
+</struts-config>
+

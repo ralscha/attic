@@ -1,0 +1,104 @@
+<ormapping>
+  <driver>org.enhydra.instantdb.jdbc.idbDriver</driver>
+  <url>jdbc:idb=d:/javaprojects/ess/webcal/db.props</url>
+  <user></user>
+  <password></password>
+  <output>d:/javaprojects/private/dbtablemapping/output/</output>
+  <package>ch.ess.calendar.db</package>
+  
+  <table>
+     <name>Users</name>
+     <key auto="false">userid</key>
+     <nullable>
+       <col>firstname</col>
+       <col>name</col>
+     </nullable>
+     <manyreference> 
+        <column>userid</column>
+        <refcolumn>userid</refcolumn>
+        <reftable>Appointments</reftable>
+     </manyreference>    
+  </table>
+  
+  
+  <table>
+  	  <name>Categories</name>
+  	  <key auto="true">categoryid</key>
+     <manyreference> 
+        <column>categoryid</column>
+        <refcolumn>categoryid</refcolumn>
+        <reftable>Appointments</reftable>
+     </manyreference>  	  
+  </table>
+  
+  <table>
+  	  <name>Reminders</name>
+  	  <key auto="true">reminderid</key>  
+     <onereference> 
+        <column>appointmentid</column>
+        <refcolumn>appointmentid</refcolumn>
+        <reftable>Appointments</reftable>
+     </onereference>  	    
+  </table>
+
+  <table>
+  	  <name>Repeaters</name>
+  	  <key auto="true">repeaterid</key>
+  	  <dbsubst>
+  	     <col>until</col>
+  	     <type>java.sql.Timestamp</type>
+  	  </dbsubst>
+  	  <nullable>
+	     <col>until</col>
+	  </nullable>
+	  
+  	  
+     <onereference>
+        <column>appointmentid</column>
+        <refcolumn>appointmentid</refcolumn>
+        <reftable>Appointments</reftable>     
+     </onereference> 
+  </table>
+  
+  
+  <table>
+  	  <name>Appointments</name>
+  	  <key auto="false">appointmentid</key>
+  	  <subst>
+  	     <db>private</db>
+  	     <prg>priv</prg>
+  	  </subst>
+  	  <dbsubst>
+  	     <col>startdate</col>
+  	     <type>java.sql.Timestamp</type>
+  	  </dbsubst>
+  	  <dbsubst>
+  	     <col>enddate</col>
+  	     <type>java.sql.Timestamp</type>
+  	  </dbsubst>
+	  <nullable>
+	     <col>body</col>
+		  <col>location</col>
+		  <col>subject</col>
+		  <col>alldayevent</col>
+		  <col>importance</col>
+		  <col>private</col>
+	  </nullable>
+	  
+     <onereference>
+        <column>categoryid</column>
+        <refcolumn>categoryid</refcolumn>
+        <reftable>Categories</reftable>     		     
+     </onereference>
+     <manyreference> 
+        <column>appointmentid</column>
+        <refcolumn>appointmentid</refcolumn>
+        <reftable>Reminders</reftable>
+     </manyreference>  	  
+     <manyreference> 
+        <column>appointmentid</column>
+        <refcolumn>appointmentid</refcolumn>
+        <reftable>Repeaters</reftable>
+     </manyreference>  	  
+  </table>
+</ormapping>

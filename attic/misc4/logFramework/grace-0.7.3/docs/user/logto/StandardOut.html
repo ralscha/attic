@@ -1,0 +1,44 @@
+<html>
+<head>
+   <title>Grace JavaLog</title>
+</head>
+<body text="#000000" bgcolor="#FFFFFF" link="#0000EE" vlink="#551A8B" alink="#FF0000">
+
+<table width=100%>
+<tr>
+<td><img SRC="../gk9.jpg" NOSAVE height=200 width=153>
+<td valign=top>
+  <table width="100%" bgcolor="#FFCC00">
+  <tr><td><font size=+4 color=Green><div align=right><b>Standard Output</b></font>
+  </table>
+<div align=right><font size=+2 color=gray><b><i>Grace Software</b></i></font>
+<div align=right><font size=+2 color=gray><b><i>JavaLog</b></i></font>
+<br>
+<br>
+<div align=right><font size=-1 color="#B0B0B0">$Revision: 1.1 $</font></div>
+<div align=right><font size=-1 color="#B0B0B0">$Date: 1999/10/11 00:05:15 $</font></div>
+</table>
+
+<h2>Logging to System.out and System.err</h2>
+
+By default, all events go to a <a
+href=../../api/grace/log/StandardOutHandler.html>StandardOutHandler</a>
+named <i>out</i>.  This Handler prints all events to the system's
+standard output.  This is as if one typed the following property on
+the command line:
+
+<pre>
+    $ java -Dlog.handler.out.url=file:- MyClass
+</pre>
+
+<P>Note, the property value <i>file:-</i> tells JavaLog to use the
+StandardOutHandler and print to the system's standard out.  However,
+the StandardOutHandler can also print to the standard error by the
+following flag:
+
+<pre>
+    $ java -Dlog.handler.out.stream=err MyClass
+</pre>
+
+</body>
+</html>

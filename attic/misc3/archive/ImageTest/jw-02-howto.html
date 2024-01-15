@@ -1,0 +1,575 @@
+<HTML>
+<HEAD>
+<TITLE>JavaWorld - Images, Java style - February 1997</TITLE>
+
+<META name="description" content="JavaWorld February 1997 -- Images, Java style, Learn how Java applets deal with images in a
+network-based environment">
+<META name="keywords" content="JavaWorld, Java, applet, class library, class, library, network">
+<META name="author" content="Todd Sundsted">
+
+</HEAD>
+<BODY bgcolor="#FFFFFF" text="#000000" link="#0000FF" alink="#FF0000"
+vlink="#551a8b">
+
+
+
+<center>
+<a href="/javaworld/jw-02-1997/index.html"> <img border="0" width="73" height="20" src="/javaworld/icons/jw.home.red.gif" alt="[JavaWorld Main Page]"></a> 
+<a href="/javaworld/jw-02-1997/index.html#nuts"><img border="0" width="136" height="20" src="/javaworld/icons/jw.nuts2.gif" alt="[Nuts & Bolts]"></a> 
+<a href="/javaworld/jw-02-1997/index.html#news"><img border="0" width="136" height="20" src="/javaworld/icons/jw.news.gif" alt="[News & Views]"></a> 
+<a href="/javaworld/jw-02-1997/index.html#res"><img border="0" width="136" height="20" src="/javaworld/icons/jw.jr.gif" alt="[Java Resources]"></a> 
+</center>
+
+<CENTER><p><img src="/javaworld/icons/adbar.gif" width="468" height="10"><br><A HREF="http://ads03.focalink.com/SmartBanner/page/29.79-19981415556"><IMG VSPACE="8" SRC="http://ads03.focalink.com/SmartBanner/nph-graphic/29.79-19981415556" height="60" width="468" BORDER="0" ALT="Think RogueWave - The Software Parts Company"></A></CENTER>
+
+
+<center>
+<img width="437" height="76" src="/javaworld/icons/c-how.to.gif" 
+alt="How-to Java, by Todd Sundsted">
+
+<H1>Learn how applets load network-based images asynchronously</H1>
+
+<H3>Here's a close look at the way Java applets handle images in a network-based environment</H3>
+
+</CENTER>
+
+<BLOCKQUOTE>
+<STRONG>Summary</STRONG><br>
+Because an applet's existence is network-based, the designers of the
+Java class library had to come up with a system that effectively dealt
+with the network delay that exists when pulling images across the
+network. The result of their efforts was a system that is certainly
+effective, but one that is also a bit confusing. In this column we'll
+address some of that confusion. <em>(2,500 words)</em>
+</BLOCKQUOTE>
+
+<center><img width="432" height="7" src="/javaworld/icons/greenline.gif"></center>
+
+<P>
+<font size="+3">P</font>lease indulge me while I let you in on a little
+secret (well, it's not really so little): The Java applet is a different
+sort of beast from the typical application that executes on your PC or
+workstation. For one thing, it doesn't sit quietly on your hard drive
+waiting for your attention; a Java applet sits on the other side of a
+network connection waiting for you (and many others) to pull it across
+the network. Once the applet has made the journey, it comes to life and
+begins to download the resources it needs. Unfortunately, all of this
+network activity results in one thing:  delay. In contrast to an
+application on your hard drive, an applet must expect, and deal
+constructively with network delay.
+
+<P>
+For this reason, the Java class library was designed to support
+asynchronous loading of media, such as images. Asynchronous loading
+means that loading occurs out of step with the rest of the application
+-- in another thread -- in the background. In fact, what might be
+thought of as one operation, the loading of an image from across the
+network, actually occurs in two distinct stages, which often occur
+asynchronously. These stages are: image definition and the actual
+downloading of the image.
+
+<P>
+In this column, I will take a close look at the mechanics of image
+loading from the perspective of a Java applet or similar network-based
+Java application. I will also provide a step-by-step demonstration of
+how to load and draw images within an applet.
+
+<P>
+But first, let's take a look at the principle players.<P>
+
+<STRONG><FONT SIZE="+1">Getting the picture with the Image class</FONT></STRONG><BR>
+
+An instance of the <CODE>Image</CODE> class represents image data.
+The image data does not need to reside locally; it may exist on another
+computer. In fact, it may not exist at all. An instance of the
+<CODE>Image</CODE> class is more like a reference to image data,
+than a container for image data.
+
+<P>
+Consider an image on a computer across a network. The creation
+of an instance of the <CODE>Image</CODE> class on a local computer
+does not cause the image data to be pulled across the network.
+This is true because instantiation of the <CODE>Image</CODE> class
+does not cause reconstruction of the image data. The <CODE>Image</CODE>
+class doesn't even provide methods for initiating image reconstruction.
+(This class does, however, provide access to an <CODE>ImageProducer</CODE>
+object that does provide such methods -- I will talk about image
+producers next month.)
+
+<P>
+Although the <CODE>Image</CODE> class doesn't store image data,
+it does provide methods for obtaining information about an image.
+The following methods return such information:
+
+<PRE>
+int getHeight(ImageObserver obs);
+
+int getWidth(ImageObserver obs);
+
+Object getProperty(String nm, ImageObserver obs);
+</PRE>
+
+The height and width values returned from the first two methods
+indicate the size of the image, in pixels. Properties, on the other
+hand, are image-format-specific pieces of information about an image,
+and are retrieved by name. The only property mentioned specifically in
+the <CODE>Image</CODE> class API is the <CODE>comment</CODE> property.
+It should contain a description of the image, or something similar.
+These methods return invalid values (the <CODE>getHeight()</CODE> and
+<CODE>getWidth()</CODE> methods both return -1 and the
+<CODE>getProperty()</CODE> method returns null) if the desired
+information is currently unavailable.
+
+<P>
+All three methods require an instance of a class that implements the
+<CODE>ImageObserver</CODE> interface as a parameter. An image observer
+is an object that expects to be notified when information about an
+image becomes available (I will talk about image observers next month).
+The <CODE>Applet</CODE> class implements this interface and we'll be
+using it as the image observer throughout this column.
+
+<P>
+Image objects are not created by instantiating the <CODE>Image</CODE>
+class directly. Instead, other classes in the Abstract Windowing
+Toolkit  (AWT) provide methods for creating images. For example,
+the <CODE>Applet</CODE> class provides methods for creating instances
+of the <CODE>Image</CODE> class from a URL:
+
+<PRE>
+Image getImage(URL url);
+
+Image getImage(URL url, String nm);
+</PRE>
+
+You can also create an instance of the <CODE>Image</CODE> class with
+methods provided by the <CODE>Component</CODE> class:
+
+<PRE>
+Image createImage(ImageProducer prod);
+
+Image createImage(int w, int h);
+</PRE>
+
+<STRONG><FONT SIZE="+1">Drawing images with the Graphics class</FONT></STRONG><BR>
+
+As you might expect, the <CODE>Graphics</CODE> class plays a pivotal
+role in the use of images. It would be impossible for me to include a
+thorough discussion of the <CODE>Graphics</CODE> class and its role in
+the space I have available. Fortunately, my October column was entirely
+devoted to the <CODE>Graphics</CODE> class and is available <A
+HREF="/javaworld/jw-11-1996/jw-11-howto.html">here</A>.
+
+<P>
+Along with methods for drawing text and simple geometric shapes,
+the <CODE>Graphics</CODE> class provides methods for drawing images.
+In fact, it provides four related methods:
+
+<P>
+<CODE>boolean drawImage(Image i, int x, int y, ImageObserver obs);</CODE>
+<P>
+<CODE>boolean drawImage(Image i, int x, int y, Color c, ImageObserver
+obs);</CODE>
+<P>
+<CODE>boolean drawImage(Image i, int x, int y, int w, int h, Color
+c, ImageObserver obs);</CODE>
+<P>
+<CODE>boolean drawImage(Image i, int x, int y, int w, int h, ImageObserver
+obs);</CODE>
+
+<P>
+These methods have several parameters in common. Each method requires
+an instance of the <CODE>Image</CODE> class and the x and
+y coordinates at which to draw the image. Each method also requires
+an instance of a class that implements the <CODE>ImageObserver</CODE>
+interface.<P>
+
+<STRONG><FONT SIZE="+1">Stepping through the motions</FONT></STRONG><BR>
+
+I think its time to put our feet to the fire and construct an applet
+that loads and draws an image. To help you better understand the
+techniques required to draw images, we will work through the process in
+several stages, examining each in detail.<P>
+  
+<STRONG>Creating an instance of Image</STRONG><BR>
+
+Our first step is to create an instance of the <CODE>Image</CODE> class. Remember, instantiating the <CODE>Image</CODE> class
+<em>does not</em> cause the image to be reconstructed locally; that is, it does
+not cause the applet to download the image data.
+
+<P>
+<PRE>
+public void init()
+{
+   // getDocumentBase() returns the URL of the document
+   //   that contains this applet
+   im = getImage(getDocumentBase(), &quot;fig.gif&quot;);
+      .
+      .
+      .
+}
+</PRE>
+
+<P>
+This code demonstrates how to use the <CODE>Applet</CODE>
+class's <CODE>getImage()</CODE> method to create a reference to image
+data located somewhere else on the network. <CODE>getImage()</CODE>
+requires either an instance of the <CODE>URL</CODE> class
+identifying the location of the image data, or an instance of
+the <CODE>URL</CODE> class identifying the document base and a
+string containing the filename of the image data. I used the
+latter of the two.<P>
+
+<STRONG>Downloading an image</STRONG><BR>
+
+After creating an instance of the <CODE>Image</CODE> class, our next
+step is to reconstruct the image data itself -- on this side of the
+network. Image reconstruction is initiated via a call to the
+<CODE>prepareImage()</CODE> method of the instance of the
+<CODE>Component</CODE> class upon which the image is to be drawn. The following code demonstrates how to use the <CODE>Component</CODE>
+class's <CODE>prepareImage()</CODE> method to begin reconstruction of
+the image data:
+
+<P>
+<PRE>
+public void init()
+{
+   // getDocumentBase() returns the URL of the document
+   //   that contains this applet
+   im = getImage(getDocumentBase(), &quot;fig.gif&quot;);
+   // since this is an applet, &quot;this&quot; refers to an instance
+   //   of the Applet class... which just happens to be an
+   //   image observer
+   prepareImage(im, this);
+      .
+      .
+      .
+}
+</PRE>
+
+<P>
+The <CODE>prepareImage()</CODE> method requires an instance
+of the <CODE>Image</CODE> class representing the image, and an
+instance of a class that implements the <CODE>ImageObserver</CODE>
+interface. The latter requirement is satisfied by the <CODE>Applet</CODE>
+class, which happens to be an image observer.
+
+<P>
+As it turns out, the call to the <CODE>prepareImage()</CODE> method
+is not strictly necessary in this example because the call to
+the <CODE>drawImage()</CODE> method that we are about to make will start
+the reconstruction by itself. Let's see what this is all about.<P>
+
+<STRONG>Drawing an Image</STRONG><BR>
+
+As I mentioned before, the loading of an image occurs asynchronously --
+in the background, so to speak. This fact, however, doesn't prevent us
+from attempting to draw the incompletely loaded image.  Drawing is
+accomplished via a call to the <CODE>Graphics</CODE> class's
+<CODE>drawImage()</CODE> method. Notice that I use the
+<CODE>Graphics</CODE> class's <CODE>drawImage()</CODE> method from
+within the context of a component's <CODE>paint()</CODE> method:
+ 
+<PRE>
+public void paint(Graphics g)
+{
+   // because this is an applet, &quot;this&quot; refers to an instance
+   //   of the Applet class... which just happens to be an
+   //   image observer
+   g.drawImage(im, 50, 50, this);
+      .
+      .
+      .
+}
+</PRE>
+
+<P>
+The <CODE>drawImage()</CODE> method requires an instance of the
+<CODE>Image</CODE> class representing the image, the x and y coordinates
+at which to draw the image, and an instance of a class that implements
+the <CODE>ImageObserver</CODE> interface.
+
+<P>
+If the applet attempts to draw an image before the image is fully
+reconstructed, a partial image will be drawn. In fact, if you have an extremely slow Internet connection, the applet, which is shown
+in Figure 1, will allow you to observe this effect. The applet
+will redraw the image every time more of the image arrives. In
+order to see what I'm talking about, you might need to
+have your browser reload the current document.
+
+<P>
+<center>
+<APPLET codebase="/javaworld/jw-02-1997/howto"
+	code="Test1.class"
+	width="400"
+	height="300">
+<strong>You need a Java-enabled browser to see this applet.</strong>
+</APPLET>
+</center>
+
+<P>
+<center><em>Figure 1: The incremental loading effect</em></center>
+
+<P>
+The code demonstrating the previous three techniques is available
+<A HREF="/javaworld/jw-02-1997/howto/Test1.java">here</A>.<P>
+
+<STRONG>Preventing incomplete drawing</STRONG><BR>
+Generally speaking, a truly elegant applet should not draw an image
+until all the image data is available, so we need a way to ensure that
+this is the case. To get started, we'll use a technique that works best
+for applets displaying a single image. This technique, which is shown
+in the following code snippet, uses the <CODE>Component</CODE> class's
+<CODE>checkImage()</CODE> method to determine whether or not an image
+has finished loading. We'll discuss a more comprehensive mechanism to
+prevent incomplete drawing in the next section.
+
+<p>
+<PRE>
+public void paint(Graphics g)
+{
+   // because this is an applet, &quot;this&quot; refers to an instance
+   //   of the Applet class... which just happens to be an
+   //   image observer
+   int n = checkImage(im, this) &amp; ImageObserver.ALLBITS;
+   // the return value consists of a set of bits describing the
+   //   state of the image reconstruction
+   if (n == ImageObserver.ALLBITS) g.drawImage(im, 50, 50, this);
+      .
+      .
+      .
+}
+</PRE>
+
+<P>
+Here we see how to use the <CODE>Component</CODE>
+class's <CODE>checkImage()</CODE> method in conjunction with the <CODE>Graphics</CODE>
+class's <CODE>drawImage()</CODE> method. <CODE>checkImage()</CODE>
+requires an instance of the <CODE>Image</CODE> class representing
+the image and an instance of a class that implements the <CODE>ImageObserver</CODE>
+interface. It returns an integer describing the state of the reconstruction.
+
+<P>
+In this example, the applet must determine whether or not all of
+the image data is available before attempting to draw the image. It
+does so by testing to see whether or not the ALLBITS bit is set in the
+returned data (other bits include the ABORT, ERROR, FRAMEBITS, HEIGHT,
+WIDTH, SOMEBITS, and PROPERTIES bits). If ALLBITS is set, the applet
+knows that all of the image data has been loaded.
+
+<P>
+The applet in Figure 2 shows this code in action. Once again,
+it might be necessary to have your browser reload the current
+document. The code for this applet is available <A HREF="/javaworld/jw-02-1997/howto/Test3.java">here</A>.
+
+<P>
+<center>
+<APPLET codebase="/javaworld/jw-02-1997/howto"
+	code="Test3.class"
+	width="400"
+	height="300">
+<strong>You need a Java-enabled browser to see this applet.</strong>
+</APPLET>
+</center>
+
+<P>
+<center><em>Figure: 2 Waiting for the image data to load</em></center><P>
+
+<STRONG> <FONT SIZE="+1">Monitoring image loading with the MediaTracker class</FONT></STRONG><BR>
+
+In an applet with more that a few images to download, <em>ad hoc</em>
+techniques like the one we just discussed come up short. The
+<CODE>MediaTracker</CODE> class provides an easier, more comprehensive
+solution for monitoring image loading.
+
+<P>
+The <CODE>MediaTracker</CODE> class provides three clear
+advantages over the previous approach:
+<UL>
+<LI>Images may be organized into groups
+<LI>Loading may occur synchronously or asynchronously
+<LI>Groups may be loaded independent of any other groups
+</UL>
+Let's take a look at the code:
+
+<P>
+<PRE>
+public void init()
+{
+   // in this case, &quot;this&quot; refers to a subclass of the
+   //   Component class, which the Applet class just happens
+   //   to be
+   MediaTracker mt = new MediaTracker(this);
+
+   im = getImage(getDocumentBase(), &quot;fig.gif&quot;);
+
+   // add the image to group #0
+   mt.addImage(im, 0);
+
+   try
+   {
+      // wait for all of the images to load
+      mt.waitForAll();
+   }
+   catch (InterruptedException ie)
+   {
+      ;
+   }
+}
+</PRE>
+
+<P>
+Let's take a closer look at what's going on here. First, an instance of
+the <CODE>MediaTracker</CODE> class is created. The constructor
+requires that the component in which the image will be drawn be passed
+as a parameter.
+
+<P>
+Each image to be tracked is added via the <CODE>addImage()</CODE> method.
+The second parameter indicates the group to which the image must be
+added. The <CODE>waitForAll()</CODE> method instructs the
+<CODE>MediaTracker</CODE> object to begin reconstructing all images,
+and to return when the process is finished.
+
+<P>
+A handy feature of the <CODE>MediaTracker</CODE> class is its ability to monitor individual image groups; it allows the applet to load them once the entire group's data is available. This technique is helpful when you have a lot of images to load but not all of the images have to be displayed up front. 
+
+<P>
+The applet in Figure 3 shows this code in action. Again,
+it might be necessary to have your browser reload the current
+document. The code for this applet is available <A HREF="/javaworld/jw-02-1997/howto/Test4.java">here</A>.
+
+<P>
+<center>
+<APPLET codebase="/javaworld/jw-02-1997/howto"
+	code="Test4.class"
+	width="400"
+	height="300">
+<strong>You need a Java-enabled browser to see this applet.</strong>
+</APPLET>
+</center>
+
+<P>
+<center><em>Figure 3: MediaTracker</em></center>
+<p>
+<strong><font size="+1">Conclusion</font></strong><br>
+
+By now, you might suspect that there is more to this image business than
+meets the eye -- and you'd be correct. Next month I will stroll
+behind the scenes to take a look at the classes that make all of
+this work. In the meantime, try to incorporate some of the material
+from prior columns (events, for instance) and see if you can't make
+something <em>really</em> interesting. As always, keep the feedback coming.
+
+<img width="8" height="8" src="/javaworld/icons/dingbat.gif" alt="[]">
+
+<p>
+<strong>About the author</strong><br>
+
+Todd Sundsted has been writing programs since computers became
+available in desktop models. Though originally interested in building
+distributed-object applications in C++, Todd moved to the Java
+programming language when Java became the obvious choice for that
+sort of thing. Todd is co-author of the <em>Java Language API SuperBible</em>,
+now in bookstores everywhere. In addition to writing, Todd provides
+Internet and Web consulting services to companies in the southeastern
+United States. Reach him at 
+<A NAME="author" HREF="/javaworld/cgi-bin/jw-mailto.cgi?todd.sundsted@javaworld.com+/javaworld/jw-02-1997/jw-02-howto.html+author">todd.sundsted@javaworld.com</A>.
+
+<P>
+
+<FORM METHOD="POST" ACTION="/javaworld/cgi-bin/jw-mini-survey.cgi?jw-02-1997-howto.html">
+<a name="mini-ditka">
+<strong>What did you think of this article?</strong><br>
+</a>
+ 
+<table width="100%" align="center" cellpadding="0" border="0">
+<tr>
+<td align="left" valign="top" rowspan="1" colspan="1">
+ 
+<INPUT TYPE="radio" NAME="worth" VALUE="3">-Very worth reading<br>
+<INPUT TYPE="radio" NAME="worth" VALUE="2">-Worth reading<br>
+<INPUT TYPE="radio" NAME="worth" VALUE="1">-Not worth reading<br>
+ 
+</td>
+<td align="left" valign="top" rowspan="1" colspan="1">
+ 
+<INPUT TYPE="radio" NAME="length" VALUE="3">-Too long<br>
+<INPUT TYPE="radio" NAME="length" VALUE="2">-Just right<br>
+<INPUT TYPE="radio" NAME="length" VALUE="1">-Too short<br>
+ 
+</td>
+<td align="left" valign="top" rowspan="1" colspan="1">
+ 
+<INPUT TYPE="radio" NAME="tech" VALUE="3">-Too technical<br>
+<INPUT TYPE="radio" NAME="tech" VALUE="2">-Just right<br>
+<INPUT TYPE="radio" NAME="tech" VALUE="1">-Not technical enough<br>
+ 
+</td>
+</tr>
+</table>
+
+<table align="center" cellpadding="0" border="0">
+<tr>
+<td align="left" valign="top" rowspan="1" colspan="1">
+ 
+<TEXTAREA NAME="comments" WRAP="virtual" COLS="40" ROWS="3">Comments: </TEXTAREA>
+&nbsp;&nbsp;&nbsp;&nbsp;
+
+</td>
+<td align="left" valign="bottom">
+
+<INPUT TYPE="submit" VALUE="Send data">
+ 
+</td>
+</tr>
+</table>
+ 
+</FORM>
+
+<P>
+
+<!-- begin buttons -->
+<center>
+<a href="/javaworld/jw-02-1997/index.html"><img border="0" width="73" height="20" src="/javaworld/icons/jw.home.red.gif" alt="[JavaWorld Main Page]"></a>
+<a href="/javaworld/jw-02-1997/index.html#nuts"><img border="0" width="136" height="20" src="/javaworld/icons/jw.nuts2.gif" alt="[Nuts & Bolts]"></a>
+<a href="/javaworld/jw-02-1997/index.html#news"><img border="0" width="136" height="20" src="/javaworld/icons/jw.news.gif" alt="[News & Views]"></a>
+<a href="/javaworld/jw-02-1997/index.html#res"><img border="0" width="136" height="20" src="/javaworld/icons/jw.jr.gif" alt="[Java Resources]"></a>
+</center>
+<!-- end buttons -->
+
+<p>
+<center><img width="432" height="7" src="/javaworld/icons/greenline.gif"></center>
+<p>
+
+<strong>Resources</strong>
+
+<p>
+<UL>
+<LI>The Class <CODE>Image</CODE> API <A HREF="http://www.javasoft.com/products/JDK/CurrentRelease/api/java.awt.Image.html">http://www.javasoft.com/products/JDK/CurrentRelease/api/java.awt.Image.html</A>
+
+<LI>The Class <CODE>Graphics</CODE> API <A HREF="http://www.javasoft.com/products/JDK/CurrentRelease/api/java.awt.Graphics.html">http://www.javasoft.com/products/JDK/CurrentRelease/api/java.awt.Graphics.html</A>
+
+<LI>Using the Graphics Class <A HREF="http://www.javaworld.com/javaworld/jw-11-1996/jw-11-howto.html">http://www.javaworld.com/javaworld/jw-11-1996/jw-11-howto.html</A>
+
+<LI>The Java Tutorial by Mary Campione and Kathy Walrath <A HREF="http://www.javasoft.com/books/Series/Tutorial/index.html">http://www.javasoft.com/books/Series/Tutorial/index.html</A>
+</UL>
+
+
+<center>
+<P>
+<img width="432" height="7" src="/javaworld/icons/greenline.gif">
+<P>
+</center>
+
+<CENTER><A HREF="/javaworld/common/jw-copyright97.html"><IMG BORDER="0" width="338" height="20" SRC="/javaworld/icons/b-copyright97.gif" ALT="[(c) Copyright 1997 Web Publishing Inc., an IDG Communications company]"></A></CENTER>
+ 
+<P>
+If you have problems with this magazine, contact
+<A NAME="webmaster" HREF="/javaworld/cgi-bin/jw-mailto.cgi?webmaster@javaworld.com+/javaworld/jw-02-1997/jw-02-howto.html+webmaster">webmaster@javaworld.com</A>
+ 
+<BR>URL: http://www.javaworld.com/javaworld/jw-02-1997/jw-02-howto.html
+
+<BR> Last modified: Wednesday, July 16, 1997
+
+</BODY>
+</HTML>

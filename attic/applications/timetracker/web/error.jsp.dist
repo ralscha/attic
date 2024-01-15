@@ -1,0 +1,69 @@
+<%@ page language="java" import="ch.ess.timetracker.resource.*" isErrorPage="true" %>
+<%@ page import="java.util.*, java.io.*" %>
+<%@ page import="javax.mail.*, javax.mail.internet.*" %>
+<%@ taglib uri="http://jakarta.apache.org/struts/tags-bean" prefix="bean" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jstl/core" %>
+<%@ taglib uri="/tags/ess-misc"  prefix="misc" %>
+<html><head><title>TimeTracker Web Application Error</title>
+<html:base/>
+<link rel=stylesheet type="text/css" href="<c:url value='/styles/global.css'/>">
+</head>
+
+<body>
+<p>
+<bean:message key="Erroroccurred"/><br>
+</p>
+
+<p>&nbsp;</p>
+
+<misc:toString id="mailText">
+<misc:suppress>
+<%@ include file="WEB-INF/jsp/include/error.inc"%>
+</misc:suppress>
+</misc:toString>
+
+<% try {
+     String mailServer = AppConfig.getStringProperty(AppConfig.MAIL_SMTPHOST, null);
+     String subject = "TimeTracker Error Notification";
+     String [] to = { AppConfig.getStringProperty(AppConfig.ERROR_MAIL_RECEIVER, null) };
+     String from = AppConfig.getStringProperty(AppConfig.MAIL_SENDER, null);
+     sendEmail(mailServer, subject, to, from, mailText); %>
+     <p><b>Sent an email to: <%= to[0] %></b></p>
+<% }
+   catch (AddressException e) { %>
+     <p>Invalid e-mail address(es) for error notification. <%= e.toString() %></p>
+<% }
+   catch (MessagingException e) { %>
+     <p>Unable to send e-mail for error notification. <%= e.toString() %></p>
+<% } %>
+
+</body>
+</html>
+<%!  
+  public void sendEmail (String mailServer, String subject,
+                         String to[], String from, String messageText) 
+    throws AddressException, MessagingException {
+    
+	// Create session
+    Properties mailProps = new Properties();
+    mailProps.put("mail.smtp.host", mailServer);
+    //mailProps.put("mail.debug", Boolean.TRUE);
+    Session mailSession = Session.getDefaultInstance(mailProps, null);
+    //mailSession.setDebug(true);
+    // Construct addresses
+    int toCount = to.length;
+    InternetAddress[] toAddrs = new InternetAddress[toCount];
+    for (int i = 0; i < toCount; ++i) {
+        toAddrs[i] = new InternetAddress(to[i]);
+    }
+    InternetAddress fromAddr = new InternetAddress(from);
+    // Create and initialize message
+    Message message = new MimeMessage(mailSession);
+    message.setFrom(fromAddr);
+    message.setRecipients(Message.RecipientType.TO, toAddrs);
+    message.setSubject(subject);
+    message.setContent(messageText.toString(), "text/plain");
+    // Send message
+    Transport.send(message);
+	
+  } %>

@@ -1,0 +1,15 @@
+module HelloApp
+{
+
+    interface Hello
+    {
+        exception cantWriteFile{};
+        exception cantReadFile{};
+
+        string sayHello(in string message)
+                raises (cantWriteFile);
+
+        string lastMessage()
+                raises (cantReadFile);
+    };
+};

@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<!DOCTYPE form-validation PUBLIC
+          "-//Apache Software Foundation//DTD Commons Validator Rules Configuration 1.0//EN"
+          "http://jakarta.apache.org/commons/dtds/validator_1_0.dtd">
+
+<form-validation>
+
+    <formset>
+        <form name="departmentForm">
+          <field property="name" depends="required">
+            <arg0 key="Name"/>
+          </field>    
+          <field property="email1" depends="email">
+            <arg0 key="EMail"/>
+          </field> 
+          <field property="email2" depends="email">
+            <arg0 key="EMail"/>
+          </field> 
+          <field property="email3" depends="email">
+            <arg0 key="EMail"/>
+          </field> 
+        </form>
+        
+        <form name="dynLogonForm">
+          <field property="userName" depends="required">
+            <arg0 key="UserName"/>
+          </field>
+          <field property="password" depends="required">
+            <arg0 key="Password"/>
+          </field>
+        </form>         
+        
+        <form name="resourceGroupForm">
+          <field property="name" depends="required">
+            <arg0 key="Name"/>
+          </field>
+        </form>      
+        
+        <form name="resourceForm">
+          <field property="name" depends="required">
+            <arg0 key="Name"/>
+          </field>   
+          <field property="resourceGroupId" depends="required">
+            <arg0 key="ResourceGroup"/>
+          </field>                     
+        </form>
+                
+        <form name="categoryForm">
+          <field property="name" depends="required">
+            <arg0 key="Name"/>
+          </field>
+          <field property="colour" depends="required">
+            <arg0 key="Colour"/>
+          </field>          
+          <field property="bwColour" depends="required">
+            <arg0 key="BWColour"/>
+          </field>           
+        </form>   
+        
+        <form name="userForm">
+          <field property="userName" depends="required">
+            <arg0 key="UserName"/>
+          </field>    
+          <field property="firstName" depends="required">
+            <arg0 key="FirstName"/>
+          </field>             
+          <field property="name" depends="required">
+            <arg0 key="LastName"/>
+          </field>                       
+          <field property="password" depends="required,identical">
+            <arg0 key="Password"/>
+            <arg1 key="RetypePassword"/>
+            <var>
+              <var-name>secondProperty</var-name>
+              <var-value>retypePassword</var-value>
+            </var>            
+          </field>    
+          <field property="departmentIds" depends="required">
+            <arg0 key="BelongsToDepartments"/>
+          </field>                                
+          <field property="retypePassword" depends="required">
+            <arg0 key="RetypePassword"/>
+          </field>             
+          <field property="email1" depends="email,required">
+            <arg0 key="EMail"/>
+          </field> 
+          <field property="email2" depends="email">
+            <arg0 key="EMail"/>
+          </field> 
+          <field property="email3" depends="email">
+            <arg0 key="EMail"/>
+          </field> 
+        </form>           
+
+
+        <form name="systemForm">
+          <field property="passwordLen" depends="required,integer">
+            <arg0 key="PasswordLen"/>
+          </field>
+          <field property="mailSmtp" depends="required">
+            <arg0 key="SMTPServer"/>
+          </field>
+          <field property="mailSender" depends="required,email">
+            <arg0 key="MailSender"/>
+          </field>
+          <field property="errorMailReceiver" depends="required,email">
+            <arg0 key="ErrorMailReceiver"/>
+          </field>
+        </form> 
+
+
+
+    </formset>
+
+</form-validation>

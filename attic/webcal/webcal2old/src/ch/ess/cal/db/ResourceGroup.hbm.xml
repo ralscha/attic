@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping SYSTEM "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+<hibernate-mapping>
+
+	<class name="ch.ess.cal.db.ResourceGroup" proxy="ch.ess.cal.db.ResourceGroup" table="calResourceGroup">
+		<id name="resourceGroupId" type="long" unsaved-value="null">
+			<generator class="native"/>
+		</id>		
+		<version name="version"/>
+				
+		<property name="name" type="string" length="255" not-null="true"/>
+    	<property name="description" type="string" length="1000"/>
+
+		<set name="resources" lazy="true" inverse="true">
+          <key column="resourceId"/>
+          <one-to-many class="ch.ess.cal.db.Resource"/>
+        </set>	
+        
+        <set name="departments" lazy="true" table="calDepartmentResourceGroups">
+          <key column="resourceGroupId"/>
+          <many-to-many class="ch.ess.cal.db.Department" column="departmentId"/>
+        </set>	        
+        	
+        <set name="users" lazy="true" table="calUserResourceGroups">
+          <key column="resourceGroupId"/>
+          <many-to-many class="ch.ess.cal.db.User" column="userId"/>
+        </set>	        	
+        	
+	</class>
+
+	
+</hibernate-mapping>

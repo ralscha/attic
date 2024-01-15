@@ -1,0 +1,192 @@
+BODY {
+	font-family : Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size : 10px;
+}
+A {
+	font-family : Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size : 10px;
+}
+TABLE,td,th {
+	font-family : Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size : 11px;
+	border : 1px solid Gray;
+	border-collapse: collapse;
+}
+table.login td{
+	font-family : Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size : 12px;
+	border : 1px solid Gray;
+	border-collapse: collapse;
+}
+table.noBorder,table.noBorder  tr,table.noBorder td{
+	font-family : Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size : 11px;
+	border : 0px;
+}
+table.border,table.border tr,table.border td{
+	font-family : Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size : 11px;
+	border : 1px solid Gray;
+	border-collapse: collapse;
+}
+div.errormsg{
+	font-family : Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size : 18px;
+	color : Red;
+}
+div.infomsg{
+	font-family : Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size : 18px;
+	color : Green;
+}
+div.exportlinks {
+        font-family : Arial;
+        font-size : 8pt;
+}
+
+span.csv {
+        background-image: url(images/ico_file_csv.png);
+        background-repeat: no-repeat;
+        font-family : Arial;
+        font-size : 8pt;
+}
+
+span.excel {
+        background-image: url(images/ico_file_excel.png);
+        background-repeat: no-repeat;
+   font-family : Arial;
+        font-size : 8pt;
+}
+
+span.export {
+        cursor: pointer;
+        display: inline;
+        padding: 0 4px 1px 20px;
+   font-family : Arial;
+        font-size : 8pt;
+}
+
+.total{
+	font-family : Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size : 10px;
+	font-weight : bold;
+}
+
+span.pagebanner {
+        display: block;
+        padding: 2px 4px 2px 4px;
+   font-family : Arial;
+        font-size : 8pt;
+}
+
+span.pagelinks {
+        display: block;
+        padding: 2px 4px 10px 4px;
+   font-family : Arial;
+        font-size : 8pt;
+}
+
+span.xml {
+        background-image: url(images/ico_file_xml.png);
+        background-repeat: no-repeat;
+   font-family : Arial;
+        font-size : 8pt;
+}
+
+table.list {
+	border : 1px solid #1E5C99;
+	border-collapse: collapse;
+	font-family : Arial;
+	font-size : 8pt;
+	background-color : #22bb44;
+}
+
+table.list tbody td {
+        border : 1px solid #1E5C99;
+        padding: 2px 4px 2px 4px;
+}
+
+table.list tbody tr.even {
+	background-color: #33ee55;
+	color: Black;
+}
+
+table.list tbody tr.odd {
+	background-color: #FFFFFF;
+	color: Black;
+}
+
+table.list tbody td a, table.list tbody td a:visited {
+        background-color: transparent;
+        color: Black;
+}
+
+table.list tbody td a:hover {
+        background: #FFD700;
+        color: Black;
+}
+
+table.list thead th {
+	background-color : #22bb44;
+	color: Black;
+	border : 1px solid #1E5C99;
+	font-weight: bold;
+	padding: 2px 4px 2px 4px;
+	text-align: left;
+	font-family : Arial;
+	font-size : 9pt;
+}
+
+table.list thead th a, table.list thead th a:visited {
+        background-color: transparent;
+        color: Black;
+        text-decoration: none;
+}
+
+table.list thead th a:hover {
+        background-color: transparent;
+        color: Black;
+        text-decoration: underline;
+}
+
+table.list thead th.sortable a {
+        background-image: url(images/arrow_off.png);
+        background-position: right;
+        background-repeat: no-repeat;
+        display: block;
+}
+
+table.list thead th.order1 a {
+        background-image: url(images/arrow_down.png);
+        background-repeat: no-repeat;
+}
+
+table.list thead th.order2 a {
+        background-image: url(images/arrow_up.png);
+        background-repeat: no-repeat;
+}
+
+
+
+table.list thead th.sortable a:hover {
+        background-color: transparent;
+        color: Black;
+        text-decoration: underline;
+}
+
+table.list thead th.sorted {
+        background-repeat: no-repeat;
+        color: Black;
+        background-color: transparent;
+}
+
+table.list thead th.sorted a:hover {
+        background-color: transparent;
+        color: Black;
+        text-decoration: underline;
+}
+
+table.list thead tr {
+        background-color: #DDDDDD;
+        color: Black;
+}

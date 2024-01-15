@@ -1,0 +1,74 @@
+package ${clazz.packageName}.web.${clazz.nameAllSmall};
+
+import javax.servlet.http.HttpServletRequest;
+
+import org.apache.commons.lang.ArrayUtils;
+import org.apache.struts.action.ActionMapping;
+
+import ch.ess.blank.web.AbstractForm;
+
+/** 
+ * @author sr
+ * @version $Revision: $ $Date: $
+ * 
+ * @struts.form name="${clazz.nameSmall}Form"
+ */
+public class ${clazz.name}Form extends AbstractForm {
+
+#foreach( $property in $clazz.properties )
+  #if ($property.modelBoolean)
+  private boolean ${property.name};
+  #else
+  private ${property.type} ${property.name};
+  #end
+#end
+
+  #if ($clazz.containsResetProperties)
+  public void reset(final ActionMapping mapping, final HttpServletRequest request) {
+    #foreach( $property in $clazz.properties )
+    #if ($property.modelBoolean)
+    ${property.name} = false;        
+    #elseif ($property.array)
+    ${property.name} = null;
+    #end    
+    #end
+  }
+  #end
+    
+#foreach( $property in $clazz.properties )
+  #if ($property.modelBoolean) 
+  public ${property.type} is${property.nameFirstUpperCase}() {  
+  #else
+  public ${property.type} get${property.nameFirstUpperCase}() {
+  #end
+    #if ($property.array)
+    return (${property.type})ArrayUtils.clone(${property.name});
+    #elseif ($property.clone)
+    return Util.clone(${property.name});
+    #else
+    return ${property.name};
+    #end
+  }
+  
+  #if ($property.validator) 
+  /**   
+   * @struts.validator type="$property.validator"
+   * @struts.validator-arg position="0" key="${clazz.nameSmall}.${property.nameWithoutId}"
+   #if ($property.dateValidator)
+   * @struts.validator-var name="datePatternStrict" value="dd.MM.yyyy"   
+   #end
+   */  
+  #end
+  public void set${property.nameFirstUpperCase}(final ${property.type} ${property.name}) {
+    #if ($property.array)
+    this.${property.name} = (${property.type})ArrayUtils.clone(${property.name});
+    #elseif ($property.clone) 
+    this.${property.name} = Util.clone(${property.name});
+    #else
+    this.${property.name} = ${property.name};
+    #end
+  }
+  
+#end
+
+}

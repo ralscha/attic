@@ -1,0 +1,6 @@
+${objectName}=${objectName}
+${dbClassName}=${dbClassName}
+${objectName}neu=Neue ${objectName} erfassen
+Keine${dbClassName}gefunden=Keine ${dbClassName} gefunden
+${objectName}Loeschen=${objectName} {0} wirklich löschen?
+${objectName}bearbeiten=${objectName} bearbeiten

@@ -1,0 +1,512 @@
+<HTML>
+<HEAD>
+<TITLE>When static images just don't make the cut - April 1997</TITLE>
+
+<META name="description" content="JavaWorld April 1997 -- When static images just don't make the cut, Learn how to manipulate the Image class to spice up your applets and applications with animated images">
+<META name="keywords" content="JavaWorld, Java,  class library, class, library, image producer, image consumer, animated images, animated, Mandelbrot">
+<META name="author" content="Todd Sundsted">
+
+</HEAD>
+<BODY bgcolor="#FFFFFF" text="#000000" link="#0000FF" alink="#FF0000"
+vlink="#551a8b">
+
+<!--#config timefmt="%A, %B %d, %Y" -->
+
+<center>
+<a href="/javaworld/jw-04-1997/index.html"> <img border="0" width="73" height="20" src="/javaworld/icons/jw.home.red.gif" alt="[JavaWorld Main Page]"></a> 
+<a href="/javaworld/jw-04-1997/index.html#nuts"><img border="0" width="136" height="20" src="/javaworld/icons/jw.nuts2.gif" alt="[Nuts & Bolts]"></a> 
+<a href="/javaworld/jw-04-1997/index.html#news"><img border="0" width="136" height="20" src="/javaworld/icons/jw.news.gif" alt="[News & Views]"></a> 
+<a href="/javaworld/jw-04-1997/index.html#res"><img border="0" width="136" height="20" src="/javaworld/icons/jw.jr.gif" alt="[Java Resources]"></a> 
+</center>
+
+<!--#exec cgi="/javaworld/cgi-bin/jw-adbanrot.cgi"-->
+
+<center>
+<img width="437" height="76" src="/javaworld/icons/c-how.to.gif" alt="How-to Java, by Todd Sundsted">
+<H1>When static images just don't make the cut</H1>
+
+<H3>Learn how to spice up your applets and applications<BR>with animated images</H3></CENTER>
+
+<P>
+<BLOCKQUOTE>
+<STRONG>Summary</STRONG><BR>
+Images don't have to stand still. They can move. Unfortunately, using
+the basic Java language class library, you can't display images like
+the output of a video feed or even an animated GIF, which has become so
+commonplace on the Web. Not wanting you to be left in the dark ages, I
+have set out this month to show you can manipulate the Java language
+class library to create animated <CODE>Image</CODE> objects. When we're
+done, you'll have not only a useful piece of software, but a much
+better understanding of two components of the Java language class
+library. <EM>(1,750 words)</EM>
+</BLOCKQUOTE>
+
+
+<P>
+<A HREF="/javaworld/jw-02-1997/jw-02-howto.html">Two months ago</A> I
+showed you how to create an instance of the <CODE>Image</CODE> class
+given the URL of a file containing image data. Then, in <A
+HREF="/javaworld/jw-03-1997/jw-03-howto.html">last month's column</A>,
+I showed you how to create an instance of the <CODE>Image</CODE> class
+given an instance of a class that implemented the
+<CODE>ImageProducer</CODE> interface. In both examples the rest of the
+application didn't know (or care, for that matter) how the
+<CODE>Image</CODE> object was created.
+
+<P>
+Let's examine the second case in a bit more detail.
+
+<P>
+True to its name, an image producer produces image data. The image
+producer in last month's column produced an image showing a color
+gradient. However, an image producer is not limited to generating (and
+regenerating) only a single, static frame of image data; in fact, it is
+free to redefine the image data <EM>at any time</EM>.
+
+<P>
+Perhaps you can guess where I am going with this. After an image producer
+has produced one frame of image data, it is free to draw right on top of
+that frame to produce yet another frame of image data. Repeat this process
+a couple of times and, bam, you've got animation.
+
+<P>
+Whoah! Animation that easy? You bet. Let's take a closer look at how we
+can actually do this repetitive drawing.
+
+<P>
+<FONT SIZE="+1"><STRONG>The mechanics</FONT></STRONG><BR>
+
+Take a look at the illustration below, which shows the relationship
+between an image producer and one or more image consumers. As you know
+from our previous discussions, the image producer communicates
+information about the image data it is producing to one or more image
+consumers by invoking public methods on the image consumer. Image
+consumers then use this image information in a variety of ways -- to
+draw the image on the screen, for example. If you're feeling little
+lost about the whole concept of image producers and image consumers,
+take a quick detour back to <A
+HREF="/javaworld/jw-03-1997/jw-03-howto.html">last month's column</A>
+before we move on.
+
+<CENTER><P><IMG SRC="/javaworld/jw-04-1997/howto/fig1.gif" HEIGHT=106 WIDTH=426></CENTER>
+
+<P>
+<CENTER><EM>The image producer/image consumer relationship</CENTER></EM>
+
+<P>
+The interface between an image producer and an image consumer dictates
+the type of images that can be produced. With that in mind, let's look
+at two of the methods the <CODE>ImageConsumer</CODE> interface defines and
+the parameters those methods expect. The methods are the <CODE>setHints()</CODE>
+and <CODE>imageComplete()</CODE> methods. Let's begin at the end with the <CODE>imageComplete()</CODE> method, shown next: 
+
+<P>
+<CODE>imageComplete(int nStatus)</CODE>
+
+<P>
+When an image producer calls an image consumer's
+<CODE>imageComplete()</CODE> method, it does so with the intent of
+informing the consumer about the status of the image reconstruction.
+The <CODE>imageComplete()</CODE> method requires an integer argument, which can be one of four values: <CODE>IMAGEABORTED</CODE>, <CODE>IMAGEERROR</CODE>, <CODE>STATICIMAGEDONE</CODE>, and <CODE>SINGLEFRAMEDONE</CODE>.
+
+<P>
+An image producer uses the arguments <CODE>IMAGEABORTED</CODE> and
+<CODE>IMAGEERROR</CODE> to indicate that something has gone wrong
+during the process of image production.  It uses the argument
+<CODE>STATICIMAGEDONE</CODE> to indicate that image production is
+completely finished. Last of all, but central to our plan, it uses the
+argument <CODE>SINGLEFRAMEDONE</CODE> to indicate that it has produced
+a single frame of image data, but more frames may follow.
+
+<P>
+The following snippet demonstrates how an image producer
+would indicate to an image consumer that image production is complete.
+
+<PRE>
+public void startProduction(ImageConsumer ic)
+{
+      .
+      .
+   // image production code goes here...
+      .
+      .
+   ic.imageComplete(ImageConsumer.STATICIMAGEDONE);
+      .
+      .
+}
+</PRE>
+
+
+<P>
+Now let's skip back to the beginning and examine the
+<CODE>setHints()</CODE> method, shown here:
+
+<P><CODE>setHints(int nHints)</CODE>
+
+<P>
+Before image production begins, an image producer can tell the image
+consumer a little bit about how it intends to deliver the image data
+with "hints." The image consumer can use this information to optimize
+its processing of the image data. Image producers can specify five
+hints, which can be combined, to let an image consumer know what's
+coming: <CODE>RANDOMPIXELORDER</CODE>, <CODE>COMPLETESCANLINES</CODE>,
+<CODE>TOPDOWNLEFTRIGHT</CODE>, <CODE>SINGLEFRAME</CODE>, and
+<CODE>SINGLEPASS</CODE>.
+
+<P>
+An image producer uses the argument <CODE>RANDOMPIXELORDER</CODE> to
+indicate that it will deliver the image data in an unpredictable order
+(this is the default). It uses the argument
+<CODE>COMPLETESCANLINES</CODE> to indicate that it will deliver the
+image data one scan line at a time. The argument
+<CODE>TOPDOWNLEFTRIGHT</CODE> indicates that the image producer will
+deliver the image data in a top-down and left-to-right fashion. And
+finally, the arguments <CODE>SINGLEFRAME</CODE> and
+<CODE>SINGLEPASS</CODE> indicate that the image data will consist of
+only a single frame and that it will set a particular pixel's data only
+one time. An image producer should not send the last two hints if it
+intends to produce more than one frame of image data.
+
+<P>
+The following snippet demonstrates how an image producer
+would indicate to an image consumer how it intends to deliver image data.
+
+<PRE>
+public void startProduction(ImageConsumer ic)
+{
+      .
+      .
+   ic.setHints(ImageConsumer.RANDOMPIXELORDER);
+      .
+      .
+   // image production code goes here...
+      .
+      .
+}
+</PRE>
+
+<P>
+The flowchart displayed below shows the steps an image producer must
+take when sending multiframe image data to image consumers. Here's what
+happens. An image producer must first communicate hints and related
+information to any image consumers that are interested in that
+information. It then must send the image data for the first frame. As
+each frame is completed, the image producer invokes the image
+consumer's <CODE>imageComplete()</CODE> method with the argument
+<CODE>SINGLEFRAMEDONE</CODE>. It then sends image data for the next
+frame, and so on. When the image producer has finished sending all the
+frames, it invokes the image consumer's <CODE>imageComplete()</CODE>
+method with the argument <CODE>STATICIMAGEDONE</CODE>.
+
+<CENTER><P><IMG SRC="/javaworld/jw-04-1997/howto/fig2.gif" HEIGHT=491 WIDTH=446></CENTER>
+
+<CENTER><EM>An image producer's flow of control</EM></CENTER>
+
+<P>
+<FONT SIZE="+1"><STRONG>Getting down to the code</FONT></STRONG><BR>
+
+Because all of the hard work of image handling is done within the image
+producer, the application itself doesn't require any significant
+modifications. The image created from the custom image producer plugs
+into an application just like any other image. The code listing <EM>A
+framework for displaying an image</EM> shows the framework we used last
+month for displaying an image, with one small change.  The
+<CODE>createImage()</CODE> method now takes as a parameter an instance
+of the new image producer. No additional machinery is required.
+
+<PRE>
+public class Framework extends Applet
+{
+   private Image _im = null;
+
+   public void init()
+   {
+      // createImage() creates an image from an
+      //   image producer object...
+      _im = createImage(new NewImageProducer());
+
+      // because this is an applet, &quot;this&quot; refers to an
+      //   instance of the Applet class... which just
+      //   happens to be an image observer...
+      prepareImage(_im, this);
+   }
+
+   public void paint(Graphics g)
+   {
+      // see the comment about &quot;this&quot; above... 
+      g.drawImage(_im, 50, 50, this);
+   }
+}
+</PRE>
+
+<CENTER><EM>Code Listing: A framework for displaying an image</CENTER></EM>
+<P>
+
+<FONT SIZE="+1"><STRONG>Applying the techniques</FONT></STRONG><BR>
+
+The applet in this section demonstrates this technique in
+action. Unfortunately, I wasn't able to provide a video feed for this
+column (although that certainly would have been impressive), so I had
+to find another way to illustrate the techniques we reviewed this
+month. After much thought and diligent searching, I came up with the
+Mandelbrot generator applet, which I happen to think is really neat.
+
+<P>
+<applet codebase="/javaworld/jw-04-1997/howto/"
+        code="New.class" 
+        width="532" 
+        height="532">
+You need a Java-enabled browser to see this applet.
+</applet>
+
+<P>
+<CENTER><EM>A Mandelbrot generator</CENTER></EM>
+
+
+<P><a name="mandelbrot"><p></a>
+
+The image producer in this example produces an image of the Mandelbrot
+set. If you're wondering what the heck that is, be sure to read the
+sidebar <strong><a href="#sidebar">The Mandelbrot set</a></strong> for
+more information.  The image producer first produces a rough,
+low-resolution image, which it enhances with each successive frame. In
+this way, the viewer is treated to continually &quot;better&quot;
+approximations of the image without having to wait until the full image
+is generated (which is, let me warn you now, a time-consuming
+process).
+
+<p>
+The complete source code for the Mandelbrot image producer is available
+<A
+HREF="/javaworld/jw-04-1997/howto/MandelbrotImageProducer.java">here</A>.
+The complete source code of the applet is available <A
+HREF="/javaworld/jw-04-1997/howto/New.java">here</A>.
+
+<P>
+<font size="+1"><strong>Wrapping up</font></strong><BR>
+
+A framework like the one shown previously is really all that is
+required to display the image. I recommend that you take the image
+producer out for a whirl and drop it into some of your code in place of
+a static image. Go ahead, give it a try. If you come across any serious problems, you can always contact <A NAME="author" HREF="/javaworld/cgi-bin/jw-mailto.cgi?todd.sundsted@javaworld.com+/javaworld/jw-04-1997/jw-04-howto.html+author">me</A> (todd.sundsted@javaworld.com) with whatever's holding you up.
+
+<P>
+Next month I'll be launching the first of a multipart series on 3D
+graphics in Java. 3D graphics engines are at the heart of a widely
+diverse set of applications from computer aided design software to
+games. They're also an essential element of any virtual reality
+environment. So stick around and I'll show you how to create
+your own little virtual 3D world.
+
+
+<P>
+<STRONG>About the Author</STRONG><BR>
+Todd Sundsted has been writing programs since computers became
+available in desktop models. Though originally interested in building
+distributed object applications in C++, Todd moved to the Java
+programming language when Java became the obvious choice for that sort
+of thing. Todd is co-author of the <EM>Java Language API
+SuperBible</EM>, now in bookstores everywhere. In addition to writing,
+Todd provides consulting, training, and mentoring services to companies
+learning about and working with the Internet.
+ 
+<P>
+
+<FORM METHOD="POST" ACTION="/javaworld/cgi-bin/jw-mini-survey.cgi?jw-04-1997-howto.html">
+<a name="mini-ditka">
+<strong>What did you think of this article?</strong><br>
+</a>
+ 
+<table width="100%" align="center" cellpadding="0" border="0">
+<tr>
+<td align="left" valign="top" rowspan="1" colspan="1">
+ 
+<INPUT TYPE="radio" NAME="worth" VALUE="3">-Very worth reading<br>
+<INPUT TYPE="radio" NAME="worth" VALUE="2">-Worth reading<br>
+<INPUT TYPE="radio" NAME="worth" VALUE="1">-Not worth reading<br>
+ 
+</td>
+<td align="left" valign="top" rowspan="1" colspan="1">
+ 
+<INPUT TYPE="radio" NAME="length" VALUE="3">-Too long<br>
+<INPUT TYPE="radio" NAME="length" VALUE="2">-Just right<br>
+<INPUT TYPE="radio" NAME="length" VALUE="1">-Too short<br>
+ 
+</td>
+<td align="left" valign="top" rowspan="1" colspan="1">
+ 
+<INPUT TYPE="radio" NAME="tech" VALUE="3">-Too technical<br>
+<INPUT TYPE="radio" NAME="tech" VALUE="2">-Just right<br>
+<INPUT TYPE="radio" NAME="tech" VALUE="1">-Not technical enough<br>
+ 
+</td>
+</tr>
+</table>
+
+<table align="center" cellpadding="0" border="0">
+<tr>
+<td align="left" valign="top" rowspan="1" colspan="1">
+ 
+<TEXTAREA NAME="comments" WRAP="virtual" COLS="40" ROWS="3">Comments: </TEXTAREA>
+&nbsp;&nbsp;&nbsp;&nbsp;
+
+</td>
+<td align="left" valign="bottom">
+
+<INPUT TYPE="submit" VALUE="Send data">
+ 
+</td>
+</tr>
+</table>
+ 
+</FORM>
+
+<P>
+
+<!-- begin buttons -->
+<center>
+<a href="/javaworld/jw-04-1997/index.html"><img border="0" width="73" height="20" src="/javaworld/icons/jw.home.red.gif" alt="[JavaWorld Main Page]"></a>
+<a href="/javaworld/jw-04-1997/index.html#nuts"><img border="0" width="136" height="20" src="/javaworld/icons/jw.nuts2.gif" alt="[Nuts & Bolts]"></a>
+<a href="/javaworld/jw-04-1997/index.html#news"><img border="0" width="136" height="20" src="/javaworld/icons/jw.news.gif" alt="[News & Views]"></a>
+<a href="/javaworld/jw-04-1997/index.html#res"><img border="0" width="136" height="20" src="/javaworld/icons/jw.jr.gif" alt="[Java Resources]"></a>
+</center>
+<!-- end buttons -->
+
+<p>
+<center><img width="432" height="7" src="/javaworld/icons/greenline.gif"></center>
+<p>
+
+<STRONG>Resources</STRONG>
+
+<UL>
+<LI>The Class <CODE>Image</CODE> API: <BR> 
+<A HREF="http://www.javasoft.com:80/products/jdk/1.0.2/api/Package-java.awt.image.html">http://www.javasoft.com:80/products/jdk/1.0.2/api/Package-java.awt.image.html</A>
+
+
+<LI>The Class <CODE>ImageProducer</CODE> API: <BR> 
+<A HREF="http://www.javasoft.com:80/products/jdk/1.0.2/api/java.awt.image.ImageProducer.html">http://www.javasoft.com:80/products/jdk/1.0.2/api/java.awt.image.ImageProducer.html</A>
+
+
+<LI>The Class <CODE>ImageConsumer</CODE> API:<BR> 
+<A HREF="http://www.javasoft.com:80/products/jdk/1.0.2/api/java.awt.image.ImageConsumer.html">http://www.javasoft.com:80/products/jdk/1.0.2/api/java.awt.image.ImageConsumer.html</A>
+
+
+<LI>The Class <CODE>ImageObserver</CODE> API: <BR> 
+<A HREF="http://www.javasoft.com:80/products/jdk/1.0.2/api/java.awt.image.ImageObserver.html">http://www.javasoft.com:80/products/jdk/1.0.2/api/java.awt.image.ImageObserver.html</A>
+
+<LI>You can download this article, the source code, and the class files as a gzipped tar file:<BR>
+<A HREF="/javaworld/jw-04-1997/howto/jw-04-howto.tar.gz">/javaworld/jw-04-1997/howto/jw-04-howto.tar.gz</A></UL>
+
+
+
+<P><strong>Previous How-To Java articles</strong>
+
+<P>
+
+<UL>
+<LI>"<A HREF="/javaworld/jw-03-1997/jw-03-howto.html">How Java uses the the producer/consumer model to handle images -- An insider's look</A>" -- Learn more about Java's powerful image-handling technique, then follow my simple procedures for building your own producer and consumer components.
+
+<LI>"<A HREF="/javaworld/jw-02-1997/jw-02-howto.html">Learn how applets load network-based images asynchronously</A>" -- Here's a close look at the way Java applets handle images in a network-based environment.
+
+<LI>"<A HREF="/javaworld/jw-01-1997/jw-01-howto.html">Drawing text is easy with three Java classes</A>" -- Find out how to create text that's visually appealing through this explanation of what classes to use and how they work together.
+
+<LI>"<A HREF="/javaworld/jw-12-1996/jw-12-howto.html">Examining HotSpot, an object-oriented drawing program</A>" -- Learn how the pieces of the Java language and class library fit together through a study of this Java. program
+
+<LI>"<A HREF="/javaworld/jw-11-1996/jw-11-howto.html">Using the Graphics class</A>" -- A close look at the Graphics class and the drawing primitives it provides, and a demonstration of its use.
+
+<LI>"<A HREF="/javaworld/jw-10-1996/jw-10-howto.html">Observer and Observable</A>" -- An introduction to the Observer interface and Observable class using the Model/View/Controller architecture as a guide.
+
+<LI>"<A HREF="/javaworld/jw-09-1996/jw-09-userint.html">The effective user interface</A>" -- An introduction to the Observer interface and Observable class using the Model/View/Controller architecture as a guide.
+
+<LI>"<A HREF="/javaworld/jw-08-1996/jw-08-event.html">Java and event handling</A>" -- How events are passed to user interface components, how to create event handlers, and more.
+
+<LI>"<A HREF="/javaworld/jw-07-1996/jw-07-awt.html">Introduction to the AWT</A>" -- A description of Java's user interface toolkit.
+</UL>
+
+<center>
+<P>
+<img width="432" height="7" src="/javaworld/icons/greenline.gif">
+<P>
+</center>
+
+<CENTER><A HREF="/javaworld/common/jw-copyright97.html"><IMG BORDER="0" width="338" height="20" SRC="/javaworld/icons/b-copyright97.gif" ALT="[(c) Copyright 1997 Web Publishing Inc., an IDG Communications company]"></A></CENTER>
+ 
+<P>
+If you have problems with this magazine, contact
+<A NAME="webmaster" HREF="/javaworld/cgi-bin/jw-mailto.cgi?webmaster@javaworld.com+/javaworld/jw-04-1997/jw-04-howto.html+webmaster">webmaster@javaworld.com</A>
+ 
+<BR>URL: http://www.javaworld.com/javaworld/jw-04-1997/jw-04-howto.html
+
+<BR> Last modified: <!--#echo var="LAST_MODIFIED" -->
+
+<P> 
+<CENTER><IMG width="432" height="7" SRC="/javaworld/icons/greenline.gif" ALT=""></CENTER>
+<a name="sidebar">
+<P><CENTER><strong><font size="+1">The Mandelbrot set</a></font></strong></center>
+
+<P>
+The Mandelbrot set is one of the best-known examples of a fractal.
+It's so well known that even if you haven't heard of it, you've almost
+certainly seen it.
+
+<P>
+All fractals share one important characteristic--they are self-similar
+at all levels of magnification.  This means that the closer you look
+at a fractal, the more detail you see--and the detail seen close up
+looks just like the detail seen far away.
+
+<P>
+Contrast this with most things we are familiar with--my lawn, for
+example, looks like a hilly green carpet when viewed from my living
+room window.  However, when I view it from an inch or two away, the
+hills disappear and individual blades of grass appear.  I don't see
+smaller and smaller hills.
+
+<P>
+The Mandelbrot set is a set of complex numbers.  A complex number
+belongs in the Mandelbrot set if the passes (or fails, depending on
+how you look at it) a simple test.
+
+<P>
+Take any complex number c and run it through the following equation (z
+is initially zero):
+
+<CODE><P>f(z) = z * z + c</CODE>
+
+<P>
+Replace the previous value of z with the result and run c through
+again. Repeat this procedure. Eventually, one of two things will
+happen. Either the magnitude of the result will begin to grow larger
+and larger (at which point we quit and say the number <EM>is not
+in</EM> the Mandelbrot set), or, after a large number of iterations,
+the magnitude won't grow larger and larger (at which point we give up
+and say the number <EM>is in</EM> the Mandelbrot set).
+
+<P>
+We can plot the resulting set by treating the real part of the complex
+number as the x coordinate and the imaginary part of the complex
+number as the y coordinate. The complex numbers found in the
+Mandelbrot set are usually colored black. Numbers not in the
+Mandelbrot set are colored according to the number of iterations
+required before we decide they're not in the set.
+
+<P>
+The most interesting thing about the Mandelbrot set is the incredible
+complexity that results from such a simple algorithm. At first glance,
+the resulting plot looks like a cardioid with warts. If you look at the warts,
+however, you see that they have warts and creeping tendrils. Look at
+the tendrils and you'll find miniature versions of the original
+cardioid, also resplendent with warts. And on and on it goes.
+
+
+<P> 
+
+<a href="#mandelbrot">Back to story</a>
+
+<P>
+<center><IMG width="432" height="7" SRC="/javaworld/icons/greenline.gif" ALT=""></center>
+
+
+
+</BODY>
+</HTML>

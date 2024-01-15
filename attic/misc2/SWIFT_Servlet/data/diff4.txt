@@ -1,0 +1,47 @@
+EINZELKONTO: 477                                                                
+SAMMELKONTO: 478                                                                
+                                                                                
+WAEHRUNG                      EINZELKONTO         SAMMELKONTO         DIFFERENZ 
+                                                                                
+                                                                                
+                                                                                
+W„HRUNGSCODE:        10  CHF                                                    
+                                                                                
+                                                                                
+W„HRUNGSCODE:        44  DEM                                                    
+                                                                                
+                                                                                
+W„HRUNGSCODE:        66  FRF                                                    
+                                                                                
+                                                                                
+W„HRUNGSCODE:        89  GBP                                                    
+                                                                                
+                                                                                
+W„HRUNGSCODE:       111  ITL                                                    
+                                                                                
+                                                                                
+W„HRUNGSCODE:       168  ATS                                                    
+                                                                                
+                                                                                
+W„HRUNGSCODE:       183  PTE                                                    
+                                                                                
+                                                                                
+W„HRUNGSCODE:       223  ESP                                                    
+                                                                                
+                                                                                
+W„HRUNGSCODE:       305  HKD                                                    
+                                                                                
+                                                                                
+W„HRUNGSCODE:       335  JPY                                                    
+                                                                                
+                                                                                
+W„HRUNGSCODE:       440  SGD                                                    
+                                                                                
+                                                                                
+W„HRUNGSCODE:       770  CAD                                                    
+                                                                                
+                                                                                
+W„HRUNGSCODE:       780  USD                                                    
+                                                                                
+                                                                                
+W„HRUNGSCODE:       945  AUD                                                    

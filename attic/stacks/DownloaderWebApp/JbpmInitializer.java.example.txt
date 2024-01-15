@@ -1,0 +1,37 @@
+package ch.ess.downloader;
+
+import org.jboss.seam.ScopeType;
+import org.jboss.seam.annotations.Create;
+import org.jboss.seam.annotations.Install;
+import org.jboss.seam.annotations.Name;
+import org.jboss.seam.annotations.Scope;
+import org.jboss.seam.annotations.Startup;
+import org.jboss.seam.annotations.intercept.BypassInterceptors;
+import org.jboss.seam.bpm.Jbpm;
+import org.jbpm.JbpmConfiguration;
+import org.jbpm.svc.Services;
+
+    
+@Name("org.jboss.seam.bpm.jbpm")
+@Scope(ScopeType.APPLICATION)
+@BypassInterceptors
+@Startup
+@Install(value=true, precedence = Install.APPLICATION)
+public class JbpmInitializer extends Jbpm {
+ 
+  
+  
+  @Override
+  @Create
+  public void startup() throws Exception {
+    
+//    PersistenceServiceFactory psf = JbpmConfiguration.getInstance().getServiceFactory(Services.SERVICENAME_PERSISTENCE); 
+//    getJbpmConfiguration().
+//    
+//    super.startup();
+//
+//    setProcessDefinitions(new String[]{"test.jpdl.xml"});
+    
+    
+  }
+}

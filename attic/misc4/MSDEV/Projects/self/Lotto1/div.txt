@@ -1,0 +1,64 @@
+
+Anfang	6 aus 40
+14/79   6 aus 42
+1/86	6 aus 45
+
+
+
+Format
+
+2-3 Ziehungsnummer
+5-8 Jahr
+10-11 1. Zahl
+13-14 2. Zahl
+16-17 3. Zahl
+19-20 4. Zahl
+22-23 5. Zahl
+25-26 6. Zahl
+28-29 Zusatzzahl
+32    Gerade
+35    Ungerade
+37-39 Summe
+
+
+
+
+
+
+
+
+ Ziehung nach Wahrscheinlichkeit
+
+ 1. Auswahl gerade/ungerade    
+ 2. Auswahl der Summe (kann schlussendlich -5 +5 abweichen)
+ 3. Auswahl des Verbunds 
+
+ 4. Häufigkeit der Zahlen 41 - 45 hochrechnen
+ 5. Punkte verteilen: Häufigkeit + 10*Ausstehend
+ 6. Zufallszahlen zwischen 1 und Summe aller Punkte
+ 7. Zufallszahl minus jeweilige Punkte. Index bei
+    dem folgendes eintrifft ist gewählt: zufall <= 0 
+ 8. Nachdem sechs Zahlen gezogen wurden prüfen ob mit Auswahl gerade/ungerade
+    übereinstimmt.
+ 9. Ob mit der Summe -5 +5 übereinstimmt
+10. Ob mit Verbund übereinstimmt.
+11. Wenn alles übereinstimmt Zahlenfolge ist gewählt.
+
+
+
+Ebene Ziehung
+
+- Summe
+- Anzahl ungerade
+- Anzahl gerade
+- Nichts/Paar/Drilling/Vierling/Fünfling/Sechsling
+  Doppelpaar/Drilling+Paar/Drilling+Drilling
+  Vierling + Paar
+
+
+Ebene Alle Ziehungen
+
+- letztes Auftreten einer Zahl
+- Häufigkeit einer Zahl
+- Total Anzahl ungerade / gerade
+- Partner (welche Zahl kommt mit welcher am meisten vor)

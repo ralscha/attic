@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+
+<quartz>
+
+  <job>
+    <job-detail>
+      <name>optimize</name>
+      <group>DEFAULT</group>
+      <job-class>ch.ess.common.search.OptimizeJob</job-class>
+      <volatility>false</volatility>
+      <durability>false</durability>
+      <recover>false</recover>
+    </job-detail>
+
+    <trigger>
+      <simple>
+        <name>dailyTrigger</name>
+        <group>DEFAULT</group>
+        <repeat-count>-1</repeat-count>
+         <repeat-interval>86400000</repeat-interval>
+      </simple>
+    </trigger>
+
+
+  </job>
+
+
+
+</quartz>

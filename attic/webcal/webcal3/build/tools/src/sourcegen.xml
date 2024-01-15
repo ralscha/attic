@@ -1,0 +1,60 @@
+
+<sourcegen>
+  <javaOutputPath>c:/temp/test/src</javaOutputPath>
+  <jspOutputPath>c:/temp/test/jsp</jspOutputPath> 
+  <dropDownMenu>true</dropDownMenu>
+  <classDescriptions>
+      <classDescription>    
+        <packageName>ch.ess.blank</packageName>
+        <name>Project</name>
+        
+        <!-- Diese Methode wird beim Dao aufgerufen um zu sehen,
+             ob die Row gelöscht werden kann -->
+        <sizeProperty>tasksSize</sizeProperty>
+        
+        
+        <!-- key NICHT angeben, z.B. projectId -->          
+        <properties>
+          <property>
+            <name>name</name>
+            <modelType>String</modelType><!-- mögliche Werte String, Date, BigDecimal, Integer, Boolean -->
+            <validator>required</validator>
+            <finder>true</finder>  <!-- suchen nach diesem Property -->
+            <list>true</list> <!-- wenn true, wird in der Liste angezeigt -->      
+            <sort>ASCENDING</sort> <!-- Sortieren der Liste. mögliche Werte ASCENDING, DESCENDING -->    
+          </property>
+          <property>
+            <name>customerId</name>
+            <validator>required</validator>
+            <modelType>Customer</modelType>
+            <dao>customerDao</dao>
+            <finder>true</finder>
+            <list>true</list>
+            <option>true</option> <!-- Combobox in den JSP Seiten -->
+            <listReferenceProperty>name</listReferenceProperty>
+          </property>
+         <property>
+            <name>description</name>
+            <modelType>String</modelType>            
+          </property> 
+         <property>
+            <name>termin</name>
+            <modelType>Integer</modelType>            
+          </property>                    
+         <property>
+            <name>flag</name>
+            <modelType>Boolean</modelType>            
+          </property>                    
+          <!-- Array Beispiel 
+          <property>
+            <name>permissionIds</name>
+            <type>String[]</type>
+            <dao>permissionDao</dao>
+            <modelType>Permission</modelType>
+          </property>
+          -->
+         
+        </properties>
+      </classDescription>
+  </classDescriptions>  
+</sourcegen>

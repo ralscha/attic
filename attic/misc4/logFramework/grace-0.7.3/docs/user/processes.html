@@ -1,0 +1,105 @@
+<html>
+<head>
+   <title>Grace JavaLog</title>
+</head>
+<body text="#000000" bgcolor="#FFFFFF" link="#0000EE" vlink="#551A8B" alink="#FF0000">
+
+<table width=100%>
+<tr>
+<td><img SRC="gk9.jpg" NOSAVE height=200 width=153>
+<td valign=top>
+  <table width="100%" bgcolor="#FFCC00">
+  <tr><td><font size=+4 color=Green><div align=right>
+    <b>Process Distribution</b></font>
+  </table>
+<div align=right><font size=+2 color=gray><b><i>Grace Software</b></i></font>
+<div align=right><font size=+2 color=gray><b><i>JavaLog</b></i></font>
+<br>
+<br>
+<div align=right><font size=-1 color="#B0B0B0">$Revision: 1.1 $</font></div>
+<div align=right><font size=-1 color="#B0B0B0">$Date: 1999/09/27 12:26:03 $</font></div>
+</table>
+
+<h2>Introduction</h2>
+
+JavaLog can be configured to run in different process models.  This
+document describes three main process models that can be used in
+JavaLog.
+
+<ul>
+<li>Standalone
+<li>Centralized
+<li>Distributed
+</ul>
+
+<h2>Standalone</h2>
+
+By default, JavaLog is configured to run in a single JVM and produce
+logging output on the standard output.
+
+<h2>Centralized</h2>
+
+This is also called the client/server configuration.  This
+configuration is characterized by one ore more client applications
+sending their log events to a central server process that presumably
+combines all of the client log events into a single output.  The
+advantage of this configuration is that the events of all of the
+virtual machines in the system are routed through a single
+application.  This makes it much easier to diagnose problems and
+analyse an entire systems behavior.
+
+<P>All of the class necessary to demonstrate a simple client/server
+configuration are included in JavaLog.  Of course, these classes can
+be modified or rewritten to suit the users needs.  The following 3
+classes implement the basic system:
+
+<ul>
+<li><a href=../api/grace/log/test/centralized/Server.html>grace.log.test.centralized.Server</a> 
+<li><a href=../api/grace/log/test/centralized/Sender.html>grace.log.test.centralized.Sender</a> 
+<li><a href=../api/grace/log/test/centralized/Receiver.html>grace.log.test.centralized.Receiver</a> 
+</ul>
+
+Start the system like this:
+
+<pre>
+$ rmiregistry &
+$ java grace.log.test.centralized.Server
+$ java grace.log.test.centralized.Receiver
+$ java grace.log.test.centralized.Sender
+</pre>
+
+<P>In this system, the server registers itself in the rmiregistry,
+then the receiver looks up this server and adds itself as a <a
+href=../api/grace/log/Handler.html>Handler</a> on the server.  This
+makes it so the receiver will receive all events that are sent to the
+server.  Finally, the sender looks up the server and installs a <a
+href=../api/grace/log/ProxyHandler.html>ProxyHandler</a> to the server.
+This means all events logged by the sender will be automatically sent
+to the server.  So, an event logged by the sender is first sent by the
+ProxyHandler to the server and then sent back to the receiver.
+
+<P>The Server <a
+href=../api/grace/log/Distributer.html>Distributer</a> registers
+itself in the rmiregistry under the name
+<code>log.distributer.<i>vmid</i></code>.  In fact any virtual machine
+where Javlog is running will register itself under this pattern if the
+<a href=properties/server.html>-Dlog.server=true</a> flag is set.  The
+<i>vmid</i> is the id of the virtual machine and makes the entry in
+the rmiregistry unique.  So, many servers in one virtual machine can
+register themselves in the local registry.  This makes these virtual
+machines available so that another remote process can send events to
+or receive events from them.
+
+<h2>Distributed</h2>
+
+In this configuration, there are many logging virtual machines but no
+server.  This is advantageous because it does not require the user to
+start and maintain a separatly running central server process. This
+system is comprised of a collection of virtual machines where each
+logs separately, as in the standalone case.  Here, if one needs to
+look at the log of a particular virtual machine, one needs to either
+connect to that remote virtual machine with another process or save
+all of the log events to a file.  
+
+</head>
+</html>

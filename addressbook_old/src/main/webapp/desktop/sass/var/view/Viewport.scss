@@ -1,0 +1,9 @@
+$base-color: #157fcc;
+$base-highlight-color: mix(#fff, $base-color, 15%);
+$base-light-color: mix(#fff, $base-color, 65%);
+$tab-base-color-active: mix(#fff, $base-highlight-color, 10%);
+$tab-base-color: $base-light-color;
+
+$tab-color-active: #fff;
+$tab-color: $base-color;
+$tab-color-over: #fff;

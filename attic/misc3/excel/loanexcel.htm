@@ -1,0 +1,54 @@
+<HTML>
+
+<HEAD>
+<TITLE>Southcreek Realty Company - Amoritization Calculator</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#5F8090">
+
+<!--Call loan.jhtml in the ACTION statement to process the form input data when submitted-->
+<FORM METHOD=GET ACTION="loanexcel.jsp" TARGET="right">
+
+<TABLE WIDTH=220>
+<TR>
+<TD WIDTH=220 ALIGN=MIDDLE COLSPAN=2>
+<IMG SRC="house.gif" WIDTH=150 HEIGHT=150><BR> <BR></TD>
+</TR>
+
+<!--Ask the price of the house; name it price-->
+<TR>
+<TD WIDTH=120 VALIGN=MIDDLE ALIGN=RIGHT><FONT SIZE="-1" FACE="ARIAL, HELVETICA" COLOR="#FFFFF7"><B>List Price: </B></FONT></TD>
+<TD WIDTH=100 VALIGN=TOP ALIGN=LEFT><INPUT NAME="price" TYPE="TEXT" SIZE="7"></TD></TR>
+
+<!--Ask for the percent of the price being put down; name it down-->
+<TR>
+<TD WIDTH=120 VALIGN=MIDDLE ALIGN=RIGHT><FONT SIZE="-1" FACE="ARIAL, HELVETICA" COLOR="#FFFFF7"><B>Money Down %:</B></FONT></TD>
+<TD WIDTH=100 VALIGN=TOP ALIGN=LEFT><INPUT NAME="down" TYPE="TEXT" SIZE="7"></TD></TR>
+
+<!--Ask for the percent of the closing cost; name it closing-->
+<TR>
+<TD WIDTH=120 VALIGN=MIDDLE ALIGN=RIGHT><FONT SIZE="-1" FACE="ARIAL, HELVETICA" COLOR="#FFFFF7"><B>Closing %:</B></FONT></TD>
+<TD WIDTH=100 VALIGN=TOP ALIGN=LEFT><INPUT NAME="closing" TYPE="TEXT" SIZE="7"></TD></TR>
+
+<!--Ask for a 15 or 30 year termon the loan, name it years-->
+<TR>
+<TD WIDTH=120 VALIGN=MIDDLE ALIGN=RIGHT><FONT SIZE="-1" FACE="ARIAL, HELVETICA" COLOR="#FFFFF7"><B>Years:</B></FONT></TD>
+<TD WIDTH=100 VALIGN=TOP ALIGN=LEFT><SELECT NAME="years"> 
+<OPTION SELECTED>15</OPTION> 
+<OPTION>30</OPTION>
+</SELECT></TD></TR>
+
+<!--Ask for the rate of the loan, name it interest-->
+<TR>
+<TD WIDTH=120 VALIGN=MIDDLE ALIGN=RIGHT><FONT SIZE="-1" FACE="ARIAL, HELVETICA" COLOR="#FFFFF7"><B>Interest:</B></FONT></TD>
+<TD WIDTH=100 VALIGN=TOP ALIGN=LEFT><INPUT NAME="interest" TYPE="TEXT" VALUE="7.0" SIZE="3"></TD></TR>
+
+<TR>
+<TD WIDTH=220 COLSPAN=2 ALIGN=MIDDLE><BR> <BR><INPUT TYPE="Submit" value="Calculate"></TD></TR>
+</TABLE>
+
+</FORM>
+
+</BODY>
+</HTML>
+

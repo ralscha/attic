@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+  GRANITE DATA SERVICES
+  Copyright (C) 2007-2008 ADEQUATE SYSTEMS SARL
+
+  This file is part of Granite Data Services.
+
+  Granite Data Services is free software; you can redistribute it and/or modify
+  it under the terms of the GNU Lesser General Public License as published by
+  the Free Software Foundation; either version 3 of the License, or (at your
+  option) any later version.
+
+  Granite Data Services is distributed in the hope that it will be useful, but
+  WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+  FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License
+  for more details.
+
+  You should have received a copy of the GNU Lesser General Public License
+  along with this library; if not, see <http://www.gnu.org/licenses/>.
+-->
+
+<mx:Canvas width="432" height="500" xmlns:mx="http://www.adobe.com/2006/mxml"
+    initialize="initializeHandler(event)">
+
+    <mx:Script>
+        <![CDATA[
+          import ch.ess.booking.control.BookingProcessCtl;
+            import org.granite.tide.seam.Seam;
+            import org.granite.tide.seam.Context;
+            import mx.events.FlexEvent;
+            import mx.formatters.DateFormatter;
+            import mx.controls.DateField;
+
+            [Bindable]
+            public var bookingProcessCtl:BookingProcessCtl;
+
+
+            //Initializes the default field values
+            private function initializeHandler(event:FlexEvent):void {
+                checkinDate.selectedDate = new Date();
+                beds.selectedIndex = 0;
+                smoking.selected = true;
+            }
+        ]]>
+    </mx:Script>
+
+    <!-- Validators -->
+    <mx:DateValidator id="checkinDateValidator" required="true" source="{checkinDate}" property="text"
+        inputFormat="mm/dd/yyyy" allowedFormatChars="/" />
+    <mx:DateValidator id="checkoutDateValidator" required="true" source="{checkoutDate}" property="text"
+        inputFormat="mm/dd/yyyy" allowedFormatChars="/" />
+
+    <mx:Binding source="checkinDate.selectedDate" destination="bookingProcessCtl.booking.checkinDate" />
+    <mx:Binding source="checkoutDate.selectedDate" destination="bookingProcessCtl.booking.checkoutDate" />
+    <mx:Binding source="beds.selectedIndex" destination="bookingProcessCtl.booking.beds" />
+    <mx:Binding source="smoking.selected" destination="bookingProcessCtl.booking.smoking" />
+
+    <mx:transitions>
+    <mx:Transition>
+        <mx:Parallel>
+            <mx:Fade target="{authentication}" alphaFrom=".75" alphaTo="1" duration="500"  />
+        </mx:Parallel>
+    </mx:Transition>
+    </mx:transitions>
+
+    <mx:Panel label="Hotel Reservation Information" id="authentication" title="Hotel Reservation Information                                            *Required Fields" width="425">
+        <mx:Form width="405" height="100%" >
+            <mx:FormItem label="Hotel:">
+                <mx:TextInput text="{bookingProcessCtl.hotel.name}" enabled="false" />
+            </mx:FormItem>
+            <mx:FormItem label="Address:">
+                <mx:TextInput enabled="false" text="{bookingProcessCtl.hotel.address}"/>
+            </mx:FormItem>
+            <mx:FormItem>
+                <mx:TextInput text="{bookingProcessCtl.hotel.state}" enabled="false"/>
+            </mx:FormItem>
+            <mx:FormItem>
+                <mx:TextInput text="{bookingProcessCtl.hotel.zip}" enabled="false"/>
+            </mx:FormItem>
+            <mx:FormItem label="Check In Date:" required="true">
+                <mx:DateField id="checkinDate" />
+            </mx:FormItem>
+            <mx:FormItem label="Check Out Date:" required="true">
+                <mx:DateField  id="checkoutDate" />
+            </mx:FormItem>
+            <mx:FormItem label="*Room Preference:" required="true">
+            <mx:ComboBox selectedIndex="{bookingProcessCtl.booking.beds}" id="beds" >
+                <mx:ArrayCollection>
+                    <mx:Array>
+                        <mx:String>1 King Bed</mx:String>
+                        <mx:String>2 Double Bed</mx:String>
+                        <mx:String>2 Double 1 Single Bed</mx:String>
+                    </mx:Array>
+                </mx:ArrayCollection>
+            </mx:ComboBox>
+            </mx:FormItem>
+            <mx:HBox>
+                <mx:FormItem label="*Smoking Preference:" required="true">
+                    <mx:RadioButtonGroup id="smokingPreferences"/>
+                    <mx:RadioButton id="nonSmoking" label="Non-Smoking" groupName="smokingPreferences"/>
+                    <mx:RadioButton id="smoking" label="Smoking" groupName="smokingPreferences"/>
+                </mx:FormItem>
+            </mx:HBox>
+        </mx:Form>
+        <mx:ControlBar id="controlbar1">
+        </mx:ControlBar>
+    </mx:Panel>
+
+</mx:Canvas>

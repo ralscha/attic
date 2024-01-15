@@ -1,0 +1,51 @@
+.title
+{
+	FONT-FAMILY: Verdana;
+	FONT-SIZE: 17pt;
+	FONT-STYLE: normal;
+	FONT-VARIANT: normal;
+	FONT-WEIGHT: bolder
+}
+.text
+{
+    FONT-FAMILY: Verdana;
+    FONT-SIZE: 10pt;
+    FONT-STYLE: normal;
+    FONT-VARIANT: normal;
+    FONT-WEIGHT: normal
+}
+
+.textb
+{
+    FONT-FAMILY: Verdana;
+    FONT-SIZE: 10pt;
+    FONT-STYLE: normal;
+    FONT-VARIANT: normal;
+    FONT-WEIGHT: bold
+}
+
+.titlesmall
+{
+	FONT-FAMILY: Verdana;
+	FONT-SIZE: 13pt;
+	FONT-STYLE: normal;
+	FONT-VARIANT: normal;
+	FONT-WEIGHT: bold
+}
+
+
+TH { 
+     FONT-FAMILY: Verdana;
+    FONT-SIZE: 10pt;
+    FONT-STYLE: normal;
+    FONT-VARIANT: normal;
+    FONT-WEIGHT: bold
+ }
+ 
+ TD { 
+     FONT-FAMILY: Verdana;
+    FONT-SIZE: 10pt;
+    FONT-STYLE: normal;
+    FONT-VARIANT: normal;
+    FONT-WEIGHT: normal
+  }

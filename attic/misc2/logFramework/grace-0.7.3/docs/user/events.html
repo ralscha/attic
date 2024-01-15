@@ -1,0 +1,186 @@
+<html>
+<head>
+   <title>Grace JavaLog</title>
+</head>
+<body text="#000000" bgcolor="#FFFFFF" link="#0000EE" vlink="#551A8B" alink="#FF0000">
+
+<table width=100%>
+<tr>
+<td><img SRC="gk9.jpg" NOSAVE height=200 width=153>
+<td>
+  <table width="100%" bgcolor="#FFCC00">
+  <tr><td><font size=+4 color=Green><div align=right><b>Events</b></font>
+  </table>
+<div align=right><font size=+2 color=gray><b><i>Grace Software</b></i></font>
+<div align=right><font size=+2 color=gray><b><i>JavaLog</b></i></font>
+<br><br>
+<br><br>
+<div align=right><font size=-1 color="#B0B0B0">$Revision: 1.2 $</font></div>
+<div align=right><font size=-1 color="#B0B0B0">$Date: 1999/10/11 00:05:14 $</font></div>
+</table>
+
+<h2>Introduction</h2>
+
+An item logged in JavaLog is called an <b>event</b>.  An event
+encapsulates the time, stack trace, message, and object as well as an
+event type string.  An event type is one word that indicates the
+general catagory of the event.  Event types are one of the ways events
+can be <a href="filtering.html">filtered</a> in JavaLog so it is
+important to design the event types assigned to an event carefully.
+
+<p>JavaLog events are initiated by calling one of the
+<code>Log.log(String type, ...)</code> functions.  Some common event
+types have been broken out as separate functions so the event type
+argument does not have to be passed.  These are <i>error, warning,
+notice,</i> and <i>trace</i>.
+
+<P>The remainder of this document shows how to use JavaLog to log
+various common conditions in code.
+
+<h2>Exceptions</h2>
+  
+    <P>Typically, the programmer doesn't know exactly how to handle
+    some exceptions while the code is being developed and tested.  So,
+    instead of simply calling
+    <code>Exception.printStackTrace()</code>, using the exception
+    logging functionality allows is easier and allows the extensive
+    runtime control of JavaLog.  The following is a the best way to
+    handle exceptions:
+
+    <pre>
+    try {
+        ... code that throws an exception ...
+    }
+    catch (Exception e) {
+        Log.error(e);
+    }
+    </pre>
+
+    <P>Now, rather that simply log the fact that an exception
+    occurred, it is better to log the context under which the
+    exception has occurred.  However, since JavaLog logs automatically
+    the class, function, and line number in which the exception
+    occurred, the programmer should try to offer a more meaning full
+    explanation of why the error occurred.
+
+    <P>This high level description of the exception takes the form a
+    string message that could contain two pieces of information:
+    <ul>
+    <li>the probable cause of the exception
+    <li>how the code handled the exception.  Here are some possible
+    words to describe this:
+
+        <table BORDER>
+	<tr>
+	<td><b>ignored</b></td> <td>Exception indicates an expected erroreous
+	condition but one that leaves the program in a known runnable
+	state.</td>
+	</tr>
+
+	<tr>
+	<td><b>aborted</b></td> <td>Like <i>ignored</i> but indicates
+	that the entire operation causing the exception was
+	stopped.</td>
+	</tr>
+
+	<tr>
+	<td><b>confused</b> or <b>impossible</b></td> <td>The
+	programmer has determined that the condition under which the
+	exception occurred is "impossible" but he was forced to handle
+	the exception.  If this exception occurs, it indicates that
+	programmer didn't anticipate the condition and means,
+	therefore, that the program may be in an foul or unrecoverable
+	state.</td>
+	</tr>
+
+	<tr>
+	<td><b>fatal</b></td> <td>The exception is not handlable and
+	the program will be terminated.</td>
+	</tr>
+
+	 </table>
+
+	 <P>So, a useful handled exception could look like this:
+         <pre></code>
+	 try { ... }
+	 catch (Exception e) { Log.error("ignored"); }
+    
+         <i>or</i>
+
+	 try { ... }
+	 catch (Exception e) { Log.error("invalid input; aborted", e); }
+	 </code></pre>
+    </ul>
+
+<h2>Errors and Warnings</h2>
+
+Errors and Warnings that are not caused by an exception are also
+useful in the log.  In this case, the condition is determined and
+logged with only a message.
+
+<pre><code>
+if (...) 
+    Log.warning("something is wrong on Saturn 3"); }
+</code></pre>
+
+<h2>Notices</h2>
+
+Notices are useful for printing out messages or objects that are a
+normal part of program's output but are not used for debugging.  This
+is useful if the program has no GUI and simply wants to print results
+to the log.
+
+<pre><code>
+Log.notice("original", orignalVector); }
+Log.notice("sorted", sortedVector); }
+</code></pre>
+
+<P>Note in the above two examples that when objects are logged, the
+name of the object must also be passed to the logging function.
+
+<h2>Traces</h2>
+
+Traces are typically used during program debugging, testing, or
+performance analysis.  Then, during productive runs of the software
+they can be turned off or partially filtered to reduce the noisy log
+output.
+
+<pre><code>
+Log.trace("object", object); }
+</code></pre>
+
+
+<h2>User defined</h2>
+
+Log messages can have other event types than the error, warning,
+pnotice, and trace.  The user can specify any type in the more general
+call to the logging functions that takes an event type as the first
+argument:
+
+<pre><code>
+Log.log("statistic", "object", object); }
+</code></pre>
+
+<P>The above example would log an object with event type "statistic".
+Any string can be used for the event type.  User defined event types
+are usefule for many purposes because they add a more rich symantic
+meaning to the event and can be easily and quickly filtered in and out
+at runtime.  
+
+<P>Older logging systems indicate the meaning of a log events with
+integer level numbers.  This practice can be continued here as well.
+Sinply specify the event type as a number:
+
+<pre><code>
+Log.log("42", "object", object); }
+</code></pre>
+
+<P>Then, the <a href="filtering.html">runtime filtering mechanism</a>
+can be used to filter in or out specific levels and a series of
+levels.  However, since JavaLog allows text event types, it is a shame
+not to use.  Numbered levels do not provide a symantically rich logs
+and therefore require a paper lookup table to translate to the text
+description.
+
+</body>
+</html>

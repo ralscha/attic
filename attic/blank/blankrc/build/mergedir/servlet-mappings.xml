@@ -1,0 +1,4 @@
+<servlet-mapping>
+  <servlet-name>caucho</servlet-name>
+  <url-pattern>/caucho/*</url-pattern>
+</servlet-mapping>

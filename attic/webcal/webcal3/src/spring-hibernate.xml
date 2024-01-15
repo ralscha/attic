@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+  
+  <bean id="namingStrategy" class="ch.ess.cal.persistence.hibernate.AppNamingStrategy">
+    <property name="prefix"><value>cal_</value></property>
+  </bean>
+  
+  <bean id="sessionFactory" class="ch.ess.cal.persistence.hibernate.AppLocalSessionFactoryBean">
+    <property name="schemaUpdate"><value>true</value></property>
+    <property name="existsQuery"><value>select count(name) from cal_configuration</value></property>
+    <property name="namingStrategy"><ref local="namingStrategy"/></property>
+    <property name="dataSource"><ref bean="dataSource"/></property> 
+       
+    <property name="annotatedPackages" value="ch.ess.cal.model"/>
+    
+    <property name="annotatedClasses">
+      <list>
+     
+        <value>ch.ess.cal.model.Attachment</value>
+        <value>ch.ess.cal.model.Category</value>
+        <value>ch.ess.cal.model.Configuration</value>
+        <value>ch.ess.cal.model.Email</value>
+        <value>ch.ess.cal.model.Event</value>
+        <value>ch.ess.cal.model.EventCategory</value>
+        <value>ch.ess.cal.model.EventProperty</value>
+        <value>ch.ess.cal.model.Group</value>
+        <value>ch.ess.cal.model.GroupConfiguration</value>
+        <value>ch.ess.cal.model.Holiday</value>
+        <value>ch.ess.cal.model.Permission</value>
+        <value>ch.ess.cal.model.Recurrence</value>
+        <value>ch.ess.cal.model.Reminder</value>
+        <value>ch.ess.cal.model.ReminderProperty</value>
+        <value>ch.ess.cal.model.Resource</value>
+        <value>ch.ess.cal.model.ResourceGroup</value>
+        <value>ch.ess.cal.model.TextResource</value>
+        <value>ch.ess.cal.model.Translation</value>
+        <value>ch.ess.cal.model.TranslationText</value>
+        <value>ch.ess.cal.model.User</value>
+        <value>ch.ess.cal.model.UserConfiguration</value>                                        
+        <value>ch.ess.cal.model.UserGroup</value>                                        
+        <value>ch.ess.cal.model.UserGroupPermission</value>                                        
+        <value>ch.ess.cal.model.UserUserGroup</value>                                                                
+      </list>
+    </property>
+     
+    
+    <property name="defaultDriver"><value>org.hibernate.dialect.GenericDialect</value></property>
+    <property name="drivers">
+      <map>
+        <entry key="Microsoft SQL Server"><value>org.hibernate.dialect.SQLServerDialect</value></entry>
+        <entry key="SAP DB"><value>org.hibernate.dialect.SAPDBDialect</value></entry>
+        <entry key="MySQL"><value>org.hibernate.dialect.MySQLDialect</value></entry>
+        <entry key="DB2"><value>org.hibernate.dialect.DB2Dialect</value></entry>
+        <entry key="Oracle"><value>org.hibernate.dialect.OracleDialect</value></entry>        
+        <entry key="mckoi"><value>org.hibernate.dialect.MckoiDialect</value></entry>                
+        <entry key="pointbase"><value>org.hibernate.dialect.PointbaseDialect</value></entry>                        
+        <entry key="hsql"><value>org.hibernate.dialect.HSQLDialect</value></entry>                                
+      </map>
+    </property>        
+    
+    <property name="hibernateProperties"> 
+      <props> 
+        <prop key="hibernate.show_sql">false</prop>       
+        <prop key="hibernate.query.substitutions">true 1, false 0</prop>
+        <prop key="hibernate.generate_statistics">false</prop>
+      </props> 
+    </property> 
+  </bean> 
+  
+  <bean id="transactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager"> 
+    <property name="sessionFactory"><ref local="sessionFactory"/></property> 
+  </bean>
+  
+  <bean id="autoProxyCreator" class="org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator"/>
+  
+  <bean id="transactionAttributeSource" 
+    class="org.springframework.transaction.annotation.AnnotationTransactionAttributeSource"/>
+  
+  <bean id="transactionInterceptor" class="org.springframework.transaction.interceptor.TransactionInterceptor">
+    <property name="transactionManager" ref="transactionManager"/>
+    <property name="transactionAttributeSource" ref="transactionAttributeSource"/>
+  </bean>
+  
+  <bean id="transactionAdvisor" class="org.springframework.transaction.interceptor.TransactionAttributeSourceAdvisor">
+    <property name="transactionInterceptor" ref="transactionInterceptor"/>
+  </bean>
+
+</beans>
+

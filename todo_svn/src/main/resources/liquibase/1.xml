@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+	xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+	<property name="blob.type" value="OID" dbms="postgresql" />
+	<property name="blob.type" value="BLOB" dbms="mysql" />
+	<property name="blob.type" value="BLOB" dbms="mssql" />
+
+	<changeSet author="dev" id="11">
+		<createTable tableName="todo">
+			<column autoIncrement="true" name="id" type="BIGINT">
+				<constraints primaryKey="true" primaryKeyName="todoPK" />
+			</column>
+            <column name="description" type="VARCHAR(4000)"/>
+			<column name="due" type="timestamp" />
+			<column name="image_name" type="VARCHAR(255)" />
+			<column name="thumbnail" type="${blob.type}" />
+			<column name="title" type="VARCHAR(255)" />
+			<column name="type" type="VARCHAR(7)" />
+		</createTable>
+	</changeSet>
+
+</databaseChangeLog>

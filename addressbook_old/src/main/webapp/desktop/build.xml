@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project name="Addressbook" default=".help">
+	<!--
+    The build-impl.xml file imported here contains the guts of the build process. It is
+    a great idea to read that file to understand how the process works, but it is best to
+    limit your changes to this file.
+    -->
+	<import file="${basedir}/.sencha/app/build-impl.xml" />
+
+	<!--
+    The following targets can be provided to inject logic before and/or after key steps
+    of the build process:
+
+        The "init-local" target is used to initialize properties that may be personalized
+        for the local machine.
+
+            <target name="-before-init-local"/>
+            <target name="-after-init-local"/>
+
+        The "clean" target is used to clean build output from the build.dir.
+
+            <target name="-before-clean"/>
+            <target name="-after-clean"/>
+
+        The general "init" target is used to initialize all other properties, including
+        those provided by Sencha Cmd.
+
+            <target name="-before-init"/>
+            <target name="-after-init"/>
+        
+        The "page" target performs the call to Sencha Cmd to build the 'all-classes.js' file.
+
+            <target name="-before-page"/>
+            <target name="-after-page"/>
+
+        The "build" target performs the call to Sencha Cmd to build the application.
+
+            <target name="-before-build"/>
+            <target name="-after-build"/>
+    -->
+
+	<target name="-after-page">
+
+		<concat destfile="${build.classes.file}concat" encoding="UTF-8" outputencoding="UTF-8" fixlastline="true">
+			<filelist>
+				<file name="lib/detect.js" />
+				<file name="${build.classes.file}" />
+				<file name="lib/extjs.history.js" />
+			</filelist>
+		</concat>
+        <move file="${build.classes.file}concat" tofile="${build.classes.file}" overwrite="true" />
+		<checksum file="${build.classes.file}" property="classesHash" algorithm="SHA-1" />
+		<move file="${build.classes.file}" tofile="${build.dir}/app${classesHash}.js" overwrite="true"/>
+		<replace file="${build.dir}/index.html" token="&quot;${build.classes.name}&quot;" value="&quot;app${classesHash}.js&quot;" />
+	</target>
+
+	<target name="-after-build">
+		<checksum file="${build.dir}/resources/${app.out.css.name}" property="cssHash" algorithm="SHA-1" />
+		<copy file="${build.dir}/resources/${app.out.css.name}" tofile="${build.dir}/resources/${app.out.base}${cssHash}.css" />
+		<replace file="${build.dir}/index.html" token="&quot;resources/${app.out.css.name}&quot;" value="&quot;resources/${app.out.base}${cssHash}.css&quot;" />
+		<delete dir="${build.dir}/.sass-cache" />
+		<delete file="${build.dir}/config.rb" />
+		<delete file="${build.dir}/${app.out.base}.scss" />
+	</target>
+</project>

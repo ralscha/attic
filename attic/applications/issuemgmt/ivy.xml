@@ -1,0 +1,74 @@
+<ivy-module version="2.0">
+    <info organisation="ch.ess" module="issuemgmt"/>
+    <dependencies>
+
+        <dependency org="org.hibernate" name="hibernate-core" rev="3.3.0.CR1"/>
+        <dependency org="org.hibernate" name="hibernate-ehcache" rev="3.3.0.CR1"/>
+                
+        <dependency org="org.hibernate" name="hibernate-annotations" rev="3.4.0.CR1"/>
+        <dependency org="org.hibernate" name="hibernate-commons-annotations" rev="3.1.0.CR1"/>
+        <dependency org="org.hibernate" name="hibernate-validator" rev="3.1.0.CR1"/>
+
+        <dependency org="net.sf.ehcache" name="ehcache" rev="1.5.0-beta2"/>
+        <dependency org="commons-collections" name="commons-collections" rev="3.2.1"/>
+
+        <!--
+        <dependency org="cglib" name="cglib" rev="2.1_3"/>
+        <dependency org="asm" name="asm" rev="1.5.3"/>
+        <dependency org="asm" name="asm-attrs" rev="1.5.3"/>
+        -->
+        
+        <dependency org="antlr" name="antlr" rev="2.7.7"/>        
+        <dependency org="dom4j" name="dom4j" rev="1.6.1"/>
+        <dependency org="javax.transaction" name="jta" rev="1.0.1B"/>
+        <dependency org="org.hibernate" name="ejb3-persistence" rev="1.0.2.GA"/>
+                     
+        <dependency org="commons-lang" name="commons-lang" rev="2.4"/>
+        
+        <dependency org="org.slf4j" name="slf4j-api" rev="1.5.2"/>        
+        
+        <dependency org="org.slf4j" name="jcl-over-slf4j" rev="1.5.2"/>        
+        <dependency org="org.slf4j" name="jul-to-slf4j" rev="1.5.2"/>        
+        <dependency org="org.slf4j" name="log4j-over-slf4j" rev="1.5.2"/>                  
+
+        <dependency org="ch.qos.logback" name="logback-core" rev="0.9.9"/>                  
+        <dependency org="ch.qos.logback" name="logback-classic" rev="0.9.9"/>                   
+
+        <dependency org="net.sourceforge.jtds" name="jtds" rev="1.2.2"/>
+        
+        <dependency org="org.jboss.seam" name="jboss-seam" rev="2.0.3.CR1"/> 
+        
+        <dependency org="javassist" name="javassist" rev="3.7.1.GA"/> 
+        <dependency org="org.jboss.el" name="jboss-el" rev="2.0.1.GA"/> 
+        
+        <dependency org="commons-codec" name="commons-codec" rev="1.3"/>
+                  
+        <dependency org="jdom" name="jdom" rev="1.1"/> 
+        <dependency org="org.graniteds" name="graniteds-core" rev="1.1.0.RC3"/> 
+        <dependency org="org.graniteds" name="graniteds-hibernate" rev="1.1.0.RC3"/>  
+        <dependency org="org.graniteds" name="graniteds-seam" rev="1.1.0.RC3"/>   
+        <dependency org="org.graniteds" name="tide" rev="1.1.0.RC3"/>   
+        
+        <dependency org="javax.faces" name="jsf-api" rev="1.2_08-b06"/>   
+        <dependency org="javax.faces" name="jsf-impl" rev="1.2_08-b06"/>   
+        
+        <!--
+        <dependency org="org.jboss.seam" name="jboss-seam-mail" rev="2.0.3.CR1"/> 
+        <dependency org="org.jboss.seam" name="jboss-seam-debug" rev="2.0.3.CR1"/> 
+        <dependency org="org.jboss.seam" name="jboss-seam-pdf" rev="2.0.3.CR1"/>        
+        -->
+        
+        <!--
+        <dependency org="commons-fileupload" name="commons-fileupload" rev="1.2.1"/>
+        <dependency org="commons-io" name="commons-io" rev="1.4"/>
+        <dependency org="commons-beanutils" name="commons-beanutils" rev="1.8.0-BETA"/>
+        
+        <dependency org="commons-dbcp" name="commons-dbcp" rev="1.2.2"/>
+        <dependency org="commons-pool" name="commons-pool" rev="1.3"/>
+                                                 
+        <dependency org="org.liquibase" name="liquibase-core" rev="1.6.1"/>                  
+        <dependency org="jexcelapi" name="jxl" rev="2.6.8"/>            
+        -->
+        
+    </dependencies>
+</ivy-module>

@@ -1,0 +1,29 @@
+
+<script type="text/javascript" language="JavaScript">
+
+var monthName = new Array('${month1}', '${month2}', '${month3}', '${month4}', '${month5}', '${month6}', '${month7}', '${month8}', '${month9}', '${month10}', '${month11}', '${month12}')
+var monthName2 = new Array('${months1}', '${months2}', '${months3}', '${months4}', '${months5}', '${months6}', '${months7}', '${months8}', '${months9}', '${months10}', '${months11}', '${months12}')
+var gotoString = '${gotocurrent}'
+var todayString = '${today}'
+var weekString = '${week}'
+
+var scrollLeftMessage = '${leftMessage}'
+var scrollRightMessage = '${rightMessage}'
+var selectMonthMessage = '${selectMonth}'
+var selectYearMessage = '${selectYear}'
+var selectDateMessage = '${selectDate}' 
+
+var startAt = ${start}
+var dayName = new Array ('${week1}','${week2}','${week3}','${week4}','${week5}','${week6}','${week7}')
+
+var enablePast = 1;		// 0 - disabled ; 1 - enabled
+var fixedX = -1;		// x position (-1 if to appear below control)
+var fixedY = -1;		// y position (-1 if to appear below control)
+var showWeekNumber = ${showWeekNumber};	// 0 - don't show; 1 - show
+var showToday = ${showToday};		// 0 - don't show; 1 - show
+var imgDir = '${imageDir}';		// directory for images ... e.g. var imgDir="/img/"
+
+</script>
+
+<script language="JavaScript" src="${popupcaljs}" type="text/javascript"></script>
+

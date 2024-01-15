@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd
+    http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+	<changeSet author="dev" id="1">
+		<createTable tableName="LogEvent">		
+			<column autoIncrement="true" name="id" type="BIGINT">
+				<constraints nullable="false" primaryKey="true" primaryKeyName="PK_LogEvent" />
+			</column>
+            <column name="eventDate" type="datetime" />            
+			<column name="level" type="varchar(5)" />
+			<column name="logger" type="varchar(255)" />
+			<column name="source" type="varchar(255)" />
+			<column name="message" type="varchar(1000)" />
+			<column name="marker" type="varchar(255)" />
+			<column name="thread" type="varchar(255)" />			
+			<column name="exception" type="clob" />
+			
+			<column name="userName" type="varchar(100)" />
+			<column name="ip" type="varchar(39)" />
+			<column name="userAgent" type="varchar(255)" />
+			
+		</createTable>
+	</changeSet>
+
+	<changeSet author="dev" id="2">
+		<createTable tableName="AppUser">
+			<column autoIncrement="true" name="id" type="BIGINT">
+				<constraints nullable="false" primaryKey="true" primaryKeyName="PK_AppUser" />
+			</column>
+
+			<column name="userName" type="varchar(100)">
+				<constraints nullable="false" unique="true" />
+			</column>
+
+			<column name="name" type="varchar(255)" />
+			<column name="firstName" type="varchar(255)" />
+
+			<column name="email" type="varchar(255)">
+				<constraints nullable="false" unique="true" />
+			</column>
+			
+			<column name="passwordHash" type="varchar(255)" />
+			<column name="role" type="varchar(255)" />
+			<column name="locale" type="varchar(8)" />
+			<column name="enabled" type="BOOLEAN" />
+            <column name="failedLogins" type="INT" />            
+            <column name="lockedOut" type="datetime" />
+		</createTable>
+	</changeSet>
+
+	<changeSet author="dev" id="3">
+		<createTable tableName="AccessLog">
+			<column autoIncrement="true" name="id" type="BIGINT">
+				<constraints nullable="false" primaryKey="true" primaryKeyName="PK_AccessLog" />
+			</column>	
+			
+			<column name="sessionId" type="varchar(100)" />
+			<column name="userName" type="varchar(100)" />
+			<column name="logIn" type="DATETIME" />
+			<column name="logOut" type="DATETIME" />
+			<column name="userAgent" type="varchar(255)" />
+
+		</createTable>
+	</changeSet>	
+	
+	<changeSet author="dev" id="4">
+		<createTable tableName="persistent_logins">
+			<column name="series" type="varchar(64)">
+				<constraints nullable="false" primaryKey="true" primaryKeyName="pk_persistent_logins" />
+			</column>	
+						
+			<column name="username" type="varchar(100)">
+               <constraints nullable="false"/>
+			</column>
+
+			<column name="token" type="varchar(64)">
+               <constraints nullable="false"/>
+			</column>			
+
+			<column name="last_used" type="TIMESTAMP">
+               <constraints nullable="false"/>
+			</column>	
+		</createTable>
+	</changeSet>	
+	
+	<changeSet author="dev" id="5">
+		<createTable tableName="Configuration">
+			<column autoIncrement="true" name="id" type="BIGINT">
+				<constraints nullable="false" primaryKey="true" primaryKeyName="PK_Configuration" />
+			</column>	
+						
+			<column name="confKey" type="varchar(256)" />
+			<column name="confValue" type="varchar(1024)" />
+
+		</createTable>
+	</changeSet>    
+	
+	<changeSet author="dev" id="6">
+	  <sql>insert into Configuration(confKey, confValue) values('SMTP_SENDER', 'test@test.com')</sql>
+	  <sql>insert into Configuration(confKey, confValue) values('SMTP_SERVER', 'localhost')</sql>
+	  <sql>insert into Configuration(confKey, confValue) values('SMTP_PORT', '25')</sql>
+	</changeSet>	
+	
+	<changeSet author="dev" id="7">
+		<createTable tableName="ContactGroup">
+			<column autoIncrement="true" name="id" type="BIGINT">
+				<constraints nullable="false" primaryKey="true" primaryKeyName="PK_ContactGroup" />
+			</column>
+
+			<column name="name" type="varchar(255)">
+				<constraints nullable="false" />
+			</column>
+		</createTable>
+	</changeSet>
+	
+	<changeSet author="dev" id="8">
+		<createTable tableName="Contact">
+			<column autoIncrement="true" name="id" type="BIGINT">
+				<constraints nullable="false" primaryKey="true" primaryKeyName="PK_Contact" />
+			</column>
+
+			<column name="firstName" type="varchar(255)" />
+			<column name="lastName" type="varchar(255)" />
+			<column name="dateOfBirth" type="datetime" />			
+			<column name="notes" type="clob" />
+		</createTable>
+	</changeSet>	
+	
+	<changeSet author="dev" id="9">
+		<createTable tableName="ContactContactGroup">
+			<column name="contactId" type="BIGINT">
+				<constraints nullable="false"/>
+			</column>
+
+			<column name="contactGroupId" type="BIGINT">
+				<constraints nullable="false" />
+			</column>
+		</createTable>
+		<addPrimaryKey columnNames="contactId,contactGroupId" constraintName="PK_ContactContactGroup" tableName="ContactContactGroup" />
+		
+		<addForeignKeyConstraint baseColumnNames="contactId" baseTableName="ContactContactGroup" constraintName="FK_ContactContactGroup_Contact"
+			referencedColumnNames="id"
+			referencedTableName="Contact" />		
+		
+		<addForeignKeyConstraint baseColumnNames="contactGroupId" baseTableName="ContactContactGroup" constraintName="FK_ContactContactGroup_ContactGroup"
+			referencedColumnNames="id"
+			referencedTableName="ContactGroup" />			
+	</changeSet>	
+
+	<changeSet author="dev" id="10">
+		<createTable tableName="ContactInfo">
+			<column autoIncrement="true" name="id" type="BIGINT">
+				<constraints nullable="false" primaryKey="true" primaryKeyName="PK_ContactInfo" />
+			</column>
+			
+			<column name="contactId" type="BIGINT">
+				<constraints nullable="false" />
+			</column>
+			
+			<column name="infoType" type="varchar(32)" />
+			<column name="phone" type="varchar(100)" />
+			<column name="email" type="varchar(255)" />
+			<column name="address" type="varchar(255)" />
+			<column name="city" type="varchar(100)" />
+			<column name="state" type="varchar(32)" />
+			<column name="zip" type="varchar(32)" />
+			<column name="country" type="char(2)" />
+
+		</createTable>
+		
+        <addForeignKeyConstraint 
+		    baseColumnNames="contactId" baseTableName="ContactInfo" 
+		    constraintName="FK_ContactInfo_Contact"
+			referencedColumnNames="id" referencedTableName="Contact" />				
+		
+	</changeSet>
+
+</databaseChangeLog>

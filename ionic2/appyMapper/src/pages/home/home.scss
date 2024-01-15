@@ -1,0 +1,36 @@
+page-home {
+
+  #map {
+    height: 60%;
+    width: 95%;
+    margin: 2.5%;
+  }
+
+  .map-information {
+    display: block;
+    font-size: 1.1em;
+    padding-bottom: 0 0 1.5em 0;
+    margin: 0 0 0 2.5%;
+  }
+
+  .filters,
+  .reset {
+    margin: 25px 0 0 0;
+  }
+
+  .heading {
+    font-weight: bold;
+  }
+
+  .location-address {
+    padding: 0 0 1em 0;
+    line-height: 1.4em;
+    font-size: 1.1em;
+  }
+}
+
+ion-app.gmapscdv_ .nav-decor,
+._gmaps_cdv_,
+.nav-decor {
+  background-color: rgba(0, 0, 0, 0) !important;
+}

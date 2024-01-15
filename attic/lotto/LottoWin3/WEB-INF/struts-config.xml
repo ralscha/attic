@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<!DOCTYPE struts-config PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 1.0//EN"
+          "http://jakarta.apache.org/struts/dtds/struts-config_1_0.dtd">
+
+<!--
+     This is the Struts configuration file for the example application,
+     using the proposed new syntax.
+
+     NOTE:  You would only flesh out the details in the "form-bean"
+     declarations if you had a generator tool that used them to create
+     the corresponding Java classes for you.  Otherwise, you would
+     need only the "form-bean" element itself, with the corresponding
+     "name" and "type" attributes.
+-->
+
+
+<struts-config>
+
+
+  <!-- ========== Form Bean Definitions =================================== -->
+  <form-beans>
+
+    <!-- Logon form bean -->
+    <form-bean      name="logonForm"
+                    type="lottowin.form.LogonForm"/>
+    <form-bean      name="userForm"
+                    type="lottowin.form.UserForm"/>
+    <form-bean      name="tipForm"
+                    type="lottowin.form.TipForm"/>
+    <form-bean      name="jokerForm"
+                    type="lottowin.form.JokerForm"/>
+	 <form-bean      name="checkForm"
+                    type="lottowin.form.CheckForm"/>
+  </form-beans>
+
+
+  <!-- ========== Global Forward Definitions ============================== -->
+  <global-forwards>
+    <forward   name="logon"                path="/logon.jsp"/>
+    <forward   name="main"              path="/main.jsp"/>
+  </global-forwards>
+
+
+  <!-- ========== Action Mapping Definitions ============================== -->
+  <action-mappings>
+
+    <!-- Process a user logoff -->
+    <action    path="/logoff"
+               type="lottowin.action.LogoffAction">
+      <forward name="success"              path="/logon.jsp"/>
+    </action>
+
+    <!-- Process a user logon -->
+    <action    path="/logon"
+               type="lottowin.action.LogonAction"
+               name="logonForm"
+               input="/logon.jsp"
+               scope="request">
+    </action>
+
+    <!-- Process a user added -->
+    <action    path="/addUser"
+               type="lottowin.action.AddUserAction"
+               name="userForm"
+               input="/user.jsp"
+               scope="request">
+      <forward name="success"              path="/userAdded.jsp"/>
+    </action>
+
+    <!-- Process a tip added -->
+    <action    path="/addTip"
+               type="lottowin.action.AddTipAction"
+               name="tipForm"
+               input="/tips.jsp"
+               scope="request">               
+    </action>
+
+    <!-- Process a show tip -->
+    <action    path="/showTip"
+               type="lottowin.action.ShowTipAction">
+      <forward name="success"    path="/tips.jsp"/>
+    </action>
+
+    <!-- Process a remove tip -->
+    <action    path="/removeTip"
+               type="lottowin.action.RemoveTipAction"
+               input="/tips.jsp">
+    </action>
+
+    <!-- Process a update tip -->
+    <action    path="/updateTip"
+               type="lottowin.action.UpdateTipAction"
+               input="/tips.jsp">
+    </action>
+
+
+    <!-- Process a joker added -->
+    <action    path="/addJoker"
+               type="lottowin.action.AddJokerAction"
+               name="jokerForm"
+               input="/jokers.jsp"
+               scope="request">               
+    </action>
+
+    <!-- Process a show joker -->
+    <action    path="/showJoker"
+               type="lottowin.action.ShowJokerAction">
+      <forward name="success"    path="/jokers.jsp"/>
+    </action>
+
+    <!-- Process a remove joker -->
+    <action    path="/removeJoker"
+               type="lottowin.action.RemoveJokerAction"
+               input="/jokers.jsp">
+    </action>
+
+    <!-- Process a update joker -->
+    <action    path="/updateJoker"
+               type="lottowin.action.UpdateJokerAction"
+               input="/jokers.jsp">
+    </action>
+
+    <!-- Process a check tip -->
+    <action    path="/checkTip"
+               type="lottowin.action.CheckTipAction"
+               name="checkForm"
+               input="/checktips.jsp"
+               scope="session">               
+    </action>
+
+    <!-- Process a check joker -->
+    <action    path="/checkJoker"
+               type="lottowin.action.CheckJokerAction"
+               name="checkForm"
+               input="/checkjokers.jsp"
+               scope="session">               
+    </action>
+
+    <!-- Go to check tips page -->
+    <action    path="/goCheckTip"
+               type="lottowin.action.GoCheckAction">
+      <forward name="success"    path="/checktips.jsp"/>
+    </action>
+
+    <!-- Go to check jokers page -->
+    <action    path="/goCheckJoker"
+               type="lottowin.action.GoCheckAction">
+      <forward name="success"    path="/checkjokers.jsp"/>
+    </action>
+
+  </action-mappings>
+
+</struts-config>

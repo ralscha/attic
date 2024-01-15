@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<decorators defaultdir="/">
+    <excludes>
+		<pattern>/login.jsp</pattern>
+		<pattern>/logout.do</pattern>
+    </excludes>
+	
+    <decorator name="default" page="vorlage.jsp">
+        <pattern>/*</pattern>
+    </decorator>
+    
+	<decorator name="printable" page="printable.jsp"/>
+	<decorator name="mobile" page="mobile.jsp"/>
+</decorators>

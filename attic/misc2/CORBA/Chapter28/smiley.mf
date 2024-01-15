@@ -1,0 +1,30 @@
+Manifest-Version: 1.0
+
+Name: SmileyBoundAdapter.class
+Java-Bean: False
+Design-Time-Only: False
+
+Name: SmileyEventAdapter.class
+Java-Bean: False
+Design-Time-Only: False
+
+Name: SmileyPlace$1.class
+Java-Bean: False
+Design-Time-Only: False
+
+Name: SmileyBean.class
+Java-Bean: True
+Design-Time-Only: False
+
+Name: smiley2.ser
+Java-Bean: True
+Design-Time-Only: False
+
+Name: smiley1.ser
+Java-Bean: True
+Design-Time-Only: False
+
+Name: SmileyPlace.class
+Java-Bean: False
+Design-Time-Only: False
+

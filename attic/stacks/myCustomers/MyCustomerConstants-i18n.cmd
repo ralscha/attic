@@ -1,0 +1,1 @@
+@java -cp "%~dp0\src;%~dp0\bin;D:/gwt/gwt-windows-1.7.0/gwt-user.jar;D:/gwt/gwt-windows-1.7.0/gwt-dev-windows.jar" com.google.gwt.i18n.tools.I18NSync -out "%~dp0\src" ch.ralscha.mycustomers.client.MyCustomerConstants 

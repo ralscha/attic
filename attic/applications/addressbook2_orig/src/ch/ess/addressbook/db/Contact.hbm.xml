@@ -1,0 +1,89 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd">
+
+<hibernate-mapping>
+    <class
+        name="ch.ess.addressbook.db.Contact"
+        table="abContact"
+        dynamic-update="false"
+        dynamic-insert="false"
+    >
+
+        <id
+            name="id"
+            column="id"
+            type="java.lang.Long"
+            unsaved-value="null"
+        >
+            <generator class="native">
+            </generator>
+        </id>
+
+        <version
+            name="version"
+            type="int"
+            column="version"
+        />
+
+        <map
+            name="attributes"
+            table="abContactAttribute"
+            lazy="false"
+            sort="unsorted"
+            inverse="false"
+            cascade="all-delete-orphan"
+        >
+
+              <key
+                  column="contactId"
+              />
+
+              <index
+                  column="field"
+                  type="string"
+                  length="255"
+              />
+
+              <element
+                  column="value"
+                  type="string"
+                  length="500"
+                  not-null="true"
+                  unique="false"
+              />
+
+        </map>
+
+        <property
+            name="category"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="category"
+            length="1"
+            not-null="true"
+        />
+
+        <many-to-one
+            name="user"
+            class="ch.ess.addressbook.db.User"
+            cascade="none"
+            outer-join="auto"
+            update="true"
+            insert="true"
+            column="userId"
+            not-null="false"
+        />
+
+        <!--
+            To add non XDoclet property mappings, create a file named
+                hibernate-properties-Contact.xml
+            containing the additional properties and place it in your merge dir.
+        -->
+
+    </class>
+
+</hibernate-mapping>

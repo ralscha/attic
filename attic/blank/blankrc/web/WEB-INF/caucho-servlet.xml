@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+
+<beans>
+
+	<bean name="/echo" class="ch.ess.blankrc.remote.support.HessianServicePermissionExporter">
+	  <property name="permission"><value>systemconfig</value></property>
+    <property name="principalRegistry"><ref bean="principalRegistry"/></property>
+		<property name="service"><ref bean="echoService"/></property>
+		<property name="serviceInterface">
+			<value>ch.ess.blankrc.remote.EchoService</value>
+		</property>
+	</bean>
+
+	<bean name="/logon" class="org.springframework.remoting.caucho.HessianServiceExporter">
+		<property name="service"><ref bean="logonService"/></property>
+		<property name="serviceInterface">
+			<value>ch.ess.blankrc.remote.LogonService</value>
+		</property>
+	</bean>
+
+</beans>

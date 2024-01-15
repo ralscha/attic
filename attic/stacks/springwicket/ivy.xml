@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ivy-module version="2.0" 
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:noNamespaceSchemaLocation="http://ant.apache.org/ivy/schemas/ivy.xsd">
+                   
+  <info organisation="ch.ralscha" module="springgen"/>
+  <dependencies>
+
+    <!-- Hibernate -->
+    <dependency org="org.hibernate" name="hibernate-core" rev="3.3.2.GA"/>
+    <dependency org="org.hibernate" name="hibernate-ehcache" rev="3.3.2.GA"/>              
+    <dependency org="org.hibernate" name="hibernate-annotations" rev="3.4.0.GA"/>
+    <dependency org="org.hibernate" name="hibernate-entitymanager" rev="3.4.0.GA"/>
+    <dependency org="org.hibernate" name="hibernate-commons-annotations" rev="3.1.0.GA"/>
+    <dependency org="org.hibernate" name="hibernate-validator" rev="3.1.0.GA"/>  
+    <dependency org="org.hibernate" name="ejb3-persistence" rev="1.0.2.GA"/>
+    
+    <dependency org="net.sf.ehcache" name="ehcache" rev="1.6.0"/>
+    <dependency org="commons-collections" name="commons-collections" rev="3.2.1"/>      
+    <dependency org="antlr" name="antlr" rev="2.7.7"/>        
+    <dependency org="dom4j" name="dom4j" rev="1.6.1"/>
+    <dependency org="javax.transaction" name="jta" rev="1.1"/>      
+    <dependency org="javassist" name="javassist" rev="3.11.0.GA"/> 
+
+    <!-- SLF4J -->
+    <dependency org="org.slf4j" name="slf4j-api" rev="1.5.8"/>              
+    <dependency org="org.slf4j" name="jcl-over-slf4j" rev="1.5.8"/>        
+    <dependency org="org.slf4j" name="jul-to-slf4j" rev="1.5.8"/>        
+    <dependency org="ch.qos.logback" name="logback-core" rev="0.9.16"/>                  
+    <dependency org="ch.qos.logback" name="logback-classic" rev="0.9.16"/>                   
+            
+    <!-- Wicket -->
+    <dependency org="org.apache.wicket" name="wicket" rev="1.4.0" />        
+    <dependency org="org.apache.wicket" name="wicket-auth-roles" rev="1.4.0" />
+    <dependency org="org.apache.wicket" name="wicket-datetime" rev="1.4.0" />
+    <dependency org="org.apache.wicket" name="wicket-devutils" rev="1.4.0" />
+    <dependency org="org.apache.wicket" name="wicket-extensions" rev="1.4.0" />
+    <dependency org="org.apache.wicket" name="wicket-jmx" rev="1.4.0" />
+    <dependency org="org.apache.wicket" name="wicket-objectsizeof-agent" rev="1.4.0" />
+    <dependency org="org.apache.wicket" name="wicket-ioc" rev="1.4.0" />
+    <dependency org="org.apache.wicket" name="wicket-spring" rev="1.4.0" />
+                          
+    <!-- Spring -->        
+    <dependency org="org.springframework" name="spring-aop" rev="2.5.6.SEC01"/>
+    <dependency org="org.springframework" name="spring-beans" rev="2.5.6.SEC01"/>
+    <dependency org="org.springframework" name="spring-context" rev="2.5.6.SEC01"/>
+    <dependency org="org.springframework" name="spring-context-support" rev="2.5.6.SEC01"/>
+    <dependency org="org.springframework" name="spring-core" rev="2.5.6.SEC01"/>
+    <dependency org="org.springframework" name="spring-jdbc" rev="2.5.6.SEC01"/>
+    <dependency org="org.springframework" name="spring-orm" rev="2.5.6.SEC01"/>
+    <dependency org="org.springframework" name="spring-tx" rev="2.5.6.SEC01"/>
+    <dependency org="org.springframework" name="spring-web" rev="2.5.6.SEC01"/>
+    <dependency org="org.springframework" name="spring-webmvc" rev="2.5.6.SEC01"/>
+    <dependency org="org.springframework" name="spring-jms" rev="2.5.6.SEC01"/>
+    <dependency org="aopalliance" name="aopalliance" rev="1.0"/>
+    <dependency org="org.aspectj" name="aspectjrt" rev="1.6.5"/>
+      
+    <dependency org="cglib" name="cglib-nodep" rev="2.2"/>
+    <dependency org="javax.mail" name="mail" rev="1.4.2"/>   
+    <dependency org="quartz" name="quartz" rev="1.6.5"/>
+    
+    <dependency org="javax.mail" name="mail" rev="1.4.2"/>   
+    <dependency org="quartz" name="quartz" rev="1.6.5"/>    
+    
+    <dependency org="javax.servlet" name="jstl" rev="1.2"/>
+    
+    <!-- Liquibase -->
+    <dependency org="org.liquibase" name="liquibase-core" rev="1.9.4"/>
+    
+    <!-- Utility Libraries  --> 
+    <dependency org="commons-lang" name="commons-lang" rev="2.4"/>
+    <dependency org="commons-io" name="commons-io" rev="1.4"/>
+    <dependency org="uuid" name="uuid" rev="3.1"/>    
+    
+    <!-- Jetty -->
+    <dependency org="org.mortbay.jetty" name="jetty" rev="6.1.19"/>
+    <dependency org="org.mortbay.jetty" name="jetty-util" rev="6.1.19"/>
+    <dependency org="org.mortbay.jetty" name="jetty-plus" rev="6.1.19"/>
+    <dependency org="org.mortbay.jetty" name="jetty-naming" rev="6.1.19"/> 
+    <dependency org="org.mortbay.jetty" name="servlet-api" rev="2.5-20081211"/>      
+    <dependency org="org.mortbay.jetty" name="jsp-2.1-jetty" rev="6.1.19"/>
+    <dependency org="org.mortbay.jetty" name="jsp-api-2.1-glassfish" rev="9.1.1.B60.25.p0"/>
+    <dependency org="org.mortbay.jetty" name="jsp-2.1-glassfish" rev="9.1.1.B60.25.p0"/>
+    <dependency org="org.eclipse.jdt" name="core" rev="3.1.1"/>
+                  
+  </dependencies>
+</ivy-module>

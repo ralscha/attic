@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<object-xml>
+<dbmap>
+
+<parser>org.apache.xerces.parsers.SAXParser</parser>
+<schema>file:d:/javaprojects/private/mvs/osage/database.qjml</schema>
+<input>file:d:/javaprojects/private/mvs/osage/database.xml</input>
+</dbmap>
+<classmap>
+<parser>org.apache.xerces.parsers.SAXParser</parser>
+<schema>file:d:/javaprojects/private/mvs/osage/maps.qjml</schema>
+<input>file:d:/javaprojects/private/mvs/osage/dbmap.xml</input>
+</classmap>
+<builder>
+<sqlinterface>interbase</sqlinterface>
+<database>mvs</database>
+<package>mvs.dbo</package>
+<output>dbmap.xml</output>
+</builder>
+</object-xml>

@@ -1,0 +1,4 @@
+Manifest-Version: 1.0
+Main-Class: ch.ess.langtool.Gui
+Class-Path: ./lib/EventBus.jar ./lib/forms-1.1.0.jar ./lib/jxl.jar ./lib/looks-2.1.4.jar
+

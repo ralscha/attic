@@ -1,0 +1,87 @@
+<html>
+<head>
+   <title>Grace JavaLog</title>
+</head>
+<body text="#000000" bgcolor="#FFFFFF" link="#0000EE" vlink="#551A8B" alink="#FF0000">
+
+<table width=100%>
+<tr>
+<td><img SRC="../gk9.jpg" NOSAVE height=200 width=153>
+<td valign=top>
+  <table width="100%" bgcolor="#FFCC00">
+  <tr><td><font size=+4 color=Green><div align=right><b>Logging to JDBC</b></font>
+  </table>
+<div align=right><font size=+2 color=gray><b><i>Grace Software</b></i></font>
+<div align=right><font size=+2 color=gray><b><i>JavaLog</b></i></font>
+<br>
+<br>
+<div align=right><font size=-1 color="#B0B0B0">$Revision: 1.1 $</font></div>
+<div align=right><font size=-1 color="#B0B0B0">$Date: 1999/10/11 00:05:14 $</font></div>
+</table>
+
+<h2>Introduction</h2>
+
+JavaLog can write each event to a relational database using a JDBC
+driver.  This is a nice alternative to writing events to a file
+because it allows the user to query the log at any time via SQL and it
+preserves the distinct data attributes of the events.  The way to
+start this is by specifying the JDBC url to the handler url property,
+thusly:
+
+<pre>
+    $ java -Dlog.handler.db.url=jdbc:postgresql://grace/logdb
+           -Dlog.handler.db.username=<i>username</i>
+           -Dlog.handler.db.password=<i>password</i>
+           MyClass
+</pre>
+
+
+<h2>Default Schema</h2>
+
+The JavaLog <a href=../api/grace/log/JDBCHandler.html>JDBCHandler</a>,
+by default, writes to the database using the following schema:
+
+<pre>
+CREATE TABLE Log (
+    eventtime   datetime,
+    number      int,
+    type        varchar(32),
+    thread      varchar(64),
+    class       varchar(64),
+    function    varchar(64),
+    line        varchar(8),
+    message     varchar(256),
+    object      varchar(256));
+</pre>
+
+The events are written using an SQL statement similar to the
+following:
+
+<pre>
+insert into Log values (<i>time, num, type, thread, class, function, 
+    line, message, object</i>)
+</pre>
+
+Notice that, by default, the SQL insert statement does not specify the
+column names, just the data, so the names of the columns in the user's
+database do not need to match those in the above scheme.  However,
+obviously the data types must match in type.
+
+<h2>Custom Schema</h2>
+
+The user can modify the entire schema at run time by modifying a few
+properties.
+
+<pre>
+-Dlog.handler.db.table="DifferentTable"
+-Dlog.handler.db.columns="time, message"
+-Dlog.handler.db.format="'%t', '%m'";
+</pre>
+
+The above properties would generate the following SQL statement:
+
+<pre>
+insert into DifferentTable (time, message) values (<i>time, message</i>)
+</pre>
+
+

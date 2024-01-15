@@ -1,0 +1,18 @@
+#Sun Mar 14 15:16:52 GMT+01:00 1999
+backup.zip.file=BackupWork.zip
+backup.zip.path=d\:/javaprojects/private/FtpBackup/
+encrypt=false
+
+ftp.send = false
+ftp.directory=backup
+ftp.host=192.168.1.4
+ftp.password=transfer
+ftp.user=transfer
+
+path.001=d:/projects
+path.002=d:/internet/url\ organizer/urllist.txt
+path.003=d:/misc/steuern
+path.004=c:/program\ files/cuecards2000/ralph.cue
+path.005=d:/javaprojects
+proxy.host=
+proxy.port=

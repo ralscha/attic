@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report Top="1.0" Left="1.0" Bottom="1.0" Right="1.0" HeaderFromEdge="0.5" FooterFromEdge="0.75" PageNumbering="1" HorizontalWrap="false" TabStops="0.5,1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0,5.5,6.0,6.5,7.0,7.5,8.0">
+<Property Name0="TextMode" Value0="false">
+</Property>
+<Header Type="257">
+<SpaceElement ID="Space5" Alignment="2" Indent="0.0" Hindent="0" Font="Serif-PLAIN-10" Foreground="-16777216" Spacing="0" Block="false" Continuation="false" Visible="true" KeepWithNext="false" Space="6">
+</SpaceElement>
+</Header>
+<Header Type="512">
+<TextElement ID="Text4" Alignment="2" Indent="0.0" Hindent="0" Font="Serif-PLAIN-10" Foreground="-16777216" Spacing="0" Block="false" Continuation="false" Visible="true" KeepWithNext="false" FillStyle="0" TabStops="0.5,1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0,5.5,6.0,6.5,7.0,7.5,8.0" Justify="false" Orphan="false" TextAdvance="3">
+<![CDATA[Page {P} of {N}]]>
+</TextElement>
+<TextElement ID="Text5" Alignment="4" Indent="0.0" Hindent="0" Font="Serif-PLAIN-10" Foreground="-16777216" Spacing="0" Block="false" Continuation="false" Visible="true" KeepWithNext="false" FillStyle="0" TabStops="0.5,1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0,5.5,6.0,6.5,7.0,7.5,8.0" Justify="false" Orphan="false" TextAdvance="3">
+<![CDATA[{D}]]>
+</TextElement>
+</Header>
+<Header Type="513">
+<SpaceElement ID="Space6" Alignment="2" Indent="0.0" Hindent="0" Font="Serif-PLAIN-10" Foreground="-16777216" Spacing="0" Block="false" Continuation="false" Visible="true" KeepWithNext="false" Space="6">
+</SpaceElement>
+</Header>
+<TextElement ID="Text6" Alignment="2" Indent="0.0" Hindent="0" Font="Verdana-BOLD-10" Foreground="-16777216" Spacing="0" Block="false" Continuation="false" Visible="true" KeepWithNext="false" FillStyle="0" TabStops="0.5,1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0,5.5,6.0,6.5,7.0,7.5,8.0" Justify="false" Orphan="false" TextAdvance="3">
+<![CDATA[The Header of the Report]]>
+</TextElement>
+<ImageElement ID="Image2" Alignment="68" Indent="0.0" Hindent="0" Font="Serif-PLAIN-10" Foreground="-16777216" Spacing="0" Block="false" Continuation="false" Visible="true" KeepWithNext="false" Layout="0" Wrapping="3" Size="1.1805556x0.7361111" Margin="1,1,1,1" PathType="1" Path="D:\StyleReportProLite\guide\examples\core\images\logo.gif" Embedded="false">
+</ImageElement>
+<SeparatorElement ID="Separator1" Alignment="2" Indent="0.0" Hindent="0" Font="Serif-PLAIN-10" Foreground="-16777216" Spacing="0" Block="true" Continuation="false" Visible="true" KeepWithNext="false" Style="4099" SeparatorAdvance="4">
+</SeparatorElement>
+<TextBoxElement ID="TextBox1" Alignment="66" Indent="0.0" Hindent="0" Font="Tahoma-PLAIN-28" Foreground="-16777216" Spacing="0" Block="false" Continuation="false" Visible="true" KeepWithNext="false" Layout="0" Wrapping="3" Anchor="1.5,2.1388888" Size="3.125x1.1944444" Margin="0,0,0,0" Border="0" Shape="1" Justify="false" TextAlignment="18" Shadow="false" Padding="0,1,0,1">
+<![CDATA[This is a Textbox]]>
+</TextBoxElement>
+<PageBreakElement ID="PageBreak1" Alignment="2" Indent="0.0" Hindent="0" Font="Serif-PLAIN-10" Foreground="-16777216" Spacing="0" Block="true" Continuation="false" Visible="true" KeepWithNext="false">
+</PageBreakElement>
+<TabElement ID="Tab1" Alignment="1" Indent="0.0" Hindent="0" Font="Serif-PLAIN-10" Foreground="-16777216" Spacing="0" Block="false" Continuation="false" Visible="true" KeepWithNext="false" FillStyle="0" TabStops="0.5,1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0,5.5,6.0,6.5,7.0,7.5,8.0" RightTab="false">
+</TabElement>
+<TextElement ID="Text8" Alignment="2" Indent="0.0" Hindent="0" Font="Serif-PLAIN-10" Foreground="-16777216" Spacing="0" Block="false" Continuation="false" Visible="true" KeepWithNext="false" FillStyle="0" TabStops="0.5,1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0,5.5,6.0,6.5,7.0,7.5,8.0" Justify="false" Orphan="false" TextAdvance="3">
+<![CDATA[Test]]>
+</TextElement>
+<TabElement ID="Tab2" Alignment="2" Indent="0.0" Hindent="0" Font="Serif-PLAIN-10" Foreground="-16777216" Spacing="0" Block="false" Continuation="false" Visible="true" KeepWithNext="false" FillStyle="0" TabStops="0.5,1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0,5.5,6.0,6.5,7.0,7.5,8.0" RightTab="false">
+</TabElement>
+<TextElement ID="Text10" Alignment="2" Indent="0.0" Hindent="0" Font="Serif-PLAIN-10" Foreground="-16777216" Spacing="0" Block="false" Continuation="false" Visible="true" KeepWithNext="false" FillStyle="0" TabStops="0.5,1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0,5.5,6.0,6.5,7.0,7.5,8.0" Justify="false" Orphan="false" TextAdvance="3">
+<![CDATA[oder so]]>
+</TextElement>
+<TabElement ID="Tab3" Alignment="2" Indent="0.0" Hindent="0" Font="Serif-PLAIN-10" Foreground="-16777216" Spacing="0" Block="false" Continuation="false" Visible="true" KeepWithNext="false" FillStyle="0" TabStops="0.5,1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0,5.5,6.0,6.5,7.0,7.5,8.0" RightTab="false">
+</TabElement>
+<TextElement ID="Text11" Alignment="2" Indent="0.0" Hindent="0" Font="Serif-PLAIN-10" Foreground="-16777216" Spacing="0" Block="false" Continuation="false" Visible="true" KeepWithNext="false" FillStyle="0" TabStops="0.5,1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0,5.5,6.0,6.5,7.0,7.5,8.0" Justify="false" Orphan="false" TextAdvance="3">
+<![CDATA[warum]]>
+</TextElement>
+<TabElement ID="Tab4" Alignment="2" Indent="0.0" Hindent="0" Font="Serif-PLAIN-10" Foreground="-16777216" Spacing="0" Block="false" Continuation="false" Visible="true" KeepWithNext="false" FillStyle="0" TabStops="0.5,1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0,5.5,6.0,6.5,7.0,7.5,8.0" RightTab="false">
+</TabElement>
+<ChartElement ID="Chart1" Alignment="2" Indent="0.0" Hindent="0" Font="Serif-PLAIN-10" Foreground="-16777216" Spacing="0" Block="false" Continuation="false" Visible="true" KeepWithNext="false" Layout="0" Wrapping="3" Margin="1,1,1,1" Embedded="true">
+<Chart Datasets="1" Size="6" Style="5" Gap="2" BlackWhite="false" Styles="0,0,0,0,0,0,0,0" Colors="-16711936,-65536,-256,-16776961,-65281,-14336,-16711681,-8355712,-20561,-12566464,-6946666,-15118186" GridStyle="4113" BorderStyle="0" ShowValue="false" Precision="2" LegendPosition="32">
+<![CDATA[|
+||||||
+|||||
+]]></Chart>
+</ChartElement>
+<TableElement ID="Table1" Alignment="65" Indent="0.0" Hindent="0" Font="Serif-PLAIN-10" Foreground="-16777216" Spacing="0" Block="true" Continuation="false" Visible="true" KeepWithNext="false" TableWidth="0.0" Layout="1" TableAdvance="1" OrphanControl="false" Padding="0,1,0,1" Style="Colorful3" EmbedWidth="false" Embedded="true">
+<Style RowBorderC="true" ColBorderC="true" RowBorder="true" ColBorder="true" Insets="false" Alignment="false" Font="true" LineWrap="false" Foreground="true" Background="true" FirstRow="true" FirstCol="true" LastRow="false" LastCol="false"/>
+<RowGroup>
+</RowGroup>
+<ColGroup>
+</ColGroup>
+<Table Rows="3" Cols="6" HeaderRow="1" HeaderCol="0">
+<TR>
+<TD>""</TD><TD>""</TD><TD>""</TD><TD>""</TD><TD>""</TD><TD>""</TD></TR>
+<TR>
+<TD>""</TD><TD>""</TD><TD>""</TD><TD>""</TD><TD>""</TD><TD>""</TD></TR>
+<TR>
+<TD>""</TD><TD>""</TD><TD>""</TD><TD>""</TD><TD>""</TD><TD>""</TD></TR>
+</Table>
+</TableElement>
+<TextElement ID="Text1" Alignment="1" Indent="0.0" Hindent="0" Font="Serif-PLAIN-10" Foreground="-16777216" Spacing="0" Block="false" Continuation="false" Visible="true" KeepWithNext="false" FillStyle="0" TabStops="0.5,1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0,5.5,6.0,6.5,7.0,7.5,8.0" Justify="false" Orphan="false" TextAdvance="3">
+<![CDATA[test]]>
+</TextElement>
+<NewlineElement ID="Newline1" Alignment="1" Indent="0.0" Hindent="0" Font="Serif-PLAIN-10" Foreground="-16777216" Spacing="0" Block="true" Continuation="false" Visible="true" KeepWithNext="false" Count="1">
+</NewlineElement>
+<NewlineElement ID="Newline2" Alignment="1" Indent="0.0" Hindent="0" Font="Serif-PLAIN-10" Foreground="-16777216" Spacing="0" Block="true" Continuation="false" Visible="true" KeepWithNext="false" Count="1">
+</NewlineElement>
+<TextElement ID="Text2" Alignment="1" Indent="0.0" Hindent="0" Font="Serif-PLAIN-10" Foreground="-16777216" Spacing="0" Block="false" Continuation="false" Visible="true" KeepWithNext="false" FillStyle="0" TabStops="0.5,1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0,5.5,6.0,6.5,7.0,7.5,8.0" Justify="false" Orphan="false" TextAdvance="3">
+<![CDATA[Ein sehr langer
+Test oder
+doch nicht
+warum auf
+]]>
+</TextElement>
+</Report>

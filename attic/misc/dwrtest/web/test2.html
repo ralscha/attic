@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+  <title>DWR Test</title>
+  <script type='text/javascript' src="dwr/engine.js"></script>
+  <script type='text/javascript' src="dwr/util.js"></script>    
+  <script type='text/javascript' src="dwr/interface/StringUtils.js"></script>
+
+
+  <script type="text/javascript">
+  
+  function showResult(data) {
+     DWRUtil.setValue("result", data);
+  }
+  </script>
+</head>
+
+<body>
+
+<p>
+  <form action="#">
+    <input type="text" id="str" maxlength="20" size="20" /><br/>
+    
+    <span id="result"></span>
+    
+    <input value=" SUBMIT " type="button" onclick="StringUtils.toUpperCase(showResult, DWRUtil.getValue('str'))"/> 
+    
+    
+  </form>
+</p>
+
+</body>
+</html>

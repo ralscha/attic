@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+ <!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 1.1//EN"
+       "http://jakarta.apache.org/struts/dtds/tiles-config_1_1.dtd">
+
+
+<tiles-definitions>
+
+    <definition name=".default" path="/WEB-INF/jsp/layouts/layout.jsp">
+        <put name="center" value="false"/>
+        <put name="menu"   value="/WEB-INF/jsp/menu.jsp" />
+        <put name="body"   value="/WEB-INF/jsp/empty.html" />
+        <put name="error"   value="/WEB-INF/jsp/errors.jsp" />
+    </definition>
+
+    <definition name=".login" extends=".default">
+        <put name="center" value="true"/>    
+        <put name="menu"   value="/WEB-INF/jsp/empty.html" />
+        <put name="body"   value="/WEB-INF/jsp/loginpage.jsp" />
+        <put name="error"  value="/WEB-INF/jsp/loginerrors.jsp" />
+    </definition>    
+    
+    <definition name=".logout" extends=".default">
+        <put name="center" value="true"/>    
+        <put name="menu"   value="/WEB-INF/jsp/empty.html" />
+        <put name="body"   value="/WEB-INF/jsp/logout.jsp" />
+		<put name="error"   value="/WEB-INF/jsp/empty.html" />
+    </definition>          
+    
+    
+    <definition name=".user.list" extends=".default">
+        <put name="body"   value="/WEB-INF/jsp/userlist.jsp" />
+    </definition>     
+
+    <definition name=".user.edit" extends=".default">
+        <put name="body"   value="/WEB-INF/jsp/useredit.jsp" />
+    </definition>     
+
+    <definition name=".userconfig.edit" extends=".default">
+        <put name="body"   value="/WEB-INF/jsp/userconfigedit.jsp" />
+    </definition> 
+    
+    <definition name=".config.edit" extends=".default">
+        <put name="body"   value="/WEB-INF/jsp/configedit.jsp" />
+    </definition>    
+
+    <definition name=".resource.list" extends=".default">
+        <put name="body"   value="/WEB-INF/jsp/resourcelist.jsp" />
+    </definition>     
+
+    <definition name=".resource.edit" extends=".default">
+        <put name="body"   value="/WEB-INF/jsp/resourceedit.jsp" />
+    </definition>  
+
+    <definition name=".customer.list" extends=".default">
+        <put name="body"   value="/WEB-INF/jsp/customerlist.jsp" />
+    </definition>     
+
+    <definition name=".customer.edit" extends=".default">
+        <put name="body"   value="/WEB-INF/jsp/customeredit.jsp" />
+    </definition> 
+
+    <definition name=".project.list" extends=".default">
+        <put name="body"   value="/WEB-INF/jsp/projectlist.jsp" />
+    </definition>     
+
+    <definition name=".project.edit" extends=".default">
+        <put name="body"   value="/WEB-INF/jsp/projectedit.jsp" />
+    </definition> 
+
+    <definition name=".task.list" extends=".default">
+        <put name="body"   value="/WEB-INF/jsp/tasklist.jsp" />
+    </definition>     
+
+    <definition name=".task.edit" extends=".default">
+        <put name="body"   value="/WEB-INF/jsp/taskedit.jsp" />
+    </definition>     
+
+    <definition name=".tasktime.list" extends=".default">
+        <put name="body"   value="/WEB-INF/jsp/tasktimelist.jsp" />
+    </definition>     
+
+    <definition name=".tasktime.report" extends=".default">
+        <put name="body"   value="/WEB-INF/jsp/tasktimereport.jsp" />
+    </definition> 
+
+    <definition name=".tasktime.edit" extends=".default">
+        <put name="body"   value="/WEB-INF/jsp/tasktimeedit.jsp" />
+    </definition>
+
+</tiles-definitions>

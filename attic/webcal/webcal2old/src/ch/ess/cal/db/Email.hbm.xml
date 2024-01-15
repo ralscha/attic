@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping SYSTEM "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+<hibernate-mapping>
+
+	<class name="ch.ess.cal.db.Email" proxy="ch.ess.cal.db.Email" table="calEmail">
+		<id name="emailId" type="long" unsaved-value="null">
+			<generator class="native"/>
+		</id>		
+						
+        <property name="sequence" type="integer" not-null="true"/>
+		<property name="email" type="string" length="100" not-null="true"/>
+		<property name="defaultEmail" type="boolean" not-null="true"/>
+		
+		
+		<many-to-one name="user" class="ch.ess.cal.db.User" column="userId" not-null="false"/>
+		<many-to-one name="department" class="ch.ess.cal.db.Department" column="departmentId" not-null="false"/>		
+		
+        <set name="reminders" lazy="true" table="calReminderEmails">
+          <key column="emailId"/>
+          <many-to-many class="ch.ess.cal.db.Reminder" column="reminderId"/>
+        </set>			
+	</class>
+
+	
+</hibernate-mapping>

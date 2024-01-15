@@ -1,0 +1,75 @@
+page-home {
+
+
+	.box {
+		position: relative;
+		height: 270px;
+
+		img {
+			padding: 1em 0 1em 0;
+			display: block;
+			margin: auto;
+		}
+	}
+	
+
+	.description {
+		position: absolute;
+		width: 100%;
+		bottom: 0;
+		padding: 1em 1em 0.5em 1em;
+		background-color: rgba(68, 68, 68, 0.7);
+
+
+
+		h1 {
+			font-size: 1em;
+			font-weight: bold;
+			font-family: Verdana;
+			text-align: center;
+			color: rgba(255, 255, 255, 1);
+		}
+
+		p {
+			font-size: 0.9em;
+			font-family: Verdana;
+			text-align: center;
+			color: rgba(255, 255, 255, 1);
+		}
+
+
+		button {
+			font-size: 0.9em;
+		}
+	}
+
+	.happy-families {
+		background-color: $happy-families;
+	}
+
+
+	.climate-hero {
+		background-color: $climate-hero;
+	}
+
+
+	.alpha-male {
+		background-color: $alpha-male;
+	}
+
+
+	.grand-theft-noughto {
+		background-color: $grand-theft-noughto;
+	}
+
+
+	.world-traveller {
+		background-color: $world-traveller;
+	}
+
+
+	.king-for-a-day {
+		background-color: $king-for-a-day;
+	}
+
+}

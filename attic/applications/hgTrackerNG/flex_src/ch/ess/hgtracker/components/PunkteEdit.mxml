@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:TitleWindow xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute" width="862" height="620" 
+  title="{spiel.artName} {dateFormatter.format(spiel.datum)}   Gegner: {spiel.gegner} " showCloseButton="true" 
+  creationComplete="init()">
+    
+  <mx:Script>
+    <![CDATA[
+      import ch.ess.hgtracker.model.PunkteAnzeige;
+      import mx.events.CollectionEvent;
+      import mx.controls.listClasses.IDropInListItemRenderer;
+      import mx.events.DataGridEventReason;
+      import mx.events.DataGridEvent;
+      import ch.ess.hgtracker.db.Spieler;
+      import mx.collections.SortField;
+      import mx.collections.Sort;
+      import mx.collections.ArrayCollection;
+      import ch.ess.hgtracker.db.Club;
+      import ch.ess.hgtracker.db.Spiel;
+      import mx.events.ValidationResultEvent;
+      import mx.binding.utils.BindingUtils;
+      import mx.managers.PopUpManager;
+      import mx.controls.Alert;
+      import mx.rpc.events.ResultEvent;
+      
+      [Bindable]
+      public var spiel:Spiel;
+      
+      [Bindable]
+      private var total:uint;
+      
+      [Bindable]
+      private var total1:uint;
+      
+      [Bindable]
+      private var total2:uint;
+      
+      [Bindable]
+      private var total3:uint;
+      
+      [Bindable]
+      private var total4:uint;
+      
+      [Bindable]
+      private var total5:uint;
+      
+      [Bindable]
+      private var total6:uint;
+                  
+      [Bindable]
+      [ArrayElementType("ch.ess.hgtracker.model.PunkteAnzeige")]
+      private var punkteArrayCollection:ArrayCollection;
+
+      [Bindable]
+      [ArrayElementType("ch.ess.hgtracker.model.PunkteAnzeige")]
+      private var punkteUeberzaehligArrayCollection:ArrayCollection;
+
+                    
+      private function init():void {
+        PopUpManager.centerPopUp(this);
+        this.addEventListener(Event.CLOSE, onCloseEvent);   
+        spielService.getPunkte(spiel);       
+      }
+
+      private function save():void {
+        spielService.savePunkte(spiel, punkteArrayCollection, punkteUeberzaehligArrayCollection);
+        var dataEvent:Event = new Event("dataInserted");
+        dispatchEvent(dataEvent);
+        close();
+      }
+
+      
+      private function onCloseEvent(e:Event):void {
+        close();
+      }
+
+      private function close():void {
+        PopUpManager.removePopUp(this);
+      }   
+      
+      private function onGetPunkte(e:ResultEvent):void {        
+        punkteArrayCollection = ArrayCollection(e.result.punkteAnzeige);
+        punkteUeberzaehligArrayCollection = ArrayCollection(e.result.ueberzaehligePunkteAnzeige);
+        total = e.result.total;
+        total1 = e.result.total1;
+        total2 = e.result.total2;
+        total3 = e.result.total3;
+        total4 = e.result.total4;
+        total5 = e.result.total5;
+        total6 = e.result.total6;    
+        punkteArrayCollection.addEventListener(CollectionEvent.COLLECTION_CHANGE, dataChangeHandler); 
+        
+        if (e.result.meisterschaft) {
+          rangpunkteColumnUeberzaehlig.visible = true;
+          rangpunkteColumn.visible = true;
+          this.width = 920;
+          PopUpManager.centerPopUp(this);
+          
+          total1Label.x -= 10;
+          total2Label.x -= 18;
+          total3Label.x -= 26;
+          total4Label.x -= 30;
+          total5Label.x -= 35;
+          total6Label.x -= 38;
+          totalLabel.x -= 42;
+          
+        } else {
+          rangpunkteColumnUeberzaehlig.visible = false;
+          rangpunkteColumn.visible = false;
+        }            
+      }
+      
+//      private function processData(event:DataGridEvent):void {        
+//        if (event.reason == DataGridEventReason.CANCELLED){
+//          return;
+//        }           
+//
+//        if (event.dataField == "rangpunkte") {
+//          return;
+//        }
+//
+//        event.preventDefault();
+//
+//        if(event.dataField == "ries1") {                
+//          punkteDataGrid.editedItemRenderer.data.ries1 = RiesItemEditor(DataGrid(event.target).itemEditorInstance).riesInputText.text;
+//          punkteDataGrid.editedItemRenderer.data.nr1 = RiesItemEditor(DataGrid(event.target).itemEditorInstance).nrCheckbox.selected;     
+//        } else if(event.dataField == "ries2") {
+//          punkteDataGrid.editedItemRenderer.data.ries2 = RiesItemEditor(DataGrid(event.target).itemEditorInstance).riesInputText.text;
+//          punkteDataGrid.editedItemRenderer.data.nr2 = RiesItemEditor(DataGrid(event.target).itemEditorInstance).nrCheckbox.selected;     
+//        } else if(event.dataField == "ries3") {
+//          punkteDataGrid.editedItemRenderer.data.ries3 = RiesItemEditor(DataGrid(event.target).itemEditorInstance).riesInputText.text;
+//          punkteDataGrid.editedItemRenderer.data.nr3 = RiesItemEditor(DataGrid(event.target).itemEditorInstance).nrCheckbox.selected;     
+//        } else if(event.dataField == "ries4") {
+//          punkteDataGrid.editedItemRenderer.data.ries4 = RiesItemEditor(DataGrid(event.target).itemEditorInstance).riesInputText.text;
+//          punkteDataGrid.editedItemRenderer.data.nr4 = RiesItemEditor(DataGrid(event.target).itemEditorInstance).nrCheckbox.selected;     
+//        } else if(event.dataField == "ries5") {
+//          punkteDataGrid.editedItemRenderer.data.ries5 = RiesItemEditor(DataGrid(event.target).itemEditorInstance).riesInputText.text;
+//          punkteDataGrid.editedItemRenderer.data.nr5 = RiesItemEditor(DataGrid(event.target).itemEditorInstance).nrCheckbox.selected;     
+//        } else if(event.dataField == "ries6") {
+//          punkteDataGrid.editedItemRenderer.data.ries6 = RiesItemEditor(DataGrid(event.target).itemEditorInstance).riesInputText.text;
+//          punkteDataGrid.editedItemRenderer.data.nr6 = RiesItemEditor(DataGrid(event.target).itemEditorInstance).nrCheckbox.selected;     
+//        }
+//        
+//        punkteDataGrid.destroyItemEditor();      
+//        punkteDataGrid.dataProvider.itemUpdated(event.itemRenderer.data);
+//
+//      }  
+//      
+//              
+//      private function itemEditBegin(event:DataGridEvent):void {
+//        var colName:String = punkteDataGrid.columns[event.columnIndex].dataField;
+//        
+//        if (colName == "rangpunkte") {
+//          return;
+//        }
+//        
+//        event.preventDefault();
+//        punkteDataGrid.createItemEditor(event.columnIndex, event.rowIndex);
+//                
+//        punkteDataGrid.itemEditorInstance.data = punkteDataGrid.editedItemRenderer.data;
+//        
+//        if(colName=="ries1") {        
+//          RiesItemEditor(punkteDataGrid.itemEditorInstance).riesInputText.text = punkteDataGrid.itemEditorInstance.data.ries1;
+//          RiesItemEditor(punkteDataGrid.itemEditorInstance).nrCheckbox.selected = punkteDataGrid.itemEditorInstance.data.nr1;         
+//        } else if(colName=="ries2") {        
+//          RiesItemEditor(punkteDataGrid.itemEditorInstance).riesInputText.text = punkteDataGrid.itemEditorInstance.data.ries2;
+//          RiesItemEditor(punkteDataGrid.itemEditorInstance).nrCheckbox.selected = punkteDataGrid.itemEditorInstance.data.nr2;         
+//        } else if(colName=="ries3") {        
+//          RiesItemEditor(punkteDataGrid.itemEditorInstance).riesInputText.text = punkteDataGrid.itemEditorInstance.data.ries3;
+//          RiesItemEditor(punkteDataGrid.itemEditorInstance).nrCheckbox.selected = punkteDataGrid.itemEditorInstance.data.nr3;         
+//        } else if(colName=="ries4") {        
+//          RiesItemEditor(punkteDataGrid.itemEditorInstance).riesInputText.text = punkteDataGrid.itemEditorInstance.data.ries4;
+//          RiesItemEditor(punkteDataGrid.itemEditorInstance).nrCheckbox.selected = punkteDataGrid.itemEditorInstance.data.nr4;         
+//        } else if(colName=="ries5") {        
+//          RiesItemEditor(punkteDataGrid.itemEditorInstance).riesInputText.text = punkteDataGrid.itemEditorInstance.data.ries5;
+//          RiesItemEditor(punkteDataGrid.itemEditorInstance).nrCheckbox.selected = punkteDataGrid.itemEditorInstance.data.nr5;         
+//        } else if(colName=="ries6") {        
+//          RiesItemEditor(punkteDataGrid.itemEditorInstance).riesInputText.text = punkteDataGrid.itemEditorInstance.data.ries6;
+//          RiesItemEditor(punkteDataGrid.itemEditorInstance).nrCheckbox.selected = punkteDataGrid.itemEditorInstance.data.nr6;         
+//        }
+//        
+//        RiesItemEditor(punkteDataGrid.itemEditorInstance).riesInputText.setFocus();
+//      }
+      
+      private function dataChangeHandler(e:CollectionEvent):void {
+        total1 = 0;
+        total2 = 0;
+        total3 = 0;
+        total4 = 0;
+        total5 = 0;
+        total6 = 0;
+        for(var i:int = 0; i < punkteArrayCollection.length; i++) {
+          var rowTotal:int = 0;
+          
+          var r1:Number = punkteArrayCollection.getItemAt(i).ries1;     
+          var r2:Number = punkteArrayCollection.getItemAt(i).ries2;
+          var r3:Number = punkteArrayCollection.getItemAt(i).ries3;
+          var r4:Number = punkteArrayCollection.getItemAt(i).ries4;
+          var r5:Number = punkteArrayCollection.getItemAt(i).ries5;
+          var r6:Number = punkteArrayCollection.getItemAt(i).ries6;
+          
+          if (!isNaN(r1)) {     
+            total1 = total1 + r1;
+            rowTotal += r1;
+          }   
+          if (!isNaN(r2)) {     
+            total2 = total2 + r2;
+            rowTotal += r2;
+          }   
+          if (!isNaN(r3)) {     
+            total3 = total3 + r3;
+            rowTotal += r3;
+          }   
+          if (!isNaN(r4)) {     
+            total4 = total4 + r4;
+            rowTotal += r4;
+          }   
+          if (!isNaN(r5)) {     
+            total5 = total5 + r5;
+            rowTotal += r5;
+          }   
+          if (!isNaN(r6)) {     
+            total6 = total6 + r6;
+            rowTotal += r6;
+          }   
+          
+          punkteArrayCollection.getItemAt(i).total = rowTotal;
+          
+        }
+        
+        total = total1 + total2 + total3 + total4 + total5 + total6;
+      }
+             
+    ]]>
+  </mx:Script>
+  
+  <mx:RemoteObject id="spielService" showBusyCursor="true" destination="spielService">
+    <mx:method name="getPunkte" result="onGetPunkte(event)" />
+  </mx:RemoteObject>
+  
+  <mx:DataGrid id="punkteDataGrid" top="10" left="10" right="10" bottom="140" 
+    dataProvider="{punkteArrayCollection}" editable="true" resizableColumns="false" sortableColumns="true">
+    <mx:columns>
+      <mx:DataGridColumn headerText="" dataField="reihenfolge" width="30" editable="false" textAlign="right" paddingRight="5" />        
+      <mx:DataGridColumn headerText="Nachname" dataField="nachname" editable="false" itemRenderer="ch.ess.hgtracker.components.RiesItemRenderer" rendererIsEditor="false"/>
+      <mx:DataGridColumn headerText="Vorname" dataField="vorname" editable="false" itemRenderer="ch.ess.hgtracker.components.RiesItemRenderer" rendererIsEditor="false"/>
+      <mx:DataGridColumn headerText="Jahrgang" dataField="jahrgang" width="70" editable="false"/>
+
+      <mx:DataGridColumn headerText="1.Ries" dataField="ries1" textAlign="right" itemEditor="ch.ess.hgtracker.components.RiesEditor" paddingRight="5" itemRenderer="ch.ess.hgtracker.components.RiesItemRenderer" rendererIsEditor="false"/>
+      <mx:DataGridColumn headerText="2.Ries" dataField="ries2" textAlign="right" itemEditor="ch.ess.hgtracker.components.RiesEditor" paddingRight="5" itemRenderer="ch.ess.hgtracker.components.RiesItemRenderer" rendererIsEditor="false"/>
+      <mx:DataGridColumn headerText="3.Ries" dataField="ries3" textAlign="right" itemEditor="ch.ess.hgtracker.components.RiesEditor" paddingRight="5" itemRenderer="ch.ess.hgtracker.components.RiesItemRenderer" rendererIsEditor="false"/>
+      <mx:DataGridColumn headerText="4.Ries" dataField="ries4" textAlign="right" itemEditor="ch.ess.hgtracker.components.RiesEditor" paddingRight="5" itemRenderer="ch.ess.hgtracker.components.RiesItemRenderer" rendererIsEditor="false"/>
+      <mx:DataGridColumn headerText="5.Ries" dataField="ries5" textAlign="right" itemEditor="ch.ess.hgtracker.components.RiesEditor" paddingRight="5" itemRenderer="ch.ess.hgtracker.components.RiesItemRenderer" rendererIsEditor="false"/>
+      <mx:DataGridColumn headerText="6.Ries" dataField="ries6" textAlign="right" itemEditor="ch.ess.hgtracker.components.RiesEditor" paddingRight="5" itemRenderer="ch.ess.hgtracker.components.RiesItemRenderer" rendererIsEditor="false"/>
+      <mx:DataGridColumn headerText="Nr." dataField="id" sortable="false" textAlign="center" editable="false" itemRenderer="ch.ess.hgtracker.components.NrImage" />
+      <mx:DataGridColumn headerText="Total" dataField="total" editable="false" textAlign="right" paddingRight="5"/>
+      <mx:DataGridColumn id="rangpunkteColumn" headerText="Rangpunkte" dataField="rangpunkte" visible="false" textAlign="right" paddingRight="5" />
+    </mx:columns>
+  </mx:DataGrid>
+  
+  <mx:Label x="10" text="Überzählige Spieler" bottom="110" fontStyle="italic"/>
+  
+  <mx:Label x="245" id="total1Label" text="{total1}" width="78" textAlign="right" bottom="121" fontWeight="bold"/>
+  <mx:Label x="317" id="total2Label" text="{total2}" width="78" textAlign="right" bottom="121" fontWeight="bold"/>
+  <mx:Label x="390" id="total3Label" text="{total3}" width="78" textAlign="right" bottom="121" fontWeight="bold"/>
+  <mx:Label x="460" id="total4Label" text="{total4}" width="78" textAlign="right" bottom="121" fontWeight="bold"/>
+  <mx:Label x="531" id="total5Label" text="{total5}" width="78" textAlign="right" bottom="121" fontWeight="bold"/>
+  <mx:Label x="603" id="total6Label" text="{total6}" width="78" textAlign="right" bottom="121" fontWeight="bold"/>
+  
+  <mx:Label x="750" id="totalLabel" text="{total}" width="78" textAlign="right" bottom="121" fontWeight="bold"/>
+  
+  
+  <mx:DataGrid bottom="40" left="10" right="9.69696" id="punkteUeberzaehligDataGrid"
+    dataProvider="{punkteUeberzaehligArrayCollection}" editable="true" height="70" 
+    resizableColumns="false" sortableColumns="false">
+    <mx:columns>
+      <mx:DataGridColumn headerText="" dataField="reihenfolge" width="30" editable="false" textAlign="right" paddingRight="5"/>        
+      <mx:DataGridColumn headerText="Nachname" dataField="nachname" editable="false"/>
+      <mx:DataGridColumn headerText="Vorname" dataField="vorname" editable="false"/>
+      <mx:DataGridColumn headerText="Jahrgang" dataField="jahrgang" width="70" editable="false"/>
+      <mx:DataGridColumn headerText="1.Ries" dataField="ries1" textAlign="right" paddingRight="5"/>
+      <mx:DataGridColumn headerText="2.Ries" dataField="ries2" textAlign="right" paddingRight="5"/>
+      <mx:DataGridColumn headerText="3.Ries" dataField="ries3" textAlign="right" paddingRight="5"/>
+      <mx:DataGridColumn headerText="4.Ries" dataField="ries4" textAlign="right" paddingRight="5"/>
+      <mx:DataGridColumn headerText="5.Ries" dataField="ries5" textAlign="right" paddingRight="5"/>
+      <mx:DataGridColumn headerText="6.Ries" dataField="ries6" textAlign="right" paddingRight="5"/>
+      <mx:DataGridColumn headerText="Total" dataField="total" editable="false" textAlign="right" paddingRight="5"/>      
+      <mx:DataGridColumn id="rangpunkteColumnUeberzaehlig" headerText="Rangpunkte" dataField="rangpunkte" visible="false" textAlign="right" paddingRight="5" />
+    </mx:columns>
+  </mx:DataGrid>  
+
+  <mx:Button label="Speichern" id="saveButton" bottom="10" left="10" click="save()" icon="@Embed(source='assets/disk_green.png')"/>
+  <mx:Button label="Abbrechen" id="cancelButton" right="10" bottom="10" click="close()" icon="@Embed(source='assets/delete.png')"/>
+  
+  <mx:DateFormatter id="dateFormatter" formatString="DD.MM.YYYY HH:NN" />
+
+
+    
+</mx:TitleWindow>

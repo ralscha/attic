@@ -1,0 +1,15 @@
+d jdbc.idbDriver;
+o jdbc:idb=db.props;
+
+
+e DROP TABLE FAQS;
+
+e CREATE TABLE FAQS
+      (
+      	ID           INT AUTO INCREMENT NOT NULL PRIMARY KEY,            
+         QUESTION     VARCHAR(255),
+         ANSWER       VARCHAR(4096),
+         MODIFIED     DATE
+      );
+
+c close;

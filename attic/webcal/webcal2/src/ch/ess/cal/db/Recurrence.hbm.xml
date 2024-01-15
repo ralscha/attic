@@ -1,0 +1,236 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd">
+
+<hibernate-mapping>
+    <class
+        name="ch.ess.cal.db.Recurrence"
+        table="calRecurrence"
+        lazy="true"
+        dynamic-update="false"
+        dynamic-insert="false"
+    >
+
+        <id
+            name="id"
+            column="id"
+            type="java.lang.Long"
+            unsaved-value="null"
+        >
+            <generator class="native">
+            </generator>
+        </id>
+
+        <version
+            name="version"
+            type="int"
+            column="version"
+        />
+
+        <property
+            name="exclude"
+            type="boolean"
+            update="true"
+            insert="true"
+            column="exclude"
+            not-null="true"
+        />
+
+        <property
+            name="active"
+            type="boolean"
+            update="true"
+            insert="true"
+            column="active"
+            not-null="true"
+        />
+
+        <property
+            name="type"
+            type="ch.ess.cal.db.RecurrenceTypeEnum"
+            update="true"
+            insert="true"
+            column="type"
+            not-null="true"
+        />
+
+        <property
+            name="interval"
+            type="java.lang.Integer"
+            update="true"
+            insert="true"
+            column="interval"
+            not-null="false"
+        />
+
+        <property
+            name="dayOfWeekMask"
+            type="java.lang.Integer"
+            update="true"
+            insert="true"
+            column="dayOfWeekMask"
+            not-null="false"
+        />
+
+        <property
+            name="dayOfMonth"
+            type="java.lang.Integer"
+            update="true"
+            insert="true"
+            column="dayOfMonth"
+            not-null="false"
+        />
+
+        <property
+            name="monthOfYear"
+            type="java.lang.Integer"
+            update="true"
+            insert="true"
+            column="monthOfYear"
+            not-null="false"
+        />
+
+        <property
+            name="instance"
+            type="java.lang.Integer"
+            update="true"
+            insert="true"
+            column="instance"
+            not-null="false"
+        />
+
+        <property
+            name="occurrences"
+            type="java.lang.Integer"
+            update="true"
+            insert="true"
+            column="occurrences"
+            not-null="false"
+        />
+
+        <property
+            name="duration"
+            type="java.lang.Long"
+            update="true"
+            insert="true"
+            column="duration"
+            not-null="true"
+        />
+
+        <property
+            name="always"
+            type="boolean"
+            update="true"
+            insert="true"
+            column="always"
+            not-null="true"
+        />
+
+        <property
+            name="until"
+            type="java.lang.Long"
+            update="true"
+            insert="true"
+            column="until"
+            not-null="false"
+        />
+
+        <property
+            name="rfcRule"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="rfcRule"
+            length="255"
+            not-null="false"
+        />
+
+        <property
+            name="patternEndDate"
+            type="java.lang.Long"
+            update="true"
+            insert="true"
+            column="patternEndDate"
+            not-null="false"
+        />
+
+        <property
+            name="patternStartDate"
+            type="java.lang.Long"
+            update="true"
+            insert="true"
+            column="patternStartDate"
+            not-null="true"
+        />
+
+        <property
+            name="endTime"
+            type="java.lang.Long"
+            update="true"
+            insert="true"
+            column="endTime"
+            not-null="false"
+        />
+
+        <property
+            name="startTime"
+            type="java.lang.Long"
+            update="true"
+            insert="true"
+            column="startTime"
+            not-null="false"
+        />
+
+        <many-to-one
+            name="event"
+            class="ch.ess.cal.db.Event"
+            cascade="none"
+            outer-join="auto"
+            update="true"
+            insert="true"
+        >
+            <column
+                name="eventId"
+                index="FK_Recurrence_Event"
+                not-null="true"
+            />
+        </many-to-one>
+
+        <map
+            name="days"
+            table="calRecurrenceDay"
+            lazy="true"
+            sort="unsorted"
+            inverse="false"
+            cascade="all-delete-orphan"
+        >
+
+              <key
+                  column="recurrenceId"
+              />
+
+              <index
+                  column="pos"
+                  type="integer"
+              />
+
+              <element
+                  column="recurrenceDay"
+                  type="long"
+                  not-null="false"
+                  unique="false"
+              />
+
+        </map>
+
+        <!--
+            To add non XDoclet property mappings, create a file named
+                hibernate-properties-Recurrence.xml
+            containing the additional properties and place it in your merge dir.
+        -->
+
+    </class>
+
+</hibernate-mapping>

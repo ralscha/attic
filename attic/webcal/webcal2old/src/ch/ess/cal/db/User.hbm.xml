@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping SYSTEM "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+<hibernate-mapping>
+
+	<class name="ch.ess.cal.db.User" proxy="ch.ess.cal.db.User" table="calUser">
+		<id name="userId" type="long" unsaved-value="null">
+			<generator class="native"/>
+		</id>		
+		<version name="version"/>
+				
+		<property name="userName" unique="true" type="string" length="100" not-null="true"/>	  
+		<property name="passwordHash" type="string" length="32" not-null="false"/>	  		
+		<property name="name" type="string" length="100" not-null="true"/>	  
+		<property name="firstName" type="string" length="100" not-null="false"/>	  	
+		<property name="locale" type="locale" length="10" not-null="true"/>	  
+		<property name="logonToken" type="string" length="40" not-null="false"/>	  			
+		<property name="logonTokenTime" type="timestamp" not-null="false"/>		
+		
+
+        <set name="configuration" cascade="all" lazy="true" inverse="true">
+          <key column="userId"/>
+          <one-to-many class="ch.ess.cal.db.UserConfiguration"/>
+        </set>	  		
+		
+		
+        <list name="emails" cascade="all" lazy="true" inverse="true">
+          <key column="userId"/>
+          <index column="sequence" type="integer"/>
+          <one-to-many class="ch.ess.cal.db.Email"/>
+        </list>	        
+        
+    
+        <set name="events" lazy="true" table="calUserEvents">
+          <key column="userId"/>
+          <many-to-many class="ch.ess.cal.db.Event" column="eventId"/>
+        </set>
+        
+        <many-to-one name="userGroup" class="ch.ess.cal.db.UserGroup" column="userGroupId" not-null="false"/>
+		
+
+        <set name="accessDepartments" lazy="true" table="calAccessDepartmentUsers">
+          <key column="userId"/>
+          <many-to-many class="ch.ess.cal.db.Department" column="departmentId"/>
+        </set>			
+		
+        <set name="departments" lazy="true" table="calDepartmentUsers">
+          <key column="userId"/>
+          <many-to-many class="ch.ess.cal.db.Department" column="departmentId"/>
+        </set>	
+        
+        <set name="resourceGroups" lazy="true" table="calUserResourceGroups">
+          <key column="userId"/>
+          <many-to-many class="ch.ess.cal.db.ResourceGroup" column="resourceGroupId"/>
+        </set>        	
+		
+	</class>
+
+	
+</hibernate-mapping>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<!DOCTYPE struts-config PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN"
+          "http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+
+
+<struts-config>
+
+
+
+<!-- ==================================== Data Source Configuration -->
+
+
+
+ <data-sources>
+   <data-source>
+     <set-property property="autoCommit" value="false"/>
+     <set-property property="driverClass" value="com.mysql.jdbc.Driver"/>
+     <set-property property="maxCount" value="4"/>
+     <set-property property="minCount" value="2"/>
+     <set-property property="password" value=""/>
+     <set-property property="url" value="jdbc:mysql://localhost/cal"/>
+     <set-property property="user" value="admin"/>
+   </data-source>
+
+ </data-sources>
+
+
+
+
+
+
+
+<!-- =================================== Action Mapping Definitions -->
+
+
+
+    <action-mappings>
+
+
+        <action
+            path="/test"
+            type="svgtest.TestAction">
+          <forward   name="success"   path="/index.html"/>   
+        </action>
+
+
+        <action path="/author" type="svgtest.AuthorAction"/>
+        <action path="/index" type="svgtest.IndexAction"/>
+
+    </action-mappings>
+
+
+
+
+    <message-resources parameter="resources.application"/>
+
+
+</struts-config>
+

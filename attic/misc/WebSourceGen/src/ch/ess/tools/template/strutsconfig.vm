@@ -1,0 +1,59 @@
+		
+		
+    <form-bean      name="${objectLowercaseName}Form"
+                    type="${package}.form.${objectName}Form"/>
+
+    <!------------------------------------------------------------------------->
+
+    <action path="/${objectLowercaseNames}" roles="${rechtparent}" forward="/${objectLowercaseNames}.jsp"/>
+    <action     path="/list${objectNames}"
+                type="${package}.action.List${objectNames}Action"
+                name="resetOnSearchMapForm"
+                scope="session"
+                validate="false"
+                roles="${rechtparent}">   
+       <forward name="success"      path="/${objectLowercaseNames}.jsp"/>
+    </action>   
+    
+    <action     path="/add${objectName}"
+                type="${package}.action.Edit${objectName}Action"
+                name="${objectLowercaseName}Form"
+                input="/edit${objectLowercaseName}.jsp"
+                scope="session"
+                validate="false"                   
+                parameter="add"
+                roles="${recht}">   
+       <forward name="success"      path="/edit${objectLowercaseName}.jsp"/>
+    </action>  
+
+    <action     path="/edit${objectName}"
+                type="${package}.action.Edit${objectName}Action"
+                name="${objectLowercaseName}Form"
+                input="/edit${objectLowercaseName}.jsp"
+                scope="session"
+                validate="false"                
+                parameter="edit"
+                roles="${rechtparent}">   
+       <forward name="success"      path="/edit${objectLowercaseName}.jsp"/>
+    </action>      
+
+    <action     path="/store${objectName}"
+                type="${package}.action.Edit${objectName}Action"
+                name="${objectLowercaseName}Form"
+                input="/edit${objectLowercaseName}.jsp"
+                scope="session"
+                validate="true"
+                parameter="store"
+                roles="${recht}">   
+       <forward name="success"      path="/edit${objectLowercaseName}.jsp"/>
+       <forward name="saveandback"  path="/list${objectNames}.do"/>
+       <forward name="cancel"		path="/${objectLowercaseNames}.jsp"/>
+    </action>     
+
+    <action     path="/delete${objectName}"
+                type="${package}.action.Edit${objectName}Action"
+                parameter="delete"
+                roles="${recht}">   
+      <forward name="success"       path="/list${objectNames}.do"/>
+    </action>  
+  

@@ -1,0 +1,80 @@
+package ch.ess.base.web.upload;
+
+import java.io.Serializable;
+
+import org.directwebremoting.annotations.DataTransferObject;
+import org.directwebremoting.annotations.RemoteProperty;
+
+@DataTransferObject
+public class UploadInfo implements Serializable {
+  @RemoteProperty
+  private long totalSize = 0;
+  
+  @RemoteProperty
+  private long bytesRead = 0;
+  
+  @RemoteProperty
+  private long elapsedTime = 0;
+  
+  @RemoteProperty
+  private String status = "done";
+  
+  @RemoteProperty
+  private int fileIndex = 0;
+
+  public UploadInfo() {
+    //no action
+  }
+
+  public UploadInfo(int fileIndex, long totalSize, long bytesRead, long elapsedTime, String status) {
+    this.fileIndex = fileIndex;
+    this.totalSize = totalSize;
+    this.bytesRead = bytesRead;
+    this.elapsedTime = elapsedTime;
+    this.status = status;
+  }
+
+  public String getStatus() {
+    return status;
+  }
+
+  public void setStatus(String status) {
+    this.status = status;
+  }
+
+  public long getTotalSize() {
+    return totalSize;
+  }
+
+  public void setTotalSize(long totalSize) {
+    this.totalSize = totalSize;
+  }
+
+  public long getBytesRead() {
+    return bytesRead;
+  }
+
+  public void setBytesRead(long bytesRead) {
+    this.bytesRead = bytesRead;
+  }
+
+  public long getElapsedTime() {
+    return elapsedTime;
+  }
+
+  public void setElapsedTime(long elapsedTime) {
+    this.elapsedTime = elapsedTime;
+  }
+
+  public boolean isInProgress() {
+    return "progress".equals(status) || "start".equals(status);
+  }
+
+  public int getFileIndex() {
+    return fileIndex;
+  }
+
+  public void setFileIndex(int fileIndex) {
+    this.fileIndex = fileIndex;
+  }
+}

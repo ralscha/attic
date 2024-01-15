@@ -1,0 +1,46 @@
+
+<sourcegen>
+  <javaOutputPath>c:/temp/test/src</javaOutputPath>
+  <jspOutputPath>c:/temp/test/jsp</jspOutputPath> 
+  <dropDownMenu>true</dropDownMenu>
+  <classDescriptions>
+      <classDescription>    
+        <packageName>ch.ess.cal</packageName>
+        <name>Category</name>
+        
+        <!-- key NICHT angeben, z.B. projectId -->          
+        <properties>
+          <property>
+            <name>categoryName</name>
+            <modelType>String</modelType><!-- mögliche Werte String, Date, BigDecimal, Integer, Boolean -->
+            <validator>required</validator>
+            <finder>true</finder>  <!-- suchen nach diesem Property -->
+            <list>true</list> <!-- wenn true, wird in der Liste angezeigt -->      
+            <sort>ASCENDING</sort> <!-- Sortieren der Liste. mögliche Werte ASCENDING, DESCENDING -->    
+          </property>
+          <property>
+            <name>icalKey</name>
+            <modelType>String</modelType><!-- mögliche Werte String, Date, BigDecimal, Integer, Boolean -->
+            <list>false</list> <!-- wenn true, wird in der Liste angezeigt -->      
+          </property>
+          <property>
+            <name>colour</name>
+            <modelType>String</modelType><!-- mögliche Werte String, Date, BigDecimal, Integer, Boolean -->
+            <list>true</list> <!-- wenn true, wird in der Liste angezeigt -->      
+          </property>
+         <property>
+            <name>bwColour</name>
+            <modelType>String</modelType>            
+            <list>true</list>
+          </property>                              
+         <property>
+            <name>unknown</name>
+            <modelType>Boolean</modelType>     
+            <list>true</list>       
+          </property>                       
+
+         
+        </properties>
+      </classDescription>
+  </classDescriptions>  
+</sourcegen>

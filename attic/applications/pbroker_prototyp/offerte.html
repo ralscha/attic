@@ -1,0 +1,159 @@
+<!doctype html public "-//W3C//DTD HTML 4.0 //EN">
+<html>
+<head>
+<title>Offerte</title>
+</head>
+<body>
+
+<table width="100%">
+<tr>
+ <th width="60%"> </th>
+ <th width="40%"> </th>
+</tr>
+<tr>
+ <td> Lieferanten.Logo</td>
+ <td> </td>
+</tr>
+<tr>
+ <td> </td>
+ <td> ' + Kunde.Adresse + '</td>
+</tr>
+<tr>
+ <td> </td>
+ <td> ' + Lieferanten.Stadt + ', Datum</td>
+</tr>
+</table>
+
+<h1 div align="center">Offerte Nr: ' + Offerten.OfferteId + '</h1>
+<h1 div align="center">' + Offerten.Stellenbezeichnung + '</h1>
+<br>
+<div align="left">Sehr geehrte Damen und Herren</div>
+<br>
+<div align="left">Wir erlauben uns, Ihnen die Offerte f&uuml;r den ' +
+Offerten.Stellenbezeichnung + ', ' +
+Kandidaten.AnredeAkkusativ + ' ' + Kandidaten.Vornameame + ' ' + Kandidaten.Name + ' zuzusenden. Der externe Mitarbeiter kann in den Monaten ' + Offerten.Zeitrahmen + ' f&uuml;r das Projekt eingesetzt werden:</div>
+
+<table width="100%">
+<tr>
+ <th width="50"> </th>
+ <th> </th>
+</tr>
+<tr>
+ <td valign="top"><h2>1.</h2></td>
+ <td><h2><u>Person</u></h2>
+<div align="left">
+' + Kandidaten.Name + ' ' + Kandidaten.Vorname + ' ' + Kandidaten.Ort + '<br>
+E-Mail Adresse: ' + Kandidaten.Email + '<br>
+Berufserfahrung: ???<br>
+</div>
+</td>
+</tr>
+<tr>
+ <td valign="top"><h2>2.</h2></td>
+ <td><h2><u>Einsatz Funktion</u></h2>
+<div align="left">
+Swisscom CIT, Abteilung ' + Offerten.Abteilung + '<br>&nbsp;
+<table>
+<tr>
+ <td valign="top"><i>Stellenbezeichnung:</i>&nbsp;&nbsp;</td>
+ <td>' + Offerten.Stellenbezeichnung + '<br>&nbsp;</td>
+</tr>
+<tr>
+ <td valign="top"><i>Vorgesetzter / Kontaktpweson:</i>&nbsp;&nbsp;</td>
+ <td>' + Offerten.Vorgesetzter + '<br>&nbsp;</td>
+</tr>
+<tr>
+ <td valign="top"><i>Arbeitsbeginn:</i>&nbsp;&nbsp;</td>
+ <td>' + Offerten.Arbeitsbeginn + '<br>&nbsp;</td>
+</tr>
+<tr>
+ <td valign="top"><i>Projektphasen, Meilensteine:</i>&nbsp;&nbsp;</td>
+ <td>' + Offerten.Projektphasen + ', ' + Offerten.Meilensteine + '<br>&nbsp;</td>
+</tr>
+<tr>
+ <td valign="top"><i>Besonderes:</i>&nbsp;&nbsp;</td>
+ <td>' + Offerten.Besonderes + '<br>&nbsp;</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr>
+ <td valign="top"><h2>3.</h2></td>
+ <td><h2><u>Zeitrahmen</u></h2>
+<div align="left">
+<table>
+<tr>
+ <td valign="top"><i>Zurverf&uuml;gungstellung:</i>&nbsp;&nbsp;</td>
+ <td>' + Offerten.Arbeitsbeginn + '<br>&nbsp;</td>
+</tr>
+<tr>
+ <td valign="top"><i>Weiterverpflichtung m&ouml;glich:</i>&nbsp;&nbsp;</td>
+ <td>' + Offerten.WeiterverpflichtungM&ouml;glich + '<br>&nbsp;</td>
+</tr>
+<tr>
+ <td valign="top"><i>Stundenzahl total:</i>&nbsp;&nbsp;</td>
+ <td>' + Offerten.AnzahlStunden + '<br>&nbsp;</td>
+</tr>
+<tr>
+ <td valign="top"><i>Tage total:</i>&nbsp;&nbsp;</td>
+ <td>' + Offerten.AnzahlTage + '<br>&nbsp;</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr>
+ <td valign="top"><h2>4.</h2></td>
+ <td><h2><u>Arbeitsort und Hilfsmittel</u></h2>
+<div align="left">
+Die Arbeitsapl&auml;tze sowie die im Rahmen der Auftragserledigung geeigneten Einrichtungen werden vom Kunden zur Verf&uuml;gung gestellt.<br>
+&nbsp;<br>
+<table>
+<tr>
+ <td valign="top"><i>Arbeitsort:</i>&nbsp;&nbsp;</td>
+ <td>' + Offerten.Arbeitsort + '<br>&nbsp;</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr>
+ <td valign="top"><h2>5.</h2></td>
+ <td><h2><u>Kosten, Abrechnung</u></h2>
+<div align="left">
+<table>
+<tr>
+ <td valign="top"><i>Stundensatz je geleistete Stunde:</i>&nbsp;&nbsp;</td>
+ <td>Fr. &nbsp;</td>
+ <td align="right">' + Offerten.Stundensatz + '</td>
+</tr>
+<tr>
+ <td valign="top"><i>plus MwSt von 7.5%:</i>&nbsp;&nbsp;</td>
+ <td>Fr. &nbsp;</td>
+ <td align="right">' + Offerten.Stundensatz * 0.075 + '</td>
+</tr>
+<tr>
+ <td valign="top"><i>Stundensatz je geleisteten Tag:</i>&nbsp;&nbsp;</td>
+ <td>Fr. &nbsp;</td>
+ <td align="right">' + Offerten.Stundensatz * 8 + '</td>
+</tr>
+<tr>
+ <td valign="top"><i>plus MwSt von 7.5%:</i>&nbsp;&nbsp;</td>
+ <td>Fr. &nbsp;</td>
+ <td align="right">' + Offerten.Stundensatz * 8 * 0.075 + '</td>
+</tr>
+</table>
+&nbsp;<br>
+Die Arbeitszeit wird mittels Zeiterfassungskarte festgehalten und Monatlich vom Kunden kontrolliert. Die weiteren Bedingungen ergeben sich aus den allgemeinen Gesch&auml;ftsbedingungen.
+</div>
+</td>
+</tr>
+</table>
+<br>&nbsp;<br>&nbsp;<br>&nbsp;<br>
+Wir w&uuml;rden uns freuen, dieses Projekt erfolgreich f&uuml;r Sie durchzuf&uuml;hren. F&uuml;r Ihr Vertrauen danken wir bestens und w&uuml;nschen Ihnen alles Gute.
+<br>&nbsp;<br>&nbsp;<br>&nbsp;<br>
+Mit freundlichen Gr&uuml;ssen<br>
+<h3>' + Lieferanten.Lieferant + '</h3>
+</body>
+</html>

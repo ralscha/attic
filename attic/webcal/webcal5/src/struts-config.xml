@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts-config PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN"
+          "http://struts.apache.org/dtds/struts-config_1_3.dtd">
+
+<struts-config>
+
+  <!-- ========== Global Exceptions Definitions =================================== -->
+    <global-exceptions>
+    <exception type="java.lang.Exception" key="error.exception" path="/error.do"/>
+  </global-exceptions>
+
+   <action-mappings>
+    
+    <action path="/default" 
+            type="ch.ess.base.web.DefaultAction"
+            unknown="false">
+      <forward name="success" path="/default.jsp"/>
+      <forward name="license" path="/license.jsp"/>
+    </action>
+
+    <action path="/error" forward="/error.jsp"/>
+    <action path="/loginTo" forward="/login.jsp" name="LoginForm" scope="request" input="/login.jsp" unknown="false" validate="false"/>
+    <action path="/loginCookie" forward="/logincookie.jsp"/>    
+  </action-mappings>
+
+  <controller nocache="true"
+              multipartClass="ch.ess.base.web.upload.ExtendedMultiPartRequestHandler"/>
+
+  <message-resources parameter="ApplicationResources" null="false" factory="ch.ess.cal.WebCalMessageResourcesFactory">
+    <set-property key="mode" value="JSTL"/>
+  </message-resources>	
+	
+  <message-resources parameter="com.cc.framework.FrameworkResources" null="false" key="com.cc.framework.message">
+    <set-property key="mode" value="JSTL"/>
+  </message-resources>
+  
+  <plug-in className="org.apache.struts.validator.ValidatorPlugIn">
+    <set-property property="pathnames" value="/WEB-INF/validator-rules.xml,/WEB-INF/validator-rules_app.xml"/>
+  </plug-in> 
+
+  <plug-in className="ch.ess.base.web.ClassProcessorPlugin"/>
+  
+  <plug-in className="net.sf.navigator.menu.MenuPlugIn">
+    <set-property property="menuConfig" value="/WEB-INF/classes/menu-config.xml"/>
+  </plug-in>
+
+</struts-config>

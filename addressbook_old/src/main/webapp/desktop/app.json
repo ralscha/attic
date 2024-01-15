@@ -1,0 +1,9 @@
+{
+    "name": "Addressbook",
+
+    "requires": [
+        "deft@0.9.0?"
+    ],
+
+    "id": "0cc7ffae-9ad3-4900-a422-e231d85e904a"
+}

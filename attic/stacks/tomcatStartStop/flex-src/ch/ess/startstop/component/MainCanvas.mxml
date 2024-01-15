@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Canvas
+    xmlns:mx="http://www.adobe.com/2006/mxml"
+    xmlns:comp="ch.ess.startstop.component.*"   
+    paddingLeft="0"
+    paddingRight="0"
+    paddingTop="0"
+    paddingBottom="0"
+    width="100%"
+    height="100%">
+  
+  <mx:Script>
+    <![CDATA[
+      import ch.ess.startstop.control.UserCtl;
+      import org.granite.tide.seam.Seam;
+      import org.granite.tide.seam.Context; 
+      import org.granite.tide.TideAsync; 
+      import org.granite.tide.hibernate.ValidatorExceptionHandler;  
+      import mx.core.Container;
+      
+     
+      {
+        Seam.getInstance().addPlugin(TideAsync.getInstance("seamAsync")); 
+        Seam.getInstance().addComponent("userCtl", UserCtl);               
+      }
+
+
+      [Bindable]
+      public var ctx:Context = Seam.getInstance().getSeamContext();
+
+                     
+    ]]>
+  </mx:Script>
+  
+  <mx:VDividedBox width="100%" height="100%">
+    <mx:ViewStack id="mainStack" width="100%" height="100%" selectedIndex="{ctx.identity.loggedIn ? 1 : 0}">
+      <comp:LoginCanvas id="loginCanvas"/>
+      <comp:ApplicationCanvas id="applicationCanvas"/>
+    </mx:ViewStack>
+  </mx:VDividedBox>  
+    
+</mx:Canvas>

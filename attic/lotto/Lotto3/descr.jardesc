@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jardesc>
+    <jar path="D:/eclipse/workspace/Lotto/lotto.jar"/>
+    <options overwrite="true" compress="false" exportErrors="false"
+        exportWarnings="false" saveDescription="true"
+        descriptionLocation="/Lotto/descr.jardesc"
+        useSourceFolders="false" buildIfNeeded="true"/>
+    <manifest manifestVersion="1.0" usesManifest="true"
+        reuseManifest="false" saveManifest="false"
+        generateManifest="true" manifestLocation="/RegexTest/manifest">
+        <sealing sealJar="false">
+            <packagesToSeal/>
+            <packagesToUnSeal/>
+        </sealing>
+    </manifest>
+    <selectedElements exportClassFiles="true" exportJavaFiles="true">
+        <javaElement handleIdentifier="=Lotto/src&lt;ch.sr.lotto.statistic"/>
+        <javaElement handleIdentifier="=Lotto/src&lt;ch.sr.lotto.util"/>
+        <file path="/Lotto/src/lotto.schema"/>
+        <javaElement handleIdentifier="=Lotto/src&lt;ch.sr.lotto.update"/>
+        <javaElement handleIdentifier="=Lotto/src&lt;ch.sr.lotto.extract"/>
+        <javaElement handleIdentifier="=Lotto/src&lt;ch.sr.lotto.db"/>
+        <javaElement handleIdentifier="=Lotto/src&lt;Acme.JPM.Encoders"/>
+        <javaElement handleIdentifier="=Lotto/src&lt;Acme"/>
+        <javaElement handleIdentifier="=Lotto/src&lt;"/>
+        <javaElement handleIdentifier="=Lotto/src&lt;ch.sr.lotto.producer"/>
+        <javaElement handleIdentifier="=Lotto/src&lt;ch.sr.lotto"/>
+    </selectedElements>
+</jardesc>

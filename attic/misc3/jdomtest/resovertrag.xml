@@ -1,0 +1,804 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report Top="0.5" Left="1.0" Bottom="0.5" Right="0.5" HeaderFromEdge="0.5" FooterFromEdge="0.75" PageNumbering="1" HorizontalWrap="false" TabStops="0.5,1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0,5.5,6.0,6.5,7.0,7.5,8.0">
+<Property Name0="TextMode" Value0="false" Name1="PageSize" Value1="A4 [210x297 mm]" Name2="Orientation" Value2="Portrait">
+</Property>
+<SectionElement ID="Section3" Alignment="1" Indent="0.0" Hindent="0" Font="Serif-PLAIN-10" Foreground="-16777216" Spacing="0" Block="true" Continuation="false" Visible="true" KeepWithNext="false">
+<Section>
+<SectionHeader>
+<SectionBand Height="0.3" Visible="false" ShrinkToFit="false" PageBefore="false" PageAfter="false" TopBorder="0" LeftBorder="0" BottomBorder="0" RightBorder="0" Elements="0">
+</SectionBand>
+</SectionHeader>
+<SectionContent>
+<SectionBand Height="1.238889" Visible="true" ShrinkToFit="false" PageBefore="false" PageAfter="false" TopBorder="0" LeftBorder="0" BottomBorder="0" RightBorder="0" Elements="11">
+<TextBoxElement ID="TextBox1" Alignment="65" Indent="0.0" Hindent="0" Font="Arial-PLAIN-10" Foreground="-16777216" Spacing="0" Block="false" Continuation="false" Visible="true" KeepWithNext="false" Layout="0" Wrapping="3" Size="0.875x0.16666667" Margin="0,0,0,0" Border="0" Shape="1" Justify="false" TextAlignment="9" Shadow="false" Padding="0,1,0,1">
+<![CDATA[Vertrag Nr.]]>
+</TextBoxElement>
+<FieldProperty X="243" Y="9" Width="63" Height="12"/>
+<TextBoxElement ID="TextBox3" Alignment="65" Indent="0.0" Hindent="0" Font="Arial-PLAIN-10" Foreground="-16777216" Spacing="0" Block="false" Continuation="false" Visible="true" KeepWithNext="false" Layout="0" Wrapping="3" Size="0.875x0.16666667" Margin="0,0,0,0" Border="0" Shape="1" Justify="false" TextAlignment="9" Shadow="false" Padding="0,1,0,1">
+<![CDATA[von]]>
+</TextBoxElement>
+<FieldProperty X="243" Y="27" Width="63" Height="12"/>
+<TextBoxElement ID="TextBox5" Alignment="65" Indent="0.0" Hindent="0" Font="Arial-PLAIN-10" Foreground="-16777216" Spacing="0" Block="false" Continuation="false" Visible="true" KeepWithNext="false" Layout="0" Wrapping="3" Size="1.0x0.16666667" Margin="0,0,0,0" Border="0" Shape="1" Justify="false" TextAlignment="9" Shadow="false" Padding="0,1,0,1">
+<![CDATA[bis]]>
+</TextBoxElement>
+<FieldProperty X="243" Y="45" Width="72" Height="12"/>
+<ImageElement ID="Image2" Alignment="65" Indent="0.0" Hindent="0" Font="Serif-PLAIN-10" Foreground="-16777216" Spacing="0" Block="false" Continuation="false" Visible="true" KeepWithNext="false" Layout="0" Wrapping="3" Size="1.7916666x1.1944444" Margin="1,1,1,1" PathType="1" Path="D:\JavaProjects\ess\pbroker\images\reso\reso.gif" Embedded="true">
+<Image Width="131" Height="88">
+GhVPT&gt;tgJa)TN*3GbnIU-#JIBA(&apos;b((HWsU2jC+UCX]4:&amp;/-_\78!f%RU2sjf@6VUKc@uhWAY=$f`diS
+&gt;i&lt;!-O6g\rBW@/NPp#!1ND_)WL7j7bA2$iNrm(BLB2@]])1hVKDU4LoA9d:MLRI&gt;cs*pV]c:]?i`JPB\
+&lt;ifE.@`=3&gt;.or`RZ!t\0&apos;e&lt;=d=S^j&lt;GiIse+u*X&lt;;.Q`&gt;ADlEU91Q5PlNq?tr7[GBfD=9ln\QducFs&quot;!
+hrfRZX=&lt;`bZd56&quot;*/erGro%tnh&gt;Z/mbOGYohtk.WW=??14pj:kZt@N.,B/3`jQF,7e*H;9U)!&gt;W=7/2r
+IN&amp;C3S#=m;od76-\0.@Y\?%5g/l*a!HiL+D]#Wh?Tk,/ib-oRehj@(B@S/@:NiUmu05h,D4Ks&gt;XXUT=f
+WZ=?Rc,P=?5&gt;86MreTP&gt;:OR=9ng&quot;m#!CUM2mo:ERE,d]87h&gt;U+?pQ79aqHf9M`d9&quot;Oq(*0&gt;oQP*&amp;IF8d
+[=&amp;m,hK:G=/o3cJ?ut?C9dnR5\]D$K_rLmaG[\rt&apos;2Vjo#&amp;C+^%U?7&amp;i&apos;&gt;8.pJ1N3%UG]V[;&quot;R\GJ7u&apos;
+`9-5!9XQ3Q&gt;t/4.EJ.BJ!V0p0`Wc;sM2&apos;&lt;2j_oVTTp#b/5+@&lt;Jp)L\1mCJMc8a`f0bn6BY0*k;DU*d,+
+j&lt;M/7%7d-lZQ&amp;1VYrpNTpsp)aKjq$pD`/54Y[p^]IF3EH06G+`jMD:Sq=fm_6PMs#1%&apos;S&quot;WK*&quot;/+!UJ7
+5/4gOo[`g4pki6n/&apos;F1Sd:]$-6lRf&apos;q`5?&lt;07Y1keh4c_4&gt;IOV`*%&lt;fJ&gt;,M*BDK&amp;+VgJeR:u=8;(W4`N
+OcO^jD&apos;0IFUM8KnI.bD4&gt;gsM^[ZATB/eRJKLoMYbT!#X0(N]cp8+S@t5_2OBi&quot;XqU&apos;i&amp;Y,`@sBd!(#)V
+&lt;UGi5`srJ-TikU3pPuW,elMU+J%_^O^c,PWD:h#6E-+$5!G7*&lt;b]eU_XohfBq=F&apos;4,s95\7(]NR;&apos;&quot;%5
+R(XFb.pelUA!jZ-i&lt;9,`OZ_J[LdYSM9pj5#?N@1k*NU%aS.Tc++&amp;#Dt&quot;uL`c):`Xma1Ok&quot;8ikl6l00`h
+(J$7H9-6UQZB@.gnC&quot;E3%W&gt;2qWS5nW%7+)`&apos;qnMTgGT.(P7Eq=I:cC;`RjuLQ(tJK_tG?@&amp;`i^OYH+d\
+N&lt;;7;$r%URZKkc:;uK9VrQN&apos;p7;J_d$e5jF).=%G/F&gt;DF&gt;e4t=Z)8YUlDD,#Ueh1SFF@J42cPh:q7TqE
+G&lt;fKIHfeP\&quot;L*4?&lt;je4*&lt;)%j)[%JDt%INt-?=+`NBjl)C&apos;c^(pI!TKaa[uSfhO0bO&amp;QGYB81%&amp;4mI]Fp
+?%7??=7?PKi&quot;,2@Ur2,fK*0D6G-Yl%&amp;J,1aKloe7RlD]nW[*2_r_PSBN,1i0rTH%QZ@]Z?hG*B-=,sGa
+$\otA,(`W8dF&amp;V[39VSbc3ttaQ3s_to-.\,-^72&lt;]KaQuP0luOPqGk[7s,&gt;[lMN!/=2IU]&lt;9j(rJIk!L
+9%]ea&quot;Z-dIM?9^%&lt;&gt;ina165?[Q4S;kp8(qYWX5V_W:$@2:&amp;B4?s/Sj$\3+!-p)L\1C/E(4+M^TKcJE?e
+.oC&quot;\^:W/K2AB^h;&apos;sme8#)?a.sef(/pcUVO=3+^NNJIApr:]cU:a7K[m&apos;;Vo&apos;U;^?UadU8MZj*.uqt*
+9&lt;eWp^]f9[`W?m\f\83X2FdGt;7f92+C/&lt;!o5s)F#O%ILmu))`a1,eumit[LX]8``h\AKt0?g1jb:-%.
+O4$7%@J&amp;3K@E^&gt;VTXsI(4Xje^.S1dUJShF_(+S@T*M5(tF##b*&quot;lJje&gt;i@5_Ylm-6&amp;!&amp;`OI$k&quot;&quot;/ruO\
+%[`di3TZl@I.Nb_f(NOS@Q0MO_g3`K:`[Z*I8Mf_`BJqX1$MFcXW^(/B2jF*H&gt;un5-+E*Y!t2!kl\sdT
+5/5&gt;&quot;:&gt;lhKSU]^5-s3`AjX@C)DB6hEMh2=%:#(biNsC;&apos;*O12DIldKb9$XGBnqMZCQ(D$AU!CK/V&quot;3iT
+Y:rH6P&quot;AJ&quot;G5b**cQ=LO&gt;9/[%mSW=I&apos;*&apos;tMO=73`$,;Rc&gt;XW:1+=:`Dkj,;Ca&quot;$@eJ4bN]@S&apos;PEH&amp;?p[
+;fujl316LG9N=6i\jrW&lt;CA![l-(+?J&lt;\`\,^ip84%?_&lt;&amp;9a.@C+_Y6g#U0NT0dopO0T).pCZdu7099M6
+p]^,ZoTI&apos;3_C90I[2;MMEVS+K&apos;J&apos;mY\u:R@O18JUAnd=$5\i&gt;Wb&amp;nZ2d+T&amp;(?R@H4+`g@&amp;p[V2rbE&apos;RX
+@6e;9U%9Gb*HEgf2Nsp^?]`%GB-8NM&gt;+eN=#Tr&quot;S.4GX0&quot;@&amp;1&quot;\$V(8r,olo3?+VH!iQOh$&apos;+e4!&quot;RN-
+hPYU&apos;4lJ`C=+?sogPske6c,=S-C?Z;QBipl[%O*6`M/_C+Ou&gt;.l5n;3G&gt;J?^W!Sk-&lt;cq.&gt;L:,HXE&quot;UA!
+$)ro@6edHUJ3mhZmn#,CY+Y&quot;D,!Y.i:]WWbHWu):,LqYKWh&quot;Si:M!1UbCG\&lt;JCa(de8TaI6`GC^)Zm1/
+5\Xf6`[%ntMJX:6:5PnnJ&apos;1F6VI=iYHb3&amp;=Y07&apos;3VOV3)h*_?;gJ:&quot;8k%^nYN&lt;6+iD.]F`=$6BRQ]Nb;
+6q&gt;6Z^H\5q&lt;lO&amp;f&apos;%iCQTQ*p&apos;F,d2&quot;Y\j)(f;G,B&amp;8hVc2UqKDM5HWsq&amp;V)]53-nao^jnIgfu&apos;*Lt&amp;b4
+:;&apos;7u8X8N1?.+AD2Dll\h3Lk*X&quot;sjl+SM_6Kl@&apos;h65PsfYJ),s&lt;VoILjD6c:$hS=N=8!p=JM4SdM1&gt;Fl
+r=9pd\b7RQNmt.f8_$)F75l5,0MW&lt;t&amp;;r&gt;bf=?tehqG@+k%X%3C+9e&quot;:HddMVFjKMh^%CM7&gt;YtE/6W7/
+/1`pFe=ZC4n-/GMr)4!&gt;]Sr7N,$R1uO8i`o@H4r#p$m)`X)N-$;*B@gB1qmpE_@&quot;W5hf$[UNkH.PXe$)
+(M^u=lpJdj_VjmSq0)/^4&quot;.KJnS^OLRuMDgoLY&amp;arS*f[mV$&lt;K#mC6Kp?YqSchGBps)O1]?&amp;!4O==MDY
+X&amp;lK;E&lt;0!`]pn\&gt;VX&lt;U2aPoDGhm[Nr*fom.EcstL\k![HkunL&apos;OY`2).JQ1M:#+D!V2q@D&amp;3]LHm^pcm
+G&lt;otmN9P&lt;g(/&quot;s5XQgk8If4Sq]5&gt;_+9^51s&gt;Ygh-r5H&amp;&apos;EH`IbBjlKogQCY[PQ/2s;Kd;1?!Xu1_L-$R
+Lrg@$!X+&apos;X(IsZPDrFfK6u\VS,n@0m(U[f[&lt;,H:-Q:T&lt;\&gt;S;TP_,!38fLZrV!p]&lt;=CO/+[T?Af2P_&gt;QL
+CtZFbdM1`b1[4H@A3bThQ38!X9K&quot;`n43*Wof0l=%?h5f&gt;RW&quot;0gbTJ8Uoba&gt;+1CB&lt;:=t[7k[:KY_&gt;fJ?h
+_F6S=O5(U`c7a&apos;HIXMgCXD1fbfcXd2(m^oG=l*&quot;OH7%lYR^MFP*@HST\B#?k,cF$&amp;a%;%q&lt;hXnJ,#EdH
+[&quot;+,&quot;oG@m9;10&amp;JVVHdbFU!\JECX1D&apos;5EW.&quot;R,K#r2[_FeP(OJeUECq+8(+n#%biC/9p9o\PrJ63?pg[
+7^&gt;8a]Z@b&quot;&gt;,\74aC6lQVBop)+IU.W*&gt;k=&quot;[&amp;;.7E19hQcZo&apos;;g`8[$!Z*5F^,SBR4Alic1kg5&gt;`CAjF
+5Sbr=m&apos;bgd?*&gt;#HYb;Q\9OH@-eCes&apos;`dF&lt;n;M1COE9!&gt;]),+?`l#MER&quot;ECU&lt;\X`F2Xf.l^FX2WcnH-Fd
+&apos;0Gu@?V@m?A:E3*@u,!D)DbhW1?&quot;3%h-LXR?p`fjIKb*U;Lr=,&lt;].3]W\k!JjZtM0h1&amp;oI;cEM=&quot;[LZ0
+q*RmjXYt?nUL1cijWNpr2pRmTU3TncMj&lt;oLglX&amp;&amp;YpAe$!bNnIc3QP/B9V2&apos;&amp;#6hBEa4L&quot;1fdOMn4tXL
+VDXPn-gc&gt;gOp*.=&amp;LEf%N+X=?OgIi9J;Ln9j,,a2MI=uA3/2WNE];$Oko!Q+6.*NVp-,3uU*;)SEC&quot;fZ
+K#Ot0EhY/imCA/AE-Dk*&amp;+2&apos;?19lZ9TK0cG?Z!&apos;4\l]F:!(!7k0$(U\;4;&gt;W0EK@)Zn1oB_&apos;mMR&quot;O16*
+)d]3B5`EP7-/HU_k9p8&gt;7E4MeTr&amp;D+Ms-p5&gt;-h,!@K)g8/mrs\i5k^;]0TAO(#WX=Xs=&apos;6U`%k&gt;ZhQj2
+aFS)q&quot;f9&apos;[/.W*05t&quot;j&amp;[Jr:qfM6CWW0/M`Ca,*9#_%&amp;`.3+2uVZf`7l13bkK134*/X[FA^X9K!`JPB\
+&lt;do\l$f#Nq63
+</Image>
+</ImageElement>
+<FieldProperty X="0" Y="0" Width="131" Height="88"/>
+<TextBoxElement ID="dauerVon" Alignment="65" Indent="0.0" Hindent="0" Font="Arial-PLAIN-10" Foreground="-16777216" Spacing="0" Block="false" Continuation="false" Visible="true" KeepWithNext="false" Layout="0" Wrapping="3" Size="0.875x0.16666667" Margin="0,0,0,0" Border="0" Shape="1" Justify="false" TextAlignment="9" Shadow="false" Padding="0,1,0,1">
+<![CDATA[von]]>
+</TextBoxElement>
+<FieldProperty X="333" Y="27" Width="63" Height="12"/>
+<TextBoxElement ID="dauerBis" Alignment="65" Indent="0.0" Hindent="0" Font="Arial-PLAIN-10" Foreground="-16777216" Spacing="0" Block="false" Continuation="false" Visible="true" KeepWithNext="false" Layout="0" Wrapping="3" Size="1.0x0.16666667" Margin="0,0,0,0" Border="0" Shape="1" Justify="false" TextAlignment="9" Shadow="false" Padding="0,1,0,1">
+<![CDATA[bis]]>
+</TextBoxElement>
+<FieldProperty X="333" Y="45" Width="72" Height="12"/>
+<TextBoxElement ID="vertragsNrKunde" Alignment="65" Indent="0.0" Hindent="0" Font="Arial-PLAIN-10" Foreground="-16777216" Spacing="0" Block="false" Continuation="false" Visible="true" KeepWithNext="false" Layout="0" Wrapping="3" Size="0.2777778x0.16666667" Margin="0,0,0,0" Border="0" Shape="1" Justify="false" TextAlignment="9" Shadow="false" Padding="0,1,0,1">
+<![CDATA[NrK]]>
+</TextBoxElement>
+<FieldProperty X="331" Y="9" Width="20" Height="12"/>
+<TextBoxElement ID="vertragsNrLieferant" Alignment="65" Indent="0.0" Hindent="0" Font="Arial-PLAIN-10" Foreground="-16777216" Spacing="0" Block="false" Continuation="false" Visible="true" KeepWithNext="false" Layout="0" Wrapping="3" Size="0.2777778x0.16666667" Margin="0,0,0,0" Border="0" Shape="1" Justify="false" TextAlignment="9" Shadow="false" Padding="0,1,0,1">
+<![CDATA[NrL]]>
+</TextBoxElement>
+<FieldProperty X="365" Y="9" Width="20" Height="12"/>
+<TextBoxElement ID="vertragsNrNummer" Alignment="65" Indent="0.0" Hindent="0" Font="Arial-PLAIN-10" Foreground="-16777216" Spacing="0" Block="false" Continuation="false" Visible="true" KeepWithNext="false" Layout="0" Wrapping="3" Size="0.6111111x0.16666667" Margin="0,0,0,0" Border="0" Shape="1" Justify="false" TextAlignment="9" Shadow="false" Padding="0,1,0,1">
+<![CDATA[Nr]]>
+</TextBoxElement>
+<FieldProperty X="396" Y="9" Width="44" Height="12"/>
+<TextBoxElement ID="TextBox10" Alignment="2" Indent="0.0" Hindent="0" Font="Arial-PLAIN-10" Foreground="-16777216" Spacing="0" Block="false" Continuation="false" Visible="true" KeepWithNext="false" Layout="0" Wrapping="3" Size="0.1388889x0.16666667" Margin="0,0,0,0" Border="0" Shape="1" Justify="false" TextAlignment="9" Shadow="false" Padding="0,1,0,1">
+<![CDATA[-]]>
+</TextBoxElement>
+<FieldProperty X="353" Y="9" Width="10" Height="12"/>
+<TextBoxElement ID="TextBox11" Alignment="2" Indent="0.0" Hindent="0" Font="Arial-PLAIN-10" Foreground="-16777216" Spacing="0" Block="false" Continuation="false" Visible="true" KeepWithNext="false" Layout="0" Wrapping="3" Size="0.1388889x0.16666667" Margin="0,0,0,0" Border="0" Shape="1" Justify="false" TextAlignment="9" Shadow="false" Padding="0,1,0,1">
+<![CDATA[-]]>
+</TextBoxElement>
+<FieldProperty X="387" Y="9" Width="10" Height="12"/>
+</SectionBand>
+</SectionContent>
+<SectionFooter>
+<SectionBand Height="0.3" Visible="false" ShrinkToFit="false" PageBefore="false" PageAfter="false" TopBorder="0" LeftBorder="0" BottomBorder="0" RightBorder="0" Elements="0">
+</SectionBand>
+</SectionFooter>
+</Section>
+</SectionElement>
+<SectionElement ID="Section4" Alignment="1" Indent="0.0" Hindent="0" Font="Serif-PLAIN-10" Foreground="-16777216" Spacing="0" Block="true" Continuation="false" Visible="true" KeepWithNext="false">
+<Section>
+<SectionHeader>
+<SectionBand Height="0.3" Visible="false" ShrinkToFit="false" PageBefore="false" PageAfter="false" TopBorder="0" LeftBorder="0" BottomBorder="0" RightBorder="0" Elements="0">
+</SectionBand>
+</SectionHeader>
+<SectionContent>
+<SectionBand Height="4.4611115" Visible="true" ShrinkToFit="false" PageBefore="false" PageAfter="false" TopBorder="0" LeftBorder="0" BottomBorder="0" RightBorder="0" Elements="11">
+<TextElement ID="Text2" Alignment="2" Indent="0.0" Hindent="0" Font="Arial-BOLD-14" Foreground="-16777216" Spacing="0" Block="false" Continuation="false" Visible="true" KeepWithNext="false" FillStyle="0" TabStops="0.5,1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0,5.5,6.0,6.5,7.0,7.5,8.0" Justify="false" Orphan="false" TextAdvance="3">
+<![CDATA[EINZELAUFTRAG für die Anstellung eines Externen Mitarbeiters bei der reso]]>
+</TextElement>
+<FieldProperty X="81" Y="18" Width="306" Height="36"/>
+<TextElement ID="Text3" Alignment="66" Indent="0.0" Hindent="0" Font="Arial-BOLD-12" Foreground="-16777216" Spacing="0" Block="false" Continuation="false" Visible="true" KeepWithNext="false" FillStyle="0" TabStops="0.5,1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0,5.5,6.0,6.5,7.0,7.5,8.0" Justify="false" Orphan="false" TextAdvance="3">
+<![CDATA[reso , Rechenzentrum für Krankenversicherung Römerstrasse 20, 4502 Solothurn ]]>
+</TextElement>
+<FieldProperty X="81" Y="90" Width="306" Height="36"/>
+<TextElement ID="Text4" Alignment="66" Indent="0.0" Hindent="0" Font="Arial-PLAIN-10" Foreground="-16777216" Spacing="0" Block="false" Continuation="false" Visible="true" KeepWithNext="false" FillStyle="0" TabStops="0.5,1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0,5.5,6.0,6.5,7.0,7.5,8.0" Justify="false" Orphan="false" TextAdvance="3">
+<![CDATA[zwischen]]>
+</TextElement>
+<FieldProperty X="171" Y="61" Width="127" Height="12"/>
+<TextElement ID="Text6" Alignment="2" Indent="0.0" Hindent="0" Font="Arial-PLAIN-10" Foreground="-16777216" Spacing="0" Block="false" Continuation="false" Visible="true" KeepWithNext="false" FillStyle="0" TabStops="0.5,1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0,5.5,6.0,6.5,7.0,7.5,8.0" Justify="false" Orphan="false" TextAdvance="3">
+<![CDATA[(nachstehend "Auftraggeber" genannt) ]]>
+</TextElement>
+<FieldProperty X="128" Y="135" Width="212" Height="12"/>
+<TextElement ID="Text7" Alignment="66" Indent="0.0" Hindent="0" Font="Arial-PLAIN-10" Foreground="-16777216" Spacing="0" Block="false" Continuation="false" Visible="true" KeepWithNext="false" FillStyle="0" TabStops="0.5,1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0,5.5,6.0,6.5,7.0,7.5,8.0" Justify="false" Orphan="false" TextAdvance="3">
+<![CDATA[und]]>
+</TextElement>
+<FieldProperty X="204" Y="180" Width="61" Height="12"/>
+<TextElement ID="Text9" Alignment="66" Indent="0.0" Hindent="0" Font="Arial-PLAIN-10" Foreground="-16777216" Spacing="0" Block="false" Continuation="false" Visible="true" KeepWithNext="false" FillStyle="0" TabStops="0.5,1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0,5.5,6.0,6.5,7.0,7.5,8.0" Justify="false" Orphan="false" TextAdvance="3">
+<![CDATA[(nachstehend "Auftragnehmer" genannt) ]]>
+</TextElement>
+<FieldProperty X="137" Y="270" Width="212" Height="12"/>
+<TextElement ID="lieferantName" Alignment="66" Indent="0.0" Hindent="0" Font="Arial-PLAIN-10" Foreground="-16777216" Spacing="0" Block="false" Continuation="false" Visible="true" KeepWithNext="false" FillStyle="0" TabStops="0.5,1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0,5.5,6.0,6.5,7.0,7.5,8.0" Justify="false" Orphan="false" TextAdvance="3">
+<![CDATA[lieferantName]]>
+</TextElement>
+<FieldProperty X="149" Y="207" Width="189" Height="12"/>
+<TextElement ID="lieferantStrasse" Alignment="66" Indent="0.0" Hindent="0" Font="Arial-PLAIN-10" Foreground="-16777216" Spacing="0" Block="false" Continuation="false" Visible="true" KeepWithNext="false" FillStyle="0" TabStops="0.5,1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0,5.5,6.0,6.5,7.0,7.5,8.0" Justify="false" Orphan="false" TextAdvance="3">
+<![CDATA[lieferantStrasse]]>
+</TextElement>
+<FieldProperty X="167" Y="225" Width="153" Height="12"/>
+<TextElement ID="lieferantPLZ" Alignment="66" Indent="0.0" Hindent="0" Font="Arial-PLAIN-10" Foreground="-16777216" Spacing="0" Block="false" Continuation="false" Visible="true" KeepWithNext="true" FillStyle="0" TabStops="0.5,1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0,5.5,6.0,6.5,7.0,7.5,8.0" Justify="true" Orphan="false" TextAdvance="3">
+<![CDATA[lieferantPLZ]]>
+</TextElement>
+<FieldProperty X="99" Y="243" Width="79" Height="12"/>
+<TextElement ID="lieferantOrt" Alignment="66" Indent="0.0" Hindent="0" Font="Arial-PLAIN-10" Foreground="-16777216" Spacing="0" Block="false" Continuation="false" Visible="true" KeepWithNext="true" FillStyle="0" TabStops="0.5,1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0,5.5,6.0,6.5,7.0,7.5,8.0" Justify="true" Orphan="false" TextAdvance="3">
+<![CDATA[lieferantOrt]]>
+</TextElement>
+<FieldProperty X="184" Y="243" Width="119" Height="12"/>
+<TextElement ID="lieferantLand" Alignment="66" Indent="0.0" Hindent="0" Font="Arial-PLAIN-10" Foreground="-16777216" Spacing="0" Block="false" Continuation="false" Visible="true" KeepWithNext="true" FillStyle="0" TabStops="0.5,1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0,5.5,6.0,6.5,7.0,7.5,8.0" Justify="true" Orphan="false" TextAdvance="3">
+<![CDATA[lieferantLand]]>
+</TextElement>
+<FieldProperty X="306" Y="243" Width="108" Height="12"/>
+</SectionBand>
+</SectionContent>
+<SectionFooter>
+<SectionBand Height="0.3" Visible="false" ShrinkToFit="false" PageBefore="false" PageAfter="false" TopBorder="0" LeftBorder="0" BottomBorder="0" RightBorder="0" Elements="0">
+</SectionBand>
+</SectionFooter>
+</Section>
+</SectionElement>
+<SectionElement ID="Section5" Alignment="1" Indent="0.0" Hindent="0" Font="Serif-PLAIN-10" Foreground="-16777216" Spacing="0" Block="true" Continuation="false" Visible="true" KeepWithNext="false">
+<Section>
+<SectionHeader>
+<SectionBand Height="0.3" Visible="false" ShrinkToFit="false" PageBefore="false" PageAfter="false" TopBorder="0" LeftBorder="0" BottomBorder="0" RightBorder="0" Elements="0">
+</SectionBand>
+</SectionHeader>
+<SectionContent>
+<SectionBand Height="0.5027778" Visible="true" ShrinkToFit="false" PageBefore="false" PageAfter="false" TopBorder="0" LeftBorder="0" BottomBorder="0" RightBorder="0" Elements="2">
+<TextElement ID="Text10" Alignment="1" Indent="0.0" Hindent="0" Font="Arial-BOLD-11" Foreground="-16777216" Spacing="0" Block="false" Continuation="false" Visible="true" KeepWithNext="false" FillStyle="0" TabStops="0.5,1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0,5.5,6.0,6.5,7.0,7.5,8.0" Justify="false" Orphan="false" TextAdvance="3">
+<![CDATA[1. Einsatzgebiete]]>
+</TextElement>
+<FieldProperty X="0" Y="2" Width="99" Height="14"/>
+<TextElement ID="arbeitsArt" Alignment="1" Indent="0.0" Hindent="0" Font="Arial-PLAIN-11" Foreground="-16777216" Spacing="0" Block="false" Continuation="false" Visible="true" KeepWithNext="false" FillStyle="0" TabStops="0.5,1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0,5.5,6.0,6.5,7.0,7.5,8.0" Justify="false" Orphan="false" TextAdvance="3">
+<![CDATA[[-arbeitsArt-]]]>
+</TextElement>
+<FieldProperty X="117" Y="2" Width="324" Height="34"/>
+</SectionBand>
+</SectionContent>
+<SectionFooter>
+<SectionBand Height="0.3" Visible="false" ShrinkToFit="false" PageBefore="false" PageAfter="false" TopBorder="0" LeftBorder="0" BottomBorder="0" RightBorder="0" Elements="0">
+</SectionBand>
+</SectionFooter>
+</Section>
+</SectionElement>
+<NewlineElement ID="Newline1" Alignment="1" Indent="0.0" Hindent="0" Font="Serif-PLAIN-10" Foreground="-16777216" Spacing="0" Block="true" Continuation="false" Visible="true" KeepWithNext="false" Count="1">
+</NewlineElement>
+<SectionElement ID="Section6" Alignment="1" Indent="0.0" Hindent="0" Font="Serif-PLAIN-10" Foreground="-16777216" Spacing="0" Block="true" Continuation="false" Visible="true" KeepWithNext="false">
+<Section>
+<SectionHeader>
+<SectionBand Height="0.3" Visible="false" ShrinkToFit="false" PageBefore="false" PageAfter="false" TopBorder="0" LeftBorder="0" BottomBorder="0" RightBorder="0" Elements="0">
+</SectionBand>
+</SectionHeader>
+<SectionContent>
+<SectionBand Height="0.5027778" Visible="true" ShrinkToFit="false" PageBefore="false" PageAfter="false" TopBorder="0" LeftBorder="0" BottomBorder="0" RightBorder="0" Elements="2">
+<TextElement ID="Text12" Alignment="65" Indent="0.0" Hindent="0" Font="Arial-BOLD-11" Foreground="-16777216" Spacing="0" Block="false" Continuation="false" Visible="true" KeepWithNext="false" FillStyle="0" TabStops="0.5,1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0,5.5,6.0,6.5,7.0,7.5,8.0" Justify="true" Orphan="false" TextAdvance="3">
+<![CDATA[2. Aufgaben]]>
+</TextElement>
+<FieldProperty X="0" Y="1" Width="99" Height="14"/>
+<TextElement ID="arbeitsAufgaben" Alignment="1" Indent="0.0" Hindent="0" Font="Arial-PLAIN-11" Foreground="-16777216" Spacing="0" Block="false" Continuation="false" Visible="true" KeepWithNext="false" FillStyle="0" TabStops="0.5,1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0,5.5,6.0,6.5,7.0,7.5,8.0" Justify="false" Orphan="false" TextAdvance="3">
+<![CDATA[[-arbeitsAufgaben-]]]>
+</TextElement>
+<FieldProperty X="117" Y="1" Width="325" Height="31"/>
+</SectionBand>
+</SectionContent>
+<SectionFooter>
+<SectionBand Height="0.3" Visible="false" ShrinkToFit="false" PageBefore="false" PageAfter="false" TopBorder="0" LeftBorder="0" BottomBorder="0" RightBorder="0" Elements="0">
+</SectionBand>
+</SectionFooter>
+</Section>
+</SectionElement>
+<NewlineElement ID="Newline2" Alignment="1" Indent="0.0" Hindent="0" Font="Serif-PLAIN-10" Foreground="-16777216" Spacing="0" Block="true" Continuation="false" Visible="true" KeepWithNext="false" Count="1">
+</NewlineElement>
+<SectionElement ID="Section7" Alignment="1" Indent="0.0" Hindent="0" Font="Arial-PLAIN-11" Foreground="-16777216" Spacing="0" Block="true" Continuation="false" Visible="true" KeepWithNext="false">
+<Section>
+<SectionHeader>
+<SectionBand Height="0.3" Visible="false" ShrinkToFit="false" PageBefore="false" PageAfter="false" TopBorder="0" LeftBorder="0" BottomBorder="0" RightBorder="0" Elements="0">
+</SectionBand>
+</SectionHeader>
+<SectionContent>
+<SectionBand Height="0.5305556" Visible="true" ShrinkToFit="false" PageBefore="false" PageAfter="false" TopBorder="0" LeftBorder="0" BottomBorder="0" RightBorder="0" Elements="2">
+<TextElement ID="Text14" Alignment="65" Indent="0.0" Hindent="0" Font="Arial-BOLD-11" Foreground="-16777216" Spacing="0" Block="false" Continuation="false" Visible="true" KeepWithNext="false" FillStyle="0" TabStops="0.5,1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0,5.5,6.0,6.5,7.0,7.5,8.0" Justify="false" Orphan="false" TextAdvance="3">
+<![CDATA[3. Arbeitszeit]]>
+</TextElement>
+<FieldProperty X="1" Y="3" Width="98" Height="14"/>
+<TextElement ID="Text15" Alignment="1" Indent="0.0" Hindent="0" Font="Arial-PLAIN-11" Foreground="-16777216" Spacing="0" Block="false" Continuation="false" Visible="true" KeepWithNext="false" FillStyle="0" TabStops="0.5,1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0,5.5,6.0,6.5,7.0,7.5,8.0" Justify="false" Orphan="false" TextAdvance="3">
+<![CDATA[Normalarbeitszeit, 42 Std./Woche Arbeitszeitreglement des Kunden einhalten, bzw. nach Absprache mit KundenAnsprechpartner]]>
+</TextElement>
+<FieldProperty X="117" Y="0" Width="333" Height="35"/>
+</SectionBand>
+</SectionContent>
+<SectionFooter>
+<SectionBand Height="0.3" Visible="false" ShrinkToFit="false" PageBefore="false" PageAfter="false" TopBorder="0" LeftBorder="0" BottomBorder="0" RightBorder="0" Elements="0">
+</SectionBand>
+</SectionFooter>
+</Section>
+</SectionElement>
+<NewlineElement ID="Newline3" Alignment="1" Indent="0.0" Hindent="0" Font="Serif-PLAIN-10" Foreground="-16777216" Spacing="0" Block="true" Continuation="false" Visible="true" KeepWithNext="false" Count="1">
+</NewlineElement>
+<SectionElement ID="Section8" Alignment="1" Indent="0.0" Hindent="0" Font="Serif-PLAIN-10" Foreground="-16777216" Spacing="0" Block="true" Continuation="false" Visible="true" KeepWithNext="false">
+<Section>
+<SectionHeader>
+<SectionBand Height="0.3" Visible="false" ShrinkToFit="false" PageBefore="false" PageAfter="false" TopBorder="0" LeftBorder="0" BottomBorder="0" RightBorder="0" Elements="0">
+</SectionBand>
+</SectionHeader>
+<SectionContent>
+<SectionBand Height="2.2944443" Visible="true" ShrinkToFit="false" PageBefore="false" PageAfter="false" TopBorder="0" LeftBorder="0" BottomBorder="0" RightBorder="0" Elements="11">
+<TextElement ID="Text21" Alignment="1" Indent="0.0" Hindent="0" Font="Arial-BOLD-11" Foreground="-16777216" Spacing="0" Block="false" Continuation="false" Visible="true" KeepWithNext="false" FillStyle="0" TabStops="0.5,1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0,5.5,6.0,6.5,7.0,7.5,8.0" Justify="false" Orphan="false" TextAdvance="3">
+<![CDATA[4. Einsatzbeginn]]>
+</TextElement>
+<FieldProperty X="0" Y="0" Width="99" Height="14"/>
+<TextElement ID="Text22" Alignment="65" Indent="0.0" Hindent="0" Font="Arial-BOLD-11" Foreground="-16777216" Spacing="0" Block="false" Continuation="false" Visible="true" KeepWithNext="false" FillStyle="0" TabStops="0.5,1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0,5.5,6.0,6.5,7.0,7.5,8.0" Justify="false" Orphan="false" TextAdvance="3">
+<![CDATA[und Dauer]]>
+</TextElement>
+<FieldProperty X="12" Y="17" Width="72" Height="14"/>
+<TextElement ID="Text23" Alignment="1" Indent="0.0" Hindent="0" Font="Arial-PLAIN-11" Foreground="-16777216" Spacing="0" Block="false" Continuation="false" Visible="true" KeepWithNext="false" FillStyle="0" TabStops="0.5,1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0,5.5,6.0,6.5,7.0,7.5,8.0" Justify="false" Orphan="false" TextAdvance="3">
+<![CDATA[Beginn:]]>
+</TextElement>
+<FieldProperty X="117" Y="0" Width="72" Height="14"/>
+<TextElement ID="Text24" Alignment="1" Indent="0.0" Hindent="0" Font="Arial-PLAIN-11" Foreground="-16777216" Spacing="0" Block="false" Continuation="false" Visible="true" KeepWithNext="false" FillStyle="0" TabStops="0.5,1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0,5.5,6.0,6.5,7.0,7.5,8.0" Justify="false" Orphan="false" TextAdvance="3">
+<![CDATA[Ende:]]>
+</TextElement>
+<FieldProperty X="117" Y="17" Width="72" Height="14"/>
+<TextElement ID="Text25" Alignment="1" Indent="0.0" Hindent="0" Font="Arial-PLAIN-11" Foreground="-16777216" Spacing="0" Block="false" Continuation="false" Visible="true" KeepWithNext="false" FillStyle="0" TabStops="0.5,1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0,5.5,6.0,6.5,7.0,7.5,8.0" Justify="false" Orphan="false" TextAdvance="3">
+<![CDATA[Total Stunden:]]>
+</TextElement>
+<FieldProperty X="117" Y="35" Width="72" Height="14"/>
+<TextElement ID="Text26" Alignment="1" Indent="0.0" Hindent="0" Font="Arial-PLAIN-11" Foreground="-16777216" Spacing="0" Block="false" Continuation="false" Visible="true" KeepWithNext="false" FillStyle="0" TabStops="0.5,1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0,5.5,6.0,6.5,7.0,7.5,8.0" Justify="false" Orphan="false" TextAdvance="3">
+<![CDATA[Total Tage:]]>
+</TextElement>
+<FieldProperty X="117" Y="53" Width="72" Height="14"/>
+<TextElement ID="Text27" Alignment="1" Indent="0.0" Hindent="0" Font="Arial-PLAIN-11" Foreground="-16777216" Spacing="0" Block="false" Continuation="false" Visible="true" KeepWithNext="false" FillStyle="0" TabStops="0.5,1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0,5.5,6.0,6.5,7.0,7.5,8.0" Justify="false" Orphan="false" TextAdvance="3">
+<![CDATA[Der Lieferant verpflichtet sich, für EMA mit ausländischer Staatsangehörigkeit die erforderlichen Arbeits- und Aufenthaltsbewilligungen vor Beginn der Leistungserbringung einzuholen und eine Kopie an die PBroker AG zu senden.]]>
+</TextElement>
+<FieldProperty X="117" Y="81" Width="333" Height="73"/>
+<TextElement ID="dauerVon2" Alignment="1" Indent="0.0" Hindent="0" Font="Arial-PLAIN-11" Foreground="-16777216" Spacing="0" Block="false" Continuation="false" Visible="true" KeepWithNext="false" FillStyle="0" TabStops="0.5,1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0,5.5,6.0,6.5,7.0,7.5,8.0" Justify="false" Orphan="false" TextAdvance="3">
+<![CDATA[dauerVon]]>
+</TextElement>
+<FieldProperty X="216" Y="0" Width="144" Height="14"/>
+<TextElement ID="dauerBis2" Alignment="1" Indent="0.0" Hindent="0" Font="Arial-PLAIN-11" Foreground="-16777216" Spacing="0" Block="false" Continuation="false" Visible="true" KeepWithNext="false" FillStyle="0" TabStops="0.5,1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0,5.5,6.0,6.5,7.0,7.5,8.0" Justify="false" Orphan="false" TextAdvance="3">
+<![CDATA[dauerBis]]>
+</TextElement>
+<FieldProperty X="216" Y="17" Width="144" Height="14"/>
+<TextElement ID="dauerStunden" Alignment="1" Indent="0.0" Hindent="0" Font="Arial-PLAIN-11" Foreground="-16777216" Spacing="0" Block="false" Continuation="false" Visible="true" KeepWithNext="false" FillStyle="0" TabStops="0.5,1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0,5.5,6.0,6.5,7.0,7.5,8.0" Justify="false" Orphan="false" TextAdvance="3">
+<![CDATA[dauerStunden]]>
+</TextElement>
+<FieldProperty X="216" Y="35" Width="144" Height="14"/>
+<TextElement ID="dauerTage" Alignment="1" Indent="0.0" Hindent="0" Font="Arial-PLAIN-11" Foreground="-16777216" Spacing="0" Block="false" Continuation="false" Visible="true" KeepWithNext="false" FillStyle="0" TabStops="0.5,1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0,5.5,6.0,6.5,7.0,7.5,8.0" Justify="false" Orphan="false" TextAdvance="3">
+<![CDATA[dauerTage]]>
+</TextElement>
+<FieldProperty X="216" Y="53" Width="144" Height="14"/>
+</SectionBand>
+</SectionContent>
+<SectionFooter>
+<SectionBand Height="0.3" Visible="false" ShrinkToFit="false" PageBefore="false" PageAfter="false" TopBorder="0" LeftBorder="0" BottomBorder="0" RightBorder="0" Elements="0">
+</SectionBand>
+</SectionFooter>
+</Section>
+</SectionElement>
+<NewlineElement ID="Newline4" Alignment="1" Indent="0.0" Hindent="0" Font="Serif-PLAIN-10" Foreground="-16777216" Spacing="0" Block="true" Continuation="false" Visible="true" KeepWithNext="false" Count="1">
+</NewlineElement>
+<SectionElement ID="Section9" Alignment="1" Indent="0.0" Hindent="0" Font="Serif-PLAIN-10" Foreground="-16777216" Spacing="0" Block="true" Continuation="false" Visible="true" KeepWithNext="false">
+<Section>
+<SectionHeader>
+<SectionBand Height="0.3" Visible="false" ShrinkToFit="false" PageBefore="false" PageAfter="false" TopBorder="0" LeftBorder="0" BottomBorder="0" RightBorder="0" Elements="0">
+</SectionBand>
+</SectionHeader>
+<SectionContent>
+<SectionBand Height="0.55833334" Visible="true" ShrinkToFit="false" PageBefore="false" PageAfter="false" TopBorder="0" LeftBorder="0" BottomBorder="0" RightBorder="0" Elements="2">
+<TextElement ID="Text34" Alignment="1" Indent="0.0" Hindent="0" Font="Arial-BOLD-11" Foreground="-16777216" Spacing="0" Block="false" Continuation="false" Visible="true" KeepWithNext="false" FillStyle="0" TabStops="0.5,1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0,5.5,6.0,6.5,7.0,7.5,8.0" Justify="false" Orphan="false" TextAdvance="3">
+<![CDATA[5. Probezeit]]>
+</TextElement>
+<FieldProperty X="0" Y="0" Width="94" Height="14"/>
+<TextElement ID="strAttr1" Alignment="1" Indent="0.0" Hindent="0" Font="Arial-PLAIN-11" Foreground="-16777216" Spacing="0" Block="false" Continuation="false" Visible="true" KeepWithNext="false" FillStyle="0" TabStops="0.5,1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0,5.5,6.0,6.5,7.0,7.5,8.0" Justify="false" Orphan="false" TextAdvance="3">
+<![CDATA[strAttr1]]>
+</TextElement>
+<FieldProperty X="119" Y="0" Width="322" Height="36"/>
+</SectionBand>
+</SectionContent>
+<SectionFooter>
+<SectionBand Height="0.3" Visible="false" ShrinkToFit="false" PageBefore="false" PageAfter="false" TopBorder="0" LeftBorder="0" BottomBorder="0" RightBorder="0" Elements="0">
+</SectionBand>
+</SectionFooter>
+</Section>
+</SectionElement>
+<NewlineElement ID="Newline5" Alignment="1" Indent="0.0" Hindent="0" Font="Serif-PLAIN-10" Foreground="-16777216" Spacing="0" Block="true" Continuation="false" Visible="true" KeepWithNext="false" Count="1">
+</NewlineElement>
+<SectionElement ID="Section10" Alignment="1" Indent="0.0" Hindent="0" Font="Serif-PLAIN-10" Foreground="-16777216" Spacing="0" Block="true" Continuation="false" Visible="true" KeepWithNext="false">
+<Section>
+<SectionHeader>
+<SectionBand Height="0.3" Visible="false" ShrinkToFit="false" PageBefore="false" PageAfter="false" TopBorder="0" LeftBorder="0" BottomBorder="0" RightBorder="0" Elements="0">
+</SectionBand>
+</SectionHeader>
+<SectionContent>
+<SectionBand Height="1.8777778" Visible="true" ShrinkToFit="false" PageBefore="false" PageAfter="false" TopBorder="0" LeftBorder="0" BottomBorder="0" RightBorder="0" Elements="11">
+<TextElement ID="Text36" Alignment="65" Indent="0.0" Hindent="0" Font="Arial-BOLD-11" Foreground="-16777216" Spacing="0" Block="false" Continuation="false" Visible="true" KeepWithNext="false" FillStyle="0" TabStops="0.5,1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0,5.5,6.0,6.5,7.0,7.5,8.0" Justify="false" Orphan="false" TextAdvance="3">
+<![CDATA[6. Eingesetzter Mitarbeiter]]>
+</TextElement>
+<FieldProperty X="0" Y="0" Width="161" Height="14"/>
+<TextElement ID="Text37" Alignment="65" Indent="0.0" Hindent="0" Font="Arial-PLAIN-11" Foreground="-16777216" Spacing="0" Block="false" Continuation="false" Visible="true" KeepWithNext="false" FillStyle="0" TabStops="0.5,1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0,5.5,6.0,6.5,7.0,7.5,8.0" Justify="false" Orphan="false" TextAdvance="3">
+<![CDATA[Name:]]>
+</TextElement>
+<FieldProperty X="12" Y="26" Width="113" Height="14"/>
+<TextElement ID="Text38" Alignment="1" Indent="0.0" Hindent="0" Font="Arial-PLAIN-11" Foreground="-16777216" Spacing="0" Block="false" Continuation="false" Visible="true" KeepWithNext="false" FillStyle="0" TabStops="0.5,1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0,5.5,6.0,6.5,7.0,7.5,8.0" Justify="false" Orphan="false" TextAdvance="3">
+<![CDATA[Vorname:]]>
+</TextElement>
+<FieldProperty X="12" Y="51" Width="113" Height="14"/>
+<TextElement ID="Text39" Alignment="1" Indent="0.0" Hindent="0" Font="Arial-PLAIN-11" Foreground="-16777216" Spacing="0" Block="false" Continuation="false" Visible="true" KeepWithNext="false" FillStyle="0" TabStops="0.5,1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0,5.5,6.0,6.5,7.0,7.5,8.0" Justify="false" Orphan="false" TextAdvance="3">
+<![CDATA[PLZ/Ort:]]>
+</TextElement>
+<FieldProperty X="12" Y="76" Width="113" Height="14"/>
+<TextElement ID="Text40" Alignment="1" Indent="0.0" Hindent="0" Font="Arial-PLAIN-11" Foreground="-16777216" Spacing="0" Block="false" Continuation="false" Visible="true" KeepWithNext="false" FillStyle="0" TabStops="0.5,1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0,5.5,6.0,6.5,7.0,7.5,8.0" Justify="false" Orphan="false" TextAdvance="3">
+<![CDATA[Staatsangehörigkeit:]]>
+</TextElement>
+<FieldProperty X="12" Y="101" Width="113" Height="14"/>
+<TextElement ID="mitarbeiterAnrede" Alignment="65" Indent="0.0" Hindent="0" Font="Arial-PLAIN-11" Foreground="-16777216" Spacing="0" Block="false" Continuation="false" Visible="true" KeepWithNext="false" FillStyle="0" TabStops="0.5,1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0,5.5,6.0,6.5,7.0,7.5,8.0" Justify="false" Orphan="false" TextAdvance="3">
+<![CDATA[mitarbeiterAnrede]]>
+</TextElement>
+<FieldProperty X="158" Y="26" Width="94" Height="14"/>
+<TextElement ID="mitarbeiterName" Alignment="65" Indent="0.0" Hindent="0" Font="Arial-PLAIN-11" Foreground="-16777216" Spacing="0" Block="false" Continuation="false" Visible="true" KeepWithNext="false" FillStyle="0" TabStops="0.5,1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0,5.5,6.0,6.5,7.0,7.5,8.0" Justify="false" Orphan="false" TextAdvance="3">
+<![CDATA[mitarbeiterName]]>
+</TextElement>
+<FieldProperty X="261" Y="26" Width="143" Height="14"/>
+<TextElement ID="mitarbeiterVorname" Alignment="65" Indent="0.0" Hindent="0" Font="Arial-PLAIN-11" Foreground="-16777216" Spacing="0" Block="false" Continuation="false" Visible="true" KeepWithNext="false" FillStyle="0" TabStops="0.5,1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0,5.5,6.0,6.5,7.0,7.5,8.0" Justify="false" Orphan="false" TextAdvance="3">
+<![CDATA[mitarbeiterVorname]]>
+</TextElement>
+<FieldProperty X="158" Y="51" Width="143" Height="14"/>
+<TextElement ID="Text45" Alignment="65" Indent="0.0" Hindent="0" Font="Arial-PLAIN-11" Foreground="-16777216" Spacing="0" Block="false" Continuation="false" Visible="true" KeepWithNext="false" FillStyle="0" TabStops="0.5,1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0,5.5,6.0,6.5,7.0,7.5,8.0" Justify="false" Orphan="false" TextAdvance="3">
+<![CDATA[mitarbeiterPLZ]]>
+</TextElement>
+<FieldProperty X="158" Y="76" Width="83" Height="14"/>
+<TextElement ID="mitarbeiterLand" Alignment="65" Indent="0.0" Hindent="0" Font="Arial-PLAIN-11" Foreground="-16777216" Spacing="0" Block="false" Continuation="false" Visible="true" KeepWithNext="false" FillStyle="0" TabStops="0.5,1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0,5.5,6.0,6.5,7.0,7.5,8.0" Justify="false" Orphan="false" TextAdvance="3">
+<![CDATA[mitarbeiterLand]]>
+</TextElement>
+<FieldProperty X="158" Y="101" Width="143" Height="14"/>
+<TextElement ID="mitarbeiterOrt" Alignment="65" Indent="0.0" Hindent="0" Font="Arial-PLAIN-11" Foreground="-16777216" Spacing="0" Block="false" Continuation="false" Visible="true" KeepWithNext="false" FillStyle="0" TabStops="0.5,1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0,5.5,6.0,6.5,7.0,7.5,8.0" Justify="false" Orphan="false" TextAdvance="3">
+<![CDATA[mitarbeiterOrt]]>
+</TextElement>
+<FieldProperty X="252" Y="76" Width="143" Height="14"/>
+</SectionBand>
+</SectionContent>
+<SectionFooter>
+<SectionBand Height="0.3" Visible="false" ShrinkToFit="false" PageBefore="false" PageAfter="false" TopBorder="0" LeftBorder="0" BottomBorder="0" RightBorder="0" Elements="0">
+</SectionBand>
+</SectionFooter>
+</Section>
+</SectionElement>
+<NewlineElement ID="Newline6" Alignment="1" Indent="0.0" Hindent="0" Font="Serif-PLAIN-10" Foreground="-16777216" Spacing="0" Block="true" Continuation="false" Visible="true" KeepWithNext="false" Count="1">
+</NewlineElement>
+<SectionElement ID="Section11" Alignment="1" Indent="0.0" Hindent="0" Font="Serif-PLAIN-10" Foreground="-16777216" Spacing="0" Block="true" Continuation="false" Visible="true" KeepWithNext="false">
+<Section>
+<SectionHeader>
+<SectionBand Height="0.3" Visible="false" ShrinkToFit="false" PageBefore="false" PageAfter="false" TopBorder="0" LeftBorder="0" BottomBorder="0" RightBorder="0" Elements="0">
+</SectionBand>
+</SectionHeader>
+<SectionContent>
+<SectionBand Height="2.4194446" Visible="true" ShrinkToFit="false" PageBefore="false" PageAfter="false" TopBorder="0" LeftBorder="0" BottomBorder="0" RightBorder="0" Elements="16">
+<TextElement ID="Text48" Alignment="65" Indent="0.0" Hindent="0" Font="Arial-BOLD-11" Foreground="-16777216" Spacing="0" Block="false" Continuation="false" Visible="true" KeepWithNext="false" FillStyle="0" TabStops="0.5,1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0,5.5,6.0,6.5,7.0,7.5,8.0" Justify="false" Orphan="false" TextAdvance="3">
+<![CDATA[7. Erteilung und Abnahme der Aufträge]]>
+</TextElement>
+<FieldProperty X="0" Y="0" Width="226" Height="14"/>
+<TextElement ID="Text49" Alignment="65" Indent="0.0" Hindent="0" Font="Arial-PLAIN-11" Foreground="-16777216" Spacing="0" Block="false" Continuation="false" Visible="true" KeepWithNext="false" FillStyle="0" TabStops="0.5,1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0,5.5,6.0,6.5,7.0,7.5,8.0" Justify="false" Orphan="false" TextAdvance="3">
+<![CDATA[Name/Vorname:]]>
+</TextElement>
+<FieldProperty X="12" Y="30" Width="105" Height="14"/>
+<TextElement ID="Text50" Alignment="65" Indent="0.0" Hindent="0" Font="Arial-PLAIN-11" Foreground="-16777216" Spacing="0" Block="false" Continuation="false" Visible="true" KeepWithNext="false" FillStyle="0" TabStops="0.5,1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0,5.5,6.0,6.5,7.0,7.5,8.0" Justify="false" Orphan="false" TextAdvance="3">
+<![CDATA[Organisationseinheit:]]>
+</TextElement>
+<FieldProperty X="12" Y="52" Width="105" Height="14"/>
+<TextElement ID="Text51" Alignment="65" Indent="0.0" Hindent="0" Font="Arial-PLAIN-11" Foreground="-16777216" Spacing="0" Block="false" Continuation="false" Visible="true" KeepWithNext="false" FillStyle="0" TabStops="0.5,1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0,5.5,6.0,6.5,7.0,7.5,8.0" Justify="false" Orphan="false" TextAdvance="3">
+<![CDATA[Strasse:]]>
+</TextElement>
+<FieldProperty X="12" Y="74" Width="105" Height="14"/>
+<TextElement ID="Text52" Alignment="65" Indent="0.0" Hindent="0" Font="Arial-PLAIN-11" Foreground="-16777216" Spacing="0" Block="false" Continuation="false" Visible="true" KeepWithNext="false" FillStyle="0" TabStops="0.5,1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0,5.5,6.0,6.5,7.0,7.5,8.0" Justify="false" Orphan="false" TextAdvance="3">
+<![CDATA[PLZ/Ort:]]>
+</TextElement>
+<FieldProperty X="12" Y="96" Width="105" Height="14"/>
+<TextElement ID="Text53" Alignment="65" Indent="0.0" Hindent="0" Font="Arial-PLAIN-11" Foreground="-16777216" Spacing="0" Block="false" Continuation="false" Visible="true" KeepWithNext="false" FillStyle="0" TabStops="0.5,1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0,5.5,6.0,6.5,7.0,7.5,8.0" Justify="false" Orphan="false" TextAdvance="3">
+<![CDATA[Tel.:]]>
+</TextElement>
+<FieldProperty X="12" Y="118" Width="105" Height="14"/>
+<TextElement ID="Text54" Alignment="65" Indent="0.0" Hindent="0" Font="Arial-PLAIN-11" Foreground="-16777216" Spacing="0" Block="false" Continuation="false" Visible="true" KeepWithNext="false" FillStyle="0" TabStops="0.5,1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0,5.5,6.0,6.5,7.0,7.5,8.0" Justify="false" Orphan="false" TextAdvance="3">
+<![CDATA[E-Mail:]]>
+</TextElement>
+<FieldProperty X="12" Y="140" Width="105" Height="14"/>
+<TextElement ID="kundeKontaktAnrede" Alignment="65" Indent="0.0" Hindent="0" Font="Arial-PLAIN-11" Foreground="-16777216" Spacing="0" Block="false" Continuation="false" Visible="true" KeepWithNext="false" FillStyle="0" TabStops="0.5,1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0,5.5,6.0,6.5,7.0,7.5,8.0" Justify="false" Orphan="false" TextAdvance="3">
+<![CDATA[kundeKontaktAnrede]]>
+</TextElement>
+<FieldProperty X="158" Y="30" Width="67" Height="14"/>
+<TextElement ID="kundeKontaktName" Alignment="65" Indent="0.0" Hindent="0" Font="Arial-PLAIN-11" Foreground="-16777216" Spacing="0" Block="false" Continuation="false" Visible="true" KeepWithNext="false" FillStyle="0" TabStops="0.5,1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0,5.5,6.0,6.5,7.0,7.5,8.0" Justify="false" Orphan="false" TextAdvance="3">
+<![CDATA[kundeKontaktName]]>
+</TextElement>
+<FieldProperty X="234" Y="30" Width="81" Height="14"/>
+<TextElement ID="kundeKontaktVorname" Alignment="65" Indent="0.0" Hindent="0" Font="Arial-PLAIN-11" Foreground="-16777216" Spacing="0" Block="false" Continuation="false" Visible="true" KeepWithNext="false" FillStyle="0" TabStops="0.5,1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0,5.5,6.0,6.5,7.0,7.5,8.0" Justify="false" Orphan="false" TextAdvance="3">
+<![CDATA[kundeKontaktVorname]]>
+</TextElement>
+<FieldProperty X="324" Y="30" Width="105" Height="14"/>
+<TextElement ID="kundeKontaktOE" Alignment="65" Indent="0.0" Hindent="0" Font="Arial-PLAIN-11" Foreground="-16777216" Spacing="0" Block="false" Continuation="false" Visible="true" KeepWithNext="false" FillStyle="0" TabStops="0.5,1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0,5.5,6.0,6.5,7.0,7.5,8.0" Justify="false" Orphan="false" TextAdvance="3">
+<![CDATA[kundeKontaktOE]]>
+</TextElement>
+<FieldProperty X="158" Y="52" Width="211" Height="14"/>
+<TextElement ID="kundeKontaktStrasse" Alignment="65" Indent="0.0" Hindent="0" Font="Arial-PLAIN-11" Foreground="-16777216" Spacing="0" Block="false" Continuation="false" Visible="true" KeepWithNext="false" FillStyle="0" TabStops="0.5,1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0,5.5,6.0,6.5,7.0,7.5,8.0" Justify="false" Orphan="false" TextAdvance="3">
+<![CDATA[kundeKontaktStrasse]]>
+</TextElement>
+<FieldProperty X="158" Y="74" Width="211" Height="14"/>
+<TextElement ID="kundeKontaktPLZ" Alignment="65" Indent="0.0" Hindent="0" Font="Arial-PLAIN-11" Foreground="-16777216" Spacing="0" Block="false" Continuation="false" Visible="true" KeepWithNext="false" FillStyle="0" TabStops="0.5,1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0,5.5,6.0,6.5,7.0,7.5,8.0" Justify="false" Orphan="false" TextAdvance="3">
+<![CDATA[kundeKontaktPLZ]]>
+</TextElement>
+<FieldProperty X="158" Y="96" Width="76" Height="14"/>
+<TextElement ID="kundeKontaktOrt" Alignment="65" Indent="0.0" Hindent="0" Font="Arial-PLAIN-11" Foreground="-16777216" Spacing="0" Block="false" Continuation="false" Visible="true" KeepWithNext="false" FillStyle="0" TabStops="0.5,1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0,5.5,6.0,6.5,7.0,7.5,8.0" Justify="false" Orphan="false" TextAdvance="3">
+<![CDATA[kundeKontaktOrt]]>
+</TextElement>
+<FieldProperty X="243" Y="96" Width="180" Height="14"/>
+<TextElement ID="kundeKontaktTel" Alignment="65" Indent="0.0" Hindent="0" Font="Arial-PLAIN-11" Foreground="-16777216" Spacing="0" Block="false" Continuation="false" Visible="true" KeepWithNext="false" FillStyle="0" TabStops="0.5,1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0,5.5,6.0,6.5,7.0,7.5,8.0" Justify="false" Orphan="false" TextAdvance="3">
+<![CDATA[kundeKontaktTel]]>
+</TextElement>
+<FieldProperty X="158" Y="118" Width="121" Height="14"/>
+<TextElement ID="kundeKontaktEmail" Alignment="65" Indent="0.0" Hindent="0" Font="Arial-PLAIN-11" Foreground="-16777216" Spacing="0" Block="false" Continuation="false" Visible="true" KeepWithNext="false" FillStyle="0" TabStops="0.5,1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0,5.5,6.0,6.5,7.0,7.5,8.0" Justify="false" Orphan="false" TextAdvance="3">
+<![CDATA[kundeKontaktEmail]]>
+</TextElement>
+<FieldProperty X="158" Y="140" Width="211" Height="14"/>
+</SectionBand>
+</SectionContent>
+<SectionFooter>
+<SectionBand Height="0.3" Visible="false" ShrinkToFit="false" PageBefore="false" PageAfter="false" TopBorder="0" LeftBorder="0" BottomBorder="0" RightBorder="0" Elements="0">
+</SectionBand>
+</SectionFooter>
+</Section>
+</SectionElement>
+<NewlineElement ID="Newline7" Alignment="1" Indent="0.0" Hindent="0" Font="Serif-PLAIN-10" Foreground="-16777216" Spacing="0" Block="true" Continuation="false" Visible="true" KeepWithNext="false" Count="1">
+</NewlineElement>
+<SectionElement ID="Section12" Alignment="1" Indent="0.0" Hindent="0" Font="Serif-PLAIN-10" Foreground="-16777216" Spacing="0" Block="true" Continuation="false" Visible="true" KeepWithNext="false">
+<Section>
+<SectionHeader>
+<SectionBand Height="0.3" Visible="false" ShrinkToFit="false" PageBefore="false" PageAfter="false" TopBorder="0" LeftBorder="0" BottomBorder="0" RightBorder="0" Elements="0">
+</SectionBand>
+</SectionHeader>
+<SectionContent>
+<SectionBand Height="2.544444" Visible="true" ShrinkToFit="false" PageBefore="false" PageAfter="false" TopBorder="0" LeftBorder="0" BottomBorder="0" RightBorder="0" Elements="11">
+<TextElement ID="Text64" Alignment="65" Indent="0.0" Hindent="0" Font="Arial-BOLD-11" Foreground="-16777216" Spacing="0" Block="false" Continuation="false" Visible="true" KeepWithNext="false" FillStyle="0" TabStops="0.5,1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0,5.5,6.0,6.5,7.0,7.5,8.0" Justify="false" Orphan="false" TextAdvance="3">
+<![CDATA[8. Honorar gemäss Vereinbarung]]>
+</TextElement>
+<FieldProperty X="0" Y="0" Width="183" Height="14"/>
+<TextElement ID="Text65" Alignment="65" Indent="0.0" Hindent="0" Font="Arial-PLAIN-11" Foreground="-16777216" Spacing="0" Block="false" Continuation="false" Visible="true" KeepWithNext="false" FillStyle="0" TabStops="0.5,1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0,5.5,6.0,6.5,7.0,7.5,8.0" Justify="false" Orphan="false" TextAdvance="3">
+<![CDATA[Fr.]]>
+</TextElement>
+<FieldProperty X="12" Y="27" Width="19" Height="14"/>
+<TextElement ID="Text66" Alignment="65" Indent="0.0" Hindent="0" Font="Arial-PLAIN-11" Foreground="-16777216" Spacing="0" Block="false" Continuation="false" Visible="true" KeepWithNext="false" FillStyle="0" TabStops="0.5,1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0,5.5,6.0,6.5,7.0,7.5,8.0" Justify="false" Orphan="false" TextAdvance="3">
+<![CDATA[Fr.]]>
+</TextElement>
+<FieldProperty X="12" Y="45" Width="19" Height="14"/>
+<TextElement ID="kostenTagPikett" Alignment="1" Indent="0.0" Hindent="0" Font="Arial-PLAIN-11" Foreground="-16777216" Spacing="0" Block="false" Continuation="false" Visible="true" KeepWithNext="false" FillStyle="0" TabStops="0.5,1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0,5.5,6.0,6.5,7.0,7.5,8.0" Justify="false" Orphan="false" TextAdvance="3">
+<![CDATA[kostenTagPikett]]>
+</TextElement>
+<FieldProperty X="36" Y="45" Width="78" Height="14"/>
+<TextElement ID="kostenStunde" Alignment="1" Indent="0.0" Hindent="0" Font="Arial-PLAIN-11" Foreground="-16777216" Spacing="0" Block="false" Continuation="false" Visible="true" KeepWithNext="false" FillStyle="0" TabStops="0.5,1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0,5.5,6.0,6.5,7.0,7.5,8.0" Justify="false" Orphan="false" TextAdvance="3">
+<![CDATA[kostenStunde]]>
+</TextElement>
+<FieldProperty X="36" Y="27" Width="81" Height="14"/>
+<TextElement ID="Text69" Alignment="1" Indent="0.0" Hindent="0" Font="Arial-PLAIN-11" Foreground="-16777216" Spacing="0" Block="false" Continuation="false" Visible="true" KeepWithNext="false" FillStyle="0" TabStops="0.5,1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0,5.5,6.0,6.5,7.0,7.5,8.0" Justify="false" Orphan="false" TextAdvance="3">
+<![CDATA[pro verrechenbare Stunde für die ersten 150 Stunden pro Monat]]>
+</TextElement>
+<FieldProperty X="126" Y="27" Width="316" Height="14"/>
+<TextElement ID="Text70" Alignment="1" Indent="0.0" Hindent="0" Font="Arial-PLAIN-11" Foreground="-16777216" Spacing="0" Block="false" Continuation="false" Visible="true" KeepWithNext="false" FillStyle="0" TabStops="0.5,1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0,5.5,6.0,6.5,7.0,7.5,8.0" Justify="false" Orphan="false" TextAdvance="3">
+<![CDATA[pro verrechenbare Stunde für alle weiteren Stunden pro Monat]]>
+</TextElement>
+<FieldProperty X="126" Y="45" Width="324" Height="14"/>
+<TextElement ID="Text71" Alignment="65" Indent="0.0" Hindent="0" Font="Arial-PLAIN-11" Foreground="-16777216" Spacing="0" Block="false" Continuation="false" Visible="true" KeepWithNext="false" FillStyle="0" TabStops="0.5,1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0,5.5,6.0,6.5,7.0,7.5,8.0" Justify="false" Orphan="false" TextAdvance="3">
+<![CDATA[Diese Ansätze verstehen sich exklusive aller bei Vertragsabschluss geltenden Steuern und Abgaben.]]>
+</TextElement>
+<FieldProperty X="12" Y="72" Width="438" Height="28"/>
+<TextElement ID="Text72" Alignment="65" Indent="0.0" Hindent="0" Font="Arial-PLAIN-11" Foreground="-16777216" Spacing="0" Block="false" Continuation="false" Visible="true" KeepWithNext="false" FillStyle="0" TabStops="0.5,1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0,5.5,6.0,6.5,7.0,7.5,8.0" Justify="false" Orphan="false" TextAdvance="3">
+<![CDATA[Für Überstunden-, Nacht-, Sonntags- und Feiertagsarbeit sind keine Zuschläge geschuldet.]]>
+</TextElement>
+<FieldProperty X="12" Y="108" Width="438" Height="36"/>
+<TextElement ID="Text73" Alignment="65" Indent="0.0" Hindent="0" Font="Arial-PLAIN-11" Foreground="-16777216" Spacing="0" Block="false" Continuation="false" Visible="true" KeepWithNext="false" FillStyle="0" TabStops="0.5,1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0,5.5,6.0,6.5,7.0,7.5,8.0" Justify="false" Orphan="false" TextAdvance="3">
+<![CDATA[Spesen:]]>
+</TextElement>
+<FieldProperty X="12" Y="153" Width="79" Height="14"/>
+<TextElement ID="Text74" Alignment="65" Indent="0.0" Hindent="0" Font="Arial-PLAIN-11" Foreground="-16777216" Spacing="0" Block="false" Continuation="false" Visible="true" KeepWithNext="false" FillStyle="0" TabStops="0.5,1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0,5.5,6.0,6.5,7.0,7.5,8.0" Justify="false" Orphan="false" TextAdvance="3">
+<![CDATA[keine; Ausnahme: bei Vergütung durch den Kunden]]>
+</TextElement>
+<FieldProperty X="126" Y="153" Width="324" Height="14"/>
+</SectionBand>
+</SectionContent>
+<SectionFooter>
+<SectionBand Height="0.3" Visible="false" ShrinkToFit="false" PageBefore="false" PageAfter="false" TopBorder="0" LeftBorder="0" BottomBorder="0" RightBorder="0" Elements="0">
+</SectionBand>
+</SectionFooter>
+</Section>
+</SectionElement>
+<NewlineElement ID="Newline9" Alignment="1" Indent="0.0" Hindent="0" Font="Serif-PLAIN-10" Foreground="-16777216" Spacing="0" Block="true" Continuation="false" Visible="true" KeepWithNext="false" Count="1">
+</NewlineElement>
+<SectionElement ID="Section13" Alignment="1" Indent="0.0" Hindent="0" Font="Serif-PLAIN-10" Foreground="-16777216" Spacing="0" Block="true" Continuation="false" Visible="true" KeepWithNext="false">
+<Section>
+<SectionHeader>
+<SectionBand Height="0.3" Visible="false" ShrinkToFit="false" PageBefore="false" PageAfter="false" TopBorder="0" LeftBorder="0" BottomBorder="0" RightBorder="0" Elements="0">
+</SectionBand>
+</SectionHeader>
+<SectionContent>
+<SectionBand Height="0.32222223" Visible="true" ShrinkToFit="false" PageBefore="false" PageAfter="false" TopBorder="0" LeftBorder="0" BottomBorder="0" RightBorder="0" Elements="2">
+<TextElement ID="Text75" Alignment="65" Indent="0.0" Hindent="0" Font="Arial-BOLD-11" Foreground="-16777216" Spacing="0" Block="false" Continuation="false" Visible="true" KeepWithNext="false" FillStyle="0" TabStops="0.5,1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0,5.5,6.0,6.5,7.0,7.5,8.0" Justify="false" Orphan="false" TextAdvance="3">
+<![CDATA[9. Arbeitsort / Kunde]]>
+</TextElement>
+<FieldProperty X="0" Y="0" Width="117" Height="14"/>
+<TextElement ID="Text76" Alignment="65" Indent="0.0" Hindent="0" Font="Arial-PLAIN-11" Foreground="-16777216" Spacing="0" Block="false" Continuation="false" Visible="true" KeepWithNext="false" FillStyle="0" TabStops="0.5,1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0,5.5,6.0,6.5,7.0,7.5,8.0" Justify="false" Orphan="false" TextAdvance="3">
+<![CDATA[reso, gibelinstrasse 27 / Römerstrasse 20+22, 4502 Solothurn]]>
+</TextElement>
+<FieldProperty X="126" Y="0" Width="309" Height="14"/>
+</SectionBand>
+</SectionContent>
+<SectionFooter>
+<SectionBand Height="0.3" Visible="false" ShrinkToFit="false" PageBefore="false" PageAfter="false" TopBorder="0" LeftBorder="0" BottomBorder="0" RightBorder="0" Elements="0">
+</SectionBand>
+</SectionFooter>
+</Section>
+</SectionElement>
+<NewlineElement ID="Newline10" Alignment="1" Indent="0.0" Hindent="0" Font="Serif-PLAIN-10" Foreground="-16777216" Spacing="0" Block="true" Continuation="false" Visible="true" KeepWithNext="false" Count="1">
+</NewlineElement>
+<SectionElement ID="Section14" Alignment="1" Indent="0.0" Hindent="0" Font="Serif-PLAIN-10" Foreground="-16777216" Spacing="0" Block="true" Continuation="false" Visible="true" KeepWithNext="false">
+<Section>
+<SectionHeader>
+<SectionBand Height="0.3" Visible="false" ShrinkToFit="false" PageBefore="false" PageAfter="false" TopBorder="0" LeftBorder="0" BottomBorder="0" RightBorder="0" Elements="0">
+</SectionBand>
+</SectionHeader>
+<SectionContent>
+<SectionBand Height="0.29444447" Visible="true" ShrinkToFit="false" PageBefore="false" PageAfter="false" TopBorder="0" LeftBorder="0" BottomBorder="0" RightBorder="0" Elements="1">
+<TextElement ID="Text77" Alignment="65" Indent="0.0" Hindent="0" Font="Arial-BOLD-11" Foreground="-16777216" Spacing="0" Block="false" Continuation="false" Visible="true" KeepWithNext="false" FillStyle="0" TabStops="0.5,1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0,5.5,6.0,6.5,7.0,7.5,8.0" Justify="false" Orphan="false" TextAdvance="3">
+<![CDATA[10. Reisezeit zum vereinbarten Arbeitsort wird nicht vergütet.]]>
+</TextElement>
+<FieldProperty X="0" Y="0" Width="405" Height="14"/>
+</SectionBand>
+</SectionContent>
+<SectionFooter>
+<SectionBand Height="0.3" Visible="false" ShrinkToFit="false" PageBefore="false" PageAfter="false" TopBorder="0" LeftBorder="0" BottomBorder="0" RightBorder="0" Elements="0">
+</SectionBand>
+</SectionFooter>
+</Section>
+</SectionElement>
+<NewlineElement ID="Newline11" Alignment="1" Indent="0.0" Hindent="0" Font="Serif-PLAIN-10" Foreground="-16777216" Spacing="0" Block="true" Continuation="false" Visible="true" KeepWithNext="false" Count="1">
+</NewlineElement>
+<SectionElement ID="Section15" Alignment="1" Indent="0.0" Hindent="0" Font="Serif-PLAIN-10" Foreground="-16777216" Spacing="0" Block="true" Continuation="false" Visible="true" KeepWithNext="false">
+<Section>
+<SectionHeader>
+<SectionBand Height="0.3" Visible="false" ShrinkToFit="false" PageBefore="false" PageAfter="false" TopBorder="0" LeftBorder="0" BottomBorder="0" RightBorder="0" Elements="0">
+</SectionBand>
+</SectionHeader>
+<SectionContent>
+<SectionBand Height="2.586111" Visible="true" ShrinkToFit="false" PageBefore="false" PageAfter="false" TopBorder="0" LeftBorder="0" BottomBorder="0" RightBorder="0" Elements="14">
+<TextElement ID="Text78" Alignment="65" Indent="0.0" Hindent="0" Font="Arial-BOLD-11" Foreground="-16777216" Spacing="0" Block="false" Continuation="false" Visible="true" KeepWithNext="false" FillStyle="0" TabStops="0.5,1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0,5.5,6.0,6.5,7.0,7.5,8.0" Justify="false" Orphan="false" TextAdvance="3">
+<![CDATA[11. Rechnungsstellung]]>
+</TextElement>
+<FieldProperty X="0" Y="0" Width="144" Height="14"/>
+<TextElement ID="Text79" Alignment="65" Indent="0.0" Hindent="0" Font="Arial-PLAIN-11" Foreground="-16777216" Spacing="0" Block="false" Continuation="false" Visible="true" KeepWithNext="false" FillStyle="0" TabStops="0.5,1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0,5.5,6.0,6.5,7.0,7.5,8.0" Justify="false" Orphan="false" TextAdvance="3">
+<![CDATA[Rechnungsadresse:]]>
+</TextElement>
+<FieldProperty X="12" Y="29" Width="141" Height="14"/>
+<TextElement ID="Text80" Alignment="1" Indent="0.0" Hindent="0" Font="Arial-PLAIN-11" Foreground="-16777216" Spacing="0" Block="false" Continuation="false" Visible="true" KeepWithNext="false" FillStyle="0" TabStops="0.5,1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0,5.5,6.0,6.5,7.0,7.5,8.0" Justify="false" Orphan="false" TextAdvance="3">
+<![CDATA[Abrechnung:]]>
+</TextElement>
+<FieldProperty X="12" Y="52" Width="141" Height="14"/>
+<TextElement ID="Text81" Alignment="1" Indent="0.0" Hindent="0" Font="Arial-PLAIN-11" Foreground="-16777216" Spacing="0" Block="false" Continuation="false" Visible="true" KeepWithNext="false" FillStyle="0" TabStops="0.5,1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0,5.5,6.0,6.5,7.0,7.5,8.0" Justify="false" Orphan="false" TextAdvance="3">
+<![CDATA[Stichtag:]]>
+</TextElement>
+<FieldProperty X="12" Y="75" Width="141" Height="14"/>
+<TextElement ID="Text82" Alignment="1" Indent="0.0" Hindent="0" Font="Arial-PLAIN-11" Foreground="-16777216" Spacing="0" Block="false" Continuation="false" Visible="true" KeepWithNext="false" FillStyle="0" TabStops="0.5,1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0,5.5,6.0,6.5,7.0,7.5,8.0" Justify="false" Orphan="false" TextAdvance="3">
+<![CDATA[Rechnungszustellung:]]>
+</TextElement>
+<FieldProperty X="12" Y="98" Width="141" Height="14"/>
+<TextElement ID="Text83" Alignment="1" Indent="0.0" Hindent="0" Font="Arial-PLAIN-11" Foreground="-16777216" Spacing="0" Block="false" Continuation="false" Visible="true" KeepWithNext="false" FillStyle="0" TabStops="0.5,1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0,5.5,6.0,6.5,7.0,7.5,8.0" Justify="false" Orphan="false" TextAdvance="3">
+<![CDATA[Fälligkeit:]]>
+</TextElement>
+<FieldProperty X="12" Y="121" Width="141" Height="14"/>
+<TextElement ID="Text84" Alignment="1" Indent="0.0" Hindent="0" Font="Arial-PLAIN-11" Foreground="-16777216" Spacing="0" Block="false" Continuation="false" Visible="true" KeepWithNext="false" FillStyle="0" TabStops="0.5,1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0,5.5,6.0,6.5,7.0,7.5,8.0" Justify="false" Orphan="false" TextAdvance="3">
+<![CDATA[Beilagen:]]>
+</TextElement>
+<FieldProperty X="12" Y="144" Width="141" Height="14"/>
+<TextElement ID="Text85" Alignment="1" Indent="0.0" Hindent="0" Font="Arial-PLAIN-11" Foreground="-16777216" Spacing="0" Block="false" Continuation="false" Visible="true" KeepWithNext="false" FillStyle="0" TabStops="0.5,1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0,5.5,6.0,6.5,7.0,7.5,8.0" Justify="false" Orphan="false" TextAdvance="3">
+<![CDATA[Letzter Arbeitstag des Monats]]>
+</TextElement>
+<FieldProperty X="171" Y="75" Width="162" Height="14"/>
+<TextElement ID="Text86" Alignment="1" Indent="0.0" Hindent="0" Font="Arial-PLAIN-11" Foreground="-16777216" Spacing="0" Block="false" Continuation="false" Visible="true" KeepWithNext="false" FillStyle="0" TabStops="0.5,1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0,5.5,6.0,6.5,7.0,7.5,8.0" Justify="false" Orphan="false" TextAdvance="3">
+<![CDATA[Rapport der gearbeiteten Stunden mit Visum des reso-Vorgesetzten]]>
+</TextElement>
+<FieldProperty X="171" Y="144" Width="270" Height="34"/>
+<TextElement ID="rechnungAdressat" Alignment="1" Indent="0.0" Hindent="0" Font="Arial-PLAIN-11" Foreground="-16777216" Spacing="0" Block="false" Continuation="false" Visible="true" KeepWithNext="false" FillStyle="0" TabStops="0.5,1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0,5.5,6.0,6.5,7.0,7.5,8.0" Justify="false" Orphan="false" TextAdvance="3">
+<![CDATA[rechnungAdressat]]>
+</TextElement>
+<FieldProperty X="171" Y="29" Width="279" Height="14"/>
+<TextElement ID="rechnungAbrechnung" Alignment="1" Indent="0.0" Hindent="0" Font="Arial-PLAIN-11" Foreground="-16777216" Spacing="0" Block="false" Continuation="false" Visible="true" KeepWithNext="false" FillStyle="0" TabStops="0.5,1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0,5.5,6.0,6.5,7.0,7.5,8.0" Justify="false" Orphan="false" TextAdvance="3">
+<![CDATA[rechnungAbrechnung]]>
+</TextElement>
+<FieldProperty X="171" Y="52" Width="162" Height="14"/>
+<TextElement ID="rechnungZustellenBis" Alignment="1" Indent="0.0" Hindent="0" Font="Arial-PLAIN-11" Foreground="-16777216" Spacing="0" Block="false" Continuation="false" Visible="true" KeepWithNext="false" FillStyle="0" TabStops="0.5,1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0,5.5,6.0,6.5,7.0,7.5,8.0" Justify="false" Orphan="false" TextAdvance="3">
+<![CDATA[rechnungZustellenBis]]>
+</TextElement>
+<FieldProperty X="171" Y="98" Width="108" Height="14"/>
+<TextElement ID="rechnungFaelligkeit" Alignment="1" Indent="0.0" Hindent="0" Font="Arial-PLAIN-11" Foreground="-16777216" Spacing="0" Block="false" Continuation="false" Visible="true" KeepWithNext="false" FillStyle="0" TabStops="0.5,1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0,5.5,6.0,6.5,7.0,7.5,8.0" Justify="false" Orphan="false" TextAdvance="3">
+<![CDATA[rechnungFaelligkeit]]>
+</TextElement>
+<FieldProperty X="171" Y="121" Width="162" Height="14"/>
+<TextElement ID="Text92" Alignment="1" Indent="0.0" Hindent="0" Font="Arial-PLAIN-11" Foreground="-16777216" Spacing="0" Block="false" Continuation="false" Visible="true" KeepWithNext="false" FillStyle="0" TabStops="0.5,1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0,5.5,6.0,6.5,7.0,7.5,8.0" Justify="false" Orphan="false" TextAdvance="3">
+<![CDATA[Arbeitstag des neuen Monats]]>
+</TextElement>
+<FieldProperty X="288" Y="98" Width="153" Height="14"/>
+</SectionBand>
+</SectionContent>
+<SectionFooter>
+<SectionBand Height="0.3" Visible="false" ShrinkToFit="false" PageBefore="false" PageAfter="false" TopBorder="0" LeftBorder="0" BottomBorder="0" RightBorder="0" Elements="0">
+</SectionBand>
+</SectionFooter>
+</Section>
+</SectionElement>
+<NewlineElement ID="Newline12" Alignment="1" Indent="0.0" Hindent="0" Font="Serif-PLAIN-10" Foreground="-16777216" Spacing="0" Block="true" Continuation="false" Visible="true" KeepWithNext="false" Count="1">
+</NewlineElement>
+<SectionElement ID="Section16" Alignment="1" Indent="0.0" Hindent="0" Font="Serif-PLAIN-10" Foreground="-16777216" Spacing="0" Block="true" Continuation="false" Visible="true" KeepWithNext="false">
+<Section>
+<SectionHeader>
+<SectionBand Height="0.3" Visible="false" ShrinkToFit="false" PageBefore="false" PageAfter="false" TopBorder="0" LeftBorder="0" BottomBorder="0" RightBorder="0" Elements="0">
+</SectionBand>
+</SectionHeader>
+<SectionContent>
+<SectionBand Height="0.98888874" Visible="true" ShrinkToFit="false" PageBefore="false" PageAfter="false" TopBorder="0" LeftBorder="0" BottomBorder="0" RightBorder="0" Elements="3">
+<TextElement ID="Text93" Alignment="65" Indent="0.0" Hindent="0" Font="Arial-BOLD-11" Foreground="-16777216" Spacing="0" Block="false" Continuation="false" Visible="true" KeepWithNext="false" FillStyle="0" TabStops="0.5,1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0,5.5,6.0,6.5,7.0,7.5,8.0" Justify="false" Orphan="false" TextAdvance="3">
+<![CDATA[12. Sonstiges / Kündigung]]>
+</TextElement>
+<FieldProperty X="0" Y="0" Width="203" Height="14"/>
+<TextElement ID="Text94" Alignment="65" Indent="0.0" Hindent="0" Font="Arial-PLAIN-11" Foreground="-16777216" Spacing="0" Block="false" Continuation="false" Visible="true" KeepWithNext="false" FillStyle="0" TabStops="0.5,1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0,5.5,6.0,6.5,7.0,7.5,8.0" Justify="false" Orphan="false" TextAdvance="3">
+<![CDATA[besondereVereinbarungen]]>
+</TextElement>
+<FieldProperty X="12" Y="24" Width="423" Height="14"/>
+<TextElement ID="Text95" Alignment="65" Indent="0.0" Hindent="0" Font="Arial-PLAIN-11" Foreground="-16777216" Spacing="0" Block="false" Continuation="false" Visible="true" KeepWithNext="false" FillStyle="0" TabStops="0.5,1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0,5.5,6.0,6.5,7.0,7.5,8.0" Justify="false" Orphan="false" TextAdvance="3">
+<![CDATA[Die Kündigung muss in jedem Fall schriftlich erfolgen.
+]]>
+</TextElement>
+<FieldProperty X="12" Y="49" Width="410" Height="14"/>
+</SectionBand>
+</SectionContent>
+<SectionFooter>
+<SectionBand Height="0.3" Visible="false" ShrinkToFit="false" PageBefore="false" PageAfter="false" TopBorder="0" LeftBorder="0" BottomBorder="0" RightBorder="0" Elements="0">
+</SectionBand>
+</SectionFooter>
+</Section>
+</SectionElement>
+<NewlineElement ID="Newline13" Alignment="1" Indent="0.0" Hindent="0" Font="Serif-PLAIN-10" Foreground="-16777216" Spacing="0" Block="true" Continuation="false" Visible="true" KeepWithNext="false" Count="1">
+</NewlineElement>
+<SectionElement ID="Section17" Alignment="1" Indent="0.0" Hindent="0" Font="Serif-PLAIN-10" Foreground="-16777216" Spacing="0" Block="true" Continuation="false" Visible="true" KeepWithNext="false">
+<Section>
+<SectionHeader>
+<SectionBand Height="0.3" Visible="false" ShrinkToFit="false" PageBefore="false" PageAfter="false" TopBorder="0" LeftBorder="0" BottomBorder="0" RightBorder="0" Elements="0">
+</SectionBand>
+</SectionHeader>
+<SectionContent>
+<SectionBand Height="1.0027778" Visible="true" ShrinkToFit="false" PageBefore="false" PageAfter="false" TopBorder="0" LeftBorder="0" BottomBorder="0" RightBorder="0" Elements="2">
+<TextElement ID="Text96" Alignment="65" Indent="0.0" Hindent="0" Font="Arial-BOLD-11" Foreground="-16777216" Spacing="0" Block="false" Continuation="false" Visible="true" KeepWithNext="false" FillStyle="0" TabStops="0.5,1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0,5.5,6.0,6.5,7.0,7.5,8.0" Justify="false" Orphan="false" TextAdvance="3">
+<![CDATA[13. Allgemeine Geschäftsbedingungen]]>
+</TextElement>
+<FieldProperty X="0" Y="0" Width="224" Height="14"/>
+<TextElement ID="Text97" Alignment="65" Indent="0.0" Hindent="0" Font="Arial-PLAIN-11" Foreground="-16777216" Spacing="0" Block="false" Continuation="false" Visible="true" KeepWithNext="false" FillStyle="0" TabStops="0.5,1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0,5.5,6.0,6.5,7.0,7.5,8.0" Justify="false" Orphan="false" TextAdvance="3">
+<![CDATA[Die Allgemeine Geschäftsbedingungen für die Anstellung von Externen Mitarbeitern bei der reso, Ausgabe vom 1. Juni 2001, sind Vertragsbestandteil.]]>
+</TextElement>
+<FieldProperty X="12" Y="23" Width="392" Height="28"/>
+</SectionBand>
+</SectionContent>
+<SectionFooter>
+<SectionBand Height="0.3" Visible="false" ShrinkToFit="false" PageBefore="false" PageAfter="false" TopBorder="0" LeftBorder="0" BottomBorder="0" RightBorder="0" Elements="0">
+</SectionBand>
+</SectionFooter>
+</Section>
+</SectionElement>
+<NewlineElement ID="Newline14" Alignment="1" Indent="0.0" Hindent="0" Font="Serif-PLAIN-10" Foreground="-16777216" Spacing="0" Block="true" Continuation="false" Visible="true" KeepWithNext="false" Count="1">
+</NewlineElement>
+<SectionElement ID="Section18" Alignment="1" Indent="0.0" Hindent="0" Font="Serif-PLAIN-10" Foreground="-16777216" Spacing="0" Block="true" Continuation="false" Visible="true" KeepWithNext="false">
+<Section>
+<SectionHeader>
+<SectionBand Height="0.3" Visible="false" ShrinkToFit="false" PageBefore="false" PageAfter="false" TopBorder="0" LeftBorder="0" BottomBorder="0" RightBorder="0" Elements="0">
+</SectionBand>
+</SectionHeader>
+<SectionContent>
+<SectionBand Height="2.1555557" Visible="true" ShrinkToFit="false" PageBefore="false" PageAfter="false" TopBorder="0" LeftBorder="0" BottomBorder="0" RightBorder="0" Elements="3">
+<TextElement ID="Text98" Alignment="65" Indent="0.0" Hindent="0" Font="Arial-BOLD-11" Foreground="-16777216" Spacing="0" Block="false" Continuation="false" Visible="true" KeepWithNext="false" FillStyle="0" TabStops="0.5,1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0,5.5,6.0,6.5,7.0,7.5,8.0" Justify="false" Orphan="false" TextAdvance="3">
+<![CDATA[14. Schlussbestimmungen]]>
+</TextElement>
+<FieldProperty X="0" Y="0" Width="200" Height="14"/>
+<TextElement ID="Text99" Alignment="65" Indent="0.0" Hindent="0" Font="Arial-PLAIN-11" Foreground="-16777216" Spacing="0" Block="false" Continuation="false" Visible="true" KeepWithNext="false" FillStyle="0" TabStops="0.5,1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0,5.5,6.0,6.5,7.0,7.5,8.0" Justify="false" Orphan="false" TextAdvance="3">
+<![CDATA[Sollten einzelne Bestimmungen dieses Vertrages rechtsunwirksam sein oder werden, so berührt dies die übrigen Bestimmungen in ihrer Wirksamkeit nicht. Eine unwirksame Bestimmung ist vielmehr so auszulegen, umzudeuten oder zu ergänzen, dass der mit ihr verfolgte Zweck, soweit gesetzlich zulässig, erreicht wird.]]>
+</TextElement>
+<FieldProperty X="12" Y="27" Width="393" Height="70"/>
+<TextElement ID="Text100" Alignment="65" Indent="0.0" Hindent="0" Font="Arial-PLAIN-11" Foreground="-16777216" Spacing="0" Block="false" Continuation="false" Visible="true" KeepWithNext="false" FillStyle="0" TabStops="0.5,1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0,5.5,6.0,6.5,7.0,7.5,8.0" Justify="false" Orphan="false" TextAdvance="3">
+<![CDATA[Änderungen und Ergänzungen dieser Allgemeinen Geschäftsbedingungen bedürfen zu ihrer Rechtswirksamkeit der Schriftform.]]>
+</TextElement>
+<FieldProperty X="12" Y="111" Width="401" Height="28"/>
+</SectionBand>
+</SectionContent>
+<SectionFooter>
+<SectionBand Height="0.3" Visible="false" ShrinkToFit="false" PageBefore="false" PageAfter="false" TopBorder="0" LeftBorder="0" BottomBorder="0" RightBorder="0" Elements="0">
+</SectionBand>
+</SectionFooter>
+</Section>
+</SectionElement>
+<NewlineElement ID="Newline15" Alignment="1" Indent="0.0" Hindent="0" Font="Serif-PLAIN-10" Foreground="-16777216" Spacing="0" Block="true" Continuation="false" Visible="true" KeepWithNext="false" Count="1">
+</NewlineElement>
+<NewlineElement ID="Newline16" Alignment="1" Indent="0.0" Hindent="0" Font="Serif-PLAIN-10" Foreground="-16777216" Spacing="0" Block="true" Continuation="false" Visible="true" KeepWithNext="false" Count="1">
+</NewlineElement>
+<SectionElement ID="Section20" Alignment="1" Indent="0.0" Hindent="0" Font="Arial-PLAIN-11" Foreground="-16777216" Spacing="0" Block="true" Continuation="false" Visible="true" KeepWithNext="false">
+<Section>
+<SectionHeader>
+<SectionBand Height="0.3" Visible="false" ShrinkToFit="false" PageBefore="false" PageAfter="false" TopBorder="0" LeftBorder="0" BottomBorder="0" RightBorder="0" Elements="0">
+</SectionBand>
+</SectionHeader>
+<SectionContent>
+<SectionBand Height="2.6694446" Visible="true" ShrinkToFit="false" PageBefore="false" PageAfter="false" TopBorder="0" LeftBorder="0" BottomBorder="0" RightBorder="0" Elements="7">
+<TextElement ID="Text101" Alignment="65" Indent="0.0" Hindent="0" Font="Arial-PLAIN-11" Foreground="-16777216" Spacing="0" Block="false" Continuation="false" Visible="true" KeepWithNext="false" FillStyle="0" TabStops="0.5,1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0,5.5,6.0,6.5,7.0,7.5,8.0" Justify="false" Orphan="false" TextAdvance="3">
+<![CDATA[Der Auftraggeber:]]>
+</TextElement>
+<FieldProperty X="0" Y="14" Width="168" Height="14"/>
+<TextElement ID="Text103" Alignment="65" Indent="0.0" Hindent="0" Font="Arial-PLAIN-11" Foreground="-16777216" Spacing="0" Block="false" Continuation="false" Visible="true" KeepWithNext="false" FillStyle="0" TabStops="0.5,1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0,5.5,6.0,6.5,7.0,7.5,8.0" Justify="false" Orphan="false" TextAdvance="3">
+<![CDATA[Der Auftragnehmer:]]>
+</TextElement>
+<FieldProperty X="226" Y="16" Width="168" Height="14"/>
+<TextElement ID="Text104" Alignment="1" Indent="0.0" Hindent="0" Font="Arial-BOLD-11" Foreground="-16777216" Spacing="0" Block="false" Continuation="false" Visible="true" KeepWithNext="false" FillStyle="0" TabStops="0.5,1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0,5.5,6.0,6.5,7.0,7.5,8.0" Justify="false" Orphan="false" TextAdvance="3">
+<![CDATA[reso, Rechenzentrum für Krankenversicherung]]>
+</TextElement>
+<FieldProperty X="0" Y="41" Width="169" Height="36"/>
+<TextElement ID="Text105" Alignment="1" Indent="0.0" Hindent="0" Font="Arial-PLAIN-11" Foreground="-16777216" Spacing="0" Block="false" Continuation="false" Visible="true" KeepWithNext="false" FillStyle="0" TabStops="0.5,1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0,5.5,6.0,6.5,7.0,7.5,8.0" Justify="false" Orphan="false" TextAdvance="3">
+<![CDATA[................................................................]]>
+</TextElement>
+<FieldProperty X="0" Y="108" Width="204" Height="14"/>
+<TextElement ID="Text106" Alignment="1" Indent="0.0" Hindent="0" Font="Arial-PLAIN-11" Foreground="-16777216" Spacing="0" Block="false" Continuation="false" Visible="true" KeepWithNext="false" FillStyle="0" TabStops="0.5,1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0,5.5,6.0,6.5,7.0,7.5,8.0" Justify="false" Orphan="false" TextAdvance="3">
+<![CDATA[................................................................]]>
+</TextElement>
+<FieldProperty X="226" Y="108" Width="204" Height="14"/>
+<TextElement ID="Text107" Alignment="1" Indent="0.0" Hindent="0" Font="Arial-PLAIN-11" Foreground="-16777216" Spacing="0" Block="false" Continuation="false" Visible="true" KeepWithNext="false" FillStyle="0" TabStops="0.5,1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0,5.5,6.0,6.5,7.0,7.5,8.0" Justify="false" Orphan="false" TextAdvance="3">
+<![CDATA[................................................................]]>
+</TextElement>
+<FieldProperty X="226" Y="158" Width="204" Height="14"/>
+<TextElement ID="Text108" Alignment="1" Indent="0.0" Hindent="0" Font="Arial-PLAIN-11" Foreground="-16777216" Spacing="0" Block="false" Continuation="false" Visible="true" KeepWithNext="false" FillStyle="0" TabStops="0.5,1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0,5.5,6.0,6.5,7.0,7.5,8.0" Justify="false" Orphan="false" TextAdvance="3">
+<![CDATA[Solothurn, ..............................................]]>
+</TextElement>
+<FieldProperty X="0" Y="158" Width="204" Height="14"/>
+</SectionBand>
+</SectionContent>
+<SectionFooter>
+<SectionBand Height="0.3" Visible="false" ShrinkToFit="false" PageBefore="false" PageAfter="false" TopBorder="0" LeftBorder="0" BottomBorder="0" RightBorder="0" Elements="0">
+</SectionBand>
+</SectionFooter>
+</Section>
+</SectionElement>
+</Report>

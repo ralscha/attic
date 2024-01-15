@@ -1,0 +1,14 @@
+
+<Context swallowOutput="true" docBase="d:/workspace/TestTrackerNG2/web" debug="2">
+
+  <Resource name="jdbc/testTrackerNG2" auth="Container"
+            type="javax.sql.DataSource" 
+            username="sa" 
+            password=""
+            driverClassName="net.sourceforge.jtds.jdbc.Driver" 
+            url="jdbc:jtds:sqlserver://localhost:1433/TestTrackerNG2"
+            maxActive="5" maxIdle="1" maxWait="10000" 
+            defaultAutoCommit="false"/>    
+                                   
+</Context>
+

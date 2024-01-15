@@ -1,0 +1,27 @@
+.nsm-light-blue { color: #B8D3DE; }
+.nsm-blue { color: #335C85; }
+.nsm-red { color: #B11D3A; }
+.nsm-dark-blue { color: #003366; }
+.nsm-light-gray { color: #F2F2F2; }
+.nsm-dark-gray { color: #CCCCCC; }
+
+.delete_icon {
+  background-image: url( /resources/images/address_book_delete.png ) !important;
+}
+
+.add_icon {
+  background-image: url( /resources/images/address_book_add.png ) !important;
+}
+
+body {
+  font-family: helvetica, tahoma, verdana, sans-serif;
+  padding: 20px;
+  padding-top: 32px;
+  font-size: 13px;
+  background-color: #fff !important;
+}
+
+h1 {
+  font-size: large;
+  margin-bottom: 20px;
+}

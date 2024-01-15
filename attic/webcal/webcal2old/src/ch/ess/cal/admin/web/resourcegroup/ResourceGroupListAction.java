@@ -1,0 +1,51 @@
+package ch.ess.cal.admin.web.resourcegroup;
+
+import java.util.*;
+
+import javax.servlet.http.*;
+
+import net.sf.hibernate.*;
+
+import org.apache.struts.action.*;
+
+import ch.ess.cal.*;
+import ch.ess.cal.common.*;
+
+public class ResourceGroupListAction extends HibernateAction {
+
+  public ActionForward execute(
+    ActionMapping mapping,
+    ActionForm form,
+    HttpServletRequest request,
+    HttpServletResponse response,
+    ActionMessages messages,
+    Session sess)
+    throws Exception {
+
+    MapForm searchForm = (MapForm)form;
+    String name = (String)searchForm.getValue("name");
+
+    List resultList;
+
+    if (name != null) {
+      name = "%" + name.trim() + "%";
+      resultList =
+        sess.find(
+          "from ResourceGroup as rg where rg.name like ? order by rg.name asc",
+          name,
+          Hibernate.STRING);
+    } else {
+      resultList = sess.find("from ResourceGroup as rg order by rg.name asc");
+    }
+    
+    request.getSession().setAttribute(Constants.RESULT_ID, resultList);
+
+    if (resultList.isEmpty()) {
+      messages.add(ActionErrors.GLOBAL_ERROR, Constants.ACTION_MESSAGE_NO_RESULTS);
+    }
+
+    return mapping.findForward(Constants.FORWARD_SUCCESS);
+
+  }
+
+}

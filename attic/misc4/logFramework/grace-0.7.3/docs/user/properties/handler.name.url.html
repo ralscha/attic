@@ -1,0 +1,153 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="GENERATOR" content="Mozilla/4.5 [en] (X11; I; SunOS 5.6 i86pc) [Netscape]">
+   <title>Java Log Facility - Example Output</title>
+</head>
+<body text="#000000" bgcolor="#FFFFFF">
+
+<center><img SRC="p1.jpg" NOSAVE height=160 width=231></center>
+
+<div align=right><font size=-1>$Revision: 1.1 $</font></div>
+
+<div align=right><font size=-1>$Date: 1999/09/27 12:26:05 $</font></div>
+
+<div align=right>
+<hr WIDTH="100%"></div>
+
+<table WIDTH="100%" NOSAVE >
+<tr NOSAVE>
+<td ALIGN=LEFT VALIGN=TOP NOSAVE><font color="#999999">Name:</font></td>
+
+<td NOSAVE><font color="#009900">log.handler.<i>name</i>.url</font></td>
+</tr>
+
+<tr NOSAVE>
+<td ALIGN=LEFT VALIGN=TOP NOSAVE><font color="#999999">Description:</font></td>
+
+<td ALIGN=LEFT VALIGN=TOP NOSAVE><font color="#000000">This controls which
+and what type of handlers are used during the logging process.&nbsp; When
+no are handlers specified, the logging system writes to the stardard output.&nbsp;
+If any handlers are specified using this property pattern, then a handler,
+capable of handling the url type, is installed under the given </font><i><font color="#009900">name</font></i>.&nbsp;
+The named handler then loads other properties using the <i><font color="#009900">name</font></i>.
+Currently, there are two main handlers: <a href="../api/grace/log/FileHandler.html">grace.log.FileHandler</a>
+and <a href="../api/grace/log/JDBCHandler.html">grace.log.JDBCHandler.</a>&nbsp;
+Note that the <a href="../api/grace/log/FileHandler.html">grace.log.FileHandler</a>
+can be given the property log.handler.<i>name.</i>maxsize="1M" in order
+to limit the size of the file.
+<p>Capable Handlers can also be accessed remotely.&nbsp; That means, Handlers
+that are being used in one JVM can be accessed from another JVM.&nbsp;
+This works because the Handlers are RemoteObjects and so they can register
+themselves in a local RMI Registry such that other remote JVMs can look
+them up and use them as if they were local.&nbsp; In order to access a
+remote handler, that handler must be registered in the RMI registry by
+specifying -D<a href="property.log.handler.name.server.html">log.handler.<i>name.</i>server</a>=true
+on the command line of the java program whose Handler will be accessed
+remotely by others.</td>
+</tr>
+
+<tr NOSAVE>
+<td NOSAVE><font color="#999999">Type:</font></td>
+
+<td><font color="#009900">URL</font></td>
+</tr>
+
+<tr NOSAVE>
+<td ALIGN=LEFT VALIGN=TOP NOSAVE><font color="#999999">Acceptable Values:</font></td>
+
+<td>
+<table BORDER COLS=2 WIDTH="100%" NOSAVE >
+<tr>
+<td><font color="#009900">file://<i>absolute-path-and-filename</i></font></td>
+
+<td>This installs a FileHandler that opens, creates, and writes to the
+given <i><font color="#009900">absolute-path-and-filename</font></i>.</td>
+</tr>
+
+<tr>
+<td><font color="#009900">file:<i>relative-path-and-filename</i></font></td>
+
+<td>This installs a FileHandler that opens, creates, and writes to the
+given <font color="#009900">:<i>relative-path-and-filename</i></font>.&nbsp;
+The path is relative to the point at which the java program was started.</td>
+</tr>
+
+<tr>
+<td><font color="#009900">file:-</font></td>
+
+<td>This installs a FileHandler that writes to the standard output.</td>
+</tr>
+
+<tr>
+<td><font color="#009900">jdbc:<i>sub-protocol</i>:<i>db-name</i></font></td>
+
+<td>This installs a JDBCHandler that writes to the database specified by
+the URL.&nbsp;</td>
+</tr>
+
+<tr>
+<td><font color="#009900">rmi://<i>host</i>/log.handler.<i>remote-handler-name</i></font></td>
+
+<td>This looks up the named <i><font color="#009900">remote-handler-name</font></i>
+in the RMI registry of <i><font color="#009900">host</font></i> and installs
+the remote Handler under the <i><font color="#009900">name</font></i> used
+for the local property.</td>
+</tr>
+</table>
+</td>
+</tr>
+
+<tr NOSAVE>
+<td NOSAVE><font color="#999999">Default Value:</font></td>
+
+<td>none</td>
+</tr>
+
+<tr NOSAVE>
+<td ALIGN=LEFT VALIGN=TOP NOSAVE><a NAME="Example Usage"></a><font color="#999999">Example
+Usage:</font></td>
+
+<td>
+<table BORDER WIDTH="100%" NOSAVE >
+<tr NOSAVE>
+<td NOSAVE>$ java -D<font color="#009900">log.handler.out.url</font>=<font color="#009900">file:-
+</font>grace.log.Log</td>
+
+<td>Logs to the standard output.&nbsp;</td>
+</tr>
+
+<tr>
+<td>$ java -D<font color="#009900">log.handler.out.url</font>=<font color="#009900">file:</font>../test.loggrace.log.Log</td>
+
+<td>Logs to the file in the parent directory called test.log</td>
+</tr>
+
+<tr>
+<td>$ java -D<font color="#009900">log.handler.out.url</font>=<font color="#009900">file:</font>/var/adm/java.loggrace.log.Log</td>
+
+<td>Logs to /var/adm/java.log</td>
+</tr>
+
+<tr>
+<td>$ java -D<font color="#009900">log.handler.out.url</font>=jdbc:idb:log.prpgrace.log.Log</td>
+
+<td>Logs to the Instant DB JDBC database</td>
+</tr>
+
+<tr>
+<td>$ java -D<font color="#009900">log.handler.out.url</font>=<font color="#009900">rmi</font>://tiger/log.handler.outgrace.log.Log</td>
+
+<td>Logs to the remote handler that is running on host tiger and registered
+in the RMI registry uder the name log.handler.out.&nbsp; This assumes that
+the remote program was started with -Dlog.handler.out.server=true.</td>
+</tr>
+</table>
+&nbsp;</td>
+</tr>
+</table>
+
+<br>&nbsp;
+</body>
+</html>

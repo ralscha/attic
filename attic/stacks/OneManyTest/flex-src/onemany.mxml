@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute" creationComplete="init()">
+
+
+  <mx:Script>
+    <![CDATA[
+      import mx.events.ListEvent;
+      import ch.ess.onemany.entity.Many;
+      import ch.ess.onemany.entity.One;
+      import mx.rpc.events.ResultEvent;
+                
+      private function init():void {
+        testService.findAllOnes();
+      } 
+
+      private function onChange(e:ListEvent):void {
+        //add many to the selected one item
+        var one:One = One(oneDataGrid.selectedItem);
+        var many:Many = new Many();
+        many.name = new Date().toLocaleTimeString();
+        many.one = one;
+        one.many.addItem(many);
+        testService.merge(one);        
+      }
+    
+      
+    ]]>
+  </mx:Script>
+  
+ 
+  
+  <mx:RemoteObject id="testService" showBusyCursor="true" destination="testService"></mx:RemoteObject>
+
+  <mx:DataGrid x="183" y="108" dataProvider="{testService.findAllOnes.lastResult}" change="onChange(event)" id="oneDataGrid">
+    <mx:columns>
+      <mx:DataGridColumn headerText="Name" dataField="name"/>
+    </mx:columns>
+  </mx:DataGrid>
+
+  
+  
+  
+ 
+  
+</mx:Application>

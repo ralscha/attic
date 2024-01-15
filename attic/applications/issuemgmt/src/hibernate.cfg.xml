@@ -1,0 +1,44 @@
+<!DOCTYPE hibernate-configuration PUBLIC
+	"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+    <session-factory>
+        <!--
+        <property name="connection.datasource">java:comp/env/jdbc/issue</property>
+        -->
+        
+        <property name="connection.driver_class">net.sourceforge.jtds.jdbc.Driver</property>
+        <property name="connection.url">jdbc:jtds:sqlserver://127.0.0.1/issue</property>
+        <property name="connection.username">sa</property>
+        <property name="connection.password"></property>
+       
+        
+        <property name="dialect">org.hibernate.dialect.SQLServerDialect</property>
+                
+        <property name="show_sql">false</property>        
+        <property name="hbm2ddl.auto">update</property>
+        <property name="transaction.flush_before_completion">true</property>
+        <property name="transaction.factory_class">org.hibernate.transaction.JDBCTransactionFactory</property>
+        
+        <mapping class="ch.ess.issue.entity.AbstractEntity"/>
+        <mapping class="ch.ess.issue.entity.Changelog"/>
+        <mapping class="ch.ess.issue.entity.Comments"/>
+        <mapping class="ch.ess.issue.entity.Component"/>
+        <mapping class="ch.ess.issue.entity.Customer"/>
+        <mapping class="ch.ess.issue.entity.Issue"/>
+        <mapping class="ch.ess.issue.entity.IssueType"/>
+        <mapping class="ch.ess.issue.entity.PriorityLevel"/>
+        <mapping class="ch.ess.issue.entity.Project"/>
+        <mapping class="ch.ess.issue.entity.Resolution"/>
+        <mapping class="ch.ess.issue.entity.User"/>
+        
+        <listener type="save" class="ch.ess.issue.util.SaveOrUpdateEventListener" />
+        <listener type="save-update" class="ch.ess.issue.util.SaveOrUpdateEventListener" />        
+        
+        
+
+    </session-factory>
+    
+    
+</hibernate-configuration>

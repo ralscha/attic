@@ -1,0 +1,79 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+	<title>Color Picker</title>
+	<script type="text/javascript" src="../../global/jscript/environment.js"></script>
+	<script type="text/javascript" src="../../global/jscript/utility.js"></script>
+	<script type="text/javascript" src="../jscript/picker_res.js"></script>
+	<script type="text/javascript" src="../jscript/picker.js"></script>
+	
+	<style>
+		.colpicker A {
+			text-decoration : none;
+		}
+		.prevarea {
+			font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+			font-size: 12px;
+			text-align: center;
+			width: 100%;
+		}
+		.sp, .wsp {
+			width: 12px;
+			height: 15px;
+		}
+		.gp {
+			width: 14px;
+			height: 11px;
+		}
+	</style>
+	
+</head>
+
+<body style="margin-left: 5; margin-top: 5;">
+
+<table cellpadding="0" cellspacing="2" border="0" width="184">
+	<tr>
+		<td align="center">
+			<!-- do not delete the next line -->
+			<span id="col_ccpicker"> </span>
+		</td>
+	</tr>
+</table>
+
+<script type="text/javascript">
+var locale      = 'EN';                                // Default locale if not specified
+var fieldId     = null;                                // Id of the field the calendar is associated to
+var resPath     = '';                                  // Path for image resources (Backgrounds, buttons)
+var palette     = ColorPalette.SAFE;
+
+if (null != window.location) {
+	var winlocation = CCUtility.decodeURIComponent(window.location);
+	var params      = HTTPUtil.getParameters(winlocation);
+	fieldId         = HTTPUtil.getParameter('fieldid', params);
+	var lc          = HTTPUtil.getParameter('locale', params);
+	var spalette    = HTTPUtil.getParameter('palette', params);
+
+	if (null != lc & lc.toUpperCase() != 'NULL') {
+		locale = 'EN';
+	}
+	if (null != lc & lc.toUpperCase() != 'NULL') {
+		palette = spalette;
+	}
+}
+
+// configure the colorpicker
+var colpicker = new ColorPicker('ccpicker');
+colpicker.setLocale(locale);
+colpicker.setOpener(window.opener);
+colpicker.setSelectedPalette(palette);
+colpicker.setFieldId(fieldId);
+colpicker.setCloseOnSelect(true);
+
+// render the colorpicker
+cpData = new ColorPickerData(colpicker, resPath, locale);
+ColorPickerPainter.render(cpData);
+</script>
+
+</body>
+</html>

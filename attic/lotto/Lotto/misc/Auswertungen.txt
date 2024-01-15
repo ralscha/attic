@@ -1,0 +1,78 @@
+
+Statistiken
+
+SUMME
+Alle Zahlen einer Ziehung werden addiert und in die entsprechende Kategorie
+eingeteilt
+OSHashMap  verteilungSumme;
+Key = Summe   Value = Anzahl pro Summe
+0 -  49     50 -  99    100 - 149    150 - 199    200 - 249      >=250
+OK OK OK OK
+
+
+ENDZIFFERNSUMME
+Alle Endziffern der Zahlen einer Ziehung werden addiert und in die
+entsprechende Klasse eingeteilt 
+Quersumme = 0 - 14, 15 - 19, 20 - 24, 25 - 29, 30 - 34, 35 - 39, >=40
+
+OSHashMap  verteilungEndZiffernSumme
+Key = Summe   Value = Anzahl pro Summe
+OK OK OK OK
+
+
+
+QUERSUMME
+Alle einzelnen Ziffern der Zahlen einer Ziehung werden addiert und in die entsprechende 
+Kategorie eingeteilt
+
+OSHashMap  verteilungQuersumme;
+Key = Quersumme   Value = Anzahl pro Quersumme
+OK OK OK OK
+
+
+SUMME DIFFERENZ
+(Zahl6 - Zahl5) + (Zahl5 - Zahl4) + (Zahl4 - Zahl3) + (Zahl3 - Zahl2) + (Zahl2 - Zahl1)
+Zahlen müssen sortiert sein, d.h. Zahl6 ist die höchste Zahl
+OSHashMap  verteilungSummeDifferenzen;
+Key = Differenzsumme   Value = Anzahl pro Summe
+OK OK OK OK
+
+
+
+5er KLASSEN	
+Bei dieser Analyse untersucht man, in wieviel verschiedenen 5-er Klassen (Zahlen 1 bis 5, 6 bis 10,..., 41-45) die Gewinnzahlen in jeder Ziehung lagen. (2 - 6)
+private OSHashMap  verteilungFuenferKlassen;
+Key = Verschiedene 5er Klassen   Value = Anzahl
+OK OK OK OK
+
+3er Klassen
+Bei dieser Analyse untersucht man, in wieviel verschiedenen 3er Klassen (Zahlen 1 bis 3, 4 bis 6, usw.) die Gewinnzahlen in jeder Ziehung lagen. (2 - 6)
+private OSHashMap  verteilungDreierKlassen;
+Key = Verschiedene 3er Klassen   Value = Anzahl
+OK OK OK OK
+
+9er Klassen
+Bei dieser Analyse untersucht man, in wieviel verschiedenen 9-er Klassen (Zahlen 1 bis 9, 10 bis 18, usw.) die Gewinnzahlen in jeder Ziehung lagen. (1 - 5)
+private OSHashMap  verteilungNeunerKlassen;
+Key = Verschiedene 9er Klassen   Value = Anzahl
+OK OK OK OK
+
+VERTEILUNG TIEFE/HOHE
+In dieser Analyse wird untersucht wie die Kombination der tiefen (1-22) und hohen Zahlen (23-45) aussieht
+(tiefe/hohe Zahlen). 
+0/6      1/5      2/4      3/3      4/2      5/1      6/0
+private int verteilungTiefe[] = new int[7];
+Array mit Anzahl "tiefe"
+verteilungTiefe[0] = Anzahl Ausspielungen mit 0 tiefen Zahlen
+OK OK OK OK
+
+
+VERTEILUNG TIEFE/HOHE ENDZIFFERN (TIEF = 0-4, HOHE = 5-9)
+Eine ähnliche Analyse wird auch für die Verteilung der hohen und tiefen Endziffern durchgeführt
+Auch hier ist eine eindeutige Häufung in den Kombinationen 2/4, 3/3, 4/2 zur erkennen.
+0/6      1/5      2/4      3/3      4/2      5/1      6/0
+int verteilungTiefeEndziffern[] = new int[7];
+Array mit Anzahl "tiefe Endziffern"
+verteilungTiefeEndziffern[0] = Anzahl Ausspielungen mit 0 tiefen (0-4) Endziffern
+
+

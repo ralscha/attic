@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+   "-//Hibernate/Hibernate Mapping DTD//EN"
+   "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd">
+
+<hibernate-mapping>
+	<class name="dbdemo.OrderTotal" proxy="dbdemo.OrderTotal" table="orderTotal">
+
+
+     	<meta attribute="scope-get">public</meta>
+     	<meta attribute="scope-set">public</meta>
+
+		<id name="orderId" type="string">
+				<generator class="uuid.hex"/>
+		</id>
+		<property name="description" length="255" type="string"/>
+	    <property name="total" length="3" type="big_decimal"/>
+	    
+	    <set name="orderPos" cascade="all" inverse="true" lazy="true">
+          <key column="orderTotalId"/>
+          <one-to-many class="dbdemo.OrderPos"/>
+        </set>
+	    
+	    
+	</class>
+	
+	
+	
+</hibernate-mapping>

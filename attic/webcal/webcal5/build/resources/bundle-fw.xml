@@ -1,0 +1,768 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE resource-factory PUBLIC
+	"-//common-controls//DTD ResourceFactory 1.2//EN"
+	"http://www.common-controls.com/dtds/resource-factory_1_2.dtd">
+
+<resource-factory version="1.2">
+
+	<!-- ============================== -->
+	<!-- Resource bundle                -->
+	<!-- ============================== -->
+
+	<resources destdir="source">
+		<bundle package="com.cc.framework" name="FrameworkResources" defaultlocale="en">
+
+			<resourcekey code="fw.empty.text">
+				<value locale="de">Keine Einträge gefunden!</value>
+				<value locale="en">no entries</value>
+				<value locale="fr">Aucun élément dans la liste !</value>
+				<value locale="zh">\u7a7a\u8868\uff01</value>
+				<value locale="es">No hay elementos en la lista !</value>
+			</resourcekey>
+
+			<!-- Form Control -->
+
+			<resourcekey code="fw.form.required">
+				<value locale="de">Notwendiges Eingabefeld</value>
+				<value locale="en">required input element</value>
+				<value locale="es">elemento de entrada requerido</value>
+			</resourcekey>
+
+			<!-- TabSet Control -->
+
+			<resourcekey code="fw.tabset.range">
+				<value locale="de">{0} ... {1} von {2}</value>
+				<value locale="en">{0} ... {1} from {2}</value>
+			</resourcekey>
+
+			<!-- Tabbar Control -->
+
+			<resourcekey code="fw.tabbar.range">
+				<value locale="de">{0} ... {1} von {2}</value>
+				<value locale="en">{0} ... {1} from {2}</value>
+			</resourcekey>
+
+			<!-- Gauge Control -->
+
+			<resourcekey code="fw.empty.gauge">
+				<value locale="de">Kein Element</value>
+				<value locale="en">no element</value>
+				<value locale="es">no hay elemento</value>
+			</resourcekey>
+
+			<!-- Textarea Control -->
+
+			<resourcekey code="fw.textarea.maxlength.message">
+				<value locale="de">Verbleibende Zeichen: {0}/{1}</value>
+				<value locale="en">Characters remaining: {0}/{1}</value>
+				<value locale="fr">Caractères restants : {0}/{1}</value>
+				<value locale="zh">\u5269\u4f59\u5b57\u6570\uff1a{0}/{1}</value>
+				<value locale="es">Caracteres restantes: {0}/{1}</value>
+			</resourcekey>
+
+			<!-- ColorPicker Control -->
+
+			<resourcekey code="fw.colorpicker.window.title">
+				<value locale="de">Farbpalette</value>
+				<value locale="en">ColorPicker</value>
+				<value locale="fr">Sélecteur de couleurs</value>
+				<value locale="zh">\u8c03\u8272\u677f</value>
+				<value locale="es">Seleccionador de color</value>
+			</resourcekey>
+
+			<!-- List Control -->
+
+			<resourcekey code="fw.items">
+				<value locale="de">{0} Einträge</value>
+				<value locale="en">{0} items</value>
+				<value locale="fr">{0} élément(s)</value>
+				<value locale="zh">{0}\u6761</value>
+				<value locale="es">{0} elemento(s)</value>
+
+				<resourcekey code="noentries">
+					<value locale="de">Keine Einträge</value>
+					<value locale="en">no entries</value>
+					<value locale="fr">0 élément</value>
+					<value locale="zh">\u7a7a</value>
+					<value locale="es">0 elementos</value>
+				</resourcekey>
+
+				<resourcekey code="1te">
+					<value locale="de">1 Eintrag</value>
+					<value locale="en">1 item</value>
+					<value locale="fr">1 élément</value>
+					<value locale="zh">1\u6761</value>
+					<value locale="es">1 elemento</value>
+				</resourcekey>
+
+				<resourcekey code="range">
+					<value locale="de">{0} bis {1} von {2}</value>
+					<value locale="en">{0} to {1} of {2}</value>
+					<value locale="fr">{0}-{1} d?environ {2}</value>
+					<value locale="zh">\u4ece{0}\u5230{1}\u603b\u5171{2}</value>
+					<value locale="es">{0} a {1} de {2}</value>
+				</resourcekey>
+
+				<resourcekey code="infinite">
+					<value locale="de">{0} von {1} bis unbekannt </value>
+					<value locale="en">{0} to {1} from infinite</value>
+					<value locale="fr">{0} à {1} à partir de l?infini</value>
+					<value locale="zh">\u4ece{0}\u5230{1}\u603b\u6570\u672a\u77e5</value>
+					<value locale="es">{0} a {1} de infinito</value>
+				</resourcekey>
+			</resourcekey>
+
+			<!-- TreeList Control -->
+
+			<resourcekey code="fw.page">
+				<resourcekey code="noentries">
+					<value locale="de">Keine Einträge</value>
+					<value locale="en">no entries</value>
+					<value locale="fr">aucune entrée</value>
+					<value locale="zh">0\u9875</value>
+					<value locale="es">No hay entradas</value>
+				</resourcekey>
+
+				<resourcekey code="1te">
+					<value locale="de">Seite 1</value>
+					<value locale="en">page 1</value>
+					<value locale="fr">Page 1</value>
+					<value locale="zh">\u7b2c1\u9875</value>
+					<value locale="es">página 1</value>
+				</resourcekey>
+
+				<resourcekey code="range">
+					<value locale="de">Seite {0} von {1}</value>
+					<value locale="en">page {0} of {1}</value>
+					<value locale="fr">Page {0} sur {1} </value>
+					<value locale="zh">\u7b2c{0}\u9875\uff0c\u5171{1}\u9875</value>
+					<value locale="es">página {0} de {1}</value>
+				</resourcekey>
+
+				<resourcekey code="infinite">
+					<value locale="de">{0} von unbekannt </value>
+					<value locale="en">{0} from infinite</value>
+					<value locale="fr">{0} de l?infini</value>
+					<value locale="es">{0} de infinito</value>
+				</resourcekey>
+			</resourcekey>
+
+			<!-- SwapSelect Control -->
+
+			<resourcekey code="fw.swapselect">
+				<resourcekey code="add.all">
+					<value locale="de">Alle Elemente hinzufügen</value>
+					<value locale="en">add all elements</value>
+				</resourcekey>
+
+				<resourcekey code="add">
+					<value locale="de">Die markierten Elemente hinzufügen</value>
+					<value locale="en">add marked elements</value>
+				</resourcekey>
+
+				<resourcekey code="remove.all">
+					<value locale="de">Alle Elemente entfernen</value>
+					<value locale="en">remove all elements</value>
+				</resourcekey>
+
+				<resourcekey code="remove">
+					<value locale="de">Die markierten Elemente entfernen</value>
+					<value locale="en">remove marked elements</value>
+				</resourcekey>
+			</resourcekey>
+
+			<!-- Scheduler Control -->
+
+			<resourcekey code="fw.scheduler">
+				<resourcekey code="appointment">
+					<value locale="de">Termin</value>
+					<value locale="en">Appointment</value>
+				</resourcekey>
+
+				<resourcekey code="recurrencetype">
+					<resourcekey code="none">
+						<value locale="de">Keine</value>
+						<value locale="en">None</value>
+					</resourcekey>
+
+					<resourcekey code="daily">
+						<value locale="de">Täglich</value>
+						<value locale="en">Daily</value>
+					</resourcekey>
+
+					<resourcekey code="weekly">
+						<value locale="de">Wöchentlich</value>
+						<value locale="en">Weekly</value>
+					</resourcekey>
+
+					<resourcekey code="monthly">
+						<value locale="de">Monatlich</value>
+						<value locale="en">Monthly</value>
+					</resourcekey>
+
+					<resourcekey code="yearly">
+						<value locale="de">Jährlich</value>
+						<value locale="en">Yearly</value>
+					</resourcekey>
+				</resourcekey>
+
+				<resourcekey code="pattern">
+					<resourcekey code="none">
+						<value locale="de">Keine wiederholung</value>
+						<value locale="en">No recurrence</value>
+					</resourcekey>
+
+					<resourcekey code="daily.day">
+						<value locale="de">{0} Alle {1} Tag(e)</value>
+						<value locale="en">{0} Every {1} day(s)</value>
+					</resourcekey>
+
+					<resourcekey code="daily.weekday">
+						<value locale="de">{0} Jeden Arbeitstag</value>
+						<value locale="en">{0} Every weekday</value>
+					</resourcekey>
+
+					<resourcekey code="daily.weekendday">
+						<value locale="de">{0} Jeden Wochenendtag</value>
+						<value locale="en">{0} Every weekend day</value>
+					</resourcekey>
+
+					<resourcekey code="weekly">
+						<value locale="de">Jede/Alle {0}. Woche(n) am:</value>
+						<value locale="en">Recurr Every {0}. week(s) on:</value>
+					</resourcekey>
+
+					<resourcekey code="monthly">
+						<value locale="de">{0} Am {1}. Tag jedes {2}. Monats</value>
+						<value locale="en">{0} Day {1} of every {2}. month(s)</value>
+					</resourcekey>
+
+					<resourcekey code="monthly.nth">
+						<value locale="de">{0} Am {1} {2} jedes {3}. Monats</value>
+						<value locale="en">{0} The {1} {2} of every {3}. month(s)</value>
+					</resourcekey>
+
+					<resourcekey code="yearly">
+						<value locale="de">{0} Jeden {1}. {2}</value>
+						<value locale="en">{0} Every {1}. {2}</value>
+					</resourcekey>
+
+					<resourcekey code="yearly.nth">
+						<value locale="de">{0} Am {1} {2} im {3}</value>
+						<value locale="en">{0} The {1} {2} of {3}</value>
+					</resourcekey>
+
+					<resourcekey code="option.day">
+						<value locale="de">Tag</value>
+						<value locale="en">Day</value>
+					</resourcekey>
+
+					<resourcekey code="option.weekday">
+						<value locale="de">Arbeitstag</value>
+						<value locale="en">Weekday</value>
+					</resourcekey>
+
+					<resourcekey code="option.weekendday">
+						<value locale="de">Wochenendtag</value>
+						<value locale="en">Weekend day</value>
+					</resourcekey>
+
+					<resourcekey code="option.first">
+						<value locale="de">Ersten</value>
+						<value locale="en">First</value>
+					</resourcekey>
+
+					<resourcekey code="option.second">
+						<value locale="de">Zweiten</value>
+						<value locale="en">Second</value>
+					</resourcekey>
+
+					<resourcekey code="option.third">
+						<value locale="de">Dritten</value>
+						<value locale="en">Third</value>
+					</resourcekey>
+
+					<resourcekey code="option.fourth">
+						<value locale="de">Vierten</value>
+						<value locale="en">Fourth</value>
+					</resourcekey>
+
+					<resourcekey code="option.last">
+						<value locale="de">Letzten</value>
+						<value locale="en">Last</value>
+					</resourcekey>
+				</resourcekey>
+
+				<resourcekey code="dateformat">
+					<resourcekey code="detail">
+						<value locale="de">EEE, d MMM yyyy</value>
+						<value locale="en">EEE, d MMM yyyy</value>
+					</resourcekey>
+
+					<resourcekey code="day">
+						<value locale="de">d. MMM</value>
+						<value locale="en">d. MMM</value>
+					</resourcekey>
+
+					<resourcekey code="week">
+						<value locale="de">'Woche' w 'in' yyyy</value>
+						<value locale="en">'Week' w 'in' yyyy</value>
+					</resourcekey>
+
+					<resourcekey code="weekday">
+						<value locale="de">EEE, d MMM yyyy</value>
+						<value locale="en">EEE, d MMM yyyy</value>
+					</resourcekey>
+
+					<resourcekey code="weekday.short">
+						<value locale="de">EEE, d MMM</value>
+						<value locale="en">EEE, d MMM</value>
+					</resourcekey>
+
+					<resourcekey code="monthofyear">
+						<value locale="de">MMMMM yyyy</value>
+						<value locale="en">MMMMM yyyy</value>
+					</resourcekey>
+					
+					<resourcekey code="time">
+						<value locale="de">HH:mm</value>
+						<value locale="en">HH:mm</value>
+					</resourcekey>
+
+					<resourcekey code="datetime">
+						<value locale="de">yyyy.MM.dd 'um' HH:mm</value>
+						<value locale="en">yyyy.MM.dd 'at' HH:mm</value>
+					</resourcekey>
+				</resourcekey>
+			</resourcekey>
+
+			<!-- Calendar Control -->
+
+			<resourcekey code="fw.calendar">
+
+				<resourcekey code="weekdays">
+					<value locale="fr">D,L,M,M,J,V,S</value>
+					<value locale="es">D,L,M,M,J,V,S</value>
+				</resourcekey>
+
+				<resourcekey code="months">
+					<value locale="fr">janvier,février,mars,avril,mai,juin,juillet,août,septembre,octobre,novembre,décembre</value>
+					<value locale="es">enero,febrero,marzo,abril,mayo,junio,julio,agosto,septiembre,octubre,noviembre,diciembre</value>
+				</resourcekey>
+
+				<resourcekey code="ampm">
+					<value locale="fr">AM,PM</value>
+					<value locale="es">AM,PM</value>
+				</resourcekey>
+
+				<resourcekey code="button">
+					<resourcekey code="ok.label">
+						<value locale="de">Ok</value>
+						<value locale="en">Ok</value>
+						<value locale="fr">OK</value>
+						<value locale="zh">\u786e\u5b9a</value>
+						<value locale="es">Ok</value>
+					</resourcekey>
+
+					<resourcekey code="ok.tooltip">
+						<value locale="de">ok</value>
+						<value locale="en">ok</value>
+						<value locale="fr">ok</value>
+						<value locale="zh">\u786e\u5b9a</value>
+						<value locale="es">ok</value>
+					</resourcekey>
+
+					<resourcekey code="ok.width">
+						<value locale="de">65</value>
+						<value locale="en">80</value>
+						<value locale="fr">65</value>
+						<value locale="zh">80</value>
+						<value locale="es">80</value>
+						<value locale="es">80</value>
+					</resourcekey>
+
+					<resourcekey code="cancel.label">
+						<value locale="de">Abbrechen</value>
+						<value locale="en">Cancel</value>
+						<value locale="fr">Annuler</value>
+						<value locale="zh">\u53d6\u6d88</value>
+						<value locale="es">Cancelar</value>
+					</resourcekey>
+
+					<resourcekey code="cancel.tooltip">
+						<value locale="de">abbrechen</value>
+						<value locale="en">cancel</value>
+						<value locale="fr">Annuler</value>
+						<value locale="zh">\u53d6\u6d88</value>
+						<value locale="es">cancelar</value>
+					</resourcekey>
+
+					<resourcekey code="cancel.width">
+						<value locale="de">80</value>
+						<value locale="en">80</value>
+						<value locale="fr">65</value>
+						<value locale="zh">80</value>
+					</resourcekey>
+
+					<resourcekey code="today.label">
+						<value locale="de">Heute</value>
+						<value locale="en">Today</value>
+						<value locale="fr">Aujourd'hui</value>
+						<value locale="zh">\u4eca\u5929</value>
+						<value locale="es">Hoy</value>
+					</resourcekey>
+				</resourcekey>
+
+				<resourcekey code="image">
+					<resourcekey code="nextyear.tooltip">
+						<value locale="de">Nächstes Jahr</value>
+						<value locale="en">next year</value>
+						<value locale="fr">année suivante</value>
+						<value locale="zh">\u4e0b\u4e00\u5e74</value>
+						<value locale="es">año siguiente</value>
+					</resourcekey>
+
+					<resourcekey code="nextyear.alt">
+						<value locale="de">Jahr</value>
+						<value locale="en">Next</value>
+						<value locale="fr">Suivante</value>
+						<value locale="zh">\u4e0b\u4e00\u5e74</value>
+						<value locale="es">Siguiente</value>
+					</resourcekey>
+
+					<resourcekey code="prevyear.tooltip">
+						<value locale="de">Vorheriges Jahr</value>
+						<value locale="en">previous year</value>
+						<value locale="fr">année précédente</value>
+						<value locale="zh">\u4e0a\u4e00\u5e74</value>
+						<value locale="es">año anterior</value>
+					</resourcekey>
+
+					<resourcekey code="prevyear.alt">
+						<value locale="de">Vorangehendes Jahr</value>
+						<value locale="en">Previous</value>
+						<value locale="fr">Précédente</value>
+						<value locale="zh">\u4e0a\u4e00\u5e74</value>
+						<value locale="es">Anterior</value>
+					</resourcekey>
+
+					<resourcekey code="nextmonth.tooltip">
+						<value locale="de">Nächster Monat</value>
+						<value locale="en">next month</value>
+						<value locale="fr">mois suivant</value>
+						<value locale="zh">\u4e0b\u4e00\u6708</value>
+						<value locale="es">mes siguiente</value>
+					</resourcekey>
+
+					<resourcekey code="nextmonth.alt">
+						<value locale="de">Next</value>
+						<value locale="en">Next</value>
+						<value locale="fr">Suivant</value>
+						<value locale="zh">\u4e0b\u4e00\u6708</value>
+						<value locale="es">Siguiente</value>
+					</resourcekey>
+
+					<resourcekey code="prevmonth.tooltip">
+						<value locale="de">Vorangehender Monat</value>
+						<value locale="en">previous month</value>
+						<value locale="fr">mois précédent</value>
+						<value locale="zh">\u4e0a\u4e00\u6708</value>
+						<value locale="es">mes anterior</value>
+					</resourcekey>
+
+					<resourcekey code="prevmonth.alt">
+						<value locale="de">Previous</value>
+						<value locale="en">Previous</value>
+						<value locale="fr">Précédent</value>
+						<value locale="zh">\u4e0a\u4e00\u6708</value>
+						<value locale="es">Anterior</value>
+					</resourcekey>
+				</resourcekey>
+
+				<resourcekey code="window">
+					<resourcekey code="title">
+						<value locale="de">Kalender</value>
+						<value locale="en">DateTimePicker</value>
+						<value locale="fr">Date/Time Picker</value>
+						<value locale="zh">\u9009\u62e9\u65e5\u671f\u65f6\u95f4</value>
+						<value locale="es">Seleccionador Fecha/Hora</value>
+					</resourcekey>
+
+					<resourcekey code="width">
+						<value locale="de">420</value>
+						<value locale="en">380</value>
+						<value locale="fr">350</value>
+						<value locale="zh">380</value>
+						<value locale="es">380</value>
+					</resourcekey>
+
+					<resourcekey code="height">
+						<value locale="de">250</value>
+						<value locale="en">240</value>
+						<value locale="fr">250</value>
+						<value locale="zh">240</value>
+						<value locale="es">240</value>
+					</resourcekey>
+				</resourcekey>
+			</resourcekey>
+
+			<!-- Tooltips -->
+
+			<resourcekey code="fw.tooltip">
+
+				<resourcekey code="export.list">
+					<value locale="de">Liste exportieren</value>
+					<value locale="en">export list</value>
+					<value locale="fr">export</value>
+					<value locale="zh">export</value>
+					<value locale="es">export</value>
+				</resourcekey>
+
+				<resourcekey code="print.list">
+					<value locale="de">Liste Drucken</value>
+					<value locale="en">print list</value>
+					<value locale="fr">print</value>
+					<value locale="zh">print</value>
+					<value locale="es">print</value>
+				</resourcekey>
+
+				<resourcekey code="page">
+					<value locale="de">Seite</value>
+					<value locale="en">Page</value>
+					<value locale="fr">Page</value>
+					<value locale="zh">\u9875\u6570</value>
+					<value locale="es">Página</value>
+				</resourcekey>
+
+				<resourcekey code="firstpage">
+					<value locale="de">Erste Seite</value>
+					<value locale="en">Goto first page</value>
+					<value locale="fr">Aller à la première page</value>
+					<value locale="zh">\u7b2c\u4e00\u9875</value>
+					<value locale="es">Ir a primer página</value>
+				</resourcekey>
+
+				<resourcekey code="prevpage">
+					<value locale="de">Vorherige Seite</value>
+					<value locale="en">Goto previous page</value>
+					<value locale="fr">Aller à la page précédente</value>
+					<value locale="zh">\u4e0a\u4e00\u9875</value>
+					<value locale="es">Ir a página anterior</value>
+				</resourcekey>
+
+				<resourcekey code="nextpage">
+					<value locale="de">Nächste Seite</value>
+					<value locale="en">Goto next page</value>
+					<value locale="fr">Aller à la page suivante</value>
+					<value locale="zh">\u4e0b\u4e00\u9875</value>
+					<value locale="es">Ir a página siguiente</value>
+				</resourcekey>
+
+				<resourcekey code="lastpage">
+					<value locale="de">Letzte Seite</value>
+					<value locale="en">Goto last page</value>
+					<value locale="fr">Aller à la dernière page</value>
+					<value locale="zh">\u6700\u540e\u4e00\u9875</value>
+					<value locale="es">Ir a última página</value>
+				</resourcekey>
+
+				<resourcekey code="refresh.list">
+					<value locale="de">Liste aktualisieren</value>
+					<value locale="en">Refresh list</value>
+					<value locale="fr">Actualiser la liste</value>
+					<value locale="zh">\u5237\u65b0</value>
+					<value locale="es">Actualizar lista</value>
+				</resourcekey>
+
+				<resourcekey code="refresh.scheduler">
+					<value locale="de">Terminkalender aktualisieren</value>
+					<value locale="en">Refresh scheduler</value>
+				</resourcekey>
+
+				<resourcekey code="create.appointment">
+					<value locale="de">Neuen Termin anlegen</value>
+					<value locale="en">create new appointment</value>
+				</resourcekey>
+
+				<resourcekey code="create.item">
+					<value locale="de">Neue Zeile anlegen</value>
+					<value locale="en">create new item</value>
+					<value locale="fr">Créer un élément</value>
+					<value locale="zh">\u589e\u52a0\u6761\u76ee</value>
+					<value locale="es">Crear un elemento</value>
+				</resourcekey>
+
+				<resourcekey code="checkall">
+					<value locale="de">Alle Einträge markieren</value>
+					<value locale="en">check all items</value>
+					<value locale="fr"></value>
+					<value locale="es">marcar todos</value>
+				</resourcekey>
+
+				<resourcekey code="uncheckall">
+					<value locale="de">Alle Markierungen aufheben</value>
+					<value locale="en">uncheck all items</value>
+					<value locale="fr"></value>
+					<value locale="es">desmarcar todos</value>
+				</resourcekey>
+
+				<resourcekey code="minimize">
+					<value locale="de">Verkleinern</value>
+					<value locale="en">minimize</value>
+				</resourcekey>
+
+				<resourcekey code="maximize">
+					<value locale="de">Vergrössern</value>
+					<value locale="en">maximize</value>
+				</resourcekey>
+
+				<resourcekey code="restore">
+					<value locale="de">Wieder herstellen</value>
+					<value locale="en">restore</value>
+				</resourcekey>
+
+				<resourcekey code="close">
+					<value locale="de">Schliessen</value>
+					<value locale="en">close</value>
+				</resourcekey>
+
+				<resourcekey code="scheduler.prevdate">
+					<value locale="de">Vorheriges Datum</value>
+					<value locale="en">Goto previous date</value>
+				</resourcekey>
+
+				<resourcekey code="scheduler.nextdate">
+					<value locale="de">Nächstes Datum</value>
+					<value locale="en">Goto next date</value>
+				</resourcekey>
+
+				<resourcekey code="scheduler.dayview">
+					<value locale="de">Umschalten auf Tages Ansicht</value>
+					<value locale="en">switch to day view</value>
+				</resourcekey>
+
+				<resourcekey code="scheduler.workweekview">
+					<value locale="de">Umschalten auf Wochentags Ansicht</value>
+					<value locale="en">switch to working week view</value>
+				</resourcekey>
+
+				<resourcekey code="scheduler.weekview">
+					<value locale="de">Umschalten auf Wochen Ansicht</value>
+					<value locale="en">switch to week view</value>
+				</resourcekey>
+
+				<resourcekey code="scheduler.monthview">
+					<value locale="de">Umschalten auf Monats Ansicht</value>
+					<value locale="en">switch to month view</value>
+				</resourcekey>
+
+				<resourcekey code="scheduler.yearview">
+					<value locale="de">Umschalten auf Jahres Ansicht</value>
+					<value locale="en">switch to year view</value>
+				</resourcekey>
+
+				<resourcekey code="scheduler.more">
+					<value locale="de">Alle {0} Termine dieses Tages anzeigen</value>
+					<value locale="en">show all {0} appointments for this day</value>
+				</resourcekey>
+
+				<resourcekey code="scheduler.range">
+					<value locale="de">{2} von {0} Termin(e) ausserhalb der Anzeige</value>
+					<value locale="en">{2} of {0} appointment(s) out of range</value>
+				</resourcekey>
+
+				<resourcekey code="scheduler.addappointment">
+					<value locale="de">Neuen Termin anlegen</value>
+					<value locale="en">add new appointment</value>
+				</resourcekey>
+			</resourcekey>
+
+			<!-- Text Popup Control -->
+
+			<resourcekey code="fw.textpopup" public="false">
+				<resourcekey code="button">
+					<resourcekey code="cancel">
+						<value locale="de">Abbrechen</value>
+						<value locale="en">Cancel</value>
+						<value locale="es">Cancelar</value>
+					</resourcekey>
+
+					<resourcekey code="cancel.message">
+						<value locale="de">Änderungen verwerfen?</value>
+						<value locale="en">Discard changes?</value>
+						<value locale="es">Deshacer cambios?</value>
+					</resourcekey>
+
+					<resourcekey code="cancel.tooltip">
+						<value locale="de">Abbrechen</value>
+						<value locale="en">Cancel</value>
+						<value locale="es">Cancelar</value>
+					</resourcekey>
+
+					<resourcekey code="cancel.alt">
+						<value locale="de">Abbrechen</value>
+						<value locale="en">Cancel</value>
+						<value locale="es">Cancelar</value>
+					</resourcekey>
+
+					<resourcekey code="apply">
+						<value locale="de">Übernehmen</value>
+						<value locale="en">Apply</value>
+						<value locale="es">Aplicar</value>
+					</resourcekey>
+
+					<resourcekey code="apply.tooltip">
+						<value locale="de">Übernehmen</value>
+						<value locale="en">Apply</value>
+						<value locale="es">Aplicar</value>
+					</resourcekey>
+
+					<resourcekey code="apply.alt">
+						<value locale="de">Übernehmen</value>
+						<value locale="en">Apply</value>
+						<value locale="es">Aplicar</value>
+					</resourcekey>
+
+					<resourcekey code="icon.tooltip" public="true">
+						<value locale="de">Text in einem seperaten Fenseter bearbeiten</value>
+						<value locale="en">Edit text in seperate window</value>
+						<value locale="es">Editar texto en otra ventana</value>
+					</resourcekey>
+
+					<resourcekey code="icon.alt" public="true">
+						<value locale="de">Bearbeiten</value>
+						<value locale="en">Edit</value>
+						<value locale="es">Editar</value>
+					</resourcekey>
+				</resourcekey>
+
+				<resourcekey code="window.title">
+					<value locale="de">Texteingabe</value>
+					<value locale="en">Textarea</value>
+					<value locale="es">Area de Texto</value>
+				</resourcekey>
+			</resourcekey>
+
+			<!-- Online Help System -->
+
+			<resourcekey code="fw.help" public="true">
+				<resourcekey code="tooltip">
+					<value locale="de">Kontext Hilfe</value>
+					<value locale="en">context help</value>
+				</resourcekey>
+
+				<resourcekey code="target">
+					<value locale="de">_blank</value>
+					<value locale="en">_blank</value>
+				</resourcekey>
+
+				<resourcekey code="onclick">
+					<!-- do not use an onclick handler per default -->
+					<value locale="de"> </value>
+					<value locale="en"> </value>
+				</resourcekey>
+			</resourcekey>
+		</bundle>
+	</resources>
+
+</resource-factory>

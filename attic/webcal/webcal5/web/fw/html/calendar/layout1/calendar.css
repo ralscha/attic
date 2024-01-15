@@ -1,0 +1,158 @@
+		.wintitle {
+			font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+			font-size: 11pt;
+			font-weight: bold;
+			text-align: center;
+			height: 28px;
+		}
+
+		.cpicker {
+			font-family: Arial;
+			font-size: 12px;
+		}
+		.cpicker A {
+			text-decoration : none;
+			color: black;
+		}
+		.cpicker .caltable {
+			font-family: Arial;
+			font-size: 12px;
+			border: 1px solid black;
+			background-color: #FFFFFF;
+		}
+		.cpicker .switch TD {
+			font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+			font-size: 12px;
+			padding: 2px;
+		}
+		.cpicker .switch  select{
+			font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+			font-size: 12px;
+		}
+		.cpicker .cptitle {
+			font-family: Arial;
+			font-size: 12px;
+			text-align: center;
+			border-bottom: 1px solid black;
+		}
+		.cpicker .dowheader {
+			/* background-image: url(btnBkg1_middle.gif); */
+			width: 100%;
+			background-color: #BDBDBD;
+		}
+		.cpicker .dow {
+			font-family: Arial;
+			font-size: 10pt;
+			font-weight: bold;
+			text-align : center;
+			width: 22px;
+			height: 22px;
+		}
+		.cpicker .dates {
+			font-family: Arial;
+			font-size: 13px;
+			text-align : center;
+			background-color: #C1D6DB;
+			color: black;
+			width: 22px;
+			height: 22px;
+			border: 2px solid #C1D6DB;
+			text-decoration : none;
+		}
+		.cpicker .othermonth {
+			font-family: Arial;
+			font-size: 14px;
+			text-align : center;
+			background-color: #DCE8EB;
+			color: #8D9DA1;
+			width: 22px;
+			height: 22px;
+			border: 2px solid #DCE8EB;
+			text-decoration : none;
+		}
+		.cpicker .weekend {
+			font-family: Arial;
+			font-size: 14px;
+			text-align : center;
+			background-color: #DADFE0;
+			color: black;
+			width: 22px;
+			height: 22px;
+			border: 2px solid #DADFE0;
+			text-decoration : none;
+		}
+		.cpicker .dselected {
+			font-family: Arial;
+			font-size: 14px;
+			text-align : center;
+			background-color: #FFFFFF;
+			color: black;
+			width: 22px;
+			height: 22px;
+			border: 2px solid red;
+		}
+		.cpicker .current {
+			font-family: Arial;
+			font-size: 14px;
+			text-align : center;
+			background-color: red;
+			background-color: #FAE4C2;
+			color: black;
+			width: 22px;
+			height: 22px;
+			border: 2px solid #FAE4C2;
+			text-decoration : none;
+		}
+		.cpicker .cptoday {
+			font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+			font-size: 12px;
+			text-align : center;
+			height: 20px;
+		}
+		.cpicker .cptoday A:hover {
+			background-color: #FAE4C2;
+		}
+		.cpicker .cptoday A {
+			text-decoration : none;
+		}
+		.tpicker {
+			font-family: Arial;
+			font-size: 14px;
+			border: 1px solid black;
+			background-color: #FFFFFF;
+			height: 26px;
+			width: 100%;
+		}
+		.tpicker INPUT {
+			font-family: Arial;
+			font-size: 12px;
+			border: 1px solid white;
+			text-align : right;
+			width : 20px;
+		}
+		.tpicker .tselected {
+			font-family: Arial;
+			font-size: 12px;
+			text-align : center;
+			border: 2px solid red;
+			text-align : right;
+			width : 20px;
+		}
+		.tpicker .ampm {
+			font-family: Arial;
+			font-size: 12px;
+			padding-left: 2px;
+			padding-right: 2px;
+		}
+		.tbtnsection {
+			padding-top: 22px;
+		}
+		.tbtn {
+			font-family: Arial;
+			font-weight: bold;
+			font-size: 12px;
+			color: black;
+			text-align : center;
+			cursor: pointer;
+			cursor: hand;
+		}

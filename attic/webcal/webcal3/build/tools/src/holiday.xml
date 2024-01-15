@@ -1,0 +1,57 @@
+
+<sourcegen>
+  <javaOutputPath>c:/temp/test/src</javaOutputPath>
+  <jspOutputPath>c:/temp/test/jsp</jspOutputPath> 
+  <dropDownMenu>true</dropDownMenu>
+  <classDescriptions>
+      <classDescription>    
+        <packageName>ch.ess.tt</packageName>
+        <name>Holiday</name>
+        
+        
+        
+        <!-- key NICHT angeben, z.B. projectId -->          
+        <properties>
+          <property>
+            <name>monthNo</name>
+            <modelType>Integer</modelType><!-- mögliche Werte String, Date, BigDecimal, Integer, Boolean -->
+            <validator>required</validator>
+            <finder>true</finder>  <!-- suchen nach diesem Property -->
+            <list>true</list> <!-- wenn true, wird in der Liste angezeigt -->      
+            <sort>ASCENDING</sort> <!-- Sortieren der Liste. mögliche Werte ASCENDING, DESCENDING -->    
+          </property>
+          <property>
+            <name>dayOfMonth</name>
+            <modelType>Integer</modelType><!-- mögliche Werte String, Date, BigDecimal, Integer, Boolean -->
+            <list>true</list> <!-- wenn true, wird in der Liste angezeigt -->      
+          </property>
+          <property>
+            <name>dayOfWeek</name>
+            <modelType>Integer</modelType><!-- mögliche Werte String, Date, BigDecimal, Integer, Boolean -->
+            <list>true</list> <!-- wenn true, wird in der Liste angezeigt -->      
+            <option>true</option> <!-- wenn true, option tag in jsp -->
+          </property>
+         <property>
+            <name>after</name>
+            <modelType>Boolean</modelType>            
+          </property>                              
+          <property>
+            <name>fromYear</name>
+            <modelType>Integer</modelType><!-- mögliche Werte String, Date, BigDecimal, Integer, Boolean -->
+            <list>true</list> <!-- wenn true, wird in der Liste angezeigt -->      
+          </property>                 
+          <property>
+            <name>toYear</name>
+            <modelType>Integer</modelType><!-- mögliche Werte String, Date, BigDecimal, Integer, Boolean -->
+            <list>true</list> <!-- wenn true, wird in der Liste angezeigt -->      
+          </property>                 
+         <property>
+            <name>active</name>
+            <modelType>Boolean</modelType>            
+          </property>                       
+
+         
+        </properties>
+      </classDescription>
+  </classDescriptions>  
+</sourcegen>

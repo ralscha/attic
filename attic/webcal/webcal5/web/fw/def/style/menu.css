@@ -1,0 +1,346 @@
+/* ==========================================
+** THIS FILE IS GENERATED WITH
+** THE CC-RESOURCEFACTORY TOOL.
+**
+** USER...........: sr
+** PAINTER........: def
+** BUILD-FACTORY..: v1.6.029
+** BUILD-DATE.....: Fri Nov 30 15:29:24 CET 2012
+** BUILD-DIRECTORY: D:\ws\work\webcal5
+** BUILD-FILE.....: D:\ws\work\webcal5\build\resources\resources.xml
+**
+** DO NOT MODIFY!
+** ==========================================
+*/
+
+/* ==========================================
+** Header
+**
+** Acronym's
+** ------------------------------------------
+** ah  : Applicationheader
+** ahl : Applicationheader Label
+** ==========================================
+*/
+
+.ah {
+	font-family : Arial, Helvetica, Sans-Serif;
+	font-size : 8pt;
+	background-color: #B4CED4;
+}
+
+.ahl {
+	font-weight: bold;
+	padding-left: 10pt;
+	width: 55px;
+}
+
+/* ==========================================
+** StyleSheet for the horizontal Mainmenu
+**
+** Acronym's
+** ------------------------------------------
+** mm   : Menu Type Main
+** mm1  : Menu 1te level
+** mm1s : Menu 1te level - selected
+** mm1d : Menu 1te level - disabled
+** ==========================================
+*/
+
+.mm .mm1 {
+	padding-right: 18px;
+}
+
+.mm .mm1s {
+	padding-right: 18px;
+}
+
+.mm .mm1d {
+	padding-right: 18px;
+}
+
+/* text item */
+.mm .mm1 A {
+	font-family : Arial, Helvetica, Sans-Serif;
+	font-size: 9pt;
+	font-weight: bold;
+	text-decoration: none;
+	color: white;
+}
+
+/* text item selected */
+.mm .mm1s A {
+	font-family : Arial, Helvetica, Sans-Serif;
+	font-size: 9pt;
+	font-weight: bold;
+	text-decoration: none;
+	color: #FFA510;
+}
+
+/* text item hover */
+.mm .mm1 A:hover, .mm .mm1s A:hover {
+	color: yellow;
+}
+
+
+/* ==========================================
+** StyleSheet for the horizontal Toolsmenu
+**s
+** Acronym's
+** ------------------------------------------
+** mt   : Menu Type Tools Menu
+**
+** mt1  : Menu 1te level
+** mt1s : Menu 1te level - selected
+** mt1d : Menu 1te level - disabled
+** ==========================================
+*/
+
+.mt .mt1 {
+	padding-left: 5px;
+}
+
+.mt .mt1s {
+	padding-left: 5px;
+}
+
+.mt .mt1d {
+	padding-left: 5px;
+}
+
+/* text item */
+.mt .mt1 A {
+	font-family : Arial, Helvetica, Sans-Serif;
+	font-size: 9pt;
+	font-weight: bold;
+	text-decoration: none;
+	color: white;
+}
+
+/* text item selected */
+.mt .mt1s A {
+	font-family : Arial, Helvetica, Sans-Serif;
+	font-size: 9pt;
+	font-weight: bold;
+	text-decoration: none;
+	color: #FFA510;
+}
+
+/* text item hover */
+.mt .mt1 A:hover, .mt .mt1s A:hover {
+	color: yellow;
+}
+
+/* ==========================================
+** StyleSheet for the vertical Submenu
+**
+** Acronym's
+** ------------------------------------------
+** msb  : Menu Type Sidebar
+**
+** m1   : Menu 1te level
+** m1s  : Menu 1te level - selected
+** m1d  : Menu 1te level - disabled
+** m2   : menu 2te level
+** m2s  : menu 2te level - selected
+** m2d  : menu 2te level - disabled
+** m3   : menu 3te level
+** m3s  : menu 3te level - selected
+** m3d  : menu 3te level - disabled
+** ==========================================
+*/
+
+.msb {
+
+}
+
+.msb .m1 {
+	background-color: #87B1BA;
+	padding-left: 5px;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	border-bottom: 1px solid #FFFFFF;
+}
+
+.msb .m1d {
+	font-family : Arial, Helvetica, Sans-Serif;
+	font-size: 9pt;
+	font-weight: bold;
+	border-bottom: 1px solid #FFFFFF;
+	background-color: #87B1BA;
+	color: #C1D6DB;
+	padding-left: 5px;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	cursor: pointer;
+	cursor: hand;
+}
+
+.msb .m1s {
+	background-color: #87B1BA;
+	padding-left: 5px;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	border-bottom: none;
+}
+
+.msb .m1s_l {
+	background-color: #87B1BA;
+	border-bottom: 1px solid #FFFFFF;
+}
+
+.msb .m1s_r {
+	background-color: #FFFFFF;
+	border-bottom: 0px;
+	padding-left: 1px;
+	padding-top: 1px;
+}
+
+.msb .m1 A {
+	font-family : Arial, Helvetica, Sans-Serif;
+	font-size: 9pt;
+	font-weight: bold;
+	text-decoration : none;
+	color: #005A6B;
+}
+
+.msb .m1s A {
+	font-family : Arial, Helvetica, Sans-Serif;
+	font-size: 9pt;
+	font-weight: bold;
+	text-decoration : none;
+	color: #005A6B;
+}
+
+/*
+** Level 2
+*/
+
+.msb .m2 {
+	border-bottom: 1px solid #FFFFFF;
+	background-color: #C1D6DB;
+	color: #005A6B;
+	padding-left: 5px;
+}
+
+.msb .m2d {
+	font-family : Arial, Helvetica, Sans-Serif;
+	font-size : 8pt;
+	border-bottom: 1px solid #FFFFFF;
+	background-color: #C1D6DB;
+	padding-left: 5px;
+	color: #808080;
+}
+
+.msb .m2s {
+	border-bottom: 1px solid #FFFFFF;
+	background-color: #FEA217;
+	padding-left: 5px;
+	color: #FFFFFF;
+}
+
+.msb .m2 A {
+	font-family : Arial, Helvetica, Sans-Serif;
+	font-size : 8pt;
+	font-weight: bold;
+	text-decoration : none;
+	color: #005A6B;
+}
+
+.msb .m2s A {
+	font-family : Arial, Helvetica, Sans-Serif;
+	font-size : 8pt;
+	font-weight: bold;
+	text-decoration : none;
+	color: #FFFFFF;
+}
+
+/*
+** Level 3
+*/
+
+.msb .m3 {
+	border-bottom: 1px solid #FFFFFF;
+	background-color: #FAE4C2;
+	padding-left: 22px;
+}
+
+.msb .m3d {
+	font-family : Arial, Helvetica, Sans-Serif;
+	font-size : 8pt;
+	border-bottom: 1px solid #FFFFFF;
+	background-color: #FAE4C2;
+	color: #808080;
+	padding-left: 22px;
+}
+
+.msb .m3s {
+	border-bottom: 1px solid #FFFFFF;
+	background-color: #FAE4C2;
+	padding-left: 8px;
+	padding-right: 0px;
+}
+	
+.msb .m3 A {
+	font-family : Arial, Helvetica, Sans-Serif;
+	font-size : 8pt;
+	text-decoration : none;
+	color: #000000;
+}
+
+.msb .m3s A {
+	font-family : Arial, Helvetica, Sans-Serif;
+	font-size : 8pt;
+	font-weight: bold;
+	text-decoration : none;
+	color: #000000;
+}
+
+/* ==========================================
+** StyleSheet for the crumb control
+**
+** Acronym's
+** ------------------------------------------
+** crc      : Crumb Control
+** sel      : selected
+** unsel    : unselected
+** disabled : disabled
+** feact    : act as a form element
+** ==========================================
+*/
+
+.crc {
+	font-family : Arial, Helvetica, Sans-Serif;
+	font-size: 9pt;
+	font-weight: normal;
+	color: black;
+}
+
+.crc .sel A {
+	font-family : Arial, Helvetica, Sans-Serif;
+	font-size: 9pt;
+	font-weight: bold;
+	text-decoration : none;
+	color: black;
+}
+
+.crc .unsel A {
+	font-family : Arial, Helvetica, Sans-Serif;
+	font-size: 9pt;
+	font-weight: normal;
+	text-decoration : none;
+	color: black;
+}
+
+.crc .disabled {
+	font-family : Arial, Helvetica, Sans-Serif;
+	font-size: 9pt;
+	font-weight: normal;
+	text-decoration : none;
+	color: #AAAAAA;
+}
+
+.crc .feact {
+	cursor: pointer;
+	cursor: hand;		/* compatibility with IE < 6.0 */
+}

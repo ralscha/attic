@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:TitleWindow xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute" width="592" height="568" 
+  title="Spielaufstellung" showCloseButton="true" creationComplete="init()"> 
+  
+  <mx:Metadata>
+    [Event(name="dataInserted")]
+  </mx:Metadata>
+  
+  <mx:Script>
+    <![CDATA[
+      import mx.collections.SortField;
+      import mx.collections.Sort;
+      import mx.collections.ArrayCollection;
+      import ch.ess.hgtracker.db.Club;
+      import ch.ess.hgtracker.db.Spiel;
+      import mx.events.ValidationResultEvent;
+      import mx.binding.utils.BindingUtils;
+      import mx.managers.PopUpManager;
+      import mx.controls.Alert;
+      import mx.rpc.events.ResultEvent;
+      import ch.ess.hgtracker.db.Art;
+      
+      [Bindable]
+      public var spiel:Spiel;
+      
+      [Bindable]
+      public var club:Club;
+      
+      [Bindable]
+      [ArrayElementType("ch.ess.hgtracker.model.Aufstellung")]
+      private var aufstellungArrayCollection:ArrayCollection;
+                    
+      private function init():void {
+        PopUpManager.centerPopUp(this);
+        this.addEventListener(Event.CLOSE, onCloseEvent);   
+        spielService.getAufgestellte(club, spiel);      
+      }
+
+      private function save():void {
+        spielService.saveAufstellung(spiel, aufstellungArrayCollection);
+        close();
+      }
+
+      
+      private function onCloseEvent(e:Event):void {
+        close();
+      }
+
+      private function close():void {
+        PopUpManager.removePopUp(this);
+      }   
+      
+      private function onGetAufgestellte(e:ResultEvent):void {
+        aufstellungArrayCollection = ArrayCollection(e.result);
+      }
+      
+      private function onSaveAufstellung(e:ResultEvent):void {
+        var wasNewInsert:Boolean = e.result;
+
+        if (wasNewInsert) {
+          var dataEvent:Event = new Event("dataInserted");
+          dispatchEvent(dataEvent);
+        }
+        
+        close();   
+      }
+      
+      
+      private function reihenfolgeLabel(item:Object, column:DataGridColumn):String {
+        if (item.reihenfolge == 999999) {
+          return "";
+        }
+        
+        return item.reihenfolge;
+      }  
+            
+                  
+    ]]>
+  </mx:Script>
+  
+  <mx:RemoteObject id="spielService" showBusyCursor="true" destination="spielService">
+    <mx:method name="getAufgestellte" result="onGetAufgestellte(event)" />
+    <mx:method name="saveAufstellung" result="onSaveAufstellung(event)" />
+  </mx:RemoteObject>
+  
+  <mx:Label text="Datum: {dateFormatter.format(spiel.datum)}   Gegner: {spiel.gegner}" top="10" left="10" />
+  
+  <mx:DataGrid id="aufstellungDataGrid" top="30" left="10" right="10" bottom="40" 
+    dataProvider="{aufstellungArrayCollection}" editable="true">
+    <mx:columns>
+      <mx:DataGridColumn headerText="Reihenfolge" dataField="reihenfolge" width="90" 
+        labelFunction="reihenfolgeLabel" />
+        
+      <mx:DataGridColumn headerText="Nachname" dataField="nachname" editable="false"/>
+      <mx:DataGridColumn headerText="Vorname" dataField="vorname" editable="false"/>
+      <mx:DataGridColumn headerText="Jahrgang" dataField="jahrgang" width="70" editable="false"/>
+      <mx:DataGridColumn headerText="Überzähliger Spieler" dataField="ueberzaehlig" 
+         editorDataField="selected"         
+         rendererIsEditor="true" itemRenderer="mx.controls.CheckBox" textAlign="center"/>
+    </mx:columns>
+  </mx:DataGrid>
+
+  <mx:Button label="Speichern" id="saveButton" bottom="10" left="10" click="save()" icon="@Embed(source='assets/disk_green.png')"/>
+  <mx:Button label="Abbrechen" id="cancelButton" right="10" bottom="10" click="close()" icon="@Embed(source='assets/delete.png')"/>
+  
+  <mx:DateFormatter id="dateFormatter" formatString="DD.MM.YYYY HH:NN" />
+    
+</mx:TitleWindow>

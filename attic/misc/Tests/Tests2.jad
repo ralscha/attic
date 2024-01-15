@@ -1,0 +1,155 @@
+// Decompiled by Jad v1.5.7. Copyright 1997-99 Pavel Kouznetsov.
+// Jad home page: http://www.geocities.com/SiliconValley/Bridge/8617/jad.html
+// Decompiler options: packimports(3) 
+// Source File Name:   Tests2.java
+
+import COM.stevesoft.pat.RegRes;
+import COM.stevesoft.pat.Regex;
+import java.io.PrintStream;
+import java.text.*;
+import java.util.*;
+
+public class Tests2
+{
+
+    public Tests2()
+    {
+    }
+
+    static Class class$(String s)
+    {
+        try
+        {
+            return Class.forName(s);
+        }
+        catch(ClassNotFoundException classnotfoundexception)
+        {
+            throw new NoClassDefFoundError(classnotfoundexception.getMessage());
+        }
+    }
+
+    public static void main(String args[])
+    {
+        (new Tests2()).run();
+        try
+        {
+            Class.forName("java.util.Date");
+            System.out.println(class$java$util$Date == null ? ((Object) (class$java$util$Date = class$("java.util.Date"))) : ((Object) (class$java$util$Date)));
+        }
+        catch(Exception _ex) { }
+    }
+
+    void run()
+    {
+        int j = 0;
+        int k = 0;
+        do
+        {
+            k++;
+            long l = System.currentTimeMillis();
+            long l1;
+            do
+                l1 = System.currentTimeMillis();
+            while(l1 == l);
+            int i = (int)(l1 - l);
+            j += i;
+            System.out.print("it=" + k + ", ");
+            System.out.print("actres=" + i + " msec., ");
+            System.out.print("avgres=" + j / k + " msec.");
+            System.out.println("");
+            try
+            {
+                Thread.sleep(500L);
+            }
+            catch(InterruptedException _ex) { }
+        }
+        while(true);
+    }
+
+    public void run1()
+    {
+        SimpleDateFormat simpledateformat = new SimpleDateFormat("M/d/yy");
+        GregorianCalendar gregoriancalendar = new GregorianCalendar();
+        System.out.println(simpledateformat.format(gregoriancalendar.getTime()));
+    }
+
+    public void run2()
+    {
+        System.out.println(Math.floor(2.8999999999999999D));
+        System.out.println(Math.floor(-2.8999999999999999D));
+        System.out.println(Math.ceil(2.8999999999999999D));
+        System.out.println(Math.ceil(-2.8999999999999999D));
+    }
+
+    public void run3()
+    {
+    }
+
+    public void run4()
+    {
+        DecimalFormat decimalformat = new DecimalFormat("000");
+        System.out.println(decimalformat.format(1L));
+        System.out.println(decimalformat.format(99L));
+        System.out.println(decimalformat.format(100L));
+    }
+
+    public void run6()
+    {
+        SimpleDateFormat simpledateformat = new SimpleDateFormat("dd/MMM/yyyy:hh:mm:ss", Locale.US);
+        ParsePosition parseposition = new ParsePosition(0);
+        java.util.Date date = simpledateformat.parse("16/Jan/1999:09:02:04", parseposition);
+        System.out.println(date);
+        parseposition = new ParsePosition(0);
+        date = simpledateformat.parse("16/Feb/1999:09:02:04", parseposition);
+        System.out.println(date);
+        parseposition = new ParsePosition(0);
+        date = simpledateformat.parse("16/Mar/1999:09:02:04", parseposition);
+        System.out.println(date);
+        parseposition = new ParsePosition(0);
+        date = simpledateformat.parse("16/Apr/1999:09:02:04", parseposition);
+        System.out.println(date);
+        parseposition = new ParsePosition(0);
+        date = simpledateformat.parse("16/May/1999:09:02:04", parseposition);
+        System.out.println(date);
+        parseposition = new ParsePosition(0);
+        date = simpledateformat.parse("16/Jun/1999:09:02:04", parseposition);
+        System.out.println(date);
+        parseposition = new ParsePosition(0);
+        date = simpledateformat.parse("16/Jul/1999:09:02:04", parseposition);
+        System.out.println(date);
+        parseposition = new ParsePosition(0);
+        date = simpledateformat.parse("16/Aug/1999:09:02:04", parseposition);
+        System.out.println(date);
+        parseposition = new ParsePosition(0);
+        date = simpledateformat.parse("16/Sep/1999:09:02:04", parseposition);
+        System.out.println(date);
+        parseposition = new ParsePosition(0);
+        date = simpledateformat.parse("16/Oct/1999:09:02:04", parseposition);
+        System.out.println(date);
+        parseposition = new ParsePosition(0);
+        date = simpledateformat.parse("16/Nov/1999:09:02:04", parseposition);
+        System.out.println(date);
+        parseposition = new ParsePosition(0);
+        date = simpledateformat.parse("16/Dec/1999:09:02:04", parseposition);
+        System.out.println(date);
+    }
+
+    public void run7()
+    {
+        Regex regex = new Regex("\\[([^\\]]+)");
+        String s = "pop-ls-07-3-dialup-79.freesurf.ch - - [10/Jul/1999:20:04:53 +0200] \"GET /rschaer/Lotto/frtop.html HTTP/1.1\" 200 456 \"http://www.datacomm.ch/rschaer/Lotto/\" \"Mozilla/4.0 (compatible; MSIE 4.01; Windows 95; sunrise free surf)\"";
+        regex.search(s);
+        if(regex.didMatch())
+        {
+            for(int i = 1; i <= regex.numSubs(); i++)
+                System.out.println(i + "-->" + regex.stringMatched(i));
+
+        }
+        else
+        {
+            System.out.println("NO");
+        }
+    }
+
+    static Class class$java$util$Date; /* synthetic field */
+}

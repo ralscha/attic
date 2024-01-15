@@ -1,0 +1,4 @@
+db.driver = oracle.lite.poljdbc.POLJDBCDriver
+db.url = jdbc:Polite:MVS
+db.user = SYSTEM
+db.password =

@@ -1,0 +1,50 @@
+<!--\#include file="include/head_h45.shtml"-->
+<!--\#include file="include/body.shtml"-->
+<br>
+<p class="subTitle">H&auml;ufigkeit</p>
+<p class="nr">ab Ziehung Nr. 1/1986 (Einf&uuml;hrung von 43, 44 und 45)</p>
+<br>
+<p class="text">
+<B>sortiert nach Ausspielungen</B> / <A HREF="Hz45.shtml">Zahlen</A>
+</p>
+<br>
+<table border="1" class="tableContents">
+<tr>
+<th class="tableHeader">Zahl</th>
+<th class="tableHeader">Ausspielungen</th>
+<th></th>
+<th class="tableHeader">Zahl</th>
+<th class="tableHeader">Ausspielungen</th>
+</tr>
+<tr><th class="tableRowHeader">$z1</th><td align="center" class="text">$h1</td><td></td><th class="tableRowHeader">$z24</th><td align="center" class="text">$h24</td></tr>
+<tr><th class="tableRowHeader">$z2</th><td align="center" class="text">$h2</td><td></td><th class="tableRowHeader">$z25</th><td align="center" class="text">$h25</td></tr>
+<tr><th class="tableRowHeader">$z3</th><td align="center" class="text">$h3</td><td></td><th class="tableRowHeader">$z26</th><td align="center" class="text">$h26</td></tr>
+<tr><th class="tableRowHeader">$z4</th><td align="center" class="text">$h4</td><td></td><th class="tableRowHeader">$z27</th><td align="center" class="text">$h27</td></tr>
+<tr><th class="tableRowHeader">$z5</th><td align="center" class="text">$h5</td><td></td><th class="tableRowHeader">$z28</th><td align="center" class="text">$h28</td></tr>
+<tr><th class="tableRowHeader">$z6</th><td align="center" class="text">$h6</td><td></td><th class="tableRowHeader">$z29</th><td align="center" class="text">$h29</td></tr>
+<tr><th class="tableRowHeader">$z7</th><td align="center" class="text">$h7</td><td></td><th class="tableRowHeader">$z30</th><td align="center" class="text">$h30</td></tr>
+<tr><th class="tableRowHeader">$z8</th><td align="center" class="text">$h8</td><td></td><th class="tableRowHeader">$z31</th><td align="center" class="text">$h31</td></tr>
+<tr><th class="tableRowHeader">$z9</th><td align="center" class="text">$h9</td><td></td><th class="tableRowHeader">$z32</th><td align="center" class="text">$h32</td></tr>
+<tr><th class="tableRowHeader">$z10</th><td align="center" class="text">$h10</td><td></td><th class="tableRowHeader">$z33</th><td align="center" class="text">$h33</td></tr>
+<tr><th class="tableRowHeader">$z11</th><td align="center" class="text">$h11</td><td></td><th class="tableRowHeader">$z34</th><td align="center" class="text">$h34</td></tr>
+<tr><th class="tableRowHeader">$z12</th><td align="center" class="text">$h12</td><td></td><th class="tableRowHeader">$z35</th><td align="center" class="text">$h35</td></tr>
+<tr><th class="tableRowHeader">$z13</th><td align="center" class="text">$h13</td><td></td><th class="tableRowHeader">$z36</th><td align="center" class="text">$h36</td></tr>
+<tr><th class="tableRowHeader">$z14</th><td align="center" class="text">$h14</td><td></td><th class="tableRowHeader">$z37</th><td align="center" class="text">$h37</td></tr>
+<tr><th class="tableRowHeader">$z15</th><td align="center" class="text">$h15</td><td></td><th class="tableRowHeader">$z38</th><td align="center" class="text">$h38</td></tr>
+<tr><th class="tableRowHeader">$z16</th><td align="center" class="text">$h16</td><td></td><th class="tableRowHeader">$z39</th><td align="center" class="text">$h39</td></tr>
+<tr><th class="tableRowHeader">$z17</th><td align="center" class="text">$h17</td><td></td><th class="tableRowHeader">$z40</th><td align="center" class="text">$h40</td></tr>
+<tr><th class="tableRowHeader">$z18</th><td align="center" class="text">$h18</td><td></td><th class="tableRowHeader">$z41</th><td align="center" class="text">$h41</td></tr>
+<tr><th class="tableRowHeader">$z19</th><td align="center" class="text">$h19</td><td></td><th class="tableRowHeader">$z42</th><td align="center" class="text">$h42</td></tr>
+<tr><th class="tableRowHeader">$z20</th><td align="center" class="text">$h20</td><td></td><th class="tableRowHeader">$z43</th><td align="center" class="text">$h43</td></tr>
+<tr><th class="tableRowHeader">$z21</th><td align="center" class="text">$h21</td><td></td><th class="tableRowHeader">$z44</th><td align="center" class="text">$h44</td></tr>
+<tr><th class="tableRowHeader">$z22</th><td align="center" class="text">$h22</td><td></td><th class="tableRowHeader">$z45</th><td align="center" class="text">$h45</td></tr>
+<tr><th class="tableRowHeader">$z23</th><td align="center" class="text">$h23</td><td></td><th class="tableRowHeader"></th><td align="center" class="text"></td></tr>
+</table>
+<br>
+<p class="text">
+<a href="Hhalle.shtml">alle Ziehungen</a><BR>
+<a href="Hh42.shtml">ab Ziehung Nr. 14/1979 (Einf&uuml;hrung von 41 und 42)</a><BR>
+<b>ab Ziehung Nr. 1/1986 (Einf&uuml;hrung von 43, 44 und 45)</b><BR>
+<a href="Hh97.shtml">ab Ziehung Nr. 1/1997 (Einf&uuml;hrung Mittwochsziehung</a>
+</p>
+<!--\#include file="include/tail.shtml"-->

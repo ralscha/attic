@@ -1,0 +1,385 @@
+<project name="Lbw Web Application" default="dist" basedir="..">
+    <description>Lbw Web Application Build File</description>
+
+    <!-- Home directory of the build process -->
+    <property name="build.dir" value="${basedir}/build"/>
+  
+    <!-- Load local and user build properties -->
+    <property file="${build.dir}/build.properties"/>
+ 
+    <!-- Resource Home -->
+    <property name="res.dir" value="${build.dir}/resources"/>
+ 
+    <!-- Should Java compilations set the debug compiler option? -->
+    <property name="compile.debug" value="true"/>
+
+    <!-- Should Java compilations set the deprecation compiler option? -->
+    <property name="compile.deprecation" value="true"/>
+
+    <!-- Should Java compilations set the optimize compiler option? -->
+    <property name="compile.optimize" value="false"/>
+
+    <!-- Source directory -->
+    <property name="src.dir" value="${basedir}/src"/>
+    <property name="testsrc.dir" value="${basedir}/test"/>
+  
+    <!-- Directory where build outputs are stored -->
+    <property name="output.dir" value="${build.dir}/output"/>
+
+    <!-- Temporary directory -->
+    <property name="tmp.dir" value="${build.dir}/tmp"/>
+
+    <!-- Web directories -->
+    <property name="web.dir" value="${basedir}/web"/>
+    <property name="webinf.dir" value="${web.dir}/WEB-INF"/>
+    <property name="classes.dir" value="${webinf.dir}/classes"/>
+    <property name="testclasses.dir" value="${tmp.dir}/testclasses"/>
+    <property name="lib.dir" value="${webinf.dir}/lib"/>
+    
+
+    <!-- Doc directory -->
+    <property name="doc.dir" value="${basedir}/docs"/>
+  
+    <!-- Directory where release files are stored -->
+    <property name="dist.dir" value="${build.dir}/dist"/>
+               
+        
+<!--
+  ========================================================================
+    DATATYPES
+  ========================================================================
+-->
+
+    <!-- Build classpath -->
+    <path id="build.classpath">
+        <fileset dir="${build.dir}/lib">
+            <include name="*.jar"/>
+        </fileset>
+        <pathelement location="${build.dir}/lib/deployer/servlet-api.jar"/>
+        <pathelement location="${build.dir}/lib/deployer/jsp-api.jar"/>
+        <pathelement location="${build.dir}/lib/deployer/commons-logging.jar"/>
+    </path>
+   
+    <!-- WEB-INF/lib -->
+    <path id="lib.classpath">
+        <fileset dir="${lib.dir}">
+            <include name="**/*.jar"/>
+            <exclude name="junit.jar"/>
+        </fileset>
+    </path>
+   
+    <!-- Compilation classpath -->
+    <path id="compile.classpath">
+        <path refid="build.classpath"/>
+        <path refid="lib.classpath"/>
+    </path>
+
+    <path id="run.classpath">
+        <pathelement location="${classes.dir}"/>
+        <path refid="lib.classpath"/>
+    </path>
+
+
+    <path id="deployer.classpath">
+        <fileset dir="${build.dir}/lib/deployer">
+            <include name="*.jar"/>
+        </fileset>        
+    </path>
+<!--
+  ========================================================================
+    TASKDEFS
+  ========================================================================
+-->
+
+    <taskdef name="resourcefactory" classname="com.cc.resourcefactory.ant.ResourceFactoryTask">
+        <classpath>
+            <pathelement location="${build.dir}/lib/cc-resfactory-1.6.020.jar"/>
+            <pathelement location="${build.dir}/lib/glf.jar"/>            
+        </classpath>
+    </taskdef>
+       
+    <!-- Configure the custom Ant tasks for the Manager application -->
+    <taskdef resource="org/apache/catalina/ant/catalina.tasks"
+           classpathref="deployer.classpath"/>
+    <taskdef name="jasper2" classname="org.apache.jasper.JspC" classpathref="deployer.classpath"/>      
+      
+    <taskdef name="apt" classname="org.cheapa.tools.ant.taskdefs.Apt"/> 
+
+    <taskdef name="hibernatetool" classname="org.hibernate.tool.ant.HibernateToolTask">
+      <classpath>
+        <fileset dir="${build.dir}/lib/hibernatetools">
+          <include name="*.jar"/>    
+        </fileset>        
+        <pathelement location="${lib.dir}/hibernate-3.1.2.jar"/>
+        <pathelement location="${lib.dir}/commons-logging-1.1.jar"/>        
+        <pathelement location="${lib.dir}/dom4j-1.6.1.jar"/>                
+        <pathelement location="${lib.dir}/ehcache-1.1.jar"/> 
+        <pathelement location="${lib.dir}/commons-collections-3.2.jar"/>        
+        <pathelement location="${jdbc.lib}"/>                
+      </classpath>
+    </taskdef>      
+ 
+
+<!--
+  ========================================================================
+    Init
+  ========================================================================
+-->
+    <target name="init" description="Initializes the build process">
+        <!-- Create the time stamp -->
+        <tstamp/>
+    </target>
+  
+<!--
+  ========================================================================
+    Clean build directories
+  ========================================================================
+-->
+
+    <target name="clean" description="Clean build directories">
+        <delete dir="${classes.dir}"/>
+        <delete dir="${tmp.dir}"/>
+        <delete dir="${output.dir}"/>
+        <delete dir="${dist.dir}"/>
+        <delete dir="${webinf.dir}/tmp"/>
+        <delete dir="${webinf.dir}/work"/>
+    
+        <delete file="${src.dir}/spring.xml"/>
+
+    </target>
+ 
+<!--
+  ========================================================================
+    Compile java sources
+  ========================================================================
+-->
+
+    <target name="compile.all" depends="compile,compile.test"/>
+  
+    <target name="compile" depends="init" description="Compile java sources">
+  
+    <mkdir dir="${classes.dir}"/>
+    <apt
+        gensrcdir="${src.dir}"
+        srcdir="${src.dir}" 
+        destdir="${classes.dir}"
+        deprecation="${compile.deprecation}"
+        optimize="${compile.optimize}" 
+        debug="${compile.debug}"
+        includeAntRuntime="no"
+        source="1.5"
+        target="1.5"
+        fork="true">                 
+      <classpath>
+        <path refid="compile.classpath"/>
+      </classpath>       
+      <compilerarg line="-Aoutput=${src.dir}/spring.xml"/>
+     </apt>  
+     
+     <copy todir="${classes.dir}">
+       <fileset dir="${src.dir}" excludes="**/*.java"/>
+     </copy>
+
+    
+    </target>
+  
+    <target name="compile.test" depends="init" description="Compile test java sources">
+  
+        <delete dir="${testclasses.dir}"/>
+        <mkdir dir="${testclasses.dir}"/>
+    
+    <javac srcdir="${testsrc.dir}" 
+           destdir="${testclasses.dir}"
+           deprecation="${compile.deprecation}"
+           optimize="${compile.optimize}" 
+           debug="${compile.debug}"
+           includeAntRuntime="no"
+           source="1.5">          
+            <classpath>
+                <path refid="compile.classpath"/>
+                <pathelement location="${classes.dir}"/>
+                <pathelement location="${build.dir}/lib/junit.jar"/>
+                <pathelement location="${build.dir}/lib/test/strutstest.jar"/>
+                <pathelement location="${build.dir}/lib/test/cactus.jar"/>
+                <pathelement location="${build.dir}/lib/test/httpunit.jar"/>
+            </classpath>
+        </javac>
+        
+        <copy todir="${classes.dir}">
+            <fileset dir="${testsrc.dir}" excludes="**/*.java"/>
+        </copy>
+    
+    </target>
+  
+  
+
+<!--
+  ========================================================================
+    Create installation package
+  ========================================================================
+-->
+  
+  <target name="dist" description="Compile web application"  depends="init,clean,compile">
+    <mkdir dir="${dist.dir}"/>         
+    <mkdir dir="${dist.dir}/tmp"/> 
+     
+    <jasper2 validateXml="false" 
+             uriroot="${web.dir}" 
+             webXmlFragment="${dist.dir}/tmp"
+             addWebXmlMappings="false"
+             outputDir="${dist.dir}/tmp" /> 
+
+    
+    <validator path="${web.dir}" />
+
+    <javac destdir="${dist.dir}/tmp"
+           optimize="off"
+           debug="on" failonerror="false"
+           srcdir="${dist.dir}/tmp" 
+           encoding="UTF-8"
+           excludes="**/*.smap">
+      <classpath>
+        <fileset dir="${web.dir}/WEB-INF/lib">
+          <include name="*.jar"/>
+        </fileset>       
+        <fileset dir="${build.dir}/lib/deployer">
+          <include name="*.jar"/>    
+        </fileset>        
+        <pathelement location="${classes.dir}"/>
+      </classpath>
+      <include name="**" />
+      <exclude name="tags/**" />
+    </javac>
+
+    <delete dir="${dist.dir}/tmp"/>
+
+    <jar destfile="${dist.dir}/${app.name}.war"
+         basedir="${web.dir}" />
+  </target> 
+ 
+  
+<!--
+  ========================================================================
+    Generate documentation
+  ========================================================================
+-->
+    <target name="docs" depends="compile" description="Generate documentation">
+        <mkdir dir="${doc.dir}/api"/>
+    
+    <javadoc destdir="${doc.dir}/api"
+             packagenames="ch.ess.cal.*"
+             sourcepath="${src.dir}"
+             use="true"
+             windowtitle="Lbw Web Application Documentation"
+             private="true">
+            <classpath refid="compile.classpath"/>
+        </javadoc>
+    </target>
+
+          
+<!--
+  ========================================================================
+    Resource Manager
+  ========================================================================
+-->
+  
+	<target name="create.res.def2" description="Creates the resources">
+    <delete dir="${web.dir}/fw/def2/image/buttons/en"/>
+    <delete dir="${web.dir}/fw/def2/image/buttons/de"/>
+        	
+		<mkdir dir="${web.dir}/fw"/>		
+		<resourcefactory
+			destdir="${basedir}"
+			painter="def2"
+			generate="true">
+			
+			<fileset dir="${build.dir}/resources">
+				<include name="**/*.xml"/>
+				<exclude name="env-def.xml"/>
+			</fileset>
+
+			<fileset dir="${build.dir}/resources/buttons">
+				<include name="**/*.xml"/>
+			</fileset>
+			
+		</resourcefactory>
+		
+		<delete dir="${basedir}/source"/>
+	</target>  
+
+	<target name="create.res.def" description="Creates the resources">
+    <delete dir="${web.dir}/fw/def/image/buttons/en"/>
+    <delete dir="${web.dir}/fw/def/image/buttons/de"/>
+        	
+		<mkdir dir="${web.dir}/fw"/>		
+		<resourcefactory
+			destdir="${basedir}"
+			painter="def"
+			generate="true">
+			
+			<fileset dir="${build.dir}/resources">
+				<include name="**/*.xml"/>
+				<exclude name="env-def2.xml"/>
+			</fileset>
+
+			<fileset dir="${build.dir}/resources/buttons">
+				<include name="**/*.xml"/>
+			</fileset>
+			
+		</resourcefactory>
+               <delete dir="${basedir}/source"/>
+	</target>  
+
+<!--
+  ========================================================================
+    Hibernate Tools
+  ========================================================================
+-->
+  
+	<target name="create.model.from.db" description="Creates java sources for model classes from db">
+    <hibernatetool destdir="${output.dir.generated.source}"> 
+      <jdbcconfiguration propertyFile="${build.dir}/build.properties"/> <!-- database settings are read from hibernate.cfg.xml and/or via propertyfile if provided -->
+      <hbm2java ejb3="true" /> <!-- generate default .java files with EJB3 annotations -->      
+    </hibernatetool>
+  </target>
+
+
+
+<!--
+  ========================================================================
+    Source Generator
+  ========================================================================
+-->
+  
+  <target name="source.generator">
+    
+    <path id="sourcegen.classpath">
+      <fileset dir="${build.dir}/tools/lib">
+        <include name="*.jar"/>    
+      </fileset>     
+      <pathelement location="${build.dir}/tools/bin"/>
+      <pathelement location="${classes.dir}"/>
+      <pathelement location="${lib.dir}/freemarker-2.3.4.jar"/>
+      <pathelement location="${lib.dir}/commons-beanutils-1.7.1.jar"/>
+      <pathelement location="${lib.dir}/commons-lang-2.2.jar"/>
+      <pathelement location="${lib.dir}/ejb3-persistence.jar"/>
+      <pathelement location="${build.dir}/lib/deployer/commons-logging.jar"/>      
+    </path>
+  
+    <javac srcdir="${build.dir}/tools/src" 
+           destdir="${build.dir}/tools/bin"
+           includeAntRuntime="no">          
+      <classpath refid="sourcegen.classpath"/>                   
+    </javac> 
+     
+    <copy todir="${build.dir}/tools/bin">
+      <fileset dir="${build.dir}/tools/src" excludes="**/*.java"/>
+    </copy>     
+  
+	  <java classname="ch.ess.tools.SourceGenerator" fork="yes">
+	    <classpath refid="sourcegen.classpath"/> 
+	  </java>
+	</target>     
+    
+
+</project>

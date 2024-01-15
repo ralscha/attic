@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+ <!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 1.1//EN"
+       "http://jakarta.apache.org/struts/dtds/tiles-config_1_1.dtd">
+
+
+<!--
+     This is the default Tiles definition file
+-->
+
+<tiles-definitions>
+
+    <definition name=".default" path="/WEB-INF/jsp/layouts/layout.jsp">
+        <put name="center" value="false"/>
+        <put name="menu"   value="/WEB-INF/jsp/menu.jsp" />
+        <put name="body"   value="/WEB-INF/jsp/overview.jsp" />
+        <put name="error"   value="/WEB-INF/jsp/errors.jsp" />
+    </definition>
+
+    <definition name=".login" extends=".default">
+        <put name="center" value="true"/>    
+        <put name="menu"   value="/WEB-INF/jsp/empty.html" />
+        <put name="body"   value="/WEB-INF/jsp/loginpage.jsp" />
+        <put name="error"  value="/WEB-INF/jsp/loginerrors.jsp" />
+    </definition>    
+    
+    <definition name=".logout" extends=".default">
+        <put name="center" value="true"/>    
+        <put name="menu"   value="/WEB-INF/jsp/empty.html" />
+        <put name="body"   value="/WEB-INF/jsp/logout.jsp" />
+		<put name="error"   value="/WEB-INF/jsp/empty.html" />
+    </definition>          
+    
+    
+    <definition name=".user.list" extends=".default">
+        <put name="body"   value="/WEB-INF/jsp/userlist.jsp" />
+    </definition>     
+
+    <definition name=".user.edit" extends=".default">
+        <put name="body"   value="/WEB-INF/jsp/useredit.jsp" />
+    </definition>     
+
+    <definition name=".userconfig.edit" extends=".default">
+        <put name="body"   value="/WEB-INF/jsp/userconfigedit.jsp" />
+    </definition> 
+    
+    <definition name=".config.edit" extends=".default">
+        <put name="body"   value="/WEB-INF/jsp/configedit.jsp" />
+    </definition>    
+
+    <definition name=".contact.edit" extends=".default">
+        <put name="body"   value="/WEB-INF/jsp/contactedit.jsp" />
+    </definition>     
+
+    <definition name=".online.list" extends=".default">
+        <put name="body"   value="/WEB-INF/jsp/onlinelist.jsp" />
+    </definition>  
+
+    <definition name=".online.view" extends=".default">
+        <put name="body"   value="/WEB-INF/jsp/onlineview.jsp" />
+    </definition>  
+
+    <definition name=".resource.list" extends=".default">
+        <put name="body"   value="/WEB-INF/jsp/resourcelist.jsp" />
+    </definition>     
+
+    <definition name=".resource.edit" extends=".default">
+        <put name="body"   value="/WEB-INF/jsp/resourceedit.jsp" />
+    </definition>  
+
+</tiles-definitions>

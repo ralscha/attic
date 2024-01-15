@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+    <bean id="config" class="org.springframework.context.config.PropertyPlaceholderConfigurer">
+      <property name="location"><value>config.properties</value></property>
+    </bean>
+    
+    <bean id="config2" class="test.ResConf">
+      <property name="order"><value>1</value></property>
+    </bean>
+        
+  	<bean id="test" class="test.MyTestBean">
+		<property name="id"><value>${test.value}</value></property>										
+	</bean>
+
+    <bean id="myconfig" class="test.MyConfig">
+      <property name="conf">
+        <props>
+          <prop key="one">eins</prop>
+          <prop key="two">2</prop>
+          <prop key="three">drei</prop>
+          <prop key="four">4</prop>                              
+        </props>
+      </property>
+    </bean>
+
+</beans>

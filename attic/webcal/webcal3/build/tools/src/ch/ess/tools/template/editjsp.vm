@@ -1,0 +1,81 @@
+<%@ include file="/include/taglibs.jspf"%>
+
+#if ($config.dropDownMenu == "false")
+<menu:ctx path="menu/m_administration/i_${clazz.nameAllSmall}s"/>
+#end
+
+<html>
+  <head>
+    <title></title>
+    #if ($clazz.containsArrayProperties) 
+      <script language="JavaScript" src="<c:url value='/scripts/selectbox_mini.js'/>" type="text/javascript"></script>    
+    #end
+  	#if ($clazz.containsDateProperties) 
+  	  <misc:popupCalendarJs />		
+  	#end    
+  </head>
+  <body>
+	
+  #foreach( $property in $clazz.properties )
+  #if ($property.option)
+	<misc:initSelectOptions id="${property.nameWithoutId}Option" name="${property.nameWithoutId}Options" scope="session" />
+	#elseif ($property.array && $property.dao)
+	<misc:initSelectOptions id="${property.nameWithoutId}Option" name="${property.nameWithoutId}Options" scope="session" />
+	#end		
+	#end
+	<html:form action="/edit${clazz.name}" focus="groupName"#if ($clazz.containsArrayProperties) onsubmit="#foreach( $property in $clazz.properties )#if ($property.array && $property.dao)selectAllOptions(this.${property.name});#end#end"#end>
+  <html:hidden property="modelId"/>
+  <html:hidden property="version"/>
+
+	<forms:form type="edit" caption="${clazz.nameSmall}.headline" formid="frm${clazz.name}" width="460">
+
+    #foreach( $property in $clazz.properties )
+    #if ($property.modelType) 
+    
+    #if ($property.modelDate)	  
+		<forms:text label="${clazz.nameSmall}.${property.nameWithoutId}" styleId="${property.name}" property="${property.name}" #if($property.requiredValidator) required="true" #else required="false" #end size="10" maxlength="10"/>
+		<forms:html> 		  			            
+		  <img src="images/cal.gif" alt="" name="select${property.name}" id="select${property.name}" width="16" height="16" border="0">
+		</forms:html> 	
+    #elseif ($property.modelBoolean)
+    <forms:checkbox  label="${clazz.nameSmall}.${property.nameWithoutId}" property="${property.name}" #if($property.requiredValidator) required="true" #else required="false" #end/>    
+ 	  #elseif (!$property.array && $property.dao)	  
+		<forms:select #if ($property.nameEndsWithId) label="${property.nameWithoutId}" #else label="${clazz.nameSmall}.${property.nameWithoutId}" #end property="${property.name}" #if($property.requiredValidator) required="true" #else required="false" #end>		    
+		    <base:options  empty="empty" name="${property.nameWithoutId}Option"/>
+		</forms:select>    
+    #elseif ($property.array && $property.dao)		  
+			<forms:description valign="top" label="${clazz.nameSmall}.${property.nameWithoutId}" join="false">
+			  <table>
+          <misc:pickList leftId="${property.nameWithoutId}Option" 
+           rightId="${property.name}" size="10" width="170" sort="true"/>			  
+        </table>   
+		  </forms:description>			
+		  		
+    #else
+      <forms:text label="${clazz.nameSmall}.${property.nameWithoutId}" property="${property.name}" #if($property.requiredValidator) required="true" #else required="false" #end size="40" maxlength="255"/>		    		  
+		#end
+		#end
+		#end
+		
+		<forms:buttonsection join="false">
+			<forms:button   base="buttons.src" name="btnSaveAndNew"  src="btnSaveAndNew1.gif"  title="button.title.saveandnew"/>		    
+			<forms:button   base="buttons.src" default="true" name="btnSave"  src="btnSave1.gif"  title="button.title.save"/>
+			
+			#set( $start = "${" )
+			#set( $end = "}" )			
+			
+      <c:if test="${start}not empty ${clazz.nameSmall}Form.modelId${end}">
+			<forms:button onclick="return confirmRequest('');" base="buttons.src" name="btnDelete" src="btnDelete1.gif"  title="button.title.delete"/>   
+      </c:if>   
+			<forms:button   base="buttons.src" name="btnBack"  src="btnBack1.gif"  title="button.title.back"/>
+		</forms:buttonsection>
+	</forms:form>
+  </html:form>	
+  #foreach( $property in $clazz.properties )
+    #if ($property.modelDate)	
+    <misc:popupCalendar element="${property.name}" trigger="select${property.name}" />  
+    #end
+  #end
+  <misc:confirm key="${clazz.nameSmall}.delete"/>
+</body>
+</html>

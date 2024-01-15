@@ -1,0 +1,19 @@
+<launch4jConfig>
+  <headerType>0</headerType>
+  <jar>D:\eclipse\workspace\CifsTest\cifstest.jar</jar>
+  <outfile>D:\eclipse\workspace\CifsTest\CifsTest.exe</outfile>
+  <errTitle></errTitle>
+  <jarArgs></jarArgs>
+  <chdir></chdir>
+  <customProcName>false</customProcName>
+  <stayAlive>false</stayAlive>
+  <icon></icon>
+  <jre>
+    <path>jre</path>
+    <minVersion>1.4.2</minVersion>
+    <maxVersion></maxVersion>
+    <initialHeapSize>0</initialHeapSize>
+    <maxHeapSize>0</maxHeapSize>
+    <args></args>
+  </jre>
+</launch4jConfig>

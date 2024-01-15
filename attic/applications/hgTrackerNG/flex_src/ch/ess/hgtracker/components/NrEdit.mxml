@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:TitleWindow xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute" title="Nr. erfassen" height="278"
+  creationComplete="init()" showCloseButton="true" width="157">
+  
+  <mx:Script>
+    <![CDATA[
+      import mx.utils.StringUtil;
+      import ch.ess.hgtracker.model.PunkteAnzeige;
+      import mx.managers.PopUpManager;
+          
+      [Bindable]      
+      public var punkteAnzeige:PunkteAnzeige;      
+            
+      private function init():void {
+        PopUpManager.centerPopUp(this);
+        if (this.y < 0) {
+          this.y = 10;
+        }
+        this.addEventListener(Event.CLOSE, onCloseEvent); 
+        
+        if (punkteAnzeige.ries1 == null || StringUtil.trim(punkteAnzeige.ries1) == '') {
+          nr1Checkbox.visible = false;
+        }       
+        if (punkteAnzeige.ries2 == null || StringUtil.trim(punkteAnzeige.ries2) == '') {
+          nr2Checkbox.visible = false;
+        }       
+        if (punkteAnzeige.ries3 == null || StringUtil.trim(punkteAnzeige.ries3) == '') {
+          nr3Checkbox.visible = false;
+        }       
+        if (punkteAnzeige.ries4 == null || StringUtil.trim(punkteAnzeige.ries4) == '') {
+          nr4Checkbox.visible = false;
+        }       
+        if (punkteAnzeige.ries5 == null || StringUtil.trim(punkteAnzeige.ries5) == '') {
+          nr5Checkbox.visible = false;
+        }       
+        if (punkteAnzeige.ries6 == null || StringUtil.trim(punkteAnzeige.ries6) == '') {
+          nr6Checkbox.visible = false;
+        }  
+      }
+      
+      private function onCloseEvent(e:Event):void {
+        close();
+      }
+
+      private function close():void {
+        PopUpManager.removePopUp(this);
+      } 
+    ]]>
+  </mx:Script>
+  
+  <mx:Binding source="nr1Checkbox.selected" destination="punkteAnzeige.nr1" />
+  <mx:Binding source="nr2Checkbox.selected" destination="punkteAnzeige.nr2" />
+  <mx:Binding source="nr3Checkbox.selected" destination="punkteAnzeige.nr3" />
+  <mx:Binding source="nr4Checkbox.selected" destination="punkteAnzeige.nr4" />
+  <mx:Binding source="nr5Checkbox.selected" destination="punkteAnzeige.nr5" />
+  <mx:Binding source="nr6Checkbox.selected" destination="punkteAnzeige.nr6" />
+  
+  <mx:VBox x="10" y="10" height="100%">
+    <mx:Label text="{punkteAnzeige.reihenfolge}. {punkteAnzeige.nachname} {punkteAnzeige.vorname} "/>
+    <mx:CheckBox label="1. Ries" id="nr1Checkbox" selected="{punkteAnzeige.nr1}"/>
+    <mx:CheckBox label="2. Ries" id="nr2Checkbox" selected="{punkteAnzeige.nr2}"/>
+    <mx:CheckBox label="3. Ries" id="nr3Checkbox" selected="{punkteAnzeige.nr3}"/>
+    <mx:CheckBox label="4. Ries" id="nr4Checkbox" selected="{punkteAnzeige.nr4}"/>
+    <mx:CheckBox label="5. Ries" id="nr5Checkbox" selected="{punkteAnzeige.nr5}"/>
+    <mx:CheckBox label="6. Ries" id="nr6Checkbox" selected="{punkteAnzeige.nr6}"/>
+    <mx:Button label="Schliessen" click="close()"/>
+  </mx:VBox>
+  
+  
+  
+</mx:TitleWindow>

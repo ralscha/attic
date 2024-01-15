@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:TitleWindow xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute" width="534" height="376" 
+  title="Spiel bearbeiten" showCloseButton="true">
+  
+  <mx:Metadata>
+    [Event(name="dataInserted")]
+    [Event(name="dataUpdated")]
+  </mx:Metadata>
+  
+  <mx:Script>
+    <![CDATA[
+      import mx.utils.StringUtil;
+      import ch.ess.hgtracker.db.Art;
+      import mx.collections.ArrayCollection;
+      import mx.validators.Validator;
+      import ch.ess.hgtracker.db.Club;
+      import mx.events.ValidationResultEvent;
+      import mx.binding.utils.BindingUtils;
+      import mx.managers.PopUpManager;
+      import mx.controls.Alert;
+      import mx.rpc.events.ResultEvent;
+      import ch.ess.hgtracker.db.Spiel;
+      
+      [Bindable]
+      private var editSpiel:Spiel;
+      
+      [Bindable]
+      private var artenArrayCollection:ArrayCollection;
+      
+      private var club:Club;
+      
+      private var validators:Array;
+      
+      private function save():void { 
+        editSpiel.club = club;
+        
+        editSpiel.ort = ortCombobox.selectedItem.data;
+        editSpiel.gegner = gegnerText.text;
+        editSpiel.kampfrichter = kampfrichterText.text;
+        editSpiel.kampfrichterGegner = beschreibungText.text;
+        
+        editSpiel.art = Art(artCombobox.selectedItem);
+        
+        if (StringUtil.trim(totalNrText.text) != '') {
+          editSpiel.totalNr = Number(totalNrText.text);
+        } else {
+          editSpiel.totalNr = NaN;
+        }
+        
+        if (StringUtil.trim(schlagPunkteGegnerText.text) != '') {
+          editSpiel.schlagPunkteGegner = Number(schlagPunkteGegnerText.text);
+        } else {
+          editSpiel.schlagPunkteGegner = NaN;
+        }
+        
+        var date:Date = datumText.selectedDate;
+        if (StringUtil.trim(stundenText.text) != '') {
+          date.hours = Number(stundenText.text);
+        }        
+        if (StringUtil.trim(minutenText.text) != '') {
+          date.minutes = Number(minutenText.text);
+        }                
+        editSpiel.datum = date;
+        
+                
+        if (editSpiel.id == -1) {
+          spielService.insert(editSpiel);
+        } else {
+          spielService.update(editSpiel);
+        }
+      }      
+            
+      private function onUpdateResult(e:ResultEvent):void {
+        var dataEvent:Event = new Event("dataUpdated");
+        dispatchEvent(dataEvent);
+        close();
+      }  
+      
+      private function onInsertResult(e:ResultEvent):void {
+        var dataEvent:Event = new Event("dataInserted");
+        dispatchEvent(dataEvent);
+        close();
+      }  
+      
+      public function init(club:Club, editSpiel:Spiel, artenArrayCollection:ArrayCollection):void {
+        
+        this.club = club;
+        this.editSpiel = editSpiel;
+        this.artenArrayCollection = artenArrayCollection;
+        
+        if (editSpiel.art != null) {
+          for(var i:int = 0; i < artenArrayCollection.length; i++) {
+            if (artenArrayCollection.getItemAt(i).id == editSpiel.art.id) {
+              artCombobox.selectedIndex = i;
+              break;
+            }
+          }          
+        }
+
+        if (editSpiel.datum != null) {  
+          if (editSpiel.datum.hours != 0 || editSpiel.datum.minutes != 0) {       
+            stundenText.text = editSpiel.datum.hours.toString();
+            minutenText.text = editSpiel.datum.minutes.toString();
+          } 
+        }
+        
+        if (editSpiel.ort == 'Heim') {
+          ortCombobox.selectedIndex = 0;
+        } else if (editSpiel.ort == 'Auswärts') {
+          ortCombobox.selectedIndex = 1;
+        }
+        
+        if (isNaN(editSpiel.totalNr)) {
+          totalNrText.text = '';
+        }
+        
+        if (isNaN(editSpiel.schlagPunkteGegner)) {
+          schlagPunkteGegnerText.text = '';
+        }
+        
+        PopUpManager.centerPopUp(this);
+        this.addEventListener(Event.CLOSE, onCloseEvent); 
+                 
+        validators = [datumTextValidator,gegnerTextValidator,
+                       ortComboboxValidator,
+                       artComboboxValidator];
+                       
+        checkButtonEnable();               
+        datumText.setFocus();
+
+              
+      }
+      
+      private function onCloseEvent(e:Event):void {
+        close();
+      }
+
+      private function close():void {
+        PopUpManager.removePopUp(this);
+      }   
+      
+      public function checkButtonEnable():void {
+        saveButton.enabled = validInput();
+      }
+        
+      private function validInput():Boolean {
+        var errors:Array = Validator.validateAll(validators);
+        return (errors.length == 0);        
+      }        
+      
+    ]]>
+  </mx:Script>
+  
+  <mx:RemoteObject id="spielService" showBusyCursor="true" destination="spielService">
+    <mx:method name="update" result="onUpdateResult(event)" />
+    <mx:method name="insert" result="onInsertResult(event)" />
+  </mx:RemoteObject>
+  
+  <mx:Form right="10" top="10" left="10">
+    <mx:FormItem label="Datum" required="true">
+      <mx:DateField id="datumText" change="checkButtonEnable()" formatString="DD.MM.YYYY" editable="true"
+        firstDayOfWeek="1" showToday="true" selectedDate="{editSpiel.datum}"
+        dayNames="['So', 'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa']"
+        monthNames="['Januar', 'Februar', 'März', 'April', 'Mai','Juni', 'Juli', 'August', 'September', 'Oktober', 'November','Dezember']"  width="100"/>
+    </mx:FormItem>
+    <mx:FormItem label="Zeit">
+      <mx:HBox>
+        <mx:TextInput width="30" maxChars="2" id="stundenText" change="checkButtonEnable()" restrict="0-9"/>
+        <mx:Label text=":"/>
+        <mx:TextInput width="30" maxChars="2" id="minutenText" change="checkButtonEnable()" restrict="0-9"/>
+      </mx:HBox>
+    </mx:FormItem>
+    <mx:FormItem label="Art" required="true">
+      <mx:ComboBox id="artCombobox" change="checkButtonEnable()" 
+        dataProvider="{artenArrayCollection}" labelField="spielArt" prompt=""/>
+    </mx:FormItem>
+    <mx:FormItem label="Ort" required="true">
+      <mx:ComboBox id="ortCombobox" change="checkButtonEnable()" prompt="">
+        <mx:ArrayCollection>
+          <mx:Object label="Heim" data="Heim"/>
+          <mx:Object label="Auswärts" data="Auswärts"/>
+        </mx:ArrayCollection>      
+      </mx:ComboBox>
+    </mx:FormItem>
+    <mx:FormItem label="Gegner" required="true">
+      <mx:TextInput id="gegnerText" width="300" change="checkButtonEnable()" text="{editSpiel.gegner}"/>
+    </mx:FormItem>
+    <mx:FormItem label="Kampfrichter">
+      <mx:TextInput id="kampfrichterText" text="{editSpiel.kampfrichter}" width="300"/>
+    </mx:FormItem>
+    <mx:FormItem label="Beschreibung">
+      <mx:TextInput id="beschreibungText" text="{editSpiel.kampfrichterGegner}" width="300"/>
+    </mx:FormItem>
+    <mx:FormItem label="Total Nr.">
+      <mx:TextInput width="40" id="totalNrText" change="checkButtonEnable()" text="{editSpiel.totalNr}" restrict="0-9"/>
+    </mx:FormItem>
+    <mx:FormItem label="Schlag Punkte Gegner">
+      <mx:TextInput width="40" id="schlagPunkteGegnerText" change="checkButtonEnable()" text="{editSpiel.schlagPunkteGegner}" restrict="0-9"/>
+    </mx:FormItem>
+
+  </mx:Form>
+  <mx:Button label="Speichern" id="saveButton" bottom="10" left="10" click="save()" icon="@Embed(source='assets/disk_green.png')"/>
+  <mx:Button label="Abbrechen" id="cancelButton" right="10" bottom="10" click="close()" icon="@Embed(source='assets/delete.png')"/>
+  
+  
+  <mx:DateValidator id="datumTextValidator" source="{datumText}" property="text" required="true" 
+    inputFormat="DD.MM.YYYY" requiredFieldError="Datum ist eine Musseingabe" />     
+  
+  <mx:Validator id="ortComboboxValidator" source="{ortCombobox}" property="selectedItem"  required="true" 
+    requiredFieldError="Ort ist eine Musseingabe"/>
+    
+  <mx:Validator id="artComboboxValidator" source="{artCombobox}" property="selectedItem"  required="true" 
+    requiredFieldError="Art ist eine Musseingabe"/>    
+    
+  <mx:Validator id="gegnerTextValidator" source="{gegnerText}" property="text" required="true" requiredFieldError="Gegner ist eine Musseingabe"/>  
+     
+         
+</mx:TitleWindow>

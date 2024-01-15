@@ -1,0 +1,27 @@
+package ${deletePackage};
+
+import ch.ess.ct.business.db.*;
+import com.objectmatter.bsf.*;
+
+public class ${objectName}Deleter {
+  
+  private ${dbClassName} ${objectLowerName};
+  
+  public ${objectName}Deleter(${dbClassName} ${objectLowerName}) {
+    this.${objectLowerName} = ${objectLowerName};
+  }
+  
+  public boolean canDelete() {   
+    //TODO 
+  }
+  
+  public void delete(Database db) {
+    if (canDelete()) {
+      db.delete(${objectLowerName});
+    } else {
+      ${objectLowerName}.setGeloescht(Boolean.TRUE);
+      db.update(${objectLowerName});
+    }
+  }
+
+}

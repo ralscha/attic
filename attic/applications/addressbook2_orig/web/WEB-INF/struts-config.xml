@@ -1,0 +1,409 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+
+<struts-config>
+
+  <!-- ========== Data Sources Definitions =================================== -->
+  <!--
+    Define your Struts data sources in a file called struts-data-sources.xml and place
+    it in your merge directory.
+  -->
+
+  <!-- ========== Form Bean Definitions =================================== -->
+  <form-beans>
+    <form-bean
+      name="userForm"
+      type="ch.ess.addressbook.web.user.UserForm"
+    />
+    <form-bean
+      name="mapForm"
+      type="ch.ess.common.web.MapForm"
+    />
+    <form-bean
+      name="nullForm"
+      type="ch.ess.common.web.NullForm"
+    />
+    <form-bean
+      name="searchContactForm"
+      type="ch.ess.addressbook.web.contact.ContactListForm"
+    />
+    <form-bean
+      name="configForm"
+      type="ch.ess.addressbook.web.config.ConfigForm"
+    />
+    <form-bean
+      name="contactForm"
+      type="ch.ess.addressbook.web.contact.ContactForm"
+    />
+    <form-bean
+      name="userConfigForm"
+      type="ch.ess.addressbook.web.userconfig.UserConfigForm"
+    />
+
+    <!--
+         If you have non XDoclet forms, define them in a file called struts-forms.xml and
+         place it in your merge directory.
+    -->
+  </form-beans>
+
+  <!-- ========== Global Exceptions Definitions =================================== -->
+    <global-exceptions>
+    <exception type="java.lang.Exception" key="error.exception" path="/error.do"/>
+  </global-exceptions>
+
+  <!-- ========== Global Forward Definitions =================================== -->
+
+  <!-- ========== Action Mapping Definitions =================================== -->
+   <action-mappings>
+    <action
+      path="/searchContact"
+      type="ch.ess.addressbook.web.contact.ContactListAction"
+      name="searchContactForm"
+      scope="session"
+      input=".default"
+      unknown="false"
+      validate="false"
+    >
+      <forward
+        name="success"
+        path=".default"
+        redirect="false"
+      />
+    </action>
+    <action
+      path="/editContact"
+      type="ch.ess.addressbook.web.contact.ContactEditAction"
+      name="contactForm"
+      scope="session"
+      input=".default"
+      unknown="false"
+      validate="false"
+    >
+      <forward
+        name="edit"
+        path=".contact.edit"
+        redirect="false"
+      />
+      <forward
+        name="list"
+        path="/default.do"
+        redirect="false"
+      />
+      <forward
+        name="searchagain"
+        path="/searchContact.do"
+        redirect="false"
+      />
+      <forward
+        name="delete"
+        path="/deleteContact.do"
+        redirect="false"
+      />
+      <forward
+        name="reload"
+        path="/editContact.do?action=edit"
+        redirect="false"
+      />
+    </action>
+    <action
+      path="/storeContact"
+      type="ch.ess.addressbook.web.contact.ContactEditAction"
+      name="contactForm"
+      scope="session"
+      input=".contact.edit"
+      parameter="store"
+      unknown="false"
+      validate="true"
+    >
+      <forward
+        name="edit"
+        path=".contact.edit"
+        redirect="false"
+      />
+      <forward
+        name="list"
+        path="/default.do"
+        redirect="false"
+      />
+      <forward
+        name="searchagain"
+        path="/searchContact.do"
+        redirect="false"
+      />
+      <forward
+        name="delete"
+        path="/deleteContact.do"
+        redirect="false"
+      />
+      <forward
+        name="reload"
+        path="/editContact.do?action=edit"
+        redirect="false"
+      />
+    </action>
+    <action
+      path="/deleteContact"
+      type="ch.ess.addressbook.web.contact.ContactEditAction"
+      parameter="delete"
+      unknown="false"
+      validate="false"
+    >
+      <forward
+        name="edit"
+        path=".contact.edit"
+        redirect="false"
+      />
+      <forward
+        name="list"
+        path="/default.do"
+        redirect="false"
+      />
+      <forward
+        name="searchagain"
+        path="/searchContact.do"
+        redirect="false"
+      />
+      <forward
+        name="delete"
+        path="/deleteContact.do"
+        redirect="false"
+      />
+      <forward
+        name="reload"
+        path="/editContact.do?action=edit"
+        redirect="false"
+      />
+    </action>
+    <action
+      path="/storeUserConfig"
+      type="ch.ess.addressbook.web.userconfig.UserConfigEditAction"
+      name="userConfigForm"
+      scope="session"
+      input=".userconfig.edit"
+      parameter="store"
+      unknown="false"
+      validate="true"
+    >
+      <forward
+        name="success"
+        path=".userconfig.edit"
+        redirect="false"
+      />
+    </action>
+    <action
+      path="/editUserConfig"
+      type="ch.ess.addressbook.web.userconfig.UserConfigEditAction"
+      name="userConfigForm"
+      scope="session"
+      input=".userconfig.edit"
+      parameter="edit"
+      unknown="false"
+      validate="false"
+    >
+      <forward
+        name="success"
+        path=".userconfig.edit"
+        redirect="false"
+      />
+    </action>
+    <action
+      path="/storeConfig"
+      type="ch.ess.addressbook.web.config.ConfigEditAction"
+      name="configForm"
+      scope="session"
+      input=".config.edit"
+      roles="admin"
+      parameter="store"
+      unknown="false"
+      validate="true"
+    >
+      <forward
+        name="success"
+        path=".config.edit"
+        redirect="false"
+      />
+    </action>
+    <action
+      path="/editConfig"
+      type="ch.ess.addressbook.web.config.ConfigEditAction"
+      name="configForm"
+      scope="session"
+      input=".config.edit"
+      roles="admin"
+      parameter="edit"
+      unknown="false"
+      validate="false"
+    >
+      <forward
+        name="success"
+        path=".config.edit"
+        redirect="false"
+      />
+    </action>
+    <action
+      path="/showPicture"
+      type="ch.ess.addressbook.web.contact.ShowPictureAction"
+      unknown="false"
+      validate="false"
+    >
+    </action>
+    <action
+      path="/deleteCookie"
+      type="ch.ess.addressbook.web.userconfig.DeleteCookieAction"
+      name="nullForm"
+      scope="request"
+      unknown="false"
+      validate="false"
+    >
+      <forward
+        name="success"
+        path="/editUserConfig.do"
+        redirect="false"
+      />
+    </action>
+    <action
+      path="/listUser"
+      type="ch.ess.addressbook.web.user.UserListAction"
+      name="mapForm"
+      scope="session"
+      roles="admin"
+      unknown="false"
+      validate="false"
+    >
+      <forward
+        name="success"
+        path=".user.list"
+        redirect="false"
+      />
+    </action>
+    <action
+      path="/export"
+      type="ch.ess.addressbook.web.contact.ExportListeXLSAction"
+      unknown="false"
+      validate="false"
+    >
+    </action>
+    <action
+      path="/editUser"
+      type="ch.ess.addressbook.web.user.UserEditAction"
+      name="userForm"
+      scope="session"
+      input=".user.list"
+      roles="admin"
+      unknown="false"
+      validate="false"
+    >
+      <forward
+        name="edit"
+        path=".user.edit"
+        redirect="false"
+      />
+      <forward
+        name="list"
+        path="/listUser.do"
+        redirect="false"
+      />
+      <forward
+        name="delete"
+        path="/deleteUser.do"
+        redirect="false"
+      />
+      <forward
+        name="reload"
+        path="/editUser.do?action=edit"
+        redirect="false"
+      />
+    </action>
+    <action
+      path="/storeUser"
+      type="ch.ess.addressbook.web.user.UserEditAction"
+      name="userForm"
+      scope="session"
+      input=".user.edit"
+      roles="admin"
+      parameter="store"
+      unknown="false"
+      validate="true"
+    >
+      <forward
+        name="edit"
+        path=".user.edit"
+        redirect="false"
+      />
+      <forward
+        name="list"
+        path="/listUser.do"
+        redirect="false"
+      />
+      <forward
+        name="delete"
+        path="/deleteUser.do"
+        redirect="false"
+      />
+      <forward
+        name="reload"
+        path="/editUser.do?action=edit"
+        redirect="false"
+      />
+    </action>
+    <action
+      path="/deleteUser"
+      type="ch.ess.addressbook.web.user.UserEditAction"
+      roles="admin"
+      parameter="delete"
+      unknown="false"
+      validate="false"
+    >
+      <forward
+        name="edit"
+        path=".user.edit"
+        redirect="false"
+      />
+      <forward
+        name="list"
+        path="/listUser.do"
+        redirect="false"
+      />
+      <forward
+        name="delete"
+        path="/deleteUser.do"
+        redirect="false"
+      />
+      <forward
+        name="reload"
+        path="/editUser.do?action=edit"
+        redirect="false"
+      />
+    </action>
+
+       <action path="/default" forward=".default" />
+    <action path="/error" forward="/error.jsp"/>
+
+    <action path="/users" forward=".user.list" roles="admin"/>    
+  </action-mappings>
+
+    <controller nocache="true" debug="0"/>
+
+  <message-resources null="false" parameter="application"/>
+
+  <plug-in className="ch.ess.addressbook.resource.Init"/>
+  <plug-in className="ch.ess.addressbook.resource.InitQuartz"/>  
+  <plug-in className="ch.ess.addressbook.resource.InitLucene"/>  
+
+  <plug-in className="org.apache.struts.tiles.TilesPlugin" >
+    <set-property property="definitions-config" 
+	                 value="/WEB-INF/tiles-defs.xml,/WEB-INF/tiles-example-defs.xml" />
+    <set-property property="moduleAware" value="true" />
+    <set-property property="definitions-parser-validate" value="true" />
+  </plug-in>  
+  <plug-in className="org.apache.struts.validator.ValidatorPlugIn">
+    <set-property property="pathnames" value="/WEB-INF/validator-rules.xml,
+                                              /WEB-INF/validator-rules_app.xml,
+                                              /WEB-INF/validation.xml"/>
+  </plug-in> 
+  <plug-in className="com.fgm.web.menu.MenuPlugIn">
+    <set-property property="menuConfig" value="/WEB-INF/menu-config.xml"/>
+  </plug-in>     
+
+</struts-config>

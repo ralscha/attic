@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<resources>
+  <resource key="login.passwordmail.body">    
+    <description locale="en">Passwordmail Body</description>
+    <description locale="de">Passwortmail Text</description>        
+
+    <text locale="en"><![CDATA[Your new password is:
+
+  $!{password}
+
+Please change it after the next log in!
+]]>    
+    </text>  
+    <text locale="de"><![CDATA[Ihr neues Passwort lautet:
+    
+  $!{password}
+  
+Bitte bei der naechsten Anmeldung aendern!
+]]>    
+    </text>  
+       
+    <variable name="password">      
+      <description locale="en">New password</description>
+      <description locale="de">Neues Passwort</description>        
+    </variable>    
+    
+  </resource>
+  
+
+  <resource key="login.passwordmail.subject">    
+    <description locale="en">Passwordmail Subject</description>
+    <description locale="de">Passwortmail Subjekt</description>        
+
+    <text locale="en"><![CDATA[New password for Blank Web Application]]></text>  
+    <text locale="de"><![CDATA[Neues Passwort fuer Blank Web Applikation]]></text>  
+            
+  </resource>
+    
+    
+
+  <resource key="login.multiplemail.body">    
+    <description locale="en">Multiple Logons Mail Body</description>
+    <description locale="de">Mehrfache Anmeldeversuche Mail Text</description>        
+
+    <text locale="en"><![CDATA[User $!{user} (IP: $!{ip}) tried to login multiple times
+Number of tries: $!{tries}
+]]>    
+    </text>  
+    <text locale="de"><![CDATA[Benutzer $!{user} (IP: $!{ip}) hat mehrfach versucht sich anzumelden
+Anzahl Versuche: $!{tries}
+]]>    
+    </text>  
+       
+    <variable name="user">      
+      <description locale="en">User</description>
+      <description locale="de">Benutzer</description>        
+    </variable>    
+    <variable name="ip">      
+      <description locale="en">IP Address</description>
+      <description locale="de">IP Adresse</description>        
+    </variable>    
+    <variable name="tries">      
+      <description locale="en">Number of tries</description>
+      <description locale="de">Anzahl Versuche</description>        
+    </variable>    
+    
+  </resource>    
+
+  <resource key="login.multiplemail.subject">    
+    <description locale="en">Multiple Logons Mail Subject</description>
+    <description locale="de">Mehrfache Anmeldeversuche Mail Subjekt</description>        
+
+    <text locale="en"><![CDATA[Multiple Logon Tries]]></text>  
+    <text locale="de"><![CDATA[Mehrfache Anmeldungsversuche]]></text>  
+            
+  </resource>
+</resources>

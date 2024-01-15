@@ -1,0 +1,44 @@
+page-input {
+
+  .name {
+    margin-top: 15px;
+    font-size: 2.0em;
+    font-weight: bold;
+    text-align: center;
+  }
+
+  .jahrgang {
+    font-size: 1.4em;
+    text-align: center;
+  }
+
+  .ries {
+    margin-top: 15px;
+    margin-bottom: 20px;
+    font-size: 2.0em;
+    font-weight: bold;
+    text-align: center;
+    color: map-get($colors, 'primary')
+  }
+
+  .punkteWrapper {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .punkte {
+    font-size: 6em;
+    padding: 10px;
+    font-weight: bold;
+    text-align: center;
+    color: darkgreen;
+  }
+
+  .punkte.border {
+    border-style: solid;
+  }
+
+  .punkte.no {
+    background-color: lightgreen;
+  }
+}

@@ -1,0 +1,28 @@
+package ${finderPackage};
+
+import ch.ess.ct.business.db.*;
+import com.objectmatter.bsf.*;
+
+public class ${dbClassName}Finder {
+     
+  private OQuery query;
+  
+  public ${dbClassName}Finder() {
+    query = new OQuery(${dbClassName}.class);    
+  }
+  
+  public void setGeloescht(boolean flag) {
+    query.add(flag, "geloescht", OQuery.EQUAL);    
+  }
+  
+  public void setSearchString(String searchStr) {
+    if (searchStr != null) {
+      query.add("%" + searchStr + "%", "beschreibung", OQuery.LIKE, OQuery.AND, OQuery.BEG_PAR);
+      query.add("%" + searchStr + "%", "name", OQuery.LIKE, OQuery.OR, OQuery.END_PAR);
+    }  
+  }
+    
+  public ${dbClassName}[] execute(Database db) {
+    return (${dbClassName}[])query.execute(db);
+  }    
+}

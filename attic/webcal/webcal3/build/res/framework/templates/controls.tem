@@ -1,0 +1,1268 @@
+/* ==========================================
+** THIS FILE IS GENERATED WITH
+** THE CC-RESOURCEFACTORY TOOL.
+**
+** USER...........: ${user.name}
+** PAINTER........: ${painter}
+** BUILD-FACTORY..: ${build.factory}
+** BUILD-DATE.....: ${build.date}
+** BUILD-DIRECTORY: ${build.dir}
+** BUILD-FILE.....: ${build.file}
+**
+** DO NOT MODIFY!
+** ==========================================
+*/
+
+/* ==========================================
+** HeadlineControl
+**
+** Acronym's
+** ------------------------------------------
+** hdr = header
+** c   = caption
+** d   = detail
+** ==========================================
+*/
+
+.hdr .c {
+	font-family : ${header.font.label.family};
+	font-size : ${header.font.label.size};
+	font-weight : ${header.font.label.weight};
+	color: ${header.color.text.caption};
+	border-bottom: 1px solid ${header.color.border};
+	padding-left : 2px;
+	padding-bottom : 2px;
+}
+
+/* Detail */
+.hdr .d {
+	font-family : ${header.font.label.family};
+	font-size : ${header.font.label.size - 3};
+	font-weight : ${header.font.label.weight};
+	color: ${header.color.text.detail};
+}
+
+/* ==========================================
+** ListControl (with frame)
+**
+** Acronym's
+** ------------------------------------------
+** lc    = list control
+** lcb   = list control body
+** lch   = list control header
+** even  = even rows
+** evens = even rows selected
+** odd   = odd rows
+** odds  = odd rows selected
+** pg    = page thumb
+** pgsep = page thumb seperator
+** d     = detail
+** c     = caption
+** cl    = cell
+** ==========================================
+*/
+
+/* list control body */
+.lc .lcb INPUT {
+	font-family : ${list.font.body.family};
+	font-size : ${list.font.body.size};
+	font-weight : ${list.font.body.weight};
+	color: black;
+	background-color : ${list.color.bg.INPUT};
+}
+
+.lc .lcb SELECT {
+	font-family : ${list.font.body.family};
+	font-size : ${list.font.body.size};
+	font-weight : ${list.font.body.weight};
+	color: black;
+	background-color : ${list.color.bg.INPUT};
+}
+
+
+.lc .lcb TEXTAREA {
+	font-family : ${list.font.body.family};
+	font-size : ${list.font.body.size};
+	font-weight : ${list.font.body.weight};
+	color: black;
+	background-color : ${list.color.bg.INPUT};
+}
+
+.lc .lcb {
+	border-left: 1px solid ${list.color.border.body};
+	border-right: 1px solid ${list.color.border.body};
+	border-bottom: 1px solid ${list.color.border.body};
+	background-color : ${list.color.bg.body};
+	padding: 5px;
+}
+
+/* header (level 0) */
+.lc .lcb .header, .lc .lcb .header TD {
+	font-family : ${list.font.header.family};
+	font-size : ${list.font.header.size};
+	font-weight : ${list.font.header.weight};
+	background-color : ${list.color.bg.colheader};
+	color : ${list.color.text.colheader};
+	padding-left : 5px;
+	padding-right : 5px;
+	height : 20px;
+	vertical-align : middle;
+}
+
+.lc .lcb .header TD A {
+	color : ${list.color.text.colheader};
+}
+
+.lc .lcb .header SPAN {
+	font-family : ${list.font.header.family};
+	font-size : ${list.font.header.size};
+	font-weight : ${list.font.header.weight};
+	color : ${list.color.text.colheader};
+	vertical-align : middle;
+}
+
+/* header1 (level 1) */
+.lc .lcb .header1, .lc .lcb .header1 TD {
+	font-family : ${list.font.header.family};
+	font-size : ${list.font.header.size};
+	font-weight : ${list.font.header.weight};
+	background-color : ${list.color.bg.colheader1};
+	color : ${list.color.text.colheader1};
+	padding-left : 5px;
+	padding-right : 5px;
+	height : 18px;
+	vertical-align : middle;
+}
+
+.lc .lcb .header1 TD A {
+	color : ${list.color.text.colheader1};
+}
+
+.lc .lcb .header1 SPAN {
+	font-family : ${list.font.header.family};
+	font-size : ${list.font.header.size};
+	font-weight : normal;
+	color : ${list.color.text.colheader1};
+	vertical-align : middle;
+}
+
+/* header2 (level 2) */
+.lc .lcb .header2, .lc .lcb .header2 TD {
+	font-family : ${list.font.header.family};
+	font-size : ${list.font.header.size - 1};
+	font-weight : ${list.font.header.weight};
+	background-color : ${list.color.bg.colheader2};
+	color : ${list.color.text.colheader2};
+	padding-left : 5px;
+	padding-right : 5px;
+	height : 18px;
+	vertical-align : middle;
+}
+
+.lc .lcb .header2 TD A {
+	color : ${list.color.text.colheader2};
+}
+
+.lc .lcb .header2 SPAN {
+	font-family : ${list.font.header.family};
+	font-size : ${list.font.header.size - 1};
+	font-weight : normal;
+	color : ${list.color.text.colheader2};
+	vertical-align : middle;
+}
+
+/* even rows */
+.lc .lcb .even {
+	background-color : ${list.color.bg.even};
+}
+
+.lc .lcb .evens {
+	background-color : ${list.color.bg.evens};
+}
+
+.lc .lcb .even td, .lc .lcb .evens td {
+	font-family : ${list.font.row.family};
+	font-size : ${list.font.row.size};
+}
+
+.lc .lcb .even td.cl, .lc .lcb .evens td.cl {
+	padding-left : 5px;
+	padding-right : 5px;
+	height : 18px;
+}
+
+/* odd rows */
+.lc .lcb .odd  {
+	background-color : ${list.color.bg.odd};
+}
+
+.lc .lcb .odds  {
+	background-color : ${list.color.bg.odds};
+}
+
+.lc .lcb .odd  td, .lc .lcb .odds  td {
+	font-family : ${list.font.row.family};
+	font-size : ${list.font.row.size};
+}
+
+.lc .lcb .odd  td.cl, .lc .lcb .odds  td.cl {
+	padding-left : 5px;
+	padding-right : 5px;
+	height : 18px;
+}
+
+/* Hyperlinks */
+.lc .lcb tr td a {
+	font-family : ${list.font.row.family};
+	font-size : ${list.font.row.size};
+	text-decoration : none;
+	color : ${list.color.text.A};
+}
+
+/* list control header */
+.lc .lch {
+	font-family : ${list.font.header.family};
+	font-size : ${list.font.header.size - 1};
+	font-weight : ${list.font.header.weight};
+	color : ${list.color.text.header};
+	background-color : ${list.color.bg.header};
+	width : 100%;
+}
+
+/* Caption */
+.lc .lch .c {
+	font-family : ${list.font.header.family};
+	font-size : ${list.font.header.size};
+	font-weight : ${list.font.header.weight};
+	background-color : ${list.color.bg.header};
+	color: ${list.color.text.caption};
+}
+
+/* Detail */
+.lc .lch .d {
+	font-family : ${list.font.header.family};
+	font-size : ${list.font.header.size - 1};
+	font-weight : normal;
+	background-color : ${list.color.bg.header};
+	color: ${list.color.text.detail};
+}
+
+/* Page thumb */
+.lc .lch .pg {
+	font-family : ${list.font.header.family};
+	font-size : ${list.font.header.size};
+	font-weight : ${list.font.header.weight};
+	color : white;
+	text-decoration : underline;
+	cursor: pointer;
+	cursor: hand;		/* compatibility with IE < 6.0 */
+}
+
+/* Page seperator */
+.lc .lch .pgsep {
+	font-family : ${list.font.header.family};
+	font-size : ${list.font.header.size};
+	font-weight : ${list.font.header.weight};
+	color : white;
+}
+
+/* Page thumb */
+.lc .lch .pg:hover {
+}
+
+/* Page thumb selected */
+.lc .lch .pgs {
+	font-family : ${list.font.header.family};
+	font-size : ${list.font.header.size};
+	font-weight : ${list.font.header.weight};
+	color : ${selection.color.bg};
+	cursor: pointer;
+	cursor: hand;		/* compatibility with IE < 6.0 */
+	text-decoration : underline;
+}
+
+/* ==========================================
+** ListControl (without frame)
+**
+** Acronym's
+** ------------------------------------------
+** lc_nf = list control without frame
+** lcb   = list control body
+** lch   = list control header
+** even  = even rows
+** evens = even rows selected
+** odd   = odd rows
+** odds  = odd rows selected
+** pg    = page thumb
+** pgsep = page thumb seperator
+** d     = detail
+** c     = caption
+** cl    = cell
+** ==========================================
+*/
+
+/* list control body */
+.lc_nf .lcb INPUT {
+	font-family : ${list.font.body.family};
+	font-size : ${list.font.body.size};
+	font-weight : ${list.font.body.weight};
+	color: black;
+	background-color : ${list.color.bg.INPUT};
+}
+
+.lc_nf .lcb SELECT {
+	font-family : ${list.font.body.family};
+	font-size : ${list.font.body.size};
+	font-weight : ${list.font.body.weight};
+	color: black;
+	background-color : ${list.color.bg.INPUT};
+}
+
+.lc_nf .lcb TEXTAREA {
+	font-family : ${list.font.body.family};
+	font-size : ${list.font.body.size};
+	font-weight : ${list.font.body.weight};
+	color: black;
+	background-color : ${list.color.bg.INPUT};
+}
+
+.lc_nf .lcb {
+	background-color : ${list.color.bg.body};
+}
+
+/* header (level 0) */
+.lc_nf .lcb .header, .lc_nf .lcb .header TD {
+	font-family : ${list.font.header.family};
+	font-size : ${list.font.header.size};
+	font-weight : ${list.font.header.weight};
+	background-color : ${list.color.bg.colheader};
+	color : ${list.color.text.colheader};
+	padding-left : 5px;
+	padding-right : 5px;
+	height : 20px;
+	vertical-align : middle;
+}
+
+.lc_nf .lcb .header TD A {
+	color : ${list.color.text.colheader};
+}
+
+.lc_nf .lcb .header SPAN {
+	font-family : ${list.font.header.family};
+	font-size : ${list.font.header.size};
+	font-weight : ${list.font.header.weight};
+	color : ${list.color.text.colheader};
+	vertical-align : middle;
+}
+
+/* header1 (level 1) */
+.lc_nf .lcb .header1, .lc_nf .lcb .header1 TD {
+	font-family : ${list.font.header.family};
+	font-size : ${list.font.header.size};
+	font-weight : ${list.font.header.weight};
+	background-color : ${list.color.bg.colheader1};
+	color : ${list.color.text.colheader1};
+	padding-left : 5px;
+	padding-right : 5px;
+	height : 18px;
+	vertical-align : middle;
+}
+
+.lc_nf .lcb .header1 TD A {
+	color : ${list.color.text.colheader1};
+}
+
+.lc_nf .lcb .header1 SPAN {
+	font-family : ${list.font.header.family};
+	font-size : ${list.font.header.size};
+	font-weight : normal;
+	color : ${list.color.text.colheader1};
+	vertical-align : middle;
+}
+
+/* header2 (level 2) */
+.lc_nf .lcb .header2, .lc_nf .lcb .header2 TD {
+	font-family : ${list.font.header.family};
+	font-size : ${list.font.header.size - 1};
+	font-weight : ${list.font.header.weight};
+	background-color : ${list.color.bg.colheader2};
+	color : ${list.color.text.colheader2};
+	padding-left : 5px;
+	padding-right : 5px;
+	height : 18px;
+	vertical-align : middle;
+}
+
+.lc_nf .lcb .header2 TD A {
+	color : ${list.color.text.colheader2};
+}
+
+.lc_nf .lcb .header2 SPAN {
+	font-family : ${list.font.header.family};
+	font-size : ${list.font.header.size - 1};
+	font-weight : normal;
+	color : ${list.color.text.colheader2};
+	vertical-align : middle;
+}
+
+/* even rows */
+.lc_nf .lcb .even {
+	background-color : ${list.color.bg.even};
+}
+
+.lc_nf .lcb .evens {
+	background-color : ${list.color.bg.evens};
+}
+
+.lc_nf .lcb .even td, .lc_nf .lcb .evens td {
+	font-family : ${list.font.row.family};
+	font-size : ${list.font.row.size};
+}
+
+.lc_nf .lcb .even td.cl, .lc_nf .lcb .evens td.cl {
+	padding-left : 5px;
+	padding-right : 5px;
+	height : 18px;
+}
+
+/* odd rows */
+.lc_nf .lcb .odd  {
+	background-color : ${list.color.bg.odd};
+}
+
+.lc_nf .lcb .odds  {
+	background-color : ${list.color.bg.odds};
+}
+
+.lc_nf .lcb .odd  td, .lc_nf .lcb .odds  td {
+	font-family : ${list.font.row.family};
+	font-size : ${list.font.row.size};
+}
+
+.lc_nf .lcb .odd  td.cl, .lc_nf .lcb .odds  td.cl {
+	padding-left : 5px;
+	padding-right : 5px;
+	height : 18px;
+}
+
+/* Hyperlinks */
+.lc_nf .lcb tr td a {
+	font-family : ${list.font.row.family};
+	font-size : ${list.font.row.size};
+	text-decoration : none;
+	color : ${list.color.text.A};
+}
+
+/* list control header */
+.lc_nf .lch {
+	font-family : ${list.font.header.family};
+	font-size : ${list.font.header.size - 1};
+	font-weight : ${list.font.header.weight};
+	color : ${list.color.text.header};
+	width : 100%;
+	padding: 2px;
+	margin-bottom: 2px;
+}
+
+/* Caption */
+.lc_nf .lch .c {
+	font-family : ${list.font.header.family};
+	font-size : ${list.font.header.size};
+	font-weight : ${list.font.header.weight};
+	background-color : ${list.color.bg.header};
+	color: ${list.color.text.caption};
+}
+
+/* Detail */
+.lc_nf .lch .d {
+	font-family : ${list.font.header.family};
+	font-size : ${list.font.header.size - 1};
+	font-weight : normal;
+	background-color : ${list.color.bg.header};
+	color: ${list.color.text.detail};
+}
+
+/* Page thumb */
+.lc_nf .lch .pg {
+	font-family : ${list.font.header.family};
+	font-size : ${list.font.header.size};
+	font-weight : ${list.font.header.weight};
+	color : black;
+	text-decoration : underline;
+	cursor: pointer;
+	cursor: hand;		/* compatibility with IE < 6.0 */
+}
+
+/* Page seperator */
+.lc_nf .lch .pgsep {
+	font-family : ${list.font.header.family};
+	font-size : ${list.font.header.size};
+	font-weight : ${list.font.header.weight};
+	color : black;
+}
+
+/* Page thumb */
+.lc_nf .lch .pg:hover {
+}
+
+/* Page thumb selected */
+.lc_nf .lch .pgs {
+	font-family : ${list.font.header.family};
+	font-size : ${list.font.header.size};
+	font-weight : ${list.font.header.weight};
+	color : ${selection.color.bg};
+	cursor: pointer;
+	cursor: hand;		/* compatibility with IE < 6.0 */
+	text-decoration : underline;
+}
+
+/* ==========================================
+** TreeListControl
+**
+** Acronym's
+** ------------------------------------------
+** tlc    = tree list control
+** tlcb   = tree list control body
+** tlch   = tree list control header
+** even  = even rows
+** evens = even rows selected
+** odd   = odd rows
+** odds  = odd rows selected
+** pg    = page thumb
+** pgsep = page thumb seperator
+** d     = detail
+** c     = caption
+** cl    = cell
+** ti    = tree item
+** feact = act as formelement
+** ==========================================
+*/
+
+/* Treelist Control Body */
+.tlc .tlcb INPUT {
+	font-family : ${list.font.body.family};
+	font-size : ${list.font.body.size};
+	font-weight : ${list.font.body.weight};
+	color: black;
+	background-color : ${list.color.bg.INPUT};
+}
+
+.tlc .tlcb SELECT {
+	font-family : ${list.font.body.family};
+	font-size : ${list.font.body.size};
+	font-weight : ${list.font.body.weight};
+	color: black;
+	background-color : ${list.color.bg.INPUT};
+}
+
+.tlc .tlcb TEXTAREA {
+	font-family : ${list.font.body.family};
+	font-size : ${list.font.body.size};
+	font-weight : ${list.font.body.weight};
+	color: black;
+	background-color : ${list.color.bg.INPUT};
+}
+
+.tlc .tlcb {
+	border-left: 1px solid ${list.color.border.body};
+	border-right: 1px solid ${list.color.border.body};
+	border-bottom: 1px solid ${list.color.border.body};
+	background-color : ${list.color.bg.body};
+	padding: 5px;
+}
+
+/* header (level 0) */
+.tlc .tlcb .header, .tlc .tlcb .header TD, .tlc .tlcb .header TD A {
+	font-family : ${list.font.header.family};
+	font-size : ${list.font.header.size};
+	font-weight : ${list.font.header.weight};
+	background-color : ${list.color.bg.colheader};
+	color : ${list.color.text.colheader};
+	padding-left : 5px;
+	padding-right : 5px;
+	height : 20px;
+	vertical-align : middle;
+}
+
+/* header1 (level 1) */
+.tlc .tlcb .header1, .tlc .tlcb .header1 TD, .tlc .tlcb .header1 TD A {
+	font-family : ${list.font.header.family};
+	font-size : ${list.font.header.size};
+	font-weight : ${list.font.header.weight};
+	background-color : ${list.color.bg.colheader1};
+	color : ${list.color.text.colheader1};
+	padding-left : 5px;
+	padding-right : 5px;
+	height : 20px;
+	vertical-align : middle;
+}
+
+/* header2 (level 2) */
+.tlc .tlcb .header2, .tlc .tlcb .header2 TD, .tlc .tlcb .header2 TD A {
+	font-family : ${list.font.header.family};
+	font-size : ${list.font.header.size - 1};
+	font-weight : ${list.font.header.weight};
+	background-color : ${list.color.bg.colheader2};
+	color : ${list.color.text.colheader2};
+	padding-left : 5px;
+	padding-right : 5px;
+	height : 20px;
+	vertical-align : middle;
+}
+
+/* even rows */
+.tlc .tlcb .even {
+	background-color : ${list.color.bg.even};
+}
+
+.tlc .tlcb .evens {
+	background-color : ${list.color.bg.evens};
+}
+
+.tlc .tlcb .even td, .tlc .tlcb .evens td {
+	font-family : ${list.font.row.family};
+	font-size : ${list.font.row.size};
+}
+
+.tlc .tlcb .even td.cl, .tlc .tlcb .evens td.cl {
+	padding-left : 5px;
+	padding-right : 5px;
+	height : 18px;
+}
+
+/* even row tree column */
+.tlc .tlcb .even tr td, .tlc .tlcb .evens tr td {
+	padding-left : 0px;
+	padding-right : 0px;
+}
+
+/* odd rows */
+.tlc .tlcb .odd  {
+	background-color : ${list.color.bg.odd};
+}
+
+.tlc .tlcb .odds  {
+	background-color : ${list.color.bg.odds};
+}
+
+.tlc .tlcb .odd  td, .tlc .tlcb .odds  td {
+	font-family : ${list.font.row.family};
+	font-size : ${list.font.row.size};
+}
+
+.tlc .tlcb .odd  td.cl, .tlc .tlcb .odds  td.cl {
+	padding-left : 5px;
+	padding-right : 5px;
+	height : 18px;
+}
+
+.tlc .tlcb .ti .feact {
+	font-family : ${list.font.row.family};
+	font-size : ${list.font.row.size};
+	padding-left : 6px;
+	color: blue;
+	cursor: pointer;
+	cursor: hand;		/* compatibility with IE < 6.0 */
+}
+
+/* odd row tree column */
+.tlc .tlcb .odd tr td, .tlc .tlcb .odds tr td {
+	padding-left : 0px;
+	padding-right : 0px;
+}
+
+/* Hyperlinks */
+.tlc .tlcb tr td a {
+	font-family : ${list.font.row.family};
+	font-size : ${list.font.row.size};
+	text-decoration : none;
+	color : ${list.color.text.A};
+}
+
+/* Treelist Control Header */
+.tlc .tlch {
+	font-family : ${list.font.header.family};
+	font-size : ${list.font.header.size - 1};
+	font-weight : ${list.font.header.weight};
+	color : ${list.color.text.header};
+	background-color : ${list.color.bg.header};
+	width : 100%;
+}
+
+/* Caption */
+.tlc .tlch .c {
+	font-family : ${list.font.header.family};
+	font-size : ${list.font.header.size};
+	font-weight : ${list.font.header.weight};
+	background-color : ${list.color.bg.header};
+	color: ${list.color.text.caption};
+}
+
+/* Detail */
+.tlc .tlch .d {
+	font-family : ${list.font.header.family};
+	font-size : ${list.font.header.size - 1};
+	font-weight : normal;
+	background-color : ${list.color.bg.header};
+	color: ${list.color.text.detail};
+}
+
+/* Page thumb */
+.tlc .tlch .pg {
+	font-family : ${list.font.header.family};
+	font-size : ${list.font.header.size};
+	font-weight : ${list.font.header.weight};
+	color : white;
+	text-decoration : underline;
+	cursor: pointer;
+	cursor: hand;		/* compatibility with IE < 6.0 */
+}
+
+/* Page seperator */
+.tlc .tlch .pgsep {
+	font-family : ${list.font.header.family};
+	font-size : ${list.font.header.size};
+	font-weight : ${list.font.header.weight};
+	color : white;
+}
+
+/* Page thumb */
+.tlc .tlch .pg:hover {
+}
+
+/* Page thumb selected */
+.tlc .tlch .pgs {
+	font-family : ${list.font.header.family};
+	font-size : ${list.font.header.size};
+	font-weight : ${list.font.header.weight};
+	color : ${selection.color.bg};
+	cursor: pointer;
+	cursor: hand;		/* compatibility with IE < 6.0 */
+	text-decoration : underline;
+}
+
+/* ==========================================
+** TreeListControl (without frame)
+**
+** Acronym's
+** ------------------------------------------
+** tlc_nf = tree list control without frame
+** tlcb   = tree list control body
+** tlch   = tree list control header
+** even   = even rows
+** evens  = even rows selected
+** odd    = odd rows
+** odds   = odd rows selected
+** pg     = page thumb
+** pgsep  = page thumb seperator
+** d      = detail
+** c      = caption
+** cl    = cell
+** ti     = tree item
+** feact  = act as formelement
+** ==========================================
+*/
+
+/* Treelist Control Body */
+.tlc_nf .tlcb INPUT {
+	font-family : ${list.font.body.family};
+	font-size : ${list.font.body.size};
+	font-weight : ${list.font.body.weight};
+	color: black;
+	background-color : ${list.color.bg.INPUT};
+}
+
+.tlc_nf .tlcb SELECT {
+	font-family : ${list.font.body.family};
+	font-size : ${list.font.body.size};
+	font-weight : ${list.font.body.weight};
+	color: black;
+	background-color : ${list.color.bg.INPUT};
+}
+
+.tlc_nf .tlcb TEXTAREA {
+	font-family : ${list.font.body.family};
+	font-size : ${list.font.body.size};
+	font-weight : ${list.font.body.weight};
+	color: black;
+	background-color : ${list.color.bg.INPUT};
+}
+
+.tlc_nf .tlcb {
+	background-color : ${list.color.bg.body};
+}
+
+/* header (level 0) */
+.tlc_nf .tlcb .header, .tlc_nf .tlcb .header TD, .tlc_nf .tlcb .header TD A {
+	font-family : ${list.font.header.family};
+	font-size : ${list.font.header.size};
+	font-weight : ${list.font.header.weight};
+	background-color : ${list.color.bg.colheader};
+	color : ${list.color.text.colheader};
+	padding-left : 5px;
+	padding-right : 5px;
+	height : 20px;
+	vertical-align : middle;
+}
+
+/* header1 (level 1) */
+.tlc_nf .tlcb .header1, .tlc_nf .tlcb .header1 TD, .tlc_nf .tlcb .header1 TD A {
+	font-family : ${list.font.header.family};
+	font-size : ${list.font.header.size};
+	font-weight : ${list.font.header.weight};
+	background-color : ${list.color.bg.colheader1};
+	color : ${list.color.text.colheader1};
+	padding-left : 5px;
+	padding-right : 5px;
+	height : 20px;
+	vertical-align : middle;
+}
+
+/* header2 (level 2) */
+.tlc_nf .tlcb .header2, .tlc_nf .tlcb .header2 TD, .tlc_nf .tlcb .header2 TD A {
+	font-family : ${list.font.header.family};
+	font-size : ${list.font.header.size - 1};
+	font-weight : ${list.font.header.weight};
+	background-color : ${list.color.bg.colheader2};
+	color : ${list.color.text.colheader2};
+	padding-left : 5px;
+	padding-right : 5px;
+	height : 20px;
+	vertical-align : middle;
+}
+
+/* even rows */
+.tlc_nf .tlcb .even {
+	background-color : ${list.color.bg.even};
+}
+
+.tlc_nf .tlcb .evens {
+	background-color : ${list.color.bg.evens};
+}
+
+.tlc_nf .tlcb .even td, .tlc_nf .tlcb .evens td {
+	font-family : ${list.font.row.family};
+	font-size : ${list.font.row.size};
+}
+
+.tlc_nf .tlcb .even td.cl, .tlc_nf .tlcb .evens td.cl {
+	padding-left : 5px;
+	padding-right : 5px;
+	height : 18px;
+}
+
+/* even row tree column */
+.tlc_nf .tlcb .even tr td, .tlc_nf .tlcb .evens tr td {
+	padding-left : 0px;
+	padding-right : 0px;
+}
+
+/* odd rows */
+.tlc_nf .tlcb .odd  {
+	background-color : ${list.color.bg.odd};
+}
+
+.tlc_nf .tlcb .odds  {
+	background-color : ${list.color.bg.odds};
+}
+
+.tlc_nf .tlcb .odd  td, .tlc_nf .tlcb .odds  td {
+	font-family : ${list.font.row.family};
+	font-size : ${list.font.row.size};
+}
+
+.tlc_nf .tlcb .odd  td.cl, .tlc_nf .tlcb .odds  td.cl {
+	padding-left : 5px;
+	padding-right : 5px;
+	height : 18px;
+}
+
+.tlc_nf .tlcb .ti .feact {
+	font-family : ${list.font.row.family};
+	font-size : ${list.font.row.size};
+	padding-left : 6px;
+	color: blue;
+	cursor: pointer;
+	cursor: hand;		/* compatibility with IE < 6.0 */
+}
+
+/* odd row tree column */
+.tlc_nf .tlcb .odd tr td, .tlc_nf .tlcb .odds tr td {
+	padding-left : 0px;
+	padding-right : 0px;
+}
+
+/* Hyperlinks */
+.tlc_nf .tlcb tr td a {
+	font-family : ${list.font.row.family};
+	font-size : ${list.font.row.size};
+	text-decoration : none;
+	color : ${list.color.text.A};
+}
+
+/* Treelist Control Header */
+.tlc_nf .tlch {
+	font-family : ${list.font.header.family};
+	font-size : ${list.font.header.size - 1};
+	font-weight : ${list.font.header.weight};
+	color : ${list.color.text.header};
+	width : 100%;
+	padding: 2px;
+	margin-bottom: 2px;
+}
+
+/* Caption */
+.tlc_nf .tlch .c {
+	font-family : ${list.font.header.family};
+	font-size : ${list.font.header.size};
+	font-weight : ${list.font.header.weight};
+	background-color : ${list.color.bg.header};
+	color: ${list.color.text.caption};
+}
+
+/* Detail */
+.tlc_nf .tlch .d {
+	font-family : ${list.font.header.family};
+	font-size : ${list.font.header.size - 1};
+	font-weight : normal;
+	background-color : ${list.color.bg.header};
+	color: ${list.color.text.detail};
+}
+
+/* Page thumb */
+.tlc_nf .tlch .pg {
+	font-family : ${list.font.header.family};
+	font-size : ${list.font.header.size};
+	font-weight : ${list.font.header.weight};
+	color : black;
+	text-decoration : underline;
+	cursor: pointer;
+	cursor: hand;		/* compatibility with IE < 6.0 */
+}
+
+/* Page seperator */
+.tlc_nf .tlch .pgsep {
+	font-family : ${list.font.header.family};
+	font-size : ${list.font.header.size};
+	font-weight : ${list.font.header.weight};
+	color : black;
+}
+
+/* Page thumb */
+.tlc_nf .tlch .pg:hover {
+}
+
+/* Page thumb selected */
+.tlc_nf .tlch .pgs {
+	font-family : ${list.font.header.family};
+	font-size : ${list.font.header.size};
+	font-weight : ${list.font.header.weight};
+	color : ${selection.color.bg};
+	cursor: pointer;
+	cursor: hand;		/* compatibility with IE < 6.0 */
+	text-decoration : underline;
+}
+
+/* ==========================================
+** TabsetControl
+**
+** Acronym's
+** ------------------------------------------
+** tsc           = TabSet Control
+** sel           = selected
+** unsel         = not selected
+** body          = body
+** disabled      = disabled
+** tabScrollBtnL = scroll button left
+** tabScrollBtnR = scroll button right
+** tabDetail     = detail
+** ==========================================
+*/
+
+.tsc  {
+	font-family : ${tabset.font.label.family};
+	font-size : ${tabset.font.label.size};
+	font-weight : ${tabset.font.label.weight};
+	color: ${tabset.color.text};
+}
+
+.tsc .sel, .tsc .sel A {
+	color: ${tabset.color.text.sel};
+	cursor : pointer;
+	cursor: hand;		/* compatibility with IE < 6.0 */
+	vertical-align : middle;
+}
+
+.tsc .body {
+	background-color : ${tabset.color.bg.level1};
+	border-left : 1px solid ${tabset.color.border};
+	border-right : 1px solid ${tabset.color.border};
+	border-bottom : 1px solid ${tabset.color.border};
+}
+
+.tsc .unsel, .tsc .unsel A {
+	color: ${tabset.color.text.unsel};
+	cursor : pointer;
+	cursor: hand;		/* compatibility with IE < 6.0 */
+	vertical-align : middle;
+}
+
+.tsc .disabled {
+	color: ${tabset.color.bg.disabled};
+	vertical-align : middle;
+}
+
+.tsc .tabScrollBtnL {
+	padding-left: 3px;
+	padding-top: 6px;
+	padding-right: 1px;
+	vertical-align : baseline;
+}
+
+.tsc .tabScrollBtnR {
+	padding-top: 6px;
+	padding-left: 0px;
+	padding-right: 3px;
+	vertical-align : baseline;
+}
+
+.tsc .tabDetail{
+	font-weight: normal;
+	padding-left: 20px;
+}
+
+/* Hyperlinks */
+.tsc a {
+	font-family : ${tabset.font.label.family};
+	font-size : ${tabset.font.label.size};
+	text-decoration : none;
+	color : blue;
+}
+
+
+/* ==========================================
+** TreeControl
+**
+** Acronym's
+** ------------------------------------------
+** tc     = TreeControl
+** tlodd  = odd row
+** tleven = even row
+** ti     = tree item
+** tis    = selected tree item
+** tol    = outline
+** ==========================================
+*/
+
+/* TreeControl */
+.tc {
+	font-family : ${tree.font.label.family};
+	font-size : ${tree.font.label.size};
+	font-weight : ${tree.font.label.weight};
+	border : none;
+}
+
+.tc TD {
+	border : none;
+}
+
+/* odd rows */
+.tc .tlodd TR {
+	font-family : ${tree.font.label.family};
+	font-size : ${tree.font.label.size};
+	font-weight : ${tree.font.label.weight};
+	background-color : ${tree.color.bg.odd};
+}
+
+.tc .tlodd TD {
+	border-bottom : 1px solid ${tree.color.border};
+}
+
+/* even rows */
+.tc .tleven TR {
+	font-family : ${tree.font.label.family};
+	font-size : ${tree.font.label.size};
+	font-weight : ${tree.font.label.weight};
+	background-color : ${tree.color.bg.even};
+	border : none;
+}
+
+.tc .tleven TD {
+	border-bottom : 1px solid  ${tree.color.border};
+}
+
+
+/* Tree Control Item */
+.ti {
+	width : 100%;
+	padding-left : 4px;
+}
+
+.ti A {
+	color : ${tree.color.text.A};
+	padding-left : 4px;
+	text-decoration : none;
+}
+
+/* Selected Tree Control Item */
+.tis {
+	width : 100%;
+	padding-left : 4px;
+	background-color : ${tree.color.bg.sel};
+}
+
+.tis A {
+	font-weight : ${tree.font.label.weight};
+	color : ${tree.color.text.A.sel};
+	padding-left : 4px;
+	text-decoration : none;
+}
+
+/* Tree Outline */
+.tol TD  {
+	padding-left : 0;
+}
+
+/* ==========================================
+** Syle Textbutton
+**
+** Acronym's
+** ------------------------------------------
+** tbtn = Textbutton
+** ==========================================
+*/
+
+.tbtn {
+	font-family : ${button.font.label.family};
+	font-size : ${button.font.label.size};
+	font-weight: ${button.font.label.weight};
+	cursor: pointer;
+	cursor: hand;		/* compatibility with IE < 6.0 */
+}
+
+/* ==========================================
+** Syle Swap Select
+**
+** Acronym's
+** ------------------------------------------
+** sws = SwapSelect
+** ==========================================
+*/
+
+.sws {
+	font-family : ${swap.font.label.family};
+}
+
+.sws select.left {
+	width : 100%;
+}
+
+.sws select.right {
+	width : 100%;
+}
+
+.sws .label_left {
+	font-size : ${swap.font.label.size};
+	font-weight : ${swap.font.label.weight};
+	padding-left: 3px;
+	height: 12px;
+}
+
+.sws .label_right {
+	font-size : ${swap.font.label.size};
+	font-weight : ${swap.font.label.weight};
+	padding-left: 3px;
+	height: 12px;
+}
+
+.sws .swsbtnh {
+	width: 40px;
+}
+
+.sws .swsbtnv {
+	height: 40px;
+}
+
+.sws .swsbtnh TD {
+	padding: 7px;
+}
+
+.sws .swsbtnv TD {
+	padding-left: 7px;
+	padding-right: 7px;
+}
+
+/* ==========================================
+** StyleSheet for the gauge control
+**
+** Acronym's
+** ------------------------------------------
+** gauge  : Gauge Control
+** ==========================================
+*/
+.gauge {
+	font-family: ${gauge.font.label.family};
+	font-size: ${gauge.font.label.size};
+}
+
+/* ==========================================
+** Syles for setting formElement="true"
+**
+** Acronym's
+** ------------------------------------------
+** feact  = act as formelement
+** lch    = ListControl Header
+** lcb    = ListControl Body
+** tlch   = TreeLisControl Header
+** tlcb   = TreeLisControl Body
+** tc     = TreeControl
+** ti     = tree item
+** tis    = tree item selected
+** tsc    = TabSetControl
+** ==========================================
+*/
+
+/* List - links header */
+.lch .feact {
+	cursor: pointer;
+	cursor: hand;		/* compatibility with IE < 6.0 */
+}
+
+/* List - links body */
+.lcb .feact {
+	cursor: pointer;
+	cursor: hand;		/* compatibility with IE < 6.0 */
+	color: blue;
+}
+
+/* TreeList - links header */
+.tlch .feact {
+	cursor: pointer;
+	cursor: hand;		/* compatibility with IE < 6.0 */
+}
+
+/* TreeList - links body */
+.tlcb .feact {
+	cursor: pointer;
+	cursor: hand;		/* compatibility with IE < 6.0 */
+	color: blue;
+}
+
+/* Tree - links */
+.tc .feact {
+	cursor: pointer;
+	cursor: hand;		/* compatibility with IE < 6.0 */
+}
+
+/* Tree - label */
+.tc .ti .feact, .tc .tis .feact {
+	padding-left: 3px;
+	cursor: pointer;
+	cursor: hand;		/* compatibility with IE < 6.0 */
+}
+
+/* TabSet */
+.tsc .feact {
+	cursor: pointer;
+	cursor: hand;		/* compatibility with IE < 6.0 */
+}

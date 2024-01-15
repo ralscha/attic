@@ -1,0 +1,14 @@
+<!--\#include file="include/head_gutotal.shtml"-->
+<!--\#include file="include/body.shtml"-->
+<br>
+<p class="subTitle">Gerade / Ungerade</p>
+<p class="nr">Total</p>
+<br>
+<table border="1" class="tableContents">
+<tr><th></th><th class="tableHeader">Gerade</th><th class="tableHeader">Ungerade</th></tr>
+<tr><th class="tableRowHeader">alle Ausspielungen</th><td align=right class="text">$galle ($pgalle)</td><td align=right class="text">$ualle ($pualle)</td></tr>
+<tr><th class="tableRowHeader">ab Ausspielung Nr. 14/1979</th><td align=right class="text">$g1479 ($pg1479)</td><td align=right class="text">$u1479 ($pu1479)</td></tr>
+<tr><th class="tableRowHeader">ab Ausspielung Nr. 1/1986</th><td align=right class="text">$g186 ($pg186)</td><td align=right class="text">$u186 ($pu186)</td></tr>
+<tr><th class="tableRowHeader">ab Ausspielung Nr. 1/1997</th><td align=right class="text">$g1997 ($pg1997)</td><td align=right class="text">$u1997 ($pu1997)</td></tr>
+</table>
+<!--\#include file="include/tail.shtml"-->

@@ -1,0 +1,43 @@
+<!--\#include file="include/head_aktuelle.shtml"-->
+<!--\#include file="include/body.shtml"--> 
+<br>
+<p class="subTitle">$datelong</p>
+<p class="nr">Nr. $nr/$year</p>
+<br>
+<table width="70%" border="0">
+<tr>
+  <td width="16%" align="CENTER" class="silverBackground">$zahl1</td>
+  <td width="16%" align="CENTER" class="silverBackground">$zahl2</td>
+  <td width="16%" align="CENTER" class="silverBackground">$zahl3</td>
+  <td width="16%" align="CENTER" class="silverBackground">$zahl4</td>
+  <td width="16%" align="CENTER" class="silverBackground">$zahl5</td>
+  <td width="16%" align="CENTER" class="silverBackground">$zahl6</td>
+</tr>
+</table>
+<br>
+<table border="0">
+<tr>
+<td class="zz">Zusatzzahl</td>
+<td> </td>
+<td align="CENTER" class="silverBackgroundN">$zz</td> 
+</tr>
+<tr>
+<td class="zz">Joker</td>
+<td> </td>
+<td align="RIGHT" class="silverBackgroundN">$joker</td> 
+</tr>
+<tr>
+<td class="zz">ExtraJoker</td>
+<td> </td>
+<td align="RIGHT" class="silverBackgroundN">$extrajoker</td> 
+</tr>
+</table>
+<br>
+<br>
+<br>
+<br>
+<p class="textb"><a href="http://www.swisslotto.ch/" target="_blank">Online Lotto spielen</a></p>
+<p>&nbsp;</p>
+
+
+<!--\#include file="include/tail.shtml"-->

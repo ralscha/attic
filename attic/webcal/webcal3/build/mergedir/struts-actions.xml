@@ -1,0 +1,6 @@
+    <action path="/default" unknown="false" forward="/default.jsp" roles="all"/>
+    <action path="/error" forward="/error.jsp"/>
+        
+    
+    <action path="/loginTo" forward="/login.jsp" name="loginForm" scope="request" input="/login.jsp" unknown="false" validate="false"/>
+    <action path="/loginCookie" forward="/logincookie.jsp"/>    

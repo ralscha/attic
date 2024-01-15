@@ -1,0 +1,41 @@
+<!--#include file="include/head_aktuelle.shtml"-->
+<!--#include file="include/body.shtml"--> 
+<br>
+<p class="subTitle">%%datelong%%</p>
+<p class="nr">Nr. %%nr%%/%%year%%</p>
+<br>
+<table width="70%" border="0">
+<tr>
+  <td align="CENTER" class="silverBackground">%%zahl1%%</td>
+  <td align="CENTER" class="silverBackground">%%zahl2%%</td>
+  <td align="CENTER" class="silverBackground">%%zahl3%%</td>
+  <td align="CENTER" class="silverBackground">%%zahl4%%</td>
+  <td align="CENTER" class="silverBackground">%%zahl5%%</td>
+  <td align="CENTER" class="silverBackground">%%zahl6%%</td>
+</tr>
+</table>
+<br>
+<table border="0">
+<tr>
+<td class="zz">Zusatzzahl</td>
+<td> </td>
+<td align="CENTER" class="silverBackgroundN">%%zz%%</td> 
+</tr>
+<tr>
+<td class="zz">Joker</td>
+<td> </td>
+<td align="RIGHT" class="silverBackgroundN">%%joker%%</td> 
+</tr>
+</table>
+<br>
+<br>
+<br>
+<br>
+<p class="textb">Jetzt m&ouml;glich: <a href="http://www.swisslotto.ch/" target="_blank">Online Lotto spielen</a></p>
+<table width="70%" border="0">
+<tr><td colspan="2"><hr color="Blue"></td></tr>
+<tr><td align="left"><a href="http://www.6richtige.ch" class="text" target="_blank"><img src="6Ri_smal.gif" width="95" height="33" border="0" alt="www.6richtige.ch"></a></td>
+<td align="right"><a href="http://www.vargasoft.ch/" class="text" target="_blank"><img src="signt_va1.gif" width=95 height=33 border=0 alt="www.vargasoft.ch"></a></td></tr>
+<tr><td colspan="2"><hr color="Blue"></td></tr>
+</table>		
+<!--#include file="include/tail.shtml"-->

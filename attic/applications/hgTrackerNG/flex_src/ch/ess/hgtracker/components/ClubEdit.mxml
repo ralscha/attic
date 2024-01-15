@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Panel xmlns:mx="http://www.adobe.com/2006/mxml" width="512" title="Club" 
+  layout="absolute" height="434" creationComplete="init()">
+  
+  <mx:Script>
+    <![CDATA[
+      import mx.controls.Alert;
+      import mx.rpc.events.ResultEvent;
+      import ch.ess.hgtracker.db.Club;
+           
+      [Bindable]
+      public var club:Club;
+      
+      private var validators:Array;
+      
+      private function init():void {
+        hgNameText.setFocus();
+        
+        validators = [hgNameTextValidator, usernameTextValidator, passwordTextValidator, punkteMsTextValidator];                       
+        checkButtonEnable();    
+      }
+      
+      private function save():void {
+        club.hgName = hgNameText.text;
+        club.praesident = praesidentText.text;
+        club.strasse = strasseText.text;
+        club.plz = plzText.text;
+        club.ort = ortText.text;
+        club.benutzername = usernameText.text;
+        club.passwort = passwordText.text;
+        club.punkteMS = Number(punkteMsText.text);
+        
+        clubService.update(club);
+      }
+      
+      public function checkButtonEnable():void {
+        saveButton.enabled = validInput();
+      }
+        
+      private function validInput():Boolean {
+        var errors:Array = Validator.validateAll(validators);
+        return (errors.length == 0);        
+      }  
+      
+      private function onExistsBenutzername(e:ResultEvent):void {
+        if (e.result) {
+          Alert.show("Benutzername existiert bereits", "Fehler");
+        } else {
+          save();
+        }
+      }     
+      
+    ]]>
+  </mx:Script>
+  
+  <mx:RemoteObject id="clubService" showBusyCursor="true" destination="clubService">
+    <mx:method name="existsBenutzername" result="onExistsBenutzername(event)">
+      <mx:arguments>
+        <club>{club}</club>
+        <benutzername>{usernameText.text}</benutzername>
+      </mx:arguments>
+    </mx:method>
+  </mx:RemoteObject>
+  
+  <mx:Form left="10" top="10">
+    <mx:FormItem label="HG Name" required="true">
+      <mx:TextInput width="350" id="hgNameText" text="{club.hgName}" change="checkButtonEnable()"/>
+    </mx:FormItem>
+    <mx:FormItem label="Präsident">
+      <mx:TextInput width="350" id="praesidentText" text="{club.praesident}"/>
+    </mx:FormItem>
+    <mx:FormItem label="Strasse">
+      <mx:TextInput id="strasseText" width="350" text="{club.strasse}"/>
+    </mx:FormItem>
+    <mx:FormItem label="PLZ">
+      <mx:TextInput width="60" maxChars="4" restrict="0-9" id="plzText" text="{club.plz}"/>
+    </mx:FormItem>
+    <mx:FormItem label="Ort">
+      <mx:TextInput id="ortText" width="350" text="{club.ort}"/>
+    </mx:FormItem>  
+  </mx:Form>
+  
+  <mx:HRule width="453" height="2" bottom="208" left="10"/>
+  
+  <mx:Form left="10" bottom="145" width="453">
+    <mx:FormItem label="Punkte" required="true">
+      <mx:TextInput id="punkteMsText" width="60" restrict="0-9" text="{club.punkteMS}" 
+        toolTip="Punkte pro Meisterschaftsspiel. Für Rangepunkte Auswertung"/>
+    </mx:FormItem>  
+  </mx:Form>
+  
+  <mx:HRule width="453" left="10" bottom="135" height="2"/>
+    
+  <mx:Form left="10" bottom="45" height="82">
+    <mx:FormItem label="Benutzername" required="true">
+      <mx:TextInput width="242" id="usernameText" text="{club.benutzername}" change="checkButtonEnable()"/>
+    </mx:FormItem>
+    <mx:FormItem label="Passwort" required="true">
+      <mx:TextInput width="243" id="passwordText" displayAsPassword="true" text="{club.passwort}" change="checkButtonEnable()"/>
+    </mx:FormItem>
+  </mx:Form>
+  <mx:Button id="saveButton" label="Speichern" bottom="10" left="10" click="clubService.existsBenutzername()">
+    <mx:icon>@Embed(source='assets/disk_green.png')</mx:icon>
+  </mx:Button>
+  
+  <mx:Validator id="hgNameTextValidator" source="{hgNameText}" property="text" 
+    required="true" requiredFieldError="HG Name ist eine Musseingabe"/>  
+
+  <mx:Validator id="usernameTextValidator" source="{usernameText}" property="text" 
+    required="true" requiredFieldError="Benutzername ist eine Musseingabe"/>
+    
+  <mx:Validator id="passwordTextValidator" source="{passwordText}" property="text" 
+    required="true" requiredFieldError="Passwort ist eine Musseingabe"/>    
+
+  <mx:Validator id="punkteMsTextValidator" source="{punkteMsText}" property="text" 
+    required="true" requiredFieldError="Punkte pro Meisterschaftsspiel ist eine Musseingabe"/>    
+  
+
+</mx:Panel>

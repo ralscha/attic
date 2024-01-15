@@ -1,0 +1,107 @@
+// Decompiled by Jad v1.5.7. Copyright 1997-99 Pavel Kouznetsov.
+// Jad home page: http://www.geocities.com/SiliconValley/Bridge/8617/jad.html
+// Decompiler options: packimports(3) 
+// Source File Name:   Event.java
+
+package grace.log;
+
+import java.io.Serializable;
+import java.util.Date;
+import java.util.Vector;
+
+// Referenced classes of package grace.log:
+//            ProgramPosition
+
+public class Event
+    implements Serializable
+{
+
+    public Event(String type)
+    {
+        this.type = type;
+        time = new Date();
+        number = nextNumber++;
+        threadNames = createThreadNames();
+    }
+
+    public void setPosition(ProgramPosition position)
+    {
+        this.position = position;
+    }
+
+    public void setMessage(String message)
+    {
+        this.message = message;
+    }
+
+    public void setObject(Object object)
+    {
+        this.object = object;
+        objectGiven = true;
+    }
+
+    public String getType()
+    {
+        return type;
+    }
+
+    public Date getTime()
+    {
+        return time;
+    }
+
+    public long getNumber()
+    {
+        return number;
+    }
+
+    public ProgramPosition getPosition()
+    {
+        return position;
+    }
+
+    public String getMessage()
+    {
+        return message;
+    }
+
+    public Object getObject()
+    {
+        return object;
+    }
+
+    public boolean objectWasGiven()
+    {
+        return objectGiven;
+    }
+
+    protected void appendGroupName(Vector names, ThreadGroup group)
+    {
+        ThreadGroup parent = group.getParent();
+        if(parent != null)
+            appendGroupName(names, parent);
+        names.addElement(group.getName());
+    }
+
+    protected Vector createThreadNames()
+    {
+        Vector names = new Vector();
+        Thread current = Thread.currentThread();
+        ThreadGroup parent = current.getThreadGroup();
+        if(parent != null)
+            appendGroupName(names, parent);
+        names.addElement(current.getName());
+        return names;
+    }
+
+    String type;
+    Date time;
+    long number;
+    ProgramPosition position;
+    String message;
+    Object object;
+    Vector threadNames;
+    private boolean objectGiven;
+    private static long nextNumber = 1L;
+
+}

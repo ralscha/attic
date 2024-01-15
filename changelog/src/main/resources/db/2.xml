@@ -1,0 +1,82 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-2.0.xsd
+    http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+
+	<changeSet author="dev" id="20">
+		<createTable tableName="Customer">
+			<column autoIncrement="true" name="id" type="BIGINT">
+				<constraints nullable="false" primaryKey="true" primaryKeyName="PK_Customer" />
+			</column>
+
+			<column name="longName" type="varchar(254)" />
+			<column name="shortName" type="varchar(20)" />
+
+		</createTable>
+	</changeSet>
+
+	<changeSet author="dev" id="21">
+		<createTable tableName="Change">
+			<column autoIncrement="true" name="id" type="BIGINT">
+				<constraints nullable="false" primaryKey="true" primaryKeyName="PK_Change" />
+			</column>	
+			
+			<column name="bugNumber" type="varchar(254)" />
+			<column name="module" type="varchar(254)" />
+			<column name="subject" type="varchar(254)" />
+			<column name="description" type="CLOB" />
+			<column name="implementationDate" type="DATETIME" />
+			<column name="typ" type="varchar(20)" />
+
+		</createTable>
+	</changeSet>
+
+
+	<changeSet author="dev" id="22">
+		<createTable tableName="CustomerBuild">
+			<column autoIncrement="true" name="id" type="BIGINT">
+				<constraints nullable="false" primaryKey="true" primaryKeyName="PK_CustomerBuild" />
+			</column>	
+			
+			<column name="versionDate" type="DATETIME" />
+			<column name="versionNumber" type="varchar(254)" />
+		
+			<column name="customerId" type="BIGINT">
+				<constraints nullable="false"/>
+			</column>				
+		</createTable>
+
+		<addForeignKeyConstraint baseColumnNames="customerId" baseTableName="CustomerBuild" constraintName="FK_CustomerBuild_Customer"
+			referencedColumnNames="id"
+			referencedTableName="Customer" />			
+		
+		
+	</changeSet>
+
+	<changeSet author="dev" id="23">
+		<createTable tableName="CustomerChange">
+			<column autoIncrement="true" name="id" type="BIGINT">
+				<constraints nullable="false" primaryKey="true" primaryKeyName="PK_CustomerChange" />
+			</column>	
+			
+			<column name="changeId" type="BIGINT">
+				<constraints nullable="false"/>
+			</column>	
+			
+			<column name="customerId" type="BIGINT">
+				<constraints nullable="false"/>
+			</column>	
+		</createTable>
+		
+		<addForeignKeyConstraint baseColumnNames="changeId" baseTableName="CustomerChange" constraintName="FK_CustomerChange_Change"
+			referencedColumnNames="id"
+			referencedTableName="Change" />		
+		
+		<addForeignKeyConstraint baseColumnNames="customerId" baseTableName="CustomerChange" constraintName="FK_CustomerChange_Customer"
+			referencedColumnNames="id"
+			referencedTableName="Customer" />			
+		
+	</changeSet>
+
+</databaseChangeLog>

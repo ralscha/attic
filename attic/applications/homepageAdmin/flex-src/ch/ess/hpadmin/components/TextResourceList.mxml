@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Panel xmlns:mx="http://www.adobe.com/2006/mxml" width="626" title="TextResources" 
+  layout="absolute" creationComplete="init()" height="390">
+  
+  <mx:Script>
+    <![CDATA[
+      import mx.controls.CheckBox;
+      import ch.ess.hpadmin.model.TextResource;
+      import mx.managers.PopUpManager;
+      import mx.events.CloseEvent;
+      import mx.controls.Alert;
+      import mx.collections.SortField;
+      import mx.collections.Sort;
+      import mx.collections.ArrayCollection;
+      import mx.rpc.events.ResultEvent;      
+      
+      [Bindable]
+      [ArrayElementType("ch.ess.hpadmin.model.TextResource")]
+      private var textResourceModel:ArrayCollection = new ArrayCollection();
+      
+      private var selectedTextResource:TextResource;
+      
+            
+      private function deleteTextResource():void {
+        
+        Alert.show('Delete this Field?', 'Question', (Alert.YES | Alert.NO), this,
+                    function(event:CloseEvent):void {
+                      if (event.detail == Alert.YES) {
+                        textResourceService.deleteTextResource(selectedTextResource);
+                        
+                        textResourceDataGrid.selectedIndex = -1;
+                        textResourceDataGrid.selectedItem = null;
+                        selectedTextResource = null;
+                                
+                        textResourceService.getAll();
+                      }
+                    }
+                );
+
+      }
+      
+
+      
+      public function init():void {
+        textResourceService.getAll();        
+      }
+      
+
+      private function newTextResource():void {
+        textResourceDataGrid.selectedIndex = -1;
+        textResourceDataGrid.selectedItem = null;
+        editButton.enabled = false;
+        deleteButton.enabled = false; 
+        
+        selectedTextResource = new TextResource();
+                 
+        var trEdit:TextResourceEdit = PopUpManager.createPopUp(this, TextResourceEdit, true) as TextResourceEdit;
+        trEdit.editTextResource = selectedTextResource;   
+        trEdit.addEventListener("dataUpdated", onDataUpdated);             
+      }
+      
+      private function onDataUpdated(event:Event):void {  
+        textResourceService.getAll();     
+      }  
+      
+      private function editTextResource():void {
+        var trEdit:TextResourceEdit = PopUpManager.createPopUp(this, TextResourceEdit, true) as TextResourceEdit;
+        trEdit.editTextResource = selectedTextResource;   
+      }
+      
+      private function searchFilter(item:Object):Boolean {
+        var tr:TextResource = TextResource(item);
+        
+        if (tr.fieldName.toLowerCase().indexOf(searchText.text.toLowerCase()) != -1) {
+          return true;
+        }
+        if (tr.textDe != null && tr.textDe.toLowerCase().indexOf(searchText.text.toLowerCase()) != -1) {
+          return true;
+        }
+        if (tr.textEn != null && tr.textEn.toLowerCase().indexOf(searchText.text.toLowerCase()) != -1) {
+          return true;
+        }
+        
+        
+        
+        return false;
+        
+      }      
+      
+      private function search():void {
+        textResourceModel.refresh();
+      }
+      
+      private function onItemClick():void {        
+        deleteButton.enabled = true;
+        editButton.enabled = true;
+        selectedTextResource = TextResource(textResourceDataGrid.selectedItem);     
+      }
+      
+      private function onGetAllResult(event:ResultEvent):void {
+                
+        var textResourceSort:Sort = (textResourceDataGrid.dataProvider ? ArrayCollection(textResourceDataGrid.dataProvider).sort : null);
+        textResourceModel = ArrayCollection(event.result);
+
+        if (textResourceSort) {
+          textResourceModel.sort = textResourceSort;
+               
+        } else {
+          var sort:Sort = new Sort();
+          sort.fields = [new SortField("fieldName")];
+          
+          textResourceModel.sort = sort;
+        }    
+        
+        textResourceModel.filterFunction = searchFilter;
+        textResourceModel.refresh();                
+      }  
+      
+      
+      
+    ]]>
+  </mx:Script>
+  
+  <mx:RemoteObject id="textResourceService" showBusyCursor="true" destination="textResourceService">
+    <mx:method name="getAll" result="onGetAllResult(event)" />
+  </mx:RemoteObject>
+  
+  <mx:HBox top="10" left="10" right="10" >
+    <mx:TextInput id="searchText" change="search()"/>
+    <mx:Button label="Search" click="search()"/>
+  </mx:HBox>
+  
+  <mx:DataGrid id="textResourceDataGrid" dataProvider="{textResourceModel}" editable="false" 
+    itemClick="onItemClick()" bottom="60" top="40" left="10" right="10">
+    <mx:columns>
+      <mx:DataGridColumn width="40" headerText="Field Name" dataField="fieldName"/>
+      <mx:DataGridColumn width="150" headerText="Text DE" dataField="textDe"/>
+      <mx:DataGridColumn width="150" headerText="Text EN" dataField="textEn"/>
+    </mx:columns>
+  </mx:DataGrid>
+  <mx:HBox left="10" bottom="20" right="10">
+    <mx:Button label="New TextResource" id="newButton" click="newTextResource()"/>
+    <mx:Button label="Edit TextResource" id="editButton" enabled="false" click="editTextResource()"/>
+    <mx:Spacer width="100%" />
+    <mx:Button label="Delete TextResource" id="deleteButton" enabled="false" click="deleteTextResource()"/>
+  </mx:HBox>
+</mx:Panel>

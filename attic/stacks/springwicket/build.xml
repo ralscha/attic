@@ -1,0 +1,105 @@
+<project name="springwicket" xmlns:ivy="antlib:org.apache.ivy.ant" default="jetty">
+
+  <property file="${user.home}/build.properties" />
+  <property file="${basedir}/build.properties" />
+
+  <property name="web.dir" value="${basedir}/web" />
+  <property name="build.dir" value="${basedir}/build" />
+  <property name="webinf.lib.dir" value="${web.dir}/WEB-INF/lib" />
+  <property name="classes.dir" value="${web.dir}/WEB-INF/classes" />
+  <property name="src.dir" value="${basedir}/src" />
+
+  <path id="compile.classpath">
+    <fileset dir="${build.dir}/jetty/lib">
+      <include name="servlet-api*.jar" />
+      <include name="mail*.jar" />
+    </fileset>
+    <fileset dir="${webinf.lib.dir}">
+      <include name="*.jar" />
+    </fileset>
+  </path>
+
+  <target name="install.ivy">
+    <mkdir dir="${build.dir}/lib" />
+    <echo message="installing ivy..." />
+    <get src="http://repo1.maven.org/maven2/org/apache/ivy/ivy/${ivy.revision}/ivy-${ivy.revision}.jar" dest="${build.dir}/lib/ivy-${ivy.revision}.jar" usetimestamp="true" />
+
+    <taskdef resource="org/apache/ivy/ant/antlib.xml" uri="antlib:org.apache.ivy.ant">
+      <classpath>
+        <pathelement location="${build.dir}/lib/ivy-${ivy.revision}.jar" />
+      </classpath>
+    </taskdef>
+  </target>
+
+  <target name="clean">
+    <delete dir="${classes.dir}" />
+    <delete file="${build.dir}/springwicket.war" />
+  </target>
+
+  <target name="compile">
+    <mkdir dir="${classes.dir}" />
+
+    <javac srcdir="${src.dir}" destdir="${classes.dir}" deprecation="true" optimize="true" debug="false" includeAntRuntime="no" source="1.6" target="1.6">
+      <classpath refid="compile.classpath" />
+    </javac>
+
+    <copy todir="${classes.dir}">
+      <fileset dir="${src.dir}" excludes="**/*.java" />
+    </copy>
+
+  </target>
+
+  <target name="clean.lib">
+    <delete>
+      <fileset dir="${webinf.lib.dir}" includes="*.jar" />
+      <fileset dir="${build.dir}/jetty/lib" includes="*.jar" />
+    </delete>
+
+    <mkdir dir="${webinf.lib.dir}" />
+
+    <mkdir dir="${build.dir}/jetty/lib" />
+  </target>
+
+  <target name="resolve" depends="install.ivy,clean.lib">
+    <ivy:settings file="${basedir}/ivysettings.xml" />
+    <ivy:retrieve />
+
+    <move todir="${webinf.lib.dir}">
+      <fileset dir="${basedir}/lib">
+        <include name="*.jar" />
+        <exclude name="servlet*.jar" />
+        <exclude name="jetty*.jar" />
+        <exclude name="servlet*.jar" />
+        <exclude name="mail*.jar" />
+        <exclude name="jsp*.jar" />
+        <exclude name="core*.jar" />
+      </fileset>
+    </move>
+    <move todir="${build.dir}/jetty/lib">
+      <fileset dir="${basedir}/lib" />
+    </move>
+    <delete dir="${basedir}/lib" />
+
+  </target>
+
+  <target name="jetty" depends="compile">
+    <path id="jetty.classpath">
+      <fileset dir="${build.dir}/jetty/lib" includes="*.jar" />
+      <pathelement path="${jdbc.driver.path}" />
+      <pathelement path="${build.dir}/jetty" />
+    </path>
+
+    <java classname="org.mortbay.xml.XmlConfiguration" fork="yes">
+      <arg file="${build.dir}/jetty/jetty.xml" />
+      <classpath refid="jetty.classpath" />
+    </java>
+
+  </target>
+
+  <target name="war" depends="clean,compile">
+    <copy file="${build.dir}/jetty/logback.xml" todir="${classes.dir}" />
+    <jar compress="yes" jarfile="${build.dir}/springwicket.war" basedir="${web.dir}" /> 
+    <delete file="${classes.dir}/logback.xml" />
+  </target>      
+  
+</project>

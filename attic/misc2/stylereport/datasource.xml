@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<registry>
+<datasource name="Order" type="jdbc">
+<ds_jdbc url="jdbc:odbc:dxExample" driver="sun.jdbc.odbc.JdbcOdbcDriver" requireLogin="false">
+</ds_jdbc>
+</datasource>
+</registry>

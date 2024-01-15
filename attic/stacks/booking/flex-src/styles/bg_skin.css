@@ -1,0 +1,9 @@
+/* CSS file */
+
+
+.bgSkin{
+    borderSkin:                 ClassReference("RepeatedBackground");
+    background-image:             Embed("/images/bg/bg_vbox.png");
+}
+
+

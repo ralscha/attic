@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.7" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.7 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.7.xsd">
+    <changeSet author="sr (generated)" id="1215844710468-1">
+        <createTable tableName="Booking">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="BookingPK"/>
+            </column>
+            <column name="address1" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="address2" type="varchar(255)"/>
+            <column name="beds" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="checkinDate" type="date">
+                <constraints nullable="false"/>
+            </column>
+            <column name="checkoutDate" type="date">
+                <constraints nullable="false"/>
+            </column>
+            <column name="creditCard" type="varchar(16)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="creditCardExpiryMonth" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="creditCardExpiryYear" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="creditCardName" type="varchar(70)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="email" type="varchar(255)"/>
+            <column name="phone" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="smoking" type="tinyint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="state" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="zip" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="hotel_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="user_username" type="varchar(15)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="sr (generated)" id="1215844710468-2">
+        <createTable tableName="Customer">
+            <column name="username" type="varchar(15)">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="CustomerPK"/>
+            </column>
+            <column name="name" type="varchar(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="password" type="varchar(15)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="sr (generated)" id="1215844710468-3">
+        <createTable tableName="Hotel">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="HotelPK"/>
+            </column>
+            <column name="address" type="varchar(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="city" type="varchar(40)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="country" type="varchar(40)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="description" type="varchar(255)"/>
+            <column name="name" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="price" type="numeric(6,2)"/>
+            <column name="state" type="varchar(10)"/>
+            <column name="zip" type="varchar(6)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="sr (generated)" id="1215844710468-4">
+        <addForeignKeyConstraint baseColumnNames="hotel_id" baseTableName="Booking" constraintName="FK6713A0399EF748F6" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="Hotel"/>
+    </changeSet>
+    <changeSet author="sr (generated)" id="1215844710468-5">
+        <addForeignKeyConstraint baseColumnNames="user_username" baseTableName="Booking" constraintName="FK6713A039643AC359" deferrable="false" initiallyDeferred="false" referencedColumnNames="username" referencedTableName="Customer"/>
+    </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,62 @@
+
+<sourcegen>
+  <javaOutputPath>c:/temp/test/src</javaOutputPath>
+  <jspOutputPath>c:/temp/test/jsp</jspOutputPath> 
+  <dropDownMenu>true</dropDownMenu>
+  
+  <classDescriptions>
+      <classDescription>    
+        <packageName>ch.ess.cal</packageName>
+        <name>Event</name>
+        <focusProperty>subject</focusProperty>
+        <confirmProperty>subject</confirmProperty>
+        
+        
+        <!-- key NICHT angeben, z.B. projectId -->          
+        <properties>
+          <property>
+            <name>subject</name>
+            <modelType>String</modelType><!-- mögliche Werte String, Date, BigDecimal, Integer, Boolean -->
+            <validator>required</validator>
+            <finder>true</finder>  <!-- suchen nach diesem Property -->
+            <list>true</list> <!-- wenn true, wird in der Liste angezeigt -->      
+            <sort>ASCENDING</sort> <!-- Sortieren der Liste. mögliche Werte ASCENDING, DESCENDING -->    
+          </property>
+          
+          <property>
+            <name>category</name>
+            <type>String</type>
+            <modelType>Category</modelType>
+            <dao>CategoryDao</dao>
+            <finder>true</finder>
+            <option>true</option>
+            <validator>required</validator>
+          </property>
+          
+          <property>
+            <name>group</name>
+            <type>String</type>
+            <modelType>Group</modelType>
+            <dao>GroupDao</dao>
+            <finder>false</finder>
+            <option>true</option>
+          </property>
+         
+          <property>
+            <name>description</name>
+            <modelType>String</modelType>
+          </property>         
+          <property>
+            <name>location</name>
+            <modelType>String</modelType>
+          </property> 
+          <property>
+            <name>description</name>
+            <modelType>String</modelType>
+          </property>         
+                  
+          
+        </properties>
+      </classDescription>
+  </classDescriptions>  
+</sourcegen>

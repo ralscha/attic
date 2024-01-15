@@ -1,0 +1,50 @@
+// Decompiled by Jad v1.5.7. Copyright 1997-99 Pavel Kouznetsov.
+// Jad home page: http://www.geocities.com/SiliconValley/Bridge/8617/jad.html
+// Decompiler options: packimports(3) 
+// Source File Name:   PrintHandler.java
+
+package grace.log;
+
+import java.io.PrintWriter;
+import java.rmi.RemoteException;
+
+// Referenced classes of package grace.log:
+//            EventFormat, Handler, Event
+
+public class PrintHandler
+    implements Handler
+{
+
+    public PrintHandler(String prefix, String name)
+        throws RemoteException
+    {
+        format = new EventFormat();
+        out = null;
+    }
+
+    public PrintHandler(PrintWriter writer)
+        throws RemoteException
+    {
+        format = new EventFormat();
+        out = writer;
+    }
+
+    public void setPrintWriter(PrintWriter writer)
+    {
+        out = writer;
+    }
+
+    public PrintWriter getPrintWriter()
+    {
+        return out;
+    }
+
+    public synchronized void handle(Event event)
+    {
+        out.print(format.format(event));
+        out.flush();
+    }
+
+    private PrintWriter out;
+    private EventFormat format;
+}

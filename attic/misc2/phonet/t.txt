@@ -1,0 +1,1194 @@
+
+D:\JavaProjects\private\phonet>echo off	 
+Ausgangswort                :  "ABAP/-Entwicklung"
+
+Umwandlung nach 1. Regelsatz:  "ABAB/ ENTWIKLUNK"
+Umwandlung nach 2. Regelsatz:  "ABAB/ ENTFIKLUNK"
+Ausgangswort                :  "MS"
+
+Umwandlung nach 1. Regelsatz:  "MS"
+Umwandlung nach 2. Regelsatz:  "NZ"
+Ausgangswort                :  "TS"
+
+Umwandlung nach 1. Regelsatz:  "Z"
+Umwandlung nach 2. Regelsatz:  "Z"
+Ausgangswort                :  "AIX"
+
+Umwandlung nach 1. Regelsatz:  "EIX"
+Umwandlung nach 2. Regelsatz:  "EIX"
+Ausgangswort                :  "Objektorientierte"
+
+Umwandlung nach 1. Regelsatz:  "OBIEKTORINTIRTE"
+Umwandlung nach 2. Regelsatz:  "UBIEKTURINTIRTE"
+Ausgangswort                :  "Applikationsentwickler"
+
+Umwandlung nach 1. Regelsatz:  "ABLIKAZIONSENTWIKLA"
+Umwandlung nach 2. Regelsatz:  "ABLIKAZIUNZENTFIKLA"
+Ausgangswort                :  "HTL"
+
+Umwandlung nach 1. Regelsatz:  "HTL"
+Umwandlung nach 2. Regelsatz:  "TL"
+Ausgangswort                :  "ASP"
+
+Umwandlung nach 1. Regelsatz:  "ASP"
+Umwandlung nach 2. Regelsatz:  "AZB"
+Ausgangswort                :  "Assembler"
+
+Umwandlung nach 1. Regelsatz:  "ASEMBLA"
+Umwandlung nach 2. Regelsatz:  "AZNBLA"
+Ausgangswort                :  "AutoCAD"
+
+Umwandlung nach 1. Regelsatz:  "AUTOKAT"
+Umwandlung nach 2. Regelsatz:  "AUTOKAT"
+Ausgangswort                :  "Informatik-Berater"
+
+Umwandlung nach 1. Regelsatz:  "INFORMATIK BERATA"
+Umwandlung nach 2. Regelsatz:  "INFURNATIK BERATA"
+Ausgangswort                :  "Matura"
+
+Umwandlung nach 1. Regelsatz:  "MATURA"
+Umwandlung nach 2. Regelsatz:  "NATURA"
+Ausgangswort                :  "MBA"
+
+Umwandlung nach 1. Regelsatz:  "MBA"
+Umwandlung nach 2. Regelsatz:  "NBA"
+Ausgangswort                :  "C++"
+
+Umwandlung nach 1. Regelsatz:  "K+"
+Umwandlung nach 2. Regelsatz:  "K+"
+Ausgangswort                :  "CAD"
+
+Umwandlung nach 1. Regelsatz:  "KAT"
+Umwandlung nach 2. Regelsatz:  "KAT"
+Ausgangswort                :  "Middleware"
+
+Umwandlung nach 1. Regelsatz:  "MIDLEWARE"
+Umwandlung nach 2. Regelsatz:  "NITLEFARE"
+Ausgangswort                :  "ZNV"
+
+Umwandlung nach 1. Regelsatz:  "ZNF"
+Umwandlung nach 2. Regelsatz:  "ZNF"
+Ausgangswort                :  "Cobol"
+
+Umwandlung nach 1. Regelsatz:  "KOBOL"
+Umwandlung nach 2. Regelsatz:  "KUBUL"
+Ausgangswort                :  "Datawarehouse"
+
+Umwandlung nach 1. Regelsatz:  "DATAWAREHAUS"
+Umwandlung nach 2. Regelsatz:  "TATAFAREAUZ"
+Ausgangswort                :  "Datenadministration"
+
+Umwandlung nach 1. Regelsatz:  "DATENATMINISTRAZION"
+Umwandlung nach 2. Regelsatz:  "TATENATNINIZTRAZIUN"
+Ausgangswort                :  "Datenmodellierung"
+
+Umwandlung nach 1. Regelsatz:  "DATNMODELIRUNK"
+Umwandlung nach 2. Regelsatz:  "TATNUTELIRUNK"
+Ausgangswort                :  "DB/Q"
+
+Umwandlung nach 1. Regelsatz:  "DB/K"
+Umwandlung nach 2. Regelsatz:  "TB/K"
+Ausgangswort                :  "Delphi"
+
+Umwandlung nach 1. Regelsatz:  "DELFI"
+Umwandlung nach 2. Regelsatz:  "TELFI"
+Ausgangswort                :  "Designer"
+
+Umwandlung nach 1. Regelsatz:  "DISEINA"
+Umwandlung nach 2. Regelsatz:  "TIZEINA"
+Ausgangswort                :  "Deutsch"
+
+Umwandlung nach 1. Regelsatz:  "DEUSH"
+Umwandlung nach 2. Regelsatz:  "TEUZ"
+Ausgangswort                :  "ETH"
+
+Umwandlung nach 1. Regelsatz:  "ET"
+Umwandlung nach 2. Regelsatz:  "ET"
+Ausgangswort                :  "OS/400"
+
+Umwandlung nach 1. Regelsatz:  "OS/40"
+Umwandlung nach 2. Regelsatz:  "UZ/40"
+Ausgangswort                :  "ELIZA"
+
+Umwandlung nach 1. Regelsatz:  "ELISA"
+Umwandlung nach 2. Regelsatz:  "ELIZA"
+Ausgangswort                :  "Englisch"
+
+Umwandlung nach 1. Regelsatz:  "ENKLISH"
+Umwandlung nach 2. Regelsatz:  "ENKLIZ"
+Ausgangswort                :  "Excel"
+
+Umwandlung nach 1. Regelsatz:  "EXL"
+Umwandlung nach 2. Regelsatz:  "EXL"
+Ausgangswort                :  "ATM"
+
+Umwandlung nach 1. Regelsatz:  "ATM"
+Umwandlung nach 2. Regelsatz:  "ATN"
+Ausgangswort                :  "IDEAL"
+
+Umwandlung nach 1. Regelsatz:  "IDIL"
+Umwandlung nach 2. Regelsatz:  "ITIL"
+Ausgangswort                :  "PowerPoint"
+
+Umwandlung nach 1. Regelsatz:  "POWAPEUNT"
+Umwandlung nach 2. Regelsatz:  "PUFAPEUNT"
+Ausgangswort                :  "Flash"
+
+Umwandlung nach 1. Regelsatz:  "FLASH"
+Umwandlung nach 2. Regelsatz:  "FLAZ"
+Ausgangswort                :  "JCL"
+
+Umwandlung nach 1. Regelsatz:  "IKL"
+Umwandlung nach 2. Regelsatz:  "IKL"
+Ausgangswort                :  "Fortran"
+
+Umwandlung nach 1. Regelsatz:  "FORTRAN"
+Umwandlung nach 2. Regelsatz:  "FURTRAN"
+Ausgangswort                :  "Fotoimpact"
+
+Umwandlung nach 1. Regelsatz:  "FOTEUMPAKT"
+Umwandlung nach 2. Regelsatz:  "FUTEUNPAKT"
+Ausgangswort                :  "Photoshop"
+
+Umwandlung nach 1. Regelsatz:  "FOTOSHOB"
+Umwandlung nach 2. Regelsatz:  "FUTUZUB"
+Ausgangswort                :  "Franz÷sisch"
+
+Umwandlung nach 1. Regelsatz:  "FRANS÷SISH"
+Umwandlung nach 2. Regelsatz:  "FRANZ÷ZIZ"
+Ausgangswort                :  "Frontpage"
+
+Umwandlung nach 1. Regelsatz:  "FRONTPAGE"
+Umwandlung nach 2. Regelsatz:  "FRUNTPAKE"
+Ausgangswort                :  "Gask2tool"
+
+Umwandlung nach 1. Regelsatz:  "GASK2TUL"
+Umwandlung nach 2. Regelsatz:  "KAZK2TUL"
+Ausgangswort                :  "Strukturierte"
+
+Umwandlung nach 1. Regelsatz:  "STRUKTURIRTE"
+Umwandlung nach 2. Regelsatz:  "ZTRUKTURIRTE"
+Ausgangswort                :  "BSIK"
+
+Umwandlung nach 1. Regelsatz:  "BSIK"
+Umwandlung nach 2. Regelsatz:  "BZIK"
+Ausgangswort                :  "GIS"
+
+Umwandlung nach 1. Regelsatz:  "GIS"
+Umwandlung nach 2. Regelsatz:  "KIZ"
+Ausgangswort                :  "CIT-AE-CCT-CCV"
+
+Umwandlung nach 1. Regelsatz:  "ZIT E KT KF"
+Umwandlung nach 2. Regelsatz:  "ZIT E KT KF"
+Ausgangswort                :  "APV"
+
+Umwandlung nach 1. Regelsatz:  "ABF"
+Umwandlung nach 2. Regelsatz:  "ABF"
+Ausgangswort                :  "HTML"
+
+Umwandlung nach 1. Regelsatz:  "HTML"
+Umwandlung nach 2. Regelsatz:  "TNL"
+Ausgangswort                :  "Informix"
+
+Umwandlung nach 1. Regelsatz:  "INFORMIX"
+Umwandlung nach 2. Regelsatz:  "INFURNIX"
+Ausgangswort                :  "IPX/SPX"
+
+Umwandlung nach 1. Regelsatz:  "IBX/SPX"
+Umwandlung nach 2. Regelsatz:  "IBX/ZBX"
+Ausgangswort                :  "Italienisch"
+
+Umwandlung nach 1. Regelsatz:  "ITALINISH"
+Umwandlung nach 2. Regelsatz:  "ITALINIZ"
+Ausgangswort                :  "Java"
+
+Umwandlung nach 1. Regelsatz:  "IAWA"
+Umwandlung nach 2. Regelsatz:  "IAFA"
+Ausgangswort                :  "JScript"
+
+Umwandlung nach 1. Regelsatz:  "ISKRIBT"
+Umwandlung nach 2. Regelsatz:  "IZKRIBT"
+Ausgangswort                :  "Wintax"
+
+Umwandlung nach 1. Regelsatz:  "WINTAX"
+Umwandlung nach 2. Regelsatz:  "FINTAX"
+Ausgangswort                :  "Sys.Designe"
+
+Umwandlung nach 1. Regelsatz:  "SÜS.DISEINE"
+Umwandlung nach 2. Regelsatz:  "ZIZ.TIZEINE"
+Ausgangswort                :  "Linux"
+
+Umwandlung nach 1. Regelsatz:  "LINUX"
+Umwandlung nach 2. Regelsatz:  "LINUX"
+Ausgangswort                :  "LIS"
+
+Umwandlung nach 1. Regelsatz:  "LIS"
+Umwandlung nach 2. Regelsatz:  "LIZ"
+Ausgangswort                :  "Lisp"
+
+Umwandlung nach 1. Regelsatz:  "LISP"
+Umwandlung nach 2. Regelsatz:  "LIZB"
+Ausgangswort                :  "EBAK,"
+
+Umwandlung nach 1. Regelsatz:  "EBAK "
+Umwandlung nach 2. Regelsatz:  "EBAK "
+Ausgangswort                :  "TERCO"
+
+Umwandlung nach 1. Regelsatz:  "TERKO"
+Umwandlung nach 2. Regelsatz:  "TERKU"
+Ausgangswort                :  "Data"
+
+Umwandlung nach 1. Regelsatz:  "DATA"
+Umwandlung nach 2. Regelsatz:  "TATA"
+Ausgangswort                :  "SIZ"
+
+Umwandlung nach 1. Regelsatz:  "SIZ"
+Umwandlung nach 2. Regelsatz:  "ZIZ"
+Ausgangswort                :  "BPIH"
+
+Umwandlung nach 1. Regelsatz:  "BI"
+Umwandlung nach 2. Regelsatz:  "BI"
+Ausgangswort                :  "Information"
+
+Umwandlung nach 1. Regelsatz:  "INFORMAZION"
+Umwandlung nach 2. Regelsatz:  "INFURNAZIUN"
+Ausgangswort                :  "JSP"
+
+Umwandlung nach 1. Regelsatz:  "ISP"
+Umwandlung nach 2. Regelsatz:  "IZB"
+Ausgangswort                :  "MS-DOS"
+
+Umwandlung nach 1. Regelsatz:  "MS DOS"
+Umwandlung nach 2. Regelsatz:  "NZ TUZ"
+Ausgangswort                :  "IBM"
+
+Umwandlung nach 1. Regelsatz:  "IBM"
+Umwandlung nach 2. Regelsatz:  "IBN"
+Ausgangswort                :  "Novell"
+
+Umwandlung nach 1. Regelsatz:  "NOWEL"
+Umwandlung nach 2. Regelsatz:  "NUFEL"
+Ausgangswort                :  "Objectstore"
+
+Umwandlung nach 1. Regelsatz:  "OBIEKZTORE"
+Umwandlung nach 2. Regelsatz:  "UBIEKZTURE"
+Ausgangswort                :  "ODBC"
+
+Umwandlung nach 1. Regelsatz:  "OTBK"
+Umwandlung nach 2. Regelsatz:  "UTBK"
+Ausgangswort                :  "Oracle"
+
+Umwandlung nach 1. Regelsatz:  "ORAKLE"
+Umwandlung nach 2. Regelsatz:  "URAKLE"
+Ausgangswort                :  "Pascal"
+
+Umwandlung nach 1. Regelsatz:  "PASKAL"
+Umwandlung nach 2. Regelsatz:  "PAZKAL"
+Ausgangswort                :  "Perl"
+
+Umwandlung nach 1. Regelsatz:  "PERL"
+Umwandlung nach 2. Regelsatz:  "PERL"
+Ausgangswort                :  "Watchguard"
+
+Umwandlung nach 1. Regelsatz:  "WASHGUART"
+Umwandlung nach 2. Regelsatz:  "FAZKUART"
+Ausgangswort                :  "Real"
+
+Umwandlung nach 1. Regelsatz:  "REAL"
+Umwandlung nach 2. Regelsatz:  "RIL"
+Ausgangswort                :  "CCBS"
+
+Umwandlung nach 1. Regelsatz:  "KBS"
+Umwandlung nach 2. Regelsatz:  "KBZ"
+Ausgangswort                :  "PLC"
+
+Umwandlung nach 1. Regelsatz:  "PLK"
+Umwandlung nach 2. Regelsatz:  "BLK"
+Ausgangswort                :  "Programmierer"
+
+Umwandlung nach 1. Regelsatz:  "PROGRAMIRA"
+Umwandlung nach 2. Regelsatz:  "PRUKRANIRA"
+Ausgangswort                :  "Projektleiter"
+
+Umwandlung nach 1. Regelsatz:  "PROIEKTLEITA"
+Umwandlung nach 2. Regelsatz:  "PRUIEKTLEITA"
+Ausgangswort                :  "Business"
+
+Umwandlung nach 1. Regelsatz:  "BUSINES"
+Umwandlung nach 2. Regelsatz:  "BUZINEZ"
+Ausgangswort                :  "Quark"
+
+Umwandlung nach 1. Regelsatz:  "KWARK"
+Umwandlung nach 2. Regelsatz:  "KFARK"
+Ausgangswort                :  "RDB"
+
+Umwandlung nach 1. Regelsatz:  "RTB"
+Umwandlung nach 2. Regelsatz:  "RTB"
+Ausgangswort                :  "bluewin"
+
+Umwandlung nach 1. Regelsatz:  "BLÜWIN"
+Umwandlung nach 2. Regelsatz:  "BLIFIN"
+Ausgangswort                :  "Datenarchitektur"
+
+Umwandlung nach 1. Regelsatz:  "DATENARCHITEKTUR"
+Umwandlung nach 2. Regelsatz:  "TATENARKITEKTUR"
+Ausgangswort                :  "Spanisch"
+
+Umwandlung nach 1. Regelsatz:  "SPANISH"
+Umwandlung nach 2. Regelsatz:  "ZPANIZ"
+Ausgangswort                :  "SAP"
+
+Umwandlung nach 1. Regelsatz:  "SAB"
+Umwandlung nach 2. Regelsatz:  "ZAB"
+Ausgangswort                :  "UNI-CURU"
+
+Umwandlung nach 1. Regelsatz:  "UNI KURU"
+Umwandlung nach 2. Regelsatz:  "UNI KURU"
+Ausgangswort                :  "Hermes"
+
+Umwandlung nach 1. Regelsatz:  "HERMES"
+Umwandlung nach 2. Regelsatz:  "ERNEZ"
+Ausgangswort                :  "Solaris"
+
+Umwandlung nach 1. Regelsatz:  "SOLARIS"
+Umwandlung nach 2. Regelsatz:  "ZULARIZ"
+Ausgangswort                :  "SQL"
+
+Umwandlung nach 1. Regelsatz:  "SKL"
+Umwandlung nach 2. Regelsatz:  "ZKL"
+Ausgangswort                :  "MS"
+
+Umwandlung nach 1. Regelsatz:  "MS"
+Umwandlung nach 2. Regelsatz:  "NZ"
+Ausgangswort                :  "CISCO"
+
+Umwandlung nach 1. Regelsatz:  "ZISKO"
+Umwandlung nach 2. Regelsatz:  "ZIZKU"
+Ausgangswort                :  "Sybase"
+
+Umwandlung nach 1. Regelsatz:  "SÜBASE"
+Umwandlung nach 2. Regelsatz:  "ZIBAZE"
+Ausgangswort                :  "Systemmanager"
+
+Umwandlung nach 1. Regelsatz:  "SÜSTEMANAGA"
+Umwandlung nach 2. Regelsatz:  "ZIZTENANAKA"
+Ausgangswort                :  "IMS/OMS/PMS/RTA"
+
+Umwandlung nach 1. Regelsatz:  "IMS/OMS/PMS/RTA"
+Umwandlung nach 2. Regelsatz:  "INZ/UNZ/BNZ/RTA"
+Ausgangswort                :  "TCP/IP"
+
+Umwandlung nach 1. Regelsatz:  "TKB/IB"
+Umwandlung nach 2. Regelsatz:  "TKB/IB"
+Ausgangswort                :  "Telekommunikation"
+
+Umwandlung nach 1. Regelsatz:  "TELEKOMUNIKAZION"
+Umwandlung nach 2. Regelsatz:  "TELEKUNUNIKAZIUN"
+Ausgangswort                :  "DSL"
+
+Umwandlung nach 1. Regelsatz:  "ZL"
+Umwandlung nach 2. Regelsatz:  "ZL"
+Ausgangswort                :  "TeMIP"
+
+Umwandlung nach 1. Regelsatz:  "TEMIB"
+Umwandlung nach 2. Regelsatz:  "TENIB"
+Ausgangswort                :  "joker"
+
+Umwandlung nach 1. Regelsatz:  "IOKA"
+Umwandlung nach 2. Regelsatz:  "IUKA"
+Ausgangswort                :  "Microsoft"
+
+Umwandlung nach 1. Regelsatz:  "MIKROSOFT"
+Umwandlung nach 2. Regelsatz:  "NIKRUZUFT"
+Ausgangswort                :  "Uniface"
+
+Umwandlung nach 1. Regelsatz:  "UNIFAZE"
+Umwandlung nach 2. Regelsatz:  "UNIFAZE"
+Ausgangswort                :  "Swisscom"
+
+Umwandlung nach 1. Regelsatz:  "SWISKOM"
+Umwandlung nach 2. Regelsatz:  "ZFIZKUN"
+Ausgangswort                :  "VBScript"
+
+Umwandlung nach 1. Regelsatz:  "FBSKRIBT"
+Umwandlung nach 2. Regelsatz:  "FBZKRIBT"
+Ausgangswort                :  "BASKAL"
+
+Umwandlung nach 1. Regelsatz:  "BASKAL"
+Umwandlung nach 2. Regelsatz:  "BAZKAL"
+Ausgangswort                :  "Visual"
+
+Umwandlung nach 1. Regelsatz:  "WISUAL"
+Umwandlung nach 2. Regelsatz:  "FIZUAL"
+Ausgangswort                :  "Web"
+
+Umwandlung nach 1. Regelsatz:  "WEB"
+Umwandlung nach 2. Regelsatz:  "FEB"
+Ausgangswort                :  "Windows"
+
+Umwandlung nach 1. Regelsatz:  "WINDOS"
+Umwandlung nach 2. Regelsatz:  "FINTUZ"
+Ausgangswort                :  "Windows"
+
+Umwandlung nach 1. Regelsatz:  "WINDOS"
+Umwandlung nach 2. Regelsatz:  "FINTUZ"
+Ausgangswort                :  "GEFECO"
+
+Umwandlung nach 1. Regelsatz:  "GEFEKO"
+Umwandlung nach 2. Regelsatz:  "KEFEKU"
+Ausgangswort                :  "Insight"
+
+Umwandlung nach 1. Regelsatz:  "INSEIT"
+Umwandlung nach 2. Regelsatz:  "INZEIT"
+Ausgangswort                :  "Word"
+
+Umwandlung nach 1. Regelsatz:  "WORT"
+Umwandlung nach 2. Regelsatz:  "FURT"
+Ausgangswort                :  "HPUX"
+
+Umwandlung nach 1. Regelsatz:  "HPUX"
+Umwandlung nach 2. Regelsatz:  "PUX"
+Ausgangswort                :  "VMS"
+
+Umwandlung nach 1. Regelsatz:  "FMS"
+Umwandlung nach 2. Regelsatz:  "FNZ"
+Ausgangswort                :  "MVS/OS390"
+
+Umwandlung nach 1. Regelsatz:  "MFS/OS390"
+Umwandlung nach 2. Regelsatz:  "NFZ/UZ390"
+Ausgangswort                :  "Einfnhrung/Aufbau"
+
+Umwandlung nach 1. Regelsatz:  "EINFNRUNK/AUFBAU"
+Umwandlung nach 2. Regelsatz:  "EINFNRUNK/AUFBAU"
+Ausgangswort                :  "nicht"
+
+Umwandlung nach 1. Regelsatz:  "NICHT"
+Umwandlung nach 2. Regelsatz:  "NIKT"
+Ausgangswort                :  "Security"
+
+Umwandlung nach 1. Regelsatz:  "SEKURITI"
+Umwandlung nach 2. Regelsatz:  "ZEKURITI"
+Ausgangswort                :  "ccbs"
+
+Umwandlung nach 1. Regelsatz:  "KBS"
+Umwandlung nach 2. Regelsatz:  "KBZ"
+Ausgangswort                :  "BC"
+
+Umwandlung nach 1. Regelsatz:  "BK"
+Umwandlung nach 2. Regelsatz:  "BK"
+Ausgangswort                :  "CA"
+
+Umwandlung nach 1. Regelsatz:  "KA"
+Umwandlung nach 2. Regelsatz:  "KA"
+Ausgangswort                :  "FI"
+
+Umwandlung nach 1. Regelsatz:  "FI"
+Umwandlung nach 2. Regelsatz:  "FI"
+Ausgangswort                :  "CO"
+
+Umwandlung nach 1. Regelsatz:  "KO"
+Umwandlung nach 2. Regelsatz:  "KU"
+Ausgangswort                :  "IM"
+
+Umwandlung nach 1. Regelsatz:  "IM"
+Umwandlung nach 2. Regelsatz:  "IN"
+Ausgangswort                :  "EC"
+
+Umwandlung nach 1. Regelsatz:  "EK"
+Umwandlung nach 2. Regelsatz:  "EK"
+Ausgangswort                :  "LO"
+
+Umwandlung nach 1. Regelsatz:  "LO"
+Umwandlung nach 2. Regelsatz:  "LU"
+Ausgangswort                :  "SD"
+
+Umwandlung nach 1. Regelsatz:  "ST"
+Umwandlung nach 2. Regelsatz:  "ZT"
+Ausgangswort                :  "MM"
+
+Umwandlung nach 1. Regelsatz:  "M"
+Umwandlung nach 2. Regelsatz:  "N"
+Ausgangswort                :  "PS"
+
+Umwandlung nach 1. Regelsatz:  "PS"
+Umwandlung nach 2. Regelsatz:  "Z"
+Ausgangswort                :  "BenutzeroberflSchen"
+
+Umwandlung nach 1. Regelsatz:  "BENUZEROBAFLSHN"
+Umwandlung nach 2. Regelsatz:  "BENUZAUBAFLZN"
+Ausgangswort                :  "Interface"
+
+Umwandlung nach 1. Regelsatz:  "INTAFAZE"
+Umwandlung nach 2. Regelsatz:  "INTAFAZE"
+Ausgangswort                :  "Transaktionsmanagement"
+
+Umwandlung nach 1. Regelsatz:  "TRANSAXIONSMANAGEMENT"
+Umwandlung nach 2. Regelsatz:  "TRANZAXIUNZNANAKENENT"
+Ausgangswort                :  "C"
+
+Umwandlung nach 1. Regelsatz:  "K"
+Umwandlung nach 2. Regelsatz:  "K"
+Ausgangswort                :  "Delta85"
+
+Umwandlung nach 1. Regelsatz:  "DELTA85"
+Umwandlung nach 2. Regelsatz:  "TELTA85"
+Ausgangswort                :  "Cobol85"
+
+Umwandlung nach 1. Regelsatz:  "KOBOL85"
+Umwandlung nach 2. Regelsatz:  "KUBUL85"
+Ausgangswort                :  "PL1"
+
+Umwandlung nach 1. Regelsatz:  "PL1"
+Umwandlung nach 2. Regelsatz:  "BL1"
+Ausgangswort                :  "PLM"
+
+Umwandlung nach 1. Regelsatz:  "PLM"
+Umwandlung nach 2. Regelsatz:  "BLN"
+Ausgangswort                :  "BS/K"
+
+Umwandlung nach 1. Regelsatz:  "BS/K"
+Umwandlung nach 2. Regelsatz:  "BZ/K"
+Ausgangswort                :  "MIDAS"
+
+Umwandlung nach 1. Regelsatz:  "MIDAS"
+Umwandlung nach 2. Regelsatz:  "NITAZ"
+Ausgangswort                :  "PL/SQL"
+
+Umwandlung nach 1. Regelsatz:  "PL/SKL"
+Umwandlung nach 2. Regelsatz:  "BL/ZKL"
+Ausgangswort                :  "SCM,"
+
+Umwandlung nach 1. Regelsatz:  "SKM "
+Umwandlung nach 2. Regelsatz:  "ZKN "
+Ausgangswort                :  "KAG/ODSP"
+
+Umwandlung nach 1. Regelsatz:  "KAK/OTSP"
+Umwandlung nach 2. Regelsatz:  "KAK/UZB"
+Ausgangswort                :  "Projektleiter"
+
+Umwandlung nach 1. Regelsatz:  "PROIEKTLEITA"
+Umwandlung nach 2. Regelsatz:  "PRUIEKTLEITA"
+Ausgangswort                :  "WEB-Redesign"
+
+Umwandlung nach 1. Regelsatz:  "WEB REDISEIN"
+Umwandlung nach 2. Regelsatz:  "FEB RETIZEIN"
+Ausgangswort                :  "IBM"
+
+Umwandlung nach 1. Regelsatz:  "IBM"
+Umwandlung nach 2. Regelsatz:  "IBN"
+Ausgangswort                :  "UDP"
+
+Umwandlung nach 1. Regelsatz:  "UTB"
+Umwandlung nach 2. Regelsatz:  "UTB"
+Ausgangswort                :  "XML"
+
+Umwandlung nach 1. Regelsatz:  "XML"
+Umwandlung nach 2. Regelsatz:  "ZNL"
+Ausgangswort                :  "ColdFusion"
+
+Umwandlung nach 1. Regelsatz:  "KOLTFUSION"
+Umwandlung nach 2. Regelsatz:  "KULTFUZIUN"
+Ausgangswort                :  "Global"
+
+Umwandlung nach 1. Regelsatz:  "GLOBAL"
+Umwandlung nach 2. Regelsatz:  "KLUBAL"
+Ausgangswort                :  "IT-Mitarbeiter"
+
+Umwandlung nach 1. Regelsatz:  "IT MITARBEITA"
+Umwandlung nach 2. Regelsatz:  "IT NITARBEITA"
+Ausgangswort                :  "CIT"
+
+Umwandlung nach 1. Regelsatz:  "ZIT"
+Umwandlung nach 2. Regelsatz:  "ZIT"
+Ausgangswort                :  "IVAB"
+
+Umwandlung nach 1. Regelsatz:  "IWAB"
+Umwandlung nach 2. Regelsatz:  "IFAB"
+Ausgangswort                :  "Backup"
+
+Umwandlung nach 1. Regelsatz:  "BAKUB"
+Umwandlung nach 2. Regelsatz:  "BAKUB"
+Ausgangswort                :  "Integrator"
+
+Umwandlung nach 1. Regelsatz:  "INTEGRATOR"
+Umwandlung nach 2. Regelsatz:  "INTEKRATUR"
+Ausgangswort                :  "FTP"
+
+Umwandlung nach 1. Regelsatz:  "FTB"
+Umwandlung nach 2. Regelsatz:  "FTB"
+Ausgangswort                :  "HTTP"
+
+Umwandlung nach 1. Regelsatz:  "HTB"
+Umwandlung nach 2. Regelsatz:  "TB"
+Ausgangswort                :  "PC-Supporter,"
+
+Umwandlung nach 1. Regelsatz:  "PK SUPORTA "
+Umwandlung nach 2. Regelsatz:  "BK ZUPURTA "
+Ausgangswort                :  "Faktura-Forcierung"
+
+Umwandlung nach 1. Regelsatz:  "FAKTURA FORZIRUNK"
+Umwandlung nach 2. Regelsatz:  "FAKTURA FURZIRUNK"
+Ausgangswort                :  "SOP"
+
+Umwandlung nach 1. Regelsatz:  "SOB"
+Umwandlung nach 2. Regelsatz:  "ZUB"
+Ausgangswort                :  "ALMA"
+
+Umwandlung nach 1. Regelsatz:  "ALMA"
+Umwandlung nach 2. Regelsatz:  "ALNA"
+Ausgangswort                :  "BIDES"
+
+Umwandlung nach 1. Regelsatz:  "BIDES"
+Umwandlung nach 2. Regelsatz:  "BITEZ"
+Ausgangswort                :  "OLAP"
+
+Umwandlung nach 1. Regelsatz:  "OLAB"
+Umwandlung nach 2. Regelsatz:  "ULAB"
+Ausgangswort                :  "Mobilcom"
+
+Umwandlung nach 1. Regelsatz:  "MOBILKOM"
+Umwandlung nach 2. Regelsatz:  "NUBILKUN"
+Ausgangswort                :  "WAP"
+
+Umwandlung nach 1. Regelsatz:  "WAB"
+Umwandlung nach 2. Regelsatz:  "FAB"
+Ausgangswort                :  "Gewerbliche"
+
+Umwandlung nach 1. Regelsatz:  "GEWABLICHE"
+Umwandlung nach 2. Regelsatz:  "KEFABLIKE"
+Ausgangswort                :  "Matico"
+
+Umwandlung nach 1. Regelsatz:  "MATIKO"
+Umwandlung nach 2. Regelsatz:  "NATIKU"
+Ausgangswort                :  "XSL"
+
+Umwandlung nach 1. Regelsatz:  "XL"
+Umwandlung nach 2. Regelsatz:  "ZL"
+Ausgangswort                :  "CISCO"
+
+Umwandlung nach 1. Regelsatz:  "ZISKO"
+Umwandlung nach 2. Regelsatz:  "ZIZKU"
+Ausgangswort                :  "Checkpoint"
+
+Umwandlung nach 1. Regelsatz:  "SHEKPEUNT"
+Umwandlung nach 2. Regelsatz:  "ZEKPEUNT"
+Ausgangswort                :  "Windows"
+
+Umwandlung nach 1. Regelsatz:  "WINDOS"
+Umwandlung nach 2. Regelsatz:  "FINTUZ"
+Ausgangswort                :  "UniversitSt"
+
+Umwandlung nach 1. Regelsatz:  "UNIWERSIZT"
+Umwandlung nach 2. Regelsatz:  "UNIFAZIZT"
+Ausgangswort                :  "Wirtschaftsinformatiker"
+
+Umwandlung nach 1. Regelsatz:  "WIRSHAFZINFORMATIKA"
+Umwandlung nach 2. Regelsatz:  "FIRZAFZINFURNATIKA"
+Ausgangswort                :  "SLOG"
+
+Umwandlung nach 1. Regelsatz:  "SLOK"
+Umwandlung nach 2. Regelsatz:  "ZLUK"
+Ausgangswort                :  "KGCH"
+
+Umwandlung nach 1. Regelsatz:  "KCH"
+Umwandlung nach 2. Regelsatz:  "K"
+Ausgangswort                :  "Betriebswirtschaft"
+
+Umwandlung nach 1. Regelsatz:  "BETRIBSWIRSHAFT"
+Umwandlung nach 2. Regelsatz:  "BETRIBZFIRZAFT"
+Ausgangswort                :  "SWP2000/SNOW"
+
+Umwandlung nach 1. Regelsatz:  "SFB20/SNOF"
+Umwandlung nach 2. Regelsatz:  "ZFB20/ZNUF"
+Ausgangswort                :  "Certified"
+
+Umwandlung nach 1. Regelsatz:  "ZERTIFIT"
+Umwandlung nach 2. Regelsatz:  "ZERTIFIT"
+Ausgangswort                :  "BSK"
+
+Umwandlung nach 1. Regelsatz:  "BSK"
+Umwandlung nach 2. Regelsatz:  "BZK"
+Ausgangswort                :  "HKG"
+
+Umwandlung nach 1. Regelsatz:  "HK"
+Umwandlung nach 2. Regelsatz:  "K"
+Ausgangswort                :  "HPS"
+
+Umwandlung nach 1. Regelsatz:  "HBS"
+Umwandlung nach 2. Regelsatz:  "BZ"
+Ausgangswort                :  "FIT"
+
+Umwandlung nach 1. Regelsatz:  "FIT"
+Umwandlung nach 2. Regelsatz:  "FIT"
+Ausgangswort                :  "Netzwerkmanagement"
+
+Umwandlung nach 1. Regelsatz:  "NEZWERKMANAGEMENT"
+Umwandlung nach 2. Regelsatz:  "NEZFAKNANAKENENT"
+Ausgangswort                :  "Switch"
+
+Umwandlung nach 1. Regelsatz:  "SWISH"
+Umwandlung nach 2. Regelsatz:  "ZFIZ"
+Ausgangswort                :  "Gigabit"
+
+Umwandlung nach 1. Regelsatz:  "GIGABIT"
+Umwandlung nach 2. Regelsatz:  "KIKABIT"
+Ausgangswort                :  "Router"
+
+Umwandlung nach 1. Regelsatz:  "RAUTA"
+Umwandlung nach 2. Regelsatz:  "RAUTA"
+Ausgangswort                :  "TIFA"
+
+Umwandlung nach 1. Regelsatz:  "TIFA"
+Umwandlung nach 2. Regelsatz:  "TIFA"
+Ausgangswort                :  "Service-/IT-Development"
+
+Umwandlung nach 1. Regelsatz:  "SÖRWIS /IT DEWELOBMENT"
+Umwandlung nach 2. Regelsatz:  "ZÖRFIZ /IT TEFELUBNENT"
+Ausgangswort                :  "Firewall"
+
+Umwandlung nach 1. Regelsatz:  "FIREWAL"
+Umwandlung nach 2. Regelsatz:  "FIREFAL"
+Ausgangswort                :  "Webmaster"
+
+Umwandlung nach 1. Regelsatz:  "WEBMASTA"
+Umwandlung nach 2. Regelsatz:  "FEBNAZTA"
+Ausgangswort                :  "Compaq"
+
+Umwandlung nach 1. Regelsatz:  "KOMPAK"
+Umwandlung nach 2. Regelsatz:  "KUNPAK"
+Ausgangswort                :  "Hewlett"
+
+Umwandlung nach 1. Regelsatz:  "HEFLET"
+Umwandlung nach 2. Regelsatz:  "EFLET"
+Ausgangswort                :  "DFR"
+
+Umwandlung nach 1. Regelsatz:  "DFR"
+Umwandlung nach 2. Regelsatz:  "TFR"
+Ausgangswort                :  "CIT-SEO-OPR-APO"
+
+Umwandlung nach 1. Regelsatz:  "ZIT SEO OPR APO"
+Umwandlung nach 2. Regelsatz:  "ZIT ZEU UPR APU"
+Ausgangswort                :  "AXE,"
+
+Umwandlung nach 1. Regelsatz:  "AXE "
+Umwandlung nach 2. Regelsatz:  "AXE "
+Ausgangswort                :  "EKD"
+
+Umwandlung nach 1. Regelsatz:  "EKT"
+Umwandlung nach 2. Regelsatz:  "EKT"
+Ausgangswort                :  "Web"
+
+Umwandlung nach 1. Regelsatz:  "WEB"
+Umwandlung nach 2. Regelsatz:  "FEB"
+Ausgangswort                :  "ETV"
+
+Umwandlung nach 1. Regelsatz:  "ETF"
+Umwandlung nach 2. Regelsatz:  "ETF"
+Ausgangswort                :  "NATURAL"
+
+Umwandlung nach 1. Regelsatz:  "NATURAL"
+Umwandlung nach 2. Regelsatz:  "NATURAL"
+Ausgangswort                :  "Nassi-Schneidermann"
+
+Umwandlung nach 1. Regelsatz:  "NASI SHNEIDERMAN"
+Umwandlung nach 2. Regelsatz:  "NAZI ZNEITANAN"
+Ausgangswort                :  "QMOS"
+
+Umwandlung nach 1. Regelsatz:  "KMOS"
+Umwandlung nach 2. Regelsatz:  "KNUZ"
+Ausgangswort                :  "Jackson"
+
+Umwandlung nach 1. Regelsatz:  "IAXON"
+Umwandlung nach 2. Regelsatz:  "IAXUN"
+Ausgangswort                :  "ZEVA"
+
+Umwandlung nach 1. Regelsatz:  "ZEWA"
+Umwandlung nach 2. Regelsatz:  "ZEFA"
+Ausgangswort                :  "ISO"
+
+Umwandlung nach 1. Regelsatz:  "ISO"
+Umwandlung nach 2. Regelsatz:  "IZU"
+Ausgangswort                :  "PAIMAS"
+
+Umwandlung nach 1. Regelsatz:  "PEIMAS"
+Umwandlung nach 2. Regelsatz:  "PEINAZ"
+Ausgangswort                :  "verschiedene"
+
+Umwandlung nach 1. Regelsatz:  "FERSHIDENE"
+Umwandlung nach 2. Regelsatz:  "FAZITENE"
+Ausgangswort                :  "Vantive"
+
+Umwandlung nach 1. Regelsatz:  "FANTIWE"
+Umwandlung nach 2. Regelsatz:  "FANTIFE"
+Ausgangswort                :  "Mabo"
+
+Umwandlung nach 1. Regelsatz:  "MABO"
+Umwandlung nach 2. Regelsatz:  "NABU"
+Ausgangswort                :  "mobile"
+
+Umwandlung nach 1. Regelsatz:  "MOBILE"
+Umwandlung nach 2. Regelsatz:  "NUBILE"
+Ausgangswort                :  "INFNET"
+
+Umwandlung nach 1. Regelsatz:  "INFNET"
+Umwandlung nach 2. Regelsatz:  "INFNET"
+Ausgangswort                :  "PPL"
+
+Umwandlung nach 1. Regelsatz:  "BL"
+Umwandlung nach 2. Regelsatz:  "BL"
+Ausgangswort                :  "ONP,"
+
+Umwandlung nach 1. Regelsatz:  "ONB "
+Umwandlung nach 2. Regelsatz:  "UNB "
+Ausgangswort                :  "Technische"
+
+Umwandlung nach 1. Regelsatz:  "TECHNISHE"
+Umwandlung nach 2. Regelsatz:  "TEKNIZE"
+Ausgangswort                :  "Handwerkliche"
+
+Umwandlung nach 1. Regelsatz:  "HANTWERKLICHE"
+Umwandlung nach 2. Regelsatz:  "ANTFAKLIKE"
+Ausgangswort                :  "Soziale"
+
+Umwandlung nach 1. Regelsatz:  "SOZIALE"
+Umwandlung nach 2. Regelsatz:  "ZUZIALE"
+Ausgangswort                :  "TEKO"
+
+Umwandlung nach 1. Regelsatz:  "TEKO"
+Umwandlung nach 2. Regelsatz:  "TEKU"
+Ausgangswort                :  "PC"
+
+Umwandlung nach 1. Regelsatz:  "PK"
+Umwandlung nach 2. Regelsatz:  "BK"
+Ausgangswort                :  "CIT-AE-TYM:"
+
+Umwandlung nach 1. Regelsatz:  "ZIT E TÜM."
+Umwandlung nach 2. Regelsatz:  "ZIT E TIN."
+Ausgangswort                :  "Bachelor"
+
+Umwandlung nach 1. Regelsatz:  "BACHELOR"
+Umwandlung nach 2. Regelsatz:  "BAKELUR"
+Ausgangswort                :  "Frame-Relay"
+
+Umwandlung nach 1. Regelsatz:  "FRAME RELEI"
+Umwandlung nach 2. Regelsatz:  "FRANE RELEI"
+Ausgangswort                :  "CISCO"
+
+Umwandlung nach 1. Regelsatz:  "ZISKO"
+Umwandlung nach 2. Regelsatz:  "ZIZKU"
+Ausgangswort                :  "Fast"
+
+Umwandlung nach 1. Regelsatz:  "FAST"
+Umwandlung nach 2. Regelsatz:  "FAZT"
+Ausgangswort                :  "Tokenring"
+
+Umwandlung nach 1. Regelsatz:  "TOKNRINK"
+Umwandlung nach 2. Regelsatz:  "TUKNRINK"
+Ausgangswort                :  "REXX"
+
+Umwandlung nach 1. Regelsatz:  "REX"
+Umwandlung nach 2. Regelsatz:  "REX"
+Ausgangswort                :  "EC-ES"
+
+Umwandlung nach 1. Regelsatz:  "EK ES"
+Umwandlung nach 2. Regelsatz:  "EK EZ"
+Ausgangswort                :  "PowerBuilder"
+
+Umwandlung nach 1. Regelsatz:  "POWABUILDA"
+Umwandlung nach 2. Regelsatz:  "PUFABUILTA"
+Ausgangswort                :  "MATICO"
+
+Umwandlung nach 1. Regelsatz:  "MATIKO"
+Umwandlung nach 2. Regelsatz:  "NATIKU"
+Ausgangswort                :  "PROGRESS"
+
+Umwandlung nach 1. Regelsatz:  "PROGRES"
+Umwandlung nach 2. Regelsatz:  "PRUKREZ"
+Ausgangswort                :  "Progress"
+
+Umwandlung nach 1. Regelsatz:  "PROGRES"
+Umwandlung nach 2. Regelsatz:  "PRUKREZ"
+Ausgangswort                :  "FIRST"
+
+Umwandlung nach 1. Regelsatz:  "FIRST"
+Umwandlung nach 2. Regelsatz:  "FIRZT"
+Ausgangswort                :  "FIRST"
+
+Umwandlung nach 1. Regelsatz:  "FIRST"
+Umwandlung nach 2. Regelsatz:  "FIRZT"
+Ausgangswort                :  "LDM"
+
+Umwandlung nach 1. Regelsatz:  "LTM"
+Umwandlung nach 2. Regelsatz:  "LTN"
+Ausgangswort                :  "LDM"
+
+Umwandlung nach 1. Regelsatz:  "LTM"
+Umwandlung nach 2. Regelsatz:  "LTN"
+Ausgangswort                :  "Logistik"
+
+Umwandlung nach 1. Regelsatz:  "LOGISTIK"
+Umwandlung nach 2. Regelsatz:  "LUKIZTIK"
+Ausgangswort                :  "Umsatzdatenbank"
+
+Umwandlung nach 1. Regelsatz:  "UMSAZDATNBANK"
+Umwandlung nach 2. Regelsatz:  "UNZAZTATNBANK"
+Ausgangswort                :  "Shop-Provisionierung"
+
+Umwandlung nach 1. Regelsatz:  "SHOB PROWISIONIRUNK"
+Umwandlung nach 2. Regelsatz:  "ZUB PRUFIZIUNIRUNK"
+Ausgangswort                :  "Shopprovisionierung"
+
+Umwandlung nach 1. Regelsatz:  "SHOPROWISIONIRUNK"
+Umwandlung nach 2. Regelsatz:  "ZUPRUFIZIUNIRUNK"
+Ausgangswort                :  "Vanguard"
+
+Umwandlung nach 1. Regelsatz:  "FANGUART"
+Umwandlung nach 2. Regelsatz:  "FANKUART"
+Ausgangswort                :  "Vanguard"
+
+Umwandlung nach 1. Regelsatz:  "FANGUART"
+Umwandlung nach 2. Regelsatz:  "FANKUART"
+Ausgangswort                :  "PERIS"
+
+Umwandlung nach 1. Regelsatz:  "PERIS"
+Umwandlung nach 2. Regelsatz:  "PERIZ"
+Ausgangswort                :  "Schnittstellenmanager"
+
+Umwandlung nach 1. Regelsatz:  "SHNIZTELNMANAGA"
+Umwandlung nach 2. Regelsatz:  "ZNIZTELNANAKA"
+Ausgangswort                :  "Schnittstellenmanager"
+
+Umwandlung nach 1. Regelsatz:  "SHNIZTELNMANAGA"
+Umwandlung nach 2. Regelsatz:  "ZNIZTELNANAKA"
+Ausgangswort                :  "LEAN"
+
+Umwandlung nach 1. Regelsatz:  "LIN"
+Umwandlung nach 2. Regelsatz:  "LIN"
+Ausgangswort                :  "Konzeption,"
+
+Umwandlung nach 1. Regelsatz:  "KONZEBZION "
+Umwandlung nach 2. Regelsatz:  "KUNZEBZIUN "
+Ausgangswort                :  "Prozessmanagement"
+
+Umwandlung nach 1. Regelsatz:  "PROZESMANAGEMENT"
+Umwandlung nach 2. Regelsatz:  "PRUZEZNANAKENENT"
+Ausgangswort                :  "Konzeption,"
+
+Umwandlung nach 1. Regelsatz:  "KONZEBZION "
+Umwandlung nach 2. Regelsatz:  "KUNZEBZIUN "
+Ausgangswort                :  "Projektmanagement"
+
+Umwandlung nach 1. Regelsatz:  "PROIEKTMANAGEMENT"
+Umwandlung nach 2. Regelsatz:  "PRUIEKTNANAKENENT"
+Ausgangswort                :  "CIT"
+
+Umwandlung nach 1. Regelsatz:  "ZIT"
+Umwandlung nach 2. Regelsatz:  "ZIT"
+Ausgangswort                :  "IVAP"
+
+Umwandlung nach 1. Regelsatz:  "IWAB"
+Umwandlung nach 2. Regelsatz:  "IFAB"
+Ausgangswort                :  "SAN"
+
+Umwandlung nach 1. Regelsatz:  "SAN"
+Umwandlung nach 2. Regelsatz:  "ZAN"
+Ausgangswort                :  "NAS"
+
+Umwandlung nach 1. Regelsatz:  "NAS"
+Umwandlung nach 2. Regelsatz:  "NAZ"
+Ausgangswort                :  "Primary"
+
+Umwandlung nach 1. Regelsatz:  "PRIMARI"
+Umwandlung nach 2. Regelsatz:  "PRINARI"
+Ausgangswort                :  "Secondary"
+
+Umwandlung nach 1. Regelsatz:  "SEKONDARI"
+Umwandlung nach 2. Regelsatz:  "ZEKUNTARI"
+Ausgangswort                :  "Application"
+
+Umwandlung nach 1. Regelsatz:  "ABLIKAZION"
+Umwandlung nach 2. Regelsatz:  "ABLIKAZIUN"
+Ausgangswort                :  "Network"
+
+Umwandlung nach 1. Regelsatz:  "NETWORK"
+Umwandlung nach 2. Regelsatz:  "NETFURK"
+Ausgangswort                :  "System"
+
+Umwandlung nach 1. Regelsatz:  "SÜSTEM"
+Umwandlung nach 2. Regelsatz:  "ZIZTN"
+Ausgangswort                :  "Process"
+
+Umwandlung nach 1. Regelsatz:  "PROZES"
+Umwandlung nach 2. Regelsatz:  "PRUZEZ"
+Ausgangswort                :  "Service"
+
+Umwandlung nach 1. Regelsatz:  "SÖRWIS"
+Umwandlung nach 2. Regelsatz:  "ZÖRFIZ"
+Ausgangswort                :  "BMC"
+
+Umwandlung nach 1. Regelsatz:  "BMK"
+Umwandlung nach 2. Regelsatz:  "BNK"
+Ausgangswort                :  "Patrol"
+
+Umwandlung nach 1. Regelsatz:  "PATROL"
+Umwandlung nach 2. Regelsatz:  "PATRUL"
+Ausgangswort                :  "Tivoli"
+
+Umwandlung nach 1. Regelsatz:  "TIWOLI"
+Umwandlung nach 2. Regelsatz:  "TIFULI"
+Ausgangswort                :  "NetIq"
+
+Umwandlung nach 1. Regelsatz:  "NETIK"
+Umwandlung nach 2. Regelsatz:  "NETIK"
+Ausgangswort                :  "Testmanagement"
+
+Umwandlung nach 1. Regelsatz:  "TESTMANAGEMENT"
+Umwandlung nach 2. Regelsatz:  "TEZTNANAKENENT"
+Ausgangswort                :  "IT-Architekt"
+
+Umwandlung nach 1. Regelsatz:  "IT ARCHITEKT"
+Umwandlung nach 2. Regelsatz:  "IT ARKITEKT"
+Ausgangswort                :  "Master"
+
+Umwandlung nach 1. Regelsatz:  "MASTA"
+Umwandlung nach 2. Regelsatz:  "NAZTA"
+Ausgangswort                :  "Citrix"
+
+Umwandlung nach 1. Regelsatz:  "ZITRIX"
+Umwandlung nach 2. Regelsatz:  "ZITRIX"
+Ausgangswort                :  "Organisator"
+
+Umwandlung nach 1. Regelsatz:  "ORGANISATOR"
+Umwandlung nach 2. Regelsatz:  "URKANIZATUR"
+Ausgangswort                :  "WebSphere"
+
+Umwandlung nach 1. Regelsatz:  "WEBSFERE"
+Umwandlung nach 2. Regelsatz:  "FEBZFAE"
+Ausgangswort                :  "Corba"
+
+Umwandlung nach 1. Regelsatz:  "KORBA"
+Umwandlung nach 2. Regelsatz:  "KURBA"
+Ausgangswort                :  "MQSeries"
+
+Umwandlung nach 1. Regelsatz:  "MXERIS"
+Umwandlung nach 2. Regelsatz:  "NXAIZ"
+Ausgangswort                :  "Smalltalk"
+
+Umwandlung nach 1. Regelsatz:  "SMALTALK"
+Umwandlung nach 2. Regelsatz:  "ZNALTALK"
+Ausgangswort                :  "JDBC"
+
+Umwandlung nach 1. Regelsatz:  "ITBK"
+Umwandlung nach 2. Regelsatz:  "ITBK"
+Ausgangswort                :  "Visual"
+
+Umwandlung nach 1. Regelsatz:  "WISUAL"
+Umwandlung nach 2. Regelsatz:  "FIZUAL"
+Ausgangswort                :  "Visual"
+
+Umwandlung nach 1. Regelsatz:  "WISUAL"
+Umwandlung nach 2. Regelsatz:  "FIZUAL"
+Ausgangswort                :  "Visual"
+
+Umwandlung nach 1. Regelsatz:  "WISUAL"
+Umwandlung nach 2. Regelsatz:  "FIZUAL"
+Ausgangswort                :  "Visual"
+
+Umwandlung nach 1. Regelsatz:  "WISUAL"
+Umwandlung nach 2. Regelsatz:  "FIZUAL"
+Ausgangswort                :  "Microsoft"
+
+Umwandlung nach 1. Regelsatz:  "MIKROSOFT"
+Umwandlung nach 2. Regelsatz:  "NIKRUZUFT"
+Ausgangswort                :  "Borland"
+
+Umwandlung nach 1. Regelsatz:  "BORLANT"
+Umwandlung nach 2. Regelsatz:  "BURLANT"
+Ausgangswort                :  "Borland"
+
+Umwandlung nach 1. Regelsatz:  "BORLANT"
+Umwandlung nach 2. Regelsatz:  "BURLANT"
+Ausgangswort                :  "Sun"
+
+Umwandlung nach 1. Regelsatz:  "SUN"
+Umwandlung nach 2. Regelsatz:  "ZUN"
+Ausgangswort                :  "Bank"
+
+Umwandlung nach 1. Regelsatz:  "BANK"
+Umwandlung nach 2. Regelsatz:  "BANK"
+Ausgangswort                :  "Versicherung"
+
+Umwandlung nach 1. Regelsatz:  "FERSICHERUNK"
+Umwandlung nach 2. Regelsatz:  "FAZIKAUNK"
+Ausgangswort                :  "Industrie"
+
+Umwandlung nach 1. Regelsatz:  "INDUSTRI"
+Umwandlung nach 2. Regelsatz:  "INTUZTRI"
+Ausgangswort                :  "Handel"
+
+Umwandlung nach 1. Regelsatz:  "HANDL"
+Umwandlung nach 2. Regelsatz:  "ANTL"
+Ausgangswort                :  "Verwaltung"
+
+Umwandlung nach 1. Regelsatz:  "FERWALTUNK"
+Umwandlung nach 2. Regelsatz:  "FAFALTUNK"
+Ausgangswort                :  "Chemie"
+
+Umwandlung nach 1. Regelsatz:  "KEMI"
+Umwandlung nach 2. Regelsatz:  "KENI"
+Ausgangswort                :  "SUN"
+
+Umwandlung nach 1. Regelsatz:  "SUN"
+Umwandlung nach 2. Regelsatz:  "ZUN"
+Ausgangswort                :  "IBM"
+
+Umwandlung nach 1. Regelsatz:  "IBM"
+Umwandlung nach 2. Regelsatz:  "IBN"
+Ausgangswort                :  "RPG"
+
+Umwandlung nach 1. Regelsatz:  "RBK"
+Umwandlung nach 2. Regelsatz:  "RBK"
+Ausgangswort                :  "TRANSPRO"
+
+Umwandlung nach 1. Regelsatz:  "TRANSPRO"
+Umwandlung nach 2. Regelsatz:  "TRANZPRU"
+Ausgangswort                :  "Dienstleistung"
+
+Umwandlung nach 1. Regelsatz:  "DINSTLEISTUNK"
+Umwandlung nach 2. Regelsatz:  "TINZTLEIZTUNK"
+Ausgangswort                :  "Ada"
+
+Umwandlung nach 1. Regelsatz:  "ADA"
+Umwandlung nach 2. Regelsatz:  "ATA"
+Ausgangswort                :  "Oberon"
+
+Umwandlung nach 1. Regelsatz:  "OBAON"
+Umwandlung nach 2. Regelsatz:  "UBAUN"
+Ausgangswort                :  "VBA"
+
+Umwandlung nach 1. Regelsatz:  "FBA"
+Umwandlung nach 2. Regelsatz:  "FBA"
+Ausgangswort                :  "Adabas"
+
+Umwandlung nach 1. Regelsatz:  "ADABAS"
+Umwandlung nach 2. Regelsatz:  "ATABAZ"
+Ausgangswort                :  "IMS"
+
+Umwandlung nach 1. Regelsatz:  "IMS"
+Umwandlung nach 2. Regelsatz:  "INZ"
+Ausgangswort                :  "Foxpro"
+
+Umwandlung nach 1. Regelsatz:  "FOXPRO"
+Umwandlung nach 2. Regelsatz:  "FUXPRU"
+Ausgangswort                :  "Pharma"
+
+Umwandlung nach 1. Regelsatz:  "FARMA"
+Umwandlung nach 2. Regelsatz:  "FARNA"
+Ausgangswort                :  "Gesundheitswesen"
+
+Umwandlung nach 1. Regelsatz:  "GESUNTHEIZWESN"
+Umwandlung nach 2. Regelsatz:  "KEZUNTEIZFEZN"
+Ausgangswort                :  "SGS-CT-CES"
+
+Umwandlung nach 1. Regelsatz:  "SX KT ZES"
+Umwandlung nach 2. Regelsatz:  "ZX KT ZEZ"

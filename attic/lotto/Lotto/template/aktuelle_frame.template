@@ -1,0 +1,35 @@
+<div align=center><center>
+<font size="5" FACE="Verdana">Ausspielung vom %%datelong%%</font><BR>
+<P>
+<font size="4" FACE="Verdana">Nr. %%nr%%/%%year%%</font>
+<P>
+<table border=0 width="70%">
+<tr>
+  <td width="17%" align="CENTER" bgcolor="#D4D4D4"><font size="6" FACE="Verdana"><strong>%%zahl1%%</strong></font></td>
+  <td width="17%" align="CENTER" bgcolor="Silver"><font size="6" FACE="Verdana"><strong>%%zahl2%%</strong></font></td>
+  <td width="17%" align="CENTER" bgcolor="#D4D4D4"><font size="6" FACE="Verdana"><strong>%%zahl3%%</strong></font></td>
+  <td width="17%" align="CENTER" bgcolor="Silver"><font size="6" FACE="Verdana"><strong>%%zahl4%%</strong></font></td>
+  <td width="17%" align="CENTER" bgcolor="#D4D4D4"><font size="6" FACE="Verdana"><strong>%%zahl5%%</strong></font></td>
+  <td width="17%" align="CENTER" bgcolor="Silver"><font size="6" FACE="Verdana"><strong>%%zahl6%%</strong></font></td>
+</tr>
+</table>
+<P>
+<font size="5" FACE="Verdana">Zusatzzahl: </font><font size="6" FACE="Verdana"><strong>%%zz%%</strong></font><BR>
+<P>
+<font size="5" FACE="Verdana">Joker: <strong><FONT SIZE="6" FACE="Verdana">%%joker%%</FONT></strong></font>
+<p></p>
+<FONT FACE="Verdana" SIZE="3"><I>Alle Angaben ohne Gew&auml;hr</I></FONT>
+<P>
+<br>
+<br>
+<font face="Verdana" size="3">Jetzt m&ouml;glich: <a href="http://www.swisslotto.ch/" target="_top">Online Lotto spielen</a></font>
+<HR>
+<table width="60%" border="0">
+<tr><td align="left"><a href="http://www.6richtige.ch" class="text" target="_top"><img src="../lotto/6Ri_smal.gif" width="95" height="33" border="0" alt="www.6richtige.ch"></a></td>
+<td align="right"><a href="http://www.vargasoft.ch/" class="text" target="_top"><img src="../lotto/signt_va1.gif" width=95 height=33 border=0 alt="www.vargasoft.ch"></a></td></tr>
+</table>
+<HR>
+<FONT FACE="Verdana">Kommentare und Anregungen an <a href="mailto:rschaer@datacomm.ch">rschaer@datacomm.ch</a></FONT>
+</center></div>
+</body>
+</html>

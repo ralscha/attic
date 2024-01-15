@@ -1,0 +1,109 @@
+<html>
+<head>
+   <title>Grace JavaLog</title>
+</head>
+<body text="#000000" bgcolor="#FFFFFF" link="#0000EE" vlink="#551A8B" alink="#FF0000">
+
+<table width=100%>
+<tr>
+<td><img SRC="gk9.jpg" NOSAVE height=200 width=153>
+<td valign=top>
+  <table width="100%" bgcolor="#FFCC00">
+  <tr><td><font size=+4 color=Green><div align=right><b>Filtering</b></font>
+  </table>
+<div align=right><font size=+2 color=gray><b><i>Grace Software</b></i></font>
+<div align=right><font size=+2 color=gray><b><i>JavaLog</b></i></font>
+<br>
+<br>
+<div align=right><font size=-1 color="#B0B0B0">$Revision: 1.1 $</font></div>
+<div align=right><font size=-1 color="#B0B0B0">$Date: 1999/09/27 12:26:00 $</font></div>
+</table>
+
+<h2>Introduction</h2>
+
+JavaLog code is meant to remain in your source code forever.  In other
+words, it should not be removed for production, like print statements.
+So to make this efficient, JavaLog provides a runtime filtering system
+that allows the runtime user to selectively include and exclude events
+based on regular expression pattern matching.
+
+<P>JavaLog uses the <a href="http://www.cacas.org/~wes/java">GNU
+regular expression library</a> to express runtime filtering patterns.
+Events are filtered in two passes.  In the first pass, the event type
+is filtered using a Hashtable lookup.  This is very fast so that users
+can efficiently filter in and out event types that are not pertinent
+to the mode of operation of the software.  In the second pass, other
+attributes of an event can be used in include/exlude criteria.  This
+pass is slower since each include/exlude criterion is evaluated
+against each event.
+
+<P>The remainder of this page describes how to filter JavaLog events
+at runtime using regular expressions.
+
+<h2>Event Type Filtering</h2>
+
+Event type filtering can be accomplished at compile time and and run
+time using one ore more <i>filters</i>.  A filter is simply a regular
+expression.  In both run time and compile time cases, a collection of
+filters is specified as a string of space separated regular
+expressions.  Obviously, this means that a filter can not contain a
+space.  So, a filter like: "<b>err.* s.*</b>" means all events whose
+type begins with "err" or "s".  Currently, filters can be
+<i>include></i> filters or <i>exclude</i> filters. Include filters are
+filters that pass the a potential event to the handlers and, thus, are
+logged.  Exclude filters stop a potential event from being passed to
+the handlers and, thus, are not logged.
+
+<P>Include filters are, by default, set to include everything, ".*",
+and exclude filters are, by default, set to exclude nothing, "".  If
+an include filter is then set, it replaces the default ".*" pattern.
+Also, note that the default include filter is affected by the <a
+href="properties/log.html">-Dlog=false</a> properties.  If this
+property is set false, the default include pattern is set to include
+nothing, ".*".
+
+<P>Compile time filtering is accomplished using the <a
+href=../api/grace/log/Log.html#setEventTypesToInclude(java.lang.String)>
+<code>Log.setEventsTypesToInclude(String filter)</code></a>
+
+and
+
+<a href=../api/grace/log/Log.html#setEventTypesToExclude(java.lang.String)>
+<code>setEventTypesToExclude(String filter)</code></a> functions of the Log.
+
+<P>Run time filtering is accomplished using the 
+<a href="properties/event.include.html">-Dlog.event.include</a>=<i>filters</i>
+and
+<a href="properties/event.exclude.html">-Dlog.event.exclude</a>=<i>filters</i>
+properties.  
+
+The following unrealistic example,
+
+<pre>java -Dlog.event.include="error.*" -Dlog.event.exclude="error1.*"</pre>
+
+would include all events whose type starts with "error" but then
+exlude those that started with "error1".
+
+<h2>Function Filtering</h2>
+
+Functions are filtered almost identically to the event types.  They
+are filtered by the funtions:
+
+<a href=../api/grace/log/Log.html#setFunctionsToInclude(java.lang.String)>
+<code>Log.setFunctionsToInclude(String filter)</code></a>
+
+and
+
+<a href=../api/grace/log/Log.html#setFunctionsToExclude(java.lang.String)>
+<code>setFunctionsToExclude(String filter)</code></a> functions of the Log.
+
+or at runtime using the properties 
+<a href="properties/function.include.html">-Dlog.function.include</a>=
+<i>filters</i>
+and
+<a href="properties/function.exclude.html">-Dlog.function.exclude</a>=
+<i>filters</i> properties.  
+
+</body>
+</html>
+

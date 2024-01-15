@@ -1,0 +1,29 @@
+
+import javax.swing.table.*;
+import javax.swing.*;
+
+public class TestModel extends AbstractTableModel {
+	String headers[] = {"Column1", "Column2"};
+	
+	Class columenClasses[] = {String.class, JButton.class};
+	Object data[][] = {
+		{"Row1", new JButton("Test1")},
+		{"Row2", new JButton("Test2")},
+		{"Row3", new JButton("Test3")},
+		{"Row4", new JButton("Test4")},
+		{"Row5", new JButton("Test5")},
+		{"Row6", new JButton("Test6")},
+		{"Row7", new JButton("Test7")},
+		{"Row8", new JButton("Test8")},
+		{"Row9", new JButton("Test9")},
+	};
+	
+	public int getRowCount() { return data.length; }
+	public int getColumnCount() { return headers.length; }
+	public Class getColumnClass(int c) { return columenClasses[c]; }
+	public String getColumnName(int c) { return headers[c]; }
+	public boolean isCellEditable(int r, int c) {return true;}
+	public Object getValueAt(int r, int c) {return data[r][c];}
+	
+	
+}

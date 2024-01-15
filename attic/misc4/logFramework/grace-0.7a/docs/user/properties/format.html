@@ -1,0 +1,340 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="GENERATOR" content="Mozilla/4.5 [en] (X11; I; SunOS 5.6 i86pc) [Netscape]">
+   <title>Java Log Facility - Example Output</title>
+</head>
+<body text="#000000" bgcolor="#FFFFFF">
+
+<center><img SRC="p0.jpg" NOSAVE height=80 width=115><img SRC="p1.jpg" NOSAVE height=80 width=115><img SRC="p2.jpg" NOSAVE height=80 width=115><img SRC="p3.jpg" NOSAVE height=80 width=115><img SRC="p4.jpg" NOSAVE height=80 width=115></center>
+
+<div align=right><font size=-1>$Revision: 1.1 $</font></div>
+
+<div align=right><font size=-1>$Date: 1999/09/27 12:26:04 $</font></div>
+
+<div align=right>
+<hr WIDTH="100%"></div>
+
+<table WIDTH="100%" NOSAVE >
+<tr NOSAVE>
+<td ALIGN=LEFT VALIGN=TOP NOSAVE><font color="#999999">Name:</font></td>
+
+<td NOSAVE><font color="#009900">log.format</font></td>
+</tr>
+
+<tr NOSAVE>
+<td ALIGN=LEFT VALIGN=TOP NOSAVE><font color="#999999">Description:</font></td>
+
+<td ALIGN=LEFT VALIGN=TOP NOSAVE><font color="#000000">This controls the
+appearance of each event that is routed to a <a href="../api/grace/log/Handler.html">handler</a>
+that produces text to its log device.&nbsp; Note that exceptions are formatted
+in the object escape sequence "</font><font color="#009900">%o</font><font color="#000000">".</font></td>
+</tr>
+
+<tr NOSAVE>
+<td NOSAVE><font color="#999999">Type:</font></td>
+
+<td><font color="#009900">String</font></td>
+</tr>
+
+<tr NOSAVE>
+<td ALIGN=LEFT VALIGN=TOP NOSAVE><font color="#999999">Acceptable Values:</font></td>
+
+<td>Any combination of plain text and the following format escape sequences:&nbsp;
+<table BORDER WIDTH="100%" NOSAVE >
+<tr NOSAVE>
+<td NOSAVE><font color="#009900">%t</font></td>
+
+<td>Current time.&nbsp; Also see <a href="property.log.time.format.html">log.time.format</a>.&nbsp;
+The following sub formats are allowed in the form "<font color="#009900">%(<i>subformat</i>)t</font>":&nbsp;
+<br>&nbsp;
+<table BORDER WIDTH="100%" NOSAVE >
+<tr NOSAVE>
+<td NOSAVE><font color="#009900">short</font></td>
+
+<td>formatted by DateFormat.SHORT</td>
+</tr>
+
+<tr>
+<td><font color="#009900">medium</font></td>
+
+<td>formatted by DateFormat.MEDIUM</td>
+</tr>
+
+<tr>
+<td><font color="#009900">long</font></td>
+
+<td>formatted by DateFormat.LONG</td>
+</tr>
+
+<tr>
+<td><font color="#009900">full</font></td>
+
+<td>formatted by DateFormat.FULL</td>
+</tr>
+
+<tr>
+<td><font color="#009900">24</font></td>
+
+<td>dd/MM./yy hh/mm/ss</td>
+</tr>
+
+<tr>
+<td><i><font color="#009900">SimpleDateFormat</font></i></td>
+
+<td>string used to contruct to SimpleDateFormat</td>
+</tr>
+</table>
+&nbsp;</td>
+</tr>
+
+<tr>
+<td><font color="#009900">%r</font></td>
+
+<td>Relative time since the start of the program.&nbsp; Also see <a href="property.log.time.relative.html">log.time.relative</a>.&nbsp;
+The following sub formats are allowed in the form "<font color="#009900">%(<i>subformat</i>)r</font>"&nbsp;
+<br>&nbsp;
+<table BORDER WIDTH="100%" NOSAVE >
+<tr>
+<td><font color="#009900">clock</font></td>
+
+<td>The relative time converted to hh:mm:ss format.</td>
+</tr>
+
+<tr>
+<td><font color="#009900">days</font></td>
+
+<td>The relative number of days since the start of the program.</td>
+</tr>
+
+<tr>
+<td><font color="#009900">hours</font></td>
+
+<td>The relative number of hours since the start of the program</td>
+</tr>
+
+<tr>
+<td><font color="#009900">minutes</font></td>
+
+<td>The relative number of minutes since the start of the program.</td>
+</tr>
+
+<tr>
+<td><font color="#009900">seconds</font></td>
+
+<td>The relative number of seconds since the start of the program.</td>
+</tr>
+</table>
+&nbsp;</td>
+</tr>
+
+<tr>
+<td><font color="#009900">%e</font></td>
+
+<td>Event type (error, warning, notice, trace, etc).&nbsp;</td>
+</tr>
+
+<tr>
+<td><font color="#009900">%h</font></td>
+
+<td>Thread group(s) and name.&nbsp; Also see <a href="property.log.thread.format.html">log.thread.format</a>.&nbsp;
+The following sub formats are allowed in the form "<font color="#009900">%(<i>subformat)</i>h</font>":&nbsp;
+<br>&nbsp;
+<table BORDER WIDTH="100%" NOSAVE >
+<tr>
+<td><font color="#009900">%n</font></td>
+
+<td>Writes the name of the thread that created the event</td>
+</tr>
+
+<tr>
+<td><font color="#009900">%g</font></td>
+
+<td>Writes the parent group name of the the thread that created the event.</td>
+</tr>
+
+<tr>
+<td><font color="#009900">%G</font></td>
+
+<td>Writes all the group names separated by <i><font color="#009900">puncuation-char.</font></i></td>
+</tr>
+
+<tr>
+<td><font color="#009900">%<i>puncuation-char</i></font></td>
+
+<td>Sets the delimiter character used by <font color="#009900">%G.</font></td>
+</tr>
+
+<tr>
+<td><i><font color="#009900">plain-text</font></i></td>
+
+<td>This format my be interspersed with plain text.</td>
+</tr>
+</table>
+&nbsp;</td>
+</tr>
+
+<tr>
+<td><font color="#009900">%n</font></td>
+
+<td>Event sequence number</td>
+</tr>
+
+<tr>
+<td><font color="#009900">%c</font></td>
+
+<td><font color="#000000">Class name whence the event was produced</font></td>
+</tr>
+
+<tr>
+<td><font color="#009900">%f</font></td>
+
+<td><font color="#000000">Function name whence the event was produced</font></td>
+</tr>
+
+<tr>
+<td><font color="#009900">%F</font></td>
+
+<td><font color="#000000">File name whence the event was produced</font></td>
+</tr>
+
+<tr>
+<td><font color="#009900">%l</font></td>
+
+<td><font color="#000000">Line number in file at which the event was produced</font></td>
+</tr>
+
+<tr>
+<td><font color="#009900">%m</font></td>
+
+<td><font color="#000000">Message specified by caller.&nbsp; Also see <a href="property.log.message.format.html">log.message.format</a>.&nbsp;
+The following sub formats are allowed in the form "</font><font color="#009900">%(<i>subformat</i>)m</font><font color="#000000">".&nbsp;
+Note, in this case, the </font><i><font color="#009900">subformat</font></i><font color="#000000">
+will not be used at all if the message text is null.&nbsp; This allows
+the user to implement a kind of conditional format based on whether a message
+was given or not.</font>
+<br>&nbsp;
+<table BORDER WIDTH="100%" NOSAVE >
+<tr>
+<td><font color="#006600">%m</font></td>
+
+<td>Writes the message text.</td>
+</tr>
+
+<tr>
+<td><i><font color="#009900">plain-text</font></i></td>
+
+<td>This format may be interspersed with plain text.&nbsp;</td>
+</tr>
+</table>
+&nbsp;</td>
+</tr>
+
+<tr>
+<td><font color="#009900">%o</font></td>
+
+<td><font color="#000000">Object specified by caller.&nbsp; Also see <a href="property.log.object.format.html">log.object.format</a>.
+The following sub formats are allowed in the form "</font><font color="#009900">%(<i>subformat</i>)o</font><font color="#000000">".&nbsp;
+Note, in this case, the </font><i><font color="#009900">subformat</font></i><font color="#000000">
+will not be used at all if the object is null.&nbsp; This allows the user
+to implement a kind of conditional format based on whether an object was
+given or not.</font>
+<br>&nbsp;
+<table BORDER WIDTH="100%" NOSAVE >
+<tr>
+<td><font color="#009900">%o</font></td>
+
+<td>The object is written in its default formatting.</td>
+</tr>
+
+<tr>
+<td><font color="#009900">%l</font></td>
+
+<td>The object is written in short Lisp format (see <a href="../api/grace/io.LispPrintWriter.html">grace.io.LispPrintWriter</a>)</td>
+</tr>
+
+<tr>
+<td><font color="#009900">%L</font></td>
+
+<td>The object is written in pretty Lisp format (see <a href="../api/grace/io.LispPrintWriter.html">grace.io.LispPrintWriter</a>)</td>
+</tr>
+
+<tr>
+<td><font color="#009900">%j</font></td>
+
+<td>The object is written in short Java format (see <a href="../api/grace/io.JavaPrintWriter.html">grace.io.JavaPrintWriter</a>)</td>
+</tr>
+
+<tr>
+<td><font color="#009900">%J</font></td>
+
+<td>The object is written in pretty Java format (see <a href="../api/grace/io.JavaPrintWriter.html">grace.io.JavaPrintWriter</a>)</td>
+</tr>
+
+<tr>
+<td><i><font color="#009900">plain-text</font></i></td>
+
+<td>This format may be interspersed with plain text.</td>
+</tr>
+</table>
+&nbsp;</td>
+</tr>
+
+<tr>
+<td><font color="#009900">\n</font></td>
+
+<td>Inserts a newline.</td>
+</tr>
+
+<tr>
+<td><font color="#009900">\t</font></td>
+
+<td>Inserts a tab character.</td>
+</tr>
+</table>
+<font color="#009900">&nbsp;</font></td>
+</tr>
+
+<tr NOSAVE>
+<td NOSAVE><font color="#999999">Default Value:</font></td>
+
+<td><font color="#009900">%t(%r):%n: %e: %h: %c.%f:%l%(: %m)m%(: %j)o\n\n</font></td>
+</tr>
+
+<tr NOSAVE>
+<td ALIGN=LEFT VALIGN=TOP NOSAVE><font color="#999999">Example Usage:</font></td>
+
+<td>
+<table BORDER WIDTH="100%" NOSAVE >
+<tr NOSAVE>
+<td NOWRAP NOSAVE>$ java -D<font color="#009900">log.format</font>="<font color="#009900">%t
+%e %(: %m)</font>" ...</td>
+
+<td>This will print the absolute time and, if a message was specified,
+a colon and the message.&nbsp;
+<p><font face="Courier New,Courier">03/01/99 17:15:38 trace</font>
+<br><font face="Courier New,Courier">03/01/99 17:15:38 warning: Example
+of warning(message)</font>
+<br><font face="Courier New,Courier">03/01/99 17:15:38 error: Example of
+error(message)</font></td>
+</tr>
+
+<tr>
+<td>$ java -D<font color="#009900">log.format</font>="<font color="#009900">%t
+%e %(%/ %G->%n)</font>" ...</td>
+
+<td>This will print the time, event type, and the the hierarchy of thread
+group names separated by a '/' and the thread name separated by a '->'.&nbsp;
+<p><font face="Courier New,Courier">03/01/99 17:21:32 trace system/main->Test-Thread.1</font>
+<br><font face="Courier New,Courier">03/01/99 17:21:32 warning system/main->Test-Thread.1</font>
+<br><font face="Courier New,Courier">03/01/99 17:21:32 error system/main->Test-Thread.1</font></td>
+</tr>
+</table>
+&nbsp;</td>
+</tr>
+</table>
+
+<br>&nbsp;
+</body>
+</html>

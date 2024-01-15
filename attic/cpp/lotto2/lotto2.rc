@@ -1,0 +1,184 @@
+//Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""res\\lotto2.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+    "\r\n"
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "#include ""afxres.rc""  // Standard components\r\n"
+    "\0"
+END
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+IDR_MAINFRAME           ICON    DISCARDABLE     "res\\lotto2.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUTBOX DIALOG DISCARDABLE  34, 22, 217, 55
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "About lotto2"
+FONT 8, "MS Sans Serif"
+BEGIN
+    ICON            IDR_MAINFRAME,IDC_STATIC,11,17,18,20
+    LTEXT           "Add a Ziehung V1.0",IDC_STATIC,40,10,119,8
+    LTEXT           "Copyright \251 1995 by Ralph Schaer",IDC_STATIC,40,25,
+                    119,8
+    DEFPUSHBUTTON   "OK",IDOK,176,6,32,14,WS_GROUP
+END
+
+IDD_LOTTO2_DIALOG DIALOG DISCARDABLE  0, 0, 197, 106
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "Add a Ziehung"
+FONT 8, "MS Sans Serif"
+BEGIN
+    EDITTEXT        IDC_EDITNR,12,20,25,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDITJAHR,65,19,40,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDITZ1,12,50,18,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDITZ2,34,50,18,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDITZ3,56,50,18,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDITZ4,78,50,18,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDITZ5,100,50,18,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDITZ6,122,50,18,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDITZZ,164,50,18,12,ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "Add",IDADD,15,79,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,73,79,50,14
+    PUSHBUTTON      "Save && Exit",IDEXIT,131,78,50,14
+    LTEXT           "Zz",IDC_STATIC,164,38,16,7
+    LTEXT           "Zahlen",IDC_STATIC,12,38,29,7
+    LTEXT           "Nr",IDC_STATIC,12,7,29,7
+    LTEXT           "Jahr",IDC_STATIC,66,8,29,7
+END
+
+IDD_DIALOG1 DIALOG DISCARDABLE  0, 0, 273, 149
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "Dialog"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,111,123,50,14
+    LISTBOX         IDC_LISTLZ,17,12,238,94,LBS_NOINTEGRALHEIGHT | 
+                    WS_VSCROLL | WS_TABSTOP
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,0,0,1
+ PRODUCTVERSION 1,0,0,1
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904b0"
+        BEGIN
+            VALUE "Comments", "Ziehung hinzuf\374gen\0"
+            VALUE "CompanyName", "\0"
+            VALUE "FileDescription", "LOTTO2 MFC Application\0"
+            VALUE "FileVersion", "1, 0, 0, 1\0"
+            VALUE "InternalName", "LOTTO2\0"
+            VALUE "LegalCopyright", "Copyright \251 1995\0"
+            VALUE "OriginalFilename", "LOTTO2.EXE\0"
+            VALUE "ProductName", "LOTTO2 Application\0"
+            VALUE "ProductVersion", "1, 0, 0, 1\0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1200
+    END
+END
+
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_INDICATOR_EXT        "EXT"
+    ID_INDICATOR_CAPS       "CAP"
+    ID_INDICATOR_NUM        "NUM"
+    ID_INDICATOR_SCRL       "SCRL"
+    ID_INDICATOR_OVR        "OVR"
+    ID_INDICATOR_REC        "REC"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_ABOUTBOX            "&About lotto2..."
+END
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#include "res\lotto2.rc2"  // non-Microsoft Visual C++ edited resources
+
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+#include "afxres.rc"  // Standard components
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

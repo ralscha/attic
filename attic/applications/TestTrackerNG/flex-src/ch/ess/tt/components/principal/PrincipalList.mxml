@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Panel xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute" width="100%" height="100%" title="Benutzer"
+  creationComplete="init()">
+
+  <mx:Script>
+    <![CDATA[
+      import mx.core.UIComponent;
+      import mx.controls.Alert;
+      import mx.events.CloseEvent;
+      import ch.ess.tt.util.CairngormUtils;
+      import ch.ess.tt.control.EventNames;
+      import flexed.widgets.alerts.CAlert;
+      import mx.events.ListEvent;
+      import ch.ess.tt.model.Principal;
+      import ch.ess.tt.model.ModelLocator;
+      
+      [Bindable]
+      public var model:ModelLocator = ModelLocator.getInstance();
+      
+      private function init():void {
+        model.principalDataGrid = principalDataGrid;
+      }
+      
+      private function itemClickHandler(e:ListEvent):void {
+        if (e.columnIndex == 4) {
+          model.selectedPrincipal = null;
+          model.selectedPrincipal = Principal(principalDataGrid.selectedItem);
+          model.principalWorkflowState = ModelLocator.VIEWING_EDIT_SCREEN;
+        } else if (e.columnIndex == 5) {
+          deletePrincipal();
+        }      
+      }      
+      
+      private function newPrincipal():void {
+        model.selectedPrincipal = new Principal();
+        model.principalWorkflowState = ModelLocator.VIEWING_EDIT_SCREEN;
+      }
+      
+      private function deletePrincipal():void {
+        CAlert.confirm('Diesen Benutzer löschen?', closeEventHandler);
+      }
+      
+      private function closeEventHandler(event:CloseEvent):void {
+        if (event.detail == Alert.YES) {
+          CairngormUtils.dispatchEvent(EventNames.DELETE_PRINCIPAL, {id: principalDataGrid.selectedItem.id});
+          principalDataGrid.selectedIndex = -1;
+          principalDataGrid.selectedItem = null;
+        }
+      }      
+    ]]>
+  </mx:Script>    
+    
+  <mx:DataGrid id="principalDataGrid" bottom="60" top="10" left="10" right="10" 
+    dataProvider="{model.principalsAC}" itemClick="itemClickHandler(event)">
+    <mx:columns>
+      <mx:DataGridColumn headerText="Username" dataField="userName"/>
+      <mx:DataGridColumn headerText="Name" dataField="name"/>
+      <mx:DataGridColumn headerText="Vorname" dataField="firstName"/>
+      <mx:DataGridColumn headerText="Email" dataField="email"/>
+      
+      <mx:DataGridColumn width="75" headerText="Bearbeiten" dataField="id" sortable="false">
+        <mx:itemRenderer>
+          <mx:Component>
+            <mx:Image source="@Embed(source='/assets/edit.png')" width="16" height="16" verticalAlign="middle" horizontalAlign="center" scaleContent="false"/>
+          </mx:Component>
+        </mx:itemRenderer>
+      </mx:DataGridColumn>
+      <mx:DataGridColumn width="75" headerText="Löschen" dataField="id" sortable="false">
+        <mx:itemRenderer>
+          <mx:Component>
+            <mx:Image source="@Embed(source='/assets/delete2.png')" width="16" height="16" verticalAlign="middle" horizontalAlign="center" scaleContent="false"/>
+          </mx:Component>
+        </mx:itemRenderer>      
+      </mx:DataGridColumn>      
+    </mx:columns>
+  </mx:DataGrid>
+  
+  <mx:HBox left="10" bottom="20" right="10" id="newButtonBox">
+    <mx:Button label="Neuer Benutzer" id="newButton" click="newPrincipal()" icon="@Embed(source='/assets/businessman_add.png')"/>
+  </mx:HBox>
+  
+</mx:Panel>

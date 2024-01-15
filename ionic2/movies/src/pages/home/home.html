@@ -1,0 +1,122 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      My Fave Films
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <div padding-bottom margin-bottom>
+    <button ion-button color="primary" text-center block (click)="toggleForm()">
+      {{ buttonText }}
+    </button>
+  </div>
+
+  <div [@panelHeightTrigger]="expandedState">
+    <form [formGroup]="form" (ngSubmit)="saveMovie()" *ngIf="expanded">
+      <ion-list>
+        <ion-item margin-bottom>
+          <ion-label>Title</ion-label>
+          <ion-input type="text" formControlName="movieName"></ion-input>
+        </ion-item>
+
+        <ion-item margin-bottom>
+          <ion-label text-left>Rating</ion-label>
+          <ion-range formControlName="rating" min="1" max="5" step="1" snaps="true" secondary>
+            <ion-label range-left>1</ion-label>
+            <ion-label range-right>5</ion-label>
+          </ion-range>
+        </ion-item>
+
+        <ion-item margin-bottom>
+          <ion-label>Genre</ion-label>
+          <ion-select formControlName="genre">
+            <ion-option value="Action">Action</ion-option>
+            <ion-option value="Comedy">Comedy</ion-option>
+            <ion-option value="Documentary">Documentary</ion-option>
+            <ion-option value="Horror">Horror</ion-option>
+            <ion-option value="Other">Other</ion-option>
+            <ion-option value="Romance">Romance</ion-option>
+            <ion-option value="Thriller">Thriller</ion-option>
+            <ion-option value="War">War</ion-option>
+            <ion-option value="All">Show me all genres!</ion-option>
+          </ion-select>
+        </ion-item>
+
+        <button ion-button color="primary" text-center block [disabled]="!form.valid">Save Movie
+        </button>
+      </ion-list>
+    </form>
+  </div>
+
+  <ion-list *ngIf="movies.length > 0" no-lines>
+
+    <div padding-bottom margin-bottom>
+      <button
+        ion-button
+        color="secondary"
+        text-center
+        block
+        (click)="toggleFilters()">{{ filtersText }}
+      </button>
+    </div>
+
+    <div [@filtersPanelHeightTrigger]="expandedFiltersState">
+      <div *ngIf="expandedFilters">
+
+        <ion-list-header>
+          Filter By
+        </ion-list-header>
+        <ion-item side="right">
+          <ion-label>Genre:</ion-label>
+          <ion-select #genre (ionChange)="filterMoviesByGenre($event, genre.value)">
+            <ion-option value="Action">Action</ion-option>
+            <ion-option value="Comedy">Comedy</ion-option>
+            <ion-option value="Documentary">Documentary</ion-option>
+            <ion-option value="Horror">Horror</ion-option>
+            <ion-option value="Other">Other</ion-option>
+            <ion-option value="Romance">Romance</ion-option>
+            <ion-option value="Thriller">Thriller</ion-option>
+            <ion-option value="War">War</ion-option>
+            <ion-option value="All">Show me all genres!</ion-option>
+          </ion-select>
+        </ion-item>
+        <ion-item>
+          <p text-center>Or</p>
+        </ion-item>
+        <ion-item>
+          <ion-label text-left>Rating:</ion-label>
+          <ion-range min="1" max="5" step="1" snaps="true" #rated
+                     (ionChange)="filterMoviesByRating($event, rated)">
+            <ion-label range-left>1</ion-label>
+            <ion-label range-right>5</ion-label>
+          </ion-range>
+        </ion-item>
+      </div>
+    </div>
+  </ion-list>
+
+  <ion-list *ngIf="moviesList.length > 0" no-lines>
+    <ion-list-header>
+      Your saved movies
+    </ion-list-header>
+    <ion-item-sliding *ngFor="let movie of moviesList">
+      <ion-item>
+        {{ movie.movieName }}
+      </ion-item>
+      <ion-item-options side="right">
+        <button ion-button color="primary" (click)="editMovie(movie)">
+          <ion-icon name="create"></ion-icon>
+          Edit
+        </button>
+        <button ion-button color="secondary" (click)="deleteMovie(movie)">
+          <ion-icon name="close"></ion-icon>
+          Delete
+        </button>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+
+</ion-content>

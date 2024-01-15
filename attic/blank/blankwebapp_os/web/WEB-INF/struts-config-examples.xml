@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts-config PUBLIC 
+          "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN"
+          "http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+
+<struts-config>
+
+    <form-beans>
+      <form-bean name="sendMailForm" type="ch.ess.examples.SendMailForm"/>             
+      <form-bean name="waitActionForm" type="ch.ess.examples.WaitActionForm"/>                   
+    </form-beans>
+     
+   
+  
+  <action-mappings>  
+    <action path="/javascript" forward=".javascript"/>
+    <action path="/chart" forward=".chart"/>
+    <action path="/tab" forward=".tab"/>
+    <action path="/clientinfo" forward=".clientinfo"/>
+    <action path="/wait" forward=".wait"/>
+         
+    <action path="/cache" forward=".cache"/>     
+    <action path="/cachetest" forward=".cachetest"/>
+    <action path="/cachecrontest" forward=".cachecrontest"/>
+    <action path="/cachegrouptest" forward=".cachegrouptest"/>
+    
+    <action path="/sendmail" forward=".sendmail"/>       
+      
+    <action     path="/sendMail"
+                type="ch.ess.examples.SendMailAction"
+                name="sendMailForm"
+                input=".sendmail"
+                scope="request"
+                validate="true">   
+       <forward name="success"      path=".sendmail"/>       			               
+    </action> 
+    <action     path="/waitAction"
+                type="ch.ess.examples.WaitAction"
+                name="waitActionForm"
+                input=".wait"
+                scope="request"
+                validate="true">   
+       <forward name="success"      path=".wait"/>       			               
+    </action>     
+    
+  </action-mappings>      
+    
+
+    
+      
+</struts-config>

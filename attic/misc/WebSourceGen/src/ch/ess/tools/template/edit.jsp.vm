@@ -1,0 +1,67 @@
+<%@ page language="java" errorPage="/error.jsp" %>
+<%@ include file="../taglib.jsp"%>
+<%@ include file="../include/head.inc"%>
+
+<app:confirm key="${objectName}Loeschen" />
+<% boolean readonly = true; %>
+<app:hasPermission name="${recht}">
+<% readonly = false; %>
+</app:hasPermission>
+
+<app:step chain="9" step="2">
+  <app:navigation direction="back"><html:rewrite page="/${objectLowercaseNames}.do"/></app:navigation>
+  <app:navigation direction="backEnd"><html:rewrite page="/${objectLowercaseNames}.do"/></app:navigation>
+  <app:navigation direction="stop"><html:rewrite page="/descr.do"/></app:navigation>
+</app:step>		
+</head>
+
+<body marginwidth="15" marginheight="5" leftmargin="15">
+<app:mainTitle key="${objectName}bearbeiten"/>
+<p>
+
+<html:form action="/store${objectName}" method="post" focus="name">
+<html:hidden property="id"/>
+
+<table border="0">
+<tr><td>
+  <table width="100%" border="0" cellspacing="1" cellpadding="2">
+    <tr>
+      <th align="left" bgcolor="#FFFFFF"><bean:message key="${objectName}" /> *:&nbsp;</th>
+      <td bgcolor="White"><html:text readonly="<%= readonly %>" property="name" size="60" maxlength="255"/></td>
+    </tr>
+
+	<c:if test="${geloescht}" var="deleted">
+    <tr>
+      <th align="left" bgcolor="#FFFFFF"><bean:message key="Geloescht" />:&nbsp;</th>
+      <td bgcolor="White"><html:checkbox property="geloescht"/></td>
+	</tr>
+	</c:if>
+	<c:if test="${notdeleted}">
+	  <html:hidden property="geloescht"/>
+	</c:if>
+
+</table>
+</td></tr>
+
+</table>
+
+<table width="800">
+<tr><td><hr align="left" size="1" noshade></td></tr>
+<tr><td>
+<app:hasPermission name="${recht}">
+	<html:submit property="store"><bean:message key="Abspeichern" /></html:submit>&nbsp;&nbsp;
+	<html:submit property="storeadd"><bean:message key="AbspeichernUndNeu" /></html:submit>&nbsp;&nbsp;
+	
+    <c:if test="${deletable}">
+      <input type="submit" onclick="bCancel=true;return confirmRequest('<c:out value="${formname}"/>')" name="deleteButton" value="<bean:message key="Loeschen"/>" />&nbsp;&nbsp;
+    </c:if>		
+	
+</app:hasPermission>
+<html:cancel><bean:message key="Zurueck"/></html:cancel>&nbsp;&nbsp;&nbsp;&nbsp;* = <bean:message key="Musseingaben"/>
+</td></tr>
+</table>
+
+</html:form>
+</body>
+</html>
+

@@ -1,0 +1,61 @@
+<web-app>
+ <description>ESS Web Calendar</description>
+ <session-config>
+  <session-timeout>30</session-timeout>
+ </session-config>
+ 
+ 
+   <servlet>
+    <servlet-name>reminder</servlet-name>
+    <servlet-class>ch.ess.calendar.tools.ReminderServlet</servlet-class>
+    <init-param>
+      <param-name>waittime</param-name>
+      <param-value>60</param-value>
+    </init-param>
+    <init-param>
+      <param-name>smtp</param-name>
+      <param-value>$SMTP$</param-value>
+    </init-param>
+    <init-param>
+      <param-name>sender</param-name>
+      <param-value>$SENDER$</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+ 
+  <servlet>
+   <servlet-name>AppointmentsAddServlet</servlet-name>
+   <servlet-class>ch.ess.calendar.xml.AppointmentsAddServlet</servlet-class>
+   <init-param>
+     <param-name>tmpDir</param-name>
+     <param-value>$TMPDIR$</param-value>
+   </init-param>
+  </servlet>
+ 
+ <mime-mapping>
+  <extension>
+   txt
+  </extension>
+  <mime-type>
+   text/plain
+  </mime-type>
+ </mime-mapping>
+ <mime-mapping>
+  <extension>
+   html
+  </extension>
+  <mime-type>
+   text/html
+  </mime-type>
+ </mime-mapping>
+ <welcome-file-list>
+  <welcome-file>
+   index.jsp
+  </welcome-file>
+  <welcome-file>
+   index.html
+  </welcome-file>
+ </welcome-file-list>
+
+</web-app>

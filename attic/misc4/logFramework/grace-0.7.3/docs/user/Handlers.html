@@ -1,0 +1,56 @@
+<html>
+<head>
+   <title>Grace JavaLog</title>
+</head>
+<body text="#000000" bgcolor="#FFFFFF" link="#0000EE" vlink="#551A8B" alink="#FF0000">
+
+<table width=100%>
+<tr>
+<td><img SRC="gk9.jpg" NOSAVE height=200 width=153>
+<td valign=top>
+  <table width="100%" bgcolor="#FFCC00">
+  <tr><td><font size=+4 color=Green><div align=right><b>Handlers</b></font>
+  </table>
+<div align=right><font size=+2 color=gray><b><i>Grace Software</b></i></font>
+<div align=right><font size=+2 color=gray><b><i>JavaLog</b></i></font>
+<br>
+<br>
+<div align=right><font size=-1 color="#B0B0B0">$Revision: 1.1 $</font></div>
+<div align=right><font size=-1 color="#B0B0B0">$Date: 1999/10/11 00:05:13 $</font></div>
+</table>
+
+<h2>Introduction</h2>
+
+<a href=../api/grace/log/Handler.html>Handlers</a> are classes that
+perform some final output action on log events.  The <a
+href=../api/grace/log/Log.html>Log</a> class distributes its events to
+each Handler that is installed at runtime (via properties usually).
+One can think of Handlers as a kind of device driver adapter for the
+Log.  So, at run time, one can configure the program to write all
+events to the standard out, errors to one file, traces to another
+file, and errors and warnings to JDBC database.
+
+<P>By default, JavaLog only logs to the standard out using the <a
+href=../api/grace/log/StandardOutHandler>StandardOutHandler</a> called
+<i>out</i>.  If the user specifies any alternative handler at runtime,
+the StandardOutHandler <i>out</i> is not installed and, thus, log
+events are logged only to the Handlers explicitly configured by the
+run time user.  For more information, see <a
+href=logto/StandardOut.html>How To log to the standard out</a>.
+
+<h2>Handler Names</h2>
+
+Each Handler must have a unique name so that multiple properties may
+be specified for each Handler.  As written above, the default
+StandardOutHandler is named <i>out</i>.  Therefore, to configure any
+property for this Handler, one would refer to the Handler by the
+prefix <b>log.handler.out.</b> and then append the desired property
+name to it.  For example,
+
+<pre>
+    $ java -Dlog.handler.out.stream=err MyClass
+</pre>
+
+would write the log events to the System.err instead of System.out.  
+
+<P>Other than <i>out</i>, Handler names are purely the user's design.

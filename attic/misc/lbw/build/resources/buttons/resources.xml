@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE resource-factory PUBLIC
+	"-//common-controls//DTD ResourceFactory 1.2//EN"
+	"http://www.common-controls.com/dtds/resource-factory_1_2.dtd">
+
+<resource-factory version="1.2">
+
+	<!-- ============================== -->
+	<!-- Button Resources               -->
+	<!-- ============================== -->
+
+	<resources destdir="web/fw/${painter}/image/buttons" overwrite="false">
+
+		<!-- ============================== -->
+		<!-- German resources               -->
+		<!-- ============================== -->
+		<resources destdir="de">
+			<button name="About"		label="Über"/>
+			<button name="Back"			label="Zurück"/>
+			<button name="Continue" label="Weiter"/>
+			<button name="Copy"			label="Kopieren"/>
+			<button name="Close"		label="Schliessen"/>
+			<button name="Execute"	label="Ausführen"/>
+			<button name="Import"		label="Importieren"/>
+			<button name="Logon"		label="Anmelden"/>
+			<button name="Save"			label="Speichern"/>		
+			<button name="SaveAndNew" label="Speichern und Neu"/>
+			<button name="Search"		label="Suchen"/>
+			<button name="ClearSearch" label="Kriterien löschen"/>
+			<button name="Delete"		label="Löschen"/>
+			<button name="Open"			label="Öffnen"/>
+			<button name="Add"			label="Hinzufügen"/>
+			<button name="MailSend" label="Mail senden"/>
+			<button name="DeleteCookie" label="Cookie löschen"/>			
+			<button name="NewPassword" label="Neues Passwort"/>
+		</resources>
+
+		<!-- ============================== -->
+		<!-- English resources              -->
+		<!-- ============================== -->
+		<resources destdir="en">
+			<button name="About"		label="About"/>
+			<button name="Back"			label="Back"/>
+			<button name="Continue" label="Continue"/>
+			<button name="Copy"			label="Copy"/>
+			<button name="Close"		label="Close"/>
+			<button name="Execute"	label="Execute"/>
+			<button name="Import"		label="Import"/>
+			<button name="Logon"		label="Logon"/>
+			<button name="Save"			label="Save"/>		
+			<button name="SaveAndNew" label="Save And New"/>
+			<button name="Search"		label="Search"/>
+			<button name="ClearSearch" label="Clear"/>
+			<button name="Delete"		label="Delete"/>
+			<button name="Open"			label="Open"/>
+			<button name="Add"			label="Add"/>
+			<button name="MailSend" label="Send Mail"/>
+			<button name="DeleteCookie" label="Delete Cookie"/>			
+			<button name="NewPassword" label="New Password"/>
+		</resources>
+	</resources>
+
+</resource-factory>

@@ -1,0 +1,74 @@
+
+<maps>
+    <class name="mvs.dbo.Beginlist">
+        <map-to database="mvs"/>
+        <field name="word1" type="integer">
+            <sql ignoreCase="False" length="10" name="WORD1"
+                 nullable="False" primary-key="True" table="BEGINLIST"/>
+        </field>
+        <field name="word2" type="integer">
+            <sql ignoreCase="False" length="10" name="WORD2"
+                 nullable="False" primary-key="True" table="BEGINLIST"/>
+        </field>
+        <field name="total" type="integer">
+            <sql ignoreCase="False" length="10" name="TOTAL"
+                 nullable="False" primary-key="False" table="BEGINLIST"/>
+        </field>
+    </class>
+    <class name="mvs.dbo.Word12">
+        <map-to database="mvs"/>
+        <field name="word1" type="integer">
+            <sql ignoreCase="False" length="10" name="WORD1"
+                 nullable="False" primary-key="True" table="WORD12"/>
+        </field>
+        <field name="word2" type="integer">
+            <sql ignoreCase="False" length="10" name="WORD2"
+                 nullable="False" primary-key="True" table="WORD12"/>
+        </field>
+        <field name="total" type="integer">
+            <sql ignoreCase="False" length="10" name="TOTAL"
+                 nullable="False" primary-key="False" table="WORD12"/>
+        </field>
+
+		  <relation name="words3" multi="True" type="mvs.dbo.Word3" retrieve="lazy" autoSave="True" autoDelete="True">
+		      <key foreign="word1" name="word1"/>
+		      <key foreign="word2" name="word2"/>
+		  </relation>
+		  
+    </class>
+    
+    
+    
+    
+    <class name="mvs.dbo.Word3">
+        <map-to database="mvs"/>
+        <field name="word1" type="integer">
+            <sql ignoreCase="False" length="10" name="WORD1"
+                 nullable="False" primary-key="True" table="WORD3"/>
+        </field>
+        <field name="word2" type="integer">
+            <sql ignoreCase="False" length="10" name="WORD2"
+                 nullable="False" primary-key="True" table="WORD3"/>
+        </field>
+        <field name="word3" type="integer">
+            <sql ignoreCase="False" length="10" name="WORD3"
+                 nullable="False" primary-key="True" table="WORD3"/>
+        </field>
+        <field name="hits" type="integer">
+            <sql ignoreCase="False" length="10" name="HITS"
+                 nullable="False" primary-key="False" table="WORD3"/>
+        </field>
+        
+    </class>
+    <class name="mvs.dbo.Wordlist">
+        <map-to database="mvs"/>
+        <field name="hash" type="integer">
+            <sql ignoreCase="False" length="10" name="HASH"
+                 nullable="False" primary-key="True" table="WORDLIST"/>
+        </field>
+        <field name="word" type="string">
+            <sql ignoreCase="False" length="100" name="WORD"
+                 nullable="False" primary-key="False" table="WORDLIST"/>
+        </field>
+    </class>
+</maps>

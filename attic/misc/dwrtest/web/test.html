@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+  <title>DWR Test</title>
+  <script type='text/javascript' src="dwr/engine.js"></script>
+  <script type='text/javascript' src="dwr/util.js"></script>  
+  <script type='text/javascript' src="dwr/interface/JDate.js"></script>
+  <script type='text/javascript' src="dwr/interface/Calc.js"></script>
+  <script type="text/javascript">
+  
+  function loadinfo(data) {
+      DWRUtil.setValue("reply", data);
+  }
+  
+  function calc() {
+      Calc.calc(showResult, DWRUtil.getValue("no1"), DWRUtil.getValue("no2"));
+  }
+  
+  function showResult(data) {
+     DWRUtil.setValue("result", data);
+  }
+  </script>
+</head>
+
+<body>
+
+<p>
+  Current Date: <input value="Refresh" type="button" onclick="JDate.toString(loadinfo)"/>
+  <br/>
+  Answer: <span id="reply" style="background:#ddeecc; padding-left:4px; padding-right:4px;"></span>
+</p>
+
+<p>
+  <form action="#">
+    <input type="text" id="no1" maxlength="5" size="5" /> + <input type="text" id="no2" maxlength="5" size="5" /> <input value=" = " type="button" onclick="calc()"/> <span id="result"></span>
+  </form>
+</p>
+
+</body>
+</html>

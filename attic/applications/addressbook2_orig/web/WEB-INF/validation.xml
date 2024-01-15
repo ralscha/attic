@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE form-validation PUBLIC "-//Apache Software Foundation//DTD Commons Validator Rules Configuration 1.0//EN" "http://jakarta.apache.org/commons/dtds/validator_1_0.dtd">
+
+<form-validation>
+  <!--
+    Define global validation config in validation-global.xml
+  -->
+  <formset>
+      <form name="userForm">
+              <field property="userName"
+                     depends="required">
+
+                  <arg0
+                    key="UserName"
+                  />
+              </field>
+              <field property="name"
+                     depends="required">
+
+                  <arg0
+                    key="LastName"
+                  />
+              </field>
+              <field property="firstName"
+                     depends="required">
+
+                  <arg0
+                    key="FirstName"
+                  />
+              </field>
+              <field property="email"
+                     depends="required,email">
+
+                  <arg0
+                    key="EMail"
+                  />
+              </field>
+              <field property="password"
+                     depends="required,identical">
+
+                  <arg0
+                    key="Password"
+                  />
+                  <arg1
+                    key="RetypePassword"
+                  />
+                  <var>
+                    <var-name>secondProperty</var-name>
+                    <var-value>retypePassword</var-value>
+                  </var>
+              </field>
+              <field property="retypePassword"
+                     depends="required">
+
+                  <arg0
+                    key="RetypePassword"
+                  />
+              </field>
+              <field property="locale"
+                     depends="required">
+
+                  <arg0
+                    key="Language"
+                  />
+              </field>
+      </form>
+      <form name="configForm">
+              <field property="errorMailReceiver"
+                     depends="required,email">
+
+                  <arg0
+                    key="ErrorMailReceiver"
+                  />
+              </field>
+              <field property="mailSender"
+                     depends="required,email">
+
+                  <arg0
+                    key="DefaultMailSender"
+                  />
+              </field>
+              <field property="mailSmtp"
+                     depends="required">
+
+                  <arg0
+                    key="MailSmtp"
+                  />
+              </field>
+              <field property="passwordLen"
+                     depends="required,integer">
+
+                  <arg0
+                    key="PasswordLen"
+                  />
+              </field>
+              <field property="uploadPath"
+                     depends="required">
+
+                  <arg0
+                    key="UploadPath"
+                  />
+              </field>
+              <field property="sessionTimeout"
+                     depends="required,integer">
+
+                  <arg0
+                    key="SessionTimeout"
+                  />
+              </field>
+      </form>
+      <form name="contactForm">
+              <field property="birthday"
+                     depends="date">
+
+                  <arg0
+                    key="birthday"
+                  />
+                  <var>
+                    <var-name>datePatternStrict</var-name>
+                    <var-value>dd.MM.yyyy</var-value>
+                  </var>
+              </field>
+              <field property="email"
+                     depends="email">
+
+                  <arg0
+                    key="email"
+                  />
+              </field>
+              <field property="uploadFile"
+                     depends="contentType">
+
+                  <arg0
+                    key="File"
+                  />
+                  <var>
+                    <var-name>accept</var-name>
+                    <var-value>image/tiff,image/jpeg,image/pjpeg,image/gif,image/x-png</var-value>
+                  </var>
+              </field>
+      </form>
+      <form name="userConfigForm">
+              <field property="newPassword"
+                     depends="requiredif,identical">
+
+                  <arg0
+                    key="NewPassword"
+                  />
+                  <arg1
+                    key="RetypePassword"
+                  />
+                  <var>
+                    <var-name>secondProperty</var-name>
+                    <var-value>retypeNewPassword</var-value>
+                  </var>
+                  <var>
+                    <var-name>field[0]</var-name>
+                    <var-value>oldPassword</var-value>
+                  </var>
+                  <var>
+                    <var-name>fieldTest[0]</var-name>
+                    <var-value>NOTNULL</var-value>
+                  </var>
+              </field>
+              <field property="time"
+                     depends="required,integer">
+
+                  <arg0
+                    key="LoginRemember"
+                  />
+              </field>
+              <field property="locale"
+                     depends="required">
+
+                  <arg0
+                    key="Language"
+                  />
+              </field>
+              <field property="timeUnit"
+                     depends="required">
+
+                  <arg0
+                    key="LoginRemember"
+                  />
+              </field>
+              <field property="name"
+                     depends="required">
+
+                  <arg0
+                    key="LastName"
+                  />
+              </field>
+              <field property="firstName"
+                     depends="required">
+
+                  <arg0
+                    key="FirstName"
+                  />
+              </field>
+              <field property="email"
+                     depends="required,email">
+
+                  <arg0
+                    key="EMail"
+                  />
+              </field>
+              <field property="noRows"
+                     depends="required,integer">
+
+                  <arg0
+                    key="NoRows"
+                  />
+              </field>
+      </form>
+  </formset>
+</form-validation>

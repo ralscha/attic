@@ -1,0 +1,23 @@
+! ** JCreator Workspace File (C)2000
+! ********** DO NOT EDIT *********
+
+VERSION := "1.00"
+LABEL := "Webcal"
+
+! Start Project Structure
+#[BeginProject]SOURCE := "Webcal.jcp" #[EndProject]
+
+! Start Last Document Structure
+#[BeginFile]SOURCE := "src\\ch\\ess\\calendar\\tools\\ReminderRunner.java" #[EndFile]
+#[BeginFile]SOURCE := "src\\ch\\ess\\calendar\\session\\AppointmentsCache.java" #[EndFile]
+#[BeginFile]SOURCE := "src\\ch\\ess\\calendar\\db\\Appointments.java" #[EndFile]
+#[BeginFile]SOURCE := "src\\ch\\ess\\calendar\\session\\Login.java" #[EndFile]
+#[BeginFile]SOURCE := "src\\ch\\ess\\calendar\\CategoriesMap.java" #[EndFile]
+#[BeginFile]SOURCE := "src\\ch\\ess\\calendar\\WeekViewRequest.java" #[EndFile]
+#[BeginFile]SOURCE := "src\\ch\\ess\\calendar\\UserManagementRequest.java" #[EndFile]
+#[BeginFile]SOURCE := "src\\ch\\ess\\calendar\\Summary.java" #[EndFile]
+#[BeginFile]SOURCE := "src\\ch\\ess\\calendar\\DayViewRequest.java" #[EndFile]
+#[BeginFile]SOURCE := "src\\ch\\ess\\calendar\\AppointmentRequest.java" #[EndFile]
+
+! Start Breakpoint Structure
+

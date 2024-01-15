@@ -1,0 +1,51 @@
+    <form-bean      name="list${dbClassName}Form"
+                    type="${formPackage}.List${dbClassName}Form"/>    
+    <form-bean      name="${objectLowerName}Form"
+                    type="${formPackage}.${objectName}Form"/>   
+
+                    
+
+    <action     path="/${dir}/list${dbClassName}"
+                type="${actionPackage}.List${dbClassName}Action"
+                name="list${dbClassName}Form"
+                scope="session"
+                validate="false">   
+       <forward name="success"      path="/${dir}/${dbClassLowerLowerName}.jsp"/>  			               
+    </action>   
+    
+    <action     path="/${dir}/add${objectName}"
+                type="${actionPackage}.Edit${objectName}Action"
+                name="${objectLowerName}Form"
+                input="/${dir}/edit${objectLowerLowerName}.jsp"
+                scope="session"
+                validate="false"                
+                parameter="add">   
+       <forward name="success"      path="/${dir}/edit${objectLowerLowerName}.jsp"/>  			               
+    </action>  
+
+    <action     path="/${dir}/edit${objectName}"
+                type="${actionPackage}.Edit${objectName}Action"
+                name="${objectLowerName}Form"
+                input="/${dir}/edit${objectLowerLowerName}.jsp"
+                scope="session"
+                validate="false"
+                parameter="edit">   
+       <forward name="success"      path="/${dir}/edit${objectLowerLowerName}.jsp"/>  			               
+    </action>     
+
+    <action     path="/${dir}/store${objectName}"
+                type="${actionPackage}.Edit${objectName}Action"
+                name="${objectLowerName}Form"
+                input="/${dir}/edit${objectLowerLowerName}.jsp"
+                scope="session"
+                validate="true"
+                parameter="store">   
+       <forward name="success"      path="/${dir}/edit${objectLowerLowerName}.jsp"/>  			               
+    </action>     
+
+    <action     path="/${dir}/delete${objectName}"
+                type="${actionPackage}.Edit${objectName}Action"
+                parameter="delete">   
+      <forward name="success"      path="/${dir}/list${dbClassName}.do"/>  
+    </action>         
+                    

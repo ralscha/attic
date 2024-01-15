@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<!ELEMENT Server (ContextManager+)>
+<!ATTLIST Server
+    adminPort NMTOKEN "-1"
+    workDir CDATA "work">
+
+<!ELEMENT ContextManager (Context+, Interceptor*, Connector+)>
+<!ATTLIST ContextManager
+    port NMTOKEN "8080"
+    hostName NMTOKEN ""
+    inet NMTOKEN "">
+
+<!ELEMENT Context EMPTY>
+<!ATTLIST Context
+    path CDATA #REQUIRED
+    docBase CDATA #REQUIRED
+    defaultSessionTimeOut NMTOKEN "30"
+    isWARExpanded (true | false) "true"
+    isWARValidated (false | true) "false"
+    isInvokerEnabled (true | false) "true"
+    isWorkDirPersistent (false | true) "false">
+
+<!ELEMENT Interceptor EMPTY>
+<!ATTLIST Interceptor
+    className NMTOKEN #REQUIRED
+    docBase   CDATA #REQUIRED>    
+
+<!ELEMENT Connector (Parameter*)>
+<!ATTLIST Connector
+    className NMTOKEN #REQUIRED>
+
+<!ELEMENT Parameter EMPTY>
+<!ATTLIST Parameter
+    name CDATA #REQUIRED
+    value CDATA "">

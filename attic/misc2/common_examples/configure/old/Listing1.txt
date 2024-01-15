@@ -1,0 +1,10 @@
+public class ConfigureTree extends JTree
+{
+  public ConfigureTree(ConfigureTreeModel model)
+  {
+    setPreferredSize(new Dimension(150, 150));
+    setShowsRootHandles(true);
+    setRootVisible(false);
+    setModel(model);
+  }
+}

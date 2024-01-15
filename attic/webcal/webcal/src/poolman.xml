@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<poolman>
+
+  <management-mode>local</management-mode>
+
+  <datasource>
+
+    <!-- ============================== -->
+    <!-- Physical Connection Attributes -->
+    <!-- ============================== -->
+
+    <!-- Standard JDBC Driver info -->
+
+    <dbname>PlannerDb2</dbname>
+    <jndiName>jndi-PlannerDb2</jndiName>
+    <driver>com.mckoi.JDBCDriver</driver>
+    <url>jdbc:mckoi:local://./db.conf</url>
+    
+    <username>admin</username>
+    <password>admin</password>
+
+
+    <minimumSize>5</minimumSize>
+    <maximumSize>10</maximumSize>
+    <connectionTimeout>600</connectionTimeout>
+    <userTimeout>20</userTimeout>
+    <shrinkBy>10</shrinkBy>
+
+    <debugging>false</debugging>
+
+    <nativeResults>true</nativeResults>
+
+    <!-- Query Cache Attributes-->
+
+    <cacheEnabled>false</cacheEnabled>
+    <cacheSize>20</cacheSize>
+    <cacheRefreshInterval>120</cacheRefreshInterval>
+
+  </datasource>
+
+</poolman>
+
+
+
+

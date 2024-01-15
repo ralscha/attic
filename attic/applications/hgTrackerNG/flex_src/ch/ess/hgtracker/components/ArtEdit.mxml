@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:TitleWindow xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute" width="472" height="182" 
+  title="Art bearbeiten" showCloseButton="true" creationComplete="init()">
+  
+  <mx:Metadata>
+    [Event(name="dataInserted")]
+    [Event(name="dataUpdated")]
+  </mx:Metadata>
+  
+  <mx:Script>
+    <![CDATA[
+      import ch.ess.hgtracker.db.Club;
+      import mx.events.ValidationResultEvent;
+      import mx.binding.utils.BindingUtils;
+      import mx.managers.PopUpManager;
+      import mx.controls.Alert;
+      import mx.rpc.events.ResultEvent;
+      import ch.ess.hgtracker.db.Art;
+      
+      [Bindable]
+      public var editArt:Art;
+      
+      public var club:Club;
+      
+      private function save():void { 
+        editArt.spielArt = artText.text;
+        editArt.meisterschaft = meisterschaftCheckbox.selected;
+        editArt.club = club;
+        
+        if (editArt.id == -1) {
+          artService.insert(editArt);
+        } else {
+          artService.update(editArt);
+        }
+      }      
+            
+      private function onUpdateResult(e:ResultEvent):void {
+        var dataEvent:Event = new Event("dataUpdated");
+        dispatchEvent(dataEvent);
+        close();
+      }  
+      
+      private function onInsertResult(e:ResultEvent):void {
+        var dataEvent:Event = new Event("dataInserted");
+        dispatchEvent(dataEvent);
+        close();
+      }  
+      
+      private function init():void {
+        PopUpManager.centerPopUp(this);
+        this.addEventListener(Event.CLOSE, onCloseEvent);
+        artText.setFocus();
+        checkButtonEnable();       
+      }
+      
+      private function onCloseEvent(e:Event):void {
+        close();
+      }
+
+      private function close():void {
+        PopUpManager.removePopUp(this);
+      }   
+      
+      private function checkButtonEnable():void {
+        saveButton.enabled = validInput();
+      }
+        
+      private function validInput():Boolean {
+        return (artTextValidator.validate().type == ValidationResultEvent.VALID);        
+      }        
+      
+    ]]>
+  </mx:Script>
+  
+  <mx:RemoteObject id="artService" showBusyCursor="true" destination="artService">
+    <mx:method name="update" result="onUpdateResult(event)" />
+    <mx:method name="insert" result="onInsertResult(event)" />
+  </mx:RemoteObject>
+  
+  <mx:Form right="10" top="10" left="10">
+    <mx:FormItem label="Art" required="true">
+      <mx:TextInput id="artText" width="296" text="{editArt.spielArt}" change="checkButtonEnable()"/>
+    </mx:FormItem>  
+    <mx:FormItem label="Meisterschaft">
+      <mx:CheckBox id="meisterschaftCheckbox" selected="{editArt.meisterschaft}"/>
+    </mx:FormItem>      
+  </mx:Form>
+  <mx:Button label="Speichern" id="saveButton" bottom="10" left="10" click="save()" icon="@Embed(source='assets/disk_green.png')"/>
+  <mx:Button label="Abbrechen" id="cancelButton" right="10" bottom="10" click="close()" icon="@Embed(source='assets/delete.png')"/>
+  
+  <mx:Validator id="artTextValidator" source="{artText}" property="text" 
+    required="true" requiredFieldError="Art ist eine Musseingabe"/>
+    
+</mx:TitleWindow>

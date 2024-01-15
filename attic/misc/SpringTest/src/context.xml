@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+ 
+<beans>
+  <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+    <property name="driverClassName" value="net.sourceforge.jtds.jdbc.Driver"/>    
+    <property name="url" value="jdbc:jtds:sqlserver://localhost:1433/test"/>    
+    <property name="username" value="sa"/>
+    <property name="password" value=""/>
+    <property name="defaultAutoCommit" value="false"/>
+  </bean>
+  
+  <bean id="sessionFactory" class="AppLocalSessionFactoryBean">
+    <property name="annotatedClasses">
+      <list>     
+        <value>TestBean</value>
+      </list>
+    </property>  
+                
+    <property name="hibernateProperties">
+      <props>
+        <prop key="hibernate.dialect">org.hibernate.dialect.SQLServerDialect</prop>
+        <prop key="hibernate.show_sql">true</prop>  
+      </props>
+    </property>
+    <property name="dataSource" ref="dataSource"/>
+  </bean>
+  
+  <bean id="insertBean" class="InsertBean">
+    <property name="sessionFactory" ref="sessionFactory"/>    
+  </bean>
+  
+  <bean id="transactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+    <property name="sessionFactory" ref="sessionFactory"/>
+  </bean>
+  
+  <bean id="autoProxyCreator" class="org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator"/>
+  
+  <bean id="transactionAttributeSource" 
+    class="org.springframework.transaction.annotation.AnnotationTransactionAttributeSource"/>
+  
+  <bean id="transactionInterceptor" class="org.springframework.transaction.interceptor.TransactionInterceptor">
+    <property name="transactionManager" ref="transactionManager"/>
+    <property name="transactionAttributeSource" ref="transactionAttributeSource"/>
+  </bean>
+  
+  <bean id="transactionAdvisor" class="org.springframework.transaction.interceptor.TransactionAttributeSourceAdvisor">
+    <property name="transactionInterceptor" ref="transactionInterceptor"/>
+  </bean>
+</beans>

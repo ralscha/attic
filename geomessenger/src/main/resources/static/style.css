@@ -1,0 +1,29 @@
+html, body {
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	background-color: #EEEEEE;
+}
+
+.header {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    height: 50px; 
+    font-family: "Arial";
+    font-size: 18px;    
+}
+
+.doc {
+	position:relative;
+    float:right;	
+}
+
+#map {
+    position: absolute;
+    top: 50px;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}

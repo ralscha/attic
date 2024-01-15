@@ -1,0 +1,9 @@
+
+# gate props
+
+waittime = 60
+okfile = d:/transfer/backupgateok
+backupfilenamepre = backup_gate_
+backupfilenamepost = .tar.gz
+backuppath = j:/daten/SR/
+keepdays = 3

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta charset="utf-8">
+  <title>{appProperties.applicationName}</title>
+<link rel="apple-touch-icon" sizes="57x57" href="resources/images/apple-touch-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="resources/images/apple-touch-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="resources/images/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="resources/images/apple-touch-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="resources/images/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="resources/images/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="resources/images/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="resources/images/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="resources/images/apple-touch-icon-180x180.png">
+<link rel="icon" type="image/png" href="resources/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="resources/images/android-chrome-192x192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="resources/images/favicon-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="resources/images/favicon-16x16.png" sizes="16x16">
+<link rel="manifest" href="resources/images/manifest.json">
+<meta name="msapplication-TileColor" content="#ffc40d">
+<meta name="msapplication-TileImage" content="resources/images/mstile-144x144.png">
+<meta name="theme-color" content="#ffffff">
+  <style>
+	@font-face {
+		font-family: 'Cabin';
+		font-style: normal;
+		font-weight: 400;
+		src:
+			local('Cabin Regular'),
+			local('Cabin-Regular'),
+			url('resources/theme/font/Cabin_400.eot?#iefix') format('embedded-opentype'),
+			url('resources/theme/font/Cabin_400.woff') format('woff'),
+			url('resources/theme/font/Cabin_400.ttf') format('truetype'),
+			url('resources/theme/font/Cabin_400.svg#Cabin') format('svg');
+	}
+	@font-face {
+		font-family: 'Cabin';
+		font-style: normal;
+		font-weight: 600;
+		src:
+			local('Cabin SemiBold'),
+			local('Cabin-SemiBold'),
+			url('resources/theme/font/Cabin_600.eot?#iefix') format('embedded-opentype'),
+			url('resources/theme/font/Cabin_600.woff') format('woff'),
+			url('resources/theme/font/Cabin_600.ttf') format('truetype'),
+			url('resources/theme/font/Cabin_600.svg#Cabin') format('svg');
+	}	
+  </style>    
+  <style>application.loader_css</style>
+  application.app_css  
+</head>
+<body>
+<div id="cssloader" class="spinner">
+  <div class="spinner-container container1">
+    <div class="circle1"></div>
+    <div class="circle2"></div>
+    <div class="circle3"></div>
+    <div class="circle4"></div>
+  </div>
+  <div class="spinner-container container2">
+    <div class="circle1"></div>
+    <div class="circle2"></div>
+    <div class="circle3"></div>
+    <div class="circle4"></div>
+  </div>
+  <div class="spinner-container container3">
+    <div class="circle1"></div>
+    <div class="circle2"></div>
+    <div class="circle3"></div>
+    <div class="circle4"></div>
+  </div>
+</div>

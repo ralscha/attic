@@ -1,0 +1,22 @@
+package ch.ess.base.web;
+
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+
+import ch.ess.base.Constants;
+
+import com.cc.framework.adapter.RequestContext;
+import com.cc.framework.convert.Converter;
+
+public class DateTimeConverter implements Converter {
+
+  public Object getAsObject(RequestContext ctx, String value) {
+    return null;
+  }
+
+  public String getAsString(RequestContext ctx, Object value) {
+    DateFormat df = new SimpleDateFormat(Constants.getDateTimeFormatPattern());
+    return df.format(value);
+  }
+
+}

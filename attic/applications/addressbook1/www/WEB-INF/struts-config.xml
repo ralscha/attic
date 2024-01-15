@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<!DOCTYPE struts-config PUBLIC 
+          "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN"
+          "http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+
+<struts-config>
+    <form-beans>
+        <form-bean name="contactForm"
+                   type="ch.ess.addressbook.form.ContactForm"/>
+        <form-bean name="searchContactForm"
+                   type="ch.ess.addressbook.form.SearchContactForm"/>
+    </form-beans>
+    
+   
+  <global-exceptions>
+    <exception type="java.lang.Exception"
+               key="error.exception"
+               path="/error.jsp"/>
+  </global-exceptions>
+
+    
+    <action-mappings>
+    
+
+    <action path="/overview" unknown="true" type="org.apache.struts.actions.ForwardAction" parameter="/overview.jsp"/>
+
+
+    <action path="/export" type="ch.ess.addressbook.action.ExportListeXLSAction"/>
+    <action path="/showPicture" type="ch.ess.addressbook.action.ShowPictureAction"/>
+    
+
+    <action     path="/editContact"
+                type="ch.ess.addressbook.action.EditContactAction"
+                name="contactForm"
+                input="/overview.jsp"
+                scope="session"
+                validate="false">   
+       <forward name="success"      path="/contact.jsp"/>  			               
+    </action>     
+
+    <action     path="/storeContact"
+                type="ch.ess.addressbook.action.EditContactAction"
+                name="contactForm"
+                input="/contact.jsp"
+                scope="session"
+                validate="true"
+                parameter="store">   
+       <forward name="saveandback"      path="/searchContact.do"/>  
+       <forward name="success"      path="/contact.jsp"/>  			               
+       <forward name="cancel"       path="/overview.do"/>
+       <forward name="reload"      path="/editContact.do?action=edit"/>  			               
+    </action>   
+
+    <action     path="/deleteContact"
+                type="ch.ess.addressbook.action.EditContactAction"
+                parameter="delete">   
+      <forward name="success"      path="/searchContact.do"/>  
+    </action>    
+
+
+    
+        <action input="overview.jsp" name="searchContactForm"
+                path="/searchContact" scope="session"
+                type="ch.ess.addressbook.action.SearchContactAction"
+                unknown="false" validate="false">
+            <forward name="success" path="/overview.do" redirect="false"/>
+            <forward name="addContact" path="/editContact.do?action=add" redirect="false"/>
+        </action>
+    </action-mappings>
+
+  <controller nocache="true" debug="0">
+  </controller>
+    
+    <message-resources null="false" parameter="ApplicationResources"/>
+    
+    <plug-in className="ch.ess.addressbook.resource.Init">
+      <set-property property="uploadDir" value="c:/temp/ab"/>
+    </plug-in>
+    
+    <plug-in className="org.apache.struts.validator.ValidatorPlugIn">
+      <set-property property="pathnames" value="/WEB-INF/validator-rules.xml,
+                                                /WEB-INF/validation.xml,
+                                                /WEB-INF/validator-rules_app.xml"/>
+    </plug-in> 
+    
+      
+</struts-config>

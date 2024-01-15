@@ -1,0 +1,8 @@
+<taglib>
+      <taglib-uri>/tags/oscache</taglib-uri>
+      <taglib-location>/WEB-INF/oscache.tld</taglib-location>
+</taglib>
+<taglib>
+      <taglib-uri>/tags/struts-menu</taglib-uri>
+      <taglib-location>/WEB-INF/struts-menu.tld</taglib-location>
+</taglib>

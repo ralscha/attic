@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace="urn:schemas.fabasoft.com:CKEYWORD" xmlns:t="urn:schemas.fabasoft.com:CKEYWORD" xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+	<xsd:element name="CKEYWORD" type="t:CKEYWORDType"/>
+	<xsd:complexType name="CKEYWORDType">
+		<xsd:sequence>
+			<xsd:element name="objname" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="objaddress" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

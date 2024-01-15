@@ -1,0 +1,20 @@
+<project name="pwgen" default="deploy_tomcat" basedir=".">
+
+    <property name="tomcat" value="D:/Tomcat"/>
+
+    <target name="war">
+        <delete file="pwgen.war"/>
+        <jar jarfile="pwgen.war"              
+             basedir="www"
+          /> 
+
+    </target>
+
+    <target name="deploy_tomcat" depends="war">
+        <delete file="${tomcat}/webapps/pwgen.war"/>
+        <copy file="pwgen.war" todir="${tomcat}/webapps"/>         
+    </target>
+    
+    
+
+</project>

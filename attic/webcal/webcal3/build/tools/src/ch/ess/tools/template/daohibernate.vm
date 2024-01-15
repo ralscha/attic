@@ -1,0 +1,78 @@
+package ${clazz.packageName}.persistence.hibernate;
+
+import java.util.List;
+
+import org.hibernate.Criteria;
+import org.hibernate.HibernateException;
+import org.hibernate.Session;
+import org.hibernate.expression.Expression;
+
+import org.apache.commons.lang.StringUtils;
+import org.springframework.orm.hibernate3.HibernateCallback;
+
+import ${clazz.packageName}.model.${clazz.name};
+import ${clazz.packageName}.persistence.${clazz.name}Dao;
+
+/**
+ * @author sr
+ * @version $Revision: $ $Date: $
+ * 
+ * @spring.bean id="${clazz.nameSmall}Dao" parent="txProxyTemplate"
+ * @spring.property name="target" inner="true"
+ * 
+ * @spring.inner.property name="sessionFactory" ref="sessionFactory"
+ * @spring.inner.property name="clazz" value="${clazz.packageName}.model.${clazz.name}"
+ */
+public class ${clazz.name}DaoHibernate extends AbstractDaoHibernate implements ${clazz.name}Dao {
+  #if ($clazz.finderFinalSignature)
+  public List find(${clazz.finderFinalSignature}) {
+
+    HibernateCallback callback = new HibernateCallback() {
+
+      public Object doInHibernate(Session session) throws HibernateException {
+        Criteria criteria = getHibernateTemplate().createCriteria(session, ${clazz.name}.class);
+
+        #foreach( $property in $clazz.properties )
+        #if ($property.finder)
+        #if (!$property.nameEndsWithId) 
+        if (StringUtils.isNotBlank(${property.name})) {
+          String str = ${property.name}.trim();
+          criteria.add(Expression.like("${property.name}", str, MatchMode.ANYWHERE));        
+        }
+        #else
+        if (${property.name} != null) {
+          criteria.createCriteria("${property.nameWithoutId}").add(Expression.eq("id", new Integer(${property.name})));
+        }
+        #end
+        #end
+        #end
+
+        return criteria.list();
+
+      }
+
+    };
+
+    return getHibernateTemplate().executeFind(callback);
+
+  }
+  #end
+  
+  #if ($clazz.sizeProperty)
+  public int get${clazz.sizePropertyFirstUpperCase}Size(final String id) {
+                  
+    HibernateCallback callback = new HibernateCallback() {
+      public Object doInHibernate(Session session) throws HibernateException {
+        ${clazz.name} ${clazz.nameSmall} = (${clazz.name})get(id);
+        return size(session, ${clazz.nameSmall}.get${clazz.sizePropertyFirstUpperCase}${clazz.name}s());
+      }
+    };
+
+    return ((Integer)getHibernateTemplate().execute(callback)).intValue();
+  }
+
+  public boolean canDelete(String id) {
+    return (get${clazz.sizePropertyFirstUpperCase}Size(id) == 0);
+  }
+  #end
+}

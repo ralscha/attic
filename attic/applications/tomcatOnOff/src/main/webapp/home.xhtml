@@ -1,0 +1,43 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+                      "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:s="http://jboss.com/products/seam/taglib"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:rich="http://richfaces.org/rich"
+                xmlns:a4j="http://richfaces.org/a4j"
+                xmlns:c="http://java.sun.com/jstl/core"
+                template="layout/template.xhtml">
+
+
+
+<ui:define name="body">
+
+
+  <a4j:region>
+    <h:form>
+      <a4j:poll id="poll" interval="1000" action="#{poller.poll}" enabled="#{identity.loggedIn}"
+        reRender="status,buildStatus" />
+    </h:form>
+  </a4j:region>
+    
+
+    <h:messages globalOnly="true" styleClass="message"/>
+    
+    <rich:panel rendered="#{identity.loggedIn}">
+    <f:facet name="header">Actions</f:facet>
+    <p>
+    
+    <s:button id="on" value="Start Tomcat Service" action="#{onoff.on}"/>
+    <s:button id="off" value="Stop Tomcat Service"  action="#{onoff.off}"/>
+    <s:button id="build" value="Build CaseTracker WAR" action="#{buildWar.build}"/>
+    <s:div id="status">#{statusMessage}</s:div>
+    <s:div id="buildStatus">#{buildStatusMessage}</s:div>
+    </p>
+    
+    </rich:panel>
+
+    
+</ui:define> 
+</ui:composition>

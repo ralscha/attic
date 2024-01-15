@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v5 rel. 2 U (http://www.xmlspy.com) by The Dude (Dude Inc.) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:element name="contacts">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="contact" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="contact">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="attribut" minOccurs="0" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:simpleContent>
+							<xs:extension base="xs:string">
+								<xs:attribute name="name" type="attributNames" use="required"/>
+							</xs:extension>
+						</xs:simpleContent>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:simpleType name="attributNames">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="firstName"/>
+			<xs:enumeration value="middleName"/>
+			<xs:enumeration value="lastName"/>
+			<xs:enumeration value="email"/>
+			<xs:enumeration value="businessNumber"/>
+			<xs:enumeration value="homeNumber"/>
+			<xs:enumeration value="addressCity"/>
+			<xs:enumeration value="addressStreet"/>
+			<xs:enumeration value="addressState"/>
+			<xs:enumeration value="addressCountry"/>
+			<xs:enumeration value="addressPostalCode"/>
+			<xs:enumeration value="addressPOBox"/>
+			<xs:enumeration value="fax"/>
+			<xs:enumeration value="homepage"/>
+			<xs:enumeration value="comment"/>
+			<xs:enumeration value="companyMainPhoneNumber"/>
+			<xs:enumeration value="companyName"/>
+			<xs:enumeration value="departmentName"/>
+			<xs:enumeration value="birthday"/>
+			<xs:enumeration value="hobbies"/>
+			<xs:enumeration value="homeNumber2"/>
+			<xs:enumeration value="homeCity"/>
+			<xs:enumeration value="homeCountry"/>
+			<xs:enumeration value="homePOBox"/>
+			<xs:enumeration value="homePostalCode"/>
+			<xs:enumeration value="homeState"/>
+			<xs:enumeration value="homeStreet"/>
+			<xs:enumeration value="mobileNumber"/>
+			<xs:enumeration value="nickName"/>
+			<xs:enumeration value="homePostalCode"/>
+			<xs:enumeration value="officeNumber2"/>
+			<xs:enumeration value="officeLocation"/>
+			<xs:enumeration value="otherCity"/>
+			<xs:enumeration value="otherCountry"/>
+			<xs:enumeration value="otherPOBox"/>
+			<xs:enumeration value="otherPostalCode"/>
+			<xs:enumeration value="otherState"/>
+			<xs:enumeration value="otherStreet"/>
+			<xs:enumeration value="otherNumber"/>
+			<xs:enumeration value="title"/>
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>

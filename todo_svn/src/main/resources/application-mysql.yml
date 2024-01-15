@@ -1,0 +1,25 @@
+app:
+  imagepath: file://pdvb720/Xfertodo/images
+
+spring:
+  datasource:
+    url: jdbc:mysql://localhost/todo
+    username: todo
+    password: todo
+
+    tomcat:
+      remove-abandoned-timeout: 6000
+
+  jpa:
+    show-sql: false
+    properties:
+      hibernate.dialect:
+
+server:
+  port: 8182
+  context-path: /todo
+  
+logging:
+  level: 
+    ROOT: INFO
+  file: ./app.log    

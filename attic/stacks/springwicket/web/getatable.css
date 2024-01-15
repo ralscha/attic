@@ -1,0 +1,33 @@
+.panel p.ptext {
+	text-align: left;
+	padding: 0 10px 0 10px;
+}
+
+.panel > h2 {
+	margin: 3px 0 10px 10px;
+}
+.row > label {
+	position: absolute;
+	text-align: right;
+	width: 80px;
+    color: #7388a5;
+}
+.row > p.prow {
+	display:block;
+	margin: 0;
+	border: none;
+	padding: 12px 10px 0px 100px;
+	text-align: left;
+	font-weight: normal;
+	height: 30px;
+}
+
+select {
+	box-sizing: border-box;
+	-webkit-box-sizing: border:box;
+	width: 100%;
+	margin: 15px 0 0 0;
+	padding: 6px 6px 6px 144px;
+	font-size: 16px;
+	font-weight: normal;
+}

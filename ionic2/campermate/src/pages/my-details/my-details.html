@@ -1,0 +1,56 @@
+<ion-header>
+	<ion-navbar color="primary">
+	  <ion-title>
+	  	<img src = "assets/images/logo.png" class="logo" />
+	  </ion-title>
+	</ion-navbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+	<ion-card>
+
+	  <ion-card-header>
+	    My Details
+	  </ion-card-header>
+
+	  <ion-card-content>
+	    Update this form with your details so you have an easy reference for later.
+	  </ion-card-content>
+
+	</ion-card>	
+
+	<ion-list no-lines>
+
+		<form [formGroup]="myDetailsForm" (change)="saveForm()">
+
+		  <ion-item>
+		    <ion-label stacked>Car Registration</ion-label>
+		    <ion-input formControlName="carRegistration" type="text"></ion-input>
+		  </ion-item>
+
+		  <ion-item>
+		    <ion-label stacked>Trailer Registration</ion-label>
+		    <ion-input formControlName="trailerRegistration" type="text"></ion-input>
+		  </ion-item>
+
+		  <ion-item>
+		    <ion-label stacked>Trailer Dimensions</ion-label>
+		    <ion-input formControlName="trailerDimensions" type="text"></ion-input>
+		  </ion-item>
+
+		  <ion-item>
+		    <ion-label stacked>Phone Number</ion-label>
+		    <ion-input formControlName="phoneNumber" type="text"></ion-input>
+		  </ion-item>
+
+		  <ion-item>
+		    <ion-label stacked>Notes</ion-label>
+		    <ion-textarea formControlName="notes" type="text"></ion-textarea>
+		  </ion-item>
+
+		</form>
+
+	</ion-list>
+
+</ion-content>

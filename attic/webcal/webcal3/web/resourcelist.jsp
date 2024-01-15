@@ -1,0 +1,52 @@
+<%@ include file="include/taglibs.jspf"%>
+
+
+<html>
+  <head><title></title></head>
+  <body>
+
+  <menu:crumbs value="crumb1" labellength="40">
+	    <menu:crumb	crumbid="crumb1"	title="resource.resources"/>
+	    <menu:crumb	crumbid="crumb2"	disabled="true"   title="resource.headline"/>
+  </menu:crumbs>   
+  <br>  
+  
+	<html:form action="/listResource.do"  focus="value(resourceName)">
+		<forms:form type="search" formid="frmListResource">
+		  <forms:html>
+			  <table cellspacing='0' cellpadding='0'>			  
+			  <tr>		  		    
+		     <td class='searchfl'><bean:message key="resource.resourceName"/>:</td>			    
+			   <td class='fb'></td>
+	      </tr>      
+			  <tr>
+  			 <td class='fd'><html:text property="value(resourceName)" size="20" maxlength="255"/></td>
+			<td class='fb'>
+			<ctrl:button base="buttons.src" name="btnSearch"  src="btnSearch1.gif"  title="button.title.search"/>		    
+         </td>
+			  </tr>			  
+			  </table>
+			</forms:html>		  	
+		</forms:form>	  	  
+  </html:form>		
+	
+	<p></p>
+	
+	<ctrl:list id="resourcelist" 
+		   action="listResource.do" 
+			 name="resources" 
+			 scope="session"
+			 title="resource.resources" 
+			 rows="${sessionScope.noRows}"  
+          minRows="${sessionScope.noRows}"
+			 createButton="true"
+			 refreshButton="true">
+  	<ctrl:columntext title="resource.resourceName" property="resourceName" width="225" maxlength="30" sortable="true"/>
+    <ctrl:columntext title="resourceGroup.resourceGroupName" property="resourceGroupName" width="225" maxlength="30" sortable="true"/>    
+	  <ctrl:columnedit tooltip="common.edit"/>
+		<ctrl:columndelete tooltip="common.delete" onclick="return confirmRequest('@{bean.map.resourceName}');"/>		
+	</ctrl:list>
+	
+  <misc:confirm key="resource.delete"/>
+</body>
+</html>

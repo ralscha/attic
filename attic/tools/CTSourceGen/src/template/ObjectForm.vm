@@ -1,0 +1,56 @@
+package ${formPackage};
+
+import javax.servlet.http.*;
+import org.apache.struts.action.*;
+
+import ch.ess.ct.web.base.*;
+import ch.ess.ct.business.db.*;
+import com.objectmatter.bsf.*;
+
+
+public class ${objectName}Form extends ConcurrencyAwareForm {
+
+  //TODO
+  //private String beschreibung;
+  private int ${objectLowerName}Id;
+
+  public void reset(ActionMapping mapping, HttpServletRequest request) {    
+    //TODO
+    //beschreibung = null;
+    ${objectLowerName}Id = -1;
+  }
+
+  public ActionErrors validate(ActionMapping mapping, HttpServletRequest request) {
+
+    //TODO
+    ActionErrors errors = new ActionErrors();
+
+    if (name.trim().equals("")) {
+      errors.add(ActionErrors.GLOBAL_ERROR, new ActionError("AlleMusseingaben"));
+    }
+
+    return errors;
+  }
+
+  public int get${objectName}Id() {
+    return ${objectLowerName}Id;
+  }
+
+  public void set${objectName}Id(int ${objectLowerName}Id) {
+    this.${objectLowerName}Id = ${objectLowerName}Id;
+  }
+  
+  public void form2db(Database db, ${dbClassName} ${objectLowerName}) {
+    super.form2db(db, ${objectLowerName});
+      
+    ${objectLowerName}.setGeloescht(Boolean.FALSE);
+    //TODO
+  }
+
+  public void db2form(${dbClassName} ${objectLowerName}) {
+    super.db2form(${objectLowerName});
+    
+    set${objectName}Id(${objectLowerName}.get${objectName}Id().intValue());
+    //TODO
+  }
+}

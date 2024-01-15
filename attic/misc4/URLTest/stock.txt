@@ -1,0 +1,155 @@
+<html>
+
+<!---------------------------------------------------------------
+  - (c) 1997, Zürcher Kantonalbank ZKB
+  --------------------------------------------------------------->
+
+<head>
+<title>B&#246;rse</title>
+<meta http-equiv="Refresh" content="150">
+<meta name="Generator" value="fish 1.0, Fims access with websh, (c) Netcetera AG">
+<script language=javascript>
+<!--
+    loaded = 0
+    if (parent.loaded) {
+        parent.select("stockex")
+    }
+// -->
+</script>
+</head>
+
+<body bgcolor="#ffffff" text="#000000" link="#0066cc" vlink="#666666" alink="#666666">
+
+
+
+<table width=470 cellspacing=0 cellpadding=0 border=0>
+<tr>
+  <td>
+    <dl>
+    <dt><a href="/stockex/bin/ebs"><img src="/stockex/icons/borsenkurse.gif" alt="B&ouml;rsenkurse" width=290 height=25 border=0></a>
+
+    <dd>Verfolgen Sie das Auf und Ab an der Schweizer B&ouml;rse live am Bildschirm.
+    </dl>
+  </td>
+
+</tr>
+</table>
+
+<table cellspacing=0 cellpadding=0 border=0>
+<tr>
+  <td><b>Name</b></td><td>&nbsp;&nbsp;&nbsp;</td>
+  <td>&nbsp;</td><td>&nbsp;&nbsp;&nbsp;</td>
+  <td><b>Symb.</b></td><td>&nbsp;&nbsp;&nbsp;</td>
+  <td align=right><b>Close</b></td><td>&nbsp;&nbsp;&nbsp;</td>
+  <td align=right><b>Open</b></td><td>&nbsp;&nbsp;&nbsp;</td>
+  <td align=right><b>Last</b></td><td>&nbsp;&nbsp;&nbsp;</td>
+  <td align=right><b>Change</b></td><td>&nbsp;&nbsp;&nbsp;</td>
+  <td><b>Time</b></td>
+</tr>
+
+
+<tr bgcolor="#cccccc">
+  <td nowrap><a href="/stockex/bin/stockex?XACXALAQFQEOBSAMAWBMFXFVEQAUAKAWAZASASAXAZAYBSBQAZAYARARAYBUBLATAU">SMI OHNE DIV.-KORR</a></td><td>&nbsp;</td>
+  <td><a href="/stockex/bin/stockex?XACXALAQFQEOBSAMAWBMFXFVEQAUAKAWAZASASAXAZAYBSBQAZAYARARAYBUBLATAUBYAMAMEVAYBYBUARAUEYEPBUBWBYBRETFMASAMBUAQ"><img src="/stockex/icons/graph-small.gif" width=16 height=16 alt="Graph" border=0></a></td><td>&nbsp;</td>
+  <td>SMI</td><td>&nbsp;</td>
+  <td align=right>5321.70</td><td>&nbsp;</td>
+  <td align=right>5319.90</td><td>&nbsp;</td>
+  <td align=right>5417.80</td><td>&nbsp;</td>
+  <td align=right><font color="#009900">+96.10</font></td><td>&nbsp;</td>
+  <td>16:29:59</td>
+</tr>
+
+
+<tr bgcolor="#ffffff">
+  <td nowrap><a href="/stockex/bin/stockex?XACXALAQFQEOBSAMAWBMFXFVEQAUAKAWAZASASAXAZAYBSBQAZAYAKAXAUBNBLATAZBVAM">SPI GES M.DIV.KORR</a></td><td>&nbsp;</td>
+  <td><a href="/stockex/bin/stockex?XACXALAQFQEOBSAMAWBMFXFVEQAUAKAWAZASASAXAZAYBSBQAZAYAKAXAUBNBLATAZBVAMAMEVAYBYBUARAUEYEPBUBWBYBRETFMASAMBUAQ"><img src="/stockex/icons/graph-small.gif" width=16 height=16 alt="Graph" border=0></a></td><td>&nbsp;</td>
+  <td>SXGE</td><td>&nbsp;</td>
+  <td align=right>3433.45</td><td>&nbsp;</td>
+  <td align=right>3414.96</td><td>&nbsp;</td>
+  <td align=right>3481<img src="/stockex/icons/point.gif" width=3 height=1>16</td><td>&nbsp;</td>
+  <td align=right><font color="#009900">+47.71</font></td><td>&nbsp;</td>
+  <td>16:44:07</td>
+</tr>
+
+
+<tr bgcolor="#cccccc">
+  <td nowrap><a href="/stockex/bin/stockex?XACXALAQFQEOBSAMAWBMFXFVEQAUAKAWAZASASAXAZAYBSBQAZAYAOAXAXBKBPAWBUAM">D.J. INDEX IND</a></td><td>&nbsp;</td>
+  <td><a href="/stockex/bin/stockex?XACXALAQFQEOBSAMAWBMFXFVEQAUAKAWAZASASAXAZAYBSBQAZAYAOAXAXBKBPAWBUAMAMEVAYBYBUARAUEYEPBUBWBYBRETFMASAMBUAQ"><img src="/stockex/icons/graph-small.gif" width=16 height=16 alt="Graph" border=0></a></td><td>&nbsp;</td>
+  <td>INDU</td><td>&nbsp;</td>
+  <td align=right>7721.14</td><td>&nbsp;</td>
+  <td align=right>7722.80</td><td>&nbsp;</td>
+  <td align=right>7814<img src="/stockex/icons/point.gif" width=3 height=1>10</td><td>&nbsp;</td>
+  <td align=right><font color="#009900">+92.96</font></td><td>&nbsp;</td>
+  <td>14:32:15</td>
+</tr>
+
+
+<tr><td height=20></td></tr>
+<tr><th colspan=15 bgcolor="#0066cc"><img src="/icons/blue.gif" width="470" height=1></th></tr>
+<tr><td height=8></td></tr>
+
+<tr><th colspan=15><a href="/services/capital-de.html#anlageber"><img src="/icons/banner-capital-de.gif" width=280 height=70 alt="Verm&ouml;gensplanung?" border=0></a></th></tr>
+
+<tr><td height=8></td></tr>
+<tr><th colspan=15 bgcolor="#0066cc"><img src="/icons/blue.gif" width="470" height=1></th></tr>
+
+</table>
+
+<p>
+<table width=470 cellspacing=0 cellpadding=0 border=0>
+<tr>
+  <td>
+    <dl>
+    <dt><a href="/stockex/bin/indices"><img src="/stockex/icons/indizes.gif" alt="Indizes" width=290 height=25 border=0></a>
+
+    <dd>Die Indizes der B&ouml;rsen Schweiz und New York und deren Charts.
+
+    <p>
+    <dt><a href="/stockex/price/forex-de.html"><img src="/stockex/icons/devisen.gif" alt="Devisen" width=290 height=25 border=0></a>
+
+    <dd>Informieren Sie sich &uuml;ber den neusten Stand  und die Ver&auml;nderungen in den letzten 7 Tagen, im letzten Monat und in den letzten 12 Monaten.
+
+    <p>
+    <dt><a href="/stockex/price/notes-de.html"><img src="/stockex/icons/noten.gif" alt="Noten" width=290 height=25 border=0></a>
+
+    <dd>Wechseln Sie auf unseren Informationsservice: mehrmals t&auml;glich die aktuellen Notierungen, dazu die Entwicklung der letzten 7 Tage, im letzten Monat und in den letzten 12 Monaten.
+
+    <p>
+    <dt><a href="/stockex/funds/"><img src="/stockex/icons/fonds.gif" alt="Fonds" width=290 height=25 border=0></a>
+
+    <dd>Investieren Sie nicht allein, sondern zusammen mit anderen Anlegern.
+
+    <p>
+    <dt><a href="/international/bonds-de.html"><img src="/stockex/icons/obligationen.gif" alt="Obligationen" width=290 height=25 border=0></a>
+
+    <dd>Nehmen Sie die Empfehlungen der ZKB-Profis ruhig f&uuml;r bare M&uuml;nze und legen Sie kleinere oder gr&ouml;ssere Betr&auml;ge optimal an.
+
+  </td>
+
+</tr>
+
+<tr><td height=18></td></tr>
+
+</table>
+
+
+<p>
+16.09.1997, 20:31:07 MET DST
+
+<p>
+<table cellspacing=0 cellpadding=0 border=0 width=470>
+<tr>
+  <td>
+    Kommerzielle Nutzung und elektronische Weiterverarbeitung nicht gestattet.
+
+    <p>
+    &copy; Z&uuml;rcher Kantonalbank. Alle Rechte vorbehalten.<br>Die Angaben erfolgen ohne Gew&auml;hr.
+
+  
+  </td>
+</table>
+
+</body>
+</html>
+
+

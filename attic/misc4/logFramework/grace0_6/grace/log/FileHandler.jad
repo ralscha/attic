@@ -1,0 +1,165 @@
+// Decompiled by Jad v1.5.7. Copyright 1997-99 Pavel Kouznetsov.
+// Jad home page: http://www.geocities.com/SiliconValley/Bridge/8617/jad.html
+// Decompiler options: packimports(3) 
+// Source File Name:   FileHandler.java
+
+package grace.log;
+
+import java.io.*;
+import java.net.URL;
+import java.rmi.RemoteException;
+import java.util.Date;
+
+// Referenced classes of package grace.log:
+//            PrintHandler, Handler, Log, Event
+
+public class FileHandler extends PrintHandler
+    implements Handler
+{
+
+    public FileHandler(String prefix, String name)
+        throws RemoteException
+    {
+        super(prefix, name);
+        String propertyPrefix = prefix + name;
+        String filename = name + ".log";
+        String urlString = System.getProperty(propertyPrefix + ".url", "file:" + name + ".log");
+        if(urlString.startsWith("file:"))
+            try
+            {
+                URL fileURL = new URL(contextURL, urlString);
+                filename = fileURL.getFile();
+            }
+            catch(Exception e)
+            {
+                e.printStackTrace();
+            }
+        establishWriter(filename);
+        String maxSizeString = System.getProperty(propertyPrefix + ".maxsize");
+        if(maxSizeString != null)
+        {
+            maxSizeString.trim();
+            maxSizeString = maxSizeString.toLowerCase();
+            int multiplier = 1;
+            if(maxSizeString.endsWith("k"))
+                multiplier = 1000;
+            else
+            if(maxSizeString.endsWith("m"))
+                multiplier = 0xf4240;
+            try
+            {
+                maxBytes = Integer.parseInt(maxSizeString) * multiplier;
+            }
+            catch(Exception _ex)
+            {
+                maxBytes = 0L;
+            }
+        }
+    }
+
+    public FileHandler(String filename)
+        throws RemoteException
+    {
+        super(null);
+        establishWriter(filename);
+    }
+
+    public FileHandler(String filename, int maxKilobytes)
+        throws RemoteException
+    {
+        this(filename);
+        maxBytes = maxKilobytes * 1024;
+    }
+
+    protected void establishWriter(String filename)
+    {
+        if(filename.endsWith("/-"))
+        {
+            logFile = null;
+            setPrintWriter(new PrintWriter(System.out));
+        }
+        else
+        {
+            try
+            {
+                logFile = new File(filename);
+                setPrintWriter(new PrintWriter(new FileWriter(logFile.getAbsolutePath(), true), false));
+            }
+            catch(Exception _ex)
+            {
+                logFile = null;
+                setPrintWriter(new PrintWriter(System.out));
+            }
+        }
+    }
+
+    public synchronized void handle(Event event)
+    {
+        super.handle(event);
+        if(maxBytes > 0L && logFile != null && logFile.length() > maxBytes)
+            cutFileInHalf();
+    }
+
+    protected synchronized void cutFileInHalf()
+    {
+        if(logFile != null)
+        {
+            try
+            {
+                getPrintWriter().close();
+                BufferedReader reader = new BufferedReader(new FileReader(logFile));
+                reader.skip(logFile.length() - maxBytes / 2L);
+                while(reader.read() != 10) ;
+                File tempFile = new File(".temp.log." + (new Date()).getTime());
+                FileWriter tempWriter = new FileWriter(tempFile);
+                String line;
+                while((line = reader.readLine()) != null) 
+                {
+                    tempWriter.write(line);
+                    tempWriter.write(10);
+                }
+
+                tempWriter.close();
+                tempFile.renameTo(logFile);
+            }
+            catch(Exception _ex) { }
+            establishWriter(logFile.getName());
+        }
+    }
+
+    public static void main(String args[])
+    {
+        try
+        {
+            File log = new File("test.log");
+            Log.addHandler(new FileHandler(log.getName(), 1));
+            for(int i = 0; i < 200; i++)
+            {
+                Log.log("test", "test message " + i + " to force file over 1k");
+                if(log.length() > 1024L)
+                    System.out.println("warning: file exceeded 1K.");
+            }
+
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+    }
+
+    private File logFile;
+    private long maxBytes;
+    private static URL contextURL;
+
+    static 
+    {
+        try
+        {
+            contextURL = new URL("file://" + System.getProperty("user.dir", "/tmp/log.log") + "/");
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+    }
+}

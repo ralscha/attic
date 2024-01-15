@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+
+<!-- Declare a parent bean with all properties common to both services -->
+<bean id="importIcal" name="/importIcal" class="org.codehaus.xfire.spring.remoting.XFireExporter">
+    <property name="serviceFactory">
+        <ref bean="xfire.serviceFactory"/>
+    </property>
+    <property name="xfire">
+        <ref bean="xfire"/>
+    </property>
+    <property name="service">
+        <ref bean="importIcalImpl"/>
+    </property>
+    <property name="serviceInterface">
+        <value>ch.ess.cal.service.ImportIcal</value>
+    </property>
+</bean>
+
+</beans>

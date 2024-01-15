@@ -1,0 +1,142 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+                      "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:s="http://jboss.com/products/seam/taglib"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:rich="http://richfaces.org/rich"
+	template="templates/master.xhtml">
+
+	<ui:define name="title">Courses</ui:define>
+	<ui:define name="body">
+		<h:panelGroup rendered="#{badCourseAction.courses.rowCount eq 0}">
+			<p>
+				<em class="noResults">No courses found.</em>
+			</p>
+		</h:panelGroup>
+		<h:form id="coursesForm">
+			<h:dataTable id="courses" var="_course"
+				value="#{badCourseAction.courses}"
+				rendered="#{badCourseAction.courses.rowCount gt 0}"
+				styleClass="listing" columnClasses=",,fixed,,actions"
+				footerClass="hide">
+				<f:facet name="footer">
+					<!-- -->
+				</f:facet>
+				<h:column>
+					<f:facet name="header">Course Name</f:facet>
+					<h:commandLink action="#{badCourseAction.selectCourse}"
+						value="#{_course.name}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">City</f:facet>
+		            #{_course.address.city}
+		        </h:column>
+				<h:column>
+					<f:facet name="header">State</f:facet>
+		            #{_course.address.state}
+		        </h:column>
+				<h:column>
+					<f:facet name="header">Country</f:facet>
+		            #{_course.address.country}
+		        </h:column>
+				<h:column>
+					<f:facet name="header">Action</f:facet>
+					<h:panelGroup>
+						<h:commandLink id="delete"
+							action="#{badCourseAction.deleteCourse}">
+							<h:graphicImage value="/images/delete.png" alt="[ Delete ]" />
+						</h:commandLink>
+					</h:panelGroup>
+				</h:column>
+			</h:dataTable>
+		</h:form>
+		<h:panelGroup rendered="#{badCourseAction.course.id gt 0}">
+			<h3>
+				Course Detail
+			</h3>
+			<table class="detail">
+				<col width="20%" />
+				<col width="80%" />
+				<tr>
+					<th>
+						Course Name
+					</th>
+					<td>
+						#{badCourseAction.course.name}
+						<span class="notation">(#{fn:replace(fn:toLowerCase(badCourseAction.course.type),
+							'_', '-')})</span>
+					</td>
+				</tr>
+				<tr>
+					<th>
+						Website
+					</th>
+					<td>
+						<h:outputLink value="#{badCourseAction.course.uri}"
+							rendered="#{not empty badCourseAction.course.uri}">#{badCourseAction.course.uri}</h:outputLink>
+					</td>
+				</tr>
+				<tr>
+					<th>
+						Phone
+					</th>
+					<td>
+						<h:outputText
+							value="#{fn:substring(badCourseAction.course.phoneNumber, 0, 3)}.#{fn:substring(badCourseAction.course.phoneNumber, 3, 6)}.#{fn:substring(badCourseAction.course.phoneNumber, 6, 10)}"
+							rendered="#{not empty badCourseAction.course.phoneNumber}" />
+					</td>
+				</tr>
+				<tr>
+					<th>
+						Country
+					</th>
+					<td>
+						#{badCourseAction.course.address.country}
+					</td>
+				</tr>
+				<tr>
+					<th>
+						State
+					</th>
+					<td>
+						#{badCourseAction.course.address.state}
+					</td>
+				</tr>
+				<tr>
+					<th>
+						County
+					</th>
+					<td>
+						#{badCourseAction.course.address.county}
+					</td>
+				</tr>
+				<tr>
+					<th>
+						City
+					</th>
+					<td>
+						#{badCourseAction.course.address.city}
+					</td>
+				</tr>
+				<tr>
+					<th>
+						ZIP Code
+					</th>
+					<td>
+						#{badCourseAction.course.address.postalCode}
+					</td>
+				</tr>
+			</table>
+			<h:panelGroup
+				rendered="#{not empty badCourseAction.course.description}">
+				<p>
+					<q>...#{badCourseAction.course.description}</q>
+				</p>
+			</h:panelGroup>
+		</h:panelGroup>
+	</ui:define>
+</ui:composition>
+

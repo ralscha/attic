@@ -1,0 +1,15 @@
+<project name="LoginTest" basedir="." default="main">
+
+   <target name="main">
+      <testSpec name="myLoginTest">
+         
+         <config host="localhost" port="8081" protocol="http" basepath="blank" />
+         
+         <steps>
+            <invoke stepid="test" url="default.do" />
+            <verifytitle stepdid="test2" text="Username:" />
+         </steps>
+      </testSpec>
+   </target>
+   
+</project>

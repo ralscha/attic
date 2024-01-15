@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD//EN"
+        "http://hibernate.sourceforge.net/hibernate-configuration-2.0.dtd">
+<hibernate-configuration>
+    <!-- a SessionFactory instance listed as /jndi/name -->
+    <session-factory name="hibernate/sessionFactory">
+        <property name="show_sql">true</property>
+        <property name="use_outer_join">true</property>
+        <property name="query.substitutions">true 1, false 0, yes 'Y', no 'N'</property>
+        <property name="jdbc.use_streams_for_binary">true</property>
+
+        <!-- properties for this SessionFactory only -->
+        <property name="connection.datasource">java:comp/env/jdbc/cal</property>
+        <property name="dialect">net.sf.hibernate.dialect.MySQLDialect</property>
+
+        <!-- mapping files -->
+        <mapping resource="ch/ess/cal/db/Configuration.hbm.xml"/>
+        <mapping resource="ch/ess/cal/db/Role.hbm.xml"/>
+        <mapping resource="ch/ess/cal/db/User.hbm.xml"/>
+        <mapping resource="ch/ess/cal/db/UserRole.hbm.xml"/>
+        <mapping resource="ch/ess/cal/db/UserConfiguration.hbm.xml"/>     
+        <mapping resource="ch/ess/cal/db/TextResource.hbm.xml"/>   
+        <mapping resource="ch/ess/cal/db/Attachment.hbm.xml"/>         
+        <mapping resource="ch/ess/cal/db/Category.hbm.xml"/>  
+        <mapping resource="ch/ess/cal/db/Department.hbm.xml"/>  
+        <mapping resource="ch/ess/cal/db/DepartmentConfiguration.hbm.xml"/>  
+        <mapping resource="ch/ess/cal/db/Email.hbm.xml"/>  
+        <mapping resource="ch/ess/cal/db/Event.hbm.xml"/> 
+        <mapping resource="ch/ess/cal/db/Holiday.hbm.xml"/>         
+        <mapping resource="ch/ess/cal/db/Recurrence.hbm.xml"/> 
+        <mapping resource="ch/ess/cal/db/Reminder.hbm.xml"/>         
+        <mapping resource="ch/ess/cal/db/Resource.hbm.xml"/>   
+        <mapping resource="ch/ess/cal/db/ResourceGroup.hbm.xml"/> 
+    </session-factory>
+</hibernate-configuration>

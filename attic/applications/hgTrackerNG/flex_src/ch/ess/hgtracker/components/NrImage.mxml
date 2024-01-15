@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Image xmlns:mx="http://www.adobe.com/2006/mxml" source="@Embed('assets/nr.gif')" horizontalAlign="center" 
+  click="clickHandler(event)">
+  <mx:Script>
+    <![CDATA[
+      import ch.ess.hgtracker.model.PunkteAnzeige;
+      import mx.managers.PopUpManager;
+      import mx.controls.Alert;
+      
+      private function clickHandler(e:MouseEvent):void {
+        
+        var pa:PunkteAnzeige = PunkteAnzeige(e.target.data);
+        
+        var nrEdit:NrEdit = NrEdit(PopUpManager.createPopUp(this, NrEdit, true));
+        nrEdit.punkteAnzeige = pa;
+        
+      }
+    ]]>
+  </mx:Script>
+  
+</mx:Image>

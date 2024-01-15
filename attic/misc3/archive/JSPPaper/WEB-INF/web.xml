@@ -1,0 +1,40 @@
+<web-app>
+ <description>JSP Paper</description>
+ <session-config>
+  <session-timeout>30</session-timeout>
+ </session-config>
+     <servlet>
+        <servlet-name>
+            CustomerServlet
+        </servlet-name>
+        <servlet-class>
+            jsp_paper.CustomerServlet
+        </servlet-class>
+       
+    </servlet>
+ 
+ <mime-mapping>
+  <extension>
+   txt
+  </extension>
+  <mime-type>
+   text/plain
+  </mime-type>
+ </mime-mapping>
+ <mime-mapping>
+  <extension>
+   html
+  </extension>
+  <mime-type>
+   text/html
+  </mime-type>
+ </mime-mapping>
+ <welcome-file-list>
+  <welcome-file>
+   index.jsp
+  </welcome-file>
+  <welcome-file>
+   index.html
+  </welcome-file>
+ </welcome-file-list>
+</web-app>

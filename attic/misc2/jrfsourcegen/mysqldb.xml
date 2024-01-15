@@ -1,0 +1,10 @@
+<database>
+  <driver>org.gjt.mm.mysql.Driver</driver>
+  <policy>instantdb</policy>
+  <url>jdbc:mysql://localhost/lottowin</url>
+  <user></user>
+  <password></password>
+  <outputdir>.</outputdir>
+  <package>lottowin.db</package>
+
+</database>  

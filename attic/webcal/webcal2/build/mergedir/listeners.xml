@@ -1,0 +1,5 @@
+
+    <listener>
+        <listener-class>com.opensymphony.oscache.web.CacheContextListener</listener-class>
+    </listener>    
+    

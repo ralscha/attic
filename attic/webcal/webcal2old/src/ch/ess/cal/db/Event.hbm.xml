@@ -1,0 +1,74 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping SYSTEM "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+<hibernate-mapping>
+
+	<class name="ch.ess.cal.db.Event" proxy="ch.ess.cal.db.Event" table="calEvent">
+		<id name="eventId" type="long" unsaved-value="null">
+			<generator class="native"/>
+		</id>		
+		<version name="version"/>
+				
+		
+		<property name="startDate" type="long" not-null="true"/>
+		<property name="endDate" type="long" not-null="false"/>		
+		<property name="allDay" type="boolean" not-null="true"/>		
+		<property name="sensitivity" type="ch.ess.cal.db.SensitivityEnum" not-null="true"/>		
+		<property name="importance" type="ch.ess.cal.db.ImportanceEnum" not-null="true"/>		
+		
+		<property name="description" type="string" length="1000" not-null="false"/>			     
+		<property name="location" type="string" length="255" not-null="false"/>			     		
+		<property name="subject" type="string" length="255" not-null="false"/>			     
+		<property name="uid" type="string" length="255" not-null="false"/>		
+
+		<property name="createDate" type="long" not-null="false"/>
+		<property name="modificationDate" type="long" not-null="false"/>		
+
+		<property name="calVersion" type="string" length="5" not-null="false"/>	
+		<property name="sequence" type="integer" not-null="true"/>
+		<property name="priority" type="integer" not-null="true"/>
+				
+    	<many-to-one name="resource" 
+    	             class="ch.ess.cal.db.Resource" column="resourceId" not-null="false"/>	
+	
+		<set name="properties"		     
+		     table="calEventProp"
+		     lazy="true"
+		     cascade="all">
+          <key column="eventId"/>          
+          <composite-element class="ch.ess.cal.db.EventProperty">
+    		<property name="name" type="string" length="100" not-null="true"/>		
+            <property name="propValue" type="string" length="1000" not-null="false"/>		
+          </composite-element>
+		</set>	
+	
+	    <set name="users" lazy="true" table="calUserEvents">
+          <key column="eventId"/>
+          <many-to-many class="ch.ess.cal.db.User" column="userId"/>
+        </set>
+        
+
+		<set name="recurrences" cascade="all" lazy="true" inverse="true">
+          <key column="recurrenceId"/>
+          <one-to-many class="ch.ess.cal.db.Recurrence"/>
+        </set>        
+		<set name="reminders" cascade="all" lazy="true" inverse="true">
+          <key column="reminderId"/>
+          <one-to-many class="ch.ess.cal.db.Reminder"/>
+        </set>        
+		<set name="attachments" cascade="all" lazy="true" inverse="true">
+          <key column="attachmentId"/>
+          <one-to-many class="ch.ess.cal.db.Attachment"/>
+        </set>        
+        
+        <many-to-one name="department" class="ch.ess.cal.db.Department" column="departmentId" not-null="false"/>        
+        
+        
+        <set name="categories" lazy="true" table="calEventCategories">
+          <key column="eventId"/>
+          <many-to-many class="ch.ess.cal.db.Category" column="categoryId"/>
+        </set>
+        
+	</class>
+
+	
+</hibernate-mapping>

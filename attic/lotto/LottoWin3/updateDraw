@@ -1,0 +1,1 @@
+/usr/local/jdk1.2.2/bin/java -Dvbsf.repository=/opt/lottowin/schrepository -cp /opt/lottowin/WEB-INF/classes:/opt/lottowin/WEB-INF/lib/interclient.jar:/opt/lottowin/WEB-INF/lib/jdbcs.jar:/opt/lottowin/WEB-INF/lib/schema.jar:/opt/lottowin/WEB-INF/lib/vbsf.jar:/opt/lottowin/WEB-INF/lib/log4j-full.jar lottowin.UpdateDraw /opt/lotto/output/ziehung.txt

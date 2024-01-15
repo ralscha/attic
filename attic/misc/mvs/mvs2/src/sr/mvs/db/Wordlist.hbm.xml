@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 1.1//EN" "http://hibernate.sourceforge.net/hibernate-mapping-1.1.dtd">
+<hibernate-mapping>
+<class name="sr.mvs.db.Wordlist" table="WordList">
+<id name="hash" type="integer">
+  <generator class="assigned"/>
+</id>
+<property column="word" not-null="true" length="100" name="word" type="string"/>
+</class>
+</hibernate-mapping>

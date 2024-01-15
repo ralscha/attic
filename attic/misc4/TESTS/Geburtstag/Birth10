@@ -1,0 +1,94 @@
+ 
+
+ java.util.Random rand = new java.util.Random();
+ int z[] = new int[4];
+ boolean gerade = false;
+ int gleich;
+ int totalnurungerade = 0;
+ int totalzweigleiche = 0;
+ int total = 0;
+
+ int i;       
+ for (i = 0; i < 1000000; i++) {
+  	for (int j = 0; j < z.length; j++) {
+		z[j] = Math.abs(rand.nextInt() % 6) + 1;		
+	}
+
+	gerade = false;
+	gleich = 0;
+
+	for (int j = 0; j < z.length; j++) {
+		if (z[j] % 2 == 0)
+			gerade = true;
+
+		for (int x = j+1; x < z.length; x++) {
+			if (z[x] == z[j])
+				gleich++;
+		}
+	}
+
+	if (!gerade) 
+		totalnurungerade++;
+
+	if (gleich == 1) 
+		totalzweigleiche++;
+
+    if (!gerade && (gleich == 1)) 
+		total++;	
+}
+
+System.out.println("Ungerade " + (float)totalnurungerade / (float)i);
+System.out.println("Gleiche  " + (float)totalzweigleiche / (float)i);
+System.out.println("Beides   " + (float)total / (float)i);
+
+
+int gleich = 0;
+int z[];
+java.util.Vector all = new java.util.Vector();
+for (int a = 1; a <= 6; a++) {
+	for (int b = 1; b <= 6; b++) {
+		for (int c = 1; c <= 6; c++) {
+			for (int d = 1; d <= 6; d++) {
+				z = new int[4];
+				z[0] = a;
+				z[1] = b;
+				z[2] = c;
+				z[3] = d;
+				all.addElement(z);	
+			}
+		}
+	}
+}
+int total = 0;
+int untotal = 0;
+boolean gerade;
+System.out.println("Size = " + all.size());
+for (int a = 0; a < all.size(); a++) {
+	z = (int[])all.elementAt(a);
+	gleich = 0;
+	gerade = false;
+	for (int j = 0; j < z.length; j++) {
+
+		if (z[j] % 2 == 0)
+			gerade = true;
+
+		for (int x = j+1; x < z.length; x++) {
+			if (z[x] == z[j])
+				gleich++;
+		}
+	}
+	if (gleich == 1) {
+		total++;		
+	}
+	if (!gerade && (gleich == 1)) {
+		for (int n = 0; n < z.length; n++) {
+			System.out.print(z[n]);
+		}
+		System.out.println();
+
+		untotal++;
+	}
+
+}
+System.out.println("Gleiche      = " + total);
+System.out.println("Nur ungerade = " + untotal);

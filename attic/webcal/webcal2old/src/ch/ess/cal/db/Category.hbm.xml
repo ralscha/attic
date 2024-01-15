@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping SYSTEM "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+<hibernate-mapping>
+
+	<class name="ch.ess.cal.db.Category" proxy="ch.ess.cal.db.Category" table="calCategory">
+		<id name="categoryId" type="long" unsaved-value="null">
+			<generator class="native"/>
+		</id>		
+		<version name="version"/>
+				
+		<property name="name" type="string" length="255" not-null="true"/>
+    	<property name="description" type="string" length="1000"/>
+    	<property name="icalKey" type="string" length="255" not-null="true"/>
+    	    	
+    	<property name="colour" type="string" length="6" not-null="true"/>
+    	<property name="bwColour" type="string" length="6" not-null="true"/>    	
+		
+		<property name="unknown" type="boolean" not-null="true"/>    	
+	
+        <set name="events" lazy="true" table="calEventCategories">
+          <key column="categoryId"/>
+          <many-to-many class="ch.ess.cal.db.Event" column="eventId"/>
+        </set>	
+		
+	</class>
+
+	
+</hibernate-mapping>

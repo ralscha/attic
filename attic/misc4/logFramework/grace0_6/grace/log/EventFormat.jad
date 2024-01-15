@@ -1,0 +1,578 @@
+// Decompiled by Jad v1.5.7. Copyright 1997-99 Pavel Kouznetsov.
+// Jad home page: http://www.geocities.com/SiliconValley/Bridge/8617/jad.html
+// Decompiler options: packimports(3) 
+// Source File Name:   EventFormat.java
+
+package grace.log;
+
+import grace.io.JavaPrintWriter;
+import grace.io.LispPrintWriter;
+import grace.io.PrintWriter;
+import java.io.StringWriter;
+import java.text.DateFormat;
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.TimeZone;
+import java.util.Vector;
+
+// Referenced classes of package grace.log:
+//            Event, ProgramPosition
+
+public class EventFormat
+{
+
+    public EventFormat()
+    {
+        format = defaultFormat;
+    }
+
+    public EventFormat(String format)
+    {
+        this.format = format;
+    }
+
+    private StringBuffer createBuffer()
+    {
+        return minBufferSize != 0 ? new StringBuffer(minBufferSize) : new StringBuffer();
+    }
+
+    public String format(Event event)
+    {
+        StringBuffer buffer = createBuffer();
+        String subFormat = null;
+        boolean inCommand = false;
+        for(int i = 0; i < format.length(); i++)
+        {
+            char c = format.charAt(i);
+            if(inCommand)
+            {
+                inCommand = false;
+                switch(c)
+                {
+                case 37: // '%'
+                    buffer.append(c);
+                    break;
+
+                case 116: // 't'
+                    formatTime(buffer, subFormat, event.time);
+                    break;
+
+                case 101: // 'e'
+                    buffer.append(event.type);
+                    break;
+
+                case 82: // 'R'
+                case 114: // 'r'
+                    formatRelativeTime(buffer, subFormat, event.time);
+                    break;
+
+                case 72: // 'H'
+                case 104: // 'h'
+                    formatThreadName(buffer, subFormat, event.threadNames);
+                    break;
+
+                case 110: // 'n'
+                    buffer.append(event.number);
+                    break;
+
+                case 67: // 'C'
+                case 99: // 'c'
+                    buffer.append(event.position.getShortClassname());
+                    break;
+
+                case 70: // 'F'
+                    buffer.append(event.position.getFilename());
+                    break;
+
+                case 102: // 'f'
+                    buffer.append(event.position.getFunction());
+                    break;
+
+                case 108: // 'l'
+                    buffer.append(event.position.getLineNumberString());
+                    break;
+
+                case 77: // 'M'
+                case 109: // 'm'
+                    if(event.message != null)
+                        formatMessage(buffer, subFormat, event.message);
+                    break;
+
+                case 79: // 'O'
+                case 111: // 'o'
+                    if(event.objectWasGiven())
+                        formatObject(buffer, subFormat, event.object);
+                    break;
+
+                case 40: // '('
+                    StringBuffer subBuffer = new StringBuffer();
+                    boolean escapeSeen = false;
+                    while(++i < format.length()) 
+                    {
+                        char cc = format.charAt(i);
+                        if(cc == '\\')
+                        {
+                            escapeSeen = true;
+                            continue;
+                        }
+                        if(cc == ')' && !escapeSeen)
+                            break;
+                        subBuffer.append(cc);
+                        escapeSeen = false;
+                    }
+
+                    subFormat = subBuffer.toString();
+                    inCommand = true;
+                    break;
+
+                }
+            }
+            else
+            if(c == '%')
+            {
+                inCommand = true;
+                subFormat = null;
+            }
+            else
+            {
+                buffer.append(c);
+            }
+        }
+
+        if(minBufferSize < buffer.length())
+            minBufferSize = buffer.length() + 16;
+        return buffer.toString();
+    }
+
+    protected void formatException(StringBuffer buffer, Exception exception)
+    {
+        String subFormat = defaultExceptionFormat;
+        if(customExceptionFormat != null)
+            subFormat = customExceptionFormat;
+        boolean inCommand = false;
+        for(int i = 0; i < subFormat.length(); i++)
+        {
+            char c = subFormat.charAt(i);
+            if(inCommand)
+            {
+                inCommand = false;
+                switch(c)
+                {
+                case 37: // '%'
+                    buffer.append(c);
+                    break;
+
+                case 99: // 'c'
+                    buffer.append(exception.getClass().getName());
+                    break;
+
+                case 109: // 'm'
+                    if(exception.getMessage() != null)
+                        buffer.append(exception.getMessage());
+                    break;
+
+                case 115: // 's'
+                    StringWriter stringWriter = new StringWriter();
+                    java.io.PrintWriter writer = new java.io.PrintWriter(stringWriter);
+                    exception.printStackTrace(writer);
+                    buffer.append(stringWriter.toString());
+                    writer.close();
+                    break;
+
+                }
+            }
+            else
+            if(c == '%')
+                inCommand = true;
+            else
+                buffer.append(c);
+        }
+
+    }
+
+    protected void formatMessage(StringBuffer buffer, String subFormat, String message)
+    {
+        if(subFormat == null)
+            subFormat = defaultMessageFormat;
+        if(format == defaultFormat && customMessageFormat != null)
+            subFormat = customMessageFormat;
+        boolean inCommand = false;
+        for(int i = 0; i < subFormat.length(); i++)
+        {
+            char c = subFormat.charAt(i);
+            if(inCommand)
+            {
+                inCommand = false;
+                switch(c)
+                {
+                case 37: // '%'
+                    buffer.append(c);
+                    break;
+
+                case 109: // 'm'
+                    buffer.append(message);
+                    break;
+
+                }
+            }
+            else
+            if(c == '%')
+                inCommand = true;
+            else
+                buffer.append(c);
+        }
+
+    }
+
+    protected void formatLispObject(StringBuffer buffer, Object object, boolean pretty)
+    {
+        StringWriter stringWriter = new StringWriter();
+        PrintWriter writer = new LispPrintWriter(stringWriter, false);
+        writer.setPrettyOutput(pretty);
+        writer.print("", object);
+        writer.close();
+        try
+        {
+            stringWriter.close();
+        }
+        catch(Exception _ex) { }
+        buffer.append(stringWriter.toString());
+    }
+
+    protected void formatJavaObject(StringBuffer buffer, Object object, boolean pretty)
+    {
+        StringWriter stringWriter = new StringWriter();
+        PrintWriter writer = new JavaPrintWriter(stringWriter, false);
+        writer.setPrettyOutput(pretty);
+        writer.print("", object);
+        writer.close();
+        try
+        {
+            stringWriter.close();
+        }
+        catch(Exception _ex) { }
+        buffer.append(stringWriter.toString());
+    }
+
+    protected void formatUnknownObject(StringBuffer buffer, String subFormat, Object object)
+    {
+        if(subFormat == null)
+            subFormat = defaultObjectFormat;
+        if(format == defaultFormat && customObjectFormat != null)
+            subFormat = customObjectFormat;
+        boolean inCommand = false;
+        for(int i = 0; i < subFormat.length(); i++)
+        {
+            char c = subFormat.charAt(i);
+            if(inCommand)
+            {
+                inCommand = false;
+                switch(c)
+                {
+                case 37: // '%'
+                    buffer.append(c);
+                    break;
+
+                case 108: // 'l'
+                    formatLispObject(buffer, object, false);
+                    break;
+
+                case 76: // 'L'
+                    formatLispObject(buffer, object, true);
+                    break;
+
+                case 74: // 'J'
+                    formatJavaObject(buffer, object, true);
+                    break;
+
+                case 106: // 'j'
+                case 111: // 'o'
+                    formatJavaObject(buffer, object, false);
+                    break;
+
+                }
+            }
+            else
+            if(c == '%')
+                inCommand = true;
+            else
+                buffer.append(c);
+        }
+
+    }
+
+    protected void formatObject(StringBuffer buffer, String format, Object object)
+    {
+        if(object instanceof Throwable)
+            formatException(buffer, (Exception)object);
+        else
+            formatUnknownObject(buffer, format, object);
+    }
+
+    protected void formatThreadName(StringBuffer buffer, String subFormat, Vector names)
+    {
+        if(subFormat == null)
+            subFormat = defaultThreadFormat;
+        if(format == defaultFormat && customThreadFormat != null)
+            subFormat = customThreadFormat;
+        char groupDelimiter = '.';
+        boolean inCommand = false;
+        for(int i = 0; i < subFormat.length(); i++)
+        {
+            char c = subFormat.charAt(i);
+            if(inCommand)
+            {
+                inCommand = false;
+                switch(c)
+                {
+                case 37: // '%'
+                    buffer.append(c);
+                    break;
+
+                case 110: // 'n'
+                    if(names.size() >= 1)
+                        buffer.append((String)names.elementAt(names.size() - 1));
+                    break;
+
+                case 103: // 'g'
+                    if(names.size() >= 2)
+                        buffer.append((String)names.elementAt(names.size() - 2));
+                    break;
+
+                case 71: // 'G'
+                    for(int j = 0; j < names.size() - 1; j++)
+                    {
+                        if(j != 0)
+                            buffer.append(groupDelimiter);
+                        buffer.append((String)names.elementAt(j));
+                    }
+
+                    break;
+
+                default:
+                    groupDelimiter = c;
+                    break;
+
+                }
+            }
+            else
+            if(c == '%')
+                inCommand = true;
+            else
+                buffer.append(c);
+        }
+
+    }
+
+    protected void formatRelativeTime(StringBuffer buffer, String subFormat, Date now)
+    {
+        if(subFormat == null)
+            subFormat = defaultRelativeTimeFormat;
+        if(format == defaultFormat && customRelativeTimeFormat != null)
+            subFormat = customRelativeTimeFormat;
+        if(subFormat != null)
+        {
+            double difference = now.getTime() - startTime.getTime();
+            if(subFormat.startsWith("clock"))
+            {
+                int days = (int)(difference / 86400000D);
+                int hours = (int)((difference % 86400000D) / 3600000D);
+                int minutes = (int)((difference % 3600000D) / 60000D);
+                double seconds = (difference % 60000D) / 1000D;
+                if(days > 0)
+                {
+                    buffer.append(twoDigitFormat.format(days));
+                    buffer.append(":");
+                    buffer.append(twoDigitFormat.format(hours));
+                    buffer.append(":");
+                    buffer.append(twoDigitFormat.format(minutes));
+                    buffer.append(":");
+                    buffer.append(numberFormat.format(seconds));
+                }
+                else
+                if(hours > 0)
+                {
+                    buffer.append(twoDigitFormat.format(hours));
+                    buffer.append(":");
+                    buffer.append(twoDigitFormat.format(minutes));
+                    buffer.append(":");
+                    buffer.append(numberFormat.format(seconds));
+                }
+                else
+                if(minutes > 0)
+                {
+                    buffer.append(twoDigitFormat.format(minutes));
+                    buffer.append(":");
+                    buffer.append(numberFormat.format(seconds));
+                }
+                else
+                {
+                    buffer.append(numberFormat.format(seconds));
+                }
+            }
+            else
+            if(subFormat.startsWith("day"))
+            {
+                difference /= 86400000D;
+                buffer.append(numberFormat.format(difference));
+            }
+            else
+            if(subFormat.startsWith("min"))
+            {
+                difference /= 60000D;
+                buffer.append(numberFormat.format(difference));
+            }
+            else
+            if(subFormat.startsWith("sec"))
+            {
+                difference /= 1000D;
+                buffer.append(numberFormat.format(difference));
+            }
+            else
+            {
+                difference /= 3600000D;
+                buffer.append(numberFormat.format(difference));
+            }
+        }
+    }
+
+    protected void formatTime(StringBuffer buffer, String subFormat, Date now)
+    {
+        if(timeFormat == null)
+        {
+            if(subFormat == null)
+                timeFormat = defaultTimeFormat;
+            else
+                timeFormat = getDateFormat(subFormat);
+            if(format == defaultFormat && customTimeFormat != null)
+                timeFormat = customTimeFormat;
+        }
+        buffer.append(timeFormat.format(now));
+    }
+
+    protected static DateFormat getDateFormat(String name)
+    {
+        DateFormat format = null;
+        if(name.equals("short"))
+            format = DateFormat.getDateTimeInstance(3, 3);
+        else
+        if(name.equals("medium"))
+            format = DateFormat.getDateTimeInstance(2, 2);
+        else
+        if(name.equals("long"))
+            format = DateFormat.getDateTimeInstance(1, 1);
+        else
+        if(name.equals("full"))
+            format = DateFormat.getDateTimeInstance(0, 0);
+        else
+        if(name.equals("24"))
+            format = new SimpleDateFormat("MM/dd/yy HH:mm:ss");
+        else
+            format = new SimpleDateFormat(name);
+        return format;
+    }
+
+    protected static String expandSpecialChars(String string)
+    {
+        if(string != null)
+        {
+            StringBuffer buffer = new StringBuffer(string.length());
+            boolean inEscape = false;
+            for(int i = 0; i < string.length(); i++)
+            {
+                char c = string.charAt(i);
+                if(inEscape)
+                {
+                    inEscape = false;
+                    switch(c)
+                    {
+                    case 110: // 'n'
+                        buffer.append('\n');
+                        break;
+
+                    case 116: // 't'
+                        buffer.append('\t');
+                        break;
+
+                    default:
+                        buffer.append(c);
+                        break;
+
+                    }
+                }
+                else
+                if(c == '\\')
+                    inEscape = true;
+                else
+                    buffer.append(c);
+            }
+
+            return buffer.toString();
+        }
+        else
+        {
+            return null;
+        }
+    }
+
+    protected static void initialize()
+    {
+        defaultTimeFormat = getDateFormat("24");
+        defaultTimeFormat.setTimeZone(TimeZone.getTimeZone("GMT"));
+        String customDefaultFormat = expandSpecialChars(System.getProperty("log.format"));
+        if(customDefaultFormat != null)
+            defaultFormat = customDefaultFormat;
+        String customTimeFormatString = System.getProperty("log.time.format");
+        if(customTimeFormatString != null)
+        {
+            customTimeFormat = getDateFormat(customTimeFormatString);
+            if(customTimeFormat != null)
+                customTimeFormat.setTimeZone(TimeZone.getTimeZone(System.getProperty("log.time.zone", "GMT")));
+        }
+        customRelativeTimeFormat = System.getProperty("log.time.relative");
+        customExceptionFormat = expandSpecialChars(System.getProperty("log.exception.format"));
+        customMessageFormat = expandSpecialChars(System.getProperty("log.message.format"));
+        customThreadFormat = expandSpecialChars(System.getProperty("log.thread.format"));
+        customObjectFormat = expandSpecialChars(System.getProperty("log.object.format"));
+    }
+
+    private static String defaultRelativeTimeFormat = "clock";
+    private static String defaultTimeFormatString = "24";
+    private static DateFormat defaultTimeFormat;
+    private static String defaultExceptionFormat = ": %c: %m: %s";
+    private static String defaultMessageFormat = "%m";
+    private static String defaultObjectFormat = "%j";
+    private static String defaultThreadFormat = "%G.%n";
+    private static String defaultFormat = "%t(%r):%n: %e: %h: %c.%f:%l%(: %m)m%(: %j)o\n\n";
+    private static String customRelativeTimeFormat = null;
+    private static String customTimeFormatString = null;
+    private static DateFormat customTimeFormat = null;
+    private static String customExceptionFormat = null;
+    private static String customMessageFormat = null;
+    private static String customObjectFormat = null;
+    private static String customThreadFormat = null;
+    private static final Date startTime = new Date();
+    private static final NumberFormat numberFormat = NumberFormat.getInstance();
+    private static final NumberFormat twoDigitFormat = new DecimalFormat("00");
+    private String format;
+    private DateFormat timeFormat;
+    private int minBufferSize;
+
+    static 
+    {
+        try
+        {
+            initialize();
+        }
+        catch(ExceptionInInitializerError e)
+        {
+            e.getException().printStackTrace();
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+    }
+}

@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+  GRANITE DATA SERVICES
+  Copyright (C) 2007-2008 ADEQUATE SYSTEMS SARL
+
+  This file is part of Granite Data Services.
+
+  Granite Data Services is free software; you can redistribute it and/or modify
+  it under the terms of the GNU Lesser General Public License as published by
+  the Free Software Foundation; either version 3 of the License, or (at your
+  option) any later version.
+
+  Granite Data Services is distributed in the hope that it will be useful, but
+  WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+  FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License
+  for more details.
+
+  You should have received a copy of the GNU Lesser General Public License
+  along with this library; if not, see <http://www.gnu.org/licenses/>.
+-->
+
+<mx:TitleWindow
+    xmlns:mx="http://www.adobe.com/2006/mxml"
+    layout="horizontal"
+     title="Login"
+     showCloseButton="true"
+     close="formClose();"
+     width="100%"
+     creationComplete="resetForm(); setUpEvents();">
+
+     <!-- Name must be longer than 4 characters long -->
+    <mx:StringValidator
+        id="usernameValidator"
+        source="{txtUserName}"
+        property="text"
+        minLength="4"
+        maxLength="15"
+    />
+    <!-- Name must be longer than 4 characters long -->
+    <mx:StringValidator
+        id="passwordValidator"
+        source="{txtPassword}"
+        property="text"
+        minLength="4"
+        maxLength="15"
+    />
+
+
+     <mx:Script>
+         <![CDATA[
+           import ch.ess.booking.control.UserCtl;
+
+         import mx.controls.Alert;
+         import mx.events.CloseEvent;
+         import mx.events.ValidationResultEvent;
+         import mx.validators.Validator;
+
+         import mx.managers.PopUpManager;
+
+
+         public var userCtl:UserCtl;
+
+        [Bindable]
+        public var formIsValid:Boolean = false;
+
+        [Bindable]
+        public var formIsEmpty:Boolean = true;
+
+        // Holds a reference to the currently focussed
+        // control on the form.
+        private var focussedFormControl:DisplayObject;
+
+        private function resetForm():void {
+            formIsValid = false;
+            formIsEmpty = true;
+            txtUserName.text = '';
+            txtPassword.text = '';
+            txtUserName.setFocus();
+        }
+
+        private function setUpEvents():void {
+            userCtl.addEventListener("loggedIn", loggedInHandler);
+        }
+
+        private function loggedInHandler(event:Event):void {
+            formClose();
+        }
+
+        private function formClose():void {
+            PopUpManager.removePopUp(this);
+        }
+
+        // Validate the form
+        private function validateForm(event:Event):void {
+
+            // Save a reference to the currently focussed form control
+            // so that the isValid() helper method can notify only
+            // the currently focussed form control and not affect
+            // any of the other form controls.
+            focussedFormControl = event.target as DisplayObject;
+
+            // Mark the form as valid to start with
+            formIsValid = true;
+
+            // Check if form is empty
+            formIsEmpty = (txtUserName.text == "" && txtPassword.text == "");
+
+            // Run each validator in turn, using the isValid()
+            // helper method and update the value of formIsValid
+            // accordingly.
+            validate(usernameValidator);
+            validate(passwordValidator);
+        }
+
+         // Helper method. Performs validation on a passed Validator instance.
+         // Validator is the base class of all Flex validation classes so
+         // you can pass any validation class to this method.
+         private function validate(validator:Validator):Boolean {
+
+            // Get a reference to the component that is the
+            // source of the validator.
+             var validatorSource:DisplayObject = validator.source as DisplayObject;
+
+            // Suppress events if the current control being validated is not
+            // the currently focussed control on the form. This stops the user
+            // from receiving visual validation cues on other form controls.
+            var suppressEvents:Boolean = (validatorSource != focussedFormControl );
+
+            // Carry out validation. Returns a ValidationResultEvent.
+            // Passing null for the first parameter makes the validator
+            // use the property defined in the property tag of the
+            // <mx:Validator> tag.
+            var event:ValidationResultEvent = validator.validate(null, suppressEvents);
+
+            // Check if validation passed and return a boolean value accordingly
+             var currentControlIsValid:Boolean = (event.type == ValidationResultEvent.VALID);
+
+             // Update the formIsValid flag
+             formIsValid = formIsValid && currentControlIsValid;
+
+             return currentControlIsValid;
+          }
+         ]]>
+     </mx:Script>
+
+     <mx:VBox height="100%" width="100%" styleName="boxBordersSubbgSkin">
+         <mx:Box backgroundColor="#e2e5d5" borderColor="#c0c0c0" styleName="tabssub" width="100%">
+             <mx:Grid paddingTop="5" paddingBottom="0" paddingLeft="5" paddingRight="5">
+                  <mx:GridRow width="100%" height="100%" paddingTop="5">
+                       <mx:GridItem width="100%" height="100%">
+                            <mx:Label text="Username:"/>
+                       </mx:GridItem>
+                       <mx:GridItem width="100%" height="100%">
+                            <mx:TextInput id="txtUserName" change="validateForm(event);"/>
+                       </mx:GridItem>
+                  </mx:GridRow>
+                  <mx:GridRow width="100%" height="100%" paddingBottom="5">
+                       <mx:GridItem width="100%" height="100%">
+                            <mx:Label text="Password:"/>
+                       </mx:GridItem>
+                       <mx:GridItem width="100%" height="100%">
+                            <mx:TextInput id="txtPassword" displayAsPassword="true" change="validateForm(event);"/>
+                       </mx:GridItem>
+                  </mx:GridRow>
+                  <mx:GridRow width="100%" height="100%">
+                       <mx:GridItem width="100%" height="100%">
+                        <mx:ControlBar styleName="paddingZero">
+                            <mx:Button click="userCtl.authenticate(txtUserName.text, txtPassword.text);"
+                                enabled="{formIsValid}" label="Login"
+                                id="prev_btn" x="0" y="0" upSkin="myButton" downSkin="myButtonDown" overSkin="myButtonOver" disabledSkin="myButtonDisabled"  />
+                        </mx:ControlBar>
+                       </mx:GridItem>
+                  </mx:GridRow>
+             </mx:Grid>
+         </mx:Box>
+     </mx:VBox>
+</mx:TitleWindow>

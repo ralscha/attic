@@ -1,0 +1,32 @@
+package ${package}.web.${objectAllLowercaseName};
+
+import ${package}.db.${objectName};
+import ch.ess.common.db.Persistent;
+import ch.ess.common.web.PersistentAction;
+
+/** 
+  * @struts.action path="/new${objectName}" name="${objectLowercaseName}Form" input=".${objectLowercaseName}.list" scope="session" validate="false" roles="admin" parameter="add"
+  * @struts.action path="/edit${objectName}" name="${objectLowercaseName}Form" input=".${objectLowercaseName}.list" scope="session" validate="false" roles="admin" parameter="edit" 
+  * @struts.action path="/store${objectName}" name="${objectLowercaseName}Form" input=".${objectLowercaseName}.edit" scope="session" validate="true" parameter="store" roles="admin"
+  * @struts.action path="/delete${objectName}" parameter="delete" validate="false" roles="admin"
+  *
+  * @struts.action-forward name="edit" path=".${objectLowercaseName}.edit"
+  * @struts.action-forward name="list" path="/list${objectName}.do" redirect="true"
+  * @struts.action-forward name="delete" path="/delete${objectName}.do" 
+  * @struts.action-forward name="reload" path="/edit${objectName}.do" 
+  */
+public class ${objectName}EditAction extends PersistentAction {
+
+  protected int deletePersistent(Long id) throws Exception {
+    return ${objectName}.delete(id);
+  }
+
+  protected Persistent loadPersistent(Long id) throws Exception {
+    return ${objectName}.load(id);
+  }
+
+  protected Persistent newPersistent() throws Exception {
+    return new ${objectName}();
+  }
+
+}

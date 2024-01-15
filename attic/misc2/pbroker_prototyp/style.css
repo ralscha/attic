@@ -1,0 +1,51 @@
+.tdbig {
+	font-style : normal;
+	font-family : Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-variant : normal;
+	font-weight : normal;
+	font-size : 11pt;
+}
+
+.tdbigb {
+	font-style : normal;
+	font-family : Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-variant : normal;
+	font-weight : bold;
+	font-size : 11pt;
+}
+
+.title {
+	font-family : Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-variant : normal;
+	font-weight : bold;
+	font-size : 13pt;
+}
+
+.text {
+	font-family : Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-variant : normal;
+	font-weight : normal;
+	font-size : 10pt;
+}
+
+.texts {
+	font-family : Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-variant : normal;
+	font-weight : normal;
+	font-size : 8pt;
+}
+
+.textb {
+	font-family : Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-variant : normal;
+	font-weight : bold;
+	font-size : 10pt;
+}
+
+.texti {
+	font-family : Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-variant : normal;
+	font-weight : normal;
+	font-size : 10pt;
+	font-style : italic;
+}

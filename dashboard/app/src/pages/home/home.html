@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Spieler
+    </ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="clear()">
+        <ion-icon name="trash"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+    <button ion-item (click)="showSpieler(player)" *ngFor="let player of playerService.getRegularPlayers()">
+      {{player.position}} {{player.nachname}} {{player.vorname}}, {{player.jahrgang}}
+    </button>
+
+    <ion-list-header>
+      Ueberzaehlige Spieler
+    </ion-list-header>
+    <button ion-item (click)="showSpieler(player)" *ngFor="let player of playerService.getUeberzaehligePlayers()">
+      {{player.position}} {{player.nachname}} {{player.vorname}}, {{player.jahrgang}}
+    </button>
+  </ion-list>
+</ion-content>

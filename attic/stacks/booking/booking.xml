@@ -1,0 +1,14 @@
+
+<Context swallowOutput="true" docBase="d:/workspace/booking/web" debug="2">
+
+  <Resource name="jdbc/booking" auth="Container"
+            type="javax.sql.DataSource" 
+            username="sa" 
+            password=""
+            driverClassName="net.sourceforge.jtds.jdbc.Driver" 
+            url="jdbc:jtds:sqlserver://localhost:1433/booking"
+            maxActive="5" maxIdle="1" maxWait="10000" 
+            defaultAutoCommit="false"/>    
+                                   
+</Context>
+

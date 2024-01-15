@@ -1,0 +1,63 @@
+<html>
+<head>
+   <title>Grace JavaLog</title>
+</head>
+<body text="#000000" bgcolor="#FFFFFF" link="#0000EE" vlink="#551A8B" alink="#FF0000">
+
+<table width=100%>
+<tr>
+<td><img SRC="gk9.jpg" NOSAVE height=200 width=153>
+<td valign=top>
+  <table width="100%" bgcolor="#FFCC00">
+  <tr><td><font size=+4 color=Green><div align=right><b>Introduction</b></font>
+  </table>
+<div align=right><font size=+2 color=gray><b><i>Grace Software</b></i></font>
+<div align=right><font size=+2 color=gray><b><i>JavaLog</b></i></font>
+<br>
+<br>
+<div align=right><font size=-1 color="#B0B0B0">$Revision: 1.2 $</font></div>
+<div align=right><font size=-1 color="#B0B0B0">$Date: 1999/10/11 00:05:14 $</font></div>
+</table>
+
+
+<h2>Introduction</h2> 
+
+The JavaLog is a set of Java classes that formats and writes events to
+one or more log devices.&nbsp; JavaLog frees the programmer from
+coding inflexible "print" statements in his code.&nbsp; It offers an
+abstract interface to the various log devices and allows the user to
+configure each log device at run time.&nbsp; Additionally, JavaLog
+allows the user to dynamically filter and format the logged events to
+suit his particular needs at run time.
+
+<p>For example, if the programmer logs events to JavaLog, the user
+may, at run time, decided that he wants to see error events in a
+pop-up dialog box, warning events written to a file, and informational
+events on the standard output.&nbsp; Additionally, for each type of
+event (errors, warnings, notices, traces, or user defined) he may
+specify a format in which each event should be logged.
+
+<p>The programmer's job is simple:
+<blockquote><tt>import grace.log.Log;</tt>
+<br><tt>...</tt>
+<br><tt>public void foobar() {</tt>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp; Log.trace("hey!");</font></tt></b>
+<br><tt>}</tt></blockquote>
+The resulting program will then produce the following:
+<blockquote><tt>03/07/99 17:02:48: 13: trace: system.main.Thread1: Test.foobar:54:
+"hey!"</tt></blockquote>
+
+Yes, it's just that simple!&nbsp; Notice that in the preceding call to
+Log.trace(data),&nbsp; JavaLog printed out the String <i>"MyData"</i>
+and automatically determined and logged the following:
+
+    <ul>
+    <li>Time
+    <li>Event sequence number
+    <li>Event type
+    <li>Thread group(s) and thread name
+    <li>Class name, function, and line number whence the log event was generated
+    </ul>
+
+</body>
+</html>

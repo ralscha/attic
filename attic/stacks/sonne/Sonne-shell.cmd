@@ -1,0 +1,1 @@
+@java -cp "%~dp0\src;%~dp0\bin;D:/JavaJSP/gwt/gwt-windows-1.0.21/gwt-user.jar;D:/JavaJSP/gwt/gwt-windows-1.0.21/gwt-dev-windows.jar" com.google.gwt.dev.GWTShell -out "%~dp0\www" %* ch.ess.sonne.Sonne/Sonne.html

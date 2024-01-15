@@ -1,0 +1,13 @@
+<!-- WICHTIG: Name des Files gibt den Context Path an -->
+<Context swallowOutput="false" 
+         docBase="c:\eclipse\workspace\cal\web" 
+         debug="2">
+  
+  <Resource name="jdbc/cal" auth="Container"
+            type="javax.sql.DataSource" username="sa" password=""
+            driverClassName="net.sourceforge.jtds.jdbc.Driver" url="jdbc:jtds:sqlserver://localhost:1433/cal"
+            maxActive="5" maxIdle="1" maxWait="10000" 
+            defaultAutoCommit="false"/>
+
+
+</Context>

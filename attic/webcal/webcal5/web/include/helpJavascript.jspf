@@ -1,0 +1,15 @@
+<script type="text/javascript" src="<c:url value='/scripts/overlibmws/overlibmws.js'/>"></script>
+<script type="text/javascript" src="<c:url value='/scripts/overlibmws/overlibmws_draggable.js'/>"></script>    
+
+<script type='text/javascript' src='dwr/interface/helpMessage.js'></script>
+<script type='text/javascript' src='dwr/engine.js'></script>
+
+<script type="text/javascript">
+  function showHelp(helpId) {
+    helpMessage.getMessage(helpId, showHelpCallback);
+  }    
+  
+  function showHelpCallback(message) {
+    overlib(message, FGCOLOR, '#EEEEEE', WIDTH, 350, DRAGGABLE, CAPTION, '<bean:message key="fw.help.title"/>', WRAP, STICKY, CLOSECLICK, CLOSETEXT, '<bean:message key="fw.help.close"/>');      
+  }
+</script>

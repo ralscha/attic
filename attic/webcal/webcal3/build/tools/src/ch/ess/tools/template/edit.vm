@@ -1,0 +1,158 @@
+package ${clazz.packageName}.web.${clazz.nameAllSmall};
+
+import java.util.Iterator;
+import java.util.Set;
+
+import ${clazz.packageName}.model.${clazz.name};
+import ${clazz.packageName}.web.AbstractEditAction;
+
+import com.cc.framework.adapter.struts.ActionContext;
+import com.cc.framework.adapter.struts.FormActionContext;
+
+/** 
+ * @author sr
+ * @version $Revision: $ $Date: $ 
+ * 
+ * @struts.action path="/edit${clazz.name}" name="${clazz.nameSmall}Form" input="/${clazz.nameAllSmall}edit.jsp" scope="request" validate="false" roles="$${clazz.nameAllSmall}" 
+ * @struts.action-forward name="back" path="/list${clazz.name}.do" redirect="true"
+ * 
+ * @spring.bean name="/edit${clazz.name}" lazy-init="true"
+ * @spring.property name="clazz" value="${clazz.packageName}.model.${clazz.name}" 
+ * @spring.property name="dao" reflocal="${clazz.nameSmall}Dao"
+ **/
+public class ${clazz.name}EditAction extends AbstractEditAction {
+
+  #foreach( $property in $clazz.properties )
+  #if ($property.dao) 
+  private ${property.daoFirstUpperCase} ${property.dao};
+  #end
+  #end
+  
+  #foreach( $property in $clazz.properties )
+  #if ($property.dao) 
+  /** 
+   * @spring.property reflocal="${property.dao}"
+   */  
+  public void set${property.daoFirstUpperCase}(final ${property.daoFirstUpperCase} ${property.dao}) {
+    this.${property.dao} = ${property.dao};
+  }
+  #end
+  #end
+
+  public void formToModel(final ActionContext ctx, final Object model) {
+    ${clazz.name} ${clazz.nameSmall} = (${clazz.name})model;
+    ${clazz.name}Form ${clazz.nameSmall}Form = (${clazz.name}Form)ctx.form();
+
+    #foreach( $property in $clazz.properties )
+     #if ($property.modelType) 
+      #if ($property.modelBigDecimal)
+	    if (GenericValidator.isFloat(${clazz.nameSmall}Form.get${property.nameFirstUpperCase}())) {
+	      ${clazz.nameSmall}.set${property.nameFirstUpperCase}(new BigDecimal(${clazz.nameSmall}Form.get${property.nameFirstUpperCase}()));
+	    } else {
+	      ${clazz.nameSmall}.set${property.nameFirstUpperCase}(null);
+	    }   
+      #elseif ($property.modelInteger)
+	    if (GenericValidator.isInt(${clazz.nameSmall}Form.get${property.nameFirstUpperCase}())) {
+	      ${clazz.nameSmall}.set${property.nameFirstUpperCase}(new Integer(${clazz.nameSmall}Form.get${property.nameFirstUpperCase}()));
+	    } else {
+	      ${clazz.nameSmall}.set${property.nameFirstUpperCase}(null);
+	    }  
+	    #elseif ($property.modelBoolean)	       
+      ${clazz.nameSmall}.set${property.nameFirstUpperCase}(Boolean.valueOf(${clazz.nameSmall}Form.is${property.nameFirstUpperCase}()));
+      #elseif ($property.modelDate)
+	    try {
+	      Date d = Constants.DATE_FORMAT.parse(${clazz.nameSmall}Form.get${property.nameFirstUpperCase}());
+	      ${clazz.nameSmall}.set${property.nameFirstUpperCase}(d);  
+	    } catch (ParseException pe) {
+	      ${clazz.nameSmall}.set${property.nameFirstUpperCase}(null);
+	    }    
+ 	    #elseif (!$property.array && $property.dao)
+ 	    ${clazz.nameSmall}.set${property.nameFirstUpperCaseWithoutId}((${property.modelType})${property.dao}.get(${clazz.nameSmall}Form.get${property.nameFirstUpperCase}()));
+	    #elseif ($property.array && $property.dao)	   
+	     
+	    //${property.modelType}s	    
+	    ${clazz.nameSmall}.get${clazz.name}${property.modelType}s().clear();
+	    	    	
+	    ${property.type} ${property.name} = ${clazz.nameSmall}Form.get${property.nameFirstUpperCase}();
+	    if (${property.name} != null) {
+	
+	      for (int i = 0; i < ${property.name}.length; i++) {
+	        if (StringUtils.isNotBlank(${property.name}[i])) {
+	        ${property.modelType} ${property.modelTypeFirstLowerCase} = (${property.modelType})${property.dao}.get(${property.name}[i]);
+	        if (${property.modelTypeFirstLowerCase} != null) {
+	        
+	          ${clazz.name}${property.modelType} ${clazz.nameSmall}${property.modelType} = new ${clazz.name}${property.modelType}();
+            ${clazz.nameSmall}${property.modelType}.set${clazz.name}(${clazz.nameSmall});
+            ${clazz.nameSmall}${property.modelType}.set${property.modelType}(${property.modelTypeFirstLowerCase});
+	        
+	          ${clazz.nameSmall}.get${clazz.name}${property.modelType}s().add(${clazz.nameSmall}${property.modelType});
+	        }
+	      }
+	    }	    
+	    }	    
+	      
+      #else
+      ${clazz.nameSmall}.set${property.nameFirstUpperCase}(${clazz.nameSmall}Form.get${property.nameFirstUpperCase}());
+      #end
+     #end
+    #end
+  }
+
+  public void modelToForm(final ActionContext ctx, final Object model) {
+    ${clazz.name} ${clazz.nameSmall} = (${clazz.name})model;
+    ${clazz.name}Form ${clazz.nameSmall}Form = (${clazz.name}Form)ctx.form();
+
+    #foreach( $property in $clazz.properties )
+     #if ($property.modelType) 
+      #if ($property.modelBigDecimal)
+	    if (${clazz.nameSmall}.get${property.nameFirstUpperCase}() != null) {
+	      ${clazz.nameSmall}Form.set${property.nameFirstUpperCase}(Constants.DECIMAL_FORMAT.format(${clazz.nameSmall}.get${property.nameFirstUpperCase}()));
+	    } else {
+	      ${clazz.nameSmall}Form.set${property.nameFirstUpperCase}(null);
+	    }      
+      #elseif ($property.modelDate)
+	    if (${clazz.nameSmall}.get${property.nameFirstUpperCase}() != null) {
+        ${clazz.nameSmall}Form.set${property.nameFirstUpperCase}(Constants.DATE_FORMAT.format(${clazz.nameSmall}.get${property.nameFirstUpperCase}()));
+	    } else {
+	      ${clazz.nameSmall}Form.set${property.nameFirstUpperCase}(null);
+	    }  
+	    #elseif ($property.modelBoolean)
+	    if (${clazz.nameSmall}.get${property.nameFirstUpperCase}() != null) {
+        ${clazz.nameSmall}Form.set${property.nameFirstUpperCase}(${clazz.nameSmall}.get${property.nameFirstUpperCase}().booleanValue());	    
+	    } else {
+  	    ${clazz.nameSmall}Form.set${property.nameFirstUpperCase}(false);
+	    }
+	    #elseif ($property.modelInteger)
+	    if (${clazz.nameSmall}.get${property.nameFirstUpperCase}() != null) {
+        ${clazz.nameSmall}Form.set${property.nameFirstUpperCase}(${clazz.nameSmall}.get${property.nameFirstUpperCase}().toString());	    
+	    } else {
+  	    ${clazz.nameSmall}Form.set${property.nameFirstUpperCase}(null);
+	    }
+	    #elseif (!$property.array && $property.dao)
+	    ${clazz.nameSmall}Form.set${property.nameFirstUpperCase}(${clazz.nameSmall}.get${property.nameFirstUpperCaseWithoutId}().getId().toString());
+	    #elseif ($property.array && $property.dao)
+	    
+	    //${property.modelType}s
+	    Set ${property.modelTypeFirstLowerCase}s = ${clazz.nameSmall}.get${clazz.name}${property.modelType}s();	   
+	    ${property.type} ${property.name} = null;
+	
+	    if (!${property.modelTypeFirstLowerCase}s.isEmpty()) {
+	      ${property.name} = new String[${property.modelTypeFirstLowerCase}s.size()];
+	
+	      int ix = 0;
+	      for (Iterator it = ${property.modelTypeFirstLowerCase}s.iterator(); it.hasNext();) {	      
+          ${clazz.name}${property.modelType} ${clazz.nameSmall}${property.modelType} = (${clazz.name}${property.modelType})it.next();
+          ${property.name}[ix++] = ${clazz.nameSmall}${property.modelType}.get${property.modelType}().getId().toString();
+	      }
+	    } else {
+	      ${property.name} = null;
+	    }
+	    ${clazz.nameSmall}Form.set${property.nameFirstUpperCase}(${property.name});                    
+      #else
+      ${clazz.nameSmall}Form.set${property.nameFirstUpperCase}(${clazz.nameSmall}.get${property.nameFirstUpperCase}());
+      #end
+     #end 
+    #end
+  }
+
+}

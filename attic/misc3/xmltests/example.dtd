@@ -1,0 +1,26 @@
+<!-- DTD for Recipe XML -->
+
+<!ELEMENT Recipe (Name, Description?, Ingredients?, Instructions?)>
+
+<!ELEMENT Name (#PCDATA)>
+
+<!ELEMENT Description (#PCDATA)>
+
+<!ELEMENT Ingredients (Ingredient)*>
+
+<!ELEMENT Ingredient (Qty, Item)>
+<!ATTLIST Ingredient
+	vegetarian CDATA "true">
+
+<!ELEMENT Qty (#PCDATA)>
+<!ATTLIST Qty
+	unit CDATA #IMPLIED>
+
+<!ELEMENT Item (#PCDATA)>
+<!ATTLIST Item
+	optional CDATA "0">
+
+<!ELEMENT Instructions (Step)+>
+
+<!ELEMENT Step (#PCDATA)>
+

@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+	<modelVersion>4.0.0</modelVersion>
+  
+	<parent>
+		<groupId>ch.ess</groupId>
+		<artifactId>ess</artifactId>
+		<version>1</version>
+	</parent>  
+  
+  <groupId>ch.ess</groupId>
+  <artifactId>TomcatOnOff</artifactId>
+  <version>1.0</version>
+  <packaging>war</packaging>
+
+	<repositories>
+		<repository>
+			<id>JBossMaven2Repository</id>
+			<name>JBoss Maven2 Repository</name>
+			<url>http://repository.jboss.com/maven2</url>
+		</repository>
+	</repositories>
+
+	<build>
+		<finalName>TomcatOnOff</finalName>
+
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<filtering>true</filtering>
+			</resource>
+		</resources>
+
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>1.5</source>
+					<target>1.5</target>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.mortbay.jetty</groupId>
+				<artifactId>maven-jetty-plugin</artifactId>
+				<version>6.1.11</version>
+				<configuration>
+					<contextPath>/</contextPath>
+					<scanIntervalSeconds>10</scanIntervalSeconds>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.codehaus.cargo</groupId>
+				<artifactId>cargo-maven2-plugin</artifactId>
+				<version>0.3</version>
+				<configuration>
+					<container>
+						<containerId>tomcat5x</containerId>
+						<zipUrlInstaller>
+							<url>http://apache.mirror.testserver.li/tomcat/tomcat-6/v6.0.16/bin/apache-tomcat-6.0.16.zip</url>
+						</zipUrlInstaller>
+					</container>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+	<dependencies>
+
+		<dependency>
+			<groupId>org.jboss.seam</groupId>
+			<artifactId>jboss-seam-debug</artifactId>
+			<version>2.0.3.CR1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.jboss.seam</groupId>
+			<artifactId>jboss-seam-ui</artifactId>
+			<version>2.0.3.CR1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>javax.el</groupId>
+			<artifactId>el-api</artifactId>
+			<version>1.0</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>javax.faces</groupId>
+			<artifactId>jsf-api</artifactId>
+			<version>1.2_08</version>
+		</dependency>
+		<dependency>
+			<groupId>javax.faces</groupId>
+			<artifactId>jsf-impl</artifactId>
+			<version>1.2_08</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
+			<version>3.3.0.CR1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-annotations</artifactId>
+			<version>3.4.0.CR1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-commons-annotations</artifactId>
+			<version>3.1.0.CR1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-validator</artifactId>
+			<version>3.1.0.CR1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>commons-logging</groupId>
+			<artifactId>commons-logging</artifactId>
+			<version>1.1</version>
+			<exclusions>
+				<exclusion>
+					<groupId>log4j</groupId>
+					<artifactId>log4j</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>logkit</groupId>
+					<artifactId>logkit</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>avalon-framework</groupId>
+					<artifactId>avalon-framework</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>javax.servlet</groupId>
+					<artifactId>servlet-api</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+		<dependency>
+			<groupId>net.sf.ehcache</groupId>
+			<artifactId>ehcache</artifactId>
+			<version>1.2.4</version>
+		</dependency>
+
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
+			<version>2.5</version>
+			<scope>provided</scope>
+		</dependency>
+		
+		<dependency>
+			<groupId>commons-lang</groupId>
+			<artifactId>commons-lang</artifactId>
+			<version>2.4</version>
+		</dependency>		
+		
+    <!-- Richfaces dependencies -->  
+    <dependency>
+    	<groupId>org.richfaces.framework</groupId>
+    	<artifactId>richfaces-api</artifactId>
+    	<version>3.2.1.GA</version>
+    </dependency>
+    <dependency>
+    	<groupId>org.richfaces.framework</groupId>
+    	<artifactId>richfaces-impl</artifactId>
+    	<version>3.2.1.GA</version>
+    	<exclusions>
+    		<exclusion>
+    			<groupId>javax.faces</groupId>
+    			<artifactId>jsf-api</artifactId>
+    		</exclusion>
+    		<exclusion>
+    			<groupId>javax.faces</groupId>
+    			<artifactId>jsf-impl</artifactId>
+    		</exclusion>
+    	</exclusions>
+    </dependency>
+    <dependency>
+    	<groupId>org.richfaces.ui</groupId>
+    	<artifactId>richfaces-ui</artifactId>
+    	<version>3.2.1.GA</version>
+    	<exclusions>
+    		<exclusion>
+    			<groupId>javax.faces</groupId>
+    			<artifactId>jsf-api</artifactId>
+    		</exclusion>
+    		<exclusion>
+    			<groupId>javax.faces</groupId>
+    			<artifactId>jsf-impl</artifactId>
+    		</exclusion>
+    	</exclusions>
+    </dependency>
+
+	</dependencies>
+
+
+
+</project>

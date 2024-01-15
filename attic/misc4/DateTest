@@ -1,0 +1,34 @@
+
+import java.util.*;
+
+public class DateTest
+{
+
+
+    public static void main(String args[])
+    {
+        Calendar datum = Calendar.getInstance();
+
+            System.out.println("MONTH"+datum.get(Calendar.MONTH));
+            System.out.println("YEAR"+datum.get(Calendar.YEAR));
+            System.out.println("DAY_OF_MONTH: " + datum.get(Calendar.DAY_OF_MONTH));
+            System.out.println("DAY_OF_YEAR: " + datum.get(Calendar.DAY_OF_YEAR));
+            System.out.println("DAY_OF_WEEK: " + datum.get(Calendar.DAY_OF_WEEK));
+            System.out.println("DAY_OF_WEEK_IN_MONTH: "
+                                + datum.get(Calendar.DAY_OF_WEEK_IN_MONTH));
+
+
+        datum.set(1997,4,10);
+
+            System.out.println("MONTH"+datum.get(Calendar.MONTH));
+            System.out.println("YEAR"+datum.get(Calendar.YEAR));
+            System.out.println("DAY_OF_MONTH: " + datum.get(Calendar.DAY_OF_MONTH));
+            System.out.println("DAY_OF_YEAR: " + datum.get(Calendar.DAY_OF_YEAR));
+            System.out.println("DAY_OF_WEEK: " + datum.get(Calendar.DAY_OF_WEEK));
+            System.out.println("DAY_OF_WEEK_IN_MONTH: "
+                                + datum.get(Calendar.DAY_OF_WEEK_IN_MONTH));
+
+
+    }
+
+}

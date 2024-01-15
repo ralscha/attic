@@ -1,0 +1,1168 @@
+/*
+ * Grammar for vCalendar specification in JavaCC format.
+ *
+ *               -- (11|22|1998) Jason I. Hong (jasonh@cs.berkeley.edu)
+ *
+ */
+
+options {
+  STATIC = false;
+}
+
+//==============================================================================
+//===   Class VCalParser.java   ================================================
+
+PARSER_BEGIN(VCalParser)
+
+package ch.ess.cal.vcal.parser;
+
+import ch.ess.cal.vcal.*;
+import java.util.*;
+
+public class VCalParser {
+
+
+   private OskiCalendarData   calendar  = new OskiCalendarData();
+   private OskiCalendarEntity ent;
+   private OskiField          fieldProperties;
+   private String             strParamName;
+   private String             strFieldName;
+
+
+
+   //===========================================================================
+   //===   STATIC CLASS METHODS   ==============================================
+
+   public  void addParamValue(String strValue) {
+      fieldProperties.setFieldName(strFieldName);
+      fieldProperties.setPropertyValue(strParamName, strValue);
+   } // of addParamValue
+
+   //===========================================================================
+
+   public  void addFieldValue(String strValue) {
+      //// 1. Create a new field.
+      OskiField field = new OskiField(strFieldName, strValue);
+
+      //// 2. Copy all of the properties from the fieldProperty object over.
+      Iterator enum = fieldProperties.getPropertyNames();
+      String      strKey;
+      String      strVal;
+      while (enum.hasNext()) {
+         strKey = (String) enum.next();
+         strVal = (String) fieldProperties.getPropertyValue(strKey);
+         field.setPropertyValue(strKey, strVal);
+      }
+
+      //// 3. Add the entity.
+      ent.addField(field);
+      field = null;
+   } // of addFieldValue
+
+
+   //===========================================================================
+
+   public  void addAlarmField(String strRunTime, String strSnoozeTime, 
+         String strRepeatCount, String strContent) { 
+
+      String strVal;
+
+      if (strRunTime == null) {
+         strRunTime = " ";
+      }
+      if (strSnoozeTime == null) {
+         strSnoozeTime = " ";
+      }
+      if (strRepeatCount == null) {
+         strRepeatCount = " ";
+      }
+      if (strContent == null) {
+         strContent = " ";
+      }
+
+      strVal = strRunTime + ";" + strSnoozeTime + ";" + 
+               strRepeatCount + ";" + strContent;
+      addFieldValue(strVal);
+   }
+
+   //===========================================================================
+
+   public  void addCalendarEntity(OskiCalendarEntity ent) { 
+
+      try {
+         if (ent instanceof OskiEvent) {
+            calendar.addNewEvent((OskiEvent) ent);
+            ent = null;
+         }
+         if (ent instanceof OskiTodo) {
+            calendar.addNewTodo((OskiTodo) ent);
+            ent = null;
+         }
+      }
+      catch (Exception e) {
+         System.err.println("Error while parsing vCal data");
+         System.err.println(e);
+      }
+   } // of addCalendarEntity
+
+   //===   STATIC CLASS METHODS   ==============================================
+   //===========================================================================
+
+
+
+   //===========================================================================
+   //===   SELF-TESTING MAIN   =================================================
+
+   public  void main(String argv[]) throws ParseException {
+      VCalParser parser = new VCalParser(System.in);
+      parser.Input();
+
+      System.out.println();
+      System.out.println(calendar);
+   } // of main
+
+   //===   SELF-TESTING MAIN   =================================================
+   //===========================================================================
+
+} // of VCalParser
+
+PARSER_END(VCalParser)
+
+//===   Class VCalParser.java   ================================================
+//==============================================================================
+
+
+
+//==============================================================================
+//===   TOKENS   ===============================================================
+
+/**
+ * 7bit            = <7bit us-ascii printable chars, excluding CR LF>
+ * 8bit            = <MIME RFC 1521 8-bit text>
+ * strnosemi       = *(*nonsemi ("\;" | "\" CRLF)) *nonsemi
+ *         ; To include a semicolon in this string, it must be escaped
+ *         ; with a "\" character.
+ *
+ * This is probably due to my misunderstandings, but <WORD> seems to be
+ * interfering with <NONSEMI>. Also, <COLON> is interfering with
+ * <NONSEMI> when parsing URL's.
+ */
+TOKEN:
+{
+   <BEGIN:        "BEGIN" >
+|  <END:          "END" >
+|  <VCALENDAR:    "VCALENDAR" >
+|  <VEVENT:       "VEVENT" >
+|  <VTODO:        "VTODO" >
+|  <COLON:        ":" >
+|  <SEMICOLON:    ";" >
+|  <EQUALS:       "=" >
+|  <NONSEMI:      ~[ ";", "\r", "\n" ] >
+|  <WSPACE:        [" ", "\t"] >
+|  <WSPACELN:      [" ", "\t", "\r", "\n"] >
+|  <WORD:         ~[ "[", "]", "=", ":", ".", "," ] >
+|  <TEXT7BIT:     ~[ "\r", "\n" ] >
+|  <TEXT8BIT:     ~[] >
+}
+
+//===   TOKENS   ===============================================================
+//==============================================================================
+
+
+
+//==============================================================================
+//===   INPUT   ================================================================
+
+OskiCalendarData Input(): { }
+{
+   VCal()
+   { return calendar; }
+} // of Input
+
+
+/**
+ * <PRE>
+ * vcal_file = [wsls] vcal [wsls]
+ * </PRE>
+ */
+void VCalFile(): {}
+{
+   (<WSPACELN>)* VCal() (<WSPACELN>)*
+
+} // of VCalFile
+
+//==============================================================================
+
+
+/**
+ * <PRE>
+ * vcal = <BEGIN> [ws] ":" [ws] "VCALENDAR" [ws] 1*CRLF
+ *        calprop calentities [ws] *CRLF
+ *        <END>   [ws] ":" [ws] "VCALENDAR" [ws] 1*CRLF
+ *
+ * Fixed an error, should be "calprops" not "calprop".
+ * Also, made "calentities" optional, as an empty calendar is conceivable.
+ * </PRE>
+ */
+void VCal(): {}
+{
+   <BEGIN> (<WSPACE>)* <COLON> (<WSPACE>)* <VCALENDAR> (<WSPACE>)* 
+   "\r\n"
+   CalProps() [CalEntities()]
+   <END>   (<WSPACE>)* <COLON> (<WSPACE>)* <VCALENDAR> (<WSPACE>)* 
+   "\r\n"
+
+} // of VCal
+
+//===   INPUT   ================================================================
+//==============================================================================
+
+
+
+//==============================================================================
+//===   CALENDAR PROPERTIES   ==================================================
+
+/**
+ * <PRE>
+ * calprops = calprops *CRLF calprop | calprop
+ *
+ * Modified to remove left-recursion.
+ * </PRE>
+ */
+void CalProps(): {}
+{
+   CalProp() (<WSPACE>)* ("\r\n")+ [CalProps()]
+} // of CalProps
+
+/**
+ * <PRE>
+ * calprop = "DAYLIGHT" [params] ":" value CRLF
+ *         | "GEO"      [params] ":" value CRLF
+ *         | "PRODID"   [params] ":" value CRLF
+ *         | "TZ"       [params] ":" value CRLF
+ *         | "VERSION"  [params] ":" "1.0" CRLF
+ *      ; The VERSION calendar property MUST appear in the vCalendar object.
+ * </PRE>
+ *
+ * Currently ignoring GEO, DAYLIGHT, and PRODID.
+ */
+void CalProp(): 
+   { String str; }
+{
+   "DAYLIGHT" [Params()] <COLON> str=Value()                                |
+   "GEO"      [Params()] <COLON> str=Value()                                |
+   "PRODID"   [Params()] <COLON> str=Value()                                |
+   "TZ"       [Params()] <COLON> str=Value() { calendar.setTimeZone(str); } |
+   "VERSION"  [Params()] <COLON> "1.0"
+} // of CalProp
+
+//===   CALENDAR PROPERTIES   ==================================================
+//==============================================================================
+
+
+
+//==============================================================================
+//===   CALENDAR ENTITIES   ====================================================
+
+/**
+ * <PRE>
+ * calentities     = calentities *CRLF calentity | calentity
+ *
+ * Modified to remove left-recursion. Also, modified to allow whitespace
+ * between each calendar entity and the carriage-return linefeed because
+ * of problems with ambiguity.
+ * </PRE>
+ */
+void CalEntities(): {}
+{
+   CalEntity() (<WSPACE>)* ("\r\n")+ [CalEntities()]
+} // of CalEntities
+
+/**
+ * <PRE>
+ * calentity       = evententity | TODOentity
+ * </PRE>
+ */
+OskiCalendarEntity CalEntity(): {}
+{
+   <BEGIN> (<WSPACE>)* <COLON> (<WSPACE>)* 
+   (ent=EventEntity() | ent=TodoEntity())
+
+   { addCalendarEntity(ent); }
+   { return (ent); }
+
+} // of CalEntity
+
+//==============================================================================
+
+/**
+ * <PRE>
+ * evententity = <BEGIN> [ws] ":" [ws] "EVENT" [ws] 1*CRLF
+ *               entprops [ws] *CRLF
+ *               <END>   [ws] ":" [ws] "EVENT" [ws] 1*CRLF
+ *
+ * I think that there's an error, that it should be "VEVENT" not "EVENT"
+ *
+ * Modified to have opening part (<BEGIN> [ws] ":" [ws]) to be part of
+ * CalEntity() since TodoEntity() has the same opening.
+ *
+ * Also, whitespace and carriage-return linefeed following EntProps() moved
+ * to inside EntProps().
+ * </PRE>
+ */
+OskiCalendarEntity EventEntity(): {}
+{
+   {
+       ent = new OskiEvent(); 
+   }
+
+   <VEVENT> (<WSPACE>)* "\r\n" EntProps()
+   <END> (<WSPACE>)* <COLON> (<WSPACE>)* <VEVENT> 
+
+   { return ent; }
+} // of EventEntity
+
+//==============================================================================
+
+/**
+ * <PRE>
+ * TODOentity = <BEGIN>  [ws] ":" [ws] "TODO" [ws] 1*CRLF
+ *              entprops [ws] *CRLF
+ *              <END>    [ws] ":" [ws] "TODO" [ws] 1*CRLF
+ *
+ * Modified from "TODO" to "VTODO".
+ *
+ * Modified to have opening part (<BEGIN> [ws] ":" [ws]) to be part of
+ * CalEntity() since EventEntity() has the same opening.
+ *
+ * Also, whitespace and carriage-return linefeed following EntProps() moved
+ * to inside EntProps().
+ * </PRE>
+ */
+OskiCalendarEntity TodoEntity(): {}
+{
+   { 
+       ent = new OskiTodo();
+   }
+
+   <VTODO> (<WSPACE>)* "\r\n" EntProps() 
+   <END> (<WSPACE>)* <COLON> (<WSPACE>)* <VTODO>
+
+   { return ent; }
+} // of TodoEntity
+
+//===   CALENDAR ENTITIES   ====================================================
+//==============================================================================
+
+
+
+//==============================================================================
+//===   ENTITY PROPERTIES   ====================================================
+
+/**
+ * <PRE>
+ * entprops        = entprops *CRLF entprop | entprop
+ *
+ * Modified to remove left-recursion. Also, modified to allow whitespace
+ * between each calendar entity and the carriage-return linefeed because
+ * of problems with ambiguity.
+ * </PRE>
+ */
+void EntProps(): { }
+{
+   EntProp() ("\r\n")+ [EntProps()]
+} // of EntProps
+
+/**
+ * <PRE>
+ * entprop = [ws] simprop      [params] ":"   value       CRLF
+ *         | [ws] "AALARM"     [params] ":"   aalarmparts CRLF
+ *         | [ws] "CATEGORIES" [params] ":" 1*catvals     CRLF
+ *         | [ws] "CLASS"      [params] ":"   classvals   CRLF
+ *         | [ws] "DALARM"     [params] ":"   dalarmparts CRLF
+ *         | [ws] "EXDATE"     [params] ":"   xdatevals   CRLF
+ *         | [ws] "MALARM"     [params] ":"   malarmparts CRLF
+ *         | [ws] "PALARM"     [params] ":"   palarmparts CRLF
+ *         | [ws] "RDATE"      [params] ":"   rdatevals   CRLF
+ *         | [ws] "RESOURCES"  [params] ":" 1*resvals     CRLF
+ *         | [ws] "STATUS"     [params] ":"   statvals    CRLF
+ *
+ * Changed from Value to ValueList since some properties are separable
+ * by semicolons.
+ *
+ * </PRE>
+ */
+void EntProp(): { }
+{
+   { fieldProperties = new OskiField(); }
+
+   (<WSPACE>)* 
+   ( SimProp()    [ Params() ] <COLON> ValueList()     |
+
+     "AALARM"     { strFieldName = token.toString(); }
+                  [ Params() ] <COLON> AAlarmParts()   |
+
+     "CATEGORIES" { strFieldName = token.toString(); }
+                  [ Params() ] <COLON> CatValsList()   |
+
+     "CLASS"      { strFieldName = token.toString(); }
+                  [ Params() ] <COLON> ClassVals()     |
+
+     "DALARM"     { strFieldName = token.toString(); }
+                  [ Params() ] <COLON> DAlarmParts()   |
+
+     "EXDATE"     { strFieldName = token.toString(); }
+                  [ Params() ] <COLON> XDateValsList() |
+
+     "MALARM"     { strFieldName = token.toString(); }
+                  [ Params() ] <COLON> MAlarmParts()   |
+
+     "PALARM"     { strFieldName = token.toString(); }
+                  [ Params() ] <COLON> PAlarmParts()   |
+
+     "RDATE"      { strFieldName = token.toString(); }
+                  [ Params() ] <COLON> RDateValsList() |
+
+     "RESOURCES"  { strFieldName = token.toString(); }
+                  [ Params() ] <COLON> ResValsList()   |
+
+     "STATUS"     { strFieldName = token.toString(); }
+                  [ Params() ] <COLON> StatVals()    
+   )
+
+   //// At this point, strFieldName should always hold the name of the
+   //// corresponding field.
+
+} // of EntProp
+
+//==============================================================================
+
+/**
+ * <PRE>
+ * simprop = "ATTACH" | "ATTENDEE" | "DCREATED" | "COMPLETED" 
+ *           | "DESCRIPTION" | "DUE" | "DTEND" | "EXRULE" | "LAST-MODIFIED"
+ *           | "LOCATION" | "RNUM" | "PRIORITY" | "RELATED-TO" | "RRULE" 
+ *           | "SEQUENCE" | "DTSTART" | "SUMMARY" | "TRANSP" | "URL" 
+ *           | "UID" |"X-" word
+ * </PRE>
+ */
+void SimProp(): 
+   { String str = null; }
+{
+
+ ( 
+   "ATTACH"      | "ATTENDEE" | "DCREATED"   | "COMPLETED"     | "DESCRIPTION" 
+ | "DUE"         | "DTEND"    | "EXRULE"     | "LAST-MODIFIED" | "LOCATION"    
+ | "RNUM"        | "PRIORITY" | "RELATED-TO" | "RRULE"         | "SEQUENCE"    
+ | "DTSTART"     | "SUMMARY"  | "TRANSP"     | "URL"           | "UID"         
+ | "X-" str=Word() {str = "X-" + str; } 
+ )
+
+   {
+      if (str == null) {
+         strFieldName = token.toString();
+      }
+      else {
+         strFieldName =str;
+      }
+   }
+}
+
+//==============================================================================
+
+/**
+ * <PRE>
+ * aalarmparts = 0*3(strnosemi ";") strnosemi 
+ *    ; runTime, snoozeTime, repeatCount, audioContent
+ * </PRE>
+ */
+void AAlarmParts(): 
+   {
+      String strRunTime;
+      String strSnoozeTime;
+      String strRepeatCount;
+      String strContent;
+   }
+{
+   strRunTime      = StrNoSemi() <SEMICOLON> 
+   strSnoozeTime   = StrNoSemi() <SEMICOLON> 
+   strRepeatCount  = StrNoSemi() <SEMICOLON> 
+   strContent      = StrNoSemi()
+
+   { addAlarmField(strRunTime, strSnoozeTime, strRepeatCount, strContent); }
+}
+
+//==============================================================================
+
+/**
+ * This part was added since the examples show that categories can
+ * be a list of categories, for example:
+ *
+ * <PRE>
+ * CATEGORIES:APPOINTMENT;BUSINESS;
+ * </PRE>
+ */
+void CatValsList(): {}
+{
+   CatVals() [ (<WSPACE>)* <SEMICOLON> (<WSPACE>)* [CatValsList()]]
+}
+
+/**
+ * <PRE>
+ * catvals = "APPOINTMENT" | "BUSINESS" | "EDUCATION" | "HOLIDAY" | "MEETING" 
+ *           | "MISCELLANEOUS" | "PERSONAL" | "PHONE CALL" | "SICK DAY"
+ *           | "SPECIAL OCCASION" | "TRAVEL" | "VACATION" | "X-" word | value
+ * </PRE>
+ *
+ * The parentheses around the list is very important, a one-hour debugging
+ * and tracing lesson. If they are not there, then the system will just
+ * match and leave without executing the code beneath.
+ */
+void CatVals(): 
+   { String str = null; }
+{
+ (
+   "APPOINTMENT"      | "BUSINESS" | "EDUCATION"  | "HOLIDAY"   | "MEETING" 
+ | "MISCELLANEOUS"    | "PERSONAL" | "PHONE CALL" | "SICK DAY"
+ | "SPECIAL OCCASION" | "TRAVEL"   | "VACATION"   
+ | "X-" str=Word() {str = "X-" + str; } 
+ | str=Value()
+ )
+
+   { 
+       if (str == null) {
+          str = token.toString();
+       }
+       addFieldValue(str);
+   }
+}
+
+//==============================================================================
+
+/**
+ * <PRE>
+ * classvals = "PUBLIC" | "PRIVATE" | "CONFIDENTIAL" | "X-" word | value
+ * </PRE>
+ */
+void ClassVals(): 
+   { String str = null; }
+{
+ (
+   "PUBLIC" | "PRIVATE" | "CONFIDENTIAL"
+ | "X-" str=Word() {str = "X-" + str; } 
+ | str=Value()
+ )
+
+   { 
+      if (str == null) {
+         str = token.toString();
+      }
+      addFieldValue(str);
+   }
+}
+
+//==============================================================================
+
+/**
+ * <PRE>
+ * dalarmparts     = 0*3(strnosemi ";") strnosemi
+ *                ; runTime, snoozeTime, repeatCount, displayString
+ * </PRE>
+ */
+void DAlarmParts():
+   {
+      String strRunTime;
+      String strSnoozeTime;
+      String strRepeatCount;
+      String strContent;
+   }
+{
+   strRunTime      = StrNoSemi() <SEMICOLON> 
+   strSnoozeTime   = StrNoSemi() <SEMICOLON> 
+   strRepeatCount  = StrNoSemi() <SEMICOLON> 
+   strContent      = StrNoSemi()
+
+   { addAlarmField(strRunTime, strSnoozeTime, strRepeatCount, strContent); }
+}
+
+//==============================================================================
+
+void XDateValsList(): {}
+{
+  ( XDateVals() [ (<WSPACE>)* <SEMICOLON> (<WSPACE>)* [XDateValsList()]] )
+}
+
+/**
+ * <PRE>
+ * xdatevals       = 1*value
+ *         ; One or more date|time values
+ *
+ * The grammar provided in the spec doesn't say so, but each of the
+ * dates here should be separated by a semicolon (as in the example
+ * EXDATE:19960402T010000Z;19960403T010000Z;19960404T010000Z).
+ * </PRE>
+ */
+void XDateVals(): 
+   { String str; }
+{
+   str=Value()
+   { addFieldValue(str); }
+}
+
+//==============================================================================
+
+/**
+ * <PRE>
+ * malarmparts     = 0*4(strnosemi ";") strnosemi
+ *         ; runTime, snoozeTime, repeatCount, addressString, noteString
+ * </PRE>
+ */
+void MAlarmParts():
+   {
+      String strRunTime;
+      String strSnoozeTime;
+      String strRepeatCount;
+      String strAddr;
+      String strNote;
+   }
+{
+   strRunTime     = StrNoSemi() <SEMICOLON> 
+   strSnoozeTime  = StrNoSemi() <SEMICOLON> 
+   strRepeatCount = StrNoSemi() <SEMICOLON> 
+   strAddr        = StrNoSemi() <SEMICOLON> 
+   strNote        = StrNoSemi()
+
+   { addAlarmField(strRunTime, strSnoozeTime, strRepeatCount, 
+         strAddr + ";" + strNote); }
+}
+
+//==============================================================================
+
+/**
+ * <PRE>
+ * palarmparts     = 0*3(strnosemi ";") strnosemi
+ *         ; runTime, snoozeTime, repeatCount, procedureName
+ * </PRE>
+ */
+void PAlarmParts():
+   {
+      String strRunTime;
+      String strSnoozeTime;
+      String strRepeatCount;
+      String strContent;
+   }
+{
+   strRunTime      = StrNoSemi() <SEMICOLON> 
+   strSnoozeTime   = StrNoSemi() <SEMICOLON> 
+   strRepeatCount  = StrNoSemi() <SEMICOLON> 
+   strContent      = StrNoSemi()
+
+   { addAlarmField(strRunTime, strSnoozeTime, strRepeatCount, strContent); }
+}
+
+//==============================================================================
+
+void RDateValsList(): {}
+{
+  ( RDateVals() [ (<WSPACE>)* <SEMICOLON> (<WSPACE>)* [RDateValsList()]] )
+}
+
+/**
+ * <PRE>
+ * rdatevals       = 1*value
+ *         ; One or more date|time values
+ *
+ * The grammar provided in the spec doesn't say so, but each of the
+ * dates here should be separated by a semicolon (as in the example
+ * RDATE:19960402T010000Z;19960403T010000Z;19960404T010000Z
+ * </PRE>
+ */
+void RDateVals(): 
+   { String str; }
+{
+   str=Value()
+   { addFieldValue(str); }
+}
+
+//==============================================================================
+
+void ResValsList(): {}
+{
+  ( ResVals() [ (<WSPACE>)* <SEMICOLON> (<WSPACE>)* [ResValsList()]] )
+}
+
+/**
+ * <PRE>
+ * resvals = "CATERING" | "CHAIRS" | "EASEL" | "PROJECTOR" | "VCR" 
+ *                 | "VEHICLE" | "X-" word | value
+ *
+ * Example: RESOURCES:EASEL;PROJECTOR;VCR
+ * </PRE>
+ */
+void ResVals():
+   { String str = null; }
+{
+ (
+   "CATERING"  | "CHAIRS" | "EASEL" | "PROJECTOR" | "VCR" | "VEHICLE"
+ | "X-" str=Word() {str = "X-" + str; } 
+ | str=Value()
+ )
+
+   { 
+      if (str == null) {
+         str = token.toString();
+      }
+      addFieldValue(str);
+   }
+}
+
+//==============================================================================
+
+/**
+ * <PRE>
+ * statvals        = "ACCEPTED" | "NEEDS ACTION" | "SENT" | "TENTATIVE"
+ *                 | "CONFIRMED" | "DECLINED" | "COMPLETED" | "DELEGATED"
+ *                 | "X-" word | value
+ * </PRE>
+ */
+void StatVals(): 
+   { String str = null; }
+{
+ (
+   "ACCEPTED"  | "NEEDS ACTION" | "SENT"      | "TENTATIVE"
+ | "CONFIRMED" | "DECLINED"     | "COMPLETED" | "DELEGATED"
+ | "X-" str=Word() {str = "X-" + str; } 
+ | str=Value()
+ )
+
+   { 
+      if (str == null) {
+         str = token.toString();
+      }
+      addFieldValue(str);
+   }
+}
+
+//===   ENTITY PROPERTIES   ====================================================
+//==============================================================================
+
+
+
+//==============================================================================
+//===   PARAMETERS   ===========================================================
+
+/**
+ * <PRE>
+ * params          = ";" [ws] paramlist
+ * </PRE>
+ */
+void Params(): {}
+{
+   <SEMICOLON> (<WSPACE>)* ParamList()
+}
+
+//==============================================================================
+
+/**
+ * <PRE>
+ * paramlist       = paramlist [ws] ";" [ws] param
+ *                 | param
+ *
+ * Modified to remove left-recursion.
+ * </PRE>
+ */
+void ParamList(): {}
+{
+   ( Param() [ (<WSPACE>)* <SEMICOLON> (<WSPACE>)* [ParamList()]] )
+}
+
+//==============================================================================
+
+/**
+ * <PRE>
+ * param           = "TYPE"      [ws] "=" [ws]  ptypeval
+ *                 | ["VALUE"    [ws] "=" [ws]] pvalueval
+ *                 | ["ENCODING" [ws] "=" [ws]] pencodingval
+ *                 | "CHARSET"   [ws] "=" [ws]  charsetval
+ *                 | "LANGUAGE"  [ws] "=" [ws]  langval
+ *                 | "ROLE"      [ws] "=" [ws]  roleval
+ *                 | "STATUS"    [ws] "=" [ws]  statusval
+ *                 | "X-" word   [ws] "=" [ws]  word
+ *                 | knowntype
+ *
+ * This has been modified to make "VALUE" and "ENCODING" necessary,
+ * since it leads to ambiguity for "X- Word()" if it's not there.
+ *
+ * PTypeVal() for "TYPE" has been replaced by KnownType(), since
+ * they're pretty much the same.
+ *
+ * Added "RSVP" and "EXPECT" since their in the spec but not in the grammar.
+ *
+ * Changed "KnownType()" into "KnownVal()" and "KnownType" since they have
+ * the same values but are used in two different ways.
+ * </PRE>
+ */
+void Param(): 
+   {
+      String str;
+   }
+{
+   //// Possible ambiguous parse for "X-" Word() and KnownType(),
+   //// hence the lookahead and promoting "X-" Word() to the top.
+   (
+   LOOKAHEAD(10)
+   "X-" str=Word() 
+               { strParamName = "X-" + str; }
+               (<WSPACE>)* <EQUALS> (<WSPACE>)*  Word()         |
+
+   "TYPE"      { strParamName = token.toString(); }
+               (<WSPACE>)* <EQUALS> (<WSPACE>)*  KnownVal()     |
+
+   "VALUE"     { strParamName = token.toString(); }
+               (<WSPACE>)* <EQUALS> (<WSPACE>)*  PValueVal()    |
+
+   "ENCODING"  { strParamName = token.toString(); }
+               (<WSPACE>)* <EQUALS> (<WSPACE>)*  PEncodingVal() |
+
+   "CHARSET"   { strParamName = token.toString(); }
+               (<WSPACE>)* <EQUALS> (<WSPACE>)*  CharSetVal()   |
+
+   "LANGUAGE"  { strParamName = token.toString(); }
+               (<WSPACE>)* <EQUALS> (<WSPACE>)*  LangVal()      |
+
+   "ROLE"      { strParamName = token.toString(); }
+               (<WSPACE>)* <EQUALS> (<WSPACE>)*  RoleVal()      |
+
+   "STATUS"    { strParamName = token.toString(); }
+               (<WSPACE>)* <EQUALS> (<WSPACE>)*  StatusVal()    |
+
+   "RSVP"      { strParamName = token.toString(); }
+               (<WSPACE>)* <EQUALS> (<WSPACE>)*  RSVPVal()      |
+
+   "EXPECT"    { strParamName = token.toString(); }
+               (<WSPACE>)* <EQUALS> (<WSPACE>)*  ExpectVal()    |
+   KnownType()
+   )
+}
+
+//==============================================================================
+
+/**
+ * <PRE>
+ * ptypeval        = knowntype | "X-" word
+ *
+ * This rule seems completely useless, as it is subsumed by KnownType().
+ * That's why I'm getting rid of it.
+ * </PRE>
+ */
+/*
+void PTypeVal(): {}
+{
+   (KnownType() | "X-" Word())
+}
+*/
+
+//==============================================================================
+
+/**
+ * <PRE>
+ * knowntype       = "WAVE" | "PCM" | "VCARD" | "X-" word | value
+ * </PRE>
+ */
+void KnownType(): 
+   {
+      String str = null;
+   }
+{
+
+ ( "WAVE" | "PCM" | "VCARD"
+ | "X-" str=Word() {str = "X-" + str; } 
+ | str=Value()
+ )
+
+   { 
+      //// Set the parameter field name.
+      if (str == null) {
+         str = token.toString();
+      }
+      strParamName = str;
+   }
+}
+
+//==============================================================================
+
+/**
+ * <PRE>
+ * knowntype       = "WAVE" | "PCM" | "VCARD" | "X-" word | value
+ * </PRE>
+ */
+void KnownVal():
+   {
+      String str = null;
+   }
+{
+
+ ( "WAVE" | "PCM" | "VCARD"
+ | "X-" str=Word() {str = "X-" + str; } 
+ | str=Value()
+ )
+   { 
+      //// Set the parameter field name.
+      if (str == null) {
+         str = token.toString();
+      }
+      addParamValue(str);
+   }
+}
+
+//==============================================================================
+
+/**
+ * <PRE>
+ * pvalueval       = "INLINE" | "URL" | "CONTENT-ID" | "CID" | "X-" word
+ * </PRE>
+ */
+void PValueVal(): 
+   {
+      String str = null;
+   }
+{
+ ( "INLINE" | "URL" | "CONTENT-ID" | "CID"
+ | "X-" str=Word() {str = "X-" + str; } 
+ )
+
+   { 
+      //// Set the parameter field name.
+      if (str == null) {
+         str = token.toString();
+      }
+      addParamValue(str);
+   }
+}
+
+//==============================================================================
+
+/**
+ * <PRE>
+ * pencodingval = "7BIT" | "8BIT" | "QUOTED-PRINTABLE" | "BASE64" | "X-" word
+ * </PRE>
+ */
+void PEncodingVal(): 
+   {
+      String str = null;
+   }
+{
+ ( "7BIT" | "8BIT" | "QUOTED-PRINTABLE" | "BASE64"
+ | "X-" str=Word() {str = "X-" + str; } 
+ )
+
+   { 
+      //// Set the parameter field name.
+      if (str == null) {
+         str = token.toString();
+      }
+      addParamValue(str);
+   }
+}
+
+//==============================================================================
+
+/**
+ * <PRE>
+ * charsetval = <a character set string as defined in Section 7.1 of RFC 1521>
+ * </PRE>
+ */
+void CharSetVal(): 
+   {
+      String str = null;
+   }
+{
+   (str=StrNoSemi())
+
+   { addParamValue(str); }
+}
+
+//==============================================================================
+
+/**
+ * <PRE>
+ * langval = <a language string as defined in RFC 1766>
+ * </PRE>
+ */
+void LangVal(): 
+   {
+      String str = null;
+   }
+{
+   (str=StrNoSemi())
+
+   { addParamValue(str); }
+}
+
+//==============================================================================
+
+/**
+ * <PRE>
+ * roleval = "ATTENDEE" | "ORGANIZER" | "OWNER" | "X-" word
+ * </PRE>
+ *
+ * Added "DELEGATE" since it's in the spec.
+ */
+void RoleVal(): 
+   {
+      String str = null;
+   }
+{
+ ( "ATTENDEE" | "ORGANIZER" | "OWNER" | "DELEGATE"
+ | "X-" str=Word() {str = "X-" + str; } 
+ )
+
+   { 
+      //// Set the parameter field name.
+      if (str == null) {
+         str = token.toString();
+      }
+      addParamValue(str);
+   }
+
+}
+
+//==============================================================================
+
+/**
+ * <PRE>
+ * statusval = "ACCEPTED" | "NEEDS ACTION" | "SENT" | "TENTATIVE" 
+ *          | "CONFIRMED" | "DECLINED" | "COMPLETED" | "DELEGATED" | "X-" word
+ * </PRE>
+ */
+void StatusVal():
+   {
+      String str = null;
+   }
+{
+ ( "ACCEPTED" | "NEEDS ACTION" | "SENT" | "TENTATIVE" 
+ | "CONFIRMED" | "DECLINED" | "COMPLETED" | "DELEGATED"
+ | "X-" str=Word() {str = "X-" + str; } 
+ )
+
+   { 
+      //// Set the parameter field name.
+      if (str == null) {
+         str = token.toString();
+      }
+      addParamValue(str);
+   }
+}
+
+//==============================================================================
+
+/**
+ * This is in the spec but not in the grammar.
+ */
+void RSVPVal(): {}
+{
+   ("YES" | "NO")
+   { addParamValue(token.toString()); }
+}
+
+//==============================================================================
+
+/**
+ * This is in the spec but not in the grammar.
+ */
+void ExpectVal(): {}
+{
+   ("FYI" | "REQUIRE" | "REQUEST" | "IMMEDIATE")
+   { addParamValue(token.toString()); }
+}
+
+//===   PARAMETERS   ===========================================================
+//==============================================================================
+
+
+
+//==============================================================================
+//===   STRINGS   ==============================================================
+
+/**
+ * <PRE>
+ * strnosemi       = *(*nonsemi ("\;" | "\" CRLF)) *nonsemi
+ *         ; To include a semicolon in this string, it must be escaped
+ *         ; with a "\" character.
+ * </PRE>
+ */
+String StrNoSemi(): 
+   { StringBuffer strbuf = new StringBuffer(); }
+{
+   (<NONSEMI> { strbuf.append(token.toString()); } )+
+   { return strbuf.toString(); }
+}
+
+                    //======================================
+
+/**
+ * nonsemi         = <any non-control ASCII except ";">
+ */
+
+                    //======================================
+
+/**
+ * quoted-printable = <MIME RFC 1521 quoted-printable text>
+ */
+
+                    //======================================
+
+/**
+ * word            = <any printable 7bit us-ascii except []=:., >
+ */
+String Word():
+   { StringBuffer strbuf = new StringBuffer(); }
+{
+   (<NONSEMI> { strbuf.append(token.toString()); } )+
+   { return strbuf.toString(); }
+}
+
+                    //======================================
+
+/**
+ * <PRE>
+ * base64          = <MIME RFC 1521 base64 text>
+ *         ; the end of the text is marked with two CRLF sequences
+ *         ; this results in one blank line before the start of the next
+ *         ; property
+ * </PRE>
+ */
+/*
+void TextBase64(): 
+   { StringBuffer strbuf = new StringBuffer(); }
+{
+   < BASE64: (~[])+ "\r\n\r\n" >
+}
+*/
+
+                    //======================================
+
+void ValueList():
+   { String str = null; }
+{
+   ( str=Value() [ (<WSPACE>)* <SEMICOLON> (<WSPACE>)* [ValueList()]] )
+
+   { 
+      if (str == null) {
+         str = token.toString();
+      }
+      addFieldValue(str);
+   }
+}
+
+/**
+ * value = 7bit / 8bit / quoted-printable / base64
+ *  ; The value must be in the encoding type specified for the property value.
+ */
+String Value(): 
+   { StringBuffer strbuf = new StringBuffer(); }
+{
+   (<NONSEMI> { strbuf.append(token.toString()); } )+
+   { return strbuf.toString(); }
+}
+

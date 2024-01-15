@@ -1,0 +1,58 @@
+service.centers=TEST,ZRH,LAU,GENF
+
+log.path = d:/temp
+
+# Test
+TEST.db.url = jdbc:db2://159.122.248.91:6789/gtftt30
+TEST.db.user = db2admin
+TEST.db.password = db2admin
+TEST.db.driver = COM.ibm.db2.jdbc.net.DB2Driver
+
+TEST.tradercif.file = e:/lct/ttf/tTEST.dat
+TEST.tradercif.host.file = BIF.SKA.NDM.TTF.CIFB0835.DATA 
+TEST.tradercif.transfer.batch = c:/apps/condir/transfer_tradercif_ST.cmd
+
+TEST.collateral.file = e:/lct/ttf/coll0835.dat
+TEST.exposure.file = e:/lct/ttf/exp0835.dat
+
+
+# Zürich
+ZRH.db.url = jdbc:db2://159.122.248.91:6789/gtftt30
+ZRH.db.user = db2admin
+ZRH.db.password = db2admin
+ZRH.db.driver = COM.ibm.db2.jdbc.net.DB2Driver
+
+ZRH.tradercif.file=e:/lct/ttf/t0835.dat
+ZRH.tradercif.host.file=BIF.SKA.NDM.TTF.CIFB0835.DATA
+ZRH.tradercif.transfer.batch = c:/apps/condir/transfer_tradercif_P.cmd
+
+ZRH.collateral.file = e:/lct/ttf/coll0835.dat
+ZRH.exposure.file = e:/lct/ttf/exp0835.dat
+
+
+# Lausanne
+LAU.db.url = jdbc:db2://159.122.248.91:6789/gtftt30
+LAU.db.user = db2admin
+LAU.db.password = db2admin
+LAU.db.driver = COM.ibm.db2.jdbc.net.DB2Driver
+
+LAU.tradercif.file=e:/lct/ttf/t0425.dat
+LAU.tradercif.host.file=BIF.SKA.NDM.TTF.CIFB0425.DATA
+LAU.tradercif.transfer.batch = c:/apps/condir/transfer_tradercif_P.cmd
+
+LAU.collateral.file = e:/lct/ttf/coll0425.dat
+LAU.exposure.file = e:/lct/ttf/exp0425.dat
+
+
+# Genf
+GENF.db.url = jjdbc:db2://159.122.248.91:6789/gtftt30
+GENF.db.user = db2admin
+GENF.db.password = db2admin
+GENF.db.driver = COM.ibm.db2.jdbc.net.DB2Driver
+
+GENF.tradercif.file=e:/lct/ttf/t0425.dat
+GENF.tradercif.host.file=BIF.SKA.NDM.TTF.CIFB0251.DATA
+GENF.tradercif.transfer.batch = c:/apps/condir/transfer_tradercif_P.cmd
+
+GENF.collateral.file = e:/lct/ttf/coll0251.dat
+GENF.exposure.file = e:/lct/ttf/exp0251.dat

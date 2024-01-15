@@ -1,0 +1,47 @@
+    <!-- Restrict all users from accessing *.do -->
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>Task Web App</web-resource-name>
+            <description>Require users to authenticate</description>    
+            <url-pattern>*.do</url-pattern>                    
+            <url-pattern>*.donogz</url-pattern>    
+            <url-pattern>/cewolf/*</url-pattern> 
+            <http-method>POST</http-method>
+            <http-method>GET</http-method>
+        </web-resource-collection>
+        <auth-constraint>
+            <description>Define who can access this url-pattern</description>
+            <role-name>admin</role-name>
+            <role-name>user</role-name>
+        </auth-constraint>
+        <user-data-constraint>
+            <description>Encryption is not required for the application in general.</description>
+            <transport-guarantee>NONE</transport-guarantee>
+        </user-data-constraint>
+    </security-constraint>
+
+
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>Log4jConfig</web-resource-name>
+            <url-pattern>/log4jconfig/*</url-pattern> 
+            <http-method>POST</http-method>
+            <http-method>GET</http-method>
+        </web-resource-collection>
+        <auth-constraint>
+            <role-name>admin</role-name>
+        </auth-constraint>
+        <user-data-constraint>
+            <transport-guarantee>NONE</transport-guarantee>
+        </user-data-constraint>
+    </security-constraint>
+
+
+	<login-config>
+        <auth-method>FORM</auth-method>
+        <form-login-config>
+            <form-login-page>/login.jsp</form-login-page>
+            <form-error-page>/login.jsp?error=true</form-error-page>
+        </form-login-config>
+    </login-config>
+

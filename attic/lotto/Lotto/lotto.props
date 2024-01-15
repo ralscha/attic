@@ -1,0 +1,58 @@
+
+# database
+file.database = d:/javaprojects/private/lotto/db/Ausspielungen.odb
+file.database.help.1 = d:/javaprojects/private/lotto/db/Ausspielungen.odf
+file.database.help.2 = d:/javaprojects/private/lotto/db/Ausspielungen.odt
+
+file.database.zip = AusspielungenDB.zip
+path.database.zip = d:/javaprojects/private/lotto/db/
+
+# files
+path.html.output = d:/javaprojects/private/lotto/output/
+path.html.output.bin = d:/javaprojects/private/lotto/output/bin/
+path.html.output.quoten = d:/javaprojects/private/lotto/output/quoten/
+path.html.output.quoten.frame = d:/javaprojects/private/lotto/output/framequoten/
+path.html.output.include = d:/javaprojects/private/lotto/output/include/
+path.html.output.frame = d:/javaprojects/private/lotto/output/frame/
+
+path.template = d:/javaprojects/private/lotto/template/
+
+
+# proxy settings
+proxy.host = 
+proxy.port = 
+
+#runner
+update.runner.maxloop = 60
+update.runner.waittime = 450 
+sender.runner.maxloop = 5
+sender.runner.waittime = 300
+
+# true  = access to internet
+# false = read test file
+web.access = false
+
+# test files
+file.teletext = d:/javaprojects/private/lotto/teletext.html
+file.swisslotto.ziehung = d:/javaprojects/private/lotto/resultat.htm
+file.swisslotto.jokergewinnquote = d:/javaprojects/private/lotto/SwissLottoandJokerprizeinformation.htm
+file.swisslotto.lottogewinnquote = d:/javaprojects/private/lotto/SwissLottoandJokerprizeinformation.htm
+
+# url
+url.teletext.1 = http://194.158.230.225:9090/telenet/SF1/281/1.next.t-html
+url.teletext.2 = http://194.158.230.225:9090/telenet/SF1/281/1.t-html
+url.swisslotto.ziehung = http://www.loterie.ch/en/jeux/online/swisslotto/resultat.php
+url.swisslotto.jokergewinnquote = http://www.loterie.ch/en/jeux/online/swisslotto/rapports.php
+url.swisslotto.lottogewinnquote = http://www.loterie.ch/en/jeux/online/swisslotto/rapports.php
+
+# ftp
+ftp.host = home.datacomm.ch
+ftp.user = rschaer
+ftp.password = gur8wolf
+ftp.home = public_html/lotto
+ftp.home.frame = public_html/Lotto
+ftp.home.include = public_html/lotto/include
+ftp.home.backup = public_html/backup
+
+# log path
+path.log = d:/javaprojects/private/lotto/log

@@ -1,0 +1,20 @@
+CREATE TABLE ADDRESSES (
+  firstname varchar(80),
+  name varchar(80),
+  street varchar(80),
+  city varchar(80),
+  tel varchar(40),
+  email varchar(80),
+  url varchar(255),
+  comments varchar(255),
+  id int(11) DEFAULT '0' NOT NULL auto_increment,
+  iduser int(11),
+  PRIMARY KEY (id)
+);
+
+CREATE TABLE USER (
+  username varchar(20),
+  password varchar(20),
+  id int(11) DEFAULT '0' NOT NULL auto_increment,
+  PRIMARY KEY (id)
+);                              

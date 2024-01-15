@@ -1,0 +1,14 @@
+formPackage=ch.ess.ct.web.dienste.form
+actionPackage=ch.ess.ct.web.dienste.action
+deletePackage=ch.ess.ct.business.db.delete
+finderPackage=ch.ess.ct.business.db.finder
+
+objectName=VertragTyp
+objectLowerName=vertragTyp
+objectLowerLowerName=vertragtyp
+
+dbClassName=VertragTypen
+dbClassLowerName=vertragTypen
+dbClassLowerLowerName=vertragtypen
+
+dir=dienste

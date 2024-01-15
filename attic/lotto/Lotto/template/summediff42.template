@@ -1,0 +1,43 @@
+<!--#include file="include/head_summediff42.shtml"-->
+<!--#include file="include/body.shtml"-->
+<br>
+<p class="subTitle">Summe Differenzen</p>
+<p class="nr">ab Ziehung Nr. 14/1979 (Einf&uuml;hrung von 41 und 42)</p>
+<br>
+<table border="1" class="tableContents">
+<tr>
+<th class="tableHeader">Summe Differenzen</th>
+<th class="tableHeader">Ausspielungen</th>
+<th class="tableHeader">Prozent</th>
+</tr>
+
+<tr><th class="tableRowHeader">0 - 14</th><td align="center" class="text">%%sd0%%</td>
+<td align="right" class="text">%%psd0%%</td></tr>
+<tr><th class="tableRowHeader">15 - 19</th><td align="center" class="text">%%sd1%%</td>
+<td align="right" class="text">%%psd1%%</td></tr>
+<tr><th class="tableRowHeader">20 - 24</th><td align="center" class="text">%%sd2%%</td>
+<td align="right" class="text">%%psd2%%</td></tr>
+<tr><th class="tableRowHeader">25 - 29</th><td align="center" class="text">%%sd3%%</td>
+<td align="right" class="text">%%psd3%%</td></tr>
+<tr><th class="tableRowHeader">30 - 34</th><td align="center" class="text">%%sd4%%</td>
+<td align="right" class="text">%%psd4%%</td></tr>
+<tr><th class="tableRowHeader">35 - 39</th><td align="center" class="text">%%sd5%%</td>
+<td align="right" class="text">%%psd5%%</td></tr>
+<tr><th class="tableRowHeader">&gt;= 40</th><td align="center" class="text">%%sd6%%</td>
+<td align="right" class="text">%%psd6%%</td></tr>
+</table>
+<br>
+<p class="text">
+<a href="summediffalle.shtml">alle Ziehungen</a><BR>
+<b>ab Ziehung Nr. 14/1979 (Einf&uuml;hrung von 41 und 42)</b><BR>
+<a href="summediff45.shtml">ab Ziehung Nr. 1/1986 (Einf&uuml;hrung von 43, 44 und 45)</a><BR>
+<a href="summediff97.shtml">ab Ziehung Nr. 1/1997 (Einf&uuml;hrung Mittwochsziehung)</a>
+</p>
+<br>
+<HR>
+<br>
+<table class="text">
+<tr><td class="text">(6.Zahl - 5.Zahl) + (5.Zahl - 4.Zahl) + (4.Zahl - 3.Zahl) + (3.Zahl - 2.Zahl) + (2.Zahl - 1.Zahl)<br>
+Zahlen werden vor der Auswertung sortiert, so dass die 6.Zahl die h&ouml;chste und die 1.Zahl die tiefste Zahl der Ziehung ist</td></tr>
+</table>
+<!--#include file="include/tail.shtml"-->

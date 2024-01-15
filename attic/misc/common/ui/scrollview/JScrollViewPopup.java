@@ -1,0 +1,36 @@
+package common.ui.scrollview;
+
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+
+public class JScrollViewPopup extends JPanel implements MouseListener {
+	protected JButton button;
+	protected ScrollViewWindow window;
+
+	public JScrollViewPopup(JScrollPane scrollpane, int size) {
+		setLayout(new BorderLayout());
+		
+		ImageIcon icon = new ImageIcon( Toolkit.getDefaultToolkit().createImage(
+	                         getClass().getResource("ScrollViewIcon.gif")));
+		
+		add(BorderLayout.CENTER, button = new JButton(icon));
+		button.setBorder(null);
+		button.addMouseListener(this);
+		window = new ScrollViewWindow(scrollpane, size);
+	}
+
+	public void mouseEntered(MouseEvent event) {}
+	public void mouseExited(MouseEvent event) {}
+	public void mouseClicked(MouseEvent event) {}
+	public void mouseReleased(MouseEvent event) {}
+	public void mousePressed(MouseEvent event) {
+		Rectangle rect = window.scrollview.calculateRectangle();
+		int x = event.getX() - (rect.x + (rect.width / 2));
+		int y = event.getY() - (rect.y + (rect.height / 2));
+		Point pos = new Point(x, y);
+		SwingUtilities.convertPointToScreen(pos, this);
+		window.setLocation(pos);
+		window.setVisible(true);
+	}
+}

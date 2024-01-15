@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<project default="war"
+	xmlns:j="jelly:core"
+	xmlns:u="jelly:util"
+	xmlns:ant="jelly:ant"
+	xmlns:m="maven">
+
+
+  <!--  
+	<preGoal name="site:generate">
+		<attainGoal name="clover"/>
+	</preGoal>
+    -->
+</project>

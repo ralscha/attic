@@ -1,0 +1,195 @@
+
+Documentation for Velocity Cracking Utilities v1.0
+Written By: Epicurus
+
+
+-------------------------------------------------------------------------------------------------
+
+Contents
+
+About Velocity Cracking Utilities
+Generate Single Password
+Generate Random Wordlis 
+Convert Text File to Wordlist
+Merge Wordlists
+Sort Wordlist
+Reverse Wordlist
+Truncate Wordlist
+Strip Wordlist
+Manipulate Wordlist Cases
+Unshadow Password File
+Run John The Ripper v1.0 Visually
+Run John The Ripper v1.6 Visually
+Run Brute v1.1 Visually
+Run XiT v2.0 Visually
+
+
+-------------------------------------------------------------------------------------------------
+
+About
+
+Velocity Cracking Utilities (VCU) is a suite of utilities to aid in cracking UNIX password files.
+This is accomplished with tools that create and manipulate wordlists, as well as some front-ends
+for popular DOS based cracking programs. VCU attempts to make the cracking of passwords a simple
+task for computer users of any experience level. VCU was written by me, Epicurus. Velocity
+Cracking Utilities is Copyright © 1998-1999 Epicurus (epicurus@wilter.com). Velocity Cracking
+Utilities is a Wiltered Fire production.
+
+
+-------------------------------------------------------------------------------------------------
+
+Generate Single Password
+
+This function is designed to aid in the choosing of 'secure' passwords by creating random 
+passwords with user-definable attributes. By generating a random password, it is easy to avoid 
+the common pit-falls of choosing a weak password. To use this feature, simply run the "Generate
+Single Password" option from the main user interface, choose a type of password to create by 
+selecting from the drop-down list, choose a password length, and click the "Generate" button.
+
+
+-------------------------------------------------------------------------------------------------
+
+Generate Random Wordlist
+
+This function is made to create random wordlists with user-definable attributes. The wordlists 
+this function generates can be used when attempting to crack password files. The options of this
+feature are quite similar to the Generate Single Password function. To use this feature, simply
+run the "Generate Random Wordlist" option from the main user interface, choose a type of wordlist
+to generate from the drop-down list, choose a word length, a number of words to generate, and an
+output file and click the "Generate" button.
+
+
+-------------------------------------------------------------------------------------------------
+
+Convert Text File to Wordlist
+
+This function is a neat utility to harvest words from text files to use for wordlists. When 
+converting a text file to a wordlist, it grabs each and every unique word from the text file and
+puts it in a sorted wordlist. To use this function, simply run the "Convert Text File to 
+Wordlist" option from the main interface, choose a text file to convert and a file to output to,
+then hit the "Convert" button.
+
+
+-------------------------------------------------------------------------------------------------
+
+Merge Wordlists
+
+This function is designed to aid in the merging of mutliple wordlists into one 'master' wordlist.
+When lists are merged together, all output is sorted and duplicate entries are removed from the
+output. To use this function, simply run the "Merge Wordlists" option from the main interface,
+use the "+" button to add two or more wordlists (and the "-" button to remove them) from the
+list, choose an output file, and click the "Merge" button.
+
+
+-------------------------------------------------------------------------------------------------
+
+Sort Wordlist
+
+This feature is a simple feature to sort all entries in a wordlist alpha-numerically. To use this
+function, simply run the "Sort Wordlist" option from the main interface, choose an unsorted 
+(input) file, and a sorted (output) file and click the "Sort" button.
+
+
+-------------------------------------------------------------------------------------------------
+
+Reverse Wordlist
+
+This function is designed to reverse every word in a wordlist. The line "abcdefg" in an input 
+file would be reversed as "gfedcba" in the output file. To use this feature, simply run the 
+"Reverse Wordlist" function from the main interface, choose a normal (input) file, and a reversed
+(output) file, and click the "Reverse" button.
+
+
+-------------------------------------------------------------------------------------------------
+
+Truncate Wordlist
+
+This function is used to truncate all words in a given list to a given length. To use this 
+function, simply run "Truncate Wordlist" from the main interface, choose a normal (input)
+wordlist, a length to truncate to, a truncated (output) file, choose whether or not to sort
+output and remove duplicates, and click the "Truncate" button. NOTE: Duplicates cannot be removed
+without sorting the output.
+
+
+-------------------------------------------------------------------------------------------------
+
+Strip Wordlist
+
+This feature is designed to strip certain words from lists based on their length. You can choose
+whether to strip words longer than, shorter than, or not equal in length to a certain number of
+characters. This can be quite usefull if you know certain things about a password (or password
+file) that you're trying to crack, such as the minimum and maximum password lengths allowed on 
+the system. To use this feature, simply run "Strip Wordlist" from the main interface, choose a
+normal (input) wordlist, a stripped (output) file, the stripping options, whether or not to sort
+output and remove duplicate entries, and click the "Strip" button.
+
+
+-------------------------------------------------------------------------------------------------
+
+Manipulate Wordlist Cases
+
+This feature is designed to aid in manipulating wordlist cases. It gives you the options to
+change the first or last character of every word in a list to lower or upper case, or change each
+entire word to upper or lower case. To use this feature, simply run the "Manipulate Wordlist
+Cases" option from the main interface, choose an input wordlist, the type of manipulation you
+desire, and output file, and click the "Manipulate" button.
+
+
+-------------------------------------------------------------------------------------------------
+
+Unshadow Password File
+
+This feature is simply used to unshadow a password file when both the passwd file and shadow file
+are available. This works by simply merging the encrypted passwords from the shadow file with the
+rest of the password line in the passwd file. To use this, you must have both the shadow and
+passwd files. To use this feature, simply run the "Unshadow Password File" option from the main
+interface, choose your shadowed password file, the shadow file, the output "passwd" file, and
+click the "Unshadow" button.
+
+
+-------------------------------------------------------------------------------------------------
+
+Run John The Ripper v1.0 Visually
+
+This is one of the neatest features of these utilities. A Windows front-end to one of the most 
+popular password crackers around. Most of the features and options of John The Ripper v1.0 are
+implimented in this front-end, but not every single one. For explanations of all the options,
+read the documentation that comes with John The Ripper. A front-end for John The Ripper v1.6 is
+also included in these utilities, but v1.0 was kept because it seems to be the most widely
+distributed password cracker around.
+
+
+-------------------------------------------------------------------------------------------------
+
+Run John The Ripper v1.6 Visually
+
+This is one of the neatest features of these utilities. A Windows front-end to one of the most
+popular password crackers around. Most of the features and options of John The Ripper v1.6 are
+implimented in this front-end, but not every single one. For explanations of all the options,
+read the documentation that comes with John The Ripper. A front-end for John The Ripper v1.0 is
+also included in these utilities, because v1.0 seems to be the most widely distributed password
+cracker around.
+
+
+-------------------------------------------------------------------------------------------------
+
+Run Brute v1.1 Visually
+
+This feature is a front-end to one of the more simple, yet popular DOS based password crackers.
+For information on the options, refer to the documentation that comes with Brute v1.1.
+
+
+-------------------------------------------------------------------------------------------------
+
+Run XiT v2.2 Visually
+
+This feature is a front-end to one of the most simple DOS based password crackers. For 
+information on the options, refer to the documentation that comes with XiT v2.0. NOTE: slight 
+modifications must be made xit.bat for this to run propperly under windows, a modified copy of
+xit.bat should be located within the VCU distribution.
+
+
+-------------------------------------------------------------------------------------------------
+
+Copyright © 1998-1999 Epicurus (epicurus@wilter.com)
+All Rights Reserved.

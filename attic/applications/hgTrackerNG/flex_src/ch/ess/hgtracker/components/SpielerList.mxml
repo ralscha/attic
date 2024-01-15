@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Panel xmlns:mx="http://www.adobe.com/2006/mxml" width="800" title="Spieler" 
+  layout="absolute" creationComplete="init()">
+  
+  <mx:Script>
+    <![CDATA[
+      import mx.core.Application;
+      import mx.printing.FlexPrintJobScaleType;
+      import mx.printing.PrintDataGrid;
+      import mx.printing.FlexPrintJob;
+      import ch.ess.hgtracker.db.Club;
+      import ch.ess.hgtracker.db.Spieler;
+      import mx.managers.PopUpManager;
+      import mx.events.CloseEvent;
+      import mx.controls.Alert;
+      import mx.collections.SortField;
+      import mx.collections.Sort;
+      import mx.collections.ArrayCollection;
+      import mx.rpc.events.ResultEvent;
+            
+      public var application:Application;      
+      public var club:Club;      
+      
+      private var fileRef:FileReference;
+            
+      [Bindable]
+      [ArrayElementType("ch.ess.hgtracker.db.Spieler")]
+      private var spielerModel:ArrayCollection = new ArrayCollection();
+      
+      private var selectedSpieler:Spieler;
+      
+      private function edit():void {        
+        var spielerEdit:SpielerEdit = PopUpManager.createPopUp(this, SpielerEdit, true) as SpielerEdit;
+        spielerEdit.editSpieler = selectedSpieler; 
+        spielerEdit.club = club;
+        spielerEdit.addEventListener("dataInserted", onDataInserted);   
+      }
+            
+      private function deleteSpieler():void {
+        
+        Alert.show('Diesen Spieler wirklich löschen?', 'Frage', (Alert.YES | Alert.NO), this,
+                    function(event:CloseEvent):void {
+                      if (event.detail == Alert.YES) {
+                        spielerService.deleteSpieler(selectedSpieler.id);
+                        
+                        spielerDataGrid.selectedIndex = -1;
+                        spielerDataGrid.selectedItem = null;
+                        selectedSpieler = null;
+                                
+                        spielerService.getAll(club);
+                      }
+                    }
+                );
+
+      }
+      
+      private function neu():void {        
+        
+        spielerDataGrid.selectedIndex = -1;
+        spielerDataGrid.selectedItem = null;
+        editButton.enabled = false;
+        deleteButton.enabled = false; 
+        
+        selectedSpieler = new Spieler();
+        selectedSpieler.id = -1; 
+        
+        var spielerEdit:SpielerEdit = PopUpManager.createPopUp(this, SpielerEdit, true) as SpielerEdit;
+        spielerEdit.editSpieler = selectedSpieler;  
+        spielerEdit.club = club;
+        
+        spielerEdit.jahrgangText.text = '';
+        spielerEdit.reihenfolgeText.text = '';
+        spielerEdit.aktivCheckbox.selected = true;
+        
+        spielerEdit.addEventListener("dataInserted", onDataInserted);       
+      }
+      
+      public function init():void {
+        spielerService.getAll(club);
+      }
+      
+      private function onItemClick():void {
+        editButton.enabled = true;
+        deleteButton.enabled = true;  
+        selectedSpieler = Spieler(spielerDataGrid.selectedItem);     
+      }
+      
+      private function onGetAllResult(event:ResultEvent):void {
+                
+        var spielerSort:Sort = (spielerDataGrid.dataProvider ? ArrayCollection(spielerDataGrid.dataProvider).sort : null);
+        spielerModel = ArrayCollection(event.result);
+
+        if (spielerSort) {
+          spielerModel.sort = spielerSort;
+               
+        } else {
+          var sort:Sort = new Sort();
+          sort.fields = [new SortField("nachname", true), new SortField("vorname", true)];
+          
+          spielerModel.sort = sort;
+        }    
+        spielerModel.refresh();   
+                
+      }   
+            
+      private function onDataInserted(event:Event):void {
+        //Alert.show("Daten gespeichert", "Info");  
+        spielerService.getAll(club);
+      }      
+      
+      
+      private function excelExport():void {
+        fileRef = new FileReference();
+        
+        var urlRequest:URLRequest = new URLRequest("exportSpieler.do?clubId="+club.id);
+        
+        fileRef.download(urlRequest, "spieler.xls");
+        
+        var popup : ShowProgress = ShowProgress(PopUpManager.createPopUp(this, ShowProgress, true));      
+        PopUpManager.centerPopUp(popup);
+        
+        fileRef.addEventListener(Event.COMPLETE, function(event:Event):void {PopUpManager.removePopUp(popup);});
+        
+      }
+      
+      private function pdfExport():void {
+        fileRef = new FileReference();
+        
+        var urlRequest:URLRequest = new URLRequest("exportPdfSpieler.do?clubId="+club.id);
+        
+        fileRef.download(urlRequest, "spieler.pdf");
+        
+        var popup : ShowProgress = ShowProgress(PopUpManager.createPopUp(this, ShowProgress, true));      
+        PopUpManager.centerPopUp(popup);
+        
+        fileRef.addEventListener(Event.COMPLETE, function(event:Event):void {PopUpManager.removePopUp(popup);});
+        
+      }
+      
+      private function printDataGrid():void {
+        var printJob:FlexPrintJob = new FlexPrintJob();
+        if (printJob.start()) {
+          var printDataGrid:PrintDataGrid = new PrintDataGrid();
+          printDataGrid.visible = false;
+          printDataGrid.width = printJob.pageWidth;
+          printDataGrid.height = printJob.pageHeight;
+          printDataGrid.dataProvider = spielerDataGrid.dataProvider;
+          application.addChild(printDataGrid);
+                    
+          printDataGrid.columns = [nachnameDGC, vornameDGC, strasseDGC, plzDGC, ortDGC, jahrgangDGC];
+          
+          printDataGrid.validateNow();
+          
+          printJob.addObject(printDataGrid, FlexPrintJobScaleType.MATCH_WIDTH);
+          while(printDataGrid.validNextPage) {
+            printDataGrid.nextPage();
+            printJob.addObject(printDataGrid, FlexPrintJobScaleType.MATCH_WIDTH);
+          }
+          
+          application.removeChild(printDataGrid);          
+        }
+        
+        printJob.send();
+      }
+      
+    ]]>
+  </mx:Script>
+  
+  <mx:RemoteObject id="spielerService" showBusyCursor="true" destination="spielerService">
+    <mx:method name="getAll" result="onGetAllResult(event)" />
+  </mx:RemoteObject>
+  
+  <mx:DataGrid id="spielerDataGrid" dataProvider="{spielerModel}" change="onItemClick()" bottom="60" top="10" left="10" right="10">
+    <mx:columns>
+      <mx:DataGridColumn id="nachnameDGC" headerText="Nachname" dataField="nachname" />
+      <mx:DataGridColumn id="vornameDGC" headerText="Vorname" dataField="vorname" />
+      <mx:DataGridColumn id="strasseDGC" headerText="Strasse" dataField="strasse" width="200"/>
+      <mx:DataGridColumn id="plzDGC" headerText="PLZ" dataField="plz" width="50"/>
+      <mx:DataGridColumn id="ortDGC" headerText="Ort" dataField="ort" />
+      <mx:DataGridColumn id="jahrgangDGC" headerText="Jahrgang" dataField="jahrgang" width="80"/>
+    </mx:columns>
+  </mx:DataGrid>
+  <mx:HBox left="10" bottom="20" right="10">
+    <mx:Button label="Neuer Spieler" id="newButton" click="neu()" icon="@Embed(source='assets/form_green_add.png')"/>
+    <mx:Button label="Spieler editieren" id="editButton" enabled="false" click="edit()" icon="@Embed(source='assets/form_green_edit.png')"/>
+    <mx:Button label="Drucken" id="printButton" click="printDataGrid()" icon="@Embed(source='assets/printer.png')" />      
+    <mx:Button label="Excel Export" id="exportButton" click="excelExport()" icon="@Embed(source='assets/export1.png')"/>
+    <mx:Button label="PDF Export" id="exportPdfButton" click="pdfExport()" icon="@Embed(source='assets/export1.png')"/>
+    <mx:Spacer width="100%" />
+    <mx:Button label="Spieler löschen" id="deleteButton" enabled="false" click="deleteSpieler()" icon="@Embed(source='assets/form_green_delete.png')"/>
+  </mx:HBox>
+</mx:Panel>

@@ -1,0 +1,26 @@
+<ivysettings>
+  <settings defaultResolver="chain"/>
+  <resolvers>
+    <chain name="chain" returnFirst="true">
+  
+      <filesystem name="local">
+        <artifact pattern="d:/workspace/springwicket/build/repository/[artifact]-[revision].[ext]" />
+      </filesystem>
+      
+      <url name="springsource" m2compatible="true">
+        <artifact pattern="http://maven.springframework.org/milestone/[organisation]/[module]/[revision]/[artifact]-[revision].[ext]" />
+      </url>         
+      
+      <url name="javanet" m2compatible="true">
+        <artifact pattern="http://download.java.net/maven/2/[organisation]/[module]/[revision]/[artifact]-[revision].[ext]" />
+      </url>  
+            
+      <url name="jboss" m2compatible="true">
+        <artifact pattern="http://repository.jboss.org/maven2/[organisation]/[module]/[revision]/[artifact]-[revision].[ext]" />
+      </url>         
+        
+      <ibiblio name="ibiblio"  m2compatible="true" usepoms="false"/>
+            
+    </chain>
+  </resolvers>
+</ivysettings>

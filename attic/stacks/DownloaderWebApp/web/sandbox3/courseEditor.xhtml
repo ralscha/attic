@@ -1,0 +1,143 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+                      "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml" xmlns:s="http://jboss.com/products/seam/taglib" xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html" xmlns:a="http://richfaces.org/a4j" xmlns:rich="http://richfaces.org/rich"
+	template="templates/master.xhtml">
+	<ui:define name="title">
+		<h:outputText value="#{course.id gt 0 ? 'Edit' : 'Create'} Course" />
+	</ui:define>
+	<ui:define name="body">
+		<h:form id="course">
+			<s:validateAll>
+				<f:facet name="aroundInvalidField">
+					<s:span styleClass="invalid" />
+				</f:facet>
+				<f:facet name="afterInvalidField">
+					<s:span styleClass="message">#{spacer}<s:message showDetail="true" showSummary="false" />
+					</s:span>
+				</f:facet>
+				<table class="detail">
+					<colgroup>
+						<col width="20%" />
+						<col width="80%" />
+					</colgroup>
+					<tr>
+						<th>
+							<h:outputLabel for="name" value="Course Name" />
+						</th>
+						<td>
+							<s:decorate>
+								<h:inputText id="name" value="#{course.name}" size="40" styleClass="text" required="true" />
+							</s:decorate>
+						</td>
+					</tr>
+					<tr>
+						<th>
+							<h:outputLabel for="type" value="Type" />
+						</th>
+						<td>
+							<s:decorate>
+								<h:selectOneMenu id="type" value="#{course.type}" required="true">
+									<s:convertEnum />
+									<s:enumItem enumValue="PUBLIC" label="Public" />
+									<s:enumItem enumValue="PRIVATE" label="Private" />
+									<s:enumItem enumValue="SEMI_PRIVATE" label="Semi-Private" />
+									<s:enumItem enumValue="RESORT" label="Resort" />
+									<s:enumItem enumValue="MILITARY" label="Military" />
+								</h:selectOneMenu>
+							</s:decorate>
+						</td>
+					</tr>
+					<tr>
+						<th>
+							<h:outputLabel for="uri" value="Website" />
+						</th>
+						<td>
+							<s:decorate>
+								<h:inputText id="uri" value="#{course.uri}" size="40" styleClass="text" converter="#{nullableStringConverter}" />
+							</s:decorate>
+						</td>
+					</tr>
+					<tr>
+						<th>
+							<h:outputLabel for="phone" value="Phone" />
+						</th>
+						<td>
+							<s:decorate>
+								<h:inputText id="phone" value="#{course.phoneNumber}" size="10" styleClass="text" converter="#{nullableStringConverter}"/>
+							</s:decorate>
+						</td>
+					</tr>
+					<tr>
+						<th>
+							<h:outputLabel for="country" value="Country" />
+						</th>
+						<td>
+							<s:decorate>
+								<h:inputText id="country" value="#{course.address.country}" required="true" size="40" styleClass="text" />
+							</s:decorate>
+						</td>
+					</tr>
+					<tr>
+						<th>
+							<h:outputLabel for="state" value="State" />
+						</th>
+						<td>
+							<s:decorate>
+								<h:selectOneMenu id="state" value="#{course.address.state}" required="true">
+									<s:selectItems var="state" value="#{states}" label="#{state}" noSelectionLabel="" />
+								</h:selectOneMenu>
+							</s:decorate>
+						</td>
+					</tr>
+					<tr>
+						<th>
+							<h:outputLabel for="county" value="County" />
+						</th>
+						<td>
+							<s:decorate>
+								<h:inputText id="county" required="true" value="#{course.address.county}" size="40" styleClass="text" />
+							</s:decorate>
+						</td>
+					</tr>
+					<tr>
+						<th>
+							<h:outputLabel for="city" value="City" />
+						</th>
+						<td>
+							<s:decorate>
+								<h:inputText id="city" required="true" value="#{course.address.city}" size="40" styleClass="text" />
+							</s:decorate>
+						</td>
+					</tr>
+					<tr>
+						<th>
+							<h:outputLabel for="postalCode" value="ZIP Code" />
+						</th>
+						<td>
+							<s:decorate>
+								<h:inputText id="postalCode" required="true" value="#{course.address.postalCode}" size="40" styleClass="text" />
+							</s:decorate>
+						</td>
+					</tr>
+					<tr>
+						<th>
+							<h:outputLabel for="description" value="Description" />
+						</th>
+						<td>
+							<s:decorate>
+								<h:inputTextarea id="description" value="#{course.description}" cols="38" rows="4" />
+							</s:decorate>
+						</td>
+					</tr>
+				</table>
+			</s:validateAll>
+			<p class="commands">
+				<h:commandButton id="save" action="#{courseAction.saveCourse}" value="Save" styleClass="button" />
+				#{spacer}
+				<s:button id="cancel" action="#{courseAction.clearSelection}" value="Cancel" styleClass="button" />
+			</p>
+		</h:form>
+	</ui:define>
+</ui:composition>

@@ -1,0 +1,93 @@
+<html>
+<style>
+  body {
+    font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+    font-size : 11pt;
+    font-weight : normal;	
+  }
+  
+  h1 {
+    font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+    font-size : 16pt;
+    font-weight : bold;	
+  }
+  
+  h2 {
+    font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+    font-size : 18pt;
+    font-weight : bold;	
+  }  
+  
+  table {
+    font-family : Verdana, Geneva, Arial, Helvetica, sans-serif;
+	  font-size : 10pt;
+	  font-weight : normal;	
+	  border: 1px;
+	  border-color: silver;
+  	border-style: solid;
+	  border-collapse: collapse;
+  }
+  table td {
+	  font-family : Verdana, Geneva, Arial, Helvetica, sans-serif;
+	  font-size : 10pt;
+	  font-weight : normal;	
+	  border: 1px;
+	  border-color: silver;
+	  border-style: solid;
+	  vertical-align: top;
+	  padding: 10px;
+  }  
+  
+  table td.important {
+	  font-weight : bold;	
+  }  
+  
+  table th {
+	  font-family : Verdana, Geneva, Arial, Helvetica, sans-serif;
+	  font-size : 10pt;
+	  font-weight : bold;	
+    text-align: left;
+	  border: 1px;
+	  border-color: silver;
+	  border-style: solid;
+	  vertical-align: top;
+	  padding: 10px;
+	  background-color: #DFE8ED;    
+  }    
+</style>
+<body>
+<h1>Web Calendar: Aufgabe</h1>
+<h2>Erinnerung</h2>
+
+<table>
+  <tr>
+    <th>Subjekt</th>
+    <td><a href="http://localhost:8081/cal5/taskList.do?clean=1&startCrumb=1&value(taskId)=${id}">${subject}</a></td>
+  </tr>
+  <tr>
+    <th>Start</th>
+    <td>${start}</td>
+  </tr>
+  <tr>
+    <th>F&auml;llig</th>
+    <td class="important">${due}</td>
+  </tr>  
+  <tr>
+    <th>Ort</th>
+    <td>${location}</td>
+  </tr>   
+  <tr>
+    <th>Kategorie</th>
+    <td>${category}</td>
+  </tr>
+  <tr>
+    <th>Priorit&auml;t</th>
+    <td>${importance}</td>
+  </tr>  
+    <tr>
+    <th>Beschreibung</th>
+    <td><pre>${description}</pre></td>
+  </tr> 
+</table>
+</body>
+</html>

@@ -1,0 +1,28 @@
+body {
+	background: white;
+	color: black;
+	font-family: Verdana, Arial, sans-serif;
+	font-size: small;
+	margin: 8px;
+}
+
+.lb {
+	background: white;
+	color: black;
+	font-family: Verdana, Arial, sans-serif;
+	font-size: 14px;
+	font-weight: bold;
+	margin: 8px;
+}
+
+.small {
+  display: block;
+  width: 80px;
+  height: 60px;
+  margin: 3px;
+}
+
+.selected {
+  border: 3px solid yellow;
+  margin: 0px;
+}

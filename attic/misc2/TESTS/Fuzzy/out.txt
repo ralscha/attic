@@ -1,0 +1,139 @@
+ Schulteater 
+ sc --> 6
+sch --> 7
+chu --> 8
+hul --> 9
+ult --> 10
+lte --> -1
+tea --> -1
+eat --> 14
+ate --> 15
+ter --> 16
+er  --> -1
+ schu --> 6
+schul --> 7
+chult --> 8
+hulte --> -1
+ultea --> -1
+lteat --> -1
+teate --> -1
+eater --> 14
+ater  --> -1
+R1 = 24  33
+R2 = 20  45
+An den Schultheatertagen nehmen Gruppen aus zwölf Schulen aus dem Kreis Gross-Gerau teil. ----> 56.410255
+ sc --> 61
+sch --> 62
+chu --> 63
+hul --> 64
+ult --> 65
+lte --> 20
+tea --> -1
+eat --> 69
+ate --> 70
+ter --> 49
+er  --> 72
+ schu --> 61
+schul --> 62
+chult --> 63
+hulte --> -1
+ultea --> -1
+lteat --> -1
+teate --> -1
+eater --> 69
+ater  --> 70
+R1 = 30  33
+R2 = 25  45
+Eine runde, ausgefeilte Inszenierung, die mehr Interesse beim Schultheater-Publikume verdient gehabt hätte. ----> 70.51282
+ sc --> -1
+sch --> 74
+chu --> 75
+hul --> 76
+ult --> 96
+lte --> -1
+tea --> -1
+eat --> 55
+ate --> 56
+ter --> 57
+er  --> 58
+ schu --> -1
+schul --> 74
+chult --> -1
+hulte --> -1
+ultea --> -1
+lteat --> -1
+teate --> -1
+eater --> 55
+ater  --> 56
+R1 = 24  33
+R2 = 15  45
+Seit 1979 besteht die von Thomas Sturmfels geleitete Theater-IG der Dreichschule, die 1991 den Kulturpreis Langen gewann ----> 50.0
+ sc --> 50
+sch --> 51
+chu --> 52
+hul --> 53
+ult --> -1
+lte --> -1
+tea --> -1
+eat --> 19
+ate --> 20
+ter --> 21
+er  --> 32
+ schu --> 50
+schul --> 51
+chult --> -1
+hulte --> -1
+ultea --> -1
+lteat --> -1
+teate --> -1
+eater --> 19
+ater  --> -1
+R1 = 24  33
+R2 = 15  45
+Dem versucht die Theatergruppe der Albert-Einstein-Schule gerecht zu werden, indem sie die Männer, aber auch die angepassten Frauen und Mütter, hinter gleichmachenden Masken versteckt. ----> 50.0
+ sc --> -1
+sch --> 81
+chu --> -1
+hul --> -1
+ult --> 87
+lte --> -1
+tea --> -1
+eat --> 53
+ate --> 54
+ter --> 55
+er  --> 12
+ schu --> -1
+schul --> -1
+chult --> -1
+hulte --> -1
+ultea --> -1
+lteat --> -1
+teate --> -1
+eater --> 53
+ater  --> -1
+R1 = 18  33
+R2 = 5  45
+Die Eppsteiner Burgfestspiele sind erstes Ziel der Theaterfahrten, die das städtische Kulturamt unter dem Motto Kultur heute während der Sommerzeit anbietet ----> 29.487179
+ sc --> -1
+sch --> 68
+chu --> -1
+hul --> -1
+ult --> -1
+lte --> -1
+tea --> -1
+eat --> 126
+ate --> 127
+ter --> 128
+er  --> 39
+ schu --> -1
+schul --> -1
+chult --> -1
+hulte --> -1
+ultea --> -1
+lteat --> -1
+teate --> -1
+eater --> 126
+ater  --> 127
+R1 = 15  33
+R2 = 10  45
+Diese und andere teils nur aus mündlicher Ueberlieferung bekannte Geschichten aus der Geschichte haben die Leute vom Griebentheater zusammengetragen und theatralisch in Szene gesetzt ----> 32.05128

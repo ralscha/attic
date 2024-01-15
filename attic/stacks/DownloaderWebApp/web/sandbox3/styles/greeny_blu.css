@@ -1,0 +1,472 @@
+/**
+ * Style courtesy of Open Source Web Design
+ * http://www.oswd.org/design/preview/id/3696
+ */
+
+/**
+ * CSS Tricks:
+ * 1 - force vertical scrollbar to appear in gecko
+ * 2 - backgrounds must be on html tag when serving xhtml
+ */
+
+/******* General ********/
+
+body, h1, h2, h3, h4, h5, h6, p, ol, ul, td, th, input, textarea, select {
+	font-family: Verdana, sans-serif;
+}
+
+body, input, textarea, select {
+	font-size: 11px;
+}
+
+h3 {
+	margin: 1em 0 0 0;
+	padding: 2px;
+	font-size: 13px;
+	border-bottom: 1px dotted #666666;
+}
+
+.accessibility {
+	display: none;
+}
+
+.notation {
+	color: #666666;
+	font-size: 10px;
+}
+
+q {
+	font-style: italic;
+}
+
+a img {
+	border: 0;
+}
+
+/******** Main Layout ********/
+
+html {
+	overflow-y: scroll; /* trick #1 */
+	background-color: #333333; /* trick #2 */
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	position: absolute;
+	height: 150px;
+	width: 100%;
+	top: 100px;
+	background-color: #000000;
+}
+
+#container {
+	width: 800px;
+	padding: 0 50px;
+	margin: -100px auto 0 auto;
+	background: #666666 url(../images/shadow.png) repeat-y;
+	position: relative;
+}
+
+#header {
+	height: 100px;
+	color: #FFFFFF;
+	font-size: large;
+	background: url(../images/header.png) no-repeat;
+}
+
+#header h1 {
+	margin: 0;
+	padding: 35px 0 0 10px;
+	font-size: large;
+}
+
+#header p {
+	margin: 0;
+	padding: 0 0 0 10px;
+	font-size: small;
+}
+
+#menu {
+	border-top: 15px solid #000000;
+	border-bottom: 1px solid #000000;
+	margin: 0 -50px;
+	padding: 0 50px;
+	height: 134px;
+	background: #000000 url(../images/stock.png) no-repeat 50px 0;
+}
+
+#menu ul {
+	margin: 0;
+	padding: 0;
+	background-color: #000000;
+	list-style: none;
+	filter: alpha(opacity=70);
+	opacity: .7;
+	-moz-opacity: .7;
+	height: 50px;
+}
+
+#menu ul li {
+	margin: 0;
+	display: block;
+	float: left;
+	vertical-align: middle;
+	line-height: 50px;
+}
+
+#menu ul li a:link, #menu ul li a:active, #menu ul li a:visited {
+	font-weight: bold;
+	text-decoration: none;
+	color: #FFFFFF;
+	display: block;
+	padding: 0 55px;
+}
+
+#menu ul li a:hover {
+	background-color: #1A1A1A; /* could go darker to #101010 */
+}
+
+#menu ul li a:focus {
+	outline: none;
+	background: none;
+}
+
+#main {
+	background-color: #FFFFFF;
+	padding: 0 5px .2em 5px;
+}
+
+h2#overview {
+	margin: 0 -5px 0 -5px;
+	padding: 5px;
+	background-color: #1F1F1F;
+	line-height: 50px;
+	color: #CCCCCC;
+	border-bottom: 1px solid #FFFFFF; /* add a hint of space at top of main content */
+}
+
+h2#overview span.action {
+	font-size: 10px;
+	vertical-align: top;
+}
+
+h2#overview a:link, h2#overview a:visited, h2#overview a:active {
+	color: inherit;
+}
+
+#footer {
+	background-color: #000000;
+	text-align: center;
+	color: #FFFFFF;
+	padding: 5px;
+}
+
+#main p {
+	margin: .5em 0 .6em 0;
+	line-height: 1.5em;
+	padding: 0 2px;
+}
+
+#main p.commands {
+	margin-top: .2em;
+	margin-bottom: .5em;
+	line-height: 1em;
+	padding: 0;
+}
+
+#main table.detail, #main table.listing {
+	margin: .5em 0;
+}
+
+#main a:link, #main a:visited, #main a:active {
+	color: #000099;
+	font-weight: bold;
+}
+
+#fringe {
+	display: none;
+}
+
+/********** Table Types *********/
+
+table.listing {
+	border-collapse: collapse;
+	border: 1px solid #FFFFFF;
+}
+
+/* give us a touch more space for the main listing table */
+#main table.listing {
+	margin-top: .6em; 
+	margin-bottom: .6em;
+}
+
+table.listing th, table.listing tbody td {
+	border: 1px solid #FFFFFF;
+}
+
+table.listing th {
+	background-color: #DDDDDD;
+	padding: 2px 10px;
+}
+
+table.listing tbody td {
+	border-bottom: 1px solid #DDDDDD;
+	padding: 2px 4px;
+	background-color: #FFFFFF;
+}
+
+table.listing tfoot td {
+	border-top: 1px solid #DDDDDD;
+	padding: 2px 4px;
+}
+
+table.listing td.fixed, table.listing td.actions {
+	text-align: center;
+}
+
+table.listing td.actions img {
+	vertical-align: middle;
+	text-align: center;
+	cursor: pointer;
+}
+
+table.listing th.sortable {
+	padding-right: 4px;
+}
+
+table.listing th.sortable a {
+	display: block;
+	text-decoration: none;
+	background: url(../images/sort_off.gif) right 3px no-repeat;
+	padding-right: 12px;
+	color: #000000 !important;
+	cursor: row-resize;
+}
+
+table.listing th.sortable a.asc {
+	background-image: url(../images/sort_asc.gif);
+}
+
+table.listing th.sortable a.desc {
+	background-image: url(../images/sort_desc.gif);
+}
+
+table.detail {
+	border-collapse: separate; /* FIXME: this is old-skol */
+	border-spacing: 1px;
+	width: 100%;
+}
+
+table.detail th {
+	text-align: left;
+}
+
+table.detail th, table.detail td {
+	border-bottom: 1px solid #DDDDDD;
+	padding: 2px;
+}
+
+table.matrix {
+	border-collapse: separate; /* FIXME: this is old-skol */
+	border-spacing: 1px;
+	background-color: #EFEFEF;
+	width: 100%;
+}
+
+table.matrix th, table.matrix td {
+	padding: 2px;
+	text-align: center;
+}
+
+table.matrix thead th {
+	background-color: #666666;
+	color: #FFFFFF;
+}
+
+table.matrix tbody th {
+	background-color: #CCCCCC;
+}
+
+table.matrix td.sum {
+	font-weight: bold;
+	font-style: italic;
+}
+
+table.matrix td.total {
+	font-weight: bold;
+}
+
+/********* Form Elements **********/
+
+form {
+	display: inline;
+}
+
+input.text, select, textarea {
+	padding: 0;
+	margin: 2px 0;
+}
+
+input.text, select {
+	border: none;
+	border-bottom: 1px dotted #666666;
+}
+
+/*
+input.radio {
+	vertical-align: bottom;
+	margin: 0 0 0 5px;
+}*/
+
+input.button {
+	background-color: #CCCCCC;
+	font-weight: bold;
+	padding-bottom: 1px;
+}
+
+textarea {
+	border-width: 1px;
+	background-color: #F5F5F5;
+}
+
+table.matrix input.text, table.matrix select {
+	text-align: center;
+}
+
+.invalid input.text, .invalid select {
+}
+
+.invalid .message {
+	font-style: italic;
+	color: #B32400;
+}
+
+.noResults {
+}
+
+/********* Messages *********/
+
+#messages ul {
+	margin: 1em 0;
+    padding: 0 1em;
+    list-style: none;
+}
+
+#messages li {
+    margin: 0 0 .5em 0;
+}
+
+#messages span {
+	color: #FFFFEF;
+	padding-left: 22px;
+}
+
+#messages span.info {
+	background: url(../images/info.gif) no-repeat;
+}
+
+#messages span.warn {
+	background: url(../images/warn.gif) no-repeat;
+}
+
+#messages span.error {
+	background: url(../images/error.gif) no-repeat;
+}
+
+/********* Pager **********/
+
+table.listing div.pager {
+	display: block;
+	position: relative;
+	height: 1em;
+}
+
+table.listing span.synopsis {
+	position: absolute;
+	left: 0;
+	top: 1px;
+	line-height: 1em;
+	padding: 1px 0;
+}
+
+#main table.links, #main table.links table {
+	border-collapse: collapse;
+	margin: 0;
+}
+
+table.listing table.links {
+	position: absolute;
+	right: 0;
+	top: 0;
+}
+
+table.listing table.links td {
+	padding: 1px 2px;
+	border: none;
+	line-height: 1em;
+}
+
+#main table.listing table.links td a {
+	text-decoration: none;
+	font-weight: normal;
+}
+
+#main table.listing table.links td.current a {
+	color: #000000;
+	font-weight: bold;
+}
+
+table.listing tfoot td.hide {
+	padding: 0 !important;
+}
+
+table.listing td.hide div.pager {
+	display: none;
+}
+
+/********* Scorecard *********/
+
+div.scorecard {
+	width: 700px;
+	margin-top: -2px; /* tweak the top offset to account for the invisible table border */
+}
+
+.red-tee, .red-tee * {
+	background-color: #FF3300 !important;
+	color: #FFFFFF; /* black or white? */
+}
+
+.blue-tee, .blue-tee * {
+	background-color: #0066B3 !important;
+	color: #FFFFFF;
+}
+
+.white-tee, .white-tee * {
+	background-color: #FFFFFF !important;
+}
+
+.black-tee, .black-tee * {
+	background-color: #000000 !important;
+	color: #FFFFFF;
+}
+
+.green-tee, .green-tee * {
+	background-color: #007D48 !important;
+	color: #FFFFFF;
+}
+
+.yellow-tee, .yellow-tee *, .gold-tee, .gold-tee * {
+	background-color: #FFCC00 !important; /* alt: #FFE066 */
+}
+
+#map {
+	height: 350px;
+	border: 1px solid #333333;
+	margin-bottom: 0.25em;
+}
+
+#loadingMsg {
+	/* this is needed since the body is absolutely positioned */
+	top: -100px !important;
+}

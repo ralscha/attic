@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Panel xmlns:mx="http://www.adobe.com/2006/mxml" 
+          xmlns:tt="ch.ess.tt.components.*"
+          layout="absolute" title="Testdrehbuch bearbeiten"
+          width="700" height="460" minHeight="460" minWidth="700">
+  
+  <mx:Script>
+    <![CDATA[
+      import mx.binding.utils.BindingUtils;
+      import mx.utils.StringUtil;
+      import ch.ess.tt.util.CairngormUtils;
+      import ch.ess.tt.model.Test;
+      import ch.ess.tt.control.EventNames;
+      import mx.validators.Validator;
+      import mx.core.UIComponent;
+      import ch.ess.tt.model.ModelLocator;
+      
+      [Bindable]
+      public var model:ModelLocator = ModelLocator.getInstance();
+           
+                    
+      private function browse1Handler(event:MouseEvent):void {
+        model.testFile1Ref = new FileReference();
+        model.testFile1Ref.addEventListener(Event.SELECT, onFile1Selected);
+        model.testFile1Ref.browse();
+      }    
+      private function browse2Handler(event:MouseEvent):void {
+        model.testFile2Ref = new FileReference();
+        model.testFile2Ref.addEventListener(Event.SELECT, onFile2Selected);
+        model.testFile2Ref.browse();
+      } 
+      private function browse3Handler(event:MouseEvent):void {
+        model.testFile3Ref = new FileReference();
+        model.testFile3Ref.addEventListener(Event.SELECT, onFile3Selected);
+        model.testFile3Ref.browse();
+      } 
+       
+      private function deleteHandler(event:MouseEvent):void {        
+        if (event.target == delete1Button) {
+          attachment1TI.text = null;
+          delete1Button.visible = false;
+          download1Button.visible = false;
+          model.delete1Attachment = true;
+        } else if (event.target == delete2Button) {
+          attachment2TI.text = null;
+          delete2Button.visible = false;
+          download2Button.visible = false;
+          model.delete2Attachment = true;
+        } else if (event.target == delete3Button) {
+          attachment3TI.text = null;
+          delete3Button.visible = false;
+          download3Button.visible = false;
+          model.delete3Attachment = true;
+        }
+      } 
+      
+      private function downloadHandler(event:MouseEvent):void {
+        if (event.target == download1Button) {
+          CairngormUtils.dispatchEvent(EventNames.DOWNLOAD_TEST_INFORMATION_ATTACHMENT, 1);  
+        } else if (event.target == download2Button) {
+          CairngormUtils.dispatchEvent(EventNames.DOWNLOAD_TEST_INFORMATION_ATTACHMENT, 2);
+        } else if (event.target == download3Button) {
+          CairngormUtils.dispatchEvent(EventNames.DOWNLOAD_TEST_INFORMATION_ATTACHMENT, 3);
+        }
+        
+      }
+       
+           
+      private function onFile1Selected(event:Event):void {        
+        attachment1TI.text = model.testFile1Ref.name;        
+      }           
+      
+      private function onFile2Selected(event:Event):void {        
+        attachment2TI.text = model.testFile2Ref.name;  
+      }           
+      
+      private function onFile3Selected(event:Event):void {        
+        attachment3TI.text = model.testFile3Ref.name;        
+      }           
+           
+                               
+      private function saveTest():void {        
+        var results:Array = Validator.validateAll([nameTIValidator,statusCBValidator,
+                                                  versionTIValidator,datumDFValidator,
+                                                  f1TIValidator,f2TIValidator,f3TIValidator,f4TIValidator]);
+        
+        if (results.length == 0) {          
+          var test:Test = new Test();
+          test.id = model.selectedTest.id;
+          test.name = nameTI.text;
+          test.kurzbezeichnung = kurzbezeichnungTI.text;
+          test.beschreibung = beschreibungTI.text;
+          test.datum = datumDF.selectedDate;
+          test.status = statusCB.selectedStatus.toString();
+          test.sprache = spracheCB.selectedLocale;
+          test.system = systemCB.selectedSystem;
+          test.versionTest = versionTI.text;
+          
+          test.f1 = int(f1TI.text);
+          test.f2 = int(f2TI.text);
+          test.f3 = int(f3TI.text);
+          test.f4 = int(f4TI.text);
+          test.f1text = f1textTI.text;
+          test.f2text = f2textTI.text;
+          test.f3text = f3textTI.text;
+          test.f4text = f4textTI.text;
+          
+          test.dateiContentSize1 = model.selectedTest.dateiContentSize1;
+          test.dateiContentSize2 = model.selectedTest.dateiContentSize2;
+          test.dateiContentSize3 = model.selectedTest.dateiContentSize3;
+          
+          test.dateiFileName1 = model.selectedTest.dateiFileName1;
+          test.dateiFileName2 = model.selectedTest.dateiFileName2;
+          test.dateiFileName3 = model.selectedTest.dateiFileName3;
+          
+          test.informationen = informationTA.text;
+          
+          CairngormUtils.dispatchEvent(EventNames.SAVE_TEST, test);
+          
+        }        
+      }
+            
+    ]]>
+  </mx:Script>
+  
+  <mx:StringValidator id="nameTIValidator" source="{nameTI}" property="text" required="true" />
+  <mx:StringValidator id="versionTIValidator" source="{versionTI}" property="text" required="true" />
+  <mx:Validator id="statusCBValidator" source="{statusCB}" property="selectedItem" required="true" />
+  <mx:DateValidator id="datumDFValidator" source="{datumDF}" property="selectedDate" required="true" />
+  
+  <mx:NumberValidator id="f1TIValidator" source="{f1TI}" property="text" required="true" allowNegative="false" domain="int" />
+  <mx:NumberValidator id="f2TIValidator" source="{f2TI}" property="text" required="true" allowNegative="false" domain="int" />
+  <mx:NumberValidator id="f3TIValidator" source="{f3TI}" property="text" required="true" allowNegative="false" domain="int" />
+  <mx:NumberValidator id="f4TIValidator" source="{f4TI}" property="text" required="true" allowNegative="false" domain="int" />
+  
+  <mx:TabNavigator top="10" left="10" bottom="10" right="10" creationPolicy="all">
+    <mx:VBox label="Allgemein">    
+      <mx:Form>
+  
+        <mx:FormItem label="Name" required="true">
+          <mx:TextInput text="{model.selectedTest.name}" width="480" id="nameTI"/>
+        </mx:FormItem>          
+                    
+        <mx:FormItem label="Kurzbezeichnung">
+          <mx:TextInput text="{model.selectedTest.kurzbezeichnung}" width="480" id="kurzbezeichnungTI"/>
+        </mx:FormItem>                     
+                    
+        <mx:FormItem label="Beschreibung">
+          <mx:TextInput text="{model.selectedTest.beschreibung}" width="480" id="beschreibungTI"/>
+        </mx:FormItem> 
+  
+        <mx:FormItem label="Datum" required="true">
+          <mx:DateField id="datumDF" selectedDate="{model.selectedTest.datum}" formatString="DD.MM.YYYY"/>
+        </mx:FormItem> 
+  
+        <mx:FormItem label="Status" required="true">                
+          <tt:StatusComboBox id="statusCB" selectedStatus="{model.selectedTest.status}" />
+        </mx:FormItem>
+        
+        <mx:FormItem label="Sprache">                
+          <tt:LocaleComboBox id="spracheCB" selectedLocale="{model.selectedTest.sprache}" />
+        </mx:FormItem>   
+        
+        <mx:FormItem label="System">                
+          <tt:SystemComboBox id="systemCB" selectedSystem="{model.selectedTest.system}" />
+        </mx:FormItem>   
+        
+        <mx:FormItem label="Version" required="true">
+          <mx:TextInput text="{model.selectedTest.versionTest}" width="480" id="versionTI"/>
+        </mx:FormItem>       
+                    
+      </mx:Form>                 
+    </mx:VBox>
+    
+    <mx:VBox label="Fehler">
+      
+      <mx:Form>
+  
+        <mx:FormItem label="F1 / Fatal" required="true">
+          <mx:TextInput text="{model.selectedTest.f1}" width="40" id="f1TI" restrict="0-9"/>
+        </mx:FormItem> 
+        <mx:FormItem>
+          <mx:TextInput text="{model.selectedTest.f1text}" width="480" id="f1textTI"/>
+        </mx:FormItem>  
+        
+        <mx:FormItem label="F2 / Gross" required="true">
+          <mx:TextInput text="{model.selectedTest.f2}" width="40" id="f2TI" restrict="0-9"/>
+        </mx:FormItem> 
+        <mx:FormItem>
+          <mx:TextInput text="{model.selectedTest.f2text}" width="480" id="f2textTI"/>
+        </mx:FormItem> 
+        
+        <mx:FormItem label="F3 / Mittel" required="true">
+          <mx:TextInput text="{model.selectedTest.f3}" width="40" id="f3TI" restrict="0-9"/>
+        </mx:FormItem> 
+        <mx:FormItem>
+          <mx:TextInput text="{model.selectedTest.f3text}" width="480" id="f3textTI"/>
+        </mx:FormItem>         
+        
+        <mx:FormItem label="F4 / Klein" required="true">
+          <mx:TextInput text="{model.selectedTest.f4}" width="40" id="f4TI" restrict="0-9"/>
+        </mx:FormItem> 
+        <mx:FormItem>
+          <mx:TextInput text="{model.selectedTest.f4text}" width="480" id="f4textTI"/>
+        </mx:FormItem>          
+        
+      </mx:Form>
+      
+    </mx:VBox>
+    
+    
+    <mx:VBox label="Informationen">
+      <mx:Form>       
+        
+        <mx:FormItem label="Information">
+          <mx:TextArea text="{model.selectedTest.informationen}" id="informationTA"  width="500" height="205"/>        
+        </mx:FormItem>
+        
+        <mx:FormItem label="Attachment 1">
+          <mx:HBox>
+            <mx:TextInput id="attachment1TI" editable="false" width="200" text="{model.selectedTest.dateiFileName1}"/>
+            <mx:Button id="select1Button" label="Datei auswählen" click="browse1Handler(event)" />
+            <mx:Button id="delete1Button" label="Löschen" click="deleteHandler(event)" visible="{model.selectedTest.dateiFileName1 != null}"/>
+            <mx:Button id="download1Button" label="Download" click="downloadHandler(event)" visible="{model.selectedTest.dateiFileName1 != null}"/>
+          </mx:HBox>
+        </mx:FormItem>
+        
+        <mx:FormItem label="Attachment 2">     
+          <mx:HBox>   
+            <mx:TextInput id="attachment2TI" editable="false" width="200" text="{model.selectedTest.dateiFileName2}"/>
+            <mx:Button id="select2Button" label="Datei auswählen" click="browse2Handler(event)" />
+            <mx:Button id="delete2Button" label="Löschen" click="deleteHandler(event)" visible="{model.selectedTest.dateiFileName2 != null}"/>
+            <mx:Button id="download2Button" label="Download" click="downloadHandler(event)" visible="{model.selectedTest.dateiFileName2 != null}"/>
+          </mx:HBox>
+        </mx:FormItem>  
+        
+        <mx:FormItem label="Attachment 3">        
+          <mx:HBox>            
+            <mx:TextInput id="attachment3TI" editable="false" width="200" text="{model.selectedTest.dateiFileName3}"/>
+            <mx:Button id="select3Button" label="Datei auswählen" click="browse3Handler(event)" />
+            <mx:Button id="delete3Button" label="Löschen" click="deleteHandler(event)" visible="{model.selectedTest.dateiFileName3 != null}"/>
+            <mx:Button id="download3Button" label="Download" click="downloadHandler(event)" visible="{model.selectedTest.dateiFileName3 != null}"/>
+          </mx:HBox>
+        </mx:FormItem>    
+               
+      </mx:Form>
+    </mx:VBox>
+  </mx:TabNavigator>
+  
+               
+  <mx:HBox width="100%" bottom="20" right="20" horizontalAlign="right">
+    <mx:Button label="Speichern" click="saveTest()" id="saveButton" icon="@Embed(source='/assets/disk_blue.png')"/>
+    <mx:Button label="Zurück" click="model.testWorkflowState = ModelLocator.VIEWING_LIST_SCREEN;" icon="@Embed(source='/assets/navigate_left.png')"/>
+  </mx:HBox>
+
+  
+</mx:Panel>

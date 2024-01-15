@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<mx:Application
+    xmlns:mx="http://www.adobe.com/2006/mxml"
+    xmlns="*"    
+    layout="vertical"
+    backgroundGradientColors="[#0e2e7d, #6479ab]"
+    verticalAlign="middle"
+    creationComplete="srv.getCounter();checkButtonEnable()">
+
+  <mx:Script>
+    <![CDATA[
+      import mx.events.ValidationResultEvent;
+      import mx.controls.Alert;
+      import mx.rpc.events.ResultEvent;
+      
+      private function saveResultHandler(e:ResultEvent):void {
+        Alert.show("Daten gespeichert", "Info");        
+      }
+      
+      private function validInput():Boolean {
+        return (nameInputValidator.validate().type == ValidationResultEvent.VALID &&
+                vornameInputValidator.validate().type == ValidationResultEvent.VALID);        
+      }
+      
+      private function checkButtonEnable():void {
+        saveButton.enabled = validInput();
+      }
+
+    ]]>
+  </mx:Script>
+
+    <mx:RemoteObject id="srv" showBusyCursor="true" destination="pojo">
+      <mx:method name="save" result="saveResultHandler(event)">
+        <mx:arguments>
+          <name>{nameInput.text}</name>
+          <vorname>{vornameInput.text}</vorname>
+        </mx:arguments>
+      </mx:method>
+    </mx:RemoteObject>
+
+    <mx:Panel title="Just a Counter (Session Scope)" verticalAlign="middle"
+        horizontalAlign="center" paddingTop="8" paddingBottom="8" titleIcon="@Embed('network.png')">
+        <mx:Label text="{srv.getCounter.lastResult}" />
+        <mx:Button label="Go" click="srv.getCounter()"/>
+        <mx:Text htmlText="&lt;i&gt;(try to reload window)&lt;/i&gt;"/>
+    </mx:Panel>
+    <mx:Panel width="288" height="200" layout="absolute" title="Example Form">
+        <mx:Form>
+            <mx:FormItem label="Name" required="true">
+                <mx:TextInput id="nameInput" maxChars="100" change="checkButtonEnable()"/>
+            </mx:FormItem>
+            <mx:FormItem label="Vorname" required="true">
+                <mx:TextInput id="vornameInput" maxChars="100" change="checkButtonEnable()"/>
+            </mx:FormItem>
+            <mx:FormItem label="Label">
+                <mx:Label text="A:{nameInput.errorString}:E"/>
+            </mx:FormItem>
+            <mx:FormItem>
+                <mx:Button id="saveButton" label="Save" click="srv.save()"/>
+            </mx:FormItem>
+        </mx:Form>
+    </mx:Panel>
+
+    <mx:Validator id="nameInputValidator" source="{nameInput}" property="text" required="true" />
+
+    <mx:Validator id="vornameInputValidator" source="{vornameInput}" property="text" required="true"/>
+
+</mx:Application>

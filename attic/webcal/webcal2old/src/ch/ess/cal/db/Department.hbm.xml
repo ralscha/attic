@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping SYSTEM "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+<hibernate-mapping>
+
+	<class name="ch.ess.cal.db.Department" proxy="ch.ess.cal.db.Department" table="calDepartment">
+		<id name="departmentId" type="long" unsaved-value="null">
+			<generator class="native"/>
+		</id>		
+		<version name="version"/>
+				
+		<property name="name" type="string" length="255" not-null="true"/>
+    	<property name="description" type="string" length="1000"/>
+
+
+        <set name="configuration" cascade="all" lazy="true" inverse="true">
+          <key column="departmentId"/>
+          <one-to-many class="ch.ess.cal.db.DepartmentConfiguration"/>
+        </set>
+
+
+        <set name="users" lazy="true" table="calDepartmentUsers">
+          <key column="departmentId"/>
+          <many-to-many class="ch.ess.cal.db.User" column="userId"/>
+        </set>
+
+        <set name="accessUsers" lazy="true" table="calAccessDepartmentUsers">
+          <key column="departmentId"/>
+          <many-to-many class="ch.ess.cal.db.User" column="userId"/>
+        </set>
+
+		
+        <set name="resourceGroups" lazy="true" table="calDepartmentResourceGroups">
+          <key column="departmentId"/>
+          <many-to-many class="ch.ess.cal.db.ResourceGroup" column="resourceGroupId"/>
+        </set>	
+        
+        <list name="emails" cascade="all" lazy="true" inverse="true">
+          <key column="departmentId"/>
+          <index column="sequence" type="integer"/>         
+          <one-to-many class="ch.ess.cal.db.Email"/>
+        </list>	
+        
+		<set name="events" lazy="true" inverse="true">
+          <key column="eventId"/>
+          <one-to-many class="ch.ess.cal.db.Event"/>
+        </set>        
+		
+	</class>
+
+	
+</hibernate-mapping>

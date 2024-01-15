@@ -1,0 +1,99 @@
+<?xml version="1.0"?>
+<mx:Canvas 
+  xmlns:mx="http://www.adobe.com/2006/mxml" xmlns:word="*"
+  implements="mx.rpc.IResponder"
+  label="Read">
+
+  <mx:Script>
+    <![CDATA[
+      import mx.collections.ArrayCollection;
+      import mx.rpc.AsyncToken;
+      import mx.rpc.events.ResultEvent;
+      import hessian.mxml.HessianService;
+
+      [Bindable]
+      private var _poems:ArrayCollection = new ArrayCollection();
+      private var _service:HessianService;
+
+      public function refresh():void
+      {
+        var token:AsyncToken = _service.getRecent.send();
+        token.addResponder(this);
+      }
+
+      public function result(data:Object):void
+      {
+        var event:ResultEvent = data as ResultEvent;
+        var poems:Array = new Array();
+        var index:int = 1;
+
+        for each(var wordSet:Object in event.result) {
+          var poem:Object = new Object();
+          poem.label = "Poem " + index + " (" + wordSet._submitter + ")";
+          poem.wordSprites = new Array();
+
+          for each (var wordObject:Object in wordSet._words) {
+            var wordSprite:WordSprite = new WordSprite();
+            var value:String = 
+              WordValue.enumValueToString(wordObject._value.name);
+
+            var word:Word = new Word(value);
+            word._x = wordObject._x;
+            word._y = wordObject._y;
+
+            wordSprite.word = word;
+            wordSprite.readOnly = true;
+
+            poem.wordSprites.push(wordSprite);
+          }
+
+          index++;
+          poems.push(poem);
+        }
+
+        _poems.source = poems;
+      }
+
+      public function fault(data:Object):void
+      {
+        var event:ResultEvent = data as ResultEvent;
+      }
+
+      public function setPoem(poem:Object):void
+      {
+        canvas.removeAllChildren();
+
+        for each (var wordSprite:WordSprite in poem.wordSprites) 
+          canvas.addChild(wordSprite);
+      }
+
+      public function get service():HessianService
+      {
+        return _service;
+      }
+
+      public function set service(value:HessianService):void
+      {
+        _service = value;
+      }
+    ]]>
+  </mx:Script>
+
+  <mx:HBox y="0" height="200" width="100%">
+    <mx:List 
+      id="list" 
+      height="100%" width="50%" 
+      dataProvider="{_poems}"
+      change="setPoem(List(event.target).selectedItem)"/>
+    <mx:VRule height="100%"/>
+    <mx:Canvas id="canvas" height="100%" width="50%"/>
+  </mx:HBox>
+
+  <mx:HRule x="0" y="0" width="100%"/>
+  <mx:HRule x="0" y="200" width="100%"/>
+
+  <mx:HBox y="202" width="100%" horizontalAlign="center">
+    <mx:Button label="Get Poems from Server" click="refresh()"/>
+  </mx:HBox>
+
+</mx:Canvas>

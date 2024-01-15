@@ -1,0 +1,115 @@
+//Microsoft App Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+#ifdef APSTUDIO_INVOKED
+//////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""res\\cisnodes.rc2""  // non-App Studio edited resources\r\n"
+    "\r\n"
+    "#include ""afxres.rc""  \011// Standard components\r\n"
+    "\0"
+END
+
+/////////////////////////////////////////////////////////////////////////////////////
+#endif    // APSTUDIO_INVOKED
+
+
+//////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+IDR_MAIN_ICON           ICON    DISCARDABLE     "RES\\CISNODES.ICO"
+
+//////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+                   
+IDD_ABOUTBOX DIALOG DISCARDABLE  23, 15, 139, 176
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "About"
+FONT 8, "MS Sans Serif"
+BEGIN
+    LTEXT           "CIS Node Sucher",IDC_STATIC,53,17,59,9
+    LTEXT           "Version 1.0",IDC_STATIC,53,28,39,9
+    CTEXT           "Copyright 1994 by",IDC_STATIC,30,47,79,9
+    CTEXT           "Ralph Sch\344r",IDC_STATIC,42,57,55,9
+    CONTROL         "",IDC_STATIC,"Static",SS_BLACKFRAME,13,9,112,139
+    DEFPUSHBUTTON   "OK",IDOK,44,155,50,14
+    ICON            IDR_MAIN_ICON,IDC_STATIC,27,16,18,20
+    LTEXT           "Dieses Programm ist Freeware",IDC_STATIC,19,79,101,9
+    LTEXT           "Programmiert mit MS Visual C++ 1.5",IDC_STATIC,19,97,
+                    101,18
+    LTEXT           "Fragen zum Programm an CompuServe ID 100327,760",
+                    IDC_STATIC,19,122,101,21
+END
+
+MAIN_DLG_WINDOW DIALOG DISCARDABLE  62, 52, 159, 87
+STYLE WS_MINIMIZEBOX | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "CIS Node Sucher"
+FONT 8, "MS Sans Serif"
+BEGIN
+    EDITTEXT        IDC_EDIT,113,8,26,12,ES_UPPERCASE | ES_NOHIDESEL
+    LTEXT           "Gesuchter Node:",-1,33,10,59,9
+    CONTROL         "",-1,"Static",SS_BLACKFRAME,28,8,69,12
+    CTEXT           "",IDC_NODE,6,29,146,9
+    CONTROL         "",-1,"Static",SS_BLACKFRAME,3,26,153,15
+    PUSHBUTTON      "E&xit",IDC_EXIT,9,66,32,14
+    PUSHBUTTON      "&About",IDC_ABOUT,64,66,32,14
+    DEFPUSHBUTTON   "&Suchen",IDC_SUCHEN,119,66,32,14
+    CONTROL         "Fenster immer zuoberst",IDC_TOPMOST,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,38,50,89,12
+END
+
+
+//////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE PRELOAD DISCARDABLE 
+BEGIN
+    AFX_IDS_APP_TITLE       "CISNODES Windows Application"
+END
+
+
+#ifndef APSTUDIO_INVOKED
+////////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#include "res\cisnodes.rc2"  // non-App Studio edited resources
+
+#include "afxres.rc"  	// Standard components
+
+/////////////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

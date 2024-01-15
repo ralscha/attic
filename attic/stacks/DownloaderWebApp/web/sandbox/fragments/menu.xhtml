@@ -1,0 +1,20 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+                      "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+                      
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:s="http://jboss.com/products/seam/taglib"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:rich="http://richfaces.org/rich">
+                
+	<div id="menu"><h:form id="menuForm">
+		<h2 class="accessibility">Navigation Menu</h2>
+		<ul>
+			<li><s:link id="home" view="/sandbox/home.xhtml" value="Home" propagation="none" tabindex="1000" /></li>
+			<li><s:link id="courses" action="#{courseAction.showCourses}" value="Courses" tabindex="1001" /></li>
+			<li><s:link id="badCourses" action="#{badCourseAction.showCourses}" value="Courses (Bad)" tabindex="1002" propagation="none"/></li>
+		</ul>
+	</h:form></div>
+</ui:composition>
+

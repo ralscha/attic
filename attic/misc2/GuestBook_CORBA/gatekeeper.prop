@@ -1,0 +1,9 @@
+#GateKeeper Properties
+#Tue Sep 22 20:02:42 CEST 1998
+disable_location_service=false
+exterior_port=15000
+disable_http_service=false
+enable_callbacks=true
+ior_file_name=gatekeeper.ior
+log_level=quiet
+enable_clone_connection=false

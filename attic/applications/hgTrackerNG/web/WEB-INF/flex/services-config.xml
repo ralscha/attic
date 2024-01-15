@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<services-config>
+
+	<services>
+		<service id="granite-service" class="flex.messaging.services.RemotingService" messageTypes="flex.messaging.messages.RemotingMessage">
+      
+      <destination id="spielService">
+        <channels>
+          <channel ref="hgtgraniteamf" />
+        </channels>
+        <properties>
+          <factory>springFactory</factory>
+          <source>spielService</source>
+        </properties>
+      </destination>       
+     
+      <destination id="spielerService">
+        <channels>
+          <channel ref="hgtgraniteamf" />
+        </channels>
+        <properties>
+          <factory>springFactory</factory>
+          <source>spielerService</source>
+        </properties>
+      </destination>  
+            
+      <destination id="artService">
+        <channels>
+          <channel ref="hgtgraniteamf" />
+        </channels>
+        <properties>
+          <factory>springFactory</factory>
+          <source>artService</source>
+        </properties>
+      </destination>			
+			
+			<destination id="clubService">
+				<channels>
+					<channel ref="hgtgraniteamf" />
+				</channels>
+				<properties>
+					<factory>springFactory</factory>
+					<source>clubService</source>
+				</properties>
+			</destination>
+      
+      <destination id="loginService">
+        <channels>
+          <channel ref="hgtgraniteamf" />
+        </channels>
+        <properties>
+          <factory>springFactory</factory>
+          <source>loginService</source>
+        </properties>
+      </destination>			
+      
+      <destination id="reportService">
+        <channels>
+          <channel ref="hgtgraniteamf" />
+        </channels>
+        <properties>
+          <factory>springFactory</factory>
+          <source>reportService</source>
+        </properties>
+      </destination>        
+      
+		</service>
+	</services>
+
+	<factories>
+		<factory id="springFactory" class="org.granite.messaging.service.SpringServiceFactory" />
+	</factories>
+
+
+	<channels>
+		<channel-definition id="hgtgraniteamf" class="mx.messaging.channels.AMFChannel">			
+			 
+			<endpoint uri="http://{server.name}:{server.port}/hgttest/graniteamf/amf" class="flex.messaging.endpoints.AMFEndpoint" />
+			<!--  
+			<endpoint uri="http://{server.name}:{server.port}/hgtracker/graniteamf/amf" class="flex.messaging.endpoints.AMFEndpoint" />
+			-->
+		</channel-definition>
+	</channels>
+
+</services-config>

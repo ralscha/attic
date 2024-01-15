@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute" creationComplete="init()" 
+  currentState="logonState" xmlns:comp="ch.ess.issue.component.*">
+
+
+  <mx:Script>
+    <![CDATA[
+      import ch.ess.issue.events.LoginEvent;
+      import mx.rpc.events.ResultEvent;
+      import ch.ess.issue.entity.User;
+      
+      [Bindable]
+      private var user:User;
+        
+      private function init():void {
+        
+      } 
+      
+      private function processLogin(event:LoginEvent):void {
+        user = event.user;    
+        currentState = '';              
+      }
+      
+      private function logout():void {
+        //loginPanel.init();
+        user = null;
+        currentState = "logonState";
+      }
+      
+    ]]>
+  </mx:Script>
+  
+  <mx:ApplicationControlBar id="appBar" width="100%">
+    <mx:Label text="Logged In" fontSize="18" fontWeight="bold" color="white"  id="label1"/>
+    <mx:Spacer width="40" />
+    
+    <!--<mx:LinkBar dataProvider="{objectView}" visible="{loggedIn}"/>-->
+    <mx:Spacer width="100%"/>
+    <mx:Label text="User: {user.username}" />
+    <mx:Button label="Logoff" click="logout()"  id="button1"/>
+  </mx:ApplicationControlBar>
+  <mx:Spacer height="20" />
+  
+  <mx:RemoteObject id="userService" showBusyCursor="true" destination="userService" />
+  
+  <mx:states>
+    <mx:State name="logonState">
+      <mx:AddChild position="lastChild">
+        <comp:LoginPanel id="loginPanel" horizontalCenter="0" verticalCenter="-50" loggedOn="processLogin(event)" />
+      </mx:AddChild>
+      <mx:SetProperty target="{label1}" name="text" value="Not logged in"/>
+      <mx:RemoveChild target="{button1}"/>
+    </mx:State>
+  </mx:states>
+  
+</mx:Application>

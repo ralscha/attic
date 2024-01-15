@@ -1,0 +1,96 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="GENERATOR" content="Mozilla/4.5 [en] (X11; I; SunOS 5.6 i86pc) [Netscape]">
+   <title>Java Log Facility - Example Output</title>
+</head>
+<body text="#000000" bgcolor="#FFFFFF">
+
+<center><img SRC="gk9.jpg" NOSAVE height=200 width=153></center>
+
+<div align=right><font size=-1>$Revision: 1.1 $</font></div>
+
+<div align=right><font size=-1>$Date: 1999/09/27 12:26:04 $</font></div>
+
+<div align=right>
+<hr WIDTH="100%"></div>
+
+<table WIDTH="100%" NOSAVE >
+<tr NOSAVE>
+<td ALIGN=LEFT VALIGN=TOP NOSAVE><font color="#999999">Name:</font></td>
+
+<td NOSAVE><font color="#009900">log.functions.exclude</font></td>
+</tr>
+
+<tr NOSAVE>
+<td ALIGN=LEFT VALIGN=TOP NOSAVE><font color="#999999">Description:</font></td>
+
+<td ALIGN=LEFT VALIGN=TOP NOSAVE><font color="#000000">This controls which
+classes and functions producing events are excluded from the log output.&nbsp;
+It is a list of space separated <a href="../../classes/gnu/regexp/docs/syntax.html">gnu
+regular expressions</a></font>.&nbsp; Each expression is matched against
+the classname + "." + filename string of the class that produced each event.&nbsp;
+If any of the expressions matches the classname/filename of an event, the
+event is excluded from the logged output.&nbsp; The <a href="property.log.functions.include.html">log.functions.include</a>list
+is processed before the <font color="#009900">log.functions.exclude</font>
+so, the exclude list operates on the results of the include list and, therefore,
+potentially excludes files that were previously included.</td>
+</tr>
+
+<tr NOSAVE>
+<td NOSAVE><font color="#999999">Type:</font></td>
+
+<td><font color="#009900">GNU Regular expression</font></td>
+</tr>
+
+<tr NOSAVE>
+<td ALIGN=LEFT VALIGN=TOP NOSAVE><font color="#999999">Acceptable Values:</font></td>
+
+<td>See <font color="#000000"><a href="../../classes/gnu/regexp/docs/syntax.html">gnu
+regular expressions syntax</a></font>.&nbsp;</td>
+</tr>
+
+<tr NOSAVE>
+<td NOSAVE><font color="#999999">Default Value:</font></td>
+
+<td><font color="#009900">""</font></td>
+</tr>
+
+<tr NOSAVE>
+<td ALIGN=LEFT VALIGN=TOP NOSAVE><font color="#999999">Example Usage:</font></td>
+
+<td>
+<table BORDER WIDTH="100%" NOSAVE >
+<tr NOSAVE>
+<td NOSAVE>$ java -D<font color="#009900">log.functions.exclude</font>=".*toString"
+...</td>
+
+<td>This will log all events other than those generated from the "toString()"
+function of any class.</td>
+</tr>
+
+<tr>
+<td>$ java -D<font color="#009900">log.functions.exclude</font>=".*MyClass\.func"
+...</td>
+
+<td>This will log all events other than those generated from the func()
+function of class MyClass.</td>
+</tr>
+
+<tr>
+<td>$ java -D<font color="#009900">log.functions.exclude</font>=".*MyClass\.func
+.*toString"&nbsp; ...</td>
+
+<td>This combines the effect of the previous two examples and logs all
+events other than those produced from the toString() and the func() method
+from MyClass.</td>
+</tr>
+</table>
+&nbsp;</td>
+</tr>
+</table>
+
+<br>&nbsp;
+</body>
+</html>

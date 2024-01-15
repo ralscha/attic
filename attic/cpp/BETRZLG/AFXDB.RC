@@ -1,0 +1,105 @@
+//Microsoft App Studio generated resource script.
+//
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#define APSTUDIO_HIDDEN_SYMBOLS
+#include "windows.h"
+#undef APSTUDIO_HIDDEN_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+#ifdef APSTUDIO_INVOKED
+//////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "Cannot change standard MFC resources.\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#define APSTUDIO_HIDDEN_SYMBOLS\r\n"
+    "#include ""windows.h""\r\n"
+    "#undef APSTUDIO_HIDDEN_SYMBOLS\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+/////////////////////////////////////////////////////////////////////////////////////
+#endif    // APSTUDIO_INVOKED
+
+
+//////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    AFX_IDP_SQL_CONNECT_FAIL 
+                            "Verbindungsversuch mit der Datenquelle fehlgeschlagen."
+    AFX_IDP_SQL_RECORDSET_FORWARD_ONLY 
+                            "Recordset unterst\374tzt nur Vorw\344rtsbewegungen."
+    AFX_IDP_SQL_EMPTY_COLUMN_LIST 
+                            "Versuch die Tabelle zu laden fehlgeschlagen. Angegebene Spalte nicht vorhanden."
+    AFX_IDP_SQL_FIELD_SCHEMA_MISMATCH 
+                            "Unexpected column data types were returned from query."
+    AFX_IDP_SQL_ILLEGAL_MODE "Update- oder L\366schversuch fehlgeschlagen"
+    AFX_IDP_SQL_MULTIPLE_ROWS_AFFECTED "Mehrere Reihen wurden ver\344ndert."
+    AFX_IDP_SQL_NO_CURRENT_RECORD 
+                            "Operation fehlgeschlagen, kein aktueller Datensatz."
+    AFX_IDP_SQL_NO_ROWS_AFFECTED 
+                            "No rows were affected by the update or delete operation."
+    AFX_IDP_SQL_RECORDSET_READONLY "Recordset ist schreibgesch\374tzt"
+    AFX_IDP_SQL_SQL_NO_TOTAL 
+                            "ODBC driver is incapable of handling LongBinary data."
+    AFX_IDP_SQL_ODBC_LOAD_FAILED 
+                            "Versuch die odbc dll zu laden fehlgeschlagen."
+    AFX_IDP_SQL_DYNASET_NOT_SUPPORTED 
+                            "ODBC Treiber unterst\374tzt keine Dynasets."
+    AFX_IDP_SQL_SNAPSHOT_NOT_SUPPORTED 
+                            "ODBC cursor library (odbccurs) wird f\374r snapshot support ben\366tigt."
+    AFX_IDP_SQL_API_CONFORMANCE 
+                            "ODBC driver incompatible with MFC database classes (API_CONFORMANCE >= SQL_OAC_LEVEL1 required)"
+    AFX_IDP_SQL_SQL_CONFORMANCE 
+                            "ODBC driver incompatible with MFC database classes (SQL_CONFORMANCE >= SQL_OSC_MINIMUM required)"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    AFX_IDP_SQL_NO_DATA_FOUND 
+                            "Attempt to scroll past end or before beginning of data"
+    AFX_IDP_SQL_ROW_UPDATE_NOT_SUPPORTED 
+                            "Dynasets werden vom ODBC Treiber nicht unterst\374tzt"
+    AFX_IDP_SQL_ODBC_V2_REQUIRED "ODBC Level 2 compliant driver ben\366tigt."
+    AFX_IDP_SQL_NO_POSITIONED_UPDATES 
+                            "Dynasets werden vom ODBC Treiber nicht unterst\374tzt"
+    AFX_IDP_SQL_LOCK_MODE_NOT_SUPPORTED 
+                            "Requested lock mode wird nicht unterst\374tz"
+    AFX_IDP_SQL_DATA_TRUNCATED "Daten wurden verst\374mmelt"
+END
+
+
+#ifndef APSTUDIO_INVOKED
+////////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

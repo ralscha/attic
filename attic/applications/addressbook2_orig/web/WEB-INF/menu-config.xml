@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+
+<MenuConfig>
+
+  <Displayers>
+    <Displayer   name="DropDown"
+                 type="com.fgm.web.menu.displayer.DropDownMenuDisplayer"/>
+    <Displayer   name="Simple"
+                 type="com.fgm.web.menu.displayer.SimpleMenuDisplayer"/>
+    <Displayer   name="CoolMenu"
+                 type="com.fgm.web.menu.displayer.CoolMenuDisplayer"/>
+    <Displayer   name="CoolMenu4"
+                 type="com.fgm.web.menu.displayer.CoolMenuDisplayer4"/>
+    <Displayer   name="MenuForm"
+                 type="com.fgm.web.menu.example.PermissionsFormMenuDisplayer"/>
+    <Displayer   name="ListMenu"
+                 type="com.fgm.web.menu.displayer.ListMenuDisplayer"/>
+    <Displayer   name="TabbedMenu"
+                 type="com.fgm.web.menu.displayer.TabbedMenuDisplayer"/>
+    <Displayer   name="TigraMenu"
+                 type="ch.ess.common.web.TigraMenuDisplayer"/>
+
+  </Displayers>
+
+  <Menus>
+
+    <!-- Main Menu -->
+    <Menu  name="m_application" title="Addressbook" roles="user,admin" page="/default.do"> 
+    </Menu>   
+
+    <Menu  name="m_administration" title="Administration"> 
+      <Item name="i_general" title="Personal" page="/editUserConfig.do" roles="user,admin"/>    
+      <Item name="i_system" title="System" page="/editConfig.do" roles="admin"/>
+      
+      <Item name="i_users" title="Users" page="/users.do?clean=1" roles="admin"/>      
+    </Menu>  
+
+    <Menu  name="m_logout" title="Logout" roles="user,admin" page="/logout.jsp"/> 
+      
+    
+  </Menus>
+
+</MenuConfig>

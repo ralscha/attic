@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:t="urn:schemas.fabasoft.com:CDOCUMENT" targetNamespace="urn:schemas.fabasoft.com:CDOCUMENT" elementFormDefault="qualified">
+
+  <xsd:element name="CDOCUMENT" type="t:CDOCUMENTType"/>
+
+  <xsd:complexType name="CDOCUMENTType">
+    <xsd:sequence>
+        <xsd:element name="objname" minOccurs="0" maxOccurs="1" type="xsd:string"/>
+        <xsd:element name="objaddress" minOccurs="0" maxOccurs="1" type="xsd:string"/>
+        <xsd:element name="objurl" minOccurs="0" maxOccurs="1" type="xsd:string"/>
+        <xsd:element name="extension" minOccurs="0" maxOccurs="1" type="xsd:string"/>
+        <xsd:element name="fileid" minOccurs="0" maxOccurs="1" type="xsd:string"/>
+
+        <xsd:element name="parent" minOccurs="0" maxOccurs="1" type="t:ObjectType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <xsd:complexType name="ObjectType">
+    <xsd:sequence>
+        <xsd:element name="objname" minOccurs="0" maxOccurs="1" type="xsd:string"/>
+        <xsd:element name="objaddress" minOccurs="0" maxOccurs="1" type="xsd:string"/>
+        <xsd:element name="objurl" minOccurs="0" maxOccurs="1" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+
+</xsd:schema>

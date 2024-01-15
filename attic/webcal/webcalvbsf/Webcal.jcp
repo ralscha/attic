@@ -1,0 +1,108 @@
+! ** JCreator Project File (C)2000
+! ********** DO NOT EDIT *********
+
+VERSION := "1.10"
+LABEL := "Webcal"
+JDKPROFILE := "java2"
+ACTIVE := "1"
+OUTPUTPATH := "WEB-INF\\classes"
+COMPILER := "<Default>"
+
+! Start RunTime Configuration Structure
+#[BeginRunTime]LABEL := "<Default>" RUNAPPLIC := "" RUNAPPLET := "" PARAM := "" RUN := "ch.ess.calendar.util.CheckLicense" CHECK := "10" #[EndRunTime]
+! Start Required Libraries Structure
+#[BeginRLibrary]LABEL := "Webcal" #[EndRLibrary]
+#[BeginRLibrary]LABEL := "servlet" #[EndRLibrary]
+
+! Start Project Folder Structure
+#[BeginFolder]
+LABEL := "Root"
+FILTER := ""
+
+#[BeginFolder]
+LABEL := "ch"
+FILTER := ""
+
+#[BeginFolder]
+LABEL := "ess"
+FILTER := ""
+
+#[BeginFolder]
+LABEL := "calendar"
+FILTER := ""
+
+#[BeginFile]SOURCE := "src\\ch\\ess\\calendar\\AppConfigServlet.java" #[EndFile]
+#[BeginFile]SOURCE := "src\\ch\\ess\\calendar\\AppointmentRequest.java" #[EndFile]
+#[BeginFile]SOURCE := "src\\ch\\ess\\calendar\\CategoriesMap.java" #[EndFile]
+#[BeginFile]SOURCE := "src\\ch\\ess\\calendar\\DayViewRequest.java" #[EndFile]
+#[BeginFile]SOURCE := "src\\ch\\ess\\calendar\\Summary.java" #[EndFile]
+#[BeginFile]SOURCE := "src\\ch\\ess\\calendar\\UserManagementRequest.java" #[EndFile]
+#[BeginFile]SOURCE := "src\\ch\\ess\\calendar\\WeekViewRequest.java" #[EndFile]
+#[BeginFolder]
+LABEL := "db"
+FILTER := ""
+
+#[BeginFile]SOURCE := "src\\ch\\ess\\calendar\\db\\Appointments.java" #[EndFile]
+#[BeginFile]SOURCE := "src\\ch\\ess\\calendar\\db\\Categories.java" #[EndFile]
+#[BeginFile]SOURCE := "src\\ch\\ess\\calendar\\db\\Reminders.java" #[EndFile]
+#[BeginFile]SOURCE := "src\\ch\\ess\\calendar\\db\\Repeaters.java" #[EndFile]
+#[BeginFile]SOURCE := "src\\ch\\ess\\calendar\\db\\Users.java" #[EndFile]
+#[EndFolder]
+#[BeginFolder]
+LABEL := "session"
+FILTER := ""
+
+#[BeginFile]SOURCE := "src\\ch\\ess\\calendar\\session\\AppointmentsCache.java" #[EndFile]
+#[BeginFile]SOURCE := "src\\ch\\ess\\calendar\\session\\Login.java" #[EndFile]
+#[BeginFile]SOURCE := "src\\ch\\ess\\calendar\\session\\Multi.java" #[EndFile]
+#[EndFolder]
+#[BeginFolder]
+LABEL := "tools"
+FILTER := ""
+
+#[BeginFile]SOURCE := "src\\ch\\ess\\calendar\\tools\\CreateInterbaseTables.java" #[EndFile]
+#[BeginFile]SOURCE := "src\\ch\\ess\\calendar\\tools\\CreateMSSqlServerTables.java" #[EndFile]
+#[BeginFile]SOURCE := "src\\ch\\ess\\calendar\\tools\\CreateMySqlTables.java" #[EndFile]
+#[BeginFile]SOURCE := "src\\ch\\ess\\calendar\\tools\\CreateTables.java" #[EndFile]
+#[BeginFile]SOURCE := "src\\ch\\ess\\calendar\\tools\\ReminderRunner.java" #[EndFile]
+#[BeginFile]SOURCE := "src\\ch\\ess\\calendar\\tools\\ReminderServlet.java" #[EndFile]
+#[EndFolder]
+#[BeginFolder]
+LABEL := "util"
+FILTER := ""
+
+#[BeginFile]SOURCE := "src\\ch\\ess\\calendar\\util\\Base64.java" #[EndFile]
+#[BeginFile]SOURCE := "src\\ch\\ess\\calendar\\util\\BrowserDetector.java" #[EndFile]
+#[BeginFile]SOURCE := "src\\ch\\ess\\calendar\\util\\CheckLicense.java" #[EndFile]
+#[BeginFile]SOURCE := "src\\ch\\ess\\calendar\\util\\Constants.java" #[EndFile]
+#[BeginFile]SOURCE := "src\\ch\\ess\\calendar\\util\\Holidays.java" #[EndFile]
+#[BeginFile]SOURCE := "src\\ch\\ess\\calendar\\util\\License.java" #[EndFile]
+#[BeginFile]SOURCE := "src\\ch\\ess\\calendar\\util\\MailSender.java" #[EndFile]
+#[BeginFile]SOURCE := "src\\ch\\ess\\calendar\\util\\StreamCopier.java" #[EndFile]
+#[BeginFile]SOURCE := "src\\ch\\ess\\calendar\\util\\Version.java" #[EndFile]
+#[BeginFolder]
+LABEL := "holidays"
+FILTER := ""
+
+#[BeginFile]SOURCE := "src\\ch\\ess\\calendar\\util\\holidays\\Ascension.java" #[EndFile]
+#[BeginFile]SOURCE := "src\\ch\\ess\\calendar\\util\\holidays\\WhitMonday.java" #[EndFile]
+#[BeginFile]SOURCE := "src\\ch\\ess\\calendar\\util\\holidays\\WhitSunday.java" #[EndFile]
+#[EndFolder]
+#[EndFolder]
+#[EndFolder]
+#[BeginFolder]
+LABEL := "util"
+FILTER := ""
+
+#[BeginFolder]
+LABEL := "pool"
+FILTER := ""
+
+#[BeginFile]SOURCE := "src\\ch\\ess\\util\\pool\\DatabasePool.java" #[EndFile]
+#[BeginFile]SOURCE := "src\\ch\\ess\\util\\pool\\LifeGuardThread.java" #[EndFile]
+#[BeginFile]SOURCE := "src\\ch\\ess\\util\\pool\\PoolManager.java" #[EndFile]
+#[EndFolder]
+#[EndFolder]
+#[EndFolder]
+#[EndFolder]
+#[EndFolder]

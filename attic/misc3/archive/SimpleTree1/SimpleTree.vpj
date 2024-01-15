@@ -1,0 +1,24 @@
+[COMPILER]
+FILTEREXPANSION=
+[STATE]
+SCREEN: 1280 1024 247 -2 846 707 0 0 N 0 0 0 0 597 470
+CWD: D:\Projects\JavaPro\JTree\SimpleTree
+BUFFER: BN="D:\Projects\JavaPro\JTree\SimpleTree\TreeDemo.java"
+BI: MA=1 74 1  TABS=1 9  WWS=1 IWT=0 ST=0 IN=2 BW=0 US=32000 RO=0 SE=1 SN=0 BIN=0 MN=Java	HM=0 MF=864
+VIEW: LN=.0 CL=1 LE=0 CX=0 CY=1 WI=5 BI=17 HT=0 HN=0 HF=0 HC=4
+WINDOW: 110 110 443 323 -1 -1 M  WF=0 WT=1 "OEM Fixed Font,10,0"
+BUFFER: BN="D:\Projects\JavaPro\JTree\SimpleTree\TreeDemo.java"
+VIEW: LN=.0 CL=1 LE=0 CX=0 CY=1 WI=110 BI=17 HT=0 HN=0 HF=0 HC=4
+FILEHIST: 9
+D:\Projects\PatternJava\Programs\Swing\Table\JxFrame.java
+D:\Projects\PatternJava\Programs\Swing\Table\ModelTable.java
+D:\Projects\PatternJava\Programs\Swing\Table\MusicModel.java
+D:\Projects\PatternJava\Programs\Swing\Table\ourRenderer.java
+D:\Projects\PatternJava\Programs\Swing\Table\SimpleTable.java
+D:\Projects\PatternJava\Programs\Swing\Table\RenderTable.java
+D:\Projects\PatternJava\Programs\Swing\Tree\TreeDemo.java
+D:\Projects\PatternJava\Programs\Swing\Tree\JxFrame.java
+D:\Projects\JavaPro\JTree\SimpleTree\TreeDemo.java
+PRINTER: 2
+
+PRINTER: 2

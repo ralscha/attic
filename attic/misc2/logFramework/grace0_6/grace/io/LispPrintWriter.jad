@@ -1,0 +1,83 @@
+// Decompiled by Jad v1.5.7. Copyright 1997-99 Pavel Kouznetsov.
+// Jad home page: http://www.geocities.com/SiliconValley/Bridge/8617/jad.html
+// Decompiler options: packimports(3) 
+// Source File Name:   LispPrintWriter.java
+
+package grace.io;
+
+import java.io.*;
+
+// Referenced classes of package grace.io:
+//            PrintWriter
+
+public class LispPrintWriter extends grace.io.PrintWriter
+{
+
+    public LispPrintWriter(OutputStream stream)
+    {
+        super(stream);
+    }
+
+    public LispPrintWriter(OutputStream stream, boolean flush)
+    {
+        super(stream, flush);
+    }
+
+    public LispPrintWriter(Writer writer)
+    {
+        super(writer);
+    }
+
+    public LispPrintWriter(Writer writer, boolean flush)
+    {
+        super(writer, flush);
+    }
+
+    public void print(String name, Object value)
+    {
+        print(value);
+        if(value instanceof String)
+            endPrimitiveValue();
+    }
+
+    public void print(String name, int value)
+    {
+        print(value);
+        endPrimitiveValue();
+    }
+
+    public void beginList()
+    {
+        printRaw("(");
+    }
+
+    public void addListItemSeparator()
+    {
+        printRaw(" ");
+    }
+
+    public void endList()
+    {
+        printRaw(")");
+    }
+
+    public void beginObject()
+    {
+        printRaw("(");
+    }
+
+    public void endObject()
+    {
+        printRaw(")");
+    }
+
+    protected void printNullString()
+    {
+        printRaw("\"\"");
+    }
+
+    protected void printNullObject()
+    {
+        printRaw("nil");
+    }
+}

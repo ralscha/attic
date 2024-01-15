@@ -1,0 +1,6 @@
+<action-mappings>
+
+  <action path="/addContact" actionClass="ch.ess.addressbook.action.AddContactAction" formAttribute="contactForm"
+    formClass="ch.ess.addressbook.form.ContactForm" />
+
+</action-mappings>

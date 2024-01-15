@@ -1,0 +1,88 @@
+<%@ include file="/include/taglibs.jspf"%>
+
+#if ($config.dropDownMenu == "false")
+<menu:ctx path="menu/m_administration/i_${clazz.nameAllSmall}s"/>
+#end
+
+<html>
+  <head><title></title></head>
+  <body>
+	
+  #foreach( $property in $clazz.properties )
+  #if ($property.finder)
+  #if ($property.option)
+	<misc:initSelectOptions id="${property.nameWithoutId}Option" name="${property.nameWithoutId}Options" scope="request" />
+	#end
+	#end
+	#end
+	
+	<html:form action="/list${clazz.name}.do" #if ($clazz.focusProperty) focus="value(${clazz.focusProperty})"#end>
+		<forms:form type="search" formid="frmList${clazz.name}">
+		  <forms:html>
+			  <table cellspacing='0' cellpadding='0'>
+			  
+			  <tr>		  		    
+		      #foreach( $property in $clazz.properties )
+	        #if ($property.finder)		
+	        #if ($property.nameEndsWithId)	  
+			    <td class='searchfl'><bean:message key="${property.nameWithoutId}"/>:</td>
+			    #else
+			    <td class='searchfl'><bean:message key="${clazz.nameSmall}.${property.name}"/>:</td>			    
+			    #end
+	        #end
+	        #end
+				  <td class='fb'></td>
+	      </tr>      
+			  <tr>
+		      #foreach( $property in $clazz.properties )
+	        #if ($property.finder)		
+	        #if ($property.option)
+				  <td class='fd'>
+				   <html:select property="value(${property.name})">
+             <html:option value=" ">&nbsp;</html:option>
+             <html:optionsCollection name="${property.nameWithoutId}Option" property="labelValue"/>   
+           </html:select>
+				  </td>		        
+	        #else		  
+				  <td class='fd'><html:text property="value(${property.name})" size="20" maxlength="255"/></td>
+				  #end
+		      #end
+		      #end	
+			    <td class='fb'>
+			      <ctrl:button base="buttons.src" name="btnSearch" src="btnSearch1.gif" title="button.title.search"/>		    
+          </td>		      		  				  
+			  </tr>
+			  
+			  </table>
+			</forms:html>		  	
+		</forms:form>	  	  
+  </html:form>		
+	
+	<p></p>
+	
+	<ctrl:list id="${clazz.nameAllSmall}list" 
+		   action="list${clazz.name}.do" 
+			 name="${clazz.nameAllSmall}s" 
+			 scope="session"
+			 title="${clazz.nameSmall}.${clazz.nameSmall}s" 
+			 rows="${sessionScope.noRows}"  
+			 createButton="true"
+			 refreshButton="true">
+		#foreach( $property in $clazz.properties )
+		#if ($property.list)	 
+		#if ($property.nameEndsWithId)	
+		<ctrl:columntext title="${property.nameWithoutId}" property="${property.nameWithoutId}" width="225" maxlength="30" sortable="true"/>
+		#else
+		<ctrl:columntext title="${clazz.nameSmall}.${property.nameWithoutId}" property="${property.nameWithoutId}" width="225" maxlength="30" sortable="true"/>
+		#end
+		#end
+		#end
+			#set( $start = "@{" )
+			#set( $end = "}" )			
+		<ctrl:columnedit tooltip="common.edit"/>
+		<ctrl:columndelete tooltip="common.delete" onclick="return confirmRequest('#if (${clazz.confirmProperty}) ${start}bean.map.${clazz.confirmProperty}${end}#end');"/>		
+	</ctrl:list>
+	
+  <misc:confirm key="${clazz.nameSmall}.delete"/>
+</body>
+</html>

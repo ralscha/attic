@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+
+<project name="OwnTaskExample" default="main" basedir=".">
+  <taskdef name="mytask" classname="MyVeryOwnTask"/>
+  <taskdef name="readonly" classname="ReadOnly"/>
+
+  <target name="main">
+    <mytask message="Hello World! MyVeryOwnTask works!"/>
+    <readonly  file="startant.bat" />
+  </target>
+  
+  
+  
+</project>

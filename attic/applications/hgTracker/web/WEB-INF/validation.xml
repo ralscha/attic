@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<!DOCTYPE form-validation PUBLIC
+     "-//Apache Software Foundation//DTD Commons Validator Rules Configuration 1.3.0//EN"
+     "http://jakarta.apache.org/commons/dtds/validator_1_3_0.dtd">
+
+<form-validation>
+
+    <formset>
+
+        <form name="loginForm">
+            <field
+                property="benutzername"
+                depends="required">
+                    <arg key="benutzername"/>
+            </field>
+			<field
+                property="passwort"
+                depends="required">
+                    <arg key="passwort"/>
+            </field>
+        </form>
+		
+		<form name="spielerForm">
+            <field
+                property="nachname"
+                depends="required">
+                    <arg key="nachname"/>
+            </field>
+			<field
+                property="vorname"
+                depends="required">
+                    <arg key="vorname"/>
+            </field>
+			<field
+                property="strasse"
+                depends="required">
+                    <arg key="strasse"/>
+            </field>
+			<field
+                property="plz"
+                depends="required,integer">
+                    <arg key="plz"/>
+            </field>
+			<field
+                property="ort"
+                depends="required">
+                    <arg key="ort"/>
+            </field>
+			<field
+                property="jahrgang"
+                depends="required,integer">
+                    <arg key="jahrgang"/>
+            </field>
+			<field
+                property="reihenfolge"
+                depends="integer">
+                    <arg key="reihenfolge"/>
+            </field>
+			<field
+                property="email"
+                depends="email">
+                    <arg key="email"/>
+            </field>
+        </form>
+		
+		<form name="spielForm">
+            <field
+                property="artId"
+                depends="required">
+                    <arg key="art"/>
+            </field>
+			<field
+                property="datum"
+                depends="date">
+					<var>
+						<var-name>datePatternStrict</var-name>
+						<var-value>dd.MM.yyyy</var-value>
+					</var>
+                    <arg key="datum"/>
+            </field>
+			<field
+                property="ort"
+                depends="required">
+                    <arg key="ort"/>
+            </field>
+			<field
+                property="gegner"
+                depends="required">
+                    <arg key="gegner"/>
+            </field>
+			<field
+                property="totalNr"
+                depends="integer">
+                    <arg key="totalNr"/>
+            </field>
+			<field
+                property="schlagPunkteGegner"
+                depends="integer">
+                    <arg key="schlagPunkteGegner"/>
+            </field>
+			<field
+                property="stunden"
+                depends="integer">
+                    <arg key="stunden"/>
+            </field>
+			<field
+                property="minuten"
+                depends="integer">
+                    <arg key="minuten"/>
+            </field>
+        </form>
+
+    </formset>
+
+</form-validation>

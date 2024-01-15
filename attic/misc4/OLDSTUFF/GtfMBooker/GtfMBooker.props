@@ -1,0 +1,31 @@
+#Zurich DB
+
+db.name = Liability.odb
+
+db.driver=COM.ibm.db2.jdbc.net.DB2Driver
+db.url = jdbc:db2://159.122.136.252:6789/gtfzrh
+db.user = db2admin
+db.password = cial3adm
+
+currency.file = currency.dat
+branches.file = branches.dat
+
+gtf.type.001 = importDc,00478
+gtf.type.002 = exportDc,00479
+gtf.type.003 = exportLcAdvised,00441
+gtf.type.004 = exportLcConfirmed,00442
+gtf.type.005 = importLc,00440
+gtf.type.006 = purchaseOfClaim,00444
+gtf.type.007 = acceptance,00443
+
+bu.code.001 = 0011
+bu.code.002 = 0014
+
+service.center.001 = 0835 Zürich
+service.center.002 = 0823 Zug
+service.center.003 = 0637 St. Gallen
+service.center.004 = 0060 Basel
+service.center.005 = 0094 Bern
+service.center.006 = 0456 Lugano
+service.center.007 = 0425 Lausanne
+service.center.008 = 0251 Genf

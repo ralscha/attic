@@ -1,0 +1,205 @@
+<style type=text/css>
+
+A {
+	font-family: Lucida, Arial, Helvetica, sans-serif;
+	font-size: 8pt;
+	font-style: normal;
+	font-weight: normal;
+}
+A:link {
+	color: #000090
+}
+A:visited {
+	color: #000090
+}
+A:active {
+	color: #000090
+}
+
+FONT {
+	color: black
+	font-family: Lucida, Arial, Helvetica, sans-serif;
+	font-size: 12pt;
+	font-style: normal;
+	font-weight: normal;
+}
+
+FONT.Reverse { color: white }
+
+FONT.Small { 
+	font-size: 10pt;
+}
+
+BODY { 
+	color: #000000; 
+	background-color: #ffffff; 
+	font-family: Lucida, Arial, Helvetica, sans-serif;
+	font-size: 12pt;
+	font-style: normal;
+	font-weight: normal;
+}
+
+P { 
+	font-family: Lucida, Arial, Helvetica, sans-serif;
+	font-size: 12pt;
+	font-style: normal;
+	font-weight: normal;
+}
+
+P.Summary { 
+	font-size: 12pt;
+	font-weight: bold;
+}
+
+P.Small-Summary { 
+	color: #000090;
+	font-size: 10pt;
+	font-style: italic;
+	font-weight: bold;
+}
+
+P.Navigation { 
+	color: #000090;
+	font-size: 10pt;
+	font-style: normal;
+	font-weight: normal;
+}
+
+P.Section1 { 
+	font-style: italic;
+	font-weight: bold;
+}
+
+P.BookAuthor { 
+	font-size: 10pt;
+	font-style: italic;
+}
+
+P.Address { 
+	font-size: 10pt;
+	text-align: right;
+}
+
+P.Copyright { 
+	font-size: 9pt;
+	font-weight: bold;
+}
+
+TABLE {
+	background-color: white;
+	font-family: Lucida, Arial, Helvetica, sans-serif;
+	font-size: 12pt;
+	font-style: normal;
+	font-weight: normal;
+}
+
+TABLE.Primary {
+	background-color: #000090
+}
+
+TABLE.Secondary {
+	background-color: #EDEDED
+}
+
+TD { 
+	color: black;
+	background-color: white;
+	font-family: Lucida, Arial, Helvetica, sans-serif;
+	font-size: 12pt;
+	font-style: normal;
+	font-weight: normal;
+}
+
+TD.Primary { 
+	background-color: #000090
+}
+
+TD.Secondary { 
+	background-color: #EDEDED
+}
+
+TD.Author { 
+	background-color: #EDEDED;
+	font-size: 12pt;
+	font-style: italic;
+}
+
+TD.Border {
+	background-color: #000090;
+	height: 1;
+	font-size: 2pt;
+	font-weight: bolder;
+}
+
+TD.PageTitle { 
+	color: white;
+	background-color: #000090;
+	font-size: 22pt;
+	font-weight: bold;
+	text-align: center;
+}
+
+TD.Header {
+	color: white;
+	background-color: #000090;
+	font-size: 14pt;
+	font-style: normal;
+	font-weight: bold;
+	vertical-align: middle;
+}
+
+TD.SubHeader {
+	color: #000090;
+	background-color: #EDEDED;
+	font-size: 12pt;
+	font-style: normal;
+	font-weight: bold;
+	vertical-align: middle;
+}
+
+UL { 
+	font-family: Lucida, Arial, Helvetica, sans-serif;
+	font-size: 12pt;
+	font-style: normal;
+	font-weight: normal;
+}
+
+UL.Contrast { 
+	color: #000090;
+	font-family: Lucida, Arial, Helvetica, sans-serif;
+	font-size: 10pt;
+	font-style: normal;
+	font-weight: bold;
+}
+
+.Bold { 
+	color: #000090;
+	font-family: Lucida, Arial, Helvetica, sans-serif;
+	font-size: 12pt;
+	font-style: normal;
+	font-weight: bold;
+}
+
+OL { 
+	font-family: Lucida, Arial, Helvetica, sans-serif;
+	font-size: 12pt;
+	font-style: normal;
+	font-weight: normal;
+}
+
+CODE { 
+	font-family: "Lucida Console", Courier;
+	font-size: 10pt;
+	font-style: normal;
+	font-weight: normal;
+}
+
+.Bold { 
+	color: #000090;
+	font-family: Lucida, Arial, Helvetica, sans-serif;
+	font-size: 12pt;
+	font-style: normal;
+	font-weight: bold;
+}
+
+</style>

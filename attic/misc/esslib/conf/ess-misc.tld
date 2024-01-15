@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE taglib PUBLIC "-//Sun Microsystems, Inc.//DTD JSP Tag Library 1.2//EN" 
+"http://java.sun.com/j2ee/dtds/web-jsptaglib_1_2.dtd">
+
+<taglib>
+
+  <tlib-version>1.0</tlib-version>
+  <jsp-version>1.2</jsp-version>
+  <short-name>essmisc</short-name>
+  <uri>/ess-misc</uri>
+  <description>Misc ESS Tag Library</description>
+
+
+  <tag>
+    <name>noCache</name>
+    <tag-class>ch.ess.tag.misc.NoCacheTag</tag-class>
+    <body-content>empty</body-content>
+    <description>Writes no cache header information into response</description>    
+  </tag>
+    
+  <tag>
+    <name>splitLine</name>
+    <tag-class>ch.ess.tag.misc.SplitLineTag</tag-class>
+    <body-content>JSP</body-content>
+    <description>Splits the body into several lines</description>
+  </tag>
+  
+  <tag>
+    <name>filter</name>
+    <tag-class>ch.ess.tag.misc.FilterTag</tag-class>
+    <body-content>JSP</body-content>
+    <description>Replaces umlaute and ampersand with html entities</description>
+  </tag>  
+  
+  <tag>
+    <name>suppress</name>
+    <tag-class>ch.ess.tag.misc.SuppressTag</tag-class>
+    <body-content>JSP</body-content>
+    <description>Suppress white spaces</description>
+  </tag>  
+  
+  <tag>
+    <name>toString</name>
+    <tag-class>ch.ess.tag.misc.ToStringTag</tag-class>    
+    <body-content>JSP</body-content>
+    <description>copy body contents into string variable</description>
+    <variable>
+      <name-from-attribute>id</name-from-attribute>
+      <variable-class>java.lang.String</variable-class>
+      <declare>true</declare>
+      <scope>AT_END</scope>
+    </variable>    
+    <attribute>
+      <name>id</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>    
+  </tag> 
+    
+  <tag>
+    <name>truncate</name>
+    <tag-class>ch.ess.tag.misc.TruncateTag</tag-class>
+    <body-content>JSP</body-content>
+    <attribute>
+      <name>lower</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>upper</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>appendToEnd</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>tooltip</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>    
+  </tag>    
+
+
+<tag>
+  <name>confirm</name>
+  <tag-class>ch.ess.tag.misc.ConfirmTag</tag-class>
+  <body-content>empty</body-content>
+  <attribute>
+      <name>key</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+  </attribute>
+  <attribute>
+      <name>functionName</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+  </attribute>
+</tag>
+    
+</taglib>

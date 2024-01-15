@@ -1,0 +1,149 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+                      "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:s="http://jboss.com/products/seam/taglib"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:rich="http://richfaces.org/rich"
+	template="templates/master.xhtml">
+
+
+	<ui:define name="title">Courses</ui:define>
+	<ui:define name="body">
+		<h:panelGroup rendered="#{courses.rowCount eq 0}">
+			<p>
+				<em class="noResults">No courses found.</em>
+			</p>
+		</h:panelGroup>
+		<h:form id="coursesForm">
+			<h:dataTable id="courses" var="_course" value="#{courses}"
+				rendered="#{courses.rowCount gt 0}" styleClass="listing"
+				columnClasses=",,fixed,,actions" footerClass="hide">
+				<f:facet name="footer">
+					<!-- -->
+				</f:facet>
+				<h:column>
+					<f:facet name="header">Course Name</f:facet>
+					<h:commandLink action="#{courseAction.selectCourse}"
+						value="#{_course.name}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">City</f:facet>
+		            #{_course.address.city}
+		        </h:column>
+				<h:column>
+					<f:facet name="header">State</f:facet>
+		            #{_course.address.state}
+		        </h:column>
+				<h:column>
+					<f:facet name="header">Country</f:facet>
+		            #{_course.address.country}
+		        </h:column>
+				<h:column>
+					<f:facet name="header">Action</f:facet>
+					<h:panelGroup>
+						<h:commandLink id="edit" action="#{courseAction.editCourse}">
+							<h:graphicImage value="/images/edit.png" alt="[ Edit ]" />
+						</h:commandLink>
+		            	#{spacer}
+		            	<h:commandLink id="delete"
+							action="#{courseAction.deleteCourse}">
+							<h:graphicImage value="/images/delete.png" alt="[ Delete ]" />
+						</h:commandLink>
+					</h:panelGroup>
+				</h:column>
+			</h:dataTable>
+			<p class="commands">
+				<h:commandButton id="add" action="#{courseAction.addCourse}"
+					value="Add Course" />
+			</p>
+			<h:panelGroup rendered="#{course.id gt 0}">
+				<h3>
+					Course Detail
+					<small>#{spacer}-#{spacer}<h:commandLink id="hide"
+							action="#{courseAction.clearSelection}" value="hide" />
+					</small>
+				</h3>
+				<table class="detail">
+					<col width="20%" />
+					<col width="80%" />
+					<tr>
+						<th>
+							Course Name
+						</th>
+						<td>
+							#{course.name}
+							<span class="notation">#{course.type})</span>
+						</td>
+					</tr>
+					<tr>
+						<th>
+							Website
+						</th>
+						<td>
+							<h:outputLink value="#{course.uri}"
+								rendered="#{not empty course.uri}">#{course.uri}</h:outputLink>
+						</td>
+					</tr>
+					<tr>
+						<th>
+							Phone
+						</th>
+						<td>
+							<h:outputText
+								value="#{course.phoneNumber}" />
+						</td>
+					</tr>
+					<tr>
+						<th>
+							Country
+						</th>
+						<td>
+							#{course.address.country}
+						</td>
+					</tr>
+					<tr>
+						<th>
+							State
+						</th>
+						<td>
+							#{course.address.state}
+						</td>
+					</tr>
+					<tr>
+						<th>
+							County
+						</th>
+						<td>
+							#{course.address.county}
+						</td>
+					</tr>
+					<tr>
+						<th>
+							City
+						</th>
+						<td>
+							#{course.address.city}
+						</td>
+					</tr>
+					<tr>
+						<th>
+							ZIP Code
+						</th>
+						<td>
+							#{course.address.postalCode}
+						</td>
+					</tr>
+				</table>
+				<h:panelGroup rendered="#{not empty course.description}">
+					<p>
+						<q>...#{course.description}</q>
+					</p>
+				</h:panelGroup>
+			</h:panelGroup>
+		</h:form>
+	</ui:define>
+</ui:composition>
+

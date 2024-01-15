@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+
+<MenuConfig>
+  <Displayers>
+    <Displayer name="MenuBar" type="ch.ess.base.web.MenuBarDisplayer"/>                 
+  </Displayers>
+
+  <Menus>
+      <Menu name="m_mainmenu">    
+        <Item name="m_stammdaten" title="stammdaten" roles="$stammdaten"> 
+          <Item name="i_werk" title="werk.menu" page="/werkList.do?clean=1&amp;startCrumb=1" roles="$stammdaten"/>    
+          <Item name="i_lieferanten" title="lieferant.menu" page="/lieferantList.do?clean=1&amp;startCrumb=1" roles="$stammdaten"/>              
+        </Item>   
+
+        <Item name="m_bewertung" title="bewertung.menu" roles="$bewertung" page="/bewertungList.do?nolist=1&amp;clean=1&amp;startCrumb=1" > 
+        </Item>   
+
+        <Item name="m_reports" title="reports.menu" roles="$reports" > 
+          <Item name="i_bewertung" title="reports.bewertungen" page="/bewertungReportList.do?nolist=1&amp;clean=1&amp;startCrumb=1" roles="$reports"/>    
+          <Item name="i_zertifizierungen" title="reports.zertifizierungen" page="/zertifizierungen.do?clean=1&amp;startCrumb=1" roles="$reports"/>    
+        </Item>  
+        
+        <Item name="m_administration" title="application.administration" roles="$userconfig,$admin"> 
+          <Item name="i_userconfig" title="userconfig.menu" page="/userConfig.do?clean=1&amp;startCrumb=1" roles="$userconfig"/>    
+          <Item name="i_config" title="config.menu" page="/config.do?clean=1&amp;startCrumb=1" roles="$admin"/>   
+          <Item name="i_textresources" title="textresource.menu" page="/textResourceList.do?clean=1&amp;startCrumb=1" roles="$admin"/>        
+          <Item name="seperator1" roles="$admin"/>
+          <Item name="i_usergroups" title="usergroup.menu" page="/userGroupList.do?clean=1&amp;startCrumb=1" roles="$admin"/>      
+          <Item name="i_users" title="user.menu" page="/userList.do?clean=1&amp;startCrumb=1" roles="$admin"/>      
+        </Item>
+        <Item name="m_logout" title="login.logout" page="/logout.do"/> 
+      </Menu>  
+
+  </Menus>
+
+</MenuConfig>

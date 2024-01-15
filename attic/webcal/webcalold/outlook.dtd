@@ -1,0 +1,16 @@
+<?xml encoding="UTF-8"?>
+<!ELEMENT outlook (appointment)*>
+<!ATTLIST outlook userid CDATA #REQUIRED>
+<!ELEMENT appointment (start,end,subject,body?,location?,importance?,categories?,reminder?)>
+<!ATTLIST appointment allday (true|false) #REQUIRED>
+<!ATTLIST appointment private (true|false) 'false'>
+<!ELEMENT start (#PCDATA)>
+<!ELEMENT end (#PCDATA)>
+<!ELEMENT subject (#PCDATA)>
+<!ELEMENT body (#PCDATA)>
+<!ELEMENT location (#PCDATA)>
+<!ELEMENT importance (#PCDATA)>
+<!ELEMENT categories (#PCDATA)>
+<!ELEMENT reminder (minutesbefore, email)>
+<!ELEMENT minutesbefore (#PCDATA)>
+<!ELEMENT email (#PCDATA)>

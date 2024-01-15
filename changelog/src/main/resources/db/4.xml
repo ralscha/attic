@@ -1,0 +1,71 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-2.0.xsd
+    http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+	<changeSet author="dev" id="40">
+		<createTable tableName="AccessLog">
+			<column autoIncrement="true" name="id" type="BIGINT">
+				<constraints nullable="false" primaryKey="true" primaryKeyName="PK_AccessLog" />
+			</column>	
+			
+			<column name="sessionId" type="varchar(100)" />
+			<column name="userName" type="varchar(254)" />
+			<column name="logIn" type="DATETIME" />
+			<column name="logOut" type="DATETIME" />
+
+		</createTable>
+	</changeSet>
+	
+	<changeSet author="dev" id="41">
+		<createTable tableName="persistent_logins">
+			<column name="series" type="varchar(64)">
+				<constraints nullable="false" primaryKey="true" primaryKeyName="pk_persistent_logins" />
+			</column>	
+						
+			<column name="username" type="varchar(100)">
+               <constraints nullable="false"/>
+			</column>
+
+			<column name="token" type="varchar(64)">
+               <constraints nullable="false"/>
+			</column>			
+
+			<column name="last_used" type="TIMESTAMP">
+               <constraints nullable="false"/>
+			</column>	
+		</createTable>
+	</changeSet>		
+		
+	
+	<changeSet author="dev" id="42">
+	  <addColumn tableName="User">
+        <column name="failedLogins" type="INT" />            
+        <column name="lockedOut" type="datetime" />
+      </addColumn>
+    </changeSet>
+    
+    <changeSet author="dev" id="43">
+	  <addColumn tableName="AccessLog">
+        <column name="userAgent" type="varchar(255)" />
+      </addColumn>
+    </changeSet>
+
+    <changeSet author="dev" id="44">
+	  <addColumn tableName="Customer">
+        <column name="installation" type="varchar(10)" />
+      </addColumn>
+    </changeSet>
+
+    <changeSet author="dev" id="45">
+	  <sql>update Customer set installation = 'WAR'</sql>
+    </changeSet>
+
+    <changeSet author="dev" id="46">
+	  <addColumn tableName="CustomerBuild">
+        <column name="internalBuild" type="BOOLEAN" />
+      </addColumn>
+    </changeSet>
+
+
+</databaseChangeLog>

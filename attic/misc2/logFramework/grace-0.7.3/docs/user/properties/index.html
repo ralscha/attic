@@ -1,0 +1,561 @@
+<html>
+<head>
+   <title>Grace JavaLog</title>
+</head>
+<body text="#000000" bgcolor="#FFFFFF" link="#0000EE" vlink="#551A8B" alink="#FF0000">
+
+<table width=100%>
+<tr>
+<td><img SRC="../gkrwseat.jpg" NOSAVE height=200 width=153>
+<td valign=top>
+  <table width="100%" bgcolor="#FFCC00">
+  <tr><td><font size=+4 color=Green><div align=right><b>Property Summary</b></font>
+  </table>
+<div align=right><font size=+2 color=gray><b><i>Grace Software</b></i></font>
+<div align=right><font size=+2 color=gray><b><i>JavaLog</b></i></font>
+<br>
+<br>
+<div align=right><font size=-1 color="#B0B0B0">$Revision: 1.2 $</font></div>
+<div align=right><font size=-1 color="#B0B0B0">$Date: 1999/10/11 00:05:15 $</font></div>
+</table>
+
+<h2>Introduction</h2>
+
+The Java Log Facility can be configured at the start of the program
+using command line parameters. When the program is started, the
+following Java properties may be specified to override the default
+configuration of the Log Facility. These options are given to the Java
+virtual machine as in the following example:
+
+<pre>
+    $ java -Dlog.errors=true -Dlog.traces=false MyJavaProgram
+</pre>
+
+
+<h2>Properties</h2>
+
+<table BORDER WIDTH="100%" NOSAVE>
+<tr BGCOLOR="#33CCFF" NOSAVE>
+<td NOSAVE>
+<center><b>Property</b></center>
+</td>
+
+<td>
+<center><b>Acceptable Values</b></center>
+</td>
+
+<td>
+<center><b>Default Value</b></center>
+</td>
+
+<td NOSAVE>
+<center><b>Description</b></center>
+</td>
+</tr>
+
+<tr>
+<td><a href="log.html">log</a></td>
+<td>true | false</td>
+<td>true</td>
+
+<td>This enables or disables the entire Log Facility.&nbsp;
+In other words, if false, no logging will be performed.</td>
+</tr>
+
+<tr>
+<td>log.color</td>
+<td>true | false</td>
+<td>true</td>
+
+<td>This enables or disables the ANSI color in the logged output.  For
+more control over the colors, use the color options on the specific
+handler</td>
+</tr>
+
+<tr>
+<td>log.name</a></td>
+<td><i>text</i></td>
+<td><i>virtual-machine-id</i></td>
+
+<td>This allows the user to give a meaningful name to
+the virtual machine instead of the long, numeric virtual machine id
+that is used by default.  This name is used when registering the
+Distributer in the rmiregistry</td>
+</tr>
+
+<tr>
+<td><a href="rc.html">log.rc</a></td>
+<td><i>filename</i></td>
+<td><i>.logrc</i></td>
+
+<td>This specifies the name of a property file
+containing log properties.  This file has lower priority than the
+command line properties.</td>
+</tr>
+
+<tr>
+<td>log.internal</a></td>
+<td>true | false</td>
+<td>false</td>
+
+<td>This enables internal logging.  Internal logging is
+used by the actual log software.  It is mostly used for debugging but
+it may be useful to see how JavaLog is behaving.</td>
+</tr>
+
+<tr>
+<td>log.server</a></td>
+<td>true | false</td>
+<td>false</td>
+
+<td>This registers the Log Distributer in the
+rmiregistry and waits for remote clients to access it.  This is useful
+when you want this virtual machine to act as a <a
+href=../processes.html>central log</a> other remote clients. for This is
+an option because it has the sometimes annoying side effect of forcing
+the user to do a CTRL-C or System.exit(0) at the end of the program
+rather than rely on the main thread quitting.</td>
+</tr>
+
+<tr NOSAVE>
+<td><a href="format.html">log.format</a></td>
+
+<td>&nbsp;%t, %r, %n, %e, %h, %c, %f, %F, %l, %m, %o, \n,
+\t</td>
+
+<td NOSAVE>%t(%r):%n: %e: %h: %c.%f:%l%(: %m)m%(: %j)o\n\n</td>
+
+<td NOSAVE>This is the main formatting string that controls
+the appearance of the each log event.&nbsp;</td>
+</tr>
+
+<tr NOSAVE>
+<td VALIGN=TOP NOSAVE><a href="errors.html">log.errors</a></td>
+
+<td>true | false</td>
+
+<td>true</td>
+
+<td>This enables or disables logging of errors.</td>
+</tr>
+
+<tr>
+<td><a href="warnings.html">log.warnings</a></td>
+
+<td>true | false</td>
+
+<td>true</td>
+
+<td>This enables or disables logging of warnings</td>
+</tr>
+
+<tr>
+<td><a href="notices.html">log.notices</a></td>
+
+<td>true | false</td>
+
+<td>true</td>
+
+<td>This enables or disables logging of notices</td>
+</tr>
+
+<tr>
+<td><a href="traces.html">log.traces</a></td>
+
+<td>true | false</td>
+
+<td>false</td>
+
+<td>This enables or disables logging of traces</td>
+</tr>
+
+<tr>
+<td><a href="time.format.html">log.time.format</a></td>
+
+<td>short | medium | long | full | 24 | <i>SimpleDateFormat</i></td>
+
+<td>24</td>
+
+<td>This specifies the format for the time field of each
+logged event.</td>
+</tr>
+
+<tr>
+<td><a href="time.relative.html">log.time.relative</a></td>
+
+<td>clock | days | hours | minutes | seconds</td>
+
+<td><i>none</i></td>
+
+<td>This controls whether a relative time (relative to start
+of program) is appended to the event time field in the log.</td>
+</tr>
+
+<tr>
+<td>log.time.zone</td>
+<td>GMT, etc.</td>
+<td>GMT</td>
+<td>This controls the time zone that is used to format the
+event time.</td>
+</tr>
+
+<tr>
+<td><a href="message.format.html">log.message.format</a></td>
+
+<td>short | long</td>
+
+<td>long</td>
+
+<td>This controls how much information is logged for each
+event.&nbsp; 'Short' is a summary of the event that only uses one line
+in the log file.&nbsp; 'Long' means all available information is placed
+in the log for the event.</td>
+</tr>
+
+<tr>
+<td><a href="thread.format.html">log.thread.format</a></td>
+
+<td>%n, %g, %G, %<i>punc</i>, text</td>
+
+<td>%m</td>
+
+<td>This controls the format of each event message that is
+formatted in the log.</td>
+</tr>
+
+<tr>
+<td><a href="exception.format.html">log.exception.format</a></td>
+
+<td>%c, %m, %s, text</td>
+
+<td>": %c: %m: %s"</td>
+
+<td>This controls that format of an exception that is entered
+into the log.</td>
+</tr>
+
+<tr>
+<td><a href="object.format.html">log.object.format</a></td>
+
+<td>%l, %L, %j, %J, %o, text</td>
+
+<td>%j</td>
+
+<td>This controls the format and appearance of user data
+objects that are written to the log.</td>
+</tr>
+
+<tr>
+<td>log.object.time.format <a
+href="time.format.html"> (same as log.time.format)</a>
+</td>
+
+<td>short | medium | long | full | 24 |
+<i>SimpleDateFormat</i></td>
+
+<td>24</td>
+
+<td> This controls the format of any java.util.Dates
+objects or sub-objects that are logged as user data objects.</td>
+</tr>
+
+<tr>
+<td>log.object.time.zone</td>
+<td>GMT, etc.</td>
+<td>GMT</td>
+<td>This controls the time zone that is used to format
+any java.util.Date objects or sub-objects logged as user
+data.</td>
+</tr>
+
+<tr>
+<td>log.events.include</td>
+<td>space separated list of regular expressions</td>
+<td><i>".*" if log=true, else ""</i></td>
+
+<td>Any event whose event type matches one of the space
+separated expressions is included.</td>
+</tr>
+
+<tr>
+<td>log.events.exclude</a></td>
+<td>space separated list of regular expressions</td>
+<td>/i></td>
+
+<td>Any event whose event type matches one of the space
+separated expressions is excluded.  Note, the exclude list acts on
+those events that were included by the include list.</td>
+</tr>
+
+<tr>
+<td><a href="functions.include.html">log.functions.include</a></td>
+
+<td>space separated list of regular expressions</td>
+
+<td><i>none</i></td>
+
+<td>Any event whose class-name + filename matches one of the
+expressions is included.</td>
+</tr>
+
+<tr>
+<td><a href="functions.exclude.html">log.functions.exclude</a></td>
+
+<td>space separated list of regular expressions</td>
+
+<td><i>none</i></td>
+
+<td>Any event whose class-name + filename matches one of the
+expressions is excluded.</td>
+</tr>
+
+<tr>
+<td><a href="handler.name.class.html">log.handler.<i>name</i>.class</a></td>
+
+<td><a href="../api/grace/log/FileHandler.html">FileHandler</a>
+| <a href="../api/grace/log/StandardOutHandler.html">StandardOutHandler</a>
+| ...</td>
+
+<td>StandardOutHandler</td>
+
+<td>This controls which <a href="../api/grace/log/Handler.html">Handlers</a>
+class is used by the <i>named</i> Handler.&nbsp; By default all output
+is sent to the standard output.&nbsp; Most users should use the log.handler.<i>name</i>.url
+only.</td>
+</tr>
+
+<tr>
+<td>log.handler.<i>name</i>.stream</a></td>
+
+<td>out|err</td>
+
+<td>out</td>
+
+<td>This controls whether the logged output of the <a
+href="../api/grace/log/StandardOutHandler.html">StandardOutHandler</a>
+goes to the standard out or standard error</td>
+
+</tr>
+
+<tr>
+<td><a href="handler.name.events.html">log.handler.<i>name</i>.events</a></td>
+
+<td>error &amp;| warning &amp;| notice &amp;| trace &amp;|
+...</td>
+
+<td><i>all</i></td>
+
+<td>This controls which events the <i>named</i> <a href="../api/grace/log/Handler.html">Handler</a>
+will handle.&nbsp; Use an empty string ("") to specify all events.</td>
+</tr>
+
+<tr>
+<td><a href="handler.name.url.html">log.handler.<i>name</i>.url</a></td>
+
+<td>
+<br>&nbsp;file:..., jdbc:..., rmi:...</td>
+
+<td><i>none</i></td>
+
+<td>This specifies the log facility to be used.&nbsp; Currently,
+files, standard output, JDBC, and remote (RMI) facilities are allowed.&nbsp;</td>
+</tr>
+
+<tr>
+<td>log.handler.<i>name</i>.server</td>
+
+<td>true | false</td>
+
+<td>false</td>
+
+<td>Specifies that remote clients can connect to this handler
+via rmi and log to this handler.&nbsp; To do this, the handler binds its
+name in the local rmi registry.</td>
+</tr>
+
+<tr>
+<td>log.handler.<i>name</i>.maxsize</td>
+<td><i>size</i> k | <i>size</i> m</td>
+<td>0 (<i>none</i>)</td>
+<td>This is used by the <a href="../api/grace/log/FileHandler.html">FileHandler</a>
+only.&nbsp; It sets the maximum file size of the log entries.</td>
+</tr>
+
+<tr>
+<td>log.handler.<i>name</i>.username</td>
+<td><i>username</i></td>
+<td>(<i>none</i>)</td>
+<td>This is used by the <a
+href="../api/grace/log/JDBCHandler.html">JDBCHandler</a> only and is
+passed to the jdbc driver will obtaining a connection to a
+database.</td>
+</tr>
+
+<tr>
+<td>log.handler.<i>name</i>.password</td>
+<td><i>password</i></td>
+<td>(<i>none</i>)</td>
+<td>This is used by the <a
+href="../api/grace/log/JDBCHandler.html">JDBCHandler</a> only and is
+passed to the jdbc driver will obtaining a connection to a
+database.</td>
+
+</tr>
+
+<tr>
+<td>log.handler.<i>name</i>.table</td>
+<td><i>table-name</i></td>
+<td>(<i>Log</i>)</td>
+
+<td>This is used by the <a
+href="../api/grace/log/JDBCHandler.html">JDBCHandler</a> only and
+specifies name of the database table to which the Handler should write
+logs.</td>
+
+</tr>
+
+<tr>
+<td>log.handler.<i>name</i>.columns</td>
+<td><i>column-1, column-2, ..., column-N</i></td>
+<td>(<i>none</i>)</td>
+
+<td>This a comma separated list used by the <a
+href="../api/grace/log/JDBCHandler.html">JDBCHandler</a> only.  It
+specifies column name under which each the event attribute will be
+inserted into the database.</td>
+
+</tr>
+
+<tr>
+<td>log.handler.<i>name</i>.color</td>
+<td>true | false</td>
+<td>false</td>
+<td>This controls whether the PrintHandler will use ANSI color in its output.
+</td>
+</tr>
+
+<tr>
+<td>log.handler.<i>name</i>.event.<i>event-type</i>.color</td>
+<td><i>ansi-color-list<i></td>
+<td>false</td>
+
+<td>This controls the color of the event type text produced for each
+event of the given <i>event-type</i>.  Note, that
+<i>ansi-color-list</i> may be any ansi escape sequence to set the
+color or may be a space separated list from the <a
+href=colors.html>color table</a>.
+</td>
+</tr>
+
+<tr>
+<td>log.handler.<i>name</i>.line.<i>event-type</i>.color</td>
+<td><i>ansi-color-list</i></td>
+<td>false</td>
+
+<td>This controls the color of the entire logged event line of text
+produced for each event of the given <i>event-type</i>.
+</td>
+</tr>
+
+<tr>
+<td>log.handler.<i>name</i>.time.color</td>
+<td><i>ansi-color-list</i></td>
+<td>false</td>
+
+<td>This controls the color of the time text for each line logged.
+</td>
+</tr>
+
+<tr>
+<td>log.handler.<i>name</i>.time.relative.color</td>
+<td><i>ansi-color-list</i></td>
+<td>false</td>
+
+<td>This controls the color of the relative time text for each line logged.
+</td>
+</tr>
+
+<tr>
+<td>log.handler.<i>name</i>.exception.color</td>
+<td><i>ansi-color-list</i></td>
+<td>false</td>
+
+<td>This controls the color of the formatted exception text for each
+line logged.
+</td>
+</tr>
+
+<tr>
+<td>log.handler.<i>name</i>.message.color</td>
+<td><i>ansi-color-list</i></td>
+<td>false</td>
+
+<td>This controls the color of the message text for each
+line logged.
+</td>
+</tr>
+
+<tr>
+<td>log.handler.<i>name</i>.object.color</td>
+<td><i>ansi-color-list</i></td>
+<td>false</td>
+
+<td>This controls the color of the formatted object text for each line
+logged.
+</td>
+</tr>
+
+<tr>
+<td>log.handler.<i>name</i>.thread.color</td>
+<td><i>ansi-color-list</i></td>
+<td>false</td>
+
+<td>This controls the color of the thread name text for each line
+logged.
+</td>
+</tr>
+
+<tr>
+<td>log.handler.<i>name</i>.classname.color</td>
+<td><i>ansi-color-list</i></td>
+<td>false</td>
+
+<td>This controls the color of the class-name text for each line
+logged.
+</td>
+</tr>
+
+<tr>
+<td>log.handler.<i>name</i>.function.color</td>
+<td><i>ansi-color-list</i></td>
+<td>false</td>
+
+<td>This controls the color of the function-name text for each line
+logged.
+</td>
+</tr>
+
+
+</table>
+
+<p>Note: in most cases where the user can enter text, the special
+sequence '\n' can be used to insert a newline and the sequence '\t'
+can be used to insert a tab.
+<h3>
+Example Command Line</h3>
+The following command line does the following:
+<ul>
+<li>
+sets the format to log only the time, the event type, and the message,</li>
+
+<li>
+redirects the output to the file test.log</li>
+
+<li>
+sets the time zone to "European Central Time"</li>
+</ul>
+
+<pre>&nbsp;&nbsp;&nbsp; $java -Dlog.format="%t %e %m\n" -Dlog.handler.test.file=test.log -Dlog.time.zone=ECT MyLoggingProgram</pre>
+
+</body>
+</html>

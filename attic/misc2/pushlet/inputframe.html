@@ -1,0 +1,23 @@
+<script language="JavaScript" type="text/javascript">
+<!--
+
+  function push(name, city) {
+    // Refresh the display frame with the content received
+    window.frames[0].document.inputform.name.value = name;
+    window.frames[0].document.inputform.city.value = city;	
+  }
+  
+  function getName(kto) {
+  	window.frames[1].document.getform.kto.value=kto;
+	window.frames[1].document.getform.submit();
+  }
+//-->
+</script>
+
+<frameset cols="*,0" border="0">
+     <!-- frame to display the content pushed by the pushlet -->
+     <frame src="inputform.html" name="inputform" id="inputform" scrolling="No" BORDER="0">
+
+     <!-- Hidden frame with the pushlet that pushes lines of JavaScript-->
+     <frame src="get.jsp" name="pushletFrame" id="pushletFrame" scrolling="No" BORDER="0">
+</FRAMESET>

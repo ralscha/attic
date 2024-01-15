@@ -1,0 +1,288 @@
+TD
+{
+    FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif;
+    FONT-SIZE: 10pt
+}
+
+TH
+{
+	FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif;
+	FONT-SIZE: 10pt;
+	font-weight : bold;
+}
+
+.smallth
+{
+	FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif;
+	FONT-SIZE: 8pt;
+	font-weight : bold;
+}
+
+
+P  {
+	FONT-FAMILY : Verdana, Arial, Helvetica, sans-serif;
+	FONT-SIZE : 9pt;
+	MARGIN-BOTTOM : 0px;
+	MARGIN-TOP : 0px;
+	TEXT-ALIGN : left;
+}
+
+BODY  {
+	FONT-FAMILY : Verdana, Arial, Helvetica, sans-serif;
+	FONT-SIZE : 9pt;
+}
+
+H1  {
+	COLOR : black;
+	FONT-FAMILY : Verdana, Arial, Helvetica, sans-serif;
+	FONT-SIZE : large;
+	FONT-WEIGHT : bold;
+	margin-bottom : 0pt;
+	margin-top : 0pt;
+}
+
+H2  {
+	FONT-FAMILY : Verdana, Arial, Helvetica, sans-serif;
+	FONT-SIZE : medium;
+	FONT-WEIGHT : bold;
+	MARGIN-BOTTOM : 10pt;
+	MARGIN-TOP : 0pt;
+}
+
+H3  {
+	FONT-FAMILY : Verdana, Arial, Helvetica, sans-serif;
+	FONT-SIZE : small;
+}
+
+A  {
+	COLOR : Blue;
+	FONT-FAMILY : Verdana, Arial, Helvetica, sans-serif;
+}
+
+A:visited  {
+	COLOR : Blue;
+}
+
+A:active  {
+	COLOR : Blue;
+}
+
+A:hover  {
+	COLOR : #000033;
+}
+
+.date  {
+	COLOR : Black;
+	FONT-FAMILY : Verdana, Arial, Helvetica, sans-serif;
+	FONT-SIZE : 11pt;
+	FONT-WEIGHT : bold;
+	MARGIN-BOTTOM : 0px;
+	MARGIN-TOP : 0px;
+}
+
+.contentLinkSelected  {
+	COLOR : Yellow;
+	FONT-FAMILY : Verdana, Arial, Helvetica, sans-serif;
+	FONT-SIZE : 8pt;
+	FONT-WEIGHT : bold;
+	MARGIN-LEFT : 0pt;
+	MARGIN-TOP : 4pt;
+	TEXT-INDENT : 0pt;
+}
+
+.contentLink  {
+	COLOR : Blue;
+	FONT-FAMILY : Verdana, Arial, Helvetica, sans-serif;
+	FONT-SIZE : 8pt;
+	FONT-WEIGHT : bold;
+	MARGIN-LEFT : 0pt;
+	MARGIN-TOP : 4pt;
+	TEXT-INDENT : 0pt;
+}
+
+.contentTitle  {
+	COLOR : Black;
+	FONT-FAMILY : Verdana, Arial, Helvetica, sans-serif;
+	FONT-SIZE : 10pt;
+	FONT-WEIGHT : bold;
+	MARGIN-BOTTOM : 0px;
+	MARGIN-TOP : 0px;
+}
+
+.contentSubTitle  {
+	COLOR : Lime;
+	FONT-FAMILY : Verdana, Arial, Helvetica, sans-serif;
+	FONT-SIZE : 9pt;
+	FONT-WEIGHT : normal;
+	MARGIN-BOTTOM : 0px;
+	MARGIN-TOP : 0px;
+}
+
+.nr  {
+	font-size : 10pt;
+	font-weight : bold;
+	font-style : normal;
+	font-family : Verdana, Arial, Helvetica, sans-serif;
+	margin-top : 0pt;
+}
+
+.zz  {
+	font-size : 15pt;
+	font-weight : normal;
+	font-style : normal;
+	font-family : Verdana, Arial, Helvetica, sans-serif;
+}
+
+.ohne  {
+	font-size : 10pt;
+	font-family : Verdana, Arial, Helvetica, sans-serif;
+	font-weight : bold;
+	font-style : normal;
+	color : Red;
+}
+
+.mail  {
+	font-size : 9pt;
+	font-family : Verdana, Arial, Helvetica, sans-serif;
+	font-weight : normal;
+	font-style : normal;
+	color : Blue;
+}
+
+.title  {
+	COLOR : black;
+	FONT-FAMILY : Verdana, Arial, Helvetica, sans-serif;
+	FONT-SIZE : 15pt;
+	FONT-WEIGHT : bold;
+	margin-bottom : 0pt;
+	margin-top : 0pt;
+}
+
+.subTitle  {
+	COLOR : black;
+	FONT-FAMILY : Verdana, Arial, Helvetica, sans-serif;
+	FONT-SIZE : 12pt;
+	FONT-WEIGHT : bold;
+	margin-bottom : 0pt;
+	margin-top : 0pt;
+}
+
+.silverBackground  {
+	font-size : 16pt;
+	font-family : Verdana, Arial, Helvetica, sans-serif;
+	font-weight : bold;
+	font-style : normal;
+	color : Black;
+	background-color : #C0C0C0;
+}
+
+.silverBackgroundN  {
+	font-size : 15pt;
+	font-family : Verdana, Arial, Helvetica, sans-serif;
+	font-weight : normal;
+	font-style : normal;
+	color : Black;
+	background-color : #C0C0C0;
+}
+
+.tableHeader  {
+	font-size : 10pt;
+	font-family : Verdana, Arial, Helvetica, sans-serif;
+	font-weight : bold;
+	font-style : normal;
+	color : White;
+	background-color : Black;
+}
+
+.tableRowHeader  {
+	font-size : 10pt;
+	font-family : Verdana, Arial, Helvetica, sans-serif;
+	font-weight : bold;
+	font-style : normal;
+	background-color : Silver;
+}
+
+.tableContents  {
+	font-size : 10pt;
+	font-family : Verdana, Arial, Helvetica, sans-serif;
+	font-weight : normal;
+	font-style : normal;
+	color : Black;
+	background-color : #EEEEEE;
+}
+
+.tableContentsSmall  {
+	font-size : 8pt;
+	font-family : Verdana, Arial, Helvetica, sans-serif;
+	font-weight : normal;
+	font-style : normal;
+	color : Black;
+	background-color : #EEEEEE;
+}
+
+.tableHeaderSmall  {
+	font-size : 8pt;
+	font-family : Verdana, Arial, Helvetica, sans-serif;
+	font-weight : bold;
+	font-style : normal;
+	color : White;
+	background-color : Black;
+}
+
+.tcs  {
+	font-size : 8pt;
+	font-family : Verdana, Arial, Helvetica, sans-serif;
+	font-weight : normal;
+	font-style : normal;
+	color : Black;
+}
+
+.tcsb  {
+	font-size : 8pt;
+	font-family : Verdana, Arial, Helvetica, sans-serif;
+	font-weight : bold;
+	font-style : normal;
+	color : Black;
+}
+
+.tcsa  {
+	font-size : 8pt;
+	font-family : Verdana, Arial, Helvetica, sans-serif;
+	font-weight : normal;
+	font-style : normal;
+	color : #000000;
+	background-color : #BFBFBF;
+}
+
+.tc1  {
+	font-size : 10pt;
+	font-family : Verdana, Arial, Helvetica, sans-serif;
+	font-weight : normal;
+	font-style : italic;
+	color : Black;
+}
+
+.text  {
+	font-size : 10pt;
+	font-family : Verdana, Arial, Helvetica, sans-serif;
+	font-weight : normal;
+	font-style : normal;
+	color : Black;
+}
+
+.textb  {
+	font-size : 10pt;
+	font-family : Verdana, Arial, Helvetica, sans-serif;
+	font-weight : bold;
+	font-style : normal;
+	color : Black;
+}
+
+B  {
+	font-size : 10pt;
+	font-family : Verdana, Arial, Helvetica, sans-serif;
+	font-weight : bold;
+	font-style : normal;
+	color : Black;
+}
+

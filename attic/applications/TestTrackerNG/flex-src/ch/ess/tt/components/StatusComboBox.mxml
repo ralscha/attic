@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:ComboBox xmlns:mx="http://www.adobe.com/2006/mxml" labelField="label" prompt="Status auswählen">
+
+  <mx:Script>
+    <![CDATA[
+      import ch.ess.tt.model.StatusEnum;
+                  
+      public function set selectedStatus(status:String):void {
+        for (var i:uint = 0; i < dataProvider.length; i++) {
+          if (dataProvider[i].data == status) {
+            selectedItem = dataProvider[i];
+            return;
+          }
+        }
+        selectedItem = null;
+      }
+      
+      public function get selectedStatus():String {
+        return selectedItem.data;
+      }
+      
+      
+    ]]>
+  </mx:Script>
+  <mx:dataProvider>      
+    <mx:Array>
+      <mx:Object data="{StatusEnum.AUFBAU.toString()}" label="Projektaufbau"/>
+      <mx:Object data="{StatusEnum.TEST.toString()}" label="Test"/>
+      <mx:Object data="{StatusEnum.KONSOLIDIEREN.toString()}" label="Konsolidieren"/>
+      <mx:Object data="{StatusEnum.ABSCHLUSS.toString()}" label="Abschluss"/>
+    </mx:Array>  
+  </mx:dataProvider>
+</mx:ComboBox>

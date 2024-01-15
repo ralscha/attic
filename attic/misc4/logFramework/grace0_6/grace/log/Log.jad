@@ -1,0 +1,739 @@
+// Decompiled by Jad v1.5.7. Copyright 1997-99 Pavel Kouznetsov.
+// Jad home page: http://www.geocities.com/SiliconValley/Bridge/8617/jad.html
+// Decompiler options: packimports(3) 
+// Source File Name:   Log.java
+
+package grace.log;
+
+import gnu.regexp.RE;
+import java.io.*;
+import java.lang.reflect.Constructor;
+import java.rmi.*;
+import java.rmi.server.UnicastRemoteObject;
+import java.util.*;
+
+// Referenced classes of package grace.log:
+//            Event, EventFormat, Handler, ProgramPosition, 
+//            StandardOutHandler, Writer
+
+public class Log
+{
+    public static class Test
+    {
+
+        public static void testFunction()
+        {
+            Log.trace();
+        }
+
+        public static void testThrowFunction()
+            throws IOException
+        {
+            throw new IOException("Exception message");
+        }
+
+        public static void testNullPointerException()
+        {
+            throw new NullPointerException();
+        }
+
+        public void run()
+        {
+            for(int i = 0; i < 2; i++)
+                (new Thread("Test-Thread." + i) {
+
+                    public void run()
+                    {
+                        logSomeMessages();
+                    }
+
+                }).start();
+
+            ThreadGroup group = Thread.currentThread().getThreadGroup();
+            Thread threads[] = new Thread[group.activeCount()];
+            group.enumerate(threads);
+            for(int i = 0; i < threads.length; i++)
+                if(threads[i] != null && threads[i] != Thread.currentThread())
+                    try
+                    {
+                        threads[i].join();
+                    }
+                    catch(Exception _ex) { }
+
+            Log.notice("done");
+        }
+
+        public void logSomeMessages()
+        {
+            Log.notice("Examples of trace()");
+            Log.trace();
+            testFunction();
+            Log.trace("Example of trace(message)");
+            Vector objects = new Vector();
+            objects.addElement("Value1");
+            objects.addElement("Value2");
+            Log.trace("Example of trace(message, object)", objects);
+            Log.trace("Another Example of trace(message, object)", new Test(objects));
+            Log.warning("Example of warning(message)");
+            Log.error("Example of error(message)");
+            try
+            {
+                testThrowFunction();
+            }
+            catch(Exception e)
+            {
+                Log.error(e);
+            }
+            try
+            {
+                testNullPointerException();
+            }
+            catch(Exception e)
+            {
+                Log.error(e);
+            }
+            Log.log("stats", "Example of different log event type");
+            Log.log("notice", "Example of event handling", "test object");
+            Log.notice("Example of event handling", "test object");
+            Log.trace("done");
+        }
+
+        public int getI()
+        {
+            return i;
+        }
+
+        public double getD()
+        {
+            return d;
+        }
+
+        public String getS()
+        {
+            return s;
+        }
+
+        public String getNullString()
+        {
+            return nullString;
+        }
+
+        public Vector getV()
+        {
+            return v;
+        }
+
+        private int i;
+        private double d;
+        private String s;
+        private String nullString;
+        private Vector v;
+
+        public Test()
+        {
+            i = 123;
+            d = 123.45D;
+            s = "a sample string";
+        }
+
+        Test(Vector v)
+        {
+            i = 123;
+            d = 123.45D;
+            s = "a sample string";
+            this.v = v;
+        }
+    }
+
+
+    public static void log(String eventType, String message)
+    {
+        Event event = new Event(eventType);
+        event.setMessage(message);
+        event.setPosition(getPosition());
+        log(event);
+    }
+
+    public static void log(String eventType, Object object)
+    {
+        Event event = new Event(eventType);
+        event.setObject(object);
+        event.setPosition(getPosition());
+        log(event);
+    }
+
+    public static void log(String eventType, String message, Object object)
+    {
+        Event event = new Event(eventType);
+        event.setMessage(message);
+        event.setObject(object);
+        event.setPosition(getPosition());
+        log(event);
+    }
+
+    public static void error(String message)
+    {
+        if(errorsEnabled)
+        {
+            Event event = new Event("error");
+            event.setMessage(message);
+            event.setPosition(getPosition());
+            log(event);
+        }
+    }
+
+    public static void error(String message, Object object)
+    {
+        if(errorsEnabled)
+        {
+            Event event = new Event("error");
+            event.setMessage(message);
+            event.setObject(object);
+            event.setPosition(getPosition());
+            log(event);
+        }
+    }
+
+    public static void error(Exception exception)
+    {
+        if(errorsEnabled)
+        {
+            Event event = new Event("error");
+            event.setObject(exception);
+            event.setPosition(getPosition(exception));
+            log(event);
+        }
+    }
+
+    public static void error(String message, Exception exception)
+    {
+        if(errorsEnabled)
+        {
+            Event event = new Event("error");
+            event.setMessage(message);
+            event.setObject(exception);
+            event.setPosition(getPosition(exception));
+            log(event);
+        }
+    }
+
+    public static void warning(String message)
+    {
+        if(warningsEnabled)
+        {
+            Event event = new Event("warning");
+            event.setMessage(message);
+            event.setPosition(getPosition());
+            log(event);
+        }
+    }
+
+    public static void warning(String message, Object object)
+    {
+        if(warningsEnabled)
+        {
+            Event event = new Event("warning");
+            event.setMessage(message);
+            event.setObject(object);
+            event.setPosition(getPosition());
+            log(event);
+        }
+    }
+
+    public static void warning(String message, Exception exception)
+    {
+        if(warningsEnabled)
+        {
+            Event event = new Event("warning");
+            event.setMessage(message);
+            event.setObject(exception);
+            event.setPosition(getPosition(exception));
+            log(event);
+        }
+    }
+
+    public static void notice(String message)
+    {
+        if(noticesEnabled)
+        {
+            Event event = new Event("notice");
+            event.setMessage(message);
+            event.setPosition(getPosition());
+            log(event);
+        }
+    }
+
+    public static void notice(String message, Object object)
+    {
+        if(noticesEnabled)
+        {
+            Event event = new Event("notice");
+            event.setMessage(message);
+            event.setObject(object);
+            event.setPosition(getPosition());
+            log(event);
+        }
+    }
+
+    public static void trace()
+    {
+        if(tracesEnabled)
+        {
+            Event event = new Event("trace");
+            event.setPosition(getPosition());
+            log(event);
+        }
+    }
+
+    public static void trace(String message)
+    {
+        if(tracesEnabled)
+        {
+            Event event = new Event("trace");
+            event.setMessage(message);
+            event.setPosition(getPosition());
+            log(event);
+        }
+    }
+
+    public static void trace(Object object)
+    {
+        if(tracesEnabled)
+        {
+            Event event = new Event("trace");
+            event.setObject(object);
+            event.setPosition(getPosition());
+            log(event);
+        }
+    }
+
+    public static void trace(String message, Object object)
+    {
+        if(tracesEnabled)
+        {
+            Event event = new Event("trace");
+            event.setMessage(message);
+            event.setObject(object);
+            event.setPosition(getPosition());
+            log(event);
+        }
+    }
+
+    protected static void dispatch(Handler handler, Event event)
+    {
+        try
+        {
+            handler.handle(event);
+        }
+        catch(MarshalException e)
+        {
+            if((e.detail instanceof NotSerializableException) && event.object != null)
+                try
+                {
+                    event.object = defaultObjectFormat.format(event);
+                    handler.handle(event);
+                }
+                catch(Exception ee)
+                {
+                    ee.printStackTrace();
+                }
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+    }
+
+    protected static void log(Event event)
+    {
+        if(!initialized)
+            initialize();
+        if(eventIsInteresting(event))
+        {
+            Hashtable handlers = (Hashtable)eventHandlers.get(event.type);
+            if(handlers != null)
+            {
+                for(Enumeration iter = handlers.elements(); iter.hasMoreElements(); dispatch((Handler)iter.nextElement(), event));
+            }
+            for(Enumeration iter = allHandlers.elements(); iter.hasMoreElements(); dispatch((Handler)iter.nextElement(), event));
+        }
+    }
+
+    protected static boolean eventIsInteresting(Event event)
+    {
+        boolean interesting = true;
+        String text = event.position.getClassname() + '.' + event.position.getFunction();
+        if(functionNamesToInclude.size() > 0)
+        {
+            interesting = false;
+            for(int i = 0; i < functionNamesToInclude.size(); i++)
+            {
+                RE expression = (RE)functionNamesToInclude.elementAt(i);
+                if(!expression.isMatch(text))
+                    continue;
+                interesting = true;
+                break;
+            }
+
+        }
+        if(interesting)
+        {
+            for(int i = 0; i < functionNamesToExclude.size(); i++)
+            {
+                RE expression = (RE)functionNamesToExclude.elementAt(i);
+                if(!expression.isMatch(text))
+                    continue;
+                interesting = false;
+                break;
+            }
+
+        }
+        return interesting;
+    }
+
+    protected static ProgramPosition getPosition(Exception exception)
+    {
+        ProgramPosition position = new ProgramPosition();
+        boolean hackedStackTrace = false;
+        String exceptionMessage = exception.getMessage();
+        try
+        {
+            String shortStack = shortStackString(1, exception);
+            if(shortStack.equals(""))
+            {
+                Exception temporary = new Exception();
+                temporary.fillInStackTrace();
+                shortStack = shortStackString(4, temporary);
+                exceptionMessage = null;
+                hackedStackTrace = true;
+            }
+            if(shortStack.equals(""))
+            {
+                position.setClassname(exception.toString());
+                exceptionMessage = null;
+                hackedStackTrace = true;
+            }
+            else
+            {
+                position.parse(shortStack);
+            }
+        }
+        catch(Exception _ex)
+        {
+            position.setClassname(exception.toString());
+        }
+        return position;
+    }
+
+    protected static ProgramPosition getPosition()
+    {
+        ProgramPosition position = new ProgramPosition();
+        position.parse(shortStackString(2));
+        return position;
+    }
+
+    protected static synchronized String shortStackString(int callLevel)
+    {
+        throwable.fillInStackTrace();
+        writer.clear();
+        writer.setDesiredLineNum(callLevel + 2);
+        throwable.printStackTrace(writer);
+        return writer.toString();
+    }
+
+    protected static synchronized String shortStackString(int callLevel, Exception exception)
+    {
+        writer.clear();
+        writer.setDesiredLineNum(callLevel);
+        exception.printStackTrace(writer);
+        return writer.toString();
+    }
+
+    protected static void initializeEnables()
+    {
+        String allEnabled = System.getProperty("log", "true");
+        errorsEnabled = System.getProperty("log.errors", allEnabled).equals("true");
+        warningsEnabled = System.getProperty("log.warnings", allEnabled).equals("true");
+        noticesEnabled = System.getProperty("log.notices", allEnabled).equals("true");
+        tracesEnabled = System.getProperty("log.traces", allEnabled).equals("true");
+        enablesInitialized = true;
+    }
+
+    public static void enableErrors(boolean enabled)
+    {
+        errorsEnabled = enabled;
+    }
+
+    public static boolean errorsEnabled()
+    {
+        return errorsEnabled;
+    }
+
+    public static void enableWarnings(boolean enabled)
+    {
+        warningsEnabled = enabled;
+    }
+
+    public static boolean warningsEnabled()
+    {
+        return warningsEnabled;
+    }
+
+    public static void enableNotices(boolean enabled)
+    {
+        noticesEnabled = enabled;
+    }
+
+    public static boolean noticesEnabled()
+    {
+        return noticesEnabled;
+    }
+
+    public static void enableTraces(boolean enabled)
+    {
+        tracesEnabled = enabled;
+    }
+
+    public static boolean tracesEnabled()
+    {
+        return tracesEnabled;
+    }
+
+    public static void addHandler(Handler handler)
+    {
+        allHandlers.put(handler, handler);
+    }
+
+    public static void addHandler(Handler handler, String event)
+    {
+        Hashtable handlersForEvent = (Hashtable)eventHandlers.get(event);
+        if(handlersForEvent == null)
+        {
+            handlersForEvent = new Hashtable();
+            eventHandlers.put(event, handlersForEvent);
+        }
+        handlersForEvent.put(handler, handler);
+    }
+
+    protected static void addToEventHandlers(Handler handler, String handlerName, String events)
+    {
+        if(events.equals(""))
+        {
+            allHandlers.put(handlerName, handler);
+        }
+        else
+        {
+            Hashtable handlersForEvent;
+            for(StringTokenizer tokenizer = new StringTokenizer(events); tokenizer.hasMoreTokens(); handlersForEvent.put(handlerName, handler))
+            {
+                String event = tokenizer.nextToken();
+                handlersForEvent = (Hashtable)eventHandlers.get(event);
+                if(handlersForEvent == null)
+                {
+                    handlersForEvent = new Hashtable();
+                    eventHandlers.put(event, handlersForEvent);
+                }
+            }
+
+        }
+    }
+
+    protected static void addHandler(String name)
+    {
+        if(!allHandlers.contains(name))
+        {
+            String prefix = "log.handler." + name;
+            Class defaultHandlerClass = class$grace$log$FileHandler == null ? (class$grace$log$FileHandler = class$("grace.log.FileHandler")) : class$grace$log$FileHandler;
+            String url = System.getProperty(prefix + ".url");
+            if(url != null)
+            {
+                if(url.startsWith("jdbc:"))
+                    addLocalHandler(name, class$grace$log$JDBCHandler == null ? (class$grace$log$JDBCHandler = class$("grace.log.JDBCHandler")) : class$grace$log$JDBCHandler);
+                else
+                if(url.startsWith("file:"))
+                    addLocalHandler(name, class$grace$log$FileHandler == null ? (class$grace$log$FileHandler = class$("grace.log.FileHandler")) : class$grace$log$FileHandler);
+                else
+                if(url.startsWith("rmi:"))
+                    addRemoteHandler(name, url);
+            }
+            else
+            {
+                addLocalHandler(name, class$grace$log$FileHandler == null ? (class$grace$log$FileHandler = class$("grace.log.FileHandler")) : class$grace$log$FileHandler);
+            }
+        }
+    }
+
+    protected static void addLocalHandler(String name, Class defaultHandlerClass)
+    {
+        String handlerClassName = System.getProperty("log.handler." + name + ".class");
+        Class handlerClass = null;
+        try
+        {
+            handlerClass = Class.forName(handlerClassName);
+        }
+        catch(Exception _ex)
+        {
+            try
+            {
+                handlerClass = Class.forName("grace.log" + handlerClassName);
+            }
+            catch(Exception _ex2)
+            {
+                handlerClass = defaultHandlerClass;
+            }
+        }
+        try
+        {
+            Class types[] = {
+                class$java$lang$String == null ? (class$java$lang$String = class$("java.lang.String")) : class$java$lang$String, class$java$lang$String == null ? (class$java$lang$String = class$("java.lang.String")) : class$java$lang$String
+            };
+            Constructor constructor = handlerClass.getConstructor(types);
+            Object params[] = {
+                "log.handler.", name
+            };
+            Handler handler = (Handler)constructor.newInstance(params);
+            addHandler(name, handler);
+            checkAndBindAsServer(name, handler);
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+    }
+
+    protected static void checkAndBindAsServer(String name, Handler handler)
+    {
+        String fullPrefix = "log.handler." + name;
+        String server = System.getProperty(fullPrefix + ".server", "false");
+        if(server.equals("true"))
+            try
+            {
+                Naming.rebind(fullPrefix, UnicastRemoteObject.exportObject(handler));
+            }
+            catch(Exception e)
+            {
+                e.printStackTrace();
+            }
+    }
+
+    protected static void addRemoteHandler(String name, String url)
+    {
+        try
+        {
+            Handler handler = (Handler)Naming.lookup(url);
+            if(handler != null)
+                addHandler(name, handler);
+            else
+                System.out.println("Log warning: unknown handler " + url);
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+    }
+
+    protected static void addHandler(String name, Handler handler)
+    {
+        String events = System.getProperty("log.handler." + name + ".events", "");
+        addToEventHandlers(handler, name, events);
+    }
+
+    private static void setupFilters(Vector expressions, String filters)
+    {
+        for(StringTokenizer tokens = new StringTokenizer(filters, " "); tokens.hasMoreTokens();)
+        {
+            String filter = tokens.nextToken();
+            try
+            {
+                RE expression = new RE(filter);
+                expressions.addElement(expression);
+            }
+            catch(Exception _ex)
+            {
+                System.out.println("Log warning: bad filter '" + filter + "'");
+            }
+        }
+
+    }
+
+    protected static void initialize()
+    {
+        initialized = true;
+        boolean addedAtLeastOneHandler = false;
+        for(Enumeration properties = System.getProperties().propertyNames(); properties.hasMoreElements();)
+        {
+            String key = (String)properties.nextElement();
+            if(key.startsWith("log.handler."))
+            {
+                int begin = "log.handler.".length();
+                int end = key.indexOf(".", begin);
+                if(end != -1)
+                {
+                    addHandler(key.substring(begin, end));
+                    addedAtLeastOneHandler = true;
+                }
+            }
+        }
+
+        if(!addedAtLeastOneHandler)
+            try
+            {
+                addToEventHandlers(new StandardOutHandler(), "out", "");
+            }
+            catch(Exception e)
+            {
+                System.out.println("Log error: no default handler");
+                e.printStackTrace();
+            }
+        setupFilters(functionNamesToInclude, System.getProperty("log.include.functions", ""));
+        setupFilters(functionNamesToExclude, System.getProperty("log.exclude.functions", ""));
+        initializeEnables();
+    }
+
+    public static void main(String args[])
+    {
+        Test test = new Test();
+        test.run();
+    }
+
+    public Log()
+    {
+    }
+
+    static Class class$(String class$)
+    {
+        try
+        {
+            return Class.forName(class$);
+        }
+        catch(ClassNotFoundException forName)
+        {
+            throw new NoClassDefFoundError(forName.getMessage());
+        }
+    }
+
+    private static final String handlerPropertyPrefix = "log.handler.";
+    private static final String defaultHandlerPackage = "grace.log";
+    private static final String defaultHandlerClassname = "grace.log.StandardOutputHandler";
+    private static boolean enablesInitialized;
+    private static boolean errorsEnabled = true;
+    private static boolean warningsEnabled = true;
+    private static boolean noticesEnabled = true;
+    private static boolean tracesEnabled = true;
+    private static final String errorEventType = "error";
+    private static final String warningEventType = "warning";
+    private static final String noticeEventType = "notice";
+    private static final String traceEventType = "trace";
+    private static Hashtable allHandlers = new Hashtable();
+    private static Hashtable eventHandlers = new Hashtable();
+    private static Vector functionNamesToInclude = new Vector();
+    private static Vector functionNamesToExclude = new Vector();
+    private static Throwable throwable = new Throwable();
+    private static Writer writer = new Writer();
+    private static EventFormat defaultObjectFormat = new EventFormat("%(%j)o");
+    private static boolean initialized;
+    static Class class$grace$log$FileHandler; /* synthetic field */
+    static Class class$grace$log$JDBCHandler; /* synthetic field */
+    static Class class$java$lang$String; /* synthetic field */
+
+}

@@ -1,0 +1,17 @@
+formPackage=ch.ess.ct.web.beschaffung.form
+actionPackage=ch.ess.ct.web.beschaffung.action
+deletePackage=ch.ess.ct.business.db.delete
+finderPackage=ch.ess.ct.business.db.finder
+
+objectName=Projekt
+objectLowerName=projekt
+objectLowerLowerName=projekt
+
+dbClassName=Projekte
+dbClassLowerName=projekte
+dbClassLowerLowerName=projekte
+
+dir=basis
+
+editPermission=basis.projekte.bearbeiten
+editPermissionUpper=BASIS_PROJEKTE_BEARBEITEN

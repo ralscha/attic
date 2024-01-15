@@ -1,0 +1,9 @@
+<servlet-mapping>
+  <servlet-name>action</servlet-name>
+  <url-pattern>*.do</url-pattern>
+</servlet-mapping>
+
+<servlet-mapping>
+  <servlet-name>res</servlet-name>
+  <url-pattern>*.res</url-pattern>
+</servlet-mapping>

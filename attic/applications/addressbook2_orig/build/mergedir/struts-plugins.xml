@@ -1,0 +1,26 @@
+
+    
+  <plug-in className="ch.ess.addressbook.resource.Init"/>
+  <plug-in className="ch.ess.addressbook.resource.InitQuartz"/>  
+  
+  <plug-in className="ch.ess.addressbook.resource.InitLucene"/>  
+
+    
+  <plug-in className="org.apache.struts.tiles.TilesPlugin" >
+    <set-property property="definitions-config" 
+	                 value="/WEB-INF/tiles-defs.xml,/WEB-INF/tiles-example-defs.xml" />
+    <set-property property="moduleAware" value="true" />
+    <set-property property="definitions-parser-validate" value="true" />
+  </plug-in>  
+  
+    
+  <plug-in className="org.apache.struts.validator.ValidatorPlugIn">
+    <set-property property="pathnames" value="/WEB-INF/validator-rules.xml,
+                                              /WEB-INF/validator-rules_app.xml,
+                                              /WEB-INF/validation.xml"/>
+  </plug-in> 
+  
+  <plug-in className="com.fgm.web.menu.MenuPlugIn">
+    <set-property property="menuConfig" value="/WEB-INF/menu-config.xml"/>
+  </plug-in>     
+  

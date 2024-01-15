@@ -1,0 +1,20 @@
+  <servlet-mapping>
+    <servlet-name>action</servlet-name>
+    <url-pattern>*.donogz</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>action</servlet-name>
+    <url-pattern>*.vcf</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>action</servlet-name>
+    <url-pattern>*.do</url-pattern>
+  </servlet-mapping>
+  
+  
+  <servlet-mapping>
+    <servlet-name>CewolfServlet</servlet-name>
+	<url-pattern>/cewolf/*</url-pattern> 
+  </servlet-mapping>

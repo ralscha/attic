@@ -1,0 +1,115 @@
+<?xml version="1.0"?>
+<mx:Canvas 
+  xmlns:mx="http://www.adobe.com/2006/mxml" xmlns:word="*"
+  childAdd="onChildAdd(event)"
+  label="Compose">
+
+  <mx:Script>
+    <![CDATA[
+      import hessian.mxml.HessianService;
+      import mx.events.ChildExistenceChangedEvent;
+      import mx.events.FlexEvent;
+
+      private var _words:Array = new Array();
+      private var _service:HessianService;
+
+      public function onChildAdd(event:ChildExistenceChangedEvent):void
+      {
+        if (event.relatedObject is WordSprite)
+          _words.push(event.relatedObject);
+      }
+
+      public function reset():void
+      {
+        for each (var wordSprite:WordSprite in _words)
+          wordSprite.reset();
+      }
+
+      public function sendToServer():void
+      {
+        var usedSet:Array = new Array();
+
+        for each (var wordSprite:WordSprite in _words) {
+          if (wordSprite.used)
+            usedSet.push(wordSprite.word);
+        }
+
+        if (usedSet.length > 0)
+          _service.submit.send(usedSet);
+      }
+
+      public function get service():HessianService
+      {
+        return _service;
+      }
+
+      public function set service(value:HessianService):void
+      {
+        _service = value;
+      }
+    ]]>
+  </mx:Script>
+
+  <mx:HBox x="0" y="0" width="100%" horizontalAlign="center">
+    <mx:Label text="Drag words from left to right ->"/>
+  </mx:HBox>
+
+  <mx:HRule x="0" y="20" width="100%"/>
+  <mx:HRule x="0" y="200" width="100%"/>
+  <mx:VRule x="202" y="20" height="180"/>
+  
+  <word:WordSprite x="5" y="25" value="I"/>
+  <word:WordSprite x="25" y="25" value="you"/>
+  <word:WordSprite x="55" y="25" value="am"/>
+  <word:WordSprite x="90" y="25" value="are"/>
+  <word:WordSprite x="120" y="25" value="happy"/>
+  <word:WordSprite x="170" y="25" value="sad"/>
+
+  <word:WordSprite x="5" y="50" value="good"/>
+  <word:WordSprite x="45" y="50" value="bad"/>
+  <word:WordSprite x="80" y="50" value="jump"/>
+  <word:WordSprite x="130" y="50" value="over"/>
+  <word:WordSprite x="170" y="50" value="left"/>
+
+  <word:WordSprite x="5" y="80" value="right"/>
+  <word:WordSprite x="45" y="80" value="under"/>
+  <word:WordSprite x="90" y="80" value="he"/>
+  <word:WordSprite x="115" y="80" value="she"/>
+  <word:WordSprite x="145" y="80" value="his"/>
+  <word:WordSprite x="175" y="80" value="her"/>
+
+  <word:WordSprite x="5" y="110" value="cat"/>
+  <word:WordSprite x="35" y="110" value="dog"/>
+  <word:WordSprite x="65" y="110" value="car"/>
+  <word:WordSprite x="95" y="110" value="'s"/>
+  <word:WordSprite x="115" y="110" value="ly"/>
+  <word:WordSprite x="135" y="110" value="phone"/>
+  <word:WordSprite x="180" y="110" value="?"/>
+
+  <word:WordSprite x="5" y="140" value="run"/>
+  <word:WordSprite x="35" y="140" value="s"/>
+  <word:WordSprite x="55" y="140" value="ing"/>
+  <word:WordSprite x="80" y="140" value="the"/>
+  <word:WordSprite x="105" y="140" value="is"/>
+  <word:WordSprite x="125" y="140" value="in"/>
+  <word:WordSprite x="145" y="140" value="with"/>
+  <word:WordSprite x="180" y="140" value="a"/>
+
+  <word:WordSprite x="5" y="170" value="it"/>
+  <word:WordSprite x="25" y="170" value="and"/>
+  <word:WordSprite x="60" y="170" value="house"/>
+  <word:WordSprite x="105" y="170" value="table"/>
+  <word:WordSprite x="145" y="170" value="put"/>
+  <word:WordSprite x="175" y="170" value="did"/>
+
+  <mx:HBox y="202" width="100%">
+    <mx:HBox width="50%" horizontalAlign="center">
+      <mx:Button label="Reset" click="reset()"/>
+    </mx:HBox>
+
+    <mx:HBox width="50%" horizontalAlign="center">
+      <mx:Button label="Send to Server" click="sendToServer()"/>
+    </mx:HBox>
+  </mx:HBox>
+
+</mx:Canvas>

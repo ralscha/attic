@@ -1,0 +1,172 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd">
+
+<hibernate-mapping>
+    <class
+        name="ch.ess.blank.db.User"
+        table="blankUser"
+        lazy="true"
+        dynamic-update="false"
+        dynamic-insert="false"
+        select-before-update="false"
+    >
+
+        <id
+            name="id"
+            column="id"
+            type="java.lang.Long"
+            unsaved-value="null"
+        >
+            <generator class="native">
+              <!--  
+                  To add non XDoclet generator parameters, create a file named 
+                  hibernate-generator-params-User.xml 
+                  containing the additional parameters and place it in your merge dir. 
+              --> 
+            </generator>
+        </id>
+
+        <version
+            name="version"
+            type="int"
+            column="version"
+            access="property"
+            unsaved-value="undefined"
+        />
+
+        <property
+            name="firstName"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            access="property"
+            column="firstName"
+            length="100"
+            not-null="false"
+        />
+
+        <property
+            name="locale"
+            type="java.util.Locale"
+            update="true"
+            insert="true"
+            access="property"
+            column="locale"
+            length="10"
+            not-null="true"
+        />
+
+        <property
+            name="name"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            access="property"
+            column="name"
+            length="100"
+            not-null="true"
+        />
+
+        <property
+            name="passwordHash"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            access="property"
+            column="passwordHash"
+            length="40"
+            not-null="false"
+        />
+
+        <property
+            name="userName"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            access="property"
+            column="userName"
+            length="100"
+            not-null="true"
+            unique="true"
+        />
+
+        <property
+            name="email"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            access="property"
+            column="email"
+            length="255"
+            not-null="true"
+        />
+
+        <property
+            name="loginToken"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            access="property"
+            column="loginToken"
+            length="40"
+            not-null="false"
+        />
+
+        <property
+            name="loginTokenTime"
+            type="timestamp"
+            update="true"
+            insert="true"
+            access="property"
+            column="loginTokenTime"
+            not-null="false"
+        />
+
+        <set
+            name="userConfiguration"
+            lazy="true"
+            inverse="true"
+            cascade="all-delete-orphan"
+            sort="unsorted"
+        >
+
+              <key
+                  column="userId"
+              >
+              </key>
+
+              <one-to-many
+                  class="ch.ess.blank.db.UserConfiguration"
+              />
+        </set>
+
+        <set
+            name="userRoles"
+            lazy="true"
+            inverse="true"
+            cascade="all-delete-orphan"
+            sort="unsorted"
+        >
+
+              <key
+                  column="userId"
+              >
+              </key>
+
+              <one-to-many
+                  class="ch.ess.blank.db.UserRole"
+              />
+        </set>
+
+        <!--
+            To add non XDoclet property mappings, create a file named
+                hibernate-properties-User.xml
+            containing the additional properties and place it in your merge dir.
+        -->
+
+    </class>
+
+</hibernate-mapping>

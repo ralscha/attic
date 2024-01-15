@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE Recipe SYSTEM "example.dtd">
+
+<Recipe>
+   <Name>Nanner Pah</Name>
+   <Description>The famous "Nanner Pah", which is how an old
+Kentucky grandma I knew said, "Banana Pie". Mmm-mm!</Description>
+   <Ingredients>
+      <Ingredient>
+         <Qty unit="box">1</Qty>
+         <Item>Nilla wafers (vanilla cookies)</Item>
+      </Ingredient>
+      <Ingredient>
+         <Qty unit="pkg">1</Qty>
+         <Item>instant vanilla pudding</Item>
+      </Ingredient>
+      <Ingredient>
+         <Qty>3</Qty>
+         <Item>bananas, not too ripe</Item>
+      </Ingredient>
+      <Ingredient>
+         <Qty unit="container">1</Qty>
+         <Item>Cool-Whip</Item>
+      </Ingredient>
+   </Ingredients>
+   <Instructions>
+      <Step>
+Fix the vanilla pudding.
+      </Step>
+      <Step>
+Line a glass baking dish with Nilla Wafers.
+      </Step>
+      <Step>
+Put a layer of pudding over the wafers. Use maybe half the pudding.
+      </Step>
+      <Step>
+Slice half of the bananas over the pudding.
+      </Step>
+      <Step>
+Add a layer of Cool-Whip.
+      </Step>
+      <Step>
+Repeat all four layers, finishing with Cool Whip.
+      </Step>
+      <Step>
+If you've got anything left over, don't give it to the dog, 'cuz
+it'll make him sick. And if he gits sick, you're the one to clean
+it up!
+      </Step>
+   </Instructions>
+</Recipe>

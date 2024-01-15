@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE maps SYSTEM "maps.dtd">
+<maps>
+<class name="yourapp.comp.Product" database="test">
+<highlow field="id" keyColumn="kc" table="t" tableColumn="tc"/>
+<field name="id" type="integer" convertor="gogogo">
+<sql primary-key="True" table="prod"/> 
+</field>
+<field name="name" type="string">
+<sql length="200" table="prod" type="ralphtype"/> 
+</field>
+<field name="price" type="double">
+<sql type="numeric" length="18" decimal="2" table="prod"/> 
+</field>
+<relation name="details" oneToOne="False" retrieve="auto" autoSave="True" autoDelete="True" class="yourapp.db.ProductDetail">
+<key name="id" foreign="productId"/>
+</relation>
+<relation name="group" oneToOne="True" retrieve="auto" class="yourapp.db.ProductGroup">
+<sql-key foreign="id">
+<sql name="group_id" type="integer" table="prod"/> 
+</sql-key>
+</relation>
+<relation name="categories" oneToOne="False" retrieve="auto" class="yourapp.db.CategoryProduct">
+<key name="id" foreign="productId"/>
+</relation>
+</class>
+</maps>

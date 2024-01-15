@@ -1,0 +1,23 @@
+<script LANGUAGE="JavaScript">
+var pageStart="<HTML><HEAD></HEAD><BODY BGCOLOR=blue TEXT=white><H2>Server pushes: <P>";
+var pageEnd="</H2></BODY></HTML>";
+
+  // Callback function with message from server.
+  // This function is called from within the hidden JSP pushlet frame
+  function push(content) {
+
+    // Refresh the display frame with the content received
+    window.frames['displayFrame'].document.writeln(pageStart+content+pageEnd);
+    window.frames['displayFrame'].document.close();
+  }
+
+</script>
+</HEAD>
+
+<FRAMESET BORDER=0 COLS="*,0">
+     <!-- frame to display the content pushed by the pushlet -->
+     <FRAME SRC="push-js-stream-display.html" NAME="displayFrame" BORDER=0 SCROLLING=no>
+
+     <!-- Hidden frame with the pushlet that pushes lines of JavaScript-->
+     <FRAME SRC="push-js-stream-pusher.jsp" NAME="pushletFrame" BORDER=0 SCROLLING=no>
+</FRAMESET>

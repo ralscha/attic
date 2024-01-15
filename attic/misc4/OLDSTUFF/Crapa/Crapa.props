@@ -1,0 +1,43 @@
+
+crapa.input.file = d:/projects/crapa/crapa/crapa.txt
+crapa.archive.path = d:/projects/crapa/crapa/
+
+crapa.db.driver = jdbc.idbDriver
+crapa.db.url = jdbc:idb:d:/projects/crapa/crapa.prp
+crapa.db.user = 
+crapa.db.password =
+
+branch.001 = 0060,Basel
+branch.002 = 0094,Bern
+branch.003 = 0172,Chiasso
+branch.004 = 0251,Genf
+branch.005 = 0425,Lausanne
+branch.006 = 0463,Luzern
+branch.007 = 0637,St. Gallen
+branch.008 = 0823,Zug
+branch.009 = 0835,Zürich
+branch.010 = 0881,Aarau
+
+code.001 = 320,Kommissionen Dokumentar-Inkasso (Import)
+code.002 = 321,Kommissionen Dokumentar-Inkasso (Export)
+code.003 = 322,322
+code.004 = 323,323
+code.005 = 324,Akkreditiv-Kommissionen Import Sicht
+code.006 = 325,Akkreditiv-Kommissionen Import DP
+code.007 = 326,Akkreditiv-Kommissionen Import DP Fw
+code.008 = 327,Akkreditiv-Er&ouml;ffnungskomm Ex Sicht, best
+code.009 = 328,Akkreditiv Zahlungskomm Ex Sicht, best
+code.010 = 329,Akkreditiv-Er&ouml;ffnungskomm Ex Sicht, nicht best
+code.011 = 330,Akkreditiv-Er&ouml;ffnungskomm Export DP/Akzept, best
+code.012 = 331,Akkreditiv-Er&ouml;ffnungskomm, Ex DP/Akzept, nicht best
+code.013 = 332,Aviskommission aufgesch Zahlungskomm, best
+code.014 = 333,333
+code.015 = 334,334
+code.016 = 335,Spesen Korrespondenzbanken (CRAPA-neutral)
+code.017 = 336,Akzeptkommission (Exporteur) DP/Akzept, best
+code.018 = 337,Akzeptkommission (Banken) DP/Akzept, best
+code.019 = 338,Akzeptkommissionen (Banken) Exp DP/Akz., nicht best
+code.020 = 339,Akzeptkommissionen (Exporteur) Exp DP/Akz., nicht best
+code.021 = 340,Rembourskommissionen
+code.022 = 341,341
+code.023 = 342,nicht relevante Erfolge

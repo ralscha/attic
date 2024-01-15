@@ -1,0 +1,243 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      SoopaDoopa!
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <button
+          ion-button
+          text-center
+          block
+          color="primary"
+          (click)="restoreProductListings()">
+          Restore Purchases
+        </button>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col width-50>
+        <section class="box happy-families">
+          <img src="assets/images/happy-families.png" alt="Happy families image">
+          <div class="description">
+            <h1>Happy Families</h1>
+            <div *ngIf="!happyFamilies">
+              <p>$0.99</p>
+              <button
+                ion-button
+                text-center
+                block
+                color="primary"
+                (click)="purchaseProduct('com.saintsatplay.happyfamilies')">
+                Purchase
+              </button>
+            </div>
+
+            <div *ngIf="happyFamilies">
+              <p>Domestic bliss or all out war?</p>
+              <button
+                ion-button
+                text-center
+                block
+                color="light"
+                (click)="playGame('HappyFamilies')">
+                Play!
+              </button>
+            </div>
+
+          </div>
+        </section>
+      </ion-col>
+
+
+      <ion-col width-50>
+        <section class="box climate-hero">
+          <img src="assets/images/climate-hero.png" alt="Climate Hero image">
+          <div class="description">
+            <h1>Climate Hero</h1>
+            <div *ngIf="!climateHero">
+              <p>$0.99</p>
+              <button
+                ion-button
+                text-center
+                block
+                color="primary"
+                (click)="purchaseProduct('com.saintsatplay.climatehero')">
+                Purchase
+              </button>
+            </div>
+
+
+            <div *ngIf="climateHero">
+              <p>Climate friend or foe?</p>
+              <button
+                ion-button
+                text-center
+                block
+                color="light"
+                (click)="playGame('ClimateHero')">
+                Play!
+              </button>
+            </div>
+
+          </div>
+        </section>
+      </ion-col>
+    </ion-row>
+
+
+    <ion-row>
+      <ion-col width-50>
+        <section class="box alpha-male">
+          <img src="assets/images/alpha-male.png" alt="Alpha Male image">
+          <div class="description">
+            <h1>Alpha Male</h1>
+            <div *ngIf="!alphaMale">
+              <p>$0.99</p>
+              <button
+                ion-button
+                text-center
+                block
+                color="primary"
+                (click)="purchaseProduct('com.saintsatplay.alphamale')">
+                Purchase
+              </button>
+            </div>
+
+
+            <div *ngIf="alphaMale">
+              <p>Tough enough to cut it at the top?</p>
+              <button
+                ion-button
+                text-center
+                block
+                color="light"
+                (click)="playGame('AlphaMale')">
+                Play!
+              </button>
+            </div>
+
+          </div>
+        </section>
+      </ion-col>
+
+
+      <ion-col width-50>
+        <section class="box grand-theft-noughto">
+          <img src="assets/images/grand-theft-noughto.png" alt="Grand Theft Noughto image">
+          <div class="description">
+            <h1>Grand Theft Noughto</h1>
+            <div *ngIf="!grandTheftNoughto">
+              <p>$0.99</p>
+              <button
+                ion-button
+                text-center
+                block
+                color="primary"
+                (click)="purchaseProduct('com.saintsatplay.grandtheftnoughto')">
+                Purchase
+              </button>
+            </div>
+
+
+            <div *ngIf="grandTheftNoughto">
+              <p>Park, ride and play</p>
+              <button
+                ion-button
+                text-center
+                block
+                color="light"
+                (click)="playGame('GrandTheftNoughto')">
+                Play!
+              </button>
+            </div>
+
+          </div>
+        </section>
+      </ion-col>
+    </ion-row>
+
+
+    <ion-row>
+
+      <ion-col width-50>
+        <section class="box world-traveller">
+          <img src="assets/images/world-traveller.png" alt="World Traveller image">
+          <div class="description">
+            <h1>World Traveller</h1>
+            <div *ngIf="!worldTraveller">
+              <p>$0.99</p>
+              <button
+                ion-button
+                text-center
+                block
+                color="primary"
+                (click)="purchaseProduct('com.saintsatplay.worldtraveller')">
+                Purchase
+              </button>
+            </div>
+
+
+            <div *ngIf="worldTraveller">
+              <p>How far will you go?</p>
+              <button
+                ion-button
+                text-center
+                block
+                color="light"
+                (click)="playGame('WorldTraveller')">
+                Play!
+              </button>
+            </div>
+
+          </div>
+        </section>
+      </ion-col>
+
+
+      <ion-col width-50>
+        <section class="box king-for-a-day">
+          <img src="assets/images/king-for-a-day.png" alt="King for a day Male image">
+          <div class="description">
+            <h1>King for a Day</h1>
+            <div *ngIf="!kingForADay">
+              <p>$0.99</p>
+              <button
+                ion-button
+                text-center
+                block
+                color="primary"
+                (click)="purchaseProduct('com.saintsatplay.kingforaday')">
+                Purchase
+              </button>
+            </div>
+
+
+            <div *ngIf="kingForADay">
+              <p>Or fool for a lifetime?</p>
+              <button
+                ion-button
+                text-center
+                block
+                color="light"
+                (click)="playGame('KingForADay')">
+                Play!
+              </button>
+            </div>
+
+          </div>
+        </section>
+      </ion-col>
+
+    </ion-row>
+  </ion-grid>
+
+
+</ion-content>

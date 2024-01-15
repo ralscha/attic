@@ -1,0 +1,8 @@
+    <listener>
+		  <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	  </listener>
+
+    <listener>
+      <listener-class>com.opensymphony.oscache.web.CacheContextListener</listener-class>
+    </listener>
+    

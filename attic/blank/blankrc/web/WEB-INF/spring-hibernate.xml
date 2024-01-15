@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+  
+	<!-- DATA -->
+  <!-- Hibernate SessionFactory --> 
+  <bean id="namingStrategy" class="ch.ess.blankrc.persistence.hibernate.AppNamingStrategy" />
+  
+  <bean id="sessionFactory" class="ch.ess.blankrc.persistence.hibernate.NamingLocalSessionFactoryBean">
+      <property name="schemaUpdate"><value>true</value></property>
+      <property name="namingStrategy"><ref local="namingStrategy"/></property>
+      <property name="dataSource"><ref bean="dataSource"/></property> 
+      <property name="mappingResources"> 
+          <list> 
+              <value>ch/ess/blankrc/model/Configuration.hbm.xml</value> 
+              <value>ch/ess/blankrc/model/Permission.hbm.xml</value> 
+              <value>ch/ess/blankrc/model/User.hbm.xml</value> 
+              <value>ch/ess/blankrc/model/UserGroup.hbm.xml</value>                         
+          </list> 
+      </property> 
+      <property name="hibernateProperties"> 
+      <props> 
+          <prop key="hibernate.show_sql">false</prop>       
+      </props> 
+      </property> 
+  </bean> 
+  
+  <!-- Transaction manager for a single Hibernate SessionFactory (alternative to JTA) -->
+  <bean id="transactionManager" class="org.springframework.orm.hibernate.HibernateTransactionManager"> 
+      <property name="sessionFactory"><ref local="sessionFactory"/></property> 
+  </bean>
+  
+  
+<!--  <bean id="hibernateInterceptor" class="org.springframework.orm.hibernate.HibernateInterceptor">
+    <property name="sessionFactory"><ref local="sessionFactory"/></property>
+  </bean>
+  
+  
+  <bean id="hibernateProxyCreator" class="org.springframework.aop.framework.autoproxy.BeanNameAutoProxyCreator">
+    <property name="interceptorNames">
+      <list>
+        <idref local="hibernateInterceptor"/>
+      </list>
+    </property>
+    <property name="beanNames">
+      <list>
+        <value>*Dao</value>
+      </list>
+    </property>
+  </bean>-->
+
+
+
+  <bean id="matchTxMethods" class="org.springframework.transaction.interceptor.NameMatchTransactionAttributeSource">
+    <property name="properties">
+      <props>
+          <prop key="save">PROPAGATION_REQUIRED</prop>
+          <prop key="delete*">PROPAGATION_REQUIRED</prop>      
+          <prop key="initLoad">PROPAGATION_REQUIRED</prop>
+          <prop key="*">PROPAGATION_REQUIRED,readOnly</prop>
+      </props>            
+    </property>
+  </bean>
+
+  <bean id="txInterceptor" class="org.springframework.transaction.interceptor.TransactionInterceptor">
+     <property name="transactionManager"><ref local="transactionManager"/></property>
+     <property name="transactionAttributeSource"><ref local="matchTxMethods"/></property>
+  </bean>
+  
+  <bean id="autoProxyCreator" class="org.springframework.aop.framework.autoproxy.BeanNameAutoProxyCreator">
+    <property name="interceptorNames">
+      <list>
+        <idref local="txInterceptor"/>       
+      </list>
+    </property>
+    <property name="beanNames">
+      <list>
+        <value>dataLoadService</value>
+        <value>configurationService</value>
+        <value>userGroupService</value>
+        <value>permissionService</value>
+        <value>userService</value>
+      </list>
+    </property>
+  </bean>
+  
+
+</beans>
+

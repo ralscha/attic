@@ -1,0 +1,21 @@
+
+<!ELEMENT db (database+)>
+
+<!ELEMENT database ((driver | datasource | pool),param*)>
+<!ATTLIST database name CDATA #REQUIRED>
+<!ATTLIST database
+           vendor ( generic | mysql | hsql | oracle | postgres | sqlserver | sybase | interbase | informix) "generic">
+
+<!ELEMENT driver EMPTY>
+<!ATTLIST driver class CDATA #REQUIRED>
+<!ATTLIST driver url CDATA #REQUIRED>
+
+<!ELEMENT datasource EMPTY>
+<!ATTLIST datasource name CDATA #REQUIRED>
+
+<!ELEMENT pool EMPTY>
+<!ATTLIST pool class CDATA #REQUIRED>
+
+<!ELEMENT param EMPTY>
+<!ATTLIST param name CDATA #IMPLIED>
+<!ATTLIST param value CDATA #IMPLIED>

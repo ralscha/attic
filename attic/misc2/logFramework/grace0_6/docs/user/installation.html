@@ -1,0 +1,49 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="GENERATOR" content="Mozilla/4.5 [en] (X11; I; SunOS 5.6 i86pc) [Netscape]">
+   <meta name="Author" content="Christopher Bladon">
+   <title>Java Log Facility</title>
+</head>
+<body text="#000000" bgcolor="#FFFFFF" link="#0000EE" vlink="#551A8B" alink="#FF0000">
+
+<center><img SRC="gk5.jpg" NOSAVE height=200 width=162>
+<br>&nbsp;
+<br>&nbsp;
+<p><b><i><font size=+4>Installation</font></i></b></center>
+
+<div align=right><font size=-1>$Revision: 1.1 $</font></div>
+
+<div align=right><font size=-1>$Date: 1999/03/01 17:24:21 $</font></div>
+<font size=-1></font>
+<p>Installation is like any other Java package.&nbsp; Unjar the downloaded
+file and set your classpath.&nbsp; Don't unjar the classes.jar file unless
+you want a bunch of class files.
+<p><b><tt><font size=+1>$&nbsp;jar xvf grace-0.6.jar</font></tt></b>
+<br><tt><font size=-1>&nbsp;12091 Sun Mar 07 20:56:02 GMT+04:30 1999 META-INF/MANIFEST.MF</font></tt>
+<br><tt><font size=-1>&nbsp;67121 Sun Mar 07 20:38:54 GMT+04:30 1999 grace-0.6/classes.jar</font></tt>
+<br><tt><font size=-1>&nbsp;&nbsp;&nbsp;&nbsp; 0 Sun Mar 07 20:29:36 GMT+04:30
+1999 grace-0.6/docs/</font></tt>
+<br><tt><font size=-1>&nbsp;&nbsp;&nbsp;&nbsp; 0 Sun Mar 07 19:49:18 GMT+04:30
+1999 grace-0.6/docs/api/</font></tt>
+<br><tt><font size=+1>...</font></tt>
+<br><b><tt><font size=+1>$&nbsp;export CLASSPATH=$CLASSPATH:$(pwd)/grace-0.6/classes.jar</font></tt></b>
+<br><font size=+1><b><tt>$&nbsp;java grace.log.Log</tt></b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+#&nbsp;Test</font>
+<br><tt><font size=-1>03/07/99 16:29:57(0.014):1: notice: system.main.Test-Thread.0:
+Log$Test.logSomeMessages:1187: Examples of trace()</font></tt><tt><font size=-1></font></tt>
+<p><tt><font size=-1>03/07/99 16:29:57(0.066):2: trace: system.main.Test-Thread.0:
+Log$Test.logSomeMessages:1188</font></tt><tt><font size=-1></font></tt>
+<p><tt><font size=-1>03/07/99 16:29:57(0.066):3: trace: system.main.Test-Thread.0:
+Log$Test.testFunction:1145</font></tt><tt><font size=-1></font></tt>
+<p><tt><font size=-1>...</font></tt><tt><font size=+1></font></tt>
+<p>Thats it! &nbsp;If you running a graphical shell ontop of DOS (otherwise
+known as Windows) then you're on your own.&nbsp; I don't do DOS&nbsp;so
+I can't answer any questions if your running DOS.&nbsp; No offense, but
+if you're running DOS, you really ought to think about upgrading to UNIX.&nbsp;
+It's easy.&nbsp; Just say "NO" to DOS.
+<br><tt><font size=+1></font></tt>&nbsp;
+<br><font size=-1></font>&nbsp;
+</body>
+</html>

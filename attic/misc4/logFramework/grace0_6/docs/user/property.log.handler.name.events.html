@@ -1,0 +1,75 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="GENERATOR" content="Mozilla/4.5 [en] (X11; I; SunOS 5.6 i86pc) [Netscape]">
+   <title>Java Log Facility - Example Output</title>
+</head>
+<body text="#000000" bgcolor="#FFFFFF">
+
+<center><img SRC="p0.jpg" NOSAVE height=160 width=231></center>
+
+<div align=right><font size=-1>$Revision: 1.1 $</font></div>
+
+<div align=right><font size=-1>$Date: 1999/03/01 17:38:01 $</font></div>
+
+<div align=right>
+<hr WIDTH="100%"></div>
+
+<table WIDTH="100%" NOSAVE >
+<tr NOSAVE>
+<td ALIGN=LEFT VALIGN=TOP NOSAVE><font color="#999999">Name:</font></td>
+
+<td NOSAVE><font color="#009900">log.handler.<i>name</i>.events</font></td>
+</tr>
+
+<tr NOSAVE>
+<td ALIGN=LEFT VALIGN=TOP NOSAVE><font color="#999999">Description:</font></td>
+
+<td ALIGN=LEFT VALIGN=TOP NOSAVE><font color="#000000">This controls which
+types of events are handled by the named handler.&nbsp; Currently, this
+is the only way to filter events for a specific Handler.&nbsp; Handler
+naming is described in the<a href="property.log.handler.name.url.html">
+log.handler.<i>name.</i>url </a>property.&nbsp; The events defined by the
+log class are "error", "warning", "notice", and "trace".&nbsp; However,
+the user may specify any string as an event type.&nbsp;</font></td>
+</tr>
+
+<tr NOSAVE>
+<td NOSAVE><font color="#999999">Type:</font></td>
+
+<td><font color="#009900">String</font></td>
+</tr>
+
+<tr NOSAVE>
+<td ALIGN=LEFT VALIGN=TOP NOSAVE><font color="#999999">Acceptable Values:</font></td>
+
+<td>A space separated list of event types that this handler should handle.&nbsp;
+If the list is empty then all events are handled.</td>
+</tr>
+
+<tr NOSAVE>
+<td NOSAVE><font color="#999999">Default Value:</font></td>
+
+<td><font color="#009900">"" </font><i>(all events are handled)</i></td>
+</tr>
+
+<tr NOSAVE>
+<td ALIGN=LEFT VALIGN=TOP NOSAVE><font color="#999999">Example Usage:</font></td>
+
+<td>
+<table BORDER WIDTH="100%" NOSAVE >
+<tr NOSAVE>
+<td NOSAVE>$ java -D<font color="#009900">log.handler.out.events</font>="error
+warning" -Dlog.handler.out.url=file:- grace.log.Log</td>
+
+<td>Prints only errors and warnings to the standard output.&nbsp;</td>
+</tr>
+</table>
+&nbsp;</td>
+</tr>
+</table>
+
+<br>&nbsp;
+</body>
+</html>

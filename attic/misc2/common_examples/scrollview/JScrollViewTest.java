@@ -1,0 +1,29 @@
+package scrollview;
+
+import java.awt.*;
+import javax.swing.*;
+import javax.swing.border.*;
+import common.ui.scrollview.*;
+
+public class JScrollViewTest {
+	public static void main(String[] args) {
+		JFrame frame = new JFrame("JScrollView Test");
+		frame.getContentPane().setLayout(new BorderLayout());
+		JPanel center = new JPanel(new BorderLayout());
+		frame.getContentPane().add(BorderLayout.CENTER, center);
+		JScrollViewPane scroll =
+			new JScrollViewPane(new ExampleView("d:\\javaprojects\\private\\common_examples\\scrollview\\JExploreUMLDiagram.gif"), false);
+		JButton button = new JButton("Test");
+		button.setMinimumSize(new Dimension(5, 5));
+	
+		scroll.setCorner(JScrollPane.LOWER_RIGHT_CORNER, new JScrollViewPopup(scroll, 150));
+		JPanel view = new JPanel(new BorderLayout());
+		view.add(BorderLayout.NORTH, new JScrollView(scroll, 150));
+		view.setBorder(new EmptyBorder(2, 2, 4, 4));
+		center.add(BorderLayout.WEST, view);
+		center.add(BorderLayout.CENTER, scroll);
+		frame.setBounds(100, 100, 500, 300);
+		frame.setDefaultCloseOperation(3);
+		frame.setVisible(true);
+	}
+}

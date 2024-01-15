@@ -1,0 +1,86 @@
+<!--#include file="include/head_quoten.shtml"-->
+<!--#include file="include/body.shtml"-->
+<br>
+<p class="subTitle">Lotto Gewinnquoten</p>
+<br>
+<table width="50%" border="1" class="tableContents">
+<tr>
+<th width="14%" class="tableHeader">Richtige</th>
+<th width="21%" class="tableHeader">Anzahl</th>
+<th class="tableHeader">Gewinn</th>
+</tr>
+<tr>
+<th class="tableRowHeader">6</th>
+<td align="RIGHT" class="text">%%lanz6%%</td>
+<td align="RIGHT" class="text">%%lbet6%%</td>
+</tr>
+<tr>
+<th class="tableRowHeader">5+</th>
+<td align="RIGHT" class="text">%%lanz5+%%</td>
+<td align="RIGHT" class="text">%%lbet5+%%</td>
+</tr>
+<tr>
+<th class="tableRowHeader">5</th>
+<td align="RIGHT" class="text">%%lanz5%%</td>
+<td align="RIGHT" class="text">%%lbet5%%</td>
+</tr>
+<tr>
+<th class="tableRowHeader">4</th>
+<td align="RIGHT" class="text">%%lanz4%%</td>
+<td align="RIGHT" class="text">%%lbet4%%</td>
+</tr>
+<tr>
+<th class="tableRowHeader">3</th>
+<td align="RIGHT" class="text">%%lanz3%%</td>
+<td align="RIGHT" class="text">%%lbet3%%</td>
+</tr>
+</TABLE>
+<br>
+<p class="text">
+%%lerwartetdatum%%
+%%lerwartetsumme%%
+</p>
+<br>
+<br>
+<br>
+<p class="subTitle">Joker Gewinnquoten</p>
+<br>
+<table width="50%" border="1" class="tableContents">
+<tr>
+<th width="14%" class="tableHeader">Richtige</th>
+<th width="21%" class="tableHeader">Anzahl</th>
+<th class="tableHeader">Gewinn</th>
+</tr>
+<tr>
+<th class="tableRowHeader">6</th>
+<td align="RIGHT" class="text">%%janz6%%</td>
+<td align="RIGHT" class="text">%%jbet6%%</td>
+</tr>
+<tr>
+<th class="tableRowHeader">5</th>
+<td align="RIGHT" class="text">%%janz5%%</td>
+<td align="RIGHT" class="text">%%jbet5%%</td>
+</tr>
+<tr>
+<th class="tableRowHeader">4</th>
+<td align="RIGHT" class="text">%%janz4%%</td>
+<td align="RIGHT" class="text">%%jbet4%%</td>
+</tr>
+<tr>
+<th class="tableRowHeader">3</th>
+<td align="RIGHT" class="text">%%janz3%%</td>
+<td align="RIGHT" class="text">%%jbet3%%</td>
+</tr>
+<tr>
+<th class="tableRowHeader">2</th>
+<td align="RIGHT" class="text">%%janz2%%</td>
+<td align="RIGHT" class="text">%%jbet2%%</td>
+</tr>
+</table>
+<br>
+<p class="text">
+%%jerwartetdatum%%
+%%jerwartetsumme%%
+</p>
+<!--#include file="include/tail.shtml"-->
+

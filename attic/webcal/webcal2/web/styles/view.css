@@ -1,0 +1,98 @@
+td.small {
+	color: #000000;
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	font-weight: normal;
+	border: 1px solid black;
+}
+
+td.smallholiday {
+	color: #000000;
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	font-weight: normal;
+	border: 1px solid black;
+	background: #FFD700;
+}
+
+td.smalltoday {
+	color: #000000;
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	font-weight: normal;
+	border: 1px solid black;
+	background: Lime;
+}
+
+
+td.smaller {
+	color: #000000;
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size: 9px;
+	font-weight: normal;
+	border: 1px solid black;
+}
+
+td.smallerholiday {
+	color: #000000;
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size: 9px;
+	font-weight: normal;
+	border: 1px solid black;
+	background: #FFD700;	
+}
+
+td.smallertoday {
+	color: #000000;
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size: 9px;
+	font-weight: normal;
+	border: 1px solid black;
+	background: Lime;	
+}
+
+td.b {
+  border: 1px solid black;
+  font-weight: bold;
+}
+
+td.bt {
+  border: 1px solid black;
+  border-bottom: 1px solid Lime;	
+}
+
+td.bh {
+  border: 1px solid black;  
+  border-bottom: 1px solid #FFD700;	
+}
+
+table.border { 
+  border-collapse: collapse;
+  border-spacing: 0px;
+}
+
+table.day {  
+	border-collapse: collapse;
+	border-spacing: 0px;
+}
+
+table.day td.hour {
+	border: 1px solid #999999;
+}
+
+table.day td.dottedlinet {	
+	border-top: 1px solid #999999;	
+	border-left: 1px solid #999999;	
+	border-right: 1px solid #999999;			
+	border-bottom: 1px dashed #999999;	
+}
+
+
+table.day td.dottedline {	
+	border-top: 1px dashed #999999;	
+	border-right: 1px solid #999999;	
+}
+
+table.day td.normal {	
+	border: 1px solid #999999;	
+}

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<permissions>
+  
+  <permission key="userconfig">
+    <text locale="de">Persönlich</text>
+  </permission>
+
+  <permission key="admin">
+    <text locale="de">Administration</text>
+  </permission>
+
+  <permission key="stammdaten">
+    <text locale="de">Stammdaten</text>
+  </permission>
+
+  <permission key="bewertung">
+    <text locale="de">Bewertung</text>
+  </permission>
+
+  <permission key="reports">
+    <text locale="de">Reports</text>
+  </permission>
+
+</permissions>

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE taglib
+  PUBLIC "-//Sun Microsystems, Inc.//DTD JSP Tag Library 1.1//EN"
+  "http://java.sun.com/j2ee/dtds/web-jsptaglibrary_1_1.dtd">
+
+<taglib>
+  <tlibversion>1.0</tlibversion>
+  <jspversion>1.1</jspversion>
+  <shortname>Misc Tags Library</shortname>
+  <uri>http://www.ess.ch/taglibs/misc</uri>
+  <info>Misc Tag Library</info>
+   <tag>
+    <name>noCache</name>
+    <tagclass>ch.ess.taglib.misc.NoCacheTag</tagclass>
+    <bodycontent>empty</bodycontent>
+    <info>
+		Writes no cache header information into response
+    </info>
+  </tag>
+
+   <tag>
+    <name>trxToken</name>
+    <tagclass>ch.ess.taglib.misc.CommandTokenTag</tagclass>
+    <bodycontent>empty</bodycontent>
+    <info>
+		Writes trx token into page
+    </info>
+  </tag>
+
+
+   <tag>
+    <name>trxTokenRemove</name>
+    <tagclass>ch.ess.taglib.misc.CommandTokenRemoveTag</tagclass>
+    <bodycontent>empty</bodycontent>
+    <info>
+		Removes the trx token from the session
+    </info>
+  </tag>
+
+  <tag>
+    <name>navigateFrom</name>
+    <tagclass>ch.ess.taglib.misc.NavigateFromTag</tagclass>
+    <bodycontent>empty</bodycontent>
+    <attribute>
+      <name>nextUrl</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>    
+  </tag> 
+  
+   <tag>
+    <name>navigateManage</name>
+    <tagclass>ch.ess.taglib.misc.NavigateManageTag</tagclass>
+    <bodycontent>empty</bodycontent>
+  </tag>  
+  
+  
+    <tag>
+    <name>navigateBack</name>
+    <tagclass>ch.ess.taglib.misc.NavigateBackTag</tagclass>
+    <bodycontent>empty</bodycontent>
+    <attribute>
+      <name>encode</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>    
+  </tag> 
+
+  <tag>
+    <name>urlEncode</name>
+    <tagclass>ch.ess.taglib.misc.URLEncodeTag</tagclass>
+    <bodycontent>empty</bodycontent>
+    <attribute>
+      <name>url</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>    
+  </tag> 
+
+  
+</taglib>

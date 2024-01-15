@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:c="http://java.sun.com/jstl/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+<head>
+   <title>Panel List Composition Component</title>
+</head>
+Example 6.8 in the Facelets shortcut.
+<body>
+<ui:composition>
+   <c:if test="${empty fieldsetStyle}" >
+     <c:set var="fieldsetStyle" value="width:300px;margin:2px solid black" />
+   </c:if>
+   <c:if test="${empty listStyle}" >
+     <c:set var="listStyle" value="list-style-type: none;" />
+   </c:if>
+   <c:if test="${empty items}">
+	 <c:set var="items" value="panelListItems" />
+   </c:if>
+   <fieldset style="${fieldsetStyle}">
+      <legend>#{legendText}</legend>
+	  <h:form>
+
+	     <ul style="${listStyle}" >
+		    <ui:repeat value="${bean[items]}" var="item">
+		  	   <h:panelGroup rendered="#{item.type == 'javax.faces.HtmlOutputText'}" >
+		  	      <li>
+		  		     <h:outputText value="#{item.text}" />
+		  		 </li>
+		  	   </h:panelGroup>
+		  	   <h:panelGroup rendered="#{item.type == 'javax.faces.HtmlInputText'}" >
+		  	      <li>
+		  		     <h:outputText value="#{item.text}" />
+		  		     <h:inputText value="#{bean[item.name]}" />
+		  		  </li>
+		  	   </h:panelGroup>
+		  	   <h:panelGroup rendered="#{item.type == 'javax.faces.HtmlCommandButton'}" >
+		  	      <li>
+		  	         <h:commandButton value="#{item.text}" action="#{bean[item.action]}" />
+		  	      </li>
+		  	   </h:panelGroup>
+		    </ui:repeat>
+	     </ul>
+      </h:form>
+   </fieldset>
+</ui:composition>
+</body>	  
+</html>

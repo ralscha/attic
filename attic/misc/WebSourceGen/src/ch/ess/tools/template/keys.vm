@@ -1,0 +1,4 @@
+${objectNames}=${objectNames}
+${objectName}neu=Neues ${objectName}
+${objectName}bearbeiten=${objectName} bearbeiten
+${objectName}Loeschen=${objectName} {0} löschen?

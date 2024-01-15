@@ -1,0 +1,71 @@
+[COMPILER]
+INCLUDEDIRS=
+compile=concur|capture|:Compile:&Compile,javac %f
+make=:Build:&Build,javamake
+rebuild=concur|capture|:Rebuild:&Rebuild,
+debug=concur|capture|:Debug:&Debug,jdb %n
+execute=concur|capture|:Execute:E&xecute,java %n
+user1=hide|:User 1:User 1,
+user2=hide|:User 2:User 2,
+workingdir=
+includedirs=
+tagfiles=
+reffile=
+MACRO=\n
+FILTEREXPANSION=1 0 0 0 0
+[ASSOCIATION]
+[FILES]
+D:\Projects\JavaPro\Highlights\Java\conv1.txt
+D:\Projects\JavaPro\Highlights\Java\HilitePainter.java
+D:\Projects\JavaPro\Highlights\Java\InputFile.java
+D:\Projects\JavaPro\Highlights\Java\JxFrame.java
+D:\Projects\JavaPro\Highlights\Java\LimitedStyledDocument.java
+D:\Projects\JavaPro\Highlights\Java\Mediator.java
+D:\Projects\JavaPro\Highlights\Java\ThumbDemo.java
+D:\Projects\JavaPro\Highlights\Java\Word.java
+[STATE]
+SCREEN: 1280 1024 258 50 874 754 0 0 N 0 0 0 0 674 567
+CWD: D:\Projects\JavaPro\Highlights\Java
+BUFFER: BN="D:\Projects\JavaPro\Highlights\Java\Mediator.java"
+BI: MA=1 74 1  TABS=1 9  WWS=1 IWT=0 ST=0 IN=2 BW=0 US=32000 RO=0 SE=1 SN=0 BIN=0 MN=Java	HM=0 MF=0
+VIEW: LN=.1097 CL=2 LE=0 CX=1 CY=27 WI=5 BI=23 HT=0 HN=0 HF=0 HC=4
+BUFFER: BN="D:\Projects\JavaPro\Highlights\Java\HilitePainter.java"
+BI: MA=1 74 1  TABS=1 9  WWS=1 IWT=0 ST=0 IN=2 BW=0 US=32000 RO=0 SE=1 SN=0 BIN=0 MN=Java	HM=0 MF=0
+VIEW: LN=.1043 CL=7 LE=0 CX=6 CY=27 WI=5 BI=17 HT=0 HN=0 HF=0 HC=4
+BUFFER: BN="D:\Projects\JavaPro\Highlights\Java\LimitedStyledDocument.java"
+BI: MA=1 74 1  TABS=1 9  WWS=1 IWT=0 ST=0 IN=2 BW=0 US=32000 RO=0 SE=1 SN=0 BIN=0 MN=Java	HM=0 MF=0
+VIEW: LN=.1151 CL=2 LE=0 CX=1 CY=27 WI=5 BI=4 HT=0 HN=0 HF=0 HC=4
+BUFFER: BN="D:\Projects\JavaPro\Highlights\Java\Word.java"
+BI: MA=1 74 1  TABS=1 9  WWS=1 IWT=0 ST=0 IN=2 BW=0 US=32000 RO=0 SE=1 SN=0 BIN=0 MN=Java	HM=0 MF=0
+VIEW: LN=.427 CL=15 LE=0 CX=14 CY=8 WI=5 BI=19 HT=0 HN=0 HF=0 HC=4
+BUFFER: BN="D:\Projects\JavaPro\Highlights\Java\ThumbDemo.java"
+BI: MA=1 74 1  TABS=1 9  WWS=1 IWT=0 ST=0 IN=2 BW=0 US=32000 RO=0 SE=1 SN=0 BIN=0 MN=Java	HM=0 MF=352
+VIEW: LN=.1962 CL=29 LE=0 CX=28 CY=19 WI=5 BI=24 HT=0 HN=0 HF=0 HC=4
+WINDOW: 132 132 498 389 -1 -1 N  WF=0 WT=3 "OEM Fixed Font,10,0"
+BUFFER: BN="D:\Projects\JavaPro\Highlights\Java\Mediator.java"
+VIEW: LN=.1097 CL=2 LE=0 CX=1 CY=27 WI=176 BI=23 HT=0 HN=0 HF=0 HC=4
+WINDOW: 132 132 498 391 -1 -1 N  WF=0 WT=6 "OEM Fixed Font,10,0"
+BUFFER: BN="D:\Projects\JavaPro\Highlights\Java\HilitePainter.java"
+VIEW: LN=.1043 CL=7 LE=0 CX=6 CY=27 WI=173 BI=17 HT=0 HN=0 HF=0 HC=4
+WINDOW: 110 110 498 391 -1 -1 N  WF=0 WT=5 "OEM Fixed Font,10,0"
+BUFFER: BN="D:\Projects\JavaPro\Highlights\Java\LimitedStyledDocument.java"
+VIEW: LN=.1151 CL=2 LE=0 CX=1 CY=27 WI=172 BI=4 HT=0 HN=0 HF=0 HC=4
+WINDOW: 154 154 498 389 -1 -1 N  WF=0 WT=4 "OEM Fixed Font,10,0"
+BUFFER: BN="D:\Projects\JavaPro\Highlights\Java\Word.java"
+VIEW: LN=.427 CL=15 LE=0 CX=14 CY=8 WI=120 BI=19 HT=0 HN=0 HF=0 HC=4
+WINDOW: 110 110 498 389 -1 -1 M  WF=0 WT=2 "OEM Fixed Font,10,0"
+BUFFER: BN="D:\Projects\JavaPro\Highlights\Java\ThumbDemo.java"
+VIEW: LN=.1962 CL=29 LE=0 CX=28 CY=19 WI=113 BI=24 HT=0 HN=0 HF=0 HC=4
+FILEHIST: 9
+D:\Dreyfus\ThumbDisp\HilitePainter.java
+D:\Dreyfus\ThumbDisp\conv1.txt
+D:\Dreyfus\ThumbDisp\ThumbDemo.java
+D:\Projects\JavaPro\Highlights\Java\conv1.txt
+D:\Projects\JavaPro\Highlights\Java\Mediator.java
+D:\Projects\JavaPro\Highlights\Java\HilitePainter.java
+D:\Projects\JavaPro\Highlights\Java\LimitedStyledDocument.java
+D:\Projects\JavaPro\Highlights\Java\Word.java
+D:\Projects\JavaPro\Highlights\Java\ThumbDemo.java
+PRINTER: 2
+
+

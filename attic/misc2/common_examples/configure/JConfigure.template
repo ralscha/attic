@@ -1,0 +1,9 @@
+options.environment.confirm.Delete=jdj.ui.configure.PropertyBooleanField
+options.environment.confirm.Insert=jdj.ui.configure.PropertyBooleanField
+options.environment.confirm.Move=jdj.ui.configure.PropertyBooleanField
+options.environment.save.Automatic=jdj.ui.configure.PropertyBooleanField
+options.environment.save.Prompt=jdj.ui.configure.PropertyBooleanField
+options.layout.Main=jdj.ui.configure.PropertyRectangleField
+options.layout.HTTP=jdj.ui.configure.PropertyRectangleField
+options.layout.FTP=jdj.ui.configure.PropertyRectangleField
+options.protocol.http.Keep-Alive=jdj.ui.configure.PropertyBooleanField

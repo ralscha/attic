@@ -1,0 +1,4 @@
+<taglib>
+      <taglib-uri>/tags/oscache</taglib-uri>
+      <taglib-location>/WEB-INF/oscache.tld</taglib-location>
+</taglib>

@@ -1,0 +1,65 @@
+
+Alert {
+  color : #0f3177;
+  title-style-name : "alertTitle";
+  header-height:19;
+  border-thickness: 1;
+  drop-shadow-enabled: true;
+  drop-shadow-color :#d1ddf7;
+  background-color: #ffffff;
+  corner-radius :6;
+  border-style :solid;
+  header-colors : #90a4d1, #5970a0;
+  footer-colors : #9db6d9, #ffffff;
+  border-color : #5970a0;
+  message-style-name: alertMessage; 
+   
+}
+
+.alertTitle {
+  font-family :Verdana;
+  font-size :10;
+  font-weight :bold;
+  text-align :left;
+  color :#ffffff;
+} 
+
+.alertMessage {
+  padding-top: 10;
+  padding-bottom: 10;
+}
+
+.applicationTitle {
+  font-family :Verdana;
+  font-size :18;
+  font-weight :bold;
+  text-align :left;
+  color: black;
+}
+
+
+Application {
+  /*theme-color: #f7f1e6;*/
+  background-color: white;
+  background-gradient-colors: #0E2E7D, #6479AB;
+  backgroundGradientAlphas: 0.0, 0.7;
+}
+
+ApplicationControlBar
+{
+  fillAlphas: 0.2, 0.6;
+  fillColors: #0E2E7D, #6479AB; 
+}
+
+LinkBar
+{
+  disabledColor: white;
+  color: black;
+}
+
+Panel {
+  borderColor: #5E74A6;
+  color: #000000;
+  borderAlpha: 0.4;
+}
+

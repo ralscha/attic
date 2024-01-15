@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+
+<MenuConfig>
+  <Displayers>
+    <Displayer name="MenuBar" type="ch.ess.base.web.MenuBarDisplayer"/>                 
+    <Displayer name="MenuInfo" type="ch.ess.base.web.MenuInfoDisplayer"/>    
+  </Displayers>
+
+  <Menus>
+      <Menu name="m_mainmenu">        
+
+        <Item  name="m_application" title="calendar" roles="event"> 
+          <Item name="i_overview" title="calendar.overview" page="/groupMonth.do?clean=1&amp;startCrumb=1&amp;startCrumbPath=/calendar" roles="event"/>                  
+          <Item name="i_overview" title="calendar.overview.year" page="/groupYear.do?clean=1&amp;startCrumb=1&amp;startCrumbPath=/calendar" roles="event"/>                            
+          <Item name="seperator0"/>                                
+          <!--  <Item name="i_terminliste" title="scheduler.title" page="/scheduler.do?clean=1&amp;startCrumb=1&amp;startCrumbPath=/calendar" roles="event"/>      -->
+          <Item name="i_monthview" title="monthview.title" page="/monthView.do?clean=1&amp;startCrumb=1&amp;startCrumbPath=/calendar" roles="event"/>                            
+          <Item name="i_yearview" title="yearview.title" page="/yearView.do?clean=1&amp;startCrumb=1&amp;startCrumbPath=/calendar" roles="event"/>     
+          <Item name="seperator2"/> 
+          <Item name="i_events" title="event.menu" page="/preEventList.do?clean=1&amp;startCrumb=1&amp;startCrumbPath=/calendar" roles="event"/>   
+<!--           <Item name="i_import" title="event.import.menu" page="/preImport.do?clean=1&amp;startCrumb=1&amp;startCrumbPath=/calendar" roles="event"/>    -->
+        </Item>
+ 
+    	  <Item  name="m_contact" title="contact.menu" page="/preContactList.do?clean=1&amp;startCrumb=1" roles="contact"/> 
+ 
+        <Item  name="m_task" title="task.menu" page="/taskList.do?clean=1&amp;startCrumb=1" roles="task"/> 
+
+        <Item  name="m_document" title="directory.menu" page="/directoryList.do?clean=1&amp;startCrumb=1" roles="document"/> 
+
+        <Item  name="m_time" title="time.menu" roles="time,timeadmin"> 
+          <Item name="i_time" title="time.times" page="/preTimeList.do?clean=1&amp;startCrumb=1&amp;startCrumbPath=/time" roles="time"/>            
+          <Item name="i_timebudget" title="timetaskbudgetlist.title" page="/timeTaskBudgetList.do?clean=1&amp;startCrumb=1&amp;startCrumbPath=/time" roles="timeadmin"/>
+          <Item name="seperator3a" roles="time,timeadmin"/>          
+          <Item name="i_dayreport" title="time.report.day.menu" page="/preDayReportList.do?clean=1&amp;startCrumb=1&amp;startCrumbPath=/time" roles="time,timeadmin"/>  
+          <Item name="i_report" title="time.report.menu" page="/preTimeReportList.do?clean=1&amp;startCrumb=1&amp;startCrumbPath=/time" roles="time,timeadmin"/>  
+          <Item name="i_matrixreport" title="time.report.matrix.menu" page="/preTimeMatrixReportList.do?clean=1&amp;startCrumb=1&amp;startCrumbPath=/time" roles="time,timeadmin"/>  
+          <Item name="i_monthview" title="timemonthview.title" page="/preTimeMonthView.do?clean=1&amp;startCrumb=1&amp;startCrumbPath=/time" roles="time,timeadmin"/>  
+           
+           <Item name="seperator3b" roles="timeadmin"/>          
+          <Item name="i_timecustomer" title="time.customer.menu" page="/timeCustomerList.do?clean=1&amp;startCrumb=1&amp;startCrumbPath=/time" roles="timeadmin"/>  
+        </Item>
+
+        <Item name="m_administration" title="administration.title" roles="userconfig,admin"> 
+          <Item name="i_userconfig" title="userconfig.menu" page="/userConfig.do?clean=1&amp;startCrumb=1&amp;startCrumbPath=/administration" roles="userconfig"/>    
+          <Item name="i_config" title="config.menu" page="/config.do?clean=1&amp;startCrumb=1&amp;startCrumbPath=/administration" roles="admin"/>   
+          <Item name="i_textresources" title="textresource.menu" page="/textResourceList.do?clean=1&amp;startCrumb=1&amp;startCrumbPath=/administration" roles="admin"/>        
+          <Item name="i_applinks" title="appLinks.menu" page="/appLinkList.do?clean=1&amp;startCrumb=1&amp;startCrumbPath=/administration" roles="admin"/>      
+          <Item name="seperator4" roles="admin"/>
+          <Item name="i_usergroups" title="usergroup.menu" page="/userGroupList.do?clean=1&amp;startCrumb=1&amp;startCrumbPath=/administration" roles="admin"/>      
+          <Item name="i_users" title="user.menu" page="/userList.do?clean=1&amp;startCrumb=1&amp;startCrumbPath=/administration" roles="admin"/>      
+          <Item name="seperator5" roles="admin"/>
+          <Item name="i_groups" title="group.menu" page="/groupList.do?clean=1&amp;startCrumb=1&amp;startCrumbPath=/administration" roles="admin"/>                        
+          <Item name="seperator6" roles="admin"/>
+          <Item name="i_holidays" title="holiday.menu" page="/holidayList.do?clean=1&amp;startCrumb=1&amp;startCrumbPath=/administration" roles="admin"/>              
+<!--      
+          <Item name="i_resourcegroups" title="resourceGroup.menu" page="/resourceGroupList.do?clean=1&amp;startCrumb=1&amp;startCrumbPath=/administration" roles="admin"/>  
+          <Item name="i_resources" title="resource.menu" page="/resourceList.do?clean=1&amp;startCrumb=1&amp;startCrumbPath=/administration" roles="admin"/>     
+-->          
+          <Item name="i_categories" title="category.menu" page="/categoryList.do?clean=1&amp;startCrumb=1&amp;startCrumbPath=/administration" roles="eventadmin"/>  
+          <Item name="seperator7" roles="admin"/>
+          <Item name="i_jobs" title="job.menu" page="/jobList.do?clean=1&amp;startCrumb=1&amp;startCrumbPath=/administration" roles="admin"/>         
+        </Item>
+        <Item name="m_logout" title="login.logout" page="/logout.do"/> 
+      </Menu>  
+
+  </Menus>
+
+</MenuConfig>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Canvas xmlns:mx="http://www.adobe.com/2006/mxml" width="100%" height="100%" 
+  label="Benutzer" xmlns:principalComponents="ch.ess.tt.components.principal.*">
+  
+  <mx:Script>
+    <![CDATA[
+      import mx.core.Container;
+      import ch.ess.tt.model.ModelLocator;
+
+      [Bindable]
+      private var model:ModelLocator = ModelLocator.getInstance();
+      
+      private function controlViewToShow(workflowState:int):Container {
+        if (workflowState == ModelLocator.VIEWING_LIST_SCREEN) {
+          return principalList;
+        }         
+        return principalEdit;
+      }             
+    ]]>
+  </mx:Script>
+  
+  <mx:ViewStack width="100%" height="100%" selectedChild="{controlViewToShow(model.principalWorkflowState)}">
+    <principalComponents:PrincipalList id="principalList" />
+    <principalComponents:PrincipalEdit id="principalEdit" />  
+  </mx:ViewStack>
+  
+</mx:Canvas>

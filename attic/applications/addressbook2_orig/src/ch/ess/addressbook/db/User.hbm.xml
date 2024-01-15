@@ -1,0 +1,174 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd">
+
+<hibernate-mapping>
+    <class
+        name="ch.ess.addressbook.db.User"
+        table="abUser"
+        proxy="ch.ess.addressbook.db.User"
+        dynamic-update="false"
+        dynamic-insert="false"
+    >
+
+        <id
+            name="id"
+            column="id"
+            type="java.lang.Long"
+            unsaved-value="null"
+        >
+            <generator class="native">
+            </generator>
+        </id>
+
+        <version
+            name="version"
+            type="int"
+            column="version"
+        />
+
+        <property
+            name="firstName"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="firstName"
+            length="100"
+            not-null="false"
+        />
+
+        <property
+            name="locale"
+            type="java.util.Locale"
+            update="true"
+            insert="true"
+            column="locale"
+            length="10"
+            not-null="true"
+        />
+
+        <property
+            name="name"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="name"
+            length="100"
+            not-null="true"
+        />
+
+        <property
+            name="passwordHash"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="passwordHash"
+            length="40"
+            not-null="false"
+        />
+
+        <property
+            name="userName"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="userName"
+            length="100"
+            not-null="true"
+            unique="true"
+        />
+
+        <property
+            name="email"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="email"
+            length="255"
+            not-null="true"
+        />
+
+        <property
+            name="loginToken"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="loginToken"
+            length="40"
+            not-null="false"
+        />
+
+        <property
+            name="loginTokenTime"
+            type="timestamp"
+            update="true"
+            insert="true"
+            column="loginTokenTime"
+            not-null="false"
+        />
+
+        <set
+            name="userConfiguration"
+            table="abUserConfiguration"
+            lazy="true"
+            inverse="true"
+            cascade="all"
+            sort="unsorted"
+        >
+
+              <key
+                  column="userId"
+              />
+
+              <one-to-many
+                  class="ch.ess.addressbook.db.UserConfiguration"
+              />
+        </set>
+
+        <set
+            name="userRoles"
+            table="abUserRole"
+            lazy="true"
+            inverse="true"
+            cascade="all-delete-orphan"
+            sort="unsorted"
+        >
+
+              <key
+                  column="userId"
+              />
+
+              <one-to-many
+                  class="ch.ess.addressbook.db.UserRole"
+              />
+        </set>
+
+        <set
+            name="contacts"
+            table="abContact"
+            lazy="true"
+            inverse="true"
+            cascade="all-delete-orphan"
+            sort="unsorted"
+        >
+
+              <key
+                  column="userId"
+              />
+
+              <one-to-many
+                  class="ch.ess.addressbook.db.Contact"
+              />
+        </set>
+
+        <!--
+            To add non XDoclet property mappings, create a file named
+                hibernate-properties-User.xml
+            containing the additional properties and place it in your merge dir.
+        -->
+
+    </class>
+
+</hibernate-mapping>

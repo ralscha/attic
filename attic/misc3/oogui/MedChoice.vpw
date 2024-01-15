@@ -1,0 +1,75 @@
+[CurrentProject]
+curproj=MedChoice.vpj
+[ProjectDates]
+MedChoice.vpj=20000601152032000
+[ProjectFiles]
+MedChoice.vpj
+[TreeExpansion]
+MedChoice.vpj 1 1 0 0
+[State]
+SCREEN: 1280 1024 230 210 986 654 0 0 N 0 0 0 0 743 471
+CWD: D:\Projects\JavaPro\ObjectChoices\MedChoice
+BUFFER: BN="D:\Projects\JavaPro\ObjectChoices\MedChoice\Mediator.java"
+BI: MA=1 74 1  TABS=1 9  WWS=1 IWT=0 ST=0 IN=2 BW=0 US=32000 RO=0 SE=1 SN=0 BIN=0 MN=Java	HM=0 MF=0 TL=0 MLL=0 ASE=0 LNL=6 LCF=0 CAPS=0
+VIEW: LN=.535 CL=2 LE=0 CX=1 CY=21 WI=5 BI=22 HT=0 HN=0 HF=0 HC=4
+BUFFER: BN="D:\Projects\JavaPro\ObjectChoices\MedChoice\MedChoice.java"
+BI: MA=1 74 1  TABS=1 9  WWS=1 IWT=0 ST=0 IN=2 BW=0 US=32000 RO=0 SE=1 SN=0 BIN=0 MN=Java	HM=0 MF=0 TL=0 MLL=0 ASE=0 LNL=6 LCF=0 CAPS=0
+VIEW: LN=.1240 CL=8 LE=0 CX=7 CY=21 WI=5 BI=23 HT=0 HN=0 HF=0 HC=4
+BUFFER: BN="D:\Projects\JavaPro\ObjectChoices\MedChoice\MaleButton.java"
+BI: MA=1 74 1  TABS=1 9  WWS=1 IWT=0 ST=0 IN=2 BW=0 US=32000 RO=0 SE=1 SN=0 BIN=0 MN=Java	HM=0 MF=8 TL=0 MLL=0 ASE=0 LNL=6 LCF=0 CAPS=0
+VIEW: LN=.138 CL=5 LE=0 CX=4 CY=7 WI=5 BI=24 HT=0 HN=0 HF=0 HC=4
+BUFFER: BN="D:\Projects\JavaPro\ObjectChoices\MedChoice\Command.java"
+BI: MA=1 74 1  TABS=1 9  WWS=1 IWT=0 ST=0 IN=2 BW=0 US=32000 RO=0 SE=1 SN=0 BIN=0 MN=Java	HM=0 MF=0 TL=0 MLL=0 ASE=0 LNL=6 LCF=0 CAPS=0
+VIEW: LN=.0 CL=1 LE=0 CX=0 CY=1 WI=5 BI=25 HT=0 HN=0 HF=0 HC=4
+BUFFER: BN="D:\Projects\JavaPro\ObjectChoices\MedChoice\FemaleButton.java"
+BI: MA=1 74 1  TABS=1 9  WWS=1 IWT=0 ST=0 IN=2 BW=0 US=32000 RO=0 SE=1 SN=0 BIN=0 MN=Java	HM=0 MF=0 TL=0 MLL=0 ASE=0 LNL=6 LCF=0 CAPS=0
+VIEW: LN=.267 CL=24 LE=0 CX=23 CY=10 WI=5 BI=26 HT=0 HN=0 HF=0 HC=4
+BUFFER: BN="D:\Projects\JavaPro\ObjectChoices\MedChoice\Kids.java"
+BI: MA=1 74 1  TABS=1 9  WWS=1 IWT=0 ST=0 IN=2 BW=0 US=32000 RO=0 SE=1 SN=0 BIN=0 MN=Java	HM=0 MF=0 TL=0 MLL=0 ASE=0 LNL=6 LCF=0 CAPS=0
+VIEW: LN=.0 CL=1 LE=0 CX=0 CY=1 WI=5 BI=27 HT=0 HN=0 HF=0 HC=4
+BUFFER: BN="D:\Projects\JavaPro\ObjectChoices\MedChoice\MaleKids.java"
+BI: MA=1 74 1  TABS=1 9  WWS=1 IWT=0 ST=0 IN=2 BW=0 US=32000 RO=0 SE=1 SN=0 BIN=0 MN=Java	HM=0 MF=0 TL=0 MLL=0 ASE=0 LNL=6 LCF=0 CAPS=0
+VIEW: LN=.0 CL=1 LE=0 CX=0 CY=1 WI=5 BI=30 HT=0 HN=0 HF=0 HC=4
+BUFFER: BN="D:\Projects\JavaPro\ObjectChoices\MedChoice\FemaleKids.java"
+BI: MA=1 74 1  TABS=1 9  WWS=1 IWT=0 ST=0 IN=2 BW=0 US=32000 RO=0 SE=1 SN=0 BIN=0 MN=Java	HM=0 MF=32 TL=0 MLL=0 ASE=0 LNL=6 LCF=0 CAPS=0
+VIEW: LN=.0 CL=1 LE=0 CX=0 CY=1 WI=5 BI=2 HT=0 HN=0 HF=0 HC=4
+BUFFER: BN="D:\Projects\JavaPro\ObjectChoices\MedChoice\BothButton.java"
+BI: MA=1 74 1  TABS=1 9  WWS=1 IWT=0 ST=0 IN=2 BW=0 US=32000 RO=0 SE=1 SN=0 BIN=0 MN=Java	HM=0 MF=608 TL=0 MLL=0 ASE=0 LNL=6 LCF=0 CAPS=0
+VIEW: LN=.347 CL=39 LE=0 CX=38 CY=15 WI=5 BI=20 HT=0 HN=0 HF=0 HC=4
+WINDOW: 110 110 589 317 -1 -1 N  WF=0 WT=6 "OEM Fixed Font,10,0,1"
+BUFFER: BN="D:\Projects\JavaPro\ObjectChoices\MedChoice\BothButton.java"
+VIEW: LN=.347 CL=39 LE=0 CX=38 CY=15 WI=128 BI=20 HT=0 HN=0 HF=0 HC=4
+WINDOW: 22 22 589 317 -1 -1 N  WF=0 WT=2 "OEM Fixed Font,10,0,1"
+BUFFER: BN="D:\Projects\JavaPro\ObjectChoices\MedChoice\Mediator.java"
+VIEW: LN=.535 CL=2 LE=0 CX=1 CY=21 WI=122 BI=22 HT=0 HN=0 HF=0 HC=4
+WINDOW: 132 132 589 317 -1 -1 N  WF=0 WT=7 "OEM Fixed Font,10,0,1"
+BUFFER: BN="D:\Projects\JavaPro\ObjectChoices\MedChoice\MedChoice.java"
+VIEW: LN=.1240 CL=8 LE=0 CX=7 CY=21 WI=123 BI=23 HT=0 HN=0 HF=0 HC=4
+WINDOW: 44 44 589 317 -1 -1 N  WF=0 WT=3 "OEM Fixed Font,10,0,1"
+BUFFER: BN="D:\Projects\JavaPro\ObjectChoices\MedChoice\MaleButton.java"
+VIEW: LN=.138 CL=5 LE=0 CX=4 CY=7 WI=124 BI=24 HT=0 HN=0 HF=0 HC=4
+WINDOW: 66 66 589 317 -1 -1 N  WF=0 WT=4 "OEM Fixed Font,10,0,1"
+BUFFER: BN="D:\Projects\JavaPro\ObjectChoices\MedChoice\Command.java"
+VIEW: LN=.0 CL=1 LE=0 CX=0 CY=1 WI=125 BI=25 HT=0 HN=0 HF=0 HC=4
+WINDOW: 88 88 589 317 -1 -1 N  WF=0 WT=5 "OEM Fixed Font,10,0,1"
+BUFFER: BN="D:\Projects\JavaPro\ObjectChoices\MedChoice\FemaleButton.java"
+VIEW: LN=.267 CL=24 LE=0 CX=23 CY=10 WI=126 BI=26 HT=0 HN=0 HF=0 HC=4
+WINDOW: 132 132 589 317 -1 -1 N  WF=0 WT=1 "OEM Fixed Font,10,0,1"
+BUFFER: BN="D:\Projects\JavaPro\ObjectChoices\MedChoice\Kids.java"
+VIEW: LN=.0 CL=1 LE=0 CX=0 CY=1 WI=127 BI=27 HT=0 HN=0 HF=0 HC=4
+WINDOW: 154 154 589 317 -1 -1 N  WF=0 WT=9 "OEM Fixed Font,10,0,1"
+BUFFER: BN="D:\Projects\JavaPro\ObjectChoices\MedChoice\MaleKids.java"
+VIEW: LN=.0 CL=1 LE=0 CX=0 CY=1 WI=129 BI=30 HT=0 HN=0 HF=0 HC=4
+WINDOW: 0 0 589 317 -1 -1 M  WF=0 WT=10 "OEM Fixed Font,10,0,1"
+BUFFER: BN="D:\Projects\JavaPro\ObjectChoices\MedChoice\FemaleKids.java"
+VIEW: LN=.0 CL=1 LE=0 CX=0 CY=1 WI=130 BI=2 HT=0 HN=0 HF=0 HC=4
+FILEHIST: 9
+D:\Projects\JavaPro\ObjectChoices\MedChoice\MedList.java
+D:\Projects\JavaPro\ObjectChoices\MedChoice\Mediator.java
+D:\Projects\JavaPro\ObjectChoices\MedChoice\MedChoice.java
+D:\Projects\JavaPro\ObjectChoices\MedChoice\MaleButton.java
+D:\Projects\JavaPro\ObjectChoices\MedChoice\FemaleButton.java
+D:\Projects\JavaPro\ObjectChoices\MedChoice\BothButton.java
+D:\Projects\JavaPro\ObjectChoices\MedChoice\Kids.java
+D:\Projects\JavaPro\ObjectChoices\MedChoice\MaleKids.java
+D:\Projects\JavaPro\ObjectChoices\MedChoice\FemaleKids.java

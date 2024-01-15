@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:WindowedApplication xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute" 
+  xmlns:comp="ch.ess.mp3search.components.*" creationComplete="init()" minHeight="500" minWidth="1000">
+
+  <mx:Script>
+    <![CDATA[
+      import ch.ess.mp3search.model.ModelLocator;
+      
+      private var model:ModelLocator = ModelLocator.getInstance(); 
+      
+      private function init():void {
+        model.baseURL = "http://www.ess.ch:85/mp3search/"; 
+      }
+      
+    ]]>
+  </mx:Script>
+
+  <mx:Style source="/assets/main.css"/>  
+  <comp:Main />
+  
+  
+  
+</mx:WindowedApplication>

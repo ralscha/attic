@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<mx:VBox xmlns:mx="http://www.adobe.com/2006/mxml" 
+  label="About"
+  horizontalAlign="center" verticalAlign="middle">
+  <mx:Label text="This demo produced by"/>
+  <mx:Image source="@Embed('../resources/caucho.png')"/>
+</mx:VBox>

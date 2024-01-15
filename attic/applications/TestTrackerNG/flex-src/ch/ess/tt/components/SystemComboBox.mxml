@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:ComboBox xmlns:mx="http://www.adobe.com/2006/mxml" labelField="label" prompt="System auswählen">
+
+  <mx:Script>
+    <![CDATA[
+                  
+      public function set selectedSystem(system:String):void {
+        for (var i:uint = 0; i < dataProvider.length; i++) {
+          if (dataProvider[i].data == system) {
+            selectedItem = dataProvider[i];
+            return;
+          }
+        }
+        selectedItem = null;
+      }
+      
+      public function get selectedSystem():String {
+        if (selectedItem != null) {
+          return selectedItem.data;
+        } else {
+          return null;
+        }
+      }
+            
+    ]]>
+  </mx:Script>
+  <mx:dataProvider>      
+    <mx:Array>
+      <mx:Object data="Entwicklung" label="Entwicklung"/>
+      <mx:Object data="Test" label="Test"/>
+      <mx:Object data="Abnabme" label="Abnabme"/>
+      <mx:Object data="Schulung" label="Schulung"/>
+      <mx:Object data="Produktion" label="Produktion"/>
+    </mx:Array>  
+  </mx:dataProvider>
+</mx:ComboBox>

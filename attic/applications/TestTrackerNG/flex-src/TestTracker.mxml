@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application
+    xmlns:mx="http://www.adobe.com/2006/mxml"
+    xmlns:tt="ch.ess.tt.components.*"
+    xmlns:business="ch.ess.tt.business.*"
+    xmlns:control="ch.ess.tt.control.*"
+    layout="vertical"
+    horizontalAlign="center"
+    verticalAlign="top"
+    paddingLeft="0"
+    paddingRight="0"
+    paddingTop="0"
+    paddingBottom="0"
+    width="100%"
+    height="100%">
+  
+  <mx:Style source="/assets/main.css"/>  
+  
+  <mx:Script>
+    <![CDATA[
+      import ch.ess.tt.util.DebugMessage;
+      import mx.core.Container;
+      import ch.ess.tt.model.ModelLocator;
+      
+      [Bindable]
+      private var model:ModelLocator = ModelLocator.getInstance();
+
+      public static function debug(str:String):void {
+        application.debugPanel.addMessage(new DebugMessage(str));
+      }  
+      
+      private function controlViewToShow(workflowState:int):Container {
+        if (workflowState == ModelLocator.VIEWING_LOGIN_SCREEN) {
+          return loginBox;
+        } else if (workflowState == ModelLocator.VIEWING_MAIN_APP) {
+          return mainBox;
+        } else {
+          debug("Wrong Workflowstate: " + workflowState);
+          return loginBox;
+        }
+      }       
+                 
+    ]]>
+  </mx:Script>
+ 
+  <!-- the ServiceLocator where we specify the remote services  -->
+  <business:Services id="services" />
+
+  <!-- the FrontController, containing Commands specific to this app  -->
+  <control:TTController id="controller" />
+  
+  <mx:VDividedBox width="100%" height="100%">
+    <mx:ViewStack id="mainStack" width="100%" height="100%" selectedChild="{controlViewToShow(model.workflowState)}">
+      <tt:LoginCanvas id="loginBox"/>
+      <tt:MainCanvas id="mainBox"/>
+    </mx:ViewStack>
+    <tt:DebugPanel id="debugPanel" width="100%" height="0%"/>
+  </mx:VDividedBox>  
+    
+</mx:Application>

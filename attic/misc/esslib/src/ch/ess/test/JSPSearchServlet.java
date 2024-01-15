@@ -1,0 +1,281 @@
+package ch.ess.test;
+
+import java.util.*;
+
+import javax.servlet.*;
+import javax.servlet.http.*;
+import javax.swing.table.*;
+
+import ch.ess.tag.table.*;
+/**
+ * Starting servlet for the tutorial.
+ */
+public class JSPSearchServlet extends HttpServlet {
+	private String[][] data = new String[][] {
+		{"00", "HAAS, SHILI", "SPIFFY COMPUTER SERVICE DIV.", "3978"},
+		{"01", "O'CONNELL, SEAN", "SPIFFY COMPUTER SERVICE DIV.", "2167"},
+		{"02", "LUCCHESSI, VINCENZO", "SPIFFY COMPUTER SERVICE DIV.", "3490"},
+		{"03", "THOMPSON, MICHAEL", "planning", "3476"},
+		{"04", "KWAN, SALLY", "INFORMATION CENTER", "4738"},
+		{"05", "nicholls, HEATHER", "INFORMATION CENTER", "1793"},
+		{"06", "QUINTANA, DOLORES", "INFORMATION CENTER", "4578"},
+		{"07", "STERN, IRVING", "manufacturing SYSTEMS", "6423"},
+		{"08", "LUTZ, JENNIFER", "MANUFACTURING SYSTEMS", "0672"},
+		{"09", "johnes, WILLIAM", "MANUFACTURING SYSTEMS", "0942"},
+		{"10", "BROWN, DAVID", "MANUFACTURING SYSTEMS", "4501"},
+		{"11", "WALKER, JAMES", "MANUFACTURING SYSTEMS", "2986"},
+		{"12", "SCOUTTEN, MARILYN", "MANUFACTURING SYSTEMS", "1682"},
+		{"13", "YOSHIMURA, MASATOSHI", "MANUFACTURING SYSTEMS", "2890"},
+		{"14", "PIANKA, ELIZABETH", "MANUFACTURING SYSTEMS", "3782"},
+		{"15", "ADAMSON, BRUCE", "MANUFACTURING SYSTEMS", "4510"},
+		{"16", "PULASKI, EVA", "ADMINISTRATION SYSTEMS", "7831"},
+		{"17", "PEREZ, MARIA", "ADMINISTRATION SYSTEMS", "9001"},
+		{"18", "JOHNSON, SYBIL", "administration SYSTEMS", "8953"},
+		{"19", "SMITH, DANIEL", "ADMINISTRATION SYSTEMS", "0961"},
+		{"20", "MARINO, SALVATORE", "ADMINISTRATION SYSTEMS", "3780"},
+		{"21", "JEFFERSON, JAMES", "ADMINISTRATION SYSTEMS", "2094"},
+		{"22", "GEYER, JOHN", "SUPPORT SERVICES", "6789"},
+		{"23", "HENDERSON, EILEEN", "OPERATIONS", "5498"},
+		{"24", "SETRIGHT, MAUDE", "OPERATIONS", "3332"},
+		{"25", "SMITH, PHILIP", "OPERATIONS", "2095"},
+		{"26", "PARKER, JOHN", "OPERATIONS", "4502"},
+		{"27", "SCHNEIDER, ETHEL", "OPERATIONS", "8997"},
+		{"28", "SPENSER, THEODORE", "SOFTWARE SUPPORT", "0972"},
+		{"29", "GOUNOT, JASON", "SOFTWARE SUPPORT", "5698"},
+		{"30", "LEE, WING", "SOFTWARE SUPPORT", "2103"},
+		{"10", "BROWN, DAVID", "MANUFACTURING SYSTEMS", "4501"},
+		{"11", "WALKER, JAMES", "MANUFACTURING SYSTEMS", "2986"},
+		{"12", "SCOUTTEN, MARILYN", "MANUFACTURING SYSTEMS", "1682"},
+		{"13", "YOSHIMURA, MASATOSHI", "MANUFACTURING SYSTEMS", "2890"},
+		{"14", "PIANKA, ELIZABETH", "MANUFACTURING SYSTEMS", "3782"},
+		{"15", "ADAMSON, BRUCE", "MANUFACTURING SYSTEMS", "4510"},
+		{"16", "PULASKI, EVA", "ADMINISTRATION SYSTEMS", "7831"},
+		{"17", "PEREZ, MARIA", "ADMINISTRATION SYSTEMS", "9001"},
+		{"18", "JOHNSON, SYBIL", "ADMINISTRATION SYSTEMS", "8953"},
+		{"19", "SMITH, DANIEL", "ADMINISTRATION SYSTEMS", "0961"},
+		{"20", "MARINO, SALVATORE", "ADMINISTRATION SYSTEMS", "3780"},
+		{"21", "JEFFERSON, JAMES", "ADMINISTRATION SYSTEMS", "2094"},
+		{"22", "GEYER, JOHN", "SUPPORT SERVICES", "6789"},
+		{"23", "HENDERSON, EILEEN", "OPERATIONS", "5498"},
+		{"24", "SETRIGHT, MAUDE", "OPERATIONS", "3332"},
+		{"25", "SMITH, PHILIP", "OPERATIONS", "2095"},
+		{"26", "PARKER, JOHN", "OPERATIONS", "4502"},
+		{"27", "SCHNEIDER, ETHEL", "OPERATIONS", "8997"},
+		{"28", "SPENSER, THEODORE", "SOFTWARE SUPPORT", "0972"},
+		{"29", "GOUNOT, JASON", "SOFTWARE SUPPORT", "5698"},
+		{"30", "LEE, WING", "SOFTWARE SUPPORT", "2103"},
+		{"10", "BROWN, DAVID", "MANUFACTURING SYSTEMS", "4501"},
+		{"11", "WALKER, JAMES", "MANUFACTURING SYSTEMS", "2986"},
+		{"12", "SCOUTTEN, MARILYN", "MANUFACTURING SYSTEMS", "1682"},
+		{"13", "YOSHIMURA, MASATOSHI", "MANUFACTURING SYSTEMS", "2890"},
+		{"14", "PIANKA, ELIZABETH", "MANUFACTURING SYSTEMS", "3782"},
+		{"15", "ADAMSON, BRUCE", "MANUFACTURING SYSTEMS", "4510"},
+		{"16", "PULASKI, EVA", "ADMINISTRATION SYSTEMS", "7831"},
+		{"17", "PEREZ, MARIA", "ADMINISTRATION SYSTEMS", "9001"},
+		{"18", "JOHNSON, SYBIL", "ADMINISTRATION SYSTEMS", "8953"},
+		{"19", "SMITH, DANIEL", "ADMINISTRATION SYSTEMS", "0961"},
+		{"20", "MARINO, SALVATORE", "ADMINISTRATION SYSTEMS", "3780"},
+		{"21", "JEFFERSON, JAMES", "ADMINISTRATION SYSTEMS", "2094"},
+		{"22", "GEYER, JOHN", "SUPPORT SERVICES", "6789"},
+		{"23", "HENDERSON, EILEEN", "OPERATIONS", "5498"},
+		{"24", "SETRIGHT, MAUDE", "OPERATIONS", "3332"},
+		{"25", "SMITH, PHILIP", "OPERATIONS", "2095"},
+		{"26", "PARKER, JOHN", "OPERATIONS", "4502"},
+		{"27", "SCHNEIDER, ETHEL", "OPERATIONS", "8997"},
+		{"28", "SPENSER, THEODORE", "SOFTWARE SUPPORT", "0972"},
+		{"29", "GOUNOT, JASON", "SOFTWARE SUPPORT", "5698"},
+		{"30", "LEE, WING", "SOFTWARE SUPPORT", "2103"},
+		{"10", "BROWN, DAVID", "MANUFACTURING SYSTEMS", "4501"},
+		{"11", "WALKER, JAMES", "MANUFACTURING SYSTEMS", "2986"},
+		{"12", "SCOUTTEN, MARILYN", "MANUFACTURING SYSTEMS", "1682"},
+		{"13", "YOSHIMURA, MASATOSHI", "MANUFACTURING SYSTEMS", "2890"},
+		{"14", "PIANKA, ELIZABETH", "MANUFACTURING SYSTEMS", "3782"},
+		{"15", "ADAMSON, BRUCE", "MANUFACTURING SYSTEMS", "4510"},
+		{"16", "PULASKI, EVA", "ADMINISTRATION SYSTEMS", "7831"},
+		{"17", "PEREZ, MARIA", "ADMINISTRATION SYSTEMS", "9001"},
+		{"18", "JOHNSON, SYBIL", "ADMINISTRATION SYSTEMS", "8953"},
+		{"19", "SMITH, DANIEL", "ADMINISTRATION SYSTEMS", "0961"},
+		{"20", "MARINO, SALVATORE", "ADMINISTRATION SYSTEMS", "3780"},
+		{"21", "JEFFERSON, JAMES", "ADMINISTRATION SYSTEMS", "2094"},
+		{"22", "GEYER, JOHN", "SUPPORT SERVICES", "6789"},
+		{"23", "HENDERSON, EILEEN", "OPERATIONS", "5498"},
+		{"24", "SETRIGHT, MAUDE", "OPERATIONS", "3332"},
+		{"25", "SMITH, PHILIP", "OPERATIONS", "2095"},
+		{"26", "PARKER, JOHN", "operations", "4502"},
+		{"27", "SCHNEIDER, ETHEL", "OPERATIONS", "8997"},
+		{"28", "SPENSER, THEODORE", "SOFTWARE SUPPORT", "0972"},
+		{"29", "GOUNOT, JASON", "SOFTWARE SUPPORT", "5698"},
+		{"30", "LEE, WING", "SOFTWARE SUPPORT", "2103"},
+		{"10", "BROWN, DAVID", "MANUFACTURING SYSTEMS", "4501"},
+		{"11", "WALKER, JAMES", "MANUFACTURING SYSTEMS", "2986"},
+		{"12", "SCOUTTEN, MARILYN", "MANUFACTURING SYSTEMS", "1682"},
+		{"13", "YOSHIMURA, MASATOSHI", "MANUFACTURING SYSTEMS", "2890"},
+		{"14", "PIANKA, ELIZABETH", "MANUFACTURING SYSTEMS", "3782"},
+		{"15", "ADAMSON, BRUCE", "MANUFACTURING SYSTEMS", "4510"},
+		{"16", "PULASKI, EVA", "ADMINISTRATION SYSTEMS", "7831"},
+		{"17", "PEREZ, MARIA", "ADMINISTRATION SYSTEMS", "9001"},
+		{"18", "JOHNSON, SYBIL", "ADMINISTRATION SYSTEMS", "8953"},
+		{"19", "SMITH, DANIEL", "ADMINISTRATION SYSTEMS", "0961"},
+		{"20", "MARINO, SALVATORE", "ADMINISTRATION SYSTEMS", "3780"},
+		{"21", "JEFFERSON, JAMES", "ADMINISTRATION SYSTEMS", "2094"},
+		{"22", "GEYER, JOHN", "SUPPORT SERVICES", "6789"},
+		{"23", "HENDERSON, EILEEN", "OPERATIONS", "5498"},
+		{"24", "SETRIGHT, MAUDE", "OPERATIONS", "3332"},
+		{"25", "SMITH, PHILIP", "OPERATIONS", "2095"},
+		{"26", "PARKER, JOHN", "OPERATIONS", "4502"},
+		{"27", "SCHNEIDER, ETHEL", "OPERATIONS", "8997"},
+		{"28", "SPENSER, THEODORE", "SOFTWARE SUPPORT", "0972"},
+		{"29", "GOUNOT, JASON", "SOFTWARE SUPPORT", "5698"},
+		{"30", "LEE, WING", "SOFTWARE SUPPORT", "2103"},
+		{"10", "BROWN, DAVID", "MANUFACTURING SYSTEMS", "4501"},
+		{"11", "WALKER, JAMES", "MANUFACTURING SYSTEMS", "2986"},
+		{"12", "SCOUTTEN, MARILYN", "MANUFACTURING SYSTEMS", "1682"},
+		{"13", "YOSHIMURA, MASATOSHI", "MANUFACTURING SYSTEMS", "2890"},
+		{"14", "PIANKA, ELIZABETH", "MANUFACTURING SYSTEMS", "3782"},
+		{"15", "ADAMSON, BRUCE", "MANUFACTURING SYSTEMS", "4510"},
+		{"16", "PULASKI, EVA", "ADMINISTRATION SYSTEMS", "7831"},
+		{"17", "PEREZ, MARIA", "ADMINISTRATION SYSTEMS", "9001"},
+		{"18", "JOHNSON, SYBIL", "ADMINISTRATION SYSTEMS", "8953"},
+		{"19", "SMITH, DANIEL", "ADMINISTRATION SYSTEMS", "0961"},
+		{"20", "MARINO, SALVATORE", "ADMINISTRATION SYSTEMS", "3780"},
+		{"21", "JEFFERSON, JAMES", "ADMINISTRATION SYSTEMS", "2094"},
+		{"22", "GEYER, JOHN", "SUPPORT SERVICES", "6789"},
+		{"23", "HENDERSON, EILEEN", "OPERATIONS", "5498"},
+		{"24", "SETRIGHT, MAUDE", "OPERATIONS", "3332"},
+		{"25", "SMITH, PHILIP", "OPERATIONS", "2095"},
+		{"26", "PARKER, JOHN", "OPERATIONS", "4502"},
+		{"27", "SCHNEIDER, ETHEL", "OPERATIONS", "8997"},
+		{"28", "SPENSER, THEODORE", "SOFTWARE SUPPORT", "0972"},
+		{"29", "GOUNOT, JASON", "SOFTWARE SUPPORT", "5698"},
+		{"30", "LEE, WING", "SOFTWARE SUPPORT", "2103"},
+		{"10", "BROWN, DAVID", "MANUFACTURING SYSTEMS", "4501"},
+		{"11", "WALKER, JAMES", "MANUFACTURING SYSTEMS", "2986"},
+		{"12", "SCOUTTEN, MARILYN", "MANUFACTURING SYSTEMS", "1682"},
+		{"13", "YOSHIMURA, MASATOSHI", "MANUFACTURING SYSTEMS", "2890"},
+		{"14", "PIANKA, ELIZABETH", "MANUFACTURING SYSTEMS", "3782"},
+		{"15", "ADAMSON, BRUCE", "MANUFACTURING SYSTEMS", "4510"},
+		{"16", "PULASKI, EVA", "ADMINISTRATION SYSTEMS", "7831"},
+		{"17", "PEREZ, MARIA", "ADMINISTRATION SYSTEMS", "9001"},
+		{"18", "JOHNSON, SYBIL", "ADMINISTRATION SYSTEMS", "8953"},
+		{"19", "SMITH, DANIEL", "ADMINISTRATION SYSTEMS", "0961"},
+		{"20", "MARINO, SALVATORE", "ADMINISTRATION SYSTEMS", "3780"},
+		{"21", "JEFFERSON, JAMES", "ADMINISTRATION SYSTEMS", "2094"},
+		{"22", "GEYER, JOHN", "SUPPORT SERVICES", "6789"},
+		{"23", "HENDERSON, EILEEN", "OPERATIONS", "5498"},
+		{"24", "SETRIGHT, MAUDE", "OPERATIONS", "3332"},
+		{"25", "SMITH, PHILIP", "OPERATIONS", "2095"},
+		{"26", "PARKER, JOHN", "OPERATIONS", "4502"},
+		{"27", "SCHNEIDER, ETHEL", "OPERATIONS", "8997"},
+		{"28", "SPENSER, THEODORE", "SOFTWARE SUPPORT", "0972"},
+		{"29", "GOUNOT, JASON", "SOFTWARE SUPPORT", "5698"},
+		{"30", "LEE, WING", "SOFTWARE SUPPORT", "2103"},
+		{"10", "BROWN, DAVID", "MANUFACTURING SYSTEMS", "4501"},
+		{"11", "WALKER, JAMES", "MANUFACTURING SYSTEMS", "2986"},
+		{"12", "SCOUTTEN, MARILYN", "MANUFACTURING SYSTEMS", "1682"},
+		{"13", "YOSHIMURA, MASATOSHI", "MANUFACTURING SYSTEMS", "2890"},
+		{"14", "PIANKA, ELIZABETH", "MANUFACTURING SYSTEMS", "3782"},
+		{"15", "ADAMSON, BRUCE", "MANUFACTURING SYSTEMS", "4510"},
+		{"16", "PULASKI, EVA", "ADMINISTRATION SYSTEMS", "7831"},
+		{"17", "PEREZ, MARIA", "ADMINISTRATION SYSTEMS", "9001"},
+		{"18", "JOHNSON, SYBIL", "ADMINISTRATION SYSTEMS", "8953"},
+		{"19", "SMITH, DANIEL", "ADMINISTRATION SYSTEMS", "0961"},
+		{"20", "MARINO, SALVATORE", "ADMINISTRATION SYSTEMS", "3780"},
+		{"21", "JEFFERSON, JAMES", "ADMINISTRATION SYSTEMS", "2094"},
+		{"22", "GEYER, JOHN", "SUPPORT SERVICES", "6789"},
+		{"23", "HENDERSON, EILEEN", "OPERATIONS", "5498"},
+		{"24", "SETRIGHT, MAUDE", "OPERATIONS", "3332"},
+		{"25", "SMITH, PHILIP", "OPERATIONS", "2095"},
+		{"26", "PARKER, JOHN", "OPERATIONS", "4502"},
+		{"27", "SCHNEIDER, ETHEL", "OPERATIONS", "8997"},
+		{"28", "SPENSER, THEODORE", "SOFTWARE SUPPORT", "0972"},
+		{"29", "GOUNOT, JASON", "SOFTWARE SUPPORT", "5698"},
+		{"30", "LEE, WING", "SOFTWARE SUPPORT", "2103"},
+		{"31", "MEHTA, RAMLAL", "SOFTWARE SUPPORT", "9990"}
+	};
+
+
+  private List l; 
+/**
+ * JSPSearchServlet constructor.
+ */
+public JSPSearchServlet() {
+	super();
+  l = new ArrayList();
+  for (int i = 0; i < data.length; i++) {
+    l.add(data[i]);
+  }
+}
+/**
+ * Creates a new TableModel with some sample data.
+ * @return model com.sun.java.swing.table.TableModel
+ */
+private TableModel createTableModel() {
+	// create a DefaultTableModel
+	DefaultTableModel dtm = new DefaultTableModel();
+
+	// set column headers
+	dtm.setColumnIdentifiers(new String[] {"ID", "Name", "Department", "Phone"});
+
+	for (int i = 0; i < l.size(); i++)
+		dtm.addRow((String[])l.get(i));
+
+	return new TableSorter(dtm);
+}
+
+private TableModel createTableModel(String deleteId) {
+	// create a DefaultTableModel
+	DefaultTableModel dtm = new DefaultTableModel();
+
+	// set column headers
+	dtm.setColumnIdentifiers(new String[] {"ID", "Name", "Department", "Phone"});
+
+	// add row data
+	int size = l.size();
+	for (int i = 0; i < size; i++) {
+    String[] str = (String[])l.get(i);
+    if (str[0].equals(deleteId)) {
+      l.remove(i);
+      break;
+    }
+	}
+
+  size = l.size();
+	for (int i = 0; i < size; i++)
+		dtm.addRow((String[])l.get(i));
+
+	return new TableSorter(dtm);
+}
+
+/**
+ * Creates a new JSPTableModel and adds it to the session.
+ * Calls tableView.jsp to display the results.
+ */
+	public void doGet(HttpServletRequest req, HttpServletResponse resp) throws
+		javax.servlet.ServletException, java.io.IOException {
+	
+    String deleteId = req.getParameter("delete");
+    TableModel tableModel;
+    if (deleteId == null) {
+      tableModel = createTableModel();
+    } else {
+      tableModel = createTableModel(deleteId);
+    }
+
+    JSPTableModel model = new JSPTableModel(tableModel);  
+    model.setSortColumn(1, "a"); 
+
+    //model.setCaseInsensitive(2, true); 
+    model.processRequest(req);
+
+		// add the JSPTableModel into the session so that it
+		// can be found by the JSP page
+		
+		HttpSession session = req.getSession();
+      session.setAttribute("model", model);
+
+		// forward the request to the JSP for display
+		RequestDispatcher rd = getServletContext().getRequestDispatcher("/tableView2.jsp");
+		rd.forward(req, resp);
+
+	}
+}

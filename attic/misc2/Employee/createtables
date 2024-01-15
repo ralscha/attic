@@ -1,0 +1,32 @@
+d jdbc.idbDriver;
+o jdbc:idb=db.props;
+
+
+e DROP TABLE PEOPLE_TABLE;
+
+e CREATE TABLE PEOPLE_TABLE
+      (
+      	ID             INT NOT NULL PRIMARY KEY,            
+         FNAME          VARCHAR(80),
+         LNAME          VARCHAR(80),
+         DEPARTMENT     VARCHAR(80),
+         EMAIL          VARCHAR(80),
+         IMG            VARCHAR(80)                               
+      );
+
+e INSERT INTO PEOPLE_TABLE(ID,FNAME,LNAME,DEPARTMENT,EMAIL,IMG)
+      VALUES (1, 'Ralph', 'Schaer', 'CIAZ81', 'rschaer@datacomm.ch', 'image');
+
+e INSERT INTO PEOPLE_TABLE(ID,FNAME,LNAME,DEPARTMENT,EMAIL,IMG)
+      VALUES (2, 'Ralph1', 'Schaer', 'CIAZ81', 'rschaer@datacomm.ch', 'image');
+
+e INSERT INTO PEOPLE_TABLE(ID,FNAME,LNAME,DEPARTMENT,EMAIL,IMG)
+      VALUES (3, 'Ralph2', 'Schaer', 'CIAZ81', 'rschaer@datacomm.ch', 'image');
+
+e INSERT INTO PEOPLE_TABLE(ID,FNAME,LNAME,DEPARTMENT,EMAIL,IMG)
+      VALUES (4, 'Ralph3', 'Schaer', 'CIAZ81', 'rschaer@datacomm.ch', 'image');
+
+e INSERT INTO PEOPLE_TABLE(ID,FNAME,LNAME,DEPARTMENT,EMAIL,IMG)
+      VALUES (5, 'Ralph4', 'Schaer', 'CIAZ81', 'rschaer@datacomm.ch', 'image');
+              
+c close;

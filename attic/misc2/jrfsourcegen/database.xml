@@ -1,0 +1,10 @@
+<database>
+  <driver>org.enhydra.instantdb.jdbc.idbDriver</driver>
+  <policy>instantdb</policy>
+  <url>jdbc:idb=d:/javaprojects/private/lottowin2/db.props</url>
+  <user></user>
+  <password></password>
+  <outputdir>.</outputdir>
+  <package>lottowin.db</package>
+
+</database>  

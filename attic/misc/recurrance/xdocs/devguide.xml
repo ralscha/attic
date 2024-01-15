@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<document>
+
+	<properties>
+		<title>Developer Guide</title>	
+	</properties>
+
+	<body>
+		<section name="Setting up the development environment">
+			<p>Build process for Recurrance
+				<ul>
+					<li>
+						Check out module "recurrance" from the CVS repository.
+						<a href="http://sourceforge.net/cvs/?group_id=56629">Further details</a> are provided on SourceForge.
+					</li>
+					<li>
+						<a href="http://maven.apache.org">Download</a> and install Maven.
+					</li>
+					<li>
+						Set up the neccessary environment variables (JAVA_HOME, MAVEN_HOME), put the maven/bin directory in your PATH...
+					</li>
+					<li>
+						From the recurrance root directory (where project.xml is), run "maven jar" -
+						this will download all sorts of dependecies and finally creates recurrence.jar in the "target" directory.						
+					</li>
+					<br/>
+					<li>
+					  Example Webapplication: run "maven war", copy or deploy the generated war file from "target" directory into your servlet container.						
+					</li>					
+				</ul>
+			</p>	
+		</section>
+		<section name="Setting up Eclipse project">
+			<p>
+			 	<ul>
+					<li>Start Eclipse</li>
+					<li>Under "Window"-&gt;"Open perspective"-&gt;"CVS Repository exploring"</li>
+					<li>In "CVS repositories" view: 
+						<li>Right click</li>
+						<li>Select "New" -&gt; "Repository location"</li>
+						<li>set host to : "cvs.recurrance.sourceforge.net"</li>
+						<li>set repository path: "/cvsroot/recurrance"</li>
+						<li>set user to: "anonymous"</li>
+						<li>Click finish</li>
+					</li>
+					<li>Navigate to HEAD -> recurrance</li>
+					<li>Right click, and select "Check out as Project"</li>		
+					<li>Stop Eclipse</li>
+	
+					<li>From a command prompt enter: 
+					  <p>
+						<code>
+							"C:>cd ECLIPSE_PATH\workspace\recurrance"
+						</code>
+					  </p>
+					  <p>
+					  run command	<code>maven eclipse:add-maven-repo</code>
+					 </p>
+						This will download all the dependencies, and set up maven_repo for eclipse
+					</li>
+				</ul>
+				<ul>
+					Congratulation, recurrance is now an eclipse project !
+				</ul>
+			</p>
+		</section>	
+
+	</body>
+</document>

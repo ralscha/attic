@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<!DOCTYPE form-validation PUBLIC
+          "-//Apache Software Foundation//DTD Commons Validator Rules Configuration 1.0//EN"
+          "http://jakarta.apache.org/commons/dtds/validator_1_0.dtd">
+
+<form-validation>
+     <formset>
+        <form name="logonForm">
+          <field property="userName" depends="required">
+            <arg0 key="UserName"/>
+          </field>
+          <field property="password" depends="required">
+            <arg0 key="Password"/>
+          </field>
+        </form> 
+        
+        <form name="preferencesForm">
+          <field property="time" depends="required,integer">
+            <arg0 key="LogonRemember"/>
+          </field>
+          
+          <field property="newPassword" depends="requiredif,identical">
+            <arg0 key="NewPassword"/>
+            <arg1 key="RetypePassword"/>
+            <var>
+              <var-name>secondProperty</var-name>
+              <var-value>retypeNewPassword</var-value>
+            </var> 
+            <var>
+              <var-name>field[0]</var-name>
+              <var-value>oldPassword</var-value>
+            </var>
+            <var>
+              <var-name>fieldTest[0]</var-name>
+              <var-value>NOTNULL</var-value>
+            </var>                                  
+          </field>  
+
+          <field property="oldPassword" depends="requiredif">
+            <arg0 key="OldPassword"/>
+            <var>
+              <var-name>field[0]</var-name>
+              <var-value>newPassword</var-value>
+            </var>
+            <var>
+              <var-name>fieldTest[0]</var-name>
+              <var-value>NOTNULL</var-value>
+            </var>  
+            <var>
+              <var-name>field[1]</var-name>
+              <var-value>retypeNewPassword</var-value>
+            </var>
+            <var>
+              <var-name>fieldTest[1]</var-name>
+              <var-value>NOTNULL</var-value>
+            </var>   
+            <var>
+              <var-name>fieldJoin</var-name>
+              <var-value>OR</var-value>
+            </var>
+                                                       
+          </field>           
+         
+        </form> 
+        
+        
+     </formset>   
+
+</form-validation>

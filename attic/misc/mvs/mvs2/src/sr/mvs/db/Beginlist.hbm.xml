@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 1.1//EN" "http://hibernate.sourceforge.net/hibernate-mapping-1.1.dtd">
+<hibernate-mapping>
+<class name="sr.mvs.db.Beginlist" table="BeginList">
+<id name="id" type="long">
+<generator class="native"/>
+</id>
+<property column="word1" not-null="true" name="word1" type="integer"/>
+<property column="word2" not-null="true" name="word2" type="integer"/>
+<property column="total" not-null="true" name="total" type="integer"/>
+</class>
+</hibernate-mapping>

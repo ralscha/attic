@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD//EN"
+        "http://hibernate.sourceforge.net/hibernate-configuration-2.0.dtd">
+<hibernate-configuration>
+    <!-- a SessionFactory instance listed as /jndi/name -->
+    <session-factory name="hibernate/sessionFactory">
+        <property name="show_sql">true</property>
+        <property name="use_outer_join">true</property>
+        <property name="query.substitutions">true 1, false 0, yes 'Y', no 'N'</property>
+        <property name="jdbc.use_streams_for_binary">true</property>
+
+        <!-- properties for this SessionFactory only -->
+        <property name="connection.driver_class">com.inet.tds.TdsDriver</property>
+        <property name="connection.url">jdbc:inetdae7:localhost:1433?database=timetracker</property>        
+        <property name="connection.username">sa</property>                
+        <property name="connection.password"></property>                        
+        <property name="dialect">net.sf.hibernate.dialect.SybaseDialect</property>
+
+
+        <!-- mapping files -->
+        <mapping resource="ch/ess/timetracker/db/Configuration.hbm.xml"/>
+        <mapping resource="ch/ess/timetracker/db/Role.hbm.xml"/>
+        <mapping resource="ch/ess/timetracker/db/User.hbm.xml"/>
+        <mapping resource="ch/ess/timetracker/db/UserRole.hbm.xml"/>
+        <mapping resource="ch/ess/timetracker/db/UserConfiguration.hbm.xml"/>        
+        <mapping resource="ch/ess/timetracker/db/TextResource.hbm.xml"/>         
+        <mapping resource="ch/ess/timetracker/db/Customer.hbm.xml"/> 
+        <mapping resource="ch/ess/timetracker/db/Project.hbm.xml"/> 
+        <mapping resource="ch/ess/timetracker/db/Task.hbm.xml"/> 
+        <mapping resource="ch/ess/timetracker/db/TaskTime.hbm.xml"/>                                         
+    </session-factory>
+</hibernate-configuration>

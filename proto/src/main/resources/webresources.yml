@@ -1,0 +1,127 @@
+# dev = development profile
+# prod = production profile
+# script/link = script/link tag
+
+--- 
+  variable: login_js
+  resources:
+  - path: /resources/ext/{ext.version}/ext-all-debug.js
+    dev: script
+    prod: ignore
+    
+  - path: /resources/ext/{ext.version}/ext-all.js
+    dev: ignore
+    prod: script
+    
+  - path: /resources/theme/logger-theme.js
+    classpath: /static
+    dev: script
+    prod: concat_minify
+  
+  - path: /login.js
+    classpath: /static
+    dev: script
+    prod: concat_minify  
+---
+  variable: passwordreset_js
+  resources:
+  - path: /resources/ext/{ext.version}/ext-all-debug.js
+    dev: script
+    prod: ignore
+    
+  - path: /resources/ext/{ext.version}/ext-all.js
+    dev: ignore
+    prod: script
+    
+  - path: /resources/theme/logger-theme.js
+    classpath: /static
+    dev: script
+    prod: concat_minify
+  
+  - path: /passwordreset.js
+    classpath: /static
+    dev: script
+    prod: concat_minify  
+
+--- 
+  variable: app_js
+  resources:
+
+  - path: /resources/ext/{ext.version}/ext-all-debug.js
+    dev: script
+    prod: ignore
+    
+  - path: /resources/ext/{ext.version}/ext-all.js
+    dev: ignore
+    prod: script
+
+  - path: /resources/theme/logger-theme.js
+    classpath: /static
+    dev: script
+    prod: concat_minify
+
+  - path: /api.js
+    dev: script
+    prod: ignore
+      
+  - path: /api-{application.version}.js
+    dev: ignore
+    prod: script
+      
+  - path: /resources/ext/{ext.version}/ext-ux/examples/BoxReorderer.js
+    classpath: /META-INF/resources    
+    dev: ignore
+    prod: concat_minify
+      
+  - path: /resources/ext/{ext.version}/ext-ux/examples/TabCloseMenu.js
+    classpath: /META-INF/resources
+    dev: ignore
+    prod: concat_minify
+      
+  - path: /resources/ext/{ext.version}/ext-ux/examples/TabReorderer.js
+    classpath: /META-INF/resources
+    dev: ignore
+    prod: concat_minify      
+      
+  - path: /app/
+    classpath: /static
+    dev: ignore
+    prod: concat_minify
+    
+  - path: /app.js
+    classpath: /static
+    dev: script
+    prod: concat_minify
+    
+  - path: /resources/gantt-3.0.1-trial/gnt-all.js
+    classpath: /static
+    dev: script
+    prod: script
+
+---
+  variable: app_css
+  resources:
+  - path: /resources/theme/resources/logger-theme-all_01.css
+    classpath: /static
+    dev: link
+    prod: concat_minify
+    
+  - path: /resources/theme/resources/logger-theme-all_02.css
+    classpath: /static  
+    dev: link
+    prod: concat_minify
+    
+  - path: /resources/fontello/css/custom.css
+    classpath: /static
+    dev: link
+    prod: concat_minify
+
+  - path: /resources/css/app.css
+    classpath: /static
+    dev: link
+    prod: concat_minify    
+
+  - path: /resources/gantt-3.0.1-trial/resources/css/sch-gantt-all.css
+    classpath: /static
+    dev: link
+    prod: link  

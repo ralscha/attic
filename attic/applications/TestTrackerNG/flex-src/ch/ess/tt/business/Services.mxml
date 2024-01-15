@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<cairngorm:ServiceLocator xmlns:mx="http://www.adobe.com/2006/mxml"  xmlns:cairngorm="http://www.adobe.com/2006/cairngorm">
+    
+  <mx:RemoteObject id="principalService" showBusyCursor="true" destination="principalService">
+    <mx:method name="loginPrincipal"/>
+    <mx:method name="logoutPrincipal"/>
+    <mx:method name="list"/>
+    <mx:method name="deltePrincipal"/>
+    <mx:method name="save"/>
+  </mx:RemoteObject>
+  
+  <mx:RemoteObject id="testService" showBusyCursor="true" destination="testService">
+    <mx:method name="list"/>
+    <mx:method name="save"/>
+    <mx:method name="deletePrincipal"/>
+  </mx:RemoteObject>
+  
+</cairngorm:ServiceLocator>

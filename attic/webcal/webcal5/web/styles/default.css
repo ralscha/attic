@@ -1,0 +1,117 @@
+div.message {
+	position: absolute;
+	right: 10px;
+	top: 33px;
+	visibility: visible;
+	z-index: 1000;
+}
+
+table td.title {
+	font-family: Arial;
+	font-size : 10pt;
+	font-weight : bold;
+}
+
+table td.multibox {
+	font-family : Arial;
+	font-size : 8pt;
+	background-color : #EFEFEF;
+}
+
+.normaltext {
+	font-family : Arial;
+	font-size : 9pt;
+}
+
+.smalltext {
+	font-family : Arial;
+	font-size : 8pt;
+}
+
+.smalltextbold {
+	font-family : Arial;
+	font-weight: bold;
+	font-size : 8pt;
+}
+
+/* Search FormLabel */
+.searchfl {
+	font-family : Arial;
+	font-size : 8pt;
+	font-weight : bold;
+	text-align : left;
+	white-space: nowrap;
+	background-color : #EFEFEF;
+	padding: 0 0 0 5;
+}
+
+/* workaround for no item in list */
+.lcb td.even {
+  font-family : Arial;
+	font-size : 8pt;
+	padding-left : 5px;
+	padding-right : 5px;
+	height : 18px;
+}
+ 
+/* decorators */
+table td.decoratorheader, table td.decoratormenu, table tr.decoratorheader {
+  background: #EDEFF0;
+} 
+ 
+
+table.header {
+   font-family : Arial;
+	font-size : 10pt;   
+}
+
+table.header span.headerselected {
+  font-family : Arial;
+	font-size : 10pt;   
+  background: #CCDAEA;
+	font-weight: bold;
+} 
+
+table.contactlist table {
+  border : none;
+  border-collapse: collapse;
+  font-family : Arial;
+  font-size : 8pt;
+}
+
+
+table.menuInfo {
+	border : none;
+  font-family : Arial;
+	font-size : 10pt; 	
+}
+
+table.list {
+	border : 1px solid #1E5C99;
+	border-collapse: collapse;
+  font-family : Arial;
+	font-size : 8pt;
+	width: 100%
+}
+
+table.list tbody td {
+	border : 1px solid #1E5C99;
+	padding: 2px 4px 2px 4px;
+}
+
+table.list thead th {
+	background-color : #6384BD;
+	color: White;
+	border : 1px solid #1E5C99;
+	font-weight: bold;
+	padding: 2px 4px 2px 4px;
+	/*text-align: left;*/
+   font-family : Arial;
+	font-size : 8pt;
+}
+
+table.list thead tr {
+	background-color: #DDDDDD;
+	color: Black;
+}
+

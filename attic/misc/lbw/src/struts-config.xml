@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+
+<struts-config>
+
+  <!-- ========== Global Exceptions Definitions =================================== -->
+    <global-exceptions>
+    <exception type="java.lang.Exception" key="error.exception" path="/error.do"/>
+  </global-exceptions>
+
+   <action-mappings>
+    <action path="/default" unknown="false" forward="/default.jsp" roles="all"/>
+    <action path="/error" forward="/error.jsp"/>
+    <action path="/loginTo" forward="/login.jsp" name="LoginForm" scope="request" input="/login.jsp" unknown="false" validate="false"/>
+    <action path="/loginCookie" forward="/logincookie.jsp"/>    
+  </action-mappings>
+
+  <controller nocache="true" processorClass="ch.ess.base.web.RequestProcessor"
+              multipartClass="ch.ess.base.web.upload.ExtendedMultiPartRequestHandler"/>
+
+	<message-resources parameter="ApplicationResources"/>
+  <message-resources parameter="com.cc.framework.FrameworkResources"      key="com.cc.framework.message"/>
+
+
+  <plug-in className="org.apache.struts.validator.ValidatorPlugIn">
+    <set-property property="pathnames" value="/WEB-INF/validator-rules.xml,/WEB-INF/validator-rules_app.xml"/>
+  </plug-in> 
+
+  <plug-in className="ch.ess.base.web.ClassProcessorPlugin"/>
+  
+  <plug-in className="net.sf.navigator.menu.MenuPlugIn">
+    <set-property property="menuConfig" value="/WEB-INF/classes/menu-config.xml"/>
+  </plug-in>
+
+</struts-config>

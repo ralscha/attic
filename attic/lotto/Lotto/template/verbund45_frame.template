@@ -1,0 +1,36 @@
+<h2 align=center>Aufeinanderfolgende Zahlen<br>
+<font size="3">ab Ziehung Nr. 1/1986 (Einf&uuml;hrung von 43, 44 und 45)</font></h2>
+<div align=center><center>
+<table bgcolor="#BBCCCC" border=1 width="70%">
+<tr bgcolor="#101010"><th width="60%"><FONT color="#FFFFFF">Aufeinanderfolgende Zahlen pro Ausspielung</font></th><th width="40%"><FONT color="#FFFFFF">Ausspielungen</font></th></tr>
+<tr><th width="60%">0</th><td bgcolor="#EEEEEE" align=center width="40%">%%auf0%%</td></tr>
+<tr><th width="60%">2</th><td bgcolor="#EEEEEE" align=center width="40%">%%auf1%%</td></tr>
+<tr><th width="60%">3</th><td bgcolor="#EEEEEE" align=center width="40%">%%auf2%%</td></tr>
+<tr><th width="60%">4</th><td bgcolor="#EEEEEE" align=center width="40%">%%auf3%%</td></tr>
+<tr><th width="60%">5</th><td bgcolor="#EEEEEE" align=center width="40%">%%auf4%%</td></tr>
+<tr><th width="60%">6</th><td bgcolor="#EEEEEE" align=center width="40%">%%auf5%%</td></tr>
+<tr><th width="60%">2 + 2</th><td bgcolor="#EEEEEE" align=center width="40%">%%auf6%%</td></tr>
+<tr><th width="60%">3 + 3</th><td bgcolor="#EEEEEE" align=center width="40%">%%auf7%%</td></tr>
+<tr><th width="60%">2 + 3</th><td bgcolor="#EEEEEE" align=center width="40%">%%auf8%%</td></tr>
+<tr><th width="60%">2 + 2 + 2</th><td bgcolor="#EEEEEE" align=center width="40%">%%auf9%%</td></tr>
+<tr><th width="60%">2 + 4</th><td bgcolor="#EEEEEE" align=center width="40%">%%auf10%%</td></tr>
+</table><p>
+<a href="Folalle.html">alle Ziehungen</a><BR>
+<a href="Fol42.html">ab Ziehung Nr. 14/1979 (Einf&uuml;hrung von 41 und 42)</a><BR>
+ab Ziehung Nr. 1/1986 (Einf&uuml;hrung von 43, 44 und 45)<BR>
+<a href="Folz97.html">ab Ziehung Nr. 1/1997 (Einf&uuml;hrung Mittwochsziehung)</a>
+<p>
+<HR WIDTH="40%">
+<table width="60%">
+<caption align=top><b>Beispiele</b></caption>
+<tr><td>Ausspielung: <code>18/1994 4 23 37 38 40 44</code><br>
+Die Zahlen 37 und 38 sind Nachbarn auf der Zahlengerade und damit 
+geh&ouml;rt die Ziehung zur Kategorie: <i>Aufeinanderfolgende Zahlen 2</i></td></tr>
+<tr><td>&#160;</td></tr>
+<tr><td>Ausspielung: <code>19/1994 6 7 8 25 26 36</code><br>
+6, 7 und 8 sowie 25 und 26 folgen unmittelbar aufeinander. Daher 
+Kategorie: <i>Aufeinanderfolgende Zahlen 2 + 3</i></td></tr>
+</table>
+</center></div>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<permissions>
+  <permission key="contact" feature="contact">
+    <text locale="en">Contacts</text>
+    <text locale="de">Kontakte</text>
+  </permission>
+  
+  <permission key="event" feature="event">
+    <text locale="en">Calendar</text>
+    <text locale="de">Kalender</text>
+  </permission> 
+  
+  <permission key="eventadmin" feature="event">
+    <text locale="en">Calendar Admin</text>
+    <text locale="de">Kalender Administration</text>
+  </permission>
+  
+  <permission key="task" feature="task">   
+    <text locale="en">Tasks</text>
+    <text locale="de">Aufgaben</text>
+  </permission>     
+  
+  <permission key="document" feature="document">  
+    <text locale="en">Documents</text>
+    <text locale="de">Dokumente</text>
+  </permission>   
+  
+  <permission key="userconfig">  
+    <text locale="en">Personal</text>
+    <text locale="de">Persönlich</text>
+  </permission>
+
+  <permission key="admin">
+    <text locale="en">Administration</text>
+    <text locale="de">Administration</text>
+  </permission>
+
+  <permission key="time" feature="time">   
+    <text locale="en">Time</text>
+    <text locale="de">Zeit</text>
+  </permission>
+
+  <permission key="timeadmin" feature="time">
+    <text locale="en">Time Admin</text>
+    <text locale="de">Zeit Administration</text>
+  </permission>
+</permissions>

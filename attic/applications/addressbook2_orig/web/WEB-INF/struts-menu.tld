@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE taglib
+  PUBLIC "-//Sun Microsystems, Inc.//DTD JSP Tag Library 1.1//EN"
+  "http://java.sun.com/j2ee/dtds/web-jsptaglibrary_1_1.dtd">
+
+<taglib>
+
+  <!-- ============== Tag Library Description Elements ============= -->
+
+  <tlibversion>1.0</tlibversion>
+  <jspversion>1.1</jspversion>
+  <shortname>menu</shortname>
+  <uri>http://struts-menu.sf.net/tag-1.2</uri>
+  <info>
+  	The struts-menu provides a XML configurable
+  	menu-ing system for your Struts applications.	
+  </info>
+  
+    <tag>
+      <name>useMenuDisplayer</name>
+      <tagclass>com.fgm.web.menu.displayer.taglib.UseMenuDisplayerTag</tagclass>
+      <bodycontent>JSP</bodycontent>
+      <attribute>
+          <name>name</name>
+          <required>true</required>
+          <rtexprvalue>true</rtexprvalue>
+      </attribute>
+      <attribute>
+          <name>bundle</name>
+          <required>false</required>
+          <rtexprvalue>true</rtexprvalue>  
+      </attribute>
+      <attribute>
+          <name>config</name>
+          <required>false</required>
+          <rtexprvalue>true</rtexprvalue>  
+      </attribute>
+      <attribute>
+          <name>locale</name>
+          <required>false</required>
+          <rtexprvalue>true</rtexprvalue> 
+      </attribute>
+      <attribute>
+          <name>permissions</name>
+          <required>false</required>
+          <rtexprvalue>true</rtexprvalue> 
+      </attribute>
+      <attribute>
+          <name>repository</name>
+          <required>false</required>
+          <rtexprvalue>true</rtexprvalue>
+      </attribute>
+    </tag>
+
+    
+    <tag>
+      <name>displayMenu</name>
+      <tagclass>com.fgm.web.menu.displayer.taglib.DisplayMenuTag</tagclass>
+      <attribute>
+          <name>name</name>
+          <required>true</required>
+          <rtexprvalue>true</rtexprvalue>  
+      </attribute>
+      <attribute>
+          <name>target</name>
+          <required>false</required>
+          <rtexprvalue>false</rtexprvalue>  
+      </attribute>
+    </tag>
+
+</taglib>

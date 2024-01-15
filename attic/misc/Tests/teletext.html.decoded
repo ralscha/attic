@@ -1,0 +1,75 @@
+<HTML>
+ <HEAD>
+  <TITLE>SF1 Teletext Page 281 / 1</TITLE>
+
+<script language="JavaScript"><!--
+
+
+function getads() {
+ads_page="http://www.swisstxt.ch/home/cgi-bin/txtweb/getAd.cgi?stream=SF1&page=281";
+
+
+open(ads_page,"ads");
+}// --></script>
+
+ </HEAD>
+ <BODY BACKGROUND="http://194.158.230.225/picts/telenet/tback1.gif">
+<!-- no archiv data -->
+  <TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0>
+    <TR>
+      <TD ROWSPAN=5 WIDTH=45><IMG BORDER=0 WIDTH=45 HEIGHT=1 SRC="http://194.158.230.225/picts/telenet/dummy.gif"></TD>
+      <TD COLSPAN=3>
+       <H4><BR><font size="-1" face="arial, helvetica, sans-serif">
+        281  TXT1-SF1  05.01.99 15:11:29   </font>    </H4>
+      </TD>
+     </TR>
+     <TR>
+      <TD ROWSPAN=4 VALIGN=TOP>
+<PRE>
+                                        
+          S W I S S  L O T T O          
+                                        
+              S A M S T A G             
+               02.01.1999               
+                                        
+  LOTTO   15  17  22  31  41  43   40   
+      6         1        947'437.20     
+      5+        0              0.00     
+      5        78         12'146.60     
+      4     5'<A HREF="http://194.158.230.225:9090/telenet/SF1/120/1.t-html">120</A>             50.00     
+      3   <A HREF="http://194.158.230.225:9090/telenet/SF1/103/1.t-html">103</A>'<A HREF="http://194.158.230.225:9090/telenet/SF1/122/1.t-html">122</A>              6.00     
+   Erwartete Gewinnsumme f&uuml;r 6 Richtige 
+      Fr.   <A HREF="http://194.158.230.225:9090/telenet/SF1/500/1.t-html">500</A>'000.00  (06.01.99)      
+                                        
+  JOKER   051123                        
+      6         2        <A HREF="http://194.158.230.225:9090/telenet/SF1/113/1.t-html">113</A>'875.70     
+      5        10         10'000.00     
+      4        32          1'000.00     
+      3       <A HREF="http://194.158.230.225:9090/telenet/SF1/432/1.t-html">432</A>            100.00     
+      2     3'927             10.00     
+   Erwartete Gewinnsumme f&uuml;r 6 Richtige 
+      Fr.   <A HREF="http://194.158.230.225:9090/telenet/SF1/200/1.t-html">200</A>'000.00  (06.01.99)      
+                                        
+</PRE>      </TD>
+      <TD ALIGN=CENTER>
+       <A HREF="http://194.158.230.225:9090/telenet/SF1/281.prev/1.t-html"><IMG BORDER=0 WIDTH=23 HEIGHT=23 SRC="http://194.158.230.225/picts/telenet/pfeil2.gif" HSPACE=5 ALT="previous page"></A>
+      </TD>
+      <TD ALIGN=CENTER>
+        <A HREF="http://194.158.230.225:9090/telenet/SF1/281.next/1.t-html"><IMG BORDER=0 WIDTH=23 HEIGHT=23 SRC="http://194.158.230.225/picts/telenet/pfeil3.gif" ALT="next page"></A>
+      </TD>
+     </TR>
+     <TR>
+      <TD ALIGN=CENTER>
+       <A HREF="http://194.158.230.225:9090/telenet/SF1/281/1.prev.t-html"><IMG BORDER=0 WIDTH=23 HEIGHT=23 SRC="http://194.158.230.225/picts/telenet/pfeil2b.gif" HSPACE=5 ALT="previous subpage"></A>
+      </TD>
+      <TD ALIGN=CENTER>
+        <A HREF="http://194.158.230.225:9090/telenet/SF1/281/1.next.t-html"><IMG BORDER=0 WIDTH=23 HEIGHT=23 SRC="http://194.158.230.225/picts/telenet/pfeil3b.gif" ALT="next subpage"></A>
+      </TD>
+     </TR>
+     <TR><TD HEIGHT=50 VALIGN=BOTTOM ALIGN=CENTER>
+         <A HREF="http://194.158.230.225:9090/telenet/SF1/281/1.g-html"><IMG BORDER=0 WIDTH=23 HEIGHT=23 SRC="http://194.158.230.225/picts/telenet/gmode.gif" ALT="graphics mode"></A></TD></TR>
+     <TR><TD HEIGHT=304></TD></TR>
+   </TABLE>
+  </ADDRESS>
+ </BODY>
+</HTML>

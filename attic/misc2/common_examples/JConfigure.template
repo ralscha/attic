@@ -1,0 +1,10 @@
+options.environment.confirm.Delete=common.ui.configure.PropertyBooleanField
+options.environment.confirm.Insert=common.ui.configure.PropertyBooleanField
+options.environment.confirm.Move=common.ui.configure.PropertyBooleanField
+options.environment.save.Automatic=common.ui.configure.PropertyBooleanField
+options.environment.save.Prompt=common.ui.configure.PropertyBooleanField
+options.environment.save.Interval=common.ui.configure.PropertySpinField
+options.layout.Main=common.ui.configure.PropertyRectangleField
+options.layout.HTTP=common.ui.configure.PropertyRectangleField
+options.layout.FTP=common.ui.configure.PropertyRectangleField
+options.protocol.http.Keep-Alive=common.ui.configure.PropertyBooleanField

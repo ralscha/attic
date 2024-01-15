@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+
+	<bean id="fileReader" class="ch.ess.eventlog.EventFileReader">
+		<property name="fileList">
+			<list>
+				<value>D:\eclipse\workspace\EventLog\test.txt</value>
+			</list>
+		</property>
+		<!-- 
+		<property name="excludeSources">
+			<set>
+				<value>Dhcp</value>
+				<value>USER32</value>
+			</set>
+		</property>
+		<property name="excludeDescriptionPatterns">
+			<list>
+				<value>.*Harddis.*</value>
+			</list>
+		</property>
+		 -->
+	</bean>
+
+	<bean id="mailSender"
+		class="org.springframework.mail.javamail.JavaMailSenderImpl">
+		<property name="host" value="mail.ess.ch" />
+	</bean>
+
+	<bean id="mail" class="ch.ess.eventlog.Mail" init-method="send">
+		<property name="mailSender">
+			<ref local="mailSender" />
+		</property>
+		<property name="fileReader">
+			<ref local="fileReader" />
+		</property>
+		<property name="title" value="SERVER2" />
+		<property name="to" value="sr@ess.ch" />
+		<property name="from" value="sr@ess.ch" />
+		<property name="subject" value="EventLog: SERVER2" />
+
+	</bean>
+
+
+</beans>

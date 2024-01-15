@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 1.1//EN" "http://hibernate.sourceforge.net/hibernate-mapping-1.1.dtd">
+<hibernate-mapping>
+<class name="sr.mvs.db.Word3" table="Word3">
+<id name="id" type="long">
+<generator class="native"/>
+</id>
+<property column="word1" not-null="true" name="word1" type="integer"/>
+<property column="word2" not-null="true" name="word2" type="integer"/>
+<property column="word3" not-null="true" name="word3" type="integer"/>
+<property column="hits" not-null="true" name="hits" type="integer"/>
+</class>
+</hibernate-mapping>

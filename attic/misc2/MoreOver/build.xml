@@ -1,0 +1,20 @@
+<project name="mo" default="deploy_tomcat" basedir=".">
+
+    <property name="tomcat" value="D:/Tomcat"/>
+
+    <target name="war">
+        <delete file="mo.war"/>
+        <jar jarfile="mo.war"              
+             basedir="www"
+          /> 
+
+    </target>
+
+    <target name="deploy_tomcat" depends="war">
+        <delete file="${tomcat}/webapps/mo.war"/>
+        <copy file="mo.war" todir="${tomcat}/webapps"/>         
+    </target>
+    
+    
+
+</project>

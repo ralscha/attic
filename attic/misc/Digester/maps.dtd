@@ -1,0 +1,48 @@
+<!ELEMENT maps (class+)>
+
+<!ELEMENT class ((key-generator | sequence | highlow)?,field*,relation*)>
+<!ATTLIST class database CDATA #REQUIRED>
+<!ATTLIST class name CDATA #REQUIRED>
+
+<!ELEMENT key-generator EMPTY>
+<!ATTLIST key-generator field CDATA #REQUIRED>
+<!ATTLIST key-generator type CDATA #REQUIRED>
+
+<!ELEMENT sequence EMPTY>
+<!ATTLIST sequence field CDATA #REQUIRED>
+<!ATTLIST sequence name CDATA #IMPLIED>
+
+<!ELEMENT highlow EMPTY>
+<!ATTLIST highlow field CDATA #REQUIRED>
+<!ATTLIST highlow keyColumn CDATA #REQUIRED>
+<!ATTLIST highlow table CDATA #REQUIRED>
+<!ATTLIST highlow tableColumn CDATA #REQUIRED>
+
+<!ELEMENT field (sql)>
+<!ATTLIST field convertor CDATA #IMPLIED>
+<!ATTLIST field name CDATA #REQUIRED>
+<!ATTLIST field type CDATA #REQUIRED>
+
+<!ELEMENT sql EMPTY>
+<!ATTLIST sql decimal CDATA #IMPLIED>
+<!ATTLIST sql length CDATA #IMPLIED>
+<!ATTLIST sql name CDATA #IMPLIED>
+<!ATTLIST sql nullable CDATA #IMPLIED>
+<!ATTLIST sql primary-key CDATA #IMPLIED>
+<!ATTLIST sql table CDATA #REQUIRED>
+<!ATTLIST sql type CDATA #IMPLIED>
+
+<!ELEMENT relation (key | sql-key)*>
+<!ATTLIST relation autoDelete CDATA #IMPLIED>
+<!ATTLIST relation autoSave CDATA #IMPLIED>
+<!ATTLIST relation class CDATA #REQUIRED>
+<!ATTLIST relation name CDATA #REQUIRED>
+<!ATTLIST relation oneToOne CDATA #REQUIRED>
+<!ATTLIST relation retrieve ( none | auto) "none">
+
+<!ELEMENT key EMPTY>
+<!ATTLIST key foreign CDATA #REQUIRED>
+<!ATTLIST key name CDATA #REQUIRED>
+
+<!ELEMENT sql-key (sql)>
+<!ATTLIST sql-key foreign CDATA #REQUIRED>

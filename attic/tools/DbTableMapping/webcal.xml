@@ -1,0 +1,158 @@
+<ormapping>
+  <driver>org.enhydra.instantdb.jdbc.idbDriver</driver>
+  <url>jdbc:idb=d:/javaprojects/ess/webcal11/db.props</url>
+  <user></user>
+  <password></password>
+  <output>d:/javaprojects/private/dbtablemapping/output/</output>
+  <package>ch.ess.calendar.db</package>
+
+  <table>
+     <name>maxids</name>
+     <key>tablename</key>
+  </table>
+  
+  <table>
+     <name>wcgroup</name>
+     <key auto="false">id</key>
+     <keygen>TableIDKeyGenerator</keygen>
+     <manyreference>
+        <column>id</column> 
+        <refcolumn>wcgroupid</refcolumn>
+        <reftable>wcuser</reftable>
+     </manyreference>
+     <manyreference>
+        <column>id</column> 
+        <refcolumn>wcgroupid</refcolumn>
+        <reftable>appointment</reftable>
+     </manyreference>     
+  </table>
+
+  
+  <table>
+     <name>wcuser</name>
+     <key auto="false">id</key>     
+     <keygen>TableIDKeyGenerator</keygen>
+     <boolean>administrator</boolean>
+     <manyreference> 
+        <column>id</column>
+        <refcolumn>wcuserid</refcolumn>
+        <reftable>email</reftable>
+     </manyreference>
+     <manyreference> 
+        <column>id</column>
+        <refcolumn>wcuserid</refcolumn>
+        <reftable>appointment</reftable>
+     </manyreference>
+     <onereference>
+     	  <column>wcgroupid</column>
+        <refcolumn>id</refcolumn>
+        <reftable>wcgroup</reftable>     
+     </onereference>
+  </table>
+  
+  <table>
+  	  <name>email</name>
+  	  <key auto="false">id</key>
+  	  <keygen>TableIDKeyGenerator</keygen>
+     <manyreference> 
+        <column>id</column>
+        <refcolumn>emailid</refcolumn>
+        <reftable>reminder</reftable>
+     </manyreference>  	  
+     <onereference>
+     	  <column>wcuserid</column>
+        <refcolumn>id</refcolumn>
+        <reftable>wcuser</reftable>     
+     </onereference>  	  
+  </table>
+  
+  <table>
+  	  <name>category</name>
+  	  <key auto="false">id</key>
+  	  <keygen>TableIDKeyGenerator</keygen>
+     <manyreference> 
+        <column>id</column>
+        <refcolumn>categoryid</refcolumn>
+        <reftable>appointment</reftable>
+     </manyreference>  	  
+  </table>
+  
+  <table>
+  	  <name>reminder</name>
+  	  <key auto="false">id</key>
+  	  <keygen>TableIDKeyGenerator</keygen>
+     <onereference> 
+        <column>emailid</column>
+        <refcolumn>id</refcolumn>
+        <reftable>email</reftable>
+     </onereference>  	    
+     <onereference> 
+        <column>appointmentid</column>
+        <refcolumn>id</refcolumn>
+        <reftable>appointment</reftable>
+     </onereference>  	    
+  </table>
+
+  <table>
+  	  <name>recurrence</name>
+  	  <key auto="false">id</key>
+  	  <keygen>TableIDKeyGenerator</keygen>
+  	  <boolean>always</boolean>
+     <onereference>
+        <column>appointmentid</column>
+        <refcolumn>id</refcolumn>
+        <reftable>appointment</reftable>     
+     </onereference> 
+  </table>
+  
+  
+  <table>
+  	  <name>appointment</name>
+  	  <key auto="false">id</key>
+  	  <keygen>TableIDKeyGenerator</keygen>
+  	  <subst>
+  	     <db>private</db>
+  	     <prg>priv</prg>
+  	  </subst>
+  	  <dbsubst>
+  	     <col>startdate</col>
+  	     <type>java.sql.Timestamp</type>
+  	  </dbsubst>
+  	  <dbsubst>
+  	     <col>enddate</col>
+  	     <type>java.sql.Timestamp</type>
+  	  </dbsubst>
+  	  <boolean>alldayevent</boolean>
+  	  <boolean>private</boolean>
+	  <nullable>
+		  <col>outlookid</col>
+		  <col>note</col>
+		  <col>location</col>
+	  </nullable>
+     <onereference>
+        <column>wcuserid</column>
+        <refcolumn>id</refcolumn>
+        <reftable>wcuser</reftable>     		     
+     </onereference>
+     <onereference>
+        <column>wcgroupid</column>
+        <refcolumn>id</refcolumn>
+        <reftable>wcgroup</reftable>     		     
+     </onereference>
+     <onereference>
+        <column>categoryid</column>
+        <refcolumn>id</refcolumn>
+        <reftable>category</reftable>     		     
+     </onereference>
+     <manyreference> 
+        <column>id</column>
+        <refcolumn>appointmentid</refcolumn>
+        <reftable>reminder</reftable>
+     </manyreference>  	  
+     <manyreference> 
+        <column>id</column>
+        <refcolumn>appointmentid</refcolumn>
+        <reftable>recurrence</reftable>
+     </manyreference>  	  
+  </table>
+</ormapping>

@@ -1,0 +1,40 @@
+<ormapping>
+  <driver>jdbc.idbDriver</driver>
+  <url>jdbc:idb=d:/javaprojects/ess/addressbook/db.props</url>
+  <user></user>
+  <password></password>
+  <output>d:/javaprojects/ess/addressbook//</output>
+  <package>ch.ess.addressbook.db</package>
+
+  <table>
+     <name>maxids</name>
+     <key>tablename</key>
+  </table>
+  
+  <table>
+     <name>contact</name>
+     <key auto="false">id</key>
+     <nullable>
+       <col>firstname</col>
+       <col>name</col>
+       <col>company</col>
+       <col>address</col>
+       <col>plz</col>
+       <col>city</col>
+       <col>country</col>
+       <col>email</col>
+       <col>mobil</col>
+       <col>businessphone</col>
+       <col>privatephone</col>
+       <col>key1</col>
+       <col>value1</col>
+       <col>key2</col>
+       <col>value2</col>
+       <col>key3</col>
+       <col>value3</col>
+     </nullable>
+     <keygen>TableIDKeyGenerator</keygen>
+  </table>
+
+
+</ormapping>

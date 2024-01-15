@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:TitleWindow xmlns:mx="http://www.adobe.com/2006/mxml" title="Arbeite..." creationComplete="init()">
+  <mx:Script>
+  <![CDATA[
+    private function init() : void {
+      progress.setProgress(1, 0); // to start progress indicator when indeterminate
+    }
+  ]]>
+  </mx:Script>
+  <mx:ProgressBar id="progress" mode="manual" indeterminate="true" label=""/>
+</mx:TitleWindow>

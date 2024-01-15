@@ -1,0 +1,35 @@
+
+Velocity Cracking Utilities v1.0
+Distribution Manifest
+
+-------------------------------------------------------------------------------------------------
+
+Files included in vcu.zip (the distribution file for Velocity Cracking Utilities):
+
+	html_docs/*.htm*
+		The HTML documentation for Velocity Cracking Utilities. The file index.html is
+		the "Contents" page.
+
+	html_docs/xit.bat
+		A modified version of the batch file used to run the password cracker XiT. This
+		batch file has been modified to work propperly with VCU.
+
+	faq.txt
+		Frequently Asked Questions (FAQ's) about Velocity Cracking Utilities. The answers
+		to some common questions about VCU.
+
+	manifest.txt
+		This file. Brief explanations of all the files in this distribution.
+
+	ReadMe.txt
+		The ReadMe file. Contains a little information about the program.
+
+	vcu.exe
+		The main program file for this distribution. The actual "utilities".
+
+	vcu.txt
+		Pretty much the same as the HTML documentation, but text only, and all in one
+		file.
+
+
+-------------------------------------------------------------------------------------------------

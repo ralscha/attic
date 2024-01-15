@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+  GRANITE DATA SERVICES
+  Copyright (C) 2007-2008 ADEQUATE SYSTEMS SARL
+
+  This file is part of Granite Data Services.
+
+  Granite Data Services is free software; you can redistribute it and/or modify
+  it under the terms of the GNU Lesser General Public License as published by
+  the Free Software Foundation; either version 3 of the License, or (at your
+  option) any later version.
+
+  Granite Data Services is distributed in the hope that it will be useful, but
+  WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+  FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License
+  for more details.
+
+  You should have received a copy of the GNU Lesser General Public License
+  along with this library; if not, see <http://www.gnu.org/licenses/>.
+-->
+
+<mx:TitleWindow
+    xmlns:mx="http://www.adobe.com/2006/mxml"
+    xmlns:local="*"
+    layout="absolute"
+    title="Hotel Reservations"
+    pageTitle="My Form"
+    creationComplete="doCreationComplete( event )"
+    showCloseButton="true"
+    close="removeMe();"
+    width="670"
+    height="562">
+
+    <!--mx:Style source="styles/accordionBlur/wizard.css" /-->
+    <mx:Script source="ch/ess/booking/view/accordionBlur/wizard.as" />
+      <mx:Script>
+          <![CDATA[
+            import ch.ess.booking.control.BookingProcessCtl;
+              import org.granite.tide.seam.Context;
+              import org.granite.tide.seam.Seam;
+
+              import mx.core.IFlexDisplayObject;
+              import mx.events.ItemClickEvent;
+              import mx.controls.Alert;
+              import mx.managers.PopUpManager;
+
+              [Bindable]
+              public var bookingProcessCtl:BookingProcessCtl;
+
+
+              private function validateSteps(stepNum:int) : Boolean {
+                  var isValid:Boolean = true;
+                  //Step number starts with 0
+                  if(stepNum == 1) {
+                      isValid = bookingProcessCtl.validateStep1(this.bookingWizardStep1);
+                  }
+                  else if(stepNum == 2) {
+                      isValid = bookingProcessCtl.validateStep1(this.bookingWizardStep1);
+                    isValid = isValid && bookingProcessCtl.validateStep2(this.bookingWizardStep2);
+
+                    if(!isValid)
+                        Alert.show("You cannot proceed until previous steps are completed.");
+                  }
+
+                  return isValid;
+              }
+              private function onThumbClick(event:Event):void {
+                  var stepNum:int = boxThumbs.getChildIndex( UIComponent( event.currentTarget ));
+                  var isValid:Boolean = validateSteps(stepNum);
+                  if(isValid)
+                      doThumb( event );
+              }
+              private function onMenuClick(event:ItemClickEvent):void {
+                  var stepNum:int = event.index;
+                  var isValid:Boolean = validateSteps(stepNum);
+                  if(isValid)
+                      doMenu( event );
+              }
+              private function onDoNext(event:Event):void {
+                  var stepNum:int = page+1;
+                  var isValid:Boolean = validateSteps(stepNum);
+                  if(isValid)
+                      doNext( event );
+              }
+
+            private function removeMe() : void {
+                bookingProcessCtl.cancelBooking();
+            }
+          ]]>
+    </mx:Script>
+
+    <mx:Move id="effSlide" effectEnd="doEndMove( event )" />
+    <mx:Resize id="effHighlight" effectEnd="doEndResize( event )" />
+
+    <mx:VBox
+        id="boxThumbs"
+        width="200"
+        bottom="50"
+        left="10"
+        top="10"
+        minHeight="0"
+
+        styleName="thumbnails">
+
+        <local:Thumbnail click="onThumbClick(event)" />
+        <local:Thumbnail click="onThumbClick(event)" />
+        <local:Thumbnail click="onThumbClick(event)" />
+
+
+    </mx:VBox>
+
+
+    <mx:Canvas
+        id="cvsHighlight"
+        width="0"
+        height="{btnMenu.height}"
+        left="218"
+        top="10"
+        visible="false"
+        resizeEffect="{effHighlight}"
+        styleName="highlight">
+
+        <mx:Canvas bottom="0" left="0" right="0" top="0" styleName="fill" />
+
+    </mx:Canvas>
+
+    <mx:ButtonBar
+        id="btnMenu"
+        left="218"
+        right="10"
+        top="10"
+        itemClick="onMenuClick( event )">
+        <mx:dataProvider>
+            <mx:String>Step 1</mx:String>
+            <mx:String>Step 2</mx:String>
+            <mx:String>Step 3</mx:String>
+
+        </mx:dataProvider>
+    </mx:ButtonBar>
+
+    <mx:Canvas
+        id="cvsForms"
+        bottom="50"
+        left="218"
+        right="10"
+        top="40"
+        horizontalScrollPolicy="off"
+        verticalScrollPolicy="off">
+
+        <mx:HBox id="boxForms" moveEffect="{effSlide}">
+
+            <local:HotelBookingWizardStep1
+                id="bookingWizardStep1"
+                label="step1"
+                bookingProcessCtl="{bookingProcessCtl}"
+                creationComplete="updateThumb( Canvas( event.target ) )" />
+            <local:HotelBookingWizardStep2
+                id="bookingWizardStep2"
+                label="step2"
+                bookingProcessCtl="{bookingProcessCtl}"
+                creationComplete="updateThumb( Canvas( event.target ) )" />
+            <local:HotelBookingWizardStep3
+                id="bookingWizardStep3"
+                label="step3"
+                bookingProcessCtl="{bookingProcessCtl}"
+                creationComplete="updateThumb( Canvas( event.target ) )" />
+
+        </mx:HBox>
+
+    </mx:Canvas>
+
+    <mx:HRule bottom="40" left="10" right="10" />
+
+
+
+    <mx:Button
+        id="btnNext"
+        bottom="10"
+        right="10"
+        label="Next"
+        click="onDoNext( event )"
+        x="0"
+        y="0"
+        upSkin="myButton"
+        downSkin="myButtonDown"
+        overSkin="myButtonOver"
+        disabledSkin="myButtonDisabled"
+         />
+    <mx:Button
+        id="btnPrevious"
+        bottom="10"
+        right="71"
+        label="Previous"
+        enabled="false"
+        click="doPrevious( event )"
+        x="0"
+        y="0"
+        upSkin="myButton"
+        downSkin="myButtonDown"
+        overSkin="myButtonOver"
+        disabledSkin="myButtonDisabled"
+         />
+
+
+
+</mx:TitleWindow>

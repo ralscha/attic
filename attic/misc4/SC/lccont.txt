@@ -1,0 +1,8 @@
+GTFBASEL_lc_cont.log
+GTFBERN_lc_cont.log
+GTFGENF_lc_cont.log
+GTFLAU_lc_cont.log
+GTFLUG_lc_cont.log
+GTFSTG_lc_cont.log
+GTFZRH_lc_cont.log
+GTFZUG_lc_cont.log

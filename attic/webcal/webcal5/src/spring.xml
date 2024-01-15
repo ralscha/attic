@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<beans default-autowire="no" default-dependency-check="none" default-lazy-init="false" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd" xmlns="http://www.springframework.org/schema/beans">
+<bean autowire="byType" class="ch.ess.cal.service.HolidayRegistry" id="holidayRegistry"/>
+<bean autowire="byType" class="ch.ess.cal.dao.TimeTaskBudgetDao" id="timeTaskBudgetDao"/>
+<bean autowire="byType" class="ch.ess.base.dao.UserDao" id="userDao"/>
+<bean autowire="byType" class="ch.ess.cal.web.time.TimeExcelCreator" id="timeExcelCreator"/>
+<bean autowire="byType" class="ch.ess.cal.dao.FileDao" id="fileDao"/>
+<bean autowire="byType" class="ch.ess.cal.web.event.EventEditAction" lazy-init="true" name="/editEvent">
+<property name="dao" ref="eventDao"/>
+</bean>
+<bean autowire="byType" class="ch.ess.cal.dao.CategoryDao" id="categoryDao"/>
+<bean autowire="byType" class="ch.ess.cal.dao.GroupDao" id="groupDao"/>
+<bean autowire="byType" class="ch.ess.cal.dao.HolidayDao" id="holidayDao"/>
+<bean class="ch.ess.cal.service.search.SearchEngine" destroy-method="shutDown" id="searchEngine" init-method="init">
+<property name="contactDao" ref="contactDao"/>
+</bean>
+<bean class="ch.ess.base.xml.textresource.TextResources" id="textResources" init-method="init"/>
+<bean autowire="byType" class="ch.ess.base.service.DataLoadCaller" id="dataLoadCaller" init-method="callDataLoad"/>
+<bean autowire="byType" class="ch.ess.cal.web.time.TimeHourUpdater" id="timeHourUpdater"/>
+<bean autowire="byType" class="ch.ess.cal.dao.RecurrenceExceptionDao" id="recurrenceExceptionDao"/>
+<bean autowire="byType" class="ch.ess.cal.dao.TimeProjectDao" id="timeProjectDao"/>
+<bean autowire="byType" class="ch.ess.base.dao.UserConfigurationDao" id="userConfigurationDao"/>
+<bean autowire="byType" class="ch.ess.base.service.TranslationService" id="translationService"/>
+<bean autowire="byType" class="ch.ess.cal.dao.TimeTaskDao" id="timeTaskDao"/>
+<bean autowire="byType" class="ch.ess.cal.web.view.MonthBeanUtil" id="monthBeanUtil" lazy-init="true"/>
+<bean autowire="byType" class="ch.ess.cal.dao.TimeCustomerDao" id="timeCustomerDao"/>
+<bean class="ch.ess.base.xml.permission.Permissions" id="permissions" init-method="init"/>
+<bean autowire="byType" class="ch.ess.cal.dao.EventDao" id="eventDao"/>
+<bean autowire="byType" class="ch.ess.base.dao.PermissionDao" id="permissionDao"/>
+<bean autowire="byType" class="ch.ess.cal.dao.ResourceDao" id="resourceDao"/>
+<bean class="ch.ess.base.xml.locale.Locales" id="locales" init-method="init"/>
+<bean autowire="byType" class="ch.ess.cal.service.ExportIcalImpl" id="exportIcalImpl"/>
+<bean autowire="byType" class="ch.ess.base.service.DataLoad" id="dataLoadService"/>
+<bean autowire="byType" class="ch.ess.cal.dao.TimeDao" id="timeDao"/>
+<bean autowire="byType" class="ch.ess.cal.dao.DirectoryDao" id="directoryDao"/>
+<bean autowire="byType" class="ch.ess.base.dao.AppLinkDao" id="appLinkDao"/>
+<bean autowire="byType" class="ch.ess.cal.dao.TaskDao" id="taskDao"/>
+<bean autowire="byName" class="ch.ess.cal.service.ReminderMailer" id="reminderMailer"/>
+<bean autowire="byType" class="ch.ess.cal.dao.ContactDao" id="contactDao"/>
+<bean autowire="byType" class="ch.ess.base.dao.UserGroupDao" id="userGroupDao"/>
+<bean autowire="byType" class="ch.ess.cal.dao.ResourceGroupDao" id="resourceGroupDao"/>
+</beans>

@@ -1,0 +1,108 @@
+// Decompiled by Jad v1.5.7. Copyright 1997-99 Pavel Kouznetsov.
+// Jad home page: http://www.geocities.com/SiliconValley/Bridge/8617/jad.html
+// Decompiler options: packimports(3) 
+// Source File Name:   ProgramPosition.java
+
+package grace.log;
+
+import java.io.Serializable;
+
+public class ProgramPosition
+    implements Serializable
+{
+
+    public String getClassname()
+    {
+        return classname;
+    }
+
+    public void setClassname(String classname)
+    {
+        this.classname = classname;
+    }
+
+    public String getFunction()
+    {
+        return function;
+    }
+
+    public String getFilename()
+    {
+        return filename;
+    }
+
+    public int getLineNumber()
+    {
+        return lineNumber;
+    }
+
+    public String getLineNumberString()
+    {
+        return lineNumber < 0 ? "" : String.valueOf(lineNumber);
+    }
+
+    public String getShortClassname()
+    {
+        try
+        {
+            return classname.substring(classname.lastIndexOf(46) + 1, classname.length());
+        }
+        catch(Exception _ex)
+        {
+            return classname;
+        }
+    }
+
+    public void parse(String raw)
+    {
+        lineNumber = 0;
+        filename = "";
+        function = "";
+        classname = "";
+        int startLineNumber = 0;
+        try
+        {
+            startLineNumber = raw.lastIndexOf(58);
+            String lineNumberString = raw.substring(startLineNumber + 1, raw.length() - 1);
+            lineNumber = Integer.valueOf(lineNumberString).intValue();
+        }
+        catch(Exception _ex) { }
+        int startFilename = 0;
+        try
+        {
+            startFilename = raw.lastIndexOf(40);
+            filename = raw.substring(startFilename + 1, startLineNumber);
+        }
+        catch(Exception _ex) { }
+        int startFunction = 0;
+        try
+        {
+            startFunction = raw.lastIndexOf(46, startFilename);
+            function = raw.substring(startFunction + 1, startFilename);
+        }
+        catch(Exception _ex) { }
+        try
+        {
+            int startClassname = raw.lastIndexOf(32, startFunction);
+            if(startClassname == -1)
+                startClassname = 0;
+            else
+                startClassname++;
+            classname = raw.substring(startClassname, startFunction);
+        }
+        catch(Exception _ex) { }
+    }
+
+    public ProgramPosition()
+    {
+        classname = "";
+        function = "";
+        filename = "";
+        lineNumber = -1;
+    }
+
+    private String classname;
+    private String function;
+    private String filename;
+    private int lineNumber;
+}

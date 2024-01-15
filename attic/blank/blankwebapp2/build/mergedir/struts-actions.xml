@@ -1,0 +1,13 @@
+    <action path="/default" forward=".default" roles="all"/>
+    <action path="/error" forward="/error.jsp"/>
+
+    <action path="/users" forward=".user.list" roles="user"/>    
+    <action path="/userGroups" forward=".userGroup.list" roles="usergroup"/>    
+
+    <action path="/online" forward=".online.list" roles="online"/> 
+    <action path="/onlineview" forward=".online.view" roles="online"/> 
+    <action path="/resources" forward=".resource.list" roles="textresource"/> 
+
+
+    <action path="/loginTo" forward=".login" name="loginForm" scope="request" input=".login" unknown="false" validate="false"/>
+    <action path="/loginCookie" forward="/WEB-INF/jsp/logincookie.jsp"/>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+
+<MenuConfig>
+
+  <Displayers>
+    <Displayer   name="DropDown"
+                 type="net.sf.navigator.displayer.DropDownMenuDisplayer"/>
+    <Displayer   name="Simple"
+                 type="net.sf.navigator.displayer.SimpleMenuDisplayer"/>
+    <Displayer   name="CoolMenu"
+                 type="net.sf.navigator.displayer.CoolMenuDisplayer"/>
+    <Displayer   name="CoolMenu4"
+                 type="net.sf.navigator.displayer.CoolMenuDisplayer4"/>
+    <Displayer   name="MenuForm"
+                 type="net.sf.navigator.example.PermissionsFormMenuDisplayer"/>
+    <Displayer   name="ListMenu"
+                 type="net.sf.navigator.displayer.ListMenuDisplayer"/>
+    <Displayer   name="TabbedMenu"
+                 type="net.sf.navigator.displayer.TabbedMenuDisplayer"/>
+    <Displayer   name="Velocity"
+                 type="net.sf.navigator.displayer.VelocityMenuDisplayer"/>
+    <Displayer   name="MenuBar"
+                 type="ch.ess.common.web.MenuBarDisplayer"/>
+  </Displayers>
+
+
+
+  <Menus>
+  
+    <!-- Main Menu -->
+   <Menu name="m_mainmenu" title="common.blank" roles="user,admin">
+    <Item  name="m_application" title="calendar" roles="user,admin"> 
+      <Item name="i_events" title="event.events" page="/events.do?clean=1" roles="user,admin"/>        
+      <Item name="i_overview" title="calendar.overview" page="/groupMonth.do?clean=1" roles="user,admin"/>    
+      <Item name="i_holidays" title="holiday.holidays" page="/holidays.do?clean=1" roles="admin"/>         
+      <Item name="i_categories" title="category.categories" page="/categories.do?clean=1" roles="admin"/>                     
+      <Item name="i_departments" title="department.departments" page="/departments.do?clean=1" roles="admin"/>        
+      <Item name="i_resources" title="calresource.resources" page="/calresources.do?clean=1" roles="admin"/>              
+      <Item name="i_resourcegroups" title="resourcegroup.resourcegroups" page="/resourcegroups.do?clean=1" roles="admin"/>                    
+    </Item>   
+
+    <Item  name="m_administration" title="application.administration"> 
+      <Item name="i_general" title="userconfig.personal" page="/editUserConfig.do" roles="user,admin"/>    
+      <Item name="i_system" title="config.system" page="/editConfig.do" roles="admin"/>
+      
+       <Item name="i_resources" title="resource.resources" page="/resources.do?clean=1" roles="admin"/>        
+      <Item name="i_users" title="user.users" page="/users.do?clean=1" roles="admin"/>      
+    </Item>  
+    <Item  name="m_logout" title="login.logout" roles="user,admin" page="/logout.jsp"/> 
+   </Menu>   
+    
+      
+    
+  </Menus>
+
+</MenuConfig>

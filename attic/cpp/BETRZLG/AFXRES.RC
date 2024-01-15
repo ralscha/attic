@@ -1,0 +1,112 @@
+// Microsoft Foundation Classes C++ library.
+// Copyright (C) 1992-1993 Microsoft Corporation,
+// All rights reserved.
+
+// This source code is only intended as a supplement to the
+// Microsoft Foundation Classes Reference and Microsoft
+// QuickHelp and/or WinHelp documentation provided with the library.
+// See these sources for detailed information regarding the
+// Microsoft Foundation Classes product.
+
+#ifndef __AFXRES_RC__
+#define __AFXRES_RC__
+
+#ifndef __AFXRES_H__
+#include <afxres.h>
+#endif
+
+#ifdef APSTUDIO_INVOKED
+// This resource will prevent the App Studio user from saving this file
+1 TEXTINCLUDE DISCARDABLE
+BEGIN
+"Cannot change standard MFC resources.\0"
+END
+#endif    // APSTUDIO_INVOKED
+
+#ifndef _AFXDLL
+
+/////////////////////////////////////////////////////////////////////////////
+// Default resource description for MFC 2.0 applications
+/////////////////////////////////////////////////////////////////////////////
+
+/////////////////////////////////////////////////////////////////////////////
+// Strings
+
+STRINGTABLE
+BEGIN
+	AFX_IDS_OPENFILE        	"Datei öffnen"
+	AFX_IDS_SAVEFILE        	"Datei speichern unter..."
+	AFX_IDS_ALLFILTER       	"Alle Dateien (*.*)"
+	AFX_IDS_UNTITLED        	"Unbenannt"
+
+	// General error prompts
+	AFX_IDP_INVALID_FILENAME 	"Ungültiger Dateiname."
+	AFX_IDP_FAILED_TO_OPEN_DOC 	"Fehler beim Öffnen des Dokuments."
+	AFX_IDP_FAILED_TO_SAVE_DOC 	"Fehler beim Speichern des Dokuments."
+	AFX_IDP_ASK_TO_SAVE     	"Änderungen in %1 abspeichern?"
+	AFX_IDP_FAILED_TO_CREATE_DOC 	"Fehler beim Erzeugen eines neuen Dokuments."
+	AFX_IDP_FILE_TOO_LARGE  	"Die Datei ist zu groß zum Öffnen."
+	AFX_IDP_FAILED_TO_START_PRINT 	"Druck-Job konnte nicht gestartet werden."
+	AFX_IDP_FAILED_TO_LAUNCH_HELP 	"Das Hilfeprogramm konnte nicht aufgerufen werden."
+	AFX_IDP_INTERNAL_FAILURE 	"Interner Programmfehler."
+	AFX_IDP_COMMAND_FAILURE 	"Befehl konnte nicht ausgeführt werden."
+	AFX_IDP_FAILED_MEMORY_ALLOC     "Nicht genügend Speicher um den Vorgang auszuführen."
+	AFX_IDP_VB2APICALLED    	"VBX-Kontrolle rief eine VB 2.0 API-Funktion\nUnvorhersehbare Effekte können auftreten."
+	AFX_IDP_GET_NOT_SUPPORTED,      "Nur-Schreiben-Eigenschaft kann nicht gelesen werden."
+	AFX_IDP_SET_NOT_SUPPORTED,      "Nur-Lesen-Eigenschaft kann nicht geschrieben werden."
+
+	// CFile/CArchive error strings for user failure
+	AFX_IDP_FAILED_INVALID_FORMAT 	"Unerwartetes Dateiformat."
+	AFX_IDP_FAILED_INVALID_PATH   	"%1\nKann diese Datei nicht finden.\nBitte stellen Sie sicher, daß Sie die korrekten Pfad- und Dateinamen eingegeben haben."
+	AFX_IDP_FAILED_DISK_FULL 	"Ziel-Disk(ette) ist voll."
+	AFX_IDP_FAILED_ACCESS_READ 	"Kann von Datei %1 nicht lesen, sie wird von jemand anderem benutzt."
+	AFX_IDP_FAILED_ACCESS_WRITE  	"Kann auf Datei %1 nicht schreiben, sie ist eine Nur-Lese-Datei oder wird von jemand anderem benutzt."
+	AFX_IDP_FAILED_IO_ERROR_READ   	"Unerwarteter Fehler beim Lesen von %1."
+	AFX_IDP_FAILED_IO_ERROR_WRITE   "Unerwarteter Fehler beim Schreiben auf %1."
+
+	// Parsing error prompts
+	AFX_IDP_PARSE_INT       	"Bitte geben Sie eine Ganzzahl ein."
+	AFX_IDP_PARSE_REAL      	"Bitte geben Sie eine Zahl ein."
+	AFX_IDP_PARSE_INT_RANGE 	"Bitte geben Sie eine Ganzzahl zwischen %1 und %2 ein."
+	AFX_IDP_PARSE_REAL_RANGE 	"Bitte geben Sie eine Zahl zwischen %1 und %2 ein."
+	AFX_IDP_PARSE_STRING_SIZE 	"Bitte geben Sie nicht mehr als %1 Zeichen ein."
+									// should customize for 1 character
+	AFX_IDP_PARSE_RADIO_BUTTON,     "Bitte wählen Sie eine Knopf-Kontrolle."
+END
+
+/////////////////////////////////////////////////////////////////////////////
+// Cursors
+
+AFX_IDC_CONTEXTHELP     CURSOR  DISCARDABLE     "help.cur"
+AFX_IDC_SMALLARROWS     CURSOR  DISCARDABLE     "sarrows.cur"
+AFX_IDC_HSPLITBAR       CURSOR  DISCARDABLE     "splith.cur"
+AFX_IDC_VSPLITBAR       CURSOR  DISCARDABLE     "splitv.cur"
+AFX_IDC_NODROPCRSR      CURSOR  DISCARDABLE     "nodrop.cur"
+AFX_IDC_TRACKNWSE       CURSOR  DISCARDABLE     "trcknwse.cur"
+AFX_IDC_TRACKNESW       CURSOR  DISCARDABLE     "trcknesw.cur"
+AFX_IDC_TRACKNS         CURSOR  DISCARDABLE     "trckns.cur"
+AFX_IDC_TRACKWE         CURSOR  DISCARDABLE     "trckwe.cur"
+AFX_IDC_TRACK4WAY       CURSOR  DISCARDABLE     "trck4way.cur"
+AFX_IDC_MOVE4WAY        CURSOR  DISCARDABLE     "move4way.cur"
+
+/////////////////////////////////////////////////////////////////////////////
+// Standard Dialogs
+
+AFX_IDD_NEWTYPEDLG DIALOG DISCARDABLE  9, 26, 183, 70
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Neu"
+FONT 8, "Helv"  // for Win 3.0 compatibility.
+BEGIN
+	LTEXT           "&Neu ",IDC_STATIC,6,5,123,8,NOT WS_GROUP
+	LISTBOX         AFX_IDC_LISTBOX,6,15,125,49,WS_VSCROLL | WS_TABSTOP
+	DEFPUSHBUTTON   "OK",IDOK,137,6,40,14
+	PUSHBUTTON      "Abbrechen",IDCANCEL,137,23,40,14
+	PUSHBUTTON      "&Hilfe",ID_HELP,137,43,40,14
+END
+
+/////////////////////////////////////////////////////////////////////////////
+
+#endif //!_AFXDLL
+#endif //!__AFXRES_RC__
+
+/////////////////////////////////////////////////////////////////////////////

@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+
+<MenuConfig>
+  <Displayers>
+    <Displayer   name="MenuBar"
+                 type="ch.ess.base.web.MenuBarDisplayer"/>                 
+  </Displayers>
+
+  <Menus>
+      <Menu name="m_mainmenu"> 
+        
+        <Item name="m_administration" title="application.administration" roles="userconfig,systemconfig,user,usergroup,textresource,group"> 
+          <Item name="i_userconfig" title="userconfig.menu" page="/userConfig.do?clean=1" roles="userconfig"/>    
+          <Item name="i_config" title="config.menu" page="/config.do?clean=1" roles="systemconfig"/>   
+          <Item name="i_textresources" title="textResource.menu" page="/listTextResource.do?clean=1" roles="textresource"/>        
+          <Item name="i_usergroups" title="userGroup.menu" page="/listUserGroup.do?clean=1" roles="usergroup"/>      
+          <Item name="i_users" title="user.menu" page="/listUser.do?clean=1" roles="user"/>      
+        </Item>
+        <Item  name="m_logout" title="login.logout" page="/logout.do"/> 
+      </Menu>  
+
+  </Menus>
+
+</MenuConfig>

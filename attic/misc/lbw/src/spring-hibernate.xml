@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xmlns:aop="http://www.springframework.org/schema/aop"
+	   xmlns:tx="http://www.springframework.org/schema/tx"
+	   xmlns:jndi="http://www.springframework.org/schema/jndi"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
+       http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+       http://www.springframework.org/schema/jndi http://www.springframework.org/schema/jndi/spring-jndi.xsd">
+
+  
+  <bean id="namingStrategy" class="ch.ess.base.hibernate.AppNamingStrategy">
+    <property name="prefix"><value>lbw_</value></property>
+  </bean>
+  
+  <bean id="sessionFactory" class="ch.ess.base.hibernate.AppLocalSessionFactoryBean">
+    <property name="schemaUpdate" value="true"/>
+    <property name="namingStrategy" ref="namingStrategy"/>
+    <property name="dataSource" ref="dataSource"/>
+    <property name="exposeTransactionAwareSessionFactory" value="false"/>
+           
+    <property name="annotatedClasses">
+      <list>     
+        <value>ch.ess.base.model.Configuration</value>
+        <value>ch.ess.base.model.Permission</value>
+        <value>ch.ess.base.model.TextResource</value>
+        <value>ch.ess.base.model.Translation</value>
+        <value>ch.ess.base.model.TranslationText</value>
+        <value>ch.ess.base.model.User</value>
+        <value>ch.ess.base.model.UserConfiguration</value>                                        
+        <value>ch.ess.base.model.UserGroup</value>                                        
+        <value>ch.ess.base.model.UserGroupPermission</value>                                        
+        <value>ch.ess.base.model.UserUserGroup</value>   
+        <value>ch.ess.lbw.model.Lieferant</value>
+        <value>ch.ess.lbw.model.Werk</value>      
+        <value>ch.ess.lbw.model.Bewertung</value> 
+        <value>ch.ess.lbw.model.Alarm</value>      
+        <value>ch.ess.lbw.model.UserWerk</value>   
+        <value>ch.ess.lbw.model.LieferantWerk</value>
+        <!-- <value>ch.ess.base.model.DocumentContent</value> -->                                                             
+      </list>
+    </property>
+     
+    
+    <property name="defaultDriver" value="org.hibernate.dialect.GenericDialect"/>
+    <property name="drivers">
+      <map>
+        <entry key="Microsoft SQL Server" value="org.hibernate.dialect.SQLServerDialect"/>
+        <entry key="MySQL" value="org.hibernate.dialect.MySQLDialect"/>
+        <entry key="DB2" value="org.hibernate.dialect.DB2Dialect"/>
+        <entry key="Oracle" value="org.hibernate.dialect.OracleDialect"/>
+        <entry key="mckoi" value="org.hibernate.dialect.MckoiDialect"/>
+        <entry key="pointbase" value="org.hibernate.dialect.PointbaseDialect"/>
+        <entry key="hsql" value="org.hibernate.dialect.HSQLDialect"/>
+      </map>
+    </property>        
+    
+    <property name="hibernateProperties"> 
+      <props> 
+        <prop key="hibernate.show_sql">false</prop>       
+        <prop key="hibernate.query.substitutions">true 1, false 0</prop>
+        <prop key="hibernate.generate_statistics">false</prop>
+        <!-- <prop key="hibernate.cache.use_query_cache">true</prop>  -->
+      </props> 
+    </property> 
+  </bean> 
+  
+  
+  <bean id="transactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager"> 
+    <property name="sessionFactory" ref="sessionFactory"/>
+  </bean>
+
+  <tx:annotation-driven/>
+    
+</beans>
+

@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+  <bean id="application" class="org.springframework.rcp.application.Application">
+    <constructor-arg index="0">
+      <ref bean="applicationInfo"/>
+    </constructor-arg>
+    <property name="aboutTextPath">
+      <value>classpath:/about.txt</value>
+    </property>
+    <property name="componentFactory">
+      <ref bean="componentFactory"/>
+    </property>
+    <property name="defaultPerspective"><value>ownerPerspective</value></property>
+  </bean>
+  <bean id="componentFactory" class="org.springframework.rcp.factory.DefaultComponentFactory">
+  </bean>
+  <bean id="applicationObjectConfigurer" 
+    class="org.springframework.rcp.application.config.ApplicationObjectConfigurer"/>
+  <bean id="applicationInfo" class="org.springframework.rcp.application.ApplicationInfo">
+    <property name="version">
+      <value>1.0</value>
+    </property>
+    <property name="buildId">
+      <value>20040605001</value>
+    </property>
+  </bean>
+  <bean class="org.springframework.rcp.application.config.UIManagerConfigurer">
+    <property name="lookAndFeel">
+      <value>com.jgoodies.plaf.plastic.Plastic3DLookAndFeel</value>
+    </property>
+  </bean>
+  <bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
+    <property name="basenames">
+      <list>
+        <value>org.springframework.rcp.application.messages</value>
+        <value>messages</value>
+      </list>
+    </property>
+  </bean>
+  <bean id="imageResourcesFactory" class="org.springframework.context.support.ResourceMapFactoryBean">
+    <property name="location">
+      <value>classpath:images.properties</value>
+    </property>
+    <property name="resourceBasePath">
+      <value>images/</value>
+    </property>
+  </bean>
+  <bean id="imageSource" class="org.springframework.rcp.image.DefaultAwtImageSource">
+    <constructor-arg index="0">
+      <ref bean="imageResourcesFactory"/>
+    </constructor-arg>
+    <property name="brokenImageIndicator">
+      <value>images/alert/error_obj.gif</value>
+    </property>
+  </bean>
+  <bean id="iconSource" class="org.springframework.rcp.image.DefaultImageIconSource">
+    <constructor-arg index="0">
+      <ref bean="imageSource"/>
+    </constructor-arg>
+  </bean>
+  
+  
+     <bean      id="ownerPerspective"
+            class="org.springframework.rcp.application.Perspective">
+  	    <property name="view"><value>ownerManagerView</value></property>
+    </bean>
+    
+    
+        <bean      id="ownerManagerView"
+            class="OwnerManagerView">
+    </bean>
+  
+    <bean       id="mainWindow"
+             class="org.springframework.rcp.application.ApplicationWindow"
+         singleton="false">
+      <property name="menuBar"><ref bean="mainWindowMenuBar"/></property>
+      <property name="toolBar"><ref bean="mainWindowToolBar"/></property>      
+    </bean>
+  
+    <bean       id="mainWindowToolBar"
+             class="org.springframework.rcp.action.contribution.ToolBar"
+         singleton="false">             
+      <property name="items">
+        <list>
+          <ref bean="exitAction"/>
+        </list>
+      </property>
+    </bean>
+
+  
+  <bean id="mainWindowMenuBar" class="org.springframework.rcp.action.contribution.MenuBar" singleton="false">
+    <property name="items">
+      <list>
+        <ref bean="fileMenu"/>
+        <ref bean="helpMenu"/>
+      </list>
+    </property>
+  </bean>
+  <bean id="separator" class="org.springframework.rcp.action.contribution.Separator">
+  </bean>
+  <bean id="fileMenu" class="org.springframework.rcp.action.contribution.Menu" singleton="false">
+    <property name="items">
+      <list>
+        <ref bean="exitAction"/>
+      </list>
+    </property>
+  </bean>
+  <bean id="exitAction" class="org.springframework.rcp.action.DefaultVisualAction">
+  </bean>
+  <bean id="globalActionRegistry" class="org.springframework.rcp.action.DefaultActionRegistry">
+    <!--   	    <property name="actions">
+		    <list>
+		  	    <ref bean="deleteAction"/>
+			    <ref bean="propertiesAction"/>
+		    </list>
+	    </property>-->
+  </bean>
+  <bean id="helpMenu" class="org.springframework.rcp.action.contribution.Menu" singleton="false">
+    <property name="items">
+      <list>
+        <ref bean="aboutAction"/>
+      </list>
+    </property>
+  </bean>
+  
+      <bean   id="helpContentsAction"
+         class="org.springframework.rcp.action.DefaultVisualAction">
+    </bean>
+  
+  <bean id="aboutAction" class="org.springframework.rcp.action.DefaultVisualAction">
+  </bean>
+</beans>

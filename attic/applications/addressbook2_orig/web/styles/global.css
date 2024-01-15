@@ -1,0 +1,326 @@
+body{ 
+	background-color: #fff; padding:0 0 0 0; margin: 10px 20px 10px 20px;
+	color: #000000;
+}
+
+
+body, input, select, td, textarea{ 
+	font-family:Verdana, Geneva, Arial, Helvetica, sans-serif; 
+	font-size: 12px;
+}
+
+
+a {
+	color: #0000CC;
+	background-color: inherit;
+}
+
+a:visited {
+	color: #0000CC;
+
+}
+
+a:hover {
+  background-color: #DDDDDD;
+	color: #000033;
+}
+
+a:active {
+	color: #0000CC;
+   background-color: inherit;	
+}
+
+
+
+/* highlight table row onmouseover */
+table.list tr.tableRowOver {
+    background: #FFFF40;
+    color: #000000;
+    cursor: pointer;    
+    border-top: 1px solid #c0c0c0;
+    border-bottom: 1px solid #c0c0c0;
+}
+
+b {
+	color: #000000;
+   background-color: inherit;	
+	font-style: normal;
+	font-weight: bold;
+}
+
+
+h1 {
+	color: #000000;
+   background-color: inherit;	
+	font-size: large;
+	font-weight: bold;
+	margin-bottom: 0px;
+	margin-top: 0px;
+}
+
+h2 {
+	font-size: medium;
+	font-weight: bold;
+	margin-bottom: 13px;
+	margin-top: 0px;
+}
+
+h3 {
+	font-size: small;
+}
+
+div.title {
+    font-size: 18px;
+    color: #C0C0C0;
+    background-color: inherit;	 
+    font-weight: bolder;
+}
+
+p {
+	margin-bottom: 0px;
+	margin-top: 0px;
+	text-align: left;
+}
+
+
+/* start display tag */
+table.list {
+    border-collapse: collapse;
+	border: 1px solid #999999;	
+}
+
+
+table.list tbody td  {
+    padding: 2px 4px 2px 4px;
+	text-align: left;
+	vertical-align: top;
+border: 1px solid #999999;
+}
+
+
+table.list thead th {
+	color: #000000;
+   background-color: inherit;		
+	font-weight: bold;
+	padding: 2px 4px 2px 4px;
+	text-align: left;
+	vertical-align: top;	
+border: 1px solid #999999;		
+}
+
+table.list thead tr {
+	background-color: #DDDDDD;
+	color: #000000;
+	font-weight: bold;
+}
+
+table.list thead th.sorted {
+    color: inherit;
+    background-color: #CCCCCC;
+}
+
+table.list tbody tr.even {
+   color: inherit;
+	background-color: #EEEEEE;
+}
+
+
+
+table.list tbody tr.odd {
+   color: inherit;
+	background-color: #FFFFFF;
+}
+
+table.list th a, table.list th a:visited {
+  color: black; 
+  background-color: inherit;
+  text-decoration: none;
+}
+
+table.list th a:hover {
+  color: inherit;
+  background-color: #DDDDDD;
+  text-decoration: underline;
+}
+table.list td a, table.list td a:visited {
+  color: black; 
+  background-color: inherit;  
+}
+
+table.list td a:hover {
+  color: inherit;
+  background: #FFD700;
+}
+
+table.list th.sorted a:hover {
+  color: inherit;
+  background-color: #CCCCCC;
+  text-decoration: underline;
+}
+
+table.list th.sortable a {
+	background-position: right;
+	font-size: 12px;	
+	display: block;
+	background-image: url(../images/arrow_off.png);
+	background-repeat:no-repeat;	
+}
+table.list th.order1 a {
+	background-image: url(../images/arrow_down.png);
+	background-repeat:no-repeat;	
+}
+table.list th.order2 a {
+	background-image: url(../images/arrow_up.png);
+	background-repeat:no-repeat;	
+}
+
+div.exportlinks {
+	padding: 10px 0px;
+    font-size: 11px;
+}
+
+span.export {
+	padding: 0 4px 1px 20px;
+	display: inline; 
+	cursor: pointer;
+}
+
+span.excel {
+	background-image: url(../images/ico_file_excel.png);
+	background-repeat:no-repeat;	
+}
+span.csv {
+	background-image: url(../images/ico_file_csv.png);
+	background-repeat:no-repeat;	
+}
+span.xml {
+	background-image: url(../images/ico_file_xml.png);
+	background-repeat:no-repeat;	
+}
+
+
+span.pagebanner {
+   font-size: 11px;
+	padding: 2px 4px 2px 4px;
+	display:block;
+}
+
+span.pagelinks {
+   font-size: 11px;
+	padding: 2px 4px 10px 4px;
+	display:block;
+}
+
+
+/* end display tag */
+
+td.error {
+    background: #FFCC99;
+    border: 1px solid #000000;
+    color: #000000;
+    font-size: 11px;
+    font-weight: bold;
+    margin: 10px auto;
+    padding: 3px;
+    text-align: left;
+    vertical-align: bottom;		
+	
+}
+
+td.message {
+    background: #66FF66;
+    border: 1px solid #000000;
+    color: #000000;
+    font-size: 11px;
+    font-weight: bold;
+    margin: 10px auto;
+    padding: 3px;
+    text-align: left;
+    vertical-align: bottom;		
+}
+
+
+.filter {
+	background-color: #EEEEEE;
+	color: #000000;
+    border: 1px solid #999999;	
+}
+
+
+table.inputform {
+	color: #000000;
+	font-weight: normal;	
+	border: 1px solid #999999;
+}
+	
+table.inputform td {
+	background-color: #EEEEEE;
+}
+
+table.show {
+	color: #000000;
+	font-weight: normal;	
+	border: 1px solid #999999;	
+}
+table.show td {
+	background-color: #EEEEEE;
+}
+table.show th {
+    font-weight: bold;
+	background-color: #EEEEEE;
+}
+
+label.required {
+	font-weight: bold;
+	background-color: #EEEEEE;
+	color: #000000;	
+}
+
+
+label.optional {
+	font-weight: lighter;
+	background-color: #EEEEEE;
+	color: #000000;	
+}
+
+label.error {
+	font-weight: bold;
+	background-color: #EEEEEE;
+	color: Red;	
+}
+
+
+
+.titlebig {
+	color: #000000;
+   background-color: inherit;		
+	font-size: 14px;
+	font-weight: bolder;
+}
+
+.titlesmall {
+	color: #000000;
+   background-color: inherit;		
+	font-size: 10px;
+}
+
+
+table.title {
+	font-size: 14px;
+    background-color: #EEEEEE;
+	color: #000000;
+    border: 1px solid #999999;			
+}
+
+
+
+div.tab {
+	font-family: sans-serif; line-height:150%; font-weight: bold; position:absolute; text-align:center; border:2px; border-color:#999999; border-style:outset; border-bottom-style:none; width:90px; margin:0px; height: 30px;
+	background-color: #EEEEEE
+}
+
+div.panel {
+	font-family: sans-serif; font-size: smaller; position:absolute; border: 2px; border-color:#999999; border-style:outset; width: 400px; height: 300px; left:0px; top:28px; margin:0px; padding:6px;
+	background-color: #EEEEEE
+}
+

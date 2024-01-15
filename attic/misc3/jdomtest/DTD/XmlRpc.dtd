@@ -1,0 +1,19 @@
+<!ELEMENT JavaXML:xmlrpc-config (JavaXML:hostname,
+                                 JavaXML:port,
+                                 JavaXML:parserClass,
+                                 JavaXML:xmlrpc-server)>
+<!ATTLIST JavaXML:xmlrpc-config
+     xmlns:JavaXML CDATA #REQUIRED
+>
+<!ELEMENT JavaXML:hostname (#PCDATA)>
+<!ELEMENT JavaXML:port (#PCDATA)>
+<!ATTLIST JavaXML:port
+     type (protected|unprotected) "unprotected"
+>
+<!ELEMENT JavaXML:parserClass (#PCDATA)>
+<!ELEMENT JavaXML:xmlrpc-server (JavaXML:handlers)>
+<!ELEMENT JavaXML:handlers (JavaXML:handler)+>
+<!ELEMENT JavaXML:handler (JavaXML:identifier,
+                           JavaXML:class)>
+<!ELEMENT JavaXML:identifier (#PCDATA)>
+<!ELEMENT JavaXML:class (#PCDATA)>

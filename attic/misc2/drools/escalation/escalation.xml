@@ -1,0 +1,90 @@
+
+
+<ruleset name="Escalation Rules">
+
+	<import>escalation.TroubleTicket</import>
+
+	<rule name="Escalate Immediately If Bob">
+
+		<param type="escalation.TroubleTicket">ticket</param>
+
+		<when>
+			<cond>
+				ticket.getSubmitter().equals( "bob" );
+			</cond>
+			<cond>
+				ticket.getStatus() == escalation.TroubleTicket.NEW;
+			</cond>
+		</when>
+
+		<then>
+			import java.util.Date;
+			import java.text.DateFormat;
+
+			System.err.println( DateFormat.getTimeInstance( DateFormat.LONG ).format( new Date() ) ); 
+			System.err.println( "** Escalating trouble ticket for bob, because he's special" );
+			ticket.setStatus( escalation.TroubleTicket.NOTIFIED );
+			modifyObject( ticket );
+		</then>
+	</rule>
+
+	<rule name="Escalate New Tickets">
+
+		<param type="escalation.TroubleTicket">ticket</param>
+
+		<when>
+			<cond>
+				ticket.getStatus() == escalation.TroubleTicket.NEW;
+			</cond>
+
+			<duration seconds="2"/>
+		</when>
+
+		<then>
+			import java.util.Date;
+			import java.text.DateFormat;
+
+			System.err.println( "----------------------------------------" );
+			System.err.println( DateFormat.getTimeInstance( DateFormat.LONG ).format( new Date() ) ); 
+			System.err.println( "** ticket == " + ticket );
+			ticket.setStatus( escalation.TroubleTicket.NOTIFIED );
+			System.err.println( "** Escalating trouble ticket from NEW to NOTIFIED after 2 seconds" );
+			System.err.println( "** ticket == " + ticket );
+			System.err.println( "----------------------------------------" );
+
+			modifyObject( ticket );
+		</then>
+	</rule>
+
+	<rule name="Escalate Notified Tickets">
+
+		<param type="escalation.TroubleTicket">ticket</param>
+
+		<when>
+			<cond>
+				ticket.getStatus() == escalation.TroubleTicket.NOTIFIED;
+			</cond>
+
+			<duration seconds="5"/>
+		</when>
+
+		<then>
+			import java.util.Date;
+			import java.text.DateFormat;
+
+			System.err.println( "----------------------------------------" );
+			System.err.println( DateFormat.getTimeInstance( DateFormat.LONG ).format( new Date() ) ); 
+			System.err.println( "** ticket == " + ticket );
+			ticket.setStatus( escalation.TroubleTicket.NULL );
+			System.err.println( "** Escalating trouble ticket from NOTIFIED to /dev/null after 5 seconds" );
+			System.err.println( "** ticket == " + ticket );
+			System.err.println( "----------------------------------------" );
+
+			modifyObject( ticket );
+		</then>
+	</rule>
+
+
+
+</ruleset>
+

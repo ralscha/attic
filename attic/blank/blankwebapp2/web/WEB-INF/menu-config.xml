@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+
+<MenuConfig>
+
+  <Displayers>
+    <Displayer   name="DropDown"
+                 type="net.sf.navigator.displayer.DropDownMenuDisplayer"/>
+    <Displayer   name="Simple"
+                 type="net.sf.navigator.displayer.SimpleMenuDisplayer"/>
+    <Displayer   name="CoolMenu"
+                 type="net.sf.navigator.displayer.CoolMenuDisplayer"/>
+    <Displayer   name="CoolMenu4"
+                 type="net.sf.navigator.displayer.CoolMenuDisplayer4"/>
+    <Displayer   name="MenuForm"
+                 type="net.sf.navigator.example.PermissionsFormMenuDisplayer"/>
+    <Displayer   name="ListMenu"
+                 type="net.sf.navigator.displayer.ListMenuDisplayer"/>
+    <Displayer   name="TabbedMenu"
+                 type="net.sf.navigator.displayer.TabbedMenuDisplayer"/>
+    <Displayer   name="Velocity"
+                 type="net.sf.navigator.displayer.VelocityMenuDisplayer"/>
+    <Displayer   name="MenuBar"
+                 type="ch.ess.common.web.MenuBarDisplayer"/>
+  </Displayers>
+
+  <Menus>
+    <Menu  name="m_examples" title="Examples"> 
+      <Item name="i_javascript" title="Javascript" page="/javascript.do"/>
+      <Item name="i_chart" title="Chart" page="/chart.do"/>
+      <Item name="i_sendmail" title="SendMail" page="/sendmail.do"/>
+      <Item name="i_clientinfo" title="ClientInfo" page="/clientinfo.do"/>      
+      <Item name="i_tab" title="Tab" page="/tab.do"/> 
+      <Item name="i_wait" title="Wait" page="/wait.do"/>       
+      <Item name="i_cache" title="Cache">
+         <Item name="i_cachetest" title="CacheTest" page="/cachetest.do"/>
+         <Item name="i_cachecrontest" title="CacheCronTest" page="/cachecrontest.do" />
+         <Item name="i_cachegrouptest" title="CacheGroupTest" page="/cachegrouptest.do"/>                  
+      </Item>
+                       
+    </Menu>
+
+
+    <!-- Main Menu -->
+    <Menu name="m_mainmenu" title="common.blank">
+      <Item name="m_application" title="application" roles="example"> 
+	    <Item name="i_examples" title="Examples" page="/javascript.do" roles="example"/>	  
+	  </Item>
+      <Item name="m_administration" title="application.administration" roles="userconfig,systemconfig,online,textresource,usergroup,user"> 
+        <Item name="i_general" title="userconfig.personal" page="/editUserConfig.do" roles="userconfig"/>    
+        <Item name="i_system" title="config.system" page="/editConfig.do" roles="systemconfig"/>   
+        <Item name="i_resources" title="resource.resources" page="/resources.do?clean=1" roles="textresource"/>        
+        <Item name="i_userGroups" title="userGroup.userGroups" page="/userGroups.do?clean=1" roles="usergroup"/>      
+        <Item name="i_users" title="user.users" page="/users.do?clean=1" roles="user"/>      
+      </Item>  
+      <Item  name="m_logout" title="login.logout" page="/logout.do"/> 
+    </Menu>   
+
+      
+    
+  </Menus>
+
+</MenuConfig>

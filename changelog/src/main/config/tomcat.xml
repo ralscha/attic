@@ -1,0 +1,37 @@
+<!DOCTYPE context>
+<Context>
+
+  <Resource name="jdbc/changelog" auth="Container"
+            factory="org.apache.tomcat.jdbc.pool.DataSourceFactory"
+            type="javax.sql.DataSource" username="sa" password="papa8gei."
+            driverClassName="net.sourceforge.jtds.jdbc.Driver"
+            url="jdbc:jtds:sqlserver://192.168.178.51/changelog"
+            initialSize="2"
+            minIdle="2"
+            maxIdle="4"
+            maxActive="10" maxWait="10000"
+            defaultAutoCommit="false"/>
+    
+    <!-- Comment out the following line to activate production profile -->
+    <Environment name="spring.profiles.active" value="development" type="java.lang.String" override="false"/>
+
+    <Environment name="indexBase" value="e:/temp/changelog_index" type="java.lang.String" override="false"/>
+    
+    <Environment name="next.version.major" value="5" type="java.lang.Integer" override="false"/>
+    <Environment name="next.version.minor" value="4" type="java.lang.Integer" override="false"/>
+    
+    <Environment name="aes.key" value="99993CD9992ACF999329299982DD8999" type="java.lang.String" override="false"/>    
+    
+    <Environment name="build.workingdirectory" value="e:/svntest" type="java.lang.String" override="false"/>
+    <Environment name="build.svn.user" value="user" type="java.lang.String" override="false"/>
+    <Environment name="build.svn.password" value="password" type="java.lang.String" override="false"/>
+    <Environment name="build.svn.host" value="svn.server.com" type="java.lang.String" override="false"/>
+    <Environment name="build.svn.url" value="/repos/ct" type="java.lang.String" override="false"/>
+        
+    <Environment name="build.ftp.host" value="ftp.host.com" type="java.lang.String" override="false"/>
+    <Environment name="build.ftp.password" value="ftppass" type="java.lang.String" override="false"/>        
+        
+    <Environment name="build.command" value="cmd;/c;e:/svntest/buildcustomer.bat;e:" type="java.lang.String" override="false"/>
+    <Environment name="build.ignore.customer" value="test" type="java.lang.String" override="false"/>
+        
+</Context>

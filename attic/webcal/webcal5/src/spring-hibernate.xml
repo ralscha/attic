@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xmlns:aop="http://www.springframework.org/schema/aop"
+	   xmlns:tx="http://www.springframework.org/schema/tx"	   
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+       http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.0.xsd
+       http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.0.xsd">
+
+  
+  <bean id="namingStrategy" class="ch.ess.base.hibernate.AppNamingStrategy">
+    <property name="prefix"><value>cal_</value></property>
+  </bean>
+  
+  <bean id="sessionFactory" class="ch.ess.base.hibernate.AppLocalSessionFactoryBean">
+    <property name="schemaUpdate" value="true"/>
+    <property name="namingStrategy" ref="namingStrategy"/>
+    <property name="dataSource" ref="dataSource"/>
+    <property name="exposeTransactionAwareSessionFactory" value="false"/>
+    
+    <property name="annotatedClasses">
+      <list>     
+        <value>ch.ess.base.model.Configuration</value>
+        <value>ch.ess.base.model.Permission</value>
+        <value>ch.ess.base.model.TextResource</value>
+        <value>ch.ess.base.model.Translation</value>
+        <value>ch.ess.base.model.TranslationText</value>
+        <value>ch.ess.base.model.User</value>
+        <value>ch.ess.base.model.UserConfiguration</value>                                        
+        <value>ch.ess.base.model.UserGroup</value>                                        
+        <value>ch.ess.base.model.UserGroupPermission</value>                                        
+        <value>ch.ess.base.model.UserUserGroup</value>
+        <value>ch.ess.base.model.DocumentContent</value>
+        <value>ch.ess.base.model.AppLink</value>
+                
+        <value>ch.ess.cal.model.Attachment</value>
+        <value>ch.ess.cal.model.Category</value>                      
+        <value>ch.ess.cal.model.Email</value>
+        <value>ch.ess.cal.model.Event</value>
+        <value>ch.ess.cal.model.Task</value>
+        <value>ch.ess.cal.model.EventCategory</value>
+        <value>ch.ess.cal.model.EventProperty</value>
+        <value>ch.ess.cal.model.Group</value>
+        <value>ch.ess.cal.model.GroupConfiguration</value>
+        <value>ch.ess.cal.model.Holiday</value>
+        <value>ch.ess.cal.model.Recurrence</value>
+        <value>ch.ess.cal.model.RecurrenceException</value>
+        <value>ch.ess.cal.model.Reminder</value>
+        <value>ch.ess.cal.model.ReminderProperty</value>
+        <value>ch.ess.cal.model.Resource</value>
+        <value>ch.ess.cal.model.ResourceGroup</value>  
+        
+        <value>ch.ess.cal.model.Contact</value>
+        <value>ch.ess.cal.model.ContactAttribute</value> 
+        <value>ch.ess.cal.model.Directory</value>
+        <value>ch.ess.cal.model.File</value>   
+        <value>ch.ess.cal.model.DirectoryPermission</value>
+        <value>ch.ess.cal.model.FilePermission</value>
+        
+        <value>ch.ess.cal.model.TimeCustomer</value>
+        <value>ch.ess.cal.model.TimeProject</value>
+        <value>ch.ess.cal.model.TimeTask</value>
+        <value>ch.ess.cal.model.UserTimeCustomer</value>
+        <value>ch.ess.cal.model.Time</value>  
+        <value>ch.ess.cal.model.TimeTaskBudget</value>      
+        
+      </list>
+    </property>
+     
+    
+    <property name="defaultDriver" value="org.hibernate.dialect.GenericDialect"/>
+    <property name="drivers">
+      <map>
+        <entry key="Microsoft SQL Server" value="org.hibernate.dialect.SQLServerDialect"/>
+        <entry key="MySQL" value="org.hibernate.dialect.MySQL5InnoDBDialect"/>
+        <entry key="DB2" value="org.hibernate.dialect.DB2Dialect"/>
+        <entry key="Oracle" value="org.hibernate.dialect.OracleDialect"/>
+        <entry key="mckoi" value="org.hibernate.dialect.MckoiDialect"/>
+        <entry key="pointbase" value="org.hibernate.dialect.PointbaseDialect"/>
+        <entry key="hsql" value="org.hibernate.dialect.HSQLDialect"/>
+        <entry key="h2" value="ch.ess.base.hibernate.H2Dialect"/>
+      </map>
+    </property>        
+    
+    <property name="hibernateProperties"> 
+      <props> 
+        <prop key="hibernate.show_sql">true</prop>       
+        <prop key="hibernate.query.substitutions">true 1, false 0</prop>
+        <prop key="hibernate.generate_statistics">false</prop>
+        <!-- <prop key="hibernate.cache.use_query_cache">true</prop>  -->
+      </props> 
+    </property> 
+  </bean> 
+  
+  
+  <bean id="transactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager"> 
+    <property name="sessionFactory" ref="sessionFactory"/>
+  </bean>
+  
+  <tx:annotation-driven/>
+  
+</beans>
+

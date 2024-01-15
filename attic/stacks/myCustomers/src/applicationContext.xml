@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xmlns:tx="http://www.springframework.org/schema/tx"
+    xmlns:jee="http://www.springframework.org/schema/jee"
+    xmlns:p="http://www.springframework.org/schema/p"
+    xmlns:security="http://www.springframework.org/schema/security"
+    xmlns:jms="http://www.springframework.org/schema/jms"  
+    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+        http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee.xsd
+        http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd
+        http://www.springframework.org/schema/jms http://www.springframework.org/schema/jms/spring-jms.xsd">
+
+  <context:component-scan base-package="ch.ralscha.mycustomers.server" />
+
+  <bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalEntityManagerFactoryBean">
+    <property name="persistenceUnitName" value="defaultDatabase" />
+  </bean>
+  
+  <bean name="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+    <property name="entityManagerFactory" ref="entityManagerFactory" />
+  </bean>
+
+  <tx:annotation-driven /> 
+<!--
+  <jee:jndi-lookup id="mailSession" jndi-name="mail/session" />
+  
+  <bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+    <property name="session" ref="mailSession"/>
+  </bean>
+  
+  <bean id="freemarkerMailConfiguration" class="org.springframework.ui.freemarker.FreeMarkerConfigurationFactoryBean">
+    <property name="templateLoaderPath" value="classpath:template/mail" />
+  </bean>  
+-->
+  <!-- 
+  <bean name="users" class="com.example.flextest.service.DefaultPagedQueryFinder"
+        p:maxResults="40" 
+        p:select="u"
+        p:from="User u">
+    
+    <property name="restrictions">
+      <list>
+        <value>lower(u.name) like lower(:name)</value>
+      </list>
+    </property>
+    
+  </bean>
+
+  <bean name="users" class="com.example.flextest.service.DefaultQueryFinder"
+        p:select="u"
+        p:from="User u">    
+    <property name="restrictions">
+      <list>
+        <value>lower(u.name) like lower(:name) or lower(u.email) like lower(:name) or lower(u.firstName) like lower(:name)</value>
+      </list>
+    </property>    
+  </bean>
+   -->
+ 
+    
+  <!-- SCHEDULING -->  
+
+  <!--      
+  <bean id="demoJobDetail" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+    <property name="targetObject" ref="demoJob" />
+    <property name="targetMethod" value="doIt" />
+  </bean>  
+    
+  <bean id="simpleTrigger" class="org.springframework.scheduling.quartz.SimpleTriggerBean">
+    <property name="jobDetail" ref="demoJobDetail" />  
+    <property name="startDelay" value="5000" />
+    <property name="repeatInterval" value="10000" />
+  </bean>
+  
+  <bean id="cronTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+    <property name="jobDetail" ref="demoJobDetail" />  
+    <property name="cronExpression" value="0 0 6 * * ?" /> 
+  </bean>    
+   
+  <bean id="scheduler" class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+    <property name="triggers">
+    <list>
+      <ref bean="simpleTrigger" />
+    </list>
+    </property>
+  </bean>  
+   --> 
+    
+  <bean id="scheduler" class="org.springframework.scheduling.quartz.SchedulerFactoryBean" />
+
+  <!-- SECURITY -->
+          
+  <security:http auto-config='false'>  
+    <security:form-login always-use-default-target="true" default-target-url="/MyCustomers.html" />
+    <security:intercept-url pattern="/**" access="ROLE_USER,ROLE_ADMIN" />
+  </security:http>
+     
+  <security:authentication-provider>
+    <security:user-service>
+      <security:user name="admin" password="admin" authorities="ROLE_USER, ROLE_ADMIN" />
+      <security:user name="user" password="user" authorities="ROLE_USER" />
+    </security:user-service>
+  </security:authentication-provider>   
+          
+  <security:global-method-security secured-annotations="enabled" jsr250-annotations="disabled"/>
+
+</beans>

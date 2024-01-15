@@ -1,0 +1,55 @@
+// Decompiled by Jad v1.5.7. Copyright 1997-99 Pavel Kouznetsov.
+// Jad home page: http://www.geocities.com/SiliconValley/Bridge/8617/jad.html
+// Decompiler options: packimports(3) 
+// Source File Name:   JDBCHandler.java
+
+package grace.log;
+
+import java.rmi.RemoteException;
+import java.sql.*;
+
+// Referenced classes of package grace.log:
+//            EventFormat, Handler, Event
+
+public class JDBCHandler
+    implements Handler
+{
+
+    public JDBCHandler(String prefix, String name)
+        throws RemoteException
+    {
+        String propertyPrefix = prefix + name;
+        try
+        {
+            connection = DriverManager.getConnection(System.getProperty(propertyPrefix + ".url", "jdbc:idb:idb.prp"), System.getProperty(propertyPrefix + ".username", ""), System.getProperty(propertyPrefix + ".password", ""));
+            DriverManager.setLogStream(null);
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+        table = System.getProperty(propertyPrefix + ".table", "Log");
+        columns = System.getProperty(propertyPrefix + ".columns", "");
+        if(!columns.equals("") && !columns.startsWith("("))
+            columns = '(' + columns + ')';
+        format = new EventFormat(System.getProperty(propertyPrefix + ".format", "'%t', %n, '%e', '%h', '%c', '%f', '%l', '%m', '%(%j)o'"));
+    }
+
+    public void handle(Event event)
+    {
+        try
+        {
+            Statement statement = connection.createStatement();
+            int numRows = statement.executeUpdate("insert into " + table + " values (" + format.format(event) + ")");
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+    }
+
+    private Connection connection;
+    private EventFormat format;
+    private String table;
+    private String columns;
+}

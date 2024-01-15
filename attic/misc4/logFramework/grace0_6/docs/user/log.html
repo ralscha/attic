@@ -1,0 +1,117 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="GENERATOR" content="Mozilla/4.5 [en] (X11; I; SunOS 5.6 i86pc) [Netscape]">
+   <meta name="Author" content="Christopher Bladon">
+   <title>Java Log Facility</title>
+</head>
+<body text="#000000" bgcolor="#FFFFFF" link="#0000EE" vlink="#551A8B" alink="#FF0000">
+
+<center><img SRC="gk9.jpg" NOSAVE height=200 width=153>
+<br>&nbsp;
+<br>&nbsp;
+<p><b><i><font size=+4>Grace JavaLog</font></i></b></center>
+
+<div align=right><font size=-1>$Revision: 1.1 $</font></div>
+
+<div align=right><font size=-1>$Date: 1999/03/01 17:24:21 $</font></div>
+
+<h2>
+Introduction</h2>
+The JavaLog is a set of Java classes that formats and writes events to
+one or more log devices.&nbsp; The JavaLog frees the programmer from coding
+unflexible "print" statements in his code.&nbsp; It offers an abstract
+interface to the various log devices and allows the user to configure each
+log device at run time.&nbsp; Additionally, JavaLog allows the user to
+dynamically filter and format the logged events to suit his particular
+needs at run time.
+<p>For example, if the programmer logs events to the JavaLog, the user
+may, at run time, decided that he wants to see error events in a pop-up
+dialog box, warning events written to a file, and informational events
+on the standard output.&nbsp; Additionally, for each type of event (errors,
+warnings, notices, traces, or user defined) he may specify a format in
+which he wishes each event to be logged.
+<p>The programmers job is simple:
+<blockquote><tt>import grace.log.Log;</tt>
+<br><tt>...</tt>
+<br><tt>public void foobar(String data) {</tt>
+<br><b><tt><font color="#000000">&nbsp;&nbsp;&nbsp; Log.trace(data);</font></tt></b>
+<br><tt>}</tt></blockquote>
+The resulting program will then produce the following:
+<blockquote><tt>03/07/99 17:02:48: 13: trace: system.main.Thread1: Test.foobar:54:
+"MyData"</tt></blockquote>
+Yes, it's just the simple!&nbsp; Notice that in the preceding call to Log.trace(data),&nbsp;
+JavaLog will printed out the give String <i>data</i> and automatically
+determined and logged the following:
+<ul>
+<li>
+Time</li>
+
+<li>
+Event sequence number</li>
+
+<li>
+Event type</li>
+
+<li>
+Thread group(s) and thread name.</li>
+
+<li>
+Classname, function, and line number whence the log event was generated.</li>
+</ul>
+If you are not completely impressed by how useful this JavaLog is, here
+is some furthur documentation for your perusal.
+<ul>
+<li>
+<a href="installation.html">Installation</a></li>
+
+<li>
+<a href="ExampleOutput.html">Example output</a></li>
+
+<li>
+<a href="CodeSnipets.html">Example Code</a></li>
+
+<li>
+<a href="RuntimeControls.html">Controlling via the command line</a></li>
+
+<li>
+<a href="CodeControls.html">Controlling within Java code</a></li>
+
+<li>
+How To ...</li>
+
+<ul>
+<li>
+log to ...</li>
+
+<ul>
+<li>
+<a href="property.log.handler.name.url.html#Example Usage">the standard
+output</a></li>
+
+<li>
+<a href="property.log.handler.name.url.html#Example Usage">a file</a></li>
+
+<li>
+<a href="property.log.handler.name.url.html#Example Usage">a jdbc database</a></li>
+
+<li>
+<a href="property.log.handler.name.url.html#Example Usage">a remote log</a></li>
+</ul>
+
+<li>
+<a href="property.log.html">Enable/Disable all logging</a></li>
+
+<li>
+<a href="property.log.functions.include.html">Include logging from specified
+pieces of code.</a></li>
+
+<li>
+<a href="property.log.functions.exclude.html">Exclude logging from specified
+pieces of code.</a></li>
+</ul>
+</ul>
+
+</body>
+</html>

@@ -1,0 +1,81 @@
+
+<ruleset name="My Rule Set">
+
+	<import>fish.ShoppingCart</import>
+	<import>fish.CartItem</import>
+
+	<rule name="Explode Cart">
+
+		<param type="ShoppingCart">cart</param>
+
+		<when>
+			<cond>
+				true
+			</cond>
+		</when>
+
+		<then>
+			import java.util.Iterator;
+
+			System.err.println( "Examining each item in shopping cart" );
+			
+			Iterator iter = cart.getItems().iterator();
+
+			while ( iter.hasNext() )
+			{
+				assertObject( iter.next() );
+			}
+
+		</then>
+	</rule>
+
+	<rule name="Process Items">
+		<param type="fish.ShoppingCart">cart</param>
+		<param type="fish.CartItem">item</param>
+
+		<when>
+			<cond>
+				item.getName().equals("tropical fish");
+			</cond>
+			<cond>
+				cart.getItems("tropical fish food").size() == 0;
+			</cond>
+		</when>
+
+		<then>
+			System.err.println( "Adding free tropical fish food sample to cart" );
+			cart.addItem( new fish.CartItem("tropical fish food sample", 0.00 ) );
+		</then>
+
+	</rule>
+
+ 	<rule name="Apply Discount">
+
+		<param type="fish.ShoppingCart">cart</param>
+
+		<when>
+			<cond>cart.getGrossCost() &gt; 20.00</cond>
+		</when>
+
+		<then>
+			System.err.println( "Applying 15% discount to cart" );
+			cart.setDiscount( 0.15 );
+		</then>
+	</rule>
+
+ 	<rule name="Suggest Tank">
+
+		<param type="ShoppingCart">cart</param>
+
+		<when>
+			<cond>cart.getItems("tropical fish").size() &gt;= 4</cond>
+			<cond>cart.getItems("tank").size() == 0</cond>
+		</when>
+
+		<then>
+			System.err.println( "** SUGGESTION: \n**\tWould you like to buy a tank\n**\tfor your " + cart.getItems("tropical fish").size() + " tropical fish?" );
+		</then>
+	</rule>
+
+</ruleset>
+

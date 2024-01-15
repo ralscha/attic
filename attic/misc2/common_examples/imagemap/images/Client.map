@@ -1,0 +1,9 @@
+<AREA Shape="Polygon"
+  coords = "106,175,230,290,112,337,42,324,106,177"
+  href="http://www.java-pro.com/polygon.html">
+<AREA Shape="Circle"
+  coords = "507,253,80"
+  href="http://www.java-pro.com/circle.html">
+<AREA Shape="Rect"
+  coords = "228,68,376,215"
+  href="http://www.java-pro.com/rect.html">

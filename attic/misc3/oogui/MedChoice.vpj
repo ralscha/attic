@@ -1,0 +1,42 @@
+[COMPILER]
+packver=1.0
+FILTERNAME=Source Files\nBitmaps\nOther Files\n
+FILTERPATTERN=*.java;*.c;*.cpp;*.cxx;*.hxx;*.prg;*.pas;*.dpr;*.asm;*.bas;*.sc;*.e\n*.jpg;*.gif;*.bmp\n*.*\n
+FILTERAPPCOMMAND=\n\n\n
+FILTERASSOCIATEFILETYPES=0 1 0 
+version=5.0
+compile=concur|capture|:Compile:&Compile,javac -d . "%f"
+make=concur|capture|:Build:&Build,javamake
+rebuild=concur|capture|:Rebuild:&Rebuild,javarebuild
+debug=concur|capture|:Debug:&Debug,jdb "MedChoice"
+execute=concur|capture|:Execute:E&xecute,java "MedChoice"
+user1=hide|:User 1:User 1,
+user2=hide|:User 2:User 2,
+usertool_dash=savenone|:dash:-,
+usertool_view_javadoc=hide|savenone|:view javadoc:&View Javadoc,javaviewdoc
+usertool_javadoc=concur|capture|hide|savenone|:javadoc:Javadoc,javadoc -d docs "%f"
+usertool_javadoc_all=concur|capture|hide|savenone|:javadoc all:Javadoc All,javamakedoc
+usertool_dash2=savenone|:dash2:-,
+usertool_make_jar=concur|capture|hide|savenone|:make jar:Make &Jar,javamakejar jar cvf "MedChoice.jar" "%f"
+workingdir=.
+includedirs=
+reffile=
+MACRO=\n
+[FILES]
+awtList.java
+BothButton.java
+Command.java
+FemaleButton.java
+FemaleKids.java
+InputFile.java
+JawtList.java
+JListData.java
+JxFrame.java
+Kids.java
+MaleButton.java
+MaleKids.java
+MedChoice.java
+Mediator.java
+Swimmer.java
+Swimmers.txt
+[ASSOCIATION]

@@ -1,0 +1,144 @@
+$base-color: #42282E;
+
+$alert-color: #D6665A;
+$confirm-color: #75A48B;
+$page-bg-color: lighten(#D9CFB0,15%);
+$form-bg-color: $page-bg-color;
+
+$base-gradient: 'none';
+
+$include-pictos-font: false;
+$include-default-icons: false;
+
+@import url(http://fonts.googleapis.com/css?family=Oswald:700);
+@import url(http://fonts.googleapis.com/css?family=Lobster);
+
+@font-face {
+    font-family: 'Dinmu';
+    src:url('stylesheets/fonts/dinmu/Dinmu.eot');
+    src:url('stylesheets/fonts/dinmu/Dinmu.eot?#iefix') format('embedded-opentype'),
+        url('stylesheets/fonts/dinmu/Dinmu.ttf') format('truetype'),
+        url('stylesheets/fonts/dinmu/Dinmu.woff') format('woff'),
+        url('stylesheets/fonts/dinmu/Dinmu.svg#Dinmu') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@import 'sencha-touch/default';
+//@import 'sencha-touch/default/all';
+
+@import 'sencha-touch/default/src/_Class.scss';
+@import 'sencha-touch/default/src/_Button.scss';
+@import 'sencha-touch/default/src/_Panel.scss';
+@import 'sencha-touch/default/src/_MessageBox.scss';
+@import 'sencha-touch/default/src/_Toolbar.scss';
+@import 'sencha-touch/default/src/carousel/_Carousel.scss';
+@import 'sencha-touch/default/src/form/_Panel.scss';
+@import 'sencha-touch/default/src/form/_FieldSet.scss';
+@import 'sencha-touch/default/src/field/_Field';
+@import 'sencha-touch/default/src/field/_Checkbox.scss';
+@import 'sencha-touch/default/src/field/_Select.scss';
+@import 'sencha-touch/default/src/field/_Slider.scss';
+@import 'sencha-touch/default/src/field/_Spinner.scss';
+@import 'sencha-touch/default/src/picker/_Picker.scss';
+@import 'sencha-touch/default/src/slider/_Slider.scss';
+@import 'sencha-touch/default/src/slider/_Toggle.scss';
+
+@include sencha-toolbar-ui('light', #DC9B74, 'none');
+@include sencha-button-ui('back', #555555, 'none');
+
+@include icon('settings', 's', 'Dinmu');
+
+.rain:before,
+.norain:before {
+    font-family: 'Dinmu';
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+
+    padding-right: 10px;
+    font-size: 60px;
+
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.norain:before {
+    content: "\53";
+    color: $confirm-color;
+}
+.rain:before {
+    content: "\52";
+    color: $alert-color;
+}
+
+.x-form-fieldset {
+    .x-form-fieldset-inner {
+        border: none;
+        background: $page-bg-color;
+    }
+    
+    .x-form-fieldset-instructions .x-innerhtml {
+        color: #000;
+    }
+}
+
+.x-form-label {
+	background-color: lighten(#DC9B74, 32%);
+}
+.x-toggle-field .x-form-label {
+    background: none;
+    border: none;
+    margin-bottom: 20px;
+}
+.x-toggle {
+    position: absolute;
+    right: 0;
+}
+
+.title {
+	.x-title {
+        font: {
+            family: "Lobster";
+            size: 1.2em;
+        }
+	    line-height: 2.5em;
+	    text-shadow: none;
+   		letter-spacing: -1px;
+	}
+}
+
+.footer {
+	font-size: 0.6em;
+    padding: 12px;
+    text-align: right;
+    letter-spacing: 0;
+    a {
+        color :#000;
+    }
+}
+
+.textview {
+    font: {
+        family: "Oswald";
+        size: 2em;
+    }
+    color: black;
+    line-height: 1.2em;
+    letter-spacing: -1px;
+    padding: 0.8em;
+    text-transform: uppercase;
+
+    .yes {
+        color: $alert-color;
+    }
+    .no {
+        color: $confirm-color;
+    }
+    .temp {
+        color: $confirm-color;
+    }
+}

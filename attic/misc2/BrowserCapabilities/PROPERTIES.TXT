@@ -1,0 +1,5 @@
+DHTML = Netscape && Version >= 4.0
+        OR
+        MSIE&& Version >= 4.0
+        
+        

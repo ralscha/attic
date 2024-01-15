@@ -1,0 +1,54 @@
+<qjml root="db">
+
+<element name="db">
+<targetClass>java.util.ArrayList</targetClass>
+<child element="database" repeating="True" class="com.jxml.quick.access.QListAccess"/>
+</element>
+
+<element name="database">
+<targetClass>net.sourceforge.osage.mapping.DatabaseMap</targetClass>
+<attribute name="vendor" type="string" property="vendor" value="generic">
+<value>generic</value>
+<value>mysql</value>
+<value>hsql</value>
+<value>oracle</value>
+<value>postgres</value>
+<value>sqlserver</value>
+<value>sybase</value>
+<value>interbase</value>
+<value>informix</value>
+</attribute>
+<attribute name="name" type="string" status="REQUIRED" property="name"/>
+<selection property="connectionSourceMap">
+<child element="driver"/>
+<child element="datasource"/>
+<child element="pool"/>
+</selection>
+<child element="param" listProperty="params" repeating="True" optional="True"/>
+</element>
+
+<element name="driver" content="EMPTY">
+<targetClass>net.sourceforge.osage.mapping.DriverMap</targetClass>
+<attribute name="class" type="string" status="REQUIRED" property="className"/>
+<attribute name="url" type="string" status="REQUIRED" property="url"/>
+</element>
+
+
+<element name="pool" content="EMPTY">
+<targetClass>net.sourceforge.osage.mapping.PoolMap</targetClass>
+<attribute name="class" type="string" status="REQUIRED" property="className"/>
+</element>
+
+<element name="datasource" content="EMPTY">
+<targetClass>net.sourceforge.osage.mapping.DataSourceMap</targetClass>
+<attribute name="name" type="string" status="REQUIRED" property="name"/>
+</element>
+
+
+<element name="param" content="EMPTY">
+<targetClass>net.sourceforge.osage.mapping.Param</targetClass>
+<attribute name="name" type="string"  property="name"/>
+<attribute name="value" type="string" property="value"/>
+</element>
+
+</qjml>

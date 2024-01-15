@@ -1,0 +1,20 @@
+/* ==========================================
+** THIS FILE IS GENERATED WITH
+** THE CC-RESOURCEFACTORY TOOL.
+**
+** USER...........: ${user.name}
+** PAINTER........: ${painter}
+** BUILD-FACTORY..: ${build.factory}
+** BUILD-DATE.....: ${build.date}
+** BUILD-DIRECTORY: ${build.dir}
+** BUILD-FILE.....: ${build.file}
+**
+** DO NOT MODIFY!
+** ==========================================
+*/
+
+/* Import the framework default styles */
+@import "menu.css";
+@import "controls.css";
+@import "forms.css";
+@import "panel.css";

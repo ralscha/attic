@@ -1,0 +1,73 @@
+CREATE TABLE Draw (
+  no   SMALLINT  NOT NULL,
+  year SMALLINT NOT NULL,
+  drawDate DATE NOT NULL,
+  num1 SMALLINT NOT NULL,
+  num2 SMALLINT NOT NULL,
+  num3 SMALLINT NOT NULL,
+  num4 SMALLINT NOT NULL,
+  num5 SMALLINT NOT NULL,
+  num6 SMALLINT NOT NULL,   
+  addNum SMALLINT NOT NULL,
+  joker CHAR(6) NULL,
+  extrajoker CHAR(6) NULL,        
+    
+  CONSTRAINT draw_pk PRIMARY KEY (no, year)
+)
+
+
+CREATE TABLE LottoGainQuota (
+  no   SMALLINT NOT NULL,
+  year SMALLINT NOT NULL,
+  jackpot DOUBLE,
+  num6 SMALLINT,
+  quota6 DOUBLE,
+  num5 SMALLINT NOT NULL,
+  quota5 DOUBLE NOT NULL,
+  num5plus SMALLINT NOT NULL,
+  quota5plus DOUBLE NOT NULL,
+  num4 SMALLINT NOT NULL,
+  quota4 DOUBLE NOT NULL,
+  num3 SMALLINT NOT NULL,
+  quota3 DOUBLE NOT NULL,
+  	      
+  CONSTRAINT lgq_pk PRIMARY KEY (no, year)
+)
+
+CREATE TABLE JokerGainQuota (
+  no   SMALLINT NOT NULL,
+  year SMALLINT NOT NULL,
+  jackpot DOUBLE,
+  num6 SMALLINT,
+  quota6 DOUBLE,
+  num5 SMALLINT NOT NULL,
+  quota5 DOUBLE NOT NULL,
+  num4 SMALLINT NOT NULL,
+  quota4 DOUBLE NOT NULL,
+  num3 SMALLINT NOT NULL,
+  quota3 DOUBLE NOT NULL,
+  num2 SMALLINT NOT NULL,
+  quota2 DOUBLE NOT NULL,
+
+  	      
+  CONSTRAINT jgq_pk PRIMARY KEY (no, year)
+)
+
+CREATE TABLE ExtraJokerGainQuota (
+  no   SMALLINT NOT NULL,
+  year SMALLINT NOT NULL,
+  jackpot DOUBLE,
+  num6 SMALLINT,
+  quota6 DOUBLE,
+  num5 SMALLINT NOT NULL,
+  quota5 DOUBLE NOT NULL,
+  num4 SMALLINT NOT NULL,
+  quota4 DOUBLE NOT NULL,
+  num3 SMALLINT NOT NULL,
+  quota3 DOUBLE NOT NULL,
+  num2 SMALLINT NOT NULL,
+  quota2 DOUBLE NOT NULL,
+
+  	      
+  CONSTRAINT ejgq_pk PRIMARY KEY (no, year)
+)

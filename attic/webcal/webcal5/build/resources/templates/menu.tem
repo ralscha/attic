@@ -1,0 +1,346 @@
+/* ==========================================
+** THIS FILE IS GENERATED WITH
+** THE CC-RESOURCEFACTORY TOOL.
+**
+** USER...........: ${user.name}
+** PAINTER........: ${painter}
+** BUILD-FACTORY..: ${build.factory}
+** BUILD-DATE.....: ${build.date}
+** BUILD-DIRECTORY: ${build.dir}
+** BUILD-FILE.....: ${build.file}
+**
+** DO NOT MODIFY!
+** ==========================================
+*/
+
+/* ==========================================
+** Header
+**
+** Acronym's
+** ------------------------------------------
+** ah  : Applicationheader
+** ahl : Applicationheader Label
+** ==========================================
+*/
+
+.ah {
+	font-family : ${hmenu.font.label.family};
+	font-size : ${hmenu.font.label.size};
+	background-color: ${hmenu.color.bg};
+}
+
+.ahl {
+	font-weight: ${hmenu.font.label.weight};
+	padding-left: ${hmenu.font.label.size + 2};
+	width: 55px;
+}
+
+/* ==========================================
+** StyleSheet for the horizontal Mainmenu
+**
+** Acronym's
+** ------------------------------------------
+** mm   : Menu Type Main
+** mm1  : Menu 1te level
+** mm1s : Menu 1te level - selected
+** mm1d : Menu 1te level - disabled
+** ==========================================
+*/
+
+.mm .mm1 {
+	padding-right: 18px;
+}
+
+.mm .mm1s {
+	padding-right: 18px;
+}
+
+.mm .mm1d {
+	padding-right: 18px;
+}
+
+/* text item */
+.mm .mm1 A {
+	font-family : ${hmenu.font.label.family};
+	font-size: ${hmenu.font.label.size + 1};
+	font-weight: ${hmenu.font.label.weight};
+	text-decoration: none;
+	color: white;
+}
+
+/* text item selected */
+.mm .mm1s A {
+	font-family : ${hmenu.font.label.family};
+	font-size: ${hmenu.font.label.size + 1};
+	font-weight: ${hmenu.font.label.weight};
+	text-decoration: none;
+	color: ${selection.color.bg};
+}
+
+/* text item hover */
+.mm .mm1 A:hover, .mm .mm1s A:hover {
+	color: yellow;
+}
+
+
+/* ==========================================
+** StyleSheet for the horizontal Toolsmenu
+**s
+** Acronym's
+** ------------------------------------------
+** mt   : Menu Type Tools Menu
+**
+** mt1  : Menu 1te level
+** mt1s : Menu 1te level - selected
+** mt1d : Menu 1te level - disabled
+** ==========================================
+*/
+
+.mt .mt1 {
+	padding-left: 5px;
+}
+
+.mt .mt1s {
+	padding-left: 5px;
+}
+
+.mt .mt1d {
+	padding-left: 5px;
+}
+
+/* text item */
+.mt .mt1 A {
+	font-family : ${hmenu.font.label.family};
+	font-size: ${hmenu.font.label.size + 1};
+	font-weight: ${hmenu.font.label.weight};
+	text-decoration: none;
+	color: white;
+}
+
+/* text item selected */
+.mt .mt1s A {
+	font-family : ${hmenu.font.label.family};
+	font-size: ${hmenu.font.label.size + 1};
+	font-weight: ${hmenu.font.label.weight};
+	text-decoration: none;
+	color: ${selection.color.bg};
+}
+
+/* text item hover */
+.mt .mt1 A:hover, .mt .mt1s A:hover {
+	color: yellow;
+}
+
+/* ==========================================
+** StyleSheet for the vertical Submenu
+**
+** Acronym's
+** ------------------------------------------
+** msb  : Menu Type Sidebar
+**
+** m1   : Menu 1te level
+** m1s  : Menu 1te level - selected
+** m1d  : Menu 1te level - disabled
+** m2   : menu 2te level
+** m2s  : menu 2te level - selected
+** m2d  : menu 2te level - disabled
+** m3   : menu 3te level
+** m3s  : menu 3te level - selected
+** m3d  : menu 3te level - disabled
+** ==========================================
+*/
+
+.msb {
+
+}
+
+.msb .m1 {
+	background-color: ${vmenu1.color.bg};
+	padding-left: 5px;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	border-bottom: 1px solid ${vmenu1.color.border};
+}
+
+.msb .m1d {
+	font-family : ${vmenu1.font.label.family};
+	font-size: ${vmenu1.font.label.size};
+	font-weight: ${vmenu1.font.label.weight};
+	border-bottom: 1px solid ${vmenu1.color.border};
+	background-color: ${vmenu1.color.bg.disabled};
+	color: ${vmenu1.color.text.disabled};
+	padding-left: 5px;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	cursor: pointer;
+	cursor: hand;
+}
+
+.msb .m1s {
+	background-color: ${vmenu1.color.bg.sel};
+	padding-left: 5px;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	border-bottom: none;
+}
+
+.msb .m1s_l {
+	background-color: ${vmenu1.color.bg};
+	border-bottom: 1px solid ${vmenu1.color.border};
+}
+
+.msb .m1s_r {
+	background-color: ${vmenu1.color.border};
+	border-bottom: 0px;
+	padding-left: 1px;
+	padding-top: 1px;
+}
+
+.msb .m1 A {
+	font-family : ${vmenu1.font.label.family};
+	font-size: ${vmenu1.font.label.size};
+	font-weight: ${vmenu1.font.label.weight};
+	text-decoration : none;
+	color: ${vmenu1.color.text.A};
+}
+
+.msb .m1s A {
+	font-family : ${vmenu1.font.label.family};
+	font-size: ${vmenu1.font.label.size};
+	font-weight: ${vmenu1.font.label.weight};
+	text-decoration : none;
+	color: ${vmenu1.color.text.A.sel};
+}
+
+/*
+** Level 2
+*/
+
+.msb .m2 {
+	border-bottom: 1px solid ${vmenu2.color.border};
+	background-color: ${vmenu2.color.bg};
+	color: ${vmenu2.color.text};
+	padding-left: 5px;
+}
+
+.msb .m2d {
+	font-family : ${vmenu2.font.label.family};
+	font-size : ${vmenu2.font.label.size};
+	border-bottom: 1px solid ${vmenu2.color.border};
+	background-color: ${vmenu2.color.bg.disabled};
+	padding-left: 5px;
+	color: ${vmenu2.color.text.disabled};
+}
+
+.msb .m2s {
+	border-bottom: 1px solid ${vmenu2.color.border};
+	background-color: ${vmenu2.color.bg.sel};
+	padding-left: 5px;
+	color: ${vmenu2.color.text.sel};
+}
+
+.msb .m2 A {
+	font-family : ${vmenu2.font.label.family};
+	font-size : ${vmenu2.font.label.size};
+	font-weight: ${vmenu2.font.label.weight};
+	text-decoration : none;
+	color: ${vmenu2.color.text.A};
+}
+
+.msb .m2s A {
+	font-family : ${vmenu2.font.label.family};
+	font-size : ${vmenu2.font.label.size};
+	font-weight: ${vmenu2.font.label.weight};
+	text-decoration : none;
+	color: ${vmenu2.color.text.A.sel};
+}
+
+/*
+** Level 3
+*/
+
+.msb .m3 {
+	border-bottom: 1px solid ${vmenu3.color.border};
+	background-color: ${vmenu3.color.bg};
+	padding-left: 22px;
+}
+
+.msb .m3d {
+	font-family : ${vmenu3.font.label.family};
+	font-size : ${vmenu3.font.label.size};
+	border-bottom: 1px solid ${vmenu3.color.border};
+	background-color: ${vmenu3.color.bg.disabled};
+	color: ${vmenu3.color.text.disabled};
+	padding-left: 22px;
+}
+
+.msb .m3s {
+	border-bottom: 1px solid ${vmenu3.color.border};
+	background-color: ${vmenu3.color.bg.sel};
+	padding-left: 8px;
+	padding-right: 0px;
+}
+	
+.msb .m3 A {
+	font-family : ${vmenu3.font.label.family};
+	font-size : ${vmenu3.font.label.size};
+	text-decoration : none;
+	color: ${vmenu3.color.text.A};
+}
+
+.msb .m3s A {
+	font-family : ${vmenu3.font.label.family};
+	font-size : ${vmenu3.font.label.size};
+	font-weight: ${vmenu3.font.label.weight};
+	text-decoration : none;
+	color: ${vmenu3.color.text.A.sel};
+}
+
+/* ==========================================
+** StyleSheet for the crumb control
+**
+** Acronym's
+** ------------------------------------------
+** crc      : Crumb Control
+** sel      : selected
+** unsel    : unselected
+** disabled : disabled
+** feact    : act as a form element
+** ==========================================
+*/
+
+.crc {
+	font-family : ${crumb.font.label.family};
+	font-size: ${crumb.font.label.size};
+	font-weight: normal;
+	color: black;
+}
+
+.crc .sel A {
+	font-family : ${crumb.font.label.family};
+	font-size: ${crumb.font.label.size};
+	font-weight: bold;
+	text-decoration : none;
+	color: black;
+}
+
+.crc .unsel A {
+	font-family : ${crumb.font.label.family};
+	font-size: ${crumb.font.label.size};
+	font-weight: ${crumb.font.label.weight};
+	text-decoration : none;
+	color: black;
+}
+
+.crc .disabled {
+	font-family : ${crumb.font.label.family};
+	font-size: ${crumb.font.label.size};
+	font-weight: ${crumb.font.label.weight};
+	text-decoration : none;
+	color: ${crumb.color.text.disabled};
+}
+
+.crc .feact {
+	cursor: pointer;
+	cursor: hand;		/* compatibility with IE < 6.0 */
+}

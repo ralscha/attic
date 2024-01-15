@@ -1,0 +1,186 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd">
+
+<hibernate-mapping>
+    <class
+        name="ch.ess.cal.db.Department"
+        table="calDepartment"
+        lazy="true"
+        dynamic-update="false"
+        dynamic-insert="false"
+    >
+
+        <id
+            name="id"
+            column="id"
+            type="java.lang.Long"
+            unsaved-value="null"
+        >
+            <generator class="native">
+            </generator>
+        </id>
+
+        <version
+            name="version"
+            type="int"
+            column="version"
+        />
+
+        <list
+            name="emails"
+            lazy="true"
+            inverse="true"
+            cascade="all-delete-orphan"
+        >
+
+              <key
+                  column="departmentId"
+              />
+
+              <index
+                  column="sequence"
+              />
+
+              <one-to-many
+                  class="ch.ess.cal.db.Email"
+              />
+        </list>
+
+        <set
+            name="configuration"
+            lazy="true"
+            inverse="true"
+            cascade="all-delete-orphan"
+            sort="unsorted"
+        >
+
+              <key
+                  column="departmentId"
+              />
+
+              <one-to-many
+                  class="ch.ess.cal.db.DepartmentConfiguration"
+              />
+        </set>
+
+        <set
+            name="users"
+            table="calDepartmentUsers"
+            lazy="true"
+            inverse="false"
+            cascade="none"
+            sort="unsorted"
+        >
+
+              <key
+                  column="departmentId"
+              />
+
+              <many-to-many
+                  class="ch.ess.cal.db.User"
+                  column="userId"
+                  outer-join="auto"
+              />
+
+        </set>
+
+        <set
+            name="accessUsers"
+            table="calAccessDepartmentUsers"
+            lazy="true"
+            inverse="false"
+            cascade="none"
+            sort="unsorted"
+        >
+
+              <key
+                  column="departmentId"
+              />
+
+              <many-to-many
+                  class="ch.ess.cal.db.User"
+                  column="userId"
+                  outer-join="auto"
+              />
+
+        </set>
+
+        <set
+            name="resourceGroups"
+            table="calDepartmentResourceGroups"
+            lazy="true"
+            inverse="false"
+            cascade="none"
+            sort="unsorted"
+        >
+
+              <key
+                  column="departmentId"
+              />
+
+              <many-to-many
+                  class="ch.ess.cal.db.ResourceGroup"
+                  column="resourceGroupId"
+                  outer-join="auto"
+              />
+
+        </set>
+
+        <set
+            name="events"
+            lazy="true"
+            inverse="true"
+            cascade="none"
+            sort="unsorted"
+        >
+
+              <key
+                  column="departmentId"
+              />
+
+              <one-to-many
+                  class="ch.ess.cal.db.Event"
+              />
+        </set>
+
+        <map
+            name="translations"
+            table="calDepartmentLocale"
+            lazy="false"
+            sort="unsorted"
+            inverse="false"
+            cascade="none"
+        >
+
+              <key
+                  column="departmentId"
+              />
+
+              <index
+                  column="locale"
+                  type="locale"
+                  length="10"
+              />
+
+              <element
+                  column="name"
+                  type="string"
+                  length="100"
+                  not-null="true"
+                  unique="false"
+              />
+
+        </map>
+
+        <!--
+            To add non XDoclet property mappings, create a file named
+                hibernate-properties-Department.xml
+            containing the additional properties and place it in your merge dir.
+        -->
+
+    </class>
+
+</hibernate-mapping>

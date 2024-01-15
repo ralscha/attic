@@ -1,0 +1,294 @@
+<project name="gxt-spring-starter" default="generate">
+
+  <property file="${basedir}/build.properties" prefix="default" />
+		
+	<target name="init">
+	  <path id="seam.gen.path">
+      <fileset dir="${basedir}/lib">
+        <include name="jboss-seam-gen*.jar" />
+      </fileset>	  	
+	  </path>
+
+	  <taskdef name="normalizeProjectName" 
+	           classname="org.jboss.seam.tool.NormalizeProjectNameTask" 
+	           classpathref="seam.gen.path"/>
+	       
+	  <taskdef name="packageDirectory" 
+	           classname="org.jboss.seam.tool.PackageDirectoryTask" 
+	           classpathref="seam.gen.path"/>
+	      	      
+	  <taskdef name="uncapitalizeProperty" 
+	           classname="org.jboss.seam.tool.UncapitalizePropertyTask" 
+	           classpathref="seam.gen.path"/>
+	       
+	  <taskdef name="uppercaseProperty" 
+	           classname="org.jboss.seam.tool.UppercasePropertyTask" 
+	           classpathref="seam.gen.path"/>
+
+	  <taskdef name="pathFixer" 
+	           classname="org.jboss.seam.tool.FixPathTask" 
+	           classpathref="seam.gen.path"/>
+		
+		<taskdef name="eclipseClasspath" 
+		         classname="ch.ralscha.task.EclipseClasspathTask">
+			<classpath>
+				<pathelement location="${basedir}/tool/bin" />          
+			</classpath>
+		</taskdef>
+		
+    <taskdef name="lowercaseProperty" 
+             classname="ch.ralscha.task.LowercasePropertyTask">
+      <classpath>
+        <pathelement location="${basedir}/tool/bin" />          
+      </classpath>
+    </taskdef>		
+				
+	</target>	
+	
+  <macrodef name="setPropertyValue">
+   <attribute name="to"/>
+   <attribute name="prefix"/>
+   <attribute name="name"/>
+   <attribute name="postfix"/>
+    <sequential>
+      <property name="@{to}" value="${@{prefix}.@{name}.@{postfix}}"/>
+    </sequential>
+  </macrodef>
+  
+  <target name="downloadgxt" unless="default.gxtHome">
+    <get src="http://extjs.com/products/gxt/download.php?dl=extgwt201" 
+         dest="${basedir}/lib/gxt-2.0.1.zip" verbose="on"
+         usetimestamp="true" />		 
+    <unzip dest="${basedir}/lib" src="${basedir}/lib/gxt-2.0.1.zip" />                     
+  </target>
+
+	
+	<target name="generate" description="Generates a GXT/GWT/Spring/Hibernate Project" depends="init,downloadgxt">
+
+    <property name="templateDir" value="${basedir}/template"/>    
+	  <property name="default.gxtHome" value="${basedir}/lib/gxt-2.0.1" />
+	  
+    <input addproperty="projectName" message="Project Name: " />
+    <normalizeProjectName property="projectName" />
+		
+		<input addproperty="projectDir" message="Project Directory: " 
+			     defaultvalue="${default.workspaceDir}/${projectName}"/>
+		<pathFixer property="projectDir" />
+								
+		<input addproperty="packageBaseName" message="Company Package Name: " defaultvalue="${default.packageBaseName}"/>
+		
+    <uncapitalizeProperty name="projectNameLowerCase" value="${projectName}"/>
+    
+		<lowercaseProperty name="lowercasePackageProject" value="${packageBaseName}.${projectNameLowerCase}"/>
+		
+		<input addproperty="packageProject" message="Project Package Name: " 
+			     defaultvalue="${lowercasePackageProject}" />
+		
+		<input addproperty="gwtHome" message="GWT Home: " defaultvalue="${default.gwtHome}"/>		
+		<pathFixer property="gwtHome" />
+	  
+	  
+    <input addproperty="databaseType" 
+           message="Database Type?"
+           validargs="mysql,mssql,h2,postgresql"
+           defaultvalue="${default.databaseType}"/>						
+			  
+	  <setPropertyValue to="hibernate.dialect" prefix="default" name="${databaseType}" postfix="hibernate.dialect"/>
+	  <setPropertyValue to="hibernate.connection.driver_class" prefix="default" name="${databaseType}" postfix="connection.driver"/>
+    <setPropertyValue to="default.hibernate.connection.url" prefix="default" name="${databaseType}" postfix="connection.url"/>	  
+	  <setPropertyValue to="default.hibernate.connection.username" prefix="default" name="${databaseType}" postfix="connection.username"/>
+    <setPropertyValue to="default.hibernate.connection.password" prefix="default" name="${databaseType}" postfix="connection.password"/>    
+	  <setPropertyValue to="jdbc.driver.download.url" prefix="default" name="${databaseType}" postfix="jdbc.driver.location"/>
+	  
+    <input addproperty="hibernate.connection.url" 
+           message="JDBC URL: " 
+           defaultvalue="${default.hibernate.connection.url}"/>
+    
+    <input addproperty="hibernate.connection.username" 
+           message="Database Username: " 
+           defaultvalue="${default.hibernate.connection.username}"/>
+            
+    <input addproperty="hibernate.connection.password" 
+           message="Database Password: " 
+           defaultvalue="${default.hibernate.connection.password}"/>		
+
+		<echo message="downloading jdbc driver..."/>
+		<basename property="jdbcDriverFileName" file="${jdbc.driver.download.url}"/>
+    <get src="${jdbc.driver.download.url}" verbose="on"
+         dest="${basedir}/lib/${jdbcDriverFileName}" usetimestamp="true"/>		
+				
+		<packageDirectory property="packageDir" package="${packageProject}"/>
+		<packageDirectory property="packageEntityDir" package="${packageProject}/entity"/>
+	  <packageDirectory property="packageShareDir" package="${packageProject}/share"/>
+	  <packageDirectory property="packageClientDir" package="${packageProject}/client"/>
+		<packageDirectory property="packageServerDir" package="${packageProject}/server"/>		
+		
+	  <!-- Global Filters -->
+		<filterset id="project">
+  	  <filter token="packageBaseName" value="${packageBaseName}" />
+  	  <filter token="packageProject" value="${packageProject}" />
+  	  <filter token="gwtHome" value="${default.gwtHome}"/>
+  	  <filter token="projectName" value="${projectName}"/>
+  	  <filter token="projectNameLowerCase" value="${projectNameLowerCase}" />
+			<filter token="packageEntityDir" value="${packageEntityDir}"/>
+			<filter token="warDir" value="${projectDir}/war"/>
+			<filter token="projectDir" value="${projectDir}"/>
+			
+      <filter token="hibernate.dialect" value="${hibernate.dialect}" />
+      <filter token="hibernate.connection.username" value="${hibernate.connection.username}" />
+      <filter token="hibernate.connection.password" value="${hibernate.connection.password}" />
+      <filter token="hibernate.connection.driver_class" value="${hibernate.connection.driver_class}" />
+      <filter token="hibernate.connection.url" value="${hibernate.connection.url}" />     			
+			
+			<filter token="packageDir" value="${packageDir}" />
+			
+      <filter token="jdbc.driver.path" value="build/lib/${jdbcDriverFileName}" /> 
+    	
+			<filter token="jdbcDriverFileName" value="${jdbcDriverFileName}" />
+									
+    </filterset>
+		
+		<!-- Make Directories -->
+		<mkdir dir="${projectDir}"/>
+		<mkdir dir="${projectDir}/build"/>
+	  <mkdir dir="${projectDir}/build/lib"/> 
+		<mkdir dir="${projectDir}/build/jetty"/>
+		<mkdir dir="${projectDir}/build/jetty/lib"/>
+		<mkdir dir="${projectDir}/build/repository"/>
+		<mkdir dir="${projectDir}/src"/>
+		<mkdir dir="${projectDir}/src/META-INF"/>
+		<mkdir dir="${projectDir}/src/${packageDir}"/>		
+    <mkdir dir="${projectDir}/src/${packageEntityDir}"/>
+    <mkdir dir="${projectDir}/src/${packageShareDir}"/> 
+		<mkdir dir="${projectDir}/src/${packageClientDir}"/>
+		<mkdir dir="${projectDir}/src/${packageServerDir}"/>		
+    <mkdir dir="${projectDir}/src/db"/>
+		<mkdir dir="${projectDir}/war"/>
+		<mkdir dir="${projectDir}/war/gxt"/>
+		<mkdir dir="${projectDir}/war/WEB-INF"/>
+		<mkdir dir="${projectDir}/war/WEB-INF/classes"/>
+		<mkdir dir="${projectDir}/war/WEB-INF/lib"/>
+				
+		<!-- Copy Sourcecode -->					
+
+    <copy todir="${projectDir}/src">
+      <fileset dir="${templateDir}/src/ROOT" />
+      <filterset refid="project"/>
+    </copy>   	
+    <copy todir="${projectDir}/src/${packageDir}">
+    	<fileset dir="${templateDir}/src/package" />
+      <filterset refid="project"/>
+    </copy>   		
+
+	  <move file="${projectDir}/src/${packageDir}/module.gwt.xml" tofile="${projectDir}/src/${packageDir}/${projectNameLowerCase}.gwt.xml"/>     
+		
+		<!-- Copy ROOT files -->	
+		<property name="repositoryDir" value="${projectDir}/build/repository"/>
+		<pathFixer property="repositoryDir" />
+					
+		<copy file="${templateDir}/ivysettings.xml" todir="${projectDir}">
+      <filterset>
+        <filter token="repositoryDir" value="${repositoryDir}"/>
+      </filterset>
+    </copy>			
+
+		<copy file="${templateDir}/DOTproject" tofile="${projectDir}/.project" >
+			<filterset refid="project"/>
+		</copy>
+				
+    <copy file="${templateDir}/ivy.xml" todir="${projectDir}">
+      <filterset refid="project"/>
+    </copy>
+		
+    <copy file="${templateDir}/build.properties" todir="${projectDir}">
+      <filterset refid="project"/>
+    </copy>		
+		
+    <copy file="${templateDir}/build.xml" todir="${projectDir}">
+      <filterset refid="project" />   	
+    </copy>
+	  
+    <copy file="${templateDir}/gwt.launch" tofile="${projectDir}/${projectNameLowerCase}.launch" >
+      <filterset refid="project"/>
+    </copy>	  
+		
+		
+		<!-- Copy Build files -->
+    <copy file="${basedir}/lib/${jdbcDriverFileName}" tofile="${projectDir}/build/lib/${jdbcDriverFileName}"/>    
+    
+    <copy file="${templateDir}/build/jetty/jetty.launch" tofile="${projectDir}/build/jetty/${projectName}_Jetty.launch">   
+      <filterset refid="project"/>
+    </copy> 	
+          	
+    <copy todir="${projectDir}/build/repository">
+      <fileset dir="${templateDir}/build/repository" />
+    </copy> 
+		    	
+    <copy file="${templateDir}/build/jetty/jetty-${databaseType}.xml" tofile="${projectDir}/build/jetty/jetty.xml">
+    	<filterset refid="project"/>
+    </copy>	
+											
+		<copy file="${templateDir}/build/jetty/webdefault.xml" todir="${projectDir}/build/jetty"/>
+	
+		<!-- Copy War files -->
+    <copy file="${templateDir}/war/WEB-INF/web.xml" todir="${projectDir}/war/WEB-INF">
+      <filterset refid="project"/>
+    </copy>
+	  
+    <copy file="${templateDir}/war/main.css" todir="${projectDir}/war" />
+    
+	  <copy file="${templateDir}/war/project.html" tofile="${projectDir}/war/${projectNameLowerCase}.html">
+      <filterset refid="project"/>
+    </copy> 
+ 
+
+		<copy todir="${projectDir}/war/gxt">
+    	<fileset dir="${default.gxtHome}/resources">
+    		 <include name="chart/**" />
+    		 <include name="css/**" />
+    		 <include name="flash/**" />
+    		 <include name="images/**" />
+      </fileset>
+    </copy>   
+				
+		<delete dir="${basedir}/lib/gxt-2.0.1" failonerror="false" />		
+     	
+		<!-- Call resolve task from new project -->        
+		<ant antfile="${projectDir}/build.xml" 
+			   dir="${projectDir}"
+			   target="resolve" inheritall="false"/>
+
+	  
+		<!-- Create .classpath file -->        
+		<eclipseClasspath templateFile="${templateDir}/DOTclasspath"			
+			destFile="${projectDir}/.classpath"
+			removeFilePart="${projectDir}/">
+		  <classpath>
+        <fileset dir="${projectDir}/war/WEB-INF/lib">
+          <include name="*.jar" />
+        </fileset>
+        <fileset dir="${projectDir}/build/jetty/lib">
+          <include name="servlet*.jar" />
+        	<include name="mail*.jar" />
+        </fileset>
+		  </classpath>
+		</eclipseClasspath>
+		
+	</target>
+	
+	<target name="dist">
+		<zip destfile="gxt-spring-starter-0.0.1.zip" basedir="${basedir}">
+			<exclude name="lib/h2*"/>
+			<exclude name="lib/postgres*"/>
+			<exclude name="lib/ant-1.7.1.jar"/>
+			<exclude name=".settings/*"/>
+			<exclude name="website/*"/>
+			<exclude name=".classpath"/>
+			<exclude name=".project"/>
+		</zip>
+	</target>
+	
+
+  
+  
+</project>

@@ -1,0 +1,17 @@
+
+
+
+set CURRENT_DIR=$CURRENT_DIR$
+
+set JAVA_VM=%CURRENT_DIR%\jre\bin\client
+
+set JETTY_HOME=%CURRENT_DIR%
+set CLASSPATH=%JETTY_HOME%\lib\org.mortbay.jetty.jar
+set CLASSPATH=%CLASSPATH%;%JETTY_HOME%\lib\javax.servlet.jar
+set CLASSPATH=%CLASSPATH%;%JETTY_HOME%\ext\jasper-runtime.jar
+set CLASSPATH=%CLASSPATH%;%JETTY_HOME%\ext\jasper-compiler.jar
+set CLASSPATH=%CLASSPATH%;%JETTY_HOME%\ext\ant.jar
+set CLASSPATH=%CLASSPATH%;%JETTY_HOME%\lib\tools.jar
+
+
+JavaService -install "WebCal" %JAVA_VM%\jvm.dll -Djava.class.path=%CLASSPATH% -start org.mortbay.jetty.win32.Service -params ./etc/jetty.xml -stop org.mortbay.jetty.win32.Service -method stopAndDestroy -out ./logs/jettysvc.out -err ./logs/jettysvc.err -current %JETTY_HOME%

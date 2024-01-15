@@ -1,0 +1,22 @@
+app:
+  imagepath: file:///E:/temp/todo/images
+
+spring:
+  datasource:
+    url: jdbc:sqlserver://localhost;database=todo
+    username: sa
+    password: papa8gei.
+
+  jpa:
+    show-sql: false
+    properties:
+      hibernate.dialect:
+
+server:
+  port: 8182
+  context-path: /todo
+  
+logging:
+  level: 
+    ROOT: INFO
+  file: ./app.log    

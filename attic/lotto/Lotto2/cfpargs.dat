@@ -1,0 +1,15 @@
+-inplace -dest .
+-persistcapable
+lotto.Ausspielungen
+lotto.LottoStats
+lotto.LottoStatsAlle
+lotto.LottoStatsAus42
+lotto.LottoStatsAus45
+lotto.LottoStatsCYear
+lotto.LottoStatsW2
+lotto.LottoGewinnquote
+lotto.JokerGewinnquote
+lotto.Ziehung
+-pa
+lotto.html.LottoHTMLProducer
+TipMaker

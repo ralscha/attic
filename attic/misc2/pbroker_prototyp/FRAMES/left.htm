@@ -1,0 +1,97 @@
+<html>
+
+<head>
+<script LANGUAGE="JavaScript">
+<!--
+
+if (document.images) {
+            img1off = new Image();
+            img1off.src = "http://update.onstage.ch/images/help_off.gif";
+
+            img1on = new Image();
+            img1on.src = "http://update.onstage.ch/images/help_on.gif";
+}
+
+
+function imgOn(imgName) {
+        if (document.images) {
+            document[imgName].src = eval(imgName + "on.src");
+         }
+}
+
+function imgOff(imgName) {
+        if (document.images) {
+            document[imgName].src = eval(imgName + "off.src");
+        }
+}
+
+
+
+function open_help_description()
+	{
+	window.open('http://jupiter.onstage.ch/pbroker/ixqlang.htm', 'help','toolbar=no,width=550,height=350,directories=no,status=no,scrollbars=yes,resize=yes,menubar=no');
+	return;
+	}
+// -->
+</script>
+<title>Navi left</title>
+<base target="content">
+</head>
+
+<body style="margin-top: 0px; margin-left: 0px" topmargin="0" marginwidth="0" marginheight="0" leftmargin="0" background="../images/navi.gif">
+
+<table border="0" width="160" cellpadding="0">
+  <tr>
+    <td width="100%" align="center"><img border="0" src="../images/x.gif" width="120" height="74"></td>
+  </tr>
+  <tr>
+    <td width="100%" align="center"><img border="0" src="../images/x.gif" width="120" height="20"></td>
+  </tr>
+  
+  <!-- Search follows... -->
+  
+  <form>
+  <tr>
+    <td width="100%" align="center" valign="middle">
+      
+        <p><input type="text" size="19" style="font-size:8pt"><a onClick="open_help_description()" onmouseout="imgOff('img1')" onmouseover="imgOn('img1')" style="cursor:help"><img name="img1" alt="Hilfe!" border="0" width="19" height="19" src="../images/help_off.gif" align="absmiddle"></a></p>
+      
+    </td>
+  </tr>
+  <tr>
+    <td width="100%" align="center"><input border="0" src="../images/x.gif" name="go" width="27" height="26" type="image" alt=" GO for it! "></td>
+  </tr>
+  </form>
+  
+  <!-- Search ends here. -->
+  
+  <tr>
+    <td width="100%" align="center"><a href="#"><img border="0" src="../images/x.gif" width="120" height="35" alt="[ Suche ]"></a></td>
+  </tr>
+  <tr>
+    <td width="100%" align="center"><a href="#"><img border="0" src="../images/x.gif" width="120" height="18" alt="> Rekrutierung"></a></td>
+  </tr>
+  <tr>
+    <td width="100%" align="center"><a href="#"><img border="0" src="../images/x.gif" width="120" height="27" alt="> Lieferanten"></a></td>
+  </tr>
+  <tr>
+    <td width="100%" align="center"><a href="#"><img border="0" src="../images/x.gif" width="120" height="28" alt="> Mitarbeiter"></a></td>
+  </tr>
+  <tr>
+    <td width="100%" align="center"><a href="#"><img border="0" src="../images/x.gif" width="120" height="24" alt="> Verrechnung"></a></td>
+  </tr>
+  <tr>
+    <td width="100%" align="center"><a href="#"><img border="0" src="../images/x.gif" width="120" height="24" alt="> Reporting"></a></td>
+  </tr>
+  <tr>
+    <td width="100%" align="center"><a href="#"><img border="0" src="../images/x.gif" width="120" height="23" alt="> Hilfsprozesse"></a></td>
+  </tr>
+  <tr>
+    <td width="100%" align="center">&nbsp;<br>
+      <a href="http://www.onstage.ch" target="_blank"><img border="0" src="../images/about.gif" alt="Wir und die Welt" width="113" height="29"></a></td>
+  </tr>
+</table>
+
+</body>
+
+</html>

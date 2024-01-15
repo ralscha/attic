@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<document>
+
+	<properties>
+		<title>Examples</title>		
+	</properties>
+
+	<body>
+		<section name="Examples">
+			<p>A few examples of recurrences</p>
+      <table>
+        <tr>
+          <td><code>FREQ=YEARLY</code></td>
+          <td>Same day every year</td>
+        </tr>
+        <tr>
+          <td><code>FREQ=MONTHLY;INTERVAL=1</code></td>
+          <td>Same day every month</td>
+        </tr>
+        <tr>
+          <td><code>FREQ=MONTHLY;COUNT=5;INTERVAL=2</code></td>
+          <td>Every other month, 5 times</td>
+        </tr>        
+        <tr>
+          <td><code>FREQ=YEARLY;COUNT=5;INTERVAL=1;BYMONTH=1,3,5;</code></td>
+          <td>Every year in jan, march, may at the same day of month, 5 times</td>
+        </tr>        
+
+        <tr>
+          <td><code>FREQ=MONTHLY;INTERVAL=7;BYHOUR=0,12;BYMINUTE=0;BYSECOND=0</code></td>
+          <td>Every seven months have a noon and midnight meeting</td>
+        </tr>        
+        
+        <tr>
+          <td><code>FREQ=YEARLY;INTERVAL=1;BYMONTH=7;BYHOUR=0,12;BYMINUTE=0;BYSECOND=0</code></td>
+          <td>Every year in july have a noon and midnight meeting</td>
+        </tr>        
+        
+        <tr>
+          <td><code>FREQ=YEARLY;INTERVAL=1;BYMONTH=10,11,12;BYHOUR=0,12;BYMINUTE=0;BYSECOND=0</code></td>
+          <td>During the last three months of the year have a noon and midnight meeting</td>
+        </tr>        
+      
+        <tr>
+          <td><code>FREQ=YEARLY;COUNT=20;INTERVAL=1;BYWEEKNO=1,10,20,30,40,50;BYDAY=TH</code></td>
+          <td>The 1,10,20,30,40,50th weeks on thursday, 20 times</td>
+        </tr>        
+
+        <tr>
+          <td><code>FREQ=WEEKLY;COUNT=20;INTERVAL=2;</code></td>
+          <td>Every other week for 20 weeks</td>
+        </tr>        
+     
+        <tr>
+          <td><code>FREQ=DAILY;COUNT=20;INTERVAL=3;BYHOUR=10;BYMINUTE=30;BYSECOND=0</code></td>
+          <td>Every three days at 10:30, 20 times</td>
+        </tr>      
+      
+        <tr>
+          <td><code>FREQ=YEARLY;COUNT=20;INTERVAL=1;BYYEARDAY=1,130,-130,-1</code></td>
+          <td>The 1, 130,-130 and last day of year</td>
+        </tr>  
+  
+        <tr>
+          <td><code>FREQ=YEARLY;INTERVAL=2;BYMONTH=1;BYDAY=SU;BYHOUR=8,9;BYMINUTE=30</code></td>
+          <td>Every other year in january on all sundays at 8:30 and 9:30</td>
+        </tr>                
+      
+        <tr>
+          <td><code>FREQ=YEARLY;INTERVAL=2;BYMONTH=1;BYDAY=-1SU;BYHOUR=8,9;BYMINUTE=30</code></td>
+          <td>Every other year in january on the last sunday of the month at 8:30 and 9:30</td>
+        </tr>
+      
+        <tr>
+          <td><code>FREQ=HOURLY;COUNT=50;INTERVAL=1;BYYEARDAY=177</code></td>
+          <td>Every hour on day 177 of they year</td>
+        </tr>
+
+        <tr>
+          <td><code>FREQ=HOURLY;COUNT=20;INTERVAL=2;BYMINUTE=0,15,30,45;</code></td>
+          <td>Every other hour at the quarter hour markers</td>
+        </tr>
+      
+        <tr>
+          <td><code>FREQ=MINUTELY;COUNT=20;INTERVAL=15;BYHOUR=0,2,4,6,8;</code></td>
+          <td>Every quarter hour starting from timestamp, but only on even hours less than 10</td>
+        </tr>
+   
+        <tr>
+          <td><code>FREQ=MINUTELY;COUNT=20;INTERVAL=15;BYHOUR=0,2,4,6,8;OFFSET=-5MIN</code></td>
+          <td>Five Minutes Before: every quarter hour starting from timestamp, but only on even hours less than 10</td>
+        </tr>      
+      
+        <tr>
+          <td><code>FREQ=MINUTELY;COUNT=20;INTERVAL=15;BYHOUR=0,2,4,6,8;OFFSET=3HOUR</code></td>
+          <td>Three Hours After every quarter hour starting from timestamp, but only on even hours less than 10</td>
+        </tr>      
+
+        <tr>
+          <td><code>FREQ=MINUTELY;COUNT=20;INTERVAL=15;BYHOUR=0,2,4,6,8;OFFSET=-4DATE</code></td>
+          <td>Four Days Before every quarter hour starting from timestamp, but only on even hours less than 10</td>
+        </tr>      
+      
+      
+      </table>
+
+		</section>
+
+	</body>
+</document>

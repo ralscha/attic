@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Canvas xmlns:mx="http://www.adobe.com/2006/mxml"
+    width="100%" height="100%" creationComplete="init()">
+
+  <mx:Script>
+  <![CDATA[
+    import org.granite.tide.events.TideResultEvent;
+    import mx.events.ValidationResultEvent;
+    import mx.core.UIComponent;
+    import org.granite.tide.events.TideEvent;
+    import org.granite.tide.seam.Context;
+    import org.granite.tide.Tide;
+    import org.granite.tide.seam.Seam;
+    import mx.validators.Validator;
+  
+    private var validators:Array;
+  
+    [Bindable]
+    public var tideContext:Context;
+      
+    private function validateAndSubmit():void {            
+      if (validInput()) {
+        tideContext.addEventListener("loggedIn", loggedInHandler);
+        
+        tideContext.principalCtl.authenticate(usernameTI.text, passwordTI.text);                                                    
+      } else {
+        if (usernameTIValidator.validate().type == ValidationResultEvent.INVALID) {
+          setValidationFocus(usernameTI);
+        } else {
+          setValidationFocus(passwordTI);
+        }  
+      }  
+    }
+       
+    private function loggedInHandler(event:TideEvent):void {
+      var myLSO:SharedObject = SharedObject.getLocal("loginData");
+            
+      if (rememberMeCheckbox.selected) {
+        myLSO.data.username = usernameTI.text;
+        passwordTI.text = "";
+        myLSO.flush();
+      } else {
+        usernameTI.text = "";
+        passwordTI.text = "";        
+        myLSO.clear();
+      }            
+      
+      tideContext.removeEventListener("loggedIn", loggedInHandler);
+    }       
+        
+    private function init():void {
+      usernameTI.setFocus();
+      
+      validators = new Array();
+      validators.push(usernameTIValidator);
+      validators.push(passwordTIValidator);         
+            
+      var myLSO:SharedObject = SharedObject.getLocal("loginData");
+        
+      if (myLSO.data.username != undefined) {
+        rememberMeCheckbox.selected = true;
+        usernameTI.text = myLSO.data.username;
+        passwordTI.setFocus();
+      }             
+            
+      //todo remove this. only test
+      tideContext.principalCtl.authenticate("admin", "admin");
+    }
+         
+    private function returnKeyHandler(event:KeyboardEvent):void {
+      if (event.keyCode == 13) {
+        validateAndSubmit();
+      }
+    }    
+    
+    private function validInput():Boolean {
+      var errors:Array = Validator.validateAll(validators);
+      return (errors.length == 0);         
+    }          
+
+    private function setValidationFocus(formObject:UIComponent):void{
+      formObject.setFocus();
+      formObject.dispatchEvent(new MouseEvent(MouseEvent.MOUSE_OVER));
+    }
+
+       
+  ]]>
+  </mx:Script>
+
+  <mx:StringValidator id="usernameTIValidator" source="{usernameTI}" property="text" required="true" />
+  <mx:StringValidator id="passwordTIValidator" source="{passwordTI}" property="text" required="true" />
+
+
+  <mx:ApplicationControlBar id="appBar" left="20" top="20" right="20">
+    <mx:Label text="TT" fontSize="18" fontWeight="bold" color="white"  id="titleLabel"/>
+  </mx:ApplicationControlBar>
+
+
+  <mx:Panel horizontalAlign="center" verticalCenter="-100" horizontalCenter="0" title="Login">
+    <mx:Form labelWidth="100">
+      <mx:FormItem required="true" label="Username">
+        <mx:TextInput id="usernameTI" />
+      </mx:FormItem>
+      
+      <mx:FormItem required="true" label="Password">
+        <mx:TextInput id="passwordTI" displayAsPassword="true" 
+                      keyDown="returnKeyHandler(event)"/>
+      </mx:FormItem>
+      
+      <mx:FormItem label="Remember Me">
+        <mx:CheckBox id="rememberMeCheckbox" toolTip="Remember my Login"/>
+      </mx:FormItem>        
+      
+      <mx:FormItem>
+        <mx:Button id="loginButton" label="Login" click="validateAndSubmit()"
+                   keyDown="returnKeyHandler(event)"/>
+      </mx:FormItem>
+          
+    </mx:Form>
+  </mx:Panel>
+    
+</mx:Canvas>

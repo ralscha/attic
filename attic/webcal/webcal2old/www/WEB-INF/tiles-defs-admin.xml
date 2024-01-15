@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+ <!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 1.1//EN"
+       "http://jakarta.apache.org/struts/dtds/tiles-config_1_1.dtd">
+
+
+<!--
+     This is the admin Tiles definition file
+-->
+
+<tiles-definitions>
+
+    <definition name=".admin" path="/admin/layout.jsp">
+        <put name="title"  value="WebCalendar: Admin" />
+        <put name="subtitle"  value="" />
+        <put name="menutitle" value="/admin/menutitle.jsp" />
+        <put name="menu"   value="/admin/menu.jsp" />
+        <put name="body"   value="/admin/empty.jsp" />
+        <put name="error"   value="/admin/errors.jsp" />
+    </definition>
+    
+    <definition name=".logon" extends=".admin">
+        <put name="subtitle"  value="Logon" />
+        <put name="menu"   value="" />
+        <put name="body"   value="/admin/logon.jsp" />
+    </definition>    
+    
+    <definition name=".department.list" extends=".admin">
+        <put name="subtitle"  value="Departments" />
+        <put name="body"   value="/admin/departmentlist.jsp" />
+    </definition>
+
+    <definition name=".department.edit" extends=".department.list">
+        <put name="body"   value="/admin/departmentedit.jsp" />
+    </definition>
+
+
+    <definition name=".resourceGroup.list" extends=".admin">
+        <put name="subtitle"  value="Resource Groups" />
+        <put name="body"   value="/admin/resourcegrouplist.jsp" />
+    </definition>
+
+    <definition name=".resourceGroup.edit" extends=".resourceGroup.list">
+        <put name="body"   value="/admin/resourcegroupedit.jsp" />
+    </definition>
+    
+    <definition name=".resource.list" extends=".admin">
+        <put name="subtitle"  value="Resources" />
+        <put name="body"   value="/admin/resourcelist.jsp" />
+    </definition>
+
+    <definition name=".resource.edit" extends=".resource.list">
+        <put name="body"   value="/admin/resourceedit.jsp" />
+    </definition>    
+
+
+    <definition name=".category.list" extends=".admin">
+        <put name="subtitle"  value="Categories" />
+        <put name="body"   value="/admin/categorylist.jsp" />
+    </definition>
+
+    <definition name=".category.edit" extends=".category.list">
+        <put name="body"   value="/admin/categoryedit.jsp" />
+    </definition>
+
+
+    <definition name=".user.list" extends=".admin">
+        <put name="subtitle"  value="Users" />
+        <put name="body"   value="/admin/userlist.jsp" />
+    </definition>
+
+    <definition name=".user.edit" extends=".user.list">
+        <put name="body"   value="/admin/useredit.jsp" />
+    </definition>
+
+    <definition name=".system.edit" extends=".admin">
+        <put name="subtitle"  value="System Configuration" />
+        <put name="body"   value="/admin/systemedit.jsp" />
+    </definition>
+    
+    <definition name=".holiday.list" extends=".admin">
+        <put name="subtitle"  value="Holidays" />
+        <put name="body"   value="/admin/holidaylist.jsp" />
+    </definition>    
+
+</tiles-definitions>

@@ -1,0 +1,40 @@
+<!--\#include file="include/head_quer97.shtml"-->
+<!--\#include file="include/body.shtml"-->
+<br>
+<p class="subTitle">Quersumme</p>
+<p class="nr">ab Ziehung Nr. 1/1997 (Einf&uuml;hrung Mittwochsziehung)</p>
+<br>
+<table border="1" class="tableContents">
+<tr>
+<th class="tableHeader">Quersumme</th>
+<th class="tableHeader">Ausspielungen</th>
+<th class="tableHeader">Prozent</th>
+</tr>
+
+<tr><th class="tableRowHeader">&lt; 20 </th><td align="center" class="text">$q0</td>
+<td align="right" class="text">$pq0</td></tr>
+<tr><th class="tableRowHeader">20 - 29</th><td align="center" class="text">$q1</td>
+<td align="right" class="text">$pq1</td></tr>
+<tr><th class="tableRowHeader">30 - 39</th><td align="center" class="text">$q2</td>
+<td align="right" class="text">$pq2</td></tr>
+<tr><th class="tableRowHeader">40 - 49</th><td align="center" class="text">$q3</td>
+<td align="right" class="text">$pq3</td></tr>
+<tr><th class="tableRowHeader">50 - 59</th><td align="center" class="text">$q4</td>
+<td align="right" class="text">$pq4</td></tr>
+<tr><th class="tableRowHeader">&gt;= 60</th><td align="center" class="text">$q5</td>
+<td align="right" class="text">$pq5</td></tr>
+</table>
+<br>
+<p class="text">
+<a href="queralle.shtml">alle Ziehungen</a><BR>
+<a href="quer42.shtml">ab Ziehung Nr. 14/1979 (Einf&uuml;hrung von 41 und 42)</a><BR>
+<a href="quer45.shtml">ab Ziehung Nr. 1/1986 (Einf&uuml;hrung von 43, 44 und 45)</a><BR>
+<b>ab Ziehung Nr. 1/1997 (Einf&uuml;hrung Mittwochsziehung)</b>
+</p>
+<br>
+<HR>
+<br>
+<table class="text">
+<tr><td class="text">Alle Ziffern der Zahlen einer Ziehung werden addiert und in die entsprechende Kategorie eingeteilt</td></tr>
+</table>
+<!--\#include file="include/tail.shtml"-->

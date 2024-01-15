@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Geo Messenger</title>
+    <meta name="viewport" content="initial-scale=1.0">
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+
+    <div class="header">
+        <span>Current user: </span><select id="select-user"></select>
+        <a class="doc" href="/docs/index.html">REST API documentation</a>
+    </div>
+       
+    <div id="map"></div>
+
+    <script src="map.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD0kIm_0ppLu-lRaIrAgynDavltdNyT2HQ&callback=initMap" async defer></script>
+  </body>
+</html>

@@ -1,0 +1,351 @@
+/*
+ * Grammar for vCalendar specification in JavaCC format.
+ *
+ *               -- (11/22/1998) Jason I. Hong (jasonh@cs.berkeley.edu)
+ *
+ * I'm having problems figuring out how to differentiate between
+ * straight numbers and ranged numbers (e.g. digit and month), so I am
+ * just parsing all of them as numbers and deffering error checking.
+ *
+ * Grammar as defined in vcal 1.0 specification follows:
+ *
+ * start          ::= <daily> [<enddate>] |  
+ *                    <weekly> [<enddate>] |
+ *                    <monthlybypos> [<enddate>] |
+ *                    <monthlybyday> [<enddate>] |
+ *                    <yearlybymonth> [<enddate>] |  
+ *                    <yearlybyday> [<enddate>]
+ * digit          ::= <0|1|2|3|4|5|6|7|8|9>
+ * digits         ::= <digit> {<digits>}
+ * enddate        ::= ISO 8601_date_time value(e.g., 19940712T101530Z) 
+ * interval       ::= <digits> 
+ * duration       ::= #<digits>
+ * lastday        ::= LD 
+ * plus           ::= +  
+ * minus          ::= - 
+ * daynumber      ::= <1-31> [<plus>|<minus>]| <lastday>  
+ * daynumberlist  ::= daynumber {<daynumberlist>} 
+ * month          ::= <1-12>  
+ * monthlist      ::= <month> {<monthlist>}  
+ * day            ::= <1-366>
+ * daylist        ::= <day> {<daylist>} 
+ * occurrence     ::= <1-5><plus> | <1-5><minus>  
+ * occurrencelist ::= <occurrence> {<occurrencelist>} 
+ * weekday        ::= <SU|MO|TU|WE|TH|FR|SA>  
+ * weekdaylist    ::= <weekday> {<weekdaylist>} 
+ * daily          ::= D<interval> [<duration>]  
+ * weekly         ::= W<interval> [<weekdaylist>] [<duration>]
+ * monthlybypos   ::= MP<interval> [<occurrencelist> <weekdaylist>] [<duration>]
+ * monthlybyday   ::= MD<interval> [<daynumberlist>] [<duration>] 
+ * yearlybymonth  ::= YM<interval> [<monthlist>] [<duration>] 
+ * yearlybyday    ::= YD<interval> [<daylist>] [<duration>]  
+ */
+
+//==============================================================================
+
+PARSER_BEGIN(VCalRecurrenceParser)
+
+package ch.ess.cal.vcal.parser.recurrence;
+
+public class VCalRecurrenceParser {
+
+   public static void main(String argv[]) throws ParseException {
+      VCalRecurrenceParser parser = new VCalRecurrenceParser(System.in);
+      parser.Input();
+   } // of main
+
+} // of VCalRecurrenceParser
+
+PARSER_END(VCalRecurrenceParser)
+
+//==============================================================================
+
+SKIP:
+{
+   " "
+|  "\t"
+|  "\n"
+|  "\r"
+}
+
+//==============================================================================
+
+/**
+ * <PRE>
+ * digit  ::= <0|1|2|3|4|5|6|7|8|9>
+ * digits ::= <digit> {<digits>}
+ * </PRE>
+ */
+TOKEN:
+{
+   < DIGITS: (["0" - "9"])+ >
+}
+
+//==============================================================================
+
+/**
+ * <PRE>
+ * enddate ::= ISO 8601_date_time value(e.g., 19940712T101530Z) 
+ * </PRE>
+ */
+
+/*
+void EndDate(): {}
+{
+}
+*/
+
+//==============================================================================
+
+/*
+ * <PRE>
+ * interval ::= <digits> 
+ * </PRE>
+ */
+void Interval(): {}
+{
+   <DIGITS>
+}
+
+//==============================================================================
+
+/*
+ * <PRE>
+ * duration ::= #<digits>
+ * </PRE>
+ */
+void Duration(): {}
+{
+   "#" <DIGITS>
+}
+
+//==============================================================================
+
+/*
+ * <PRE>
+ * lastday         ::= LD 
+ * plus            ::= +  
+ * minus           ::= - 
+ * daynumber       ::= <1-31> [<plus>|<minus>]| <lastday>  
+ *
+ * Please note that this does not do any error checking on ranges.
+ * </PRE>
+ */
+void DayNumber() : {}
+{
+   (<DIGITS> [ "+" | "-" ]) | "LD"
+}
+
+
+//==============================================================================
+
+/*
+ * <PRE>
+ * daynumberlist   ::= daynumber {<daynumberlist>} 
+ * </PRE>
+ */
+void DayNumberList() : {}
+{
+   ( DayNumber() )+
+}
+
+//==============================================================================
+
+/*
+ * <PRE>
+ * month           ::= <1-12>  
+ *
+ * Please note that this does not do any error checking on ranges.
+ * </PRE>
+ */
+void Month(): {}
+{
+   <DIGITS>
+}
+
+//==============================================================================
+
+/*
+ * <PRE>
+ * monthlist       ::= <month> {<monthlist>}  
+ * </PRE>
+ */
+void MonthList(): {}
+{
+   ( Month() )+
+}
+
+//==============================================================================
+
+/*
+ * <PRE>
+ * day             ::= <1-366>
+ *
+ * Please note that this does not do any error checking on ranges.
+ * </PRE>
+ */
+void Day(): {}
+{
+   <DIGITS>
+}
+
+//==============================================================================
+
+/*
+ * <PRE>
+ * daylist         ::= <day> {<daylist>} 
+ * </PRE>
+ */
+void DayList(): {}
+{
+   ( Day() )+
+}
+
+//==============================================================================
+
+/*
+ * <PRE>
+ * occurrence      ::= <1-5><plus> | <1-5><minus>  
+ * </PRE>
+ */
+void Occurrence(): {}
+{
+   "1+" | "2+" | "3+" | "4+" | "5+" | "1-" | "2-" | "3-" | "4-" | "5-"
+}
+
+//==============================================================================
+
+/*
+ * <PRE>
+ * occurrencelist  ::= <occurrence> {<occurrencelist>} 
+ * </PRE>
+ */
+void OccurrenceList() : {}
+{
+   ( Occurrence() )+
+}
+
+//==============================================================================
+
+/*
+ * <PRE>
+ * weekday        ::= <SU|MO|TU|WE|TH|FR|SA>  
+ * </PRE>
+ */
+void WeekDay(): {}
+{
+   ("SU" | "MO" | "TU" | "WE" | "TH" | "FR" | "SA")
+}
+
+//==============================================================================
+
+/*
+ * <PRE>
+ * weekdaylist    ::= <weekday> {<weekdaylist>} 
+ * </PRE>
+ */
+void WeekDayList(): {}
+{
+   ( WeekDay() )+
+}
+
+//==============================================================================
+
+/*
+ * <PRE>
+ * daily           ::= D<interval> [<duration>]  
+ * </PRE>
+ */
+void Daily(): {}
+{
+   "D" Interval() [Duration()]
+}
+
+//==============================================================================
+
+/*
+ * <PRE>
+ * weekly          ::= W<interval> [<weekdaylist>] [<duration>]
+ * </PRE>
+ */
+void Weekly(): {}
+{
+   "W" Interval() [WeekDayList()] [Duration()]
+}
+
+//==============================================================================
+
+/*
+ * <PRE>
+ * monthlybypos ::= MP<interval> [<occurrencelist> <weekdaylist>] [<duration>]
+ * </PRE>
+ */
+void MonthlyByPos(): {}
+{
+   "MP" Interval() OccurrenceList() WeekDayList() [Duration()]
+}
+
+//==============================================================================
+
+/*
+ * <PRE>
+ * monthlybyday    ::= MD<interval> [<daynumberlist>] [<duration>] 
+ * </PRE>
+ */
+void MonthlyByDay(): {}
+{
+   "MD" Interval() DayNumberList() [Duration()]
+}
+
+//==============================================================================
+
+/*
+ * <PRE>
+ * yearlybymonth   ::= YM<interval> [<monthlist>] [<duration>] 
+ * </PRE>
+ */
+void YearlyByMonth(): {}
+{
+   "YM" Interval() [MonthList()] [Duration()]
+}
+
+//==============================================================================
+
+/*
+ * <PRE>
+ * yearlybyday     ::= YD<interval> [<daylist>] [<duration>]  
+ * </PRE>
+ */
+void YearlyByDay(): {}
+{
+   "YD" Interval() [DayList()] [Duration()]
+}
+
+//==============================================================================
+
+/*
+ * <PRE>
+ * start          ::= <daily> [<enddate>] |  
+ *                    <weekly> [<enddate>] |
+ *                    <monthlybypos> [<enddate>] |
+ *                    <monthlybyday> [<enddate>] |
+ *                    <yearlybymonth> [<enddate>] |  
+ *                    <yearlybyday> [<enddate>]
+ * </PRE>
+ */
+void Recurrence(): {}
+{
+   Daily()         |
+   Weekly()        |
+   MonthlyByPos()  |
+   MonthlyByDay()  |
+   YearlyByMonth() |
+   YearlyByDay()
+}
+
+void Input(): {}
+{
+   ( Recurrence() )+
+}
+
+//==============================================================================

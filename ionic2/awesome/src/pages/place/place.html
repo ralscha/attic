@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>{{ place.title }}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-grid>
+    <ion-row>
+      <ion-col text-center>
+        <img [src]="place.imageUrl">
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <p>{{ place.description }}</p>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <sebm-google-map
+          [latitude]="place.location.lat"
+          [longitude]="place.location.lng"
+          [zoom]="16">
+          <sebm-google-map-marker
+            [latitude]="place.location.lat"
+            [longitude]="place.location.lng"></sebm-google-map-marker>
+        </sebm-google-map>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <button
+          ion-button
+          block
+          (click)="onLeave()">Leave</button>
+      </ion-col>
+      <ion-col>
+        <button
+          ion-button
+          block
+          color="danger"
+          (click)="onDelete()">Delete</button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

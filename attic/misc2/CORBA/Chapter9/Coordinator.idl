@@ -1,0 +1,19 @@
+
+
+module Client
+{ interface ClientControl
+  { // start and stop opeations for controlling client counting
+    boolean start();
+    string  stop();
+  };
+};
+
+module MultiCoordinator
+{ interface Coordinator
+  { // object for registering and controlling client counting
+    boolean register(in string clientNumber,
+                     in Client::ClientControl clientObjRef);
+    boolean start();
+    string  stop();
+  };
+};  

@@ -1,0 +1,127 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="GENERATOR" content="Mozilla/4.5 [en] (X11; I; SunOS 5.6 i86pc) [Netscape]">
+   <title>Java Log Facility - Example Output</title>
+</head>
+<body text="#000000" bgcolor="#FFFFFF">
+
+<center><img SRC="gkrwface.jpg" NOSAVE height=200 width=153></center>
+
+<div align=right><font size=-1>$Revision: 1.1 $</font></div>
+
+<div align=right><font size=-1>$Date: 1999/09/27 12:26:06 $</font></div>
+
+<div align=right>
+<hr WIDTH="100%"></div>
+
+<table WIDTH="100%" NOSAVE >
+<tr NOSAVE>
+<td ALIGN=LEFT VALIGN=TOP NOSAVE><font color="#999999">Name:</font></td>
+
+<td NOSAVE><font color="#009900">log.object.format</font></td>
+</tr>
+
+<tr NOSAVE>
+<td ALIGN=LEFT VALIGN=TOP NOSAVE><font color="#999999">Description:</font></td>
+
+<td ALIGN=LEFT VALIGN=TOP NOSAVE><font color="#000000">This controls how
+optional user objects appear in the formatted output.&nbsp; Currently,
+there are two possible format styles - Lisp and Java.&nbsp; The Lisp style
+only prints the values of the attributes while the Java style prints each
+attribute's type, name, and value.&nbsp; This formatting is handled by
+the <a href="../api/grace/io/PrintWriter.html">grace.io.PrintWriter
+</a>class
+and its sub classes.&nbsp; Basically, these classes use reflection to inspect
+the attributes of the given object and call the get<i>Attribute</i>() function
+(bean-like pattern).&nbsp; Arrays, java.util.Vectors, and java.util.Hashtables
+are handled.</font>
+<p><font color="#000000">Notice, that this object format is used only if
+the user specified an object.&nbsp; This allows text to be included in
+the output conditional on whether an object was specified.</font></td>
+</tr>
+
+<tr NOSAVE>
+<td NOSAVE><font color="#999999">Type:</font></td>
+
+<td><font color="#009900">String</font></td>
+</tr>
+
+<tr NOSAVE>
+<td ALIGN=LEFT VALIGN=TOP NOSAVE><font color="#999999">Acceptable Values:</font></td>
+
+<td>Can be any combination of the following:
+<table BORDER WIDTH="100%" NOSAVE >
+<tr NOSAVE>
+<td NOSAVE><font color="#009900">%l</font></td>
+
+<td>Formats the object using the grace.io.LispPrintWriter with pretty =
+false.</td>
+</tr>
+
+<tr>
+<td><font color="#009900">%L</font></td>
+
+<td><font color="#000000">Formats the </font>object using the grace.io.LispPrintWriter
+with pretty = true.</td>
+</tr>
+
+<tr>
+<td><font color="#009900">%j</font></td>
+
+<td>Formats the object using the grace.io.JavaPrintWriter with pretty =
+false.</td>
+</tr>
+
+<tr>
+<td><font color="#009900">%J</font></td>
+
+<td>Formats the object using the grace.io.JavaPrintWriter with pretty =
+true.</td>
+</tr>
+
+<tr>
+<td><font color="#009900">%o</font></td>
+
+<td>Formats the object using the default formatting mechanism (Java).</td>
+</tr>
+
+<tr>
+<td><i><font color="#009900">plain-text</font></i></td>
+
+<td>Plain text is inserted into the formatted output.</td>
+</tr>
+</table>
+&nbsp;</td>
+</tr>
+
+<tr NOSAVE>
+<td NOSAVE><font color="#999999">Default Value:</font></td>
+
+<td><font color="#009900">%j</font></td>
+</tr>
+
+<tr NOSAVE>
+<td ALIGN=LEFT VALIGN=TOP NOSAVE><font color="#999999">Example Usage:</font></td>
+
+<td>
+<table BORDER WIDTH="100%" NOSAVE >
+<tr NOSAVE>
+<td NOSAVE>$ java -D<font color="#009900">log.thread.format</font>="<font color="#009900">%j</font>"
+grace.log.Log</td>
+
+<td>Prints in non-pretty java object format.&nbsp; <font color="#000000">This
+command generates, for example:</font>
+<p><tt><font size=-1>grace.log.Log$Test ={Integer i=123; Double d=123.45;
+String s="a sample string"; Object nullString=null; Vector v={String [0]="Value1";
+String [1]="Value2";}}</font></tt></td>
+</tr>
+</table>
+&nbsp;</td>
+</tr>
+</table>
+
+<br>&nbsp;
+</body>
+</html>

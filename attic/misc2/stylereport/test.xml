@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report Top="1.0" Left="1.0" Bottom="1.0" Right="1.0" HeaderFromEdge="0.5" FooterFromEdge="0.75" PageNumbering="1" HorizontalWrap="false" TabStops="0.5,1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0,5.5,6.0,6.5,7.0,7.5,8.0">
+<Property Name0="TextMode" Value0="false" Name1="PageSize" Value1="A4 [210x297 mm]" Name2="Orientation" Value2="Landscape">
+</Property>
+<table-style name="XTableStyle2">
+<top-border  border="0">
+</top-border>
+<bottom-border >
+</bottom-border>
+<left-border  border="0">
+</left-border>
+<right-border  border="0">
+</right-border>
+<header-row  border="0" alignment="9">
+</header-row>
+<header-col  border="0" font="Verdana-BOLD-10" alignment="9" row-border="0">
+</header-col>
+<trailer-row >
+</trailer-row>
+<trailer-col  row-border="0">
+</trailer-col>
+<body  font="Verdana-PLAIN-10" alignment="9" row-border="0" col-border="0">
+</body>
+<specification index="0" row="true" repeat="false"  font="Verdana-PLAIN-6" alignment="9" row-border="0" col-border="0"/>
+<specification index="3" row="false" repeat="false"  font="Verdana-BOLD-10" alignment="0" row-border="0" col-border="0"/>
+<specification index="0" row="false" repeat="false"  font="Verdana-BOLD-10" alignment="9" row-border="0" col-border="0"/>
+</table-style>
+<table-style name="XTableStyle">
+<top-border >
+</top-border>
+<bottom-border >
+</bottom-border>
+<left-border >
+</left-border>
+<right-border >
+</right-border>
+<header-row  background="-4144960" font="Verdana-BOLD-10" alignment="9">
+</header-row>
+<header-col  font="Verdana-BOLD-10" alignment="9">
+</header-col>
+<trailer-row >
+</trailer-row>
+<trailer-col >
+</trailer-col>
+<body  font="Verdana-PLAIN-10" alignment="9">
+</body>
+</table-style>
+<TextElement ID="Text23" Alignment="1" Indent="0.0" Hindent="0" Font="Verdana-BOLD-16" Foreground="-16777216" Spacing="0" Block="false" Continuation="false" Visible="true" KeepWithNext="false" FillStyle="0" TabStops="0.5,1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0,5.5,6.0,6.5,7.0,7.5,8.0" Justify="false" Orphan="false" TextAdvance="3">
+<![CDATA[Mitarbeiterbeurteilung]]>
+</TextElement>
+<NewlineElement ID="Newline9" Alignment="1" Indent="0.0" Hindent="0" Font="Serif-PLAIN-10" Foreground="-16777216" Spacing="0" Block="true" Continuation="false" Visible="true" KeepWithNext="false" Count="1">
+</NewlineElement>
+<NewlineElement ID="Newline3" Alignment="1" Indent="0.0" Hindent="0" Font="Serif-PLAIN-10" Foreground="-16777216" Spacing="0" Block="true" Continuation="false" Visible="true" KeepWithNext="false" Count="1">
+</NewlineElement>
+<NewlineElement ID="Newline11" Alignment="1" Indent="0.0" Hindent="0" Font="Serif-PLAIN-10" Foreground="-16777216" Spacing="0" Block="true" Continuation="false" Visible="true" KeepWithNext="false" Count="1">
+</NewlineElement>
+<TextElement ID="LabelAngabenzurPerson" Alignment="1" Indent="0.0" Hindent="0" Font="Verdana-BOLD-10" Foreground="-16777216" Spacing="0" Block="false" Continuation="false" Visible="true" KeepWithNext="false" FillStyle="0" TabStops="0.5,1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0,5.5,6.0,6.5,7.0,7.5,8.0" Justify="false" Orphan="false" TextAdvance="3">
+<![CDATA[Angaben zur Person]]>
+</TextElement>
+<SeparatorElement ID="Separator1" Alignment="1" Indent="0.0" Hindent="0" Font="Serif-PLAIN-10" Foreground="-16777216" Spacing="0" Block="true" Continuation="false" Visible="true" KeepWithNext="false" Style="4097" SeparatorAdvance="0">
+</SeparatorElement>
+<TableElement ID="AngabenzurPerson" Alignment="9" Indent="0.0" Hindent="0" Font="Verdana-PLAIN-10" Foreground="-16777216" Spacing="0" Block="true" Continuation="false" Visible="true" KeepWithNext="false" TableWidth="0.0" Layout="1" TableAdvance="1" OrphanControl="false" Padding="0,1,0,1" Style="XTableStyle2" EmbedWidth="false" Embedded="false">
+<Style RowBorderC="true" ColBorderC="true" RowBorder="true" ColBorder="true" Insets="false" Alignment="true" Font="true" LineWrap="false" Foreground="true" Background="true" FirstRow="true" FirstCol="true" LastRow="false" LastCol="false"/>
+<RowGroup>
+</RowGroup>
+<ColGroup>
+</ColGroup>
+</TableElement>
+<NewlineElement ID="Newline18" Alignment="1" Indent="0.0" Hindent="0" Font="Serif-PLAIN-10" Foreground="-16777216" Spacing="0" Block="true" Continuation="false" Visible="true" KeepWithNext="false" Count="1">
+</NewlineElement>
+<NewlineElement ID="Newline16" Alignment="1" Indent="0.0" Hindent="0" Font="Serif-PLAIN-10" Foreground="-16777216" Spacing="0" Block="true" Continuation="false" Visible="true" KeepWithNext="false" Count="1">
+</NewlineElement>
+<TextElement ID="LabelAngabenzumVorgesetzten" Alignment="1" Indent="0.0" Hindent="0" Font="Verdana-BOLD-10" Foreground="-16777216" Spacing="0" Block="false" Continuation="false" Visible="true" KeepWithNext="false" FillStyle="0" TabStops="0.5,1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0,5.5,6.0,6.5,7.0,7.5,8.0" Justify="false" Orphan="false" TextAdvance="3">
+<![CDATA[Angaben zum Vorgesetzten]]>
+</TextElement>
+<SeparatorElement ID="Separator2" Alignment="1" Indent="0.0" Hindent="0" Font="Serif-PLAIN-10" Foreground="-16777216" Spacing="0" Block="true" Continuation="false" Visible="true" KeepWithNext="false" Style="4097" SeparatorAdvance="0">
+</SeparatorElement>
+<TableElement ID="AngabenumVorgesetzten" Alignment="9" Indent="0.0" Hindent="0" Font="Serif-PLAIN-10" Foreground="-16777216" Spacing="0" Block="true" Continuation="false" Visible="true" KeepWithNext="false" TableWidth="0.0" Layout="1" TableAdvance="1" OrphanControl="false" Padding="0,1,0,1" Style="XTableStyle2" EmbedWidth="false" Embedded="false">
+<Style RowBorderC="true" ColBorderC="true" RowBorder="true" ColBorder="true" Insets="false" Alignment="true" Font="true" LineWrap="false" Foreground="true" Background="true" FirstRow="true" FirstCol="true" LastRow="false" LastCol="false"/>
+<RowGroup>
+</RowGroup>
+<ColGroup>
+</ColGroup>
+</TableElement>
+<NewlineElement ID="Newline13" Alignment="1" Indent="0.0" Hindent="0" Font="Serif-PLAIN-10" Foreground="-16777216" Spacing="0" Block="true" Continuation="false" Visible="true" KeepWithNext="false" Count="1">
+</NewlineElement>
+<NewlineElement ID="Newline4" Alignment="1" Indent="0.0" Hindent="0" Font="Serif-PLAIN-10" Foreground="-16777216" Spacing="0" Block="true" Continuation="false" Visible="true" KeepWithNext="false" Count="1">
+</NewlineElement>
+<TextElement ID="Text30" Alignment="1" Indent="0.0" Hindent="0" Font="Verdana-BOLD-10" Foreground="-16777216" Spacing="0" Block="false" Continuation="false" Visible="true" KeepWithNext="false" FillStyle="0" TabStops="0.5,1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0,5.5,6.0,6.5,7.0,7.5,8.0" Justify="false" Orphan="false" TextAdvance="3">
+<![CDATA[Hauptaufgaben]]>
+</TextElement>
+<SeparatorElement ID="Separator3" Alignment="1" Indent="0.0" Hindent="0" Font="Serif-PLAIN-10" Foreground="-16777216" Spacing="0" Block="true" Continuation="false" Visible="true" KeepWithNext="false" Style="4097" SeparatorAdvance="4">
+</SeparatorElement>
+<TextElement ID="Hauptaufgaben" Alignment="65" Indent="0.0" Hindent="0" Font="Verdana-PLAIN-10" Foreground="-16777216" Spacing="0" Block="false" Continuation="false" Visible="true" KeepWithNext="false" FillStyle="0" TabStops="0.5,1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0,5.5,6.0,6.5,7.0,7.5,8.0" Justify="true" Orphan="false" TextAdvance="3">
+<![CDATA[Hauptaufgaben]]>
+</TextElement>
+<PageBreakElement ID="PageBreak3" Alignment="1" Indent="0.0" Hindent="0" Font="Serif-PLAIN-10" Foreground="-16777216" Spacing="0" Block="true" Continuation="false" Visible="true" KeepWithNext="false">
+</PageBreakElement>
+<NewlineElement ID="Newline17" Alignment="1" Indent="0.0" Hindent="0" Font="Serif-PLAIN-10" Foreground="-16777216" Spacing="0" Block="true" Continuation="false" Visible="true" KeepWithNext="false" Count="1">
+</NewlineElement>
+<TextElement ID="Text32" Alignment="1" Indent="0.0" Hindent="0" Font="Verdana-BOLD-10" Foreground="-16777216" Spacing="0" Block="false" Continuation="false" Visible="true" KeepWithNext="false" FillStyle="0" TabStops="0.5,1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0,5.5,6.0,6.5,7.0,7.5,8.0" Justify="false" Orphan="false" TextAdvance="3">
+<![CDATA[Bewertung]]>
+</TextElement>
+<SeparatorElement ID="Separator4" Alignment="1" Indent="0.0" Hindent="0" Font="Serif-PLAIN-10" Foreground="-16777216" Spacing="0" Block="true" Continuation="false" Visible="true" KeepWithNext="false" Style="4097" SeparatorAdvance="4">
+</SeparatorElement>
+<TableElement ID="BeurteilungTable" Alignment="9" Indent="0.0" Hindent="0" Font="Verdana-PLAIN-10" Foreground="-16777216" Spacing="0" Block="true" Continuation="false" Visible="true" KeepWithNext="false" TableWidth="0.0" Layout="1" TableAdvance="1" OrphanControl="false" Padding="0,1,0,1" Style="XTableStyle" EmbedWidth="false" Embedded="false">
+<Style RowBorderC="true" ColBorderC="true" RowBorder="true" ColBorder="true" Insets="false" Alignment="true" Font="true" LineWrap="false" Foreground="false" Background="true" FirstRow="true" FirstCol="true" LastRow="false" LastCol="false"/>
+<RowGroup>
+</RowGroup>
+<ColGroup>
+</ColGroup>
+</TableElement>
+<PageBreakElement ID="PageBreak2" Alignment="1" Indent="0.0" Hindent="0" Font="Serif-PLAIN-10" Foreground="-16777216" Spacing="0" Block="true" Continuation="false" Visible="true" KeepWithNext="false">
+</PageBreakElement>
+<NewlineElement ID="Newline31" Alignment="1" Indent="0.0" Hindent="0" Font="Serif-PLAIN-10" Foreground="-16777216" Spacing="0" Block="true" Continuation="false" Visible="true" KeepWithNext="false" Count="1">
+</NewlineElement>
+<TableElement ID="GesamturteilTable" Alignment="9" Indent="0.0" Hindent="0" Font="Verdana-PLAIN-10" Foreground="-16777216" Spacing="0" Block="true" Continuation="false" Visible="true" KeepWithNext="false" TableWidth="0.0" Layout="1" TableAdvance="1" OrphanControl="false" Padding="0,1,0,1" Style="XTableStyle" EmbedWidth="false" Embedded="true">
+<Style RowBorderC="true" ColBorderC="true" RowBorder="true" ColBorder="true" Insets="false" Alignment="true" Font="true" LineWrap="false" Foreground="false" Background="true" FirstRow="true" FirstCol="true" LastRow="false" LastCol="false"/>
+<RowGroup>
+</RowGroup>
+<ColGroup>
+</ColGroup>
+<Table Rows="1" Cols="3" HeaderRow="1" HeaderCol="0">
+<TR>
+<TD>""</TD><TD>""</TD><TD>""</TD></TR>
+</Table>
+</TableElement>
+<NewlineElement ID="Newline32" Alignment="1" Indent="0.0" Hindent="0" Font="Serif-PLAIN-10" Foreground="-16777216" Spacing="0" Block="true" Continuation="false" Visible="true" KeepWithNext="false" Count="1">
+</NewlineElement>
+<NewlineElement ID="Newline37" Alignment="1" Indent="0.0" Hindent="0" Font="Serif-PLAIN-10" Foreground="-16777216" Spacing="0" Block="true" Continuation="false" Visible="true" KeepWithNext="false" Count="1">
+</NewlineElement>
+<NewlineElement ID="Newline38" Alignment="1" Indent="0.0" Hindent="0" Font="Serif-PLAIN-10" Foreground="-16777216" Spacing="0" Block="true" Continuation="false" Visible="true" KeepWithNext="false" Count="1">
+</NewlineElement>
+<NewlineElement ID="Newline36" Alignment="1" Indent="0.0" Hindent="0" Font="Serif-PLAIN-10" Foreground="-16777216" Spacing="0" Block="true" Continuation="false" Visible="true" KeepWithNext="false" Count="1">
+</NewlineElement>
+<TextElement ID="Text33" Alignment="1" Indent="0.0" Hindent="0" Font="Verdana-BOLD-10" Foreground="-16777216" Spacing="0" Block="false" Continuation="false" Visible="true" KeepWithNext="false" FillStyle="0" TabStops="0.5,1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0,5.5,6.0,6.5,7.0,7.5,8.0" Justify="false" Orphan="false" TextAdvance="3">
+<![CDATA[Unterschrift Vorgesetzter]]>
+</TextElement>
+<SeparatorElement ID="Separator5" Alignment="1" Indent="0.0" Hindent="0" Font="Serif-PLAIN-10" Foreground="-16777216" Spacing="0" Block="true" Continuation="false" Visible="true" KeepWithNext="false" Style="4097" SeparatorAdvance="4">
+</SeparatorElement>
+<TableElement ID="UnterschriftVorgesetzter" Alignment="9" Indent="0.0" Hindent="0" Font="Serif-PLAIN-10" Foreground="-16777216" Spacing="0" Block="true" Continuation="false" Visible="true" KeepWithNext="false" TableWidth="0.0" Layout="1" TableAdvance="1" OrphanControl="false" Padding="0,1,0,1" Style="XTableStyle2" EmbedWidth="false" Embedded="false">
+<Style RowBorderC="true" ColBorderC="true" RowBorder="true" ColBorder="true" Insets="false" Alignment="true" Font="true" LineWrap="false" Foreground="true" Background="true" FirstRow="true" FirstCol="true" LastRow="false" LastCol="false"/>
+<RowGroup>
+</RowGroup>
+<ColGroup>
+</ColGroup>
+</TableElement>
+<NewlineElement ID="Newline14" Alignment="1" Indent="0.0" Hindent="0" Font="Serif-PLAIN-10" Foreground="-16777216" Spacing="0" Block="true" Continuation="false" Visible="true" KeepWithNext="false" Count="1">
+</NewlineElement>
+<NewlineElement ID="Newline15" Alignment="1" Indent="0.0" Hindent="0" Font="Serif-PLAIN-10" Foreground="-16777216" Spacing="0" Block="true" Continuation="false" Visible="true" KeepWithNext="false" Count="1">
+</NewlineElement>
+<TextElement ID="Text20" Alignment="1" Indent="0.0" Hindent="0" Font="Verdana-BOLD-10" Foreground="-16777216" Spacing="0" Block="false" Continuation="false" Visible="true" KeepWithNext="false" FillStyle="0" TabStops="0.5,1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0,5.5,6.0,6.5,7.0,7.5,8.0" Justify="false" Orphan="false" TextAdvance="3">
+<![CDATA[Unterschrift Mitarbeiter]]>
+</TextElement>
+<SeparatorElement ID="Separator6" Alignment="1" Indent="0.0" Hindent="0" Font="Serif-PLAIN-10" Foreground="-16777216" Spacing="0" Block="true" Continuation="false" Visible="true" KeepWithNext="false" Style="4097" SeparatorAdvance="0">
+</SeparatorElement>
+<TableElement ID="UnterschriftMitarbeiter" Alignment="9" Indent="0.0" Hindent="0" Font="Serif-PLAIN-10" Foreground="-16777216" Spacing="0" Block="true" Continuation="false" Visible="true" KeepWithNext="false" TableWidth="0.0" Layout="1" TableAdvance="1" OrphanControl="false" Padding="0,1,0,1" Style="XTableStyle2" EmbedWidth="false" Embedded="false">
+<Style RowBorderC="true" ColBorderC="true" RowBorder="true" ColBorder="true" Insets="false" Alignment="true" Font="true" LineWrap="false" Foreground="true" Background="true" FirstRow="true" FirstCol="true" LastRow="false" LastCol="false"/>
+<RowGroup>
+</RowGroup>
+<ColGroup>
+</ColGroup>
+</TableElement>
+</Report>

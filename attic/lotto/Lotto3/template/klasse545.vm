@@ -1,0 +1,38 @@
+<!--\#include file="include/head_klasse545.shtml"-->
+<!--\#include file="include/body.shtml"-->
+<br>
+<p class="subTitle">5er Klassen</p>
+<p class="nr">ab Ziehung Nr. 1/1986 (Einf&uuml;hrung von 43, 44 und 45)</p>
+<br>
+<table border="1" class="tableContents">
+<tr>
+<th class="tableHeader">5er Klassen</th>
+<th class="tableHeader">Ausspielungen</th>
+<th class="tableHeader">Prozent</th>
+</tr>
+
+<tr><th class="tableRowHeader">2</th><td align="center" class="text">$k0</td>
+<td align="right" class="text">$pk0</td></tr>
+<tr><th class="tableRowHeader">3</th><td align="center" class="text">$k1</td>
+<td align="right" class="text">$pk1</td></tr>
+<tr><th class="tableRowHeader">4</th><td align="center" class="text">$k2</td>
+<td align="right" class="text">$pk2</td></tr>
+<tr><th class="tableRowHeader">5</th><td align="center" class="text">$k3</td>
+<td align="right" class="text">$pk3</td></tr>
+<tr><th class="tableRowHeader">6</th><td align="center" class="text">$k4</td>
+<td align="right" class="text">$pk4</td></tr>
+</table>
+<br>
+<p class="text">
+<a href="klasse5alle.shtml">alle Ziehungen</a><BR>
+<a href="klasse542.shtml">ab Ziehung Nr. 14/1979 (Einf&uuml;hrung von 41 und 42)</a><BR>
+<b>ab Ziehung Nr. 1/1986 (Einf&uuml;hrung von 43, 44 und 45)</b><BR>
+<a href="klasse597.shtml">ab Ziehung Nr. 1/1997 (Einf&uuml;hrung Mittwochsziehung)</a>
+</p>
+<br>
+<HR>
+<br>
+<table class="text">
+<tr><td class="text">Bei dieser Analyse untersucht man, in wieviel verschiedenen 5-er Klassen (Zahlen 1 bis 5, 6 bis 10,..., 41-45) die Gewinnzahlen in jeder Ziehung lagen</td></tr>
+</table>
+<!--\#include file="include/tail.shtml"-->

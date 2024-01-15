@@ -1,0 +1,20 @@
+
+
+TODO
+
+   
+  - AddAppointmentServlet 
+    doppelte Appointments können nicht hinzugefügt werden.
+	
+
+  - Add Appintments 
+    mehr Checks einbauen
+
+  - Alle System.out in Log schreiben (log4j ?)
+
+  - AppointmentsCache  --> Version 1.1
+    move the class to another package
+
+
+
+  

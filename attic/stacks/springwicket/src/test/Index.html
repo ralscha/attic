@@ -1,0 +1,39 @@
+<html>
+<head>
+<title>Cheesr - Making cheese taste beta</title>
+<link href="style.css" rel="stylesheet" />
+</head>
+<body>
+<div id="container">
+<div id="header">
+<h1>...</h1>
+</div>
+<div id="contents">
+<div id="main">
+
+	<div wicket:id="cheeses" class="cheese">
+	  <h3 wicket:id="name">Gouda</h3>
+	  <p wicket:id="description">Gouda is a Dutch...</p>
+	  <p><span wicket:id="price">$1.99</span> <a wicket:id="add" href="#">add to cart</a></p>
+	</div>
+  
+  <div wicket:id="navigation"></div>
+  
+	<wicket:remove>
+		<div class="cheese">
+		<h3>Emmental</h3>
+		<p>Emmental is a Swiss che...</p>
+		<p><span>$2.99</span> <a href="#">add to cart</a></p>
+		</div>
+	</wicket:remove></div>
+	
+	<div id="cart">
+	
+		<div wicket:id="shoppingcart"></div>
+		<input type="button" wicket:id="checkout" value="Check out" />	
+	
+	</div>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,113 @@
+/*
+=====================================================================
+	
+	FieldLayout.java
+
+	Created by Claude Duguay
+	Copyright (c) 1998
+
+=====================================================================
+*/
+
+
+import java.awt.Insets;
+import java.awt.Component;
+import java.awt.Container;
+import java.awt.Dimension;
+
+public class FieldLayout extends AbstractLayout
+{
+	public FieldLayout() {}
+	
+	public FieldLayout(int hgap, int vgap)
+	{
+		super(hgap, vgap);
+	}
+	
+	public Dimension minimumLayoutSize(Container target)
+	{
+		int left = 0, right = 0, height = 0;
+		Insets insets = target.getInsets();
+		int ncomponents = target.getComponentCount();
+		for (int i = 0; i < ncomponents; i += 2)
+		{
+			Component label = target.getComponent(i);
+			int w1 = label.getMinimumSize().width;
+			int h1 = label.getMinimumSize().height;
+			if (w1 > left) left = w1;
+			if (i + 1 < ncomponents)
+			{
+				Component field = target.getComponent(i + 1);
+				int w2 = field.getMinimumSize().width;
+				int h2 = field.getMinimumSize().height;
+				if (w2 > right) right = w2;
+				height += Math.max(h1, h2) + hgap;
+			}
+			else height += h1;
+		}
+		return new Dimension(
+			insets.left + insets.right + left + right + vgap,
+			insets.top + insets.bottom + height - hgap);
+	}
+
+	public Dimension preferredLayoutSize(Container target)
+	{
+		int left = 0, right = 0, height = 0;
+		Insets insets = target.getInsets();
+		int ncomponents = target.getComponentCount();
+		for (int i = 0; i < ncomponents; i += 2)
+		{
+			Component label = target.getComponent(i);
+			int w1 = label.getPreferredSize().width;
+			int h1 = label.getPreferredSize().height;
+			if (w1 > left) left = w1;
+			if (i + 1 < ncomponents)
+			{
+				Component field = target.getComponent(i + 1);
+				int w2 = field.getPreferredSize().width;
+				int h2 = field.getPreferredSize().height;
+				if (w2 > right) right = w2;
+				height += Math.max(h1, h2) + hgap;
+			}
+			else height += h1;
+		}
+		return new Dimension(
+			insets.left + insets.right + left + right + vgap,
+			insets.top + insets.bottom + height - hgap);
+	}
+	
+	public void layoutContainer(Container target)
+	{
+		int left = 0;
+		int height = 0;
+		Insets insets = target.getInsets();
+		int ncomponents = target.getComponentCount();
+		// Pre-calculate left position
+		for (int i = 0; i < ncomponents; i += 2)
+		{
+			Component label = target.getComponent(i);
+			int w = label.getPreferredSize().width;
+			if (w > left) left = w;
+		}
+		int right = target.getSize().width - left
+			- insets.left - insets.right - hgap;
+		int vpos = insets.top;
+		for (int i = 0; i < ncomponents; i += 2)
+		{
+			Component label = target.getComponent(i);
+			int h1 = label.getPreferredSize().height;
+			int h2 = 0;
+			Component field = null;
+			if (i + 1 < ncomponents)
+			{
+				field = target.getComponent(i + 1);
+				h2 = field.getPreferredSize().height;
+			}
+			int h = Math.max(h1, h2);
+			label.setBounds(insets.left, vpos, left, h);
+			if (field != null)
+				field.setBounds(insets.left + left + hgap, vpos, right, h);
+			vpos += h + hgap;
+		}
+	}
+}

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+  GRANITE DATA SERVICES
+  Copyright (C) 2007-2008 ADEQUATE SYSTEMS SARL
+
+  This file is part of Granite Data Services.
+
+  Granite Data Services is free software; you can redistribute it and/or modify
+  it under the terms of the GNU Lesser General Public License as published by
+  the Free Software Foundation; either version 3 of the License, or (at your
+  option) any later version.
+
+  Granite Data Services is distributed in the hope that it will be useful, but
+  WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+  FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License
+  for more details.
+
+  You should have received a copy of the GNU Lesser General Public License
+  along with this library; if not, see <http://www.gnu.org/licenses/>.
+-->
+
+<mx:VBox xmlns:mx="http://www.adobe.com/2006/mxml" width="400" height="300"
+    label="{booking.hotel.name}">
+
+    <mx:Script>
+        <![CDATA[
+          import ch.ess.booking.control.BookingsCtl;
+          import ch.ess.booking.entity.Booking;
+            import mx.formatters.DateFormatter;
+            import mx.controls.Alert;
+            import mx.collections.ArrayCollection;
+
+
+            [Bindable]
+            public var bookingsCtl:BookingsCtl;
+
+            [Bindable]
+            public var booking: Booking;
+
+            [Bindable]
+            [Embed(source="images/icons/Cancel.png")]
+            private var Cancel:Class;
+
+            private const prefArray:ArrayCollection = new ArrayCollection(["1 King Bed", "2 Double Bed", "2 Double 1 Single Bed"]);
+        ]]>
+    </mx:Script>
+
+    <mx:DateFormatter id="dateFormat" formatString="MM/DD/YYYY" />
+
+    <mx:LinkButton label="Cancel Reservation" icon="{Cancel}" click="bookingsCtl.cancelBooking(booking);" toolTip="Cancel Reservation"  paddingBottom="5" paddingLeft="5" paddingRight="5" paddingTop="5" rollOverColor="#e2e5d5" themeColor="#e2e5d5" fontWeight="bold"/>
+    <mx:Label text="Confirmation #: {booking.id}"  paddingLeft="5" paddingTop="5"/>
+    <mx:Label id="lblHotelAddress" text="{booking.hotel.address}" paddingLeft="5"/>
+    <mx:Label id="lblBooking" text="{booking.hotel.city}, {booking.hotel.state} {booking.hotel.zip}"  paddingLeft="5"/>
+    <mx:Label id="lblCheckInDate" text="Check In Date: {dateFormat.format(booking.checkinDate)}"  paddingLeft="5"/>
+    <mx:Label id="lblCheckOutDate" text="Check Out Date: {dateFormat.format(booking.checkoutDate)}"  paddingLeft="5"/>
+    <mx:Label text="Smoking Preference: {booking.smoking ? 'Smoking' : 'Non-Smoking'}"  paddingLeft="5"/>
+    <mx:Label text="Room Preference : {prefArray.getItemAt(booking.beds)}"  paddingLeft="5"/>
+    <!--mx:Label text="Total : ${booking.total}"  paddingLeft="5"/-->
+
+</mx:VBox>

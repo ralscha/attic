@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping SYSTEM "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+<hibernate-mapping>
+
+	<class name="ch.ess.cal.db.Recurrence" proxy="ch.ess.cal.db.Recurrence" table="calRecurrence">
+		<id name="recurrenceId" type="long" unsaved-value="null">
+			<generator class="native"/>
+		</id>		
+				
+		<property name="exclude" type="boolean" not-null="true"/>																
+		<property name="type" type="ch.ess.cal.db.RecurrenceTypeEnum" not-null="true"/>		
+		<property name="interval" type="integer" not-null="false"/>		
+		<property name="dayOfWeekMask" type="integer" not-null="false"/>		
+		<property name="dayOfMonth" type="integer" not-null="false"/>		
+		<property name="monthOfYear" type="integer" not-null="false"/>		
+		<property name="instance" type="integer" not-null="false"/>		
+		<property name="occurrences" type="integer" not-null="false"/>	
+		<property name="duration" type="integer" not-null="false"/>	
+		<property name="always" type="boolean" not-null="true"/>												
+		<property name="until" type="long" not-null="false"/>		
+        <property name="rfcRule" type="string" length="255" not-null="false"/>
+		
+		<many-to-one name="event" class="ch.ess.cal.db.Event" 
+		             column="eventId" not-null="true"/>			
+
+
+		<map name="days"		     
+		     table="calRecurrenceDay"
+		     lazy="true"
+		     cascade="all">
+          <key column="recurrenceId"/>
+          <index column="pos" type="integer"/>
+          <element column="recurrenceDay" type="long"/> 		     
+		</map>
+				
+	</class>
+
+	
+</hibernate-mapping>

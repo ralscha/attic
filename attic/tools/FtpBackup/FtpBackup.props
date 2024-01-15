@@ -1,0 +1,97 @@
+
+backup.zip.file=Backup.zip
+backup.zip.path=d:\\javaprojects\\private\\FtpBackup\\
+backup.decrypted.file=d:\\javaprojects\\private\\FtpBackup\\decrypted.zip
+
+encrypt=true
+encrypt.key.file=key.dat
+encrypt.key.path=d:\\javaprojects\\private\\FtpBackup\\
+
+exclude.dir.001 = d:\\javaprojects\\private\\logframework\\grace-0.7a
+exclude.dir.002 = d:\\javaprojects\\private\\logframework\\grace-0.7.3
+exclude.dir.003 = d:\\javaprojects\\private\\logframework\\grace-0_6
+exclude.dir.004 = d:\\javaprojects\\business\\crapa_data
+exclude.dir.005 = d:\\javaprojects\\private\\palm\\j2me
+exclude.dir.006 = d:\\javaprojects\\business\\uml
+exclude.dir.007 = d:\\javaprojects\\ess\\webcal_dist
+exclude.dir.008 = d:\\javaprojects\\private\\lucene
+exclude.dir.009 = d:\\javaprojects\\ess\\webcal_history
+
+exclude.ending.001 = .class
+exclude.ending.002 = .jar
+exclude.ending.003 = .zip
+exclude.ending.004 = .log
+exclude.ending.005 = .odb
+exclude.ending.006 = .odt
+exclude.ending.007 = .odf
+exclude.ending.008 = .data
+exclude.ending.009 = .gif
+exclude.ending.010 = .pac
+exclude.ending.011 = .shtml
+exclude.ending.012 = .jpg
+exclude.ending.013 = .html
+exclude.ending.014 = .htm
+exclude.ending.015 = .csv
+exclude.ending.016 = .mdb
+exclude.ending.017 = .sdr
+exclude.ending.018 = .bak
+exclude.ending.019 = .ddl
+exclude.ending.020 = .tbl
+exclude.ending.021 = .pdf
+exclude.ending.022 = .mht
+exclude.ending.023 = .pdb
+exclude.ending.024 = .prc
+exclude.ending.025 = .bro
+exclude.ending.026 = .exe
+exclude.ending.027 = .nam
+exclude.ending.028 = .vtg
+exclude.ending.029 = .kawa
+exclude.ending.030 = .ppt
+exclude.ending.031 = .prj
+exclude.ending.032 = .opn
+exclude.ending.033 = .results
+exclude.ending.034 = .au
+exclude.ending.035 = .ser
+exclude.ending.036 = .bpt
+exclude.ending.037 = .cdb
+exclude.ending.038 = .dpd
+exclude.ending.039 = .war
+
+exclude.file.001 = bookings.dat 
+exclude.file.002 = ziehung.dat
+exclude.file.003 = ziehung.txt
+exclude.file.004 = GU42.txt
+exclude.file.005 = GU45.txt
+exclude.file.006 = GUalle.txt
+exclude.file.007 = GUz97.txt
+exclude.file.008 = BOOKINGS_RZ2.txt
+exclude.file.009 = install.exe
+exclude.file.010 = cre2000_gtf2000.txt
+exclude.file.011 = book4.dat
+exclude.file.012 = credoc_file_new_II.dat
+exclude.file.013 = credoc_file_new.dat
+exclude.file.014 = inactive.dat
+exclude.file.015 = active.dat
+exclude.file.016 = credoc_cif_rz2.dat
+exclude.file.017 = Gewinnquoten.txt
+exclude.file.018 = Ziehung.txt
+exclude.file.019 = swiftadr.dat
+exclude.file.020 = tlc24.dat
+exclude.file.021 = tlc21.dat
+exclude.file.022 = SwissSearch.doc
+exclude.file.023 = 10196pla.ces
+exclude.file.024 = 3897male.nam
+exclude.file.025 = 4946fema.len
+exclude.file.026 = names.dat
+ftp.send = true
+ftp.directory=public_html/backup
+ftp.host=host
+ftp.password=pw
+ftp.user=user
+
+
+# Backup paths
+path.001=d:\\javaprojects
+
+proxy.host=
+proxy.port=

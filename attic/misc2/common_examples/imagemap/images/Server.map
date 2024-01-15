@@ -1,0 +1,4 @@
+default http://www.java-pro.com/default.html
+rect http://www.java-pro.com/rect.html 228,68,376,215
+circ http://www.java-pro.com/circ.html 507,253,80
+poly http://www.java-pro.com/poly.html 106,175,230,290,112,337,42,324,106,177

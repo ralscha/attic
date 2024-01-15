@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="vertical"
+  xmlns:comp="ch.ess.hgtracker.components.*" preloader="ch.ess.hgtracker.components.CustomPreloaderScreen">
+  
+  <mx:Style source="assets/main.css" />
+  
+  <mx:Script>
+    <![CDATA[
+      import mx.rpc.events.ResultEvent;
+      import ch.ess.hgtracker.db.Club;
+      import ch.ess.hgtracker.db.Spiel;
+      import ch.ess.hgtracker.events.LoginEvent;
+      [Bindable]
+      public var loggedIn:Boolean = false;
+      
+      [Bindable]
+      private var adminLoggedIn:Boolean = false;
+      
+      [Bindable]
+      public var club:Club;
+          
+      private function processLogin(event:LoginEvent):void {
+        loggedIn = true;
+        club = event.club;     
+        
+        adminLoggedIn = club.admin;               
+     
+      }
+      
+      private function doLogout():void {        
+        loggedIn = false;
+        adminLoggedIn = false;
+        loginPanel.init();
+        loginService.doLogout(club.sessionId);
+      }
+            
+      private function onGetClub(e:ResultEvent):void {
+        club = Club(e.result);
+        //spielComponent.club = club;
+        spielComponent.init();
+      }
+      
+    ]]>
+  </mx:Script>
+  
+  <mx:RemoteObject id="loginService" showBusyCursor="true" destination="loginService"/>
+  <mx:RemoteObject id="clubService" showBusyCursor="true" destination="clubService" result="onGetClub(event)"/>
+  
+  <mx:ApplicationControlBar id="appBar" width="100%">
+    <mx:Label text="{loggedIn ? (adminLoggedIn ? 'Administration' : club.hgName) : 'HG Verwaltung'}" fontSize="18" fontWeight="bold" color="white"/>
+    <mx:Spacer width="40" />
+   
+
+    <mx:LinkBar dataProvider="{objectView}" visible="{loggedIn &amp;&amp; !adminLoggedIn}"/>    
+    <mx:LinkBar dataProvider="{adminView}" visible="{loggedIn &amp;&amp; adminLoggedIn}"/>
+    
+    <mx:Spacer width="100%"/>
+    <mx:Button label="Abmelden" click="doLogout()" visible="{loggedIn}" />
+  </mx:ApplicationControlBar>
+  <mx:Spacer height="20" />
+  
+  <!-- selectedIndex="{loggedIn ? 1 : 0}" -->
+  <mx:ViewStack id="appView" selectedIndex="{loggedIn ? 1 : 0}" width="100%" height="100%">
+    <mx:VBox width="100%" horizontalAlign="center">
+      <comp:LoginPanel loggedOn="processLogin(event)" id="loginPanel"/>
+    </mx:VBox>
+    
+    <mx:Canvas id="loggedInView" width="100%" height="100%">      
+      <mx:ViewStack id="objectView" height="85%" width="100%" visible="{!adminLoggedIn}">  
+        <comp:SpielList label="Spiele" id="spielComponent" club="{club}" />  
+        <comp:SpielerList label="Spieler" id="spielerComponent" club="{club}" application="{Application(application)}"/>
+        <comp:ArtList label="Art" id="artComponent" club="{club}" />
+        <comp:ClubEdit label="Club" club="{club}"/>
+        <comp:DurchschnittList label="Durchschnitt" id="durchschnittComponent" club="{club}" height="100%"/>            
+        <comp:RangpunkteList label="Rangpunkte" id="rangpunkteComponent" club="{club}" height="100%"/>
+      </mx:ViewStack>
+      <mx:ViewStack id="adminView" height="85%" width="100%" visible="{adminLoggedIn}">
+        <comp:ClubAdminList label="Clubs" id="clubComponent" />  
+      </mx:ViewStack>
+    </mx:Canvas> 
+         
+  </mx:ViewStack>
+    
+</mx:Application>

@@ -1,0 +1,51 @@
+
+# database
+vbsf.schema = lotto.schema
+db.driver = com.mckoi.JDBCDriver
+db.url = jdbc:mckoi:local://./db.conf
+db.user = admin
+db.password = admin
+
+
+# files
+path.html.output = D:/eclipse/workspace/Lotto/output/
+path.html.output.bin = D:/eclipse/workspace/Lotto/output/bin/
+path.html.output.quoten = D:/eclipse/workspace/Lotto/output/quoten/
+path.html.output.include = D:/eclipse/workspace/Lotto/output/include/
+
+path.template = template/
+
+
+# proxy settings
+#proxy.host = 
+#proxy.port = 
+
+#runner
+update.runner.maxloop = 60
+update.runner.waittime = 450 
+sender.runner.maxloop = 5
+sender.runner.waittime = 300
+
+# true  = access to internet
+# false = read test file
+web.access = true
+
+# test files
+file.swisslotto.ziehung = D:/eclipse/workspace/Lotto/lotto.html
+file.swisslotto.jokergewinnquote = D:/eclipse/workspace/Lotto/lotto.html
+file.swisslotto.lottogewinnquote = D:/eclipse/workspace/Lotto/lotto.html
+file.swisslotto.extrajokergewinnquote = D:/eclipse/workspace/Lotto/lotto.html
+
+# url
+url.swisslotto.ziehung = http://www.loterie.ch/en/resultats/index.php
+url.swisslotto.jokergewinnquote = http://www.loterie.ch/en/resultats/index.php
+url.swisslotto.lottogewinnquote = http://www.loterie.ch/en/resultats/index.php
+url.swisslotto.extrajokergewinnquote = http://www.loterie.ch/en/resultats/index.php
+
+# ftp
+ftp.host = home.datacomm.ch
+ftp.user = rschaer
+ftp.password = gur8wolf
+ftp.home = public_html/lotto
+ftp.home.include = public_html/lotto/include
+ftp.home.backup = public_html/backup

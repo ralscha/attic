@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="vertical" creationComplete="init()" viewSourceURL="srcview/index.html">
+  <mx:states>
+    <mx:State name="loginSuccessful">
+      <mx:RemoveChild target="{panel1}"/>
+      <mx:RemoveChild target="{panel2}"/>
+      <mx:AddChild position="lastChild">
+        <mx:Panel width="476" height="337" layout="absolute" title="LOGIN SUCCESSFUL">
+          <mx:Form x="10" y="10">
+            <mx:FormItem label="Your OpenID">
+              <mx:Label id="openIdLabel"/>
+            </mx:FormItem>
+            <mx:FormItem label="Nickname">
+              <mx:Label id="nicknameLabel"/>
+            </mx:FormItem>
+            <mx:FormItem label="Email">
+              <mx:Label id="emailLabel"/>
+            </mx:FormItem>
+            <mx:FormItem label="Fullname">
+              <mx:Label id="fullnameLabel"/>
+            </mx:FormItem>
+            <mx:FormItem label="Date of birth">
+              <mx:Label id="dateOfBirthLabel"/>
+            </mx:FormItem>
+            <mx:FormItem label="Gender">
+              <mx:Label id="genderLabel"/>
+            </mx:FormItem>
+            <mx:FormItem label="Postcode">
+              <mx:Label id="postcodeLabel"/>
+            </mx:FormItem>
+            <mx:FormItem label="Country">
+              <mx:Label id="countryLabel"/>
+            </mx:FormItem>
+            <mx:FormItem label="Language">
+              <mx:Label id="languageLabel"/>
+            </mx:FormItem>
+            <mx:FormItem label="Timezone">
+              <mx:Label id="timezoneLabel"/>
+            </mx:FormItem>
+          </mx:Form>
+        </mx:Panel>
+      </mx:AddChild>
+    </mx:State>
+    <mx:State name="loginFailed">
+      <mx:RemoveChild target="{panel1}"/>
+      <mx:RemoveChild target="{panel2}"/>
+      <mx:AddChild position="lastChild">
+        <mx:Panel width="334" height="175" layout="absolute" title="LOGIN FAILED">
+          <mx:Button x="52" y="29" label="TRY AGAIN" width="210" height="67" click="currentState = ''"/>
+        </mx:Panel>
+      </mx:AddChild>
+    </mx:State>
+  </mx:states>
+  
+  
+  <mx:Script>
+    <![CDATA[
+      import flash.net.navigateToURL;
+      import mx.rpc.events.ResultEvent;
+      
+      private function clickHandler(e:Event):void {
+        testService.addSessionVariables.send({"openidLogin": openIdTI1.text}); 
+      }
+      
+      private function clickHandler2(e:Event):void {
+        
+        var variables:Object = new Object();
+        variables.openidLogin = openIdTI2.text;
+        variables.attr_nickname = nicknameCB.selected; 
+        variables.attr_email = emailCB.selected;
+        variables.attr_dateOfBirth = dateOfBirthCB.selected;
+        variables.attr_gender = genderCB.selected;
+        variables.attr_postcode = postcodeCB.selected;
+        variables.attr_country = countryCB.selected;
+        variables.attr_language = languageCB.selected;
+        variables.attr_timezone = timezoneCB.selected;
+        variables.attr_fullname = fullnameCB.selected;
+        
+        testService.addSessionVariables.send(variables);
+      }
+      
+      private function addSessionVariablesResult(e:ResultEvent):void {
+        var request:URLRequest = new URLRequest("../flexconsumer");
+        navigateToURL(request, "_self");
+      }
+      
+      private function init():void {
+        testService.getIdentifier.send();
+      }
+      
+      private function getIdentifiertResult(e:ResultEvent):void {
+        var result:Object = e.result;
+        if (result != null) {
+          if (result.status == 'LOGIN_FAILED') {
+            currentState = 'loginFailed';
+          } else {
+            currentState = 'loginSuccessful';
+            openIdLabel.text = result.identifier;
+                        
+            emailLabel.text = result.email;
+            nicknameLabel.text = result.nickname;
+            fullnameLabel.text = result.fullname;
+            dateOfBirthLabel.text = result.dob;
+            genderLabel.text = result.gender;
+            postcodeLabel.text = result.postcode;
+            countryLabel.text = result.country;
+            languageLabel.text = result.language;
+            timezoneLabel.text = result.timezone;
+          }
+        }
+      }
+    ]]>
+  </mx:Script>
+  
+  <mx:RemoteObject id="testService" showBusyCursor="true" destination="testService">
+    <mx:method name="addSessionVariables" result="addSessionVariablesResult(event)" />
+    <mx:method name="getIdentifier" result="getIdentifiertResult(event)" />
+  </mx:RemoteObject>
+  
+  <mx:Panel width="506" height="146" layout="vertical" title="Sample 1:" id="panel1">
+    <mx:Form height="100%" width="100%">
+      <mx:FormItem label="Your OpenID">
+        <mx:TextInput width="325" id="openIdTI1"/>
+      </mx:FormItem>
+      <mx:FormItem>
+        <mx:Button label="Login" click="clickHandler(event)"/>
+      </mx:FormItem>
+    </mx:Form>
+  </mx:Panel>
+  <mx:Panel width="508" height="245" layout="absolute" title="Sample 2: using the Simple Registration extension (doc: SRegHowTo)" id="panel2">
+    <mx:Form x="10" y="10">
+      <mx:FormItem label="Your OpenID">
+        <mx:TextInput width="325" id="openIdTI2"/>
+      </mx:FormItem>
+      <mx:FormItem label="Attributes">
+        <mx:HBox width="100%">
+          <mx:CheckBox label="Nickname" selected="true" id="nicknameCB"/>
+          <mx:CheckBox label="Email" selected="true" id="emailCB"/>
+          <mx:CheckBox label="Date of birth" selected="true" id="dateOfBirthCB"/>
+        </mx:HBox>
+      </mx:FormItem>
+      <mx:FormItem>
+        <mx:HBox width="100%">
+          <mx:CheckBox label="Gender" selected="true" id="genderCB"/>
+          <mx:CheckBox label="Postcode" selected="true" id="postcodeCB"/>
+          <mx:CheckBox label="Country" selected="true" id="countryCB"/>
+        </mx:HBox>
+      </mx:FormItem>
+      <mx:FormItem>
+        <mx:HBox width="100%">
+          <mx:CheckBox label="Language" selected="true" id="languageCB"/>
+          <mx:CheckBox label="Timezone" selected="true" id="timezoneCB"/>
+          <mx:CheckBox label="Fullname" selected="true" id="fullnameCB"/>
+        </mx:HBox>
+      </mx:FormItem>
+      <mx:FormItem>
+        <mx:Button label="Login" click="clickHandler2(event)"/>
+      </mx:FormItem>
+    </mx:Form>
+  </mx:Panel>
+  
+</mx:Application>

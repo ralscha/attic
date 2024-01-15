@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jardesc>
+<jar path="D:/eclipse/workspace/SpeedSend/lib/ss.jar"/>
+<options buildIfNeeded="true" compress="true" descriptionLocation="/SpeedSend/ss.jardesc" exportErrors="true" exportWarnings="true" includeDirectoryEntries="false" overwrite="true" saveDescription="true" storeRefactorings="false" useSourceFolders="false"/>
+<refactoring structuralOnly="true"/>
+<selectedProjects>
+<project name="SpeedSend"/>
+</selectedProjects>
+<manifest generateManifest="true" mainClassHandleIdentifier="=SpeedSend/src&lt;ch.ess.speedsend{Server.java[Server" manifestLocation="" manifestVersion="1.0" reuseManifest="false" saveManifest="false" usesManifest="true">
+<sealing sealJar="false">
+<packagesToSeal/>
+<packagesToUnSeal/>
+</sealing>
+</manifest>
+<selectedElements exportClassFiles="true" exportJavaFiles="false" exportOutputFolder="false">
+<javaElement handleIdentifier="=SpeedSend/src"/>
+</selectedElements>
+</jardesc>

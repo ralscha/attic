@@ -1,0 +1,113 @@
+<%@ page language="java" import="java.util.*,ch.ess.ct.business.db.*,${actionPackage}.*"  errorPage="/error.jsp" %>
+<%@ taglib uri="/WEB-INF/struts-html.tld" prefix="html" %>
+<%@ taglib uri="/WEB-INF/struts-logic.tld" prefix="logic" %>
+<%@ taglib uri="/WEB-INF/struts-bean.tld"  prefix="bean" %>
+<%@ taglib uri="/WEB-INF/app.tld" prefix="app" %>
+<%@ taglib uri="/WEB-INF/taglib-table.tld" prefix="tx" %>
+<%@ taglib uri="/ess-table" prefix="t" %>
+<%@ taglib uri="/ess-misc"  prefix="misc" %>
+
+<app:checkLogon/>
+<misc:noCache/>
+
+
+<html><head><title>${dbClassName}</title>
+<link rel=stylesheet type="text/css" href="../css.css">
+
+<app:step chain="9" step="1">
+<app:navigation direction="stop">${dir}/descr${dir}.jsp</app:navigation>
+</app:step>
+
+<app:confirm key="${objectName}Loeschen" />
+
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" link="#3A3D57" vlink="#3A3D57" alink="#3A3D57" topmargin="5" marginwidth="15" marginheight="5" leftmargin="15">
+<app:mainTitle key="${dbClassName}"/>
+<p>
+
+<html:form action="/${dir}/list${dbClassName}.do" focus="searchStr" method="post">
+<input type="hidden" name="search" value="search">
+<table cellspacing="0" cellpadding="0" border="0">
+<tr><td>
+<table width="100%" border="0" cellspacing="1" cellpadding="2" bgcolor="#000000">
+
+<tr>
+<th class="textbs" colspan="2" align="left" bgcolor="#FFFFFF"><bean:message key="Filterkriterien" /></th></tr>
+<tr bgcolor="#CFD0DA">
+  <td><strong><bean:message key="${objectName}" /></strong><br>
+	<html:text property="searchStr" size="20" maxlength="50"/>
+  </td>
+	
+
+  <td align="right" valign="bottom"><input type="submit" name="searchButton" value="<bean:message key="Anzeigen" />"></td>
+</tr>
+
+</table>
+</td>
+</tr>
+</table>
+
+</html:form>
+
+<t:table name="listmodel" scope="session" maxPageItems="10">
+<p>    
+  <table border="0">   
+	<tr><td align="left">
+  	 <table border="0" width="100%">
+	 <tr><td align="left"><b><%= model.getCurrentFirstRow() %> <bean:message key="bis" /> <%= model.getCurrentLastRow() %> <bean:message key="von" /> <%= model.getTotalRowCount() %></b></td>
+	 <td>&nbsp;</td>
+	 <td>&nbsp;</td>
+	 <td align="right">
+          <tx:indexAll />
+		  <t:noIndex>&nbsp;</t:noIndex>	 
+	 </td></tr>
+	 
+	 </table>
+	</td></tr>
+   
+    <tr><td valign="top" bgcolor="#000000">
+      <table id="data" width="100%" border="0" cellspacing="1" cellpadding="2">
+            <tr>
+			<th bgcolor="White">&nbsp;</th>
+			
+			#foreach( $constants in $constantsList )
+			  #set( $ix = $velocityCount - 1)
+			<tx:colHeader col="<%= List${dbClassName}Action.COL_${constants} %>" cssclass="textbs" width="100" align="left" bgColor="White" key="$constantsMsgKeyList.get($ix)"/>			
+			#end
+			
+			<app:hasPermission name="ch.ess.ct.business.db.constants.${editPermissionUpper}"><th bgcolor="White">&nbsp;</th></app:hasPermission">	
+		   </tr>
+   	 
+	     <% for (int r = 0; r < model.getRowCount(); r++) { 
+			  String bgcolor = (r % 2 == 0) ? "#CFD0DA" : "#EFEFF3";
+		  %>
+      	     <tr bgcolor="<%= bgcolor %>">
+			    <td align="left"><a href="edit${objectName}.do?row=<%= r %>"><img src="../images/pen.gif" alt="" width="16" height="18" border="0"></a></td>
+  			    #foreach( $constants in $constantsList )
+			    <td class="texts" align="left"><%= model.getValueAt(r, List${dbClassName}Action.COL_${constants}) %></td>	
+			    #end		
+			    <app:hasPermission name="ch.ess.ct.business.db.constants.${editPermissionUpper}">	
+				<td align="center"><a onclick="return confirmRequest('<%= model.getValueAt(r, List${dbClassName}Action.COL_NAME) %>')" href="delete${objectName}.do?row=<%= r %>"><img src="../images/del.gif" width="12" height="12" border="0" alt="<bean:message key='loeschen'/>"></a></td>				
+				</app:hasPermission>
+			</tr>
+		   <% } %>
+   
+	</table>  
+   </td></tr>
+  </table>
+  
+</t:table>
+
+<t:noTable name="listmodel" scope="session">
+<% if (request.getParameter("search") != null) { %>
+<b class="Rot"><bean:message key="Keine${dbClassName}gefunden"/></b>
+<p>
+<% } %>
+
+</t:noTable>
+<app:hasPermission name="ch.ess.ct.business.db.constants.${editPermissionUpper}">
+<p>
+<a href="add${objectName}.do"><bean:message key="${objectName}neu"/></a>
+</app:hasPermission>
+</body></html>

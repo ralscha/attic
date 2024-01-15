@@ -1,0 +1,101 @@
+<%@ page language="java" import="org.apache.struts.util.*, ch.ess.ct.business.db.*,ch.ess.ct.*,java.util.*, ch.ess.tag.table.*"  errorPage="/error.jsp" %>
+<%@ taglib uri="/WEB-INF/struts-html.tld" prefix="html" %>
+<%@ taglib uri="/WEB-INF/struts-bean.tld"  prefix="bean" %>
+<%@ taglib uri="/WEB-INF/struts-logic.tld" prefix="logic" %>
+<%@ taglib uri="/ess-misc" prefix="misc" %>
+<%@ taglib uri="/WEB-INF/app.tld" prefix="app" %>
+<%@ taglib uri="/WEB-INF/taglib-table.tld" prefix="tx" %>
+<%@ taglib uri="/ess-table" prefix="t" %>
+
+<app:checkLogon/>
+<misc:noCache/>
+
+
+<% boolean readonly = true; %>
+<app:hasPermission name="ch.ess.ct.business.db.constants.${editPermissionUpper}">
+<% readonly = false; %>
+</app:hasPermission>
+
+<html><head>     
+<title><bean:message key="${dbClassName}" /></title>
+<link rel="STYLESHEET" type="text/css" href="../css.css">
+
+<app:step chain="9" step="2">
+<logic:messagesPresent message="true">
+  <app:navigation direction="back">${dir}/list${dbClassName}.do</app:navigation>
+  <app:navigation direction="backEnd">${dir}/list${dbClassName}.do</app:navigation>
+</logic:messagesPresent>
+<logic:messagesNotPresent message="true">
+  <app:navigation direction="back">${dir}/${dbClassLowerLowerName}.jsp</app:navigation>
+  <app:navigation direction="backEnd">${dir}/${dbClassLowerLowerName}.jsp</app:navigation>
+</logic:messagesNotPresent>
+
+<app:navigation direction="stop">${dir}/descr${dir}.jsp</app:navigation>
+</app:step>		
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" link="#3A3D57" vlink="#3A3D57" alink="#3A3D57" topmargin="5" marginwidth="15" marginheight="5" leftmargin="15">
+<app:mainTitle key="${objectName}bearbeiten"/>
+<p>
+<logic:messagesNotPresent message="true">
+<logic:messagesNotPresent>
+&nbsp;<br>
+</logic:messagesNotPresent>
+</logic:messagesNotPresent>
+<html:messages id="error">
+<b class="rot"><%= error %></b><br>
+</html:messages>
+
+<html:messages id="msg" message="true">
+<b class="lime"><%= msg %></b><br>
+</html:messages>
+<p>
+
+
+<html:form action="/${dir}/store${objectName}.do" method="post">
+<html:hidden property="${objectLowerName}Id"/>
+<p>
+<table border="0">
+<tr><td><table width="100%" border="0" cellspacing="1" cellpadding="2">
+        <tr>
+          <th width="150" align="left" bgcolor="#FFFFFF"><bean:message key="Projekt" /> *</th>
+          <td bgcolor="White"><html:text readonly="<%= readonly %>" property="name" size="40" maxlength="255"/></td>
+        </tr>
+        <tr>
+          <th width="150" align="left" bgcolor="#FFFFFF"><bean:message key="Beschreibung" /></th>
+          <td bgcolor="White"><html:text readonly="<%= readonly %>" property="beschreibung" size="60" maxlength="255"/></td>
+        </tr>
+        <tr>
+          <th width="150" align="left" bgcolor="#FFFFFF"><bean:message key="Projektleiter" /></th>
+          <td bgcolor="White"><html:text readonly="<%= readonly %>" property="projektLeiter" size="60" maxlength="255"/></td>
+        </tr>		
+        <tr>
+          <th width="150" align="left" bgcolor="#FFFFFF"><bean:message key="OE" /></th>
+          <td bgcolor="White">
+		  
+	      <jsp:useBean id="oeOptions" scope="session" class="ch.ess.ct.options.OEOptions">
+		    <% oeOptions.init(messages, theUser); %>
+		  </jsp:useBean>
+	       <html:select property="oeId">
+		    <html:option value=" ">&nbsp;</html:option>
+		    <html:options name="oeOptions" labelName="oeOptions" labelProperty="labels" property="values"/>
+			</html:select>	
+		  
+		  </td>
+        </tr>		
+
+</table>
+</td></tr>
+</table>
+<app:hasPermission name="ch.ess.ct.business.db.constants.${editPermissionUpper}">
+<p>
+<html:submit><bean:message key="Abspeichern" /></html:submit>
+</app:hasPermission>
+</html:form>
+
+<p>
+* = <bean:message key="Musseingaben"/>
+
+</body>
+</html>
+

@@ -1,0 +1,549 @@
+From: <Saved by Microsoft Internet Explorer 5>
+Subject: Browscap.ini File
+Date: Fri, 24 Mar 2000 11:52:08 +0100
+MIME-Version: 1.0
+Content-Type: multipart/related;
+	boundary="----=_NextPart_000_0000_01BF9587.620547A0";
+	type="text/html"
+X-MimeOLE: Produced By Microsoft MimeOLE V5.00.2919.6600
+
+This is a multi-part message in MIME format.
+
+------=_NextPart_000_0000_01BF9587.620547A0
+Content-Type: text/html;
+	charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
+Content-Location: http://msdn.microsoft.com/library/psdk/iisref/comp1g11.htm
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>Browscap.ini File</TITLE>
+<META content=3D"text/html; CHARSET=3Diso8859-1" =
+http-equiv=3DContent-Type>
+<STYLE>@import url( =
+http://msdn.microsoft.com/library/psdk/iisref/coua.css );
+</STYLE>
+<LINK disabled =
+href=3D"http://msdn.microsoft.com/library/psdk/iisref/cocss.css"=20
+rel=3Dstylesheet>
+<META content=3D"Internet Information Services reference information"=20
+name=3DDESCRIPTION>
+<META content=3D"MSHTML 5.00.3013.2600" name=3DGENERATOR></HEAD>
+<BODY><!--TOOLBAR_START--><!--TOOLBAR_EXEMPT--><!--TOOLBAR_END--><!--SYNC=
+_START-->
+<SCRIPT language=3DJavaScript=20
+src=3D"http://msdn.microsoft.com/library/synch.js"></SCRIPT>
+<!--SYNC_END-->
+<H2><A name=3D_browscap.ini_file></A>Browscap.ini File</H2>
+<P>You can declare property definitions for any number of browsers in =
+the=20
+Browscap.ini<B> </B>file. You can also set default values to use if the =
+client's=20
+browser is not one of the listed definitions. </P>
+<P>For each browser definition, you provide an HTTP User Agent header =
+and the=20
+properties and values you wish to associate with that header. For more=20
+information on the format of the HTTP User Agent header, refer to the =
+HTTP=20
+specification available at <A href=3D"http://www.w3.org/"=20
+target=3D_blank>http://www.w3.org/</A>.</P>
+<H6>Syntax</H6>
+<P>[; <I>comments</I>]</P>
+<P>&nbsp;</P>
+<P>[HTTPUserAgentHeader] </P>
+<P>&nbsp;</P>
+<P>[parent =3D <I>browserDefinition</I>]</P>
+<P>&nbsp;</P>
+<P>[<I>property1</I> =3D <I>value1</I>]</P>
+<P>&nbsp;</P>
+<P>...</P>
+<P>&nbsp;</P>
+<P>[<I>propertyN</I> =3D <I>valueN</I>] </P>
+<P>&nbsp;</P>
+<P><B>[Default Browser Capability Settings]</B></P>
+<P><B>&nbsp;</B></P>
+<P>[<I>defaultProperty1</I> =3D <I>defaultValue1</I>]</P>
+<P>&nbsp;</P>
+<P>...</P>
+<P>&nbsp;</P>
+<P>[<I>defaultPropertyN</I> =3D <I>defaultValueN</I>] </P>
+<P>&nbsp;</P>
+<H6>Parameters</H6>
+<DL>
+  <DT><I>comments</I>=20
+  <DD>Any line that starts with a semicolon (;). Comments, which are =
+ignored by=20
+  the <B>BrowserType </B>object, can occur anywhere in the Browscap.ini =
+file.=20
+  <BR>
+  <DT><I>HTTPUserAgentHeader</I>=20
+  <DD>Specifies the HTTP User Agent header to associate with the=20
+  browser-property value statements specified in <I>propertyN</I>. The=20
+  Browscap.ini file may contain multiple browser definitions, each one =
+starting=20
+  with a unique <I>HTTPUserAgentHeader</I> value.=20
+  <P class=3Dtl>You can use the asterisk (*) character as a wildcard =
+character in=20
+  <I>HTTPUserAgentHeader</I> to replace zero or more characters and the =
+(?)=20
+  character as a wildcard to replace a single character.=20
+  <P class=3Dtl>For example, if you specified the following string for=20
+  <I>HTTPUserAgentHeader</I>: </P></DD></DL>
+<P><CODE>[Mozilla/4.0 (compatible; MSIE 5.0;* Windows NT)]</CODE></P>
+<P><CODE>&nbsp;</CODE></P>
+<P class=3Dtl>It would match all of the following User Agent =
+headers:</P>
+<P><CODE>[Mozilla/4.0 (compatible; MSIE 5.0; Windows NT)]</CODE></P>
+<P><CODE>[Mozilla/4.0 (compatible; MSIE 5.0; AK; Windows NT)]</CODE></P>
+<P><CODE>[Mozilla/4.0 (compatible; MSIE 5.0; SK; Windows NT)]</CODE></P>
+<P><B><B>Note</B>&nbsp;&nbsp;&nbsp;</B>The <B>BrowserType </B>object =
+first=20
+attempts to match the HTTP User Agent header to a value of=20
+<I>HTTPUserAgentHeader</I> exactly. If that fails, it attempts to make a =
+match=20
+that uses wildcard characters.</P>
+<P class=3Dtl>If more than one browser definition containing wildcard =
+characters=20
+matches the User Agent header, the <B>BrowserType </B>object returns the =
+
+properties of the definition which most closely matches the User Agent =
+header.=20
+The closest match is the match which replaces the fewest characters.=20
+<DL>
+  <DT><I>browserDefinition </I>
+  <DD>An optional parameter specifying the HTTP User Agent header-string =
+of a=20
+  browser to use as the parent browser. The current browser's definition =
+will=20
+  inherit all of the property values declared in the parent browser's=20
+  definition. This helps define properties for a new version of a =
+browser,=20
+  because new versions usually retain most of the properties of the =
+previous=20
+  release. These inherited property values can be overwritten by =
+explicitly=20
+  setting a new value for the property by using the syntax <I>propertyN =
+</I>=3D=20
+  <I>valueN</I>. <BR>
+  <DT><I>propertyN</I>=20
+  <DD>An optional parameter specifying the name of the browser property =
+to set.=20
+  It must start with an alphabetic character and cannot be longer than =
+255=20
+  characters. Each browser definition in the Browscap.ini file can =
+contain as=20
+  many statements of property values as needed. For example, if your =
+application=20
+  only needed to know whether or not a user's browser supported =
+VBScript, you=20
+  would only need one property statement for each browser definition.=20
+  <P>The following table lists some possible properties:=20
+  <TABLE border=3D0 cellPadding=3D5 cols=3D2>
+    <TBODY>
+    <TR vAlign=3Dtop>
+      <TD class=3Dblue width=3D"29%"><B>Property</B></TD>
+      <TD class=3Dblue width=3D"71%"><B>Description</B></TD></TR>
+    <TR vAlign=3Dtop>
+      <TD width=3D"29%"><B>ActiveXControls</B></TD>
+      <TD width=3D"71%">Specifies whether the browser supports=20
+        ActiveX<SUP>=AE</SUP> controls.</TD></TR>
+    <TR vAlign=3Dtop>
+      <TD width=3D"29%"><B>Backgroundsounds</B></TD>
+      <TD width=3D"71%">Specifies whether the browser supports =
+background=20
+      sounds.</TD></TR>
+    <TR vAlign=3Dtop>
+      <TD width=3D"29%"><B>Beta</B></TD>
+      <TD width=3D"71%">Specifies whether the browser is beta =
+software.</TD></TR>
+    <TR vAlign=3Dtop>
+      <TD width=3D"29%"><B>Browser</B></TD>
+      <TD width=3D"71%">Specifies the name of the browser.</TD></TR>
+    <TR vAlign=3Dtop>
+      <TD width=3D"29%"><B>Cdf</B></TD>
+      <TD width=3D"71%">Specifies whether the browser supports the =
+Channel=20
+        Definition Format for Webcasting.</TD></TR>
+    <TR vAlign=3Dtop>
+      <TD width=3D"29%"><B>Cookies</B></TD>
+      <TD width=3D"71%">Specifies whether the browser supports =
+cookies.</TD></TR>
+    <TR vAlign=3Dtop>
+      <TD width=3D"29%"><B>Frames</B></TD>
+      <TD width=3D"71%">Specifies whether the browser supports =
+frames.</TD></TR>
+    <TR vAlign=3Dtop>
+      <TD width=3D"29%"><B>Javaapplets</B></TD>
+      <TD width=3D"71%">Specifies whether the browser supports Java=20
+    applets.</TD></TR>
+    <TR vAlign=3Dtop>
+      <TD width=3D"29%"><B>Javascript</B></TD>
+      <TD width=3D"71%">Specifies whether the browser supports =
+JScript.</TD></TR>
+    <TR vAlign=3Dtop>
+      <TD width=3D"29%"><B>Platform</B></TD>
+      <TD width=3D"71%">Specifies the platform that the browser runs =
+on.</TD></TR>
+    <TR vAlign=3Dtop>
+      <TD width=3D"29%"><B>Tables</B></TD>
+      <TD width=3D"71%">Specifies whether the browser supports =
+tables.</TD></TR>
+    <TR vAlign=3Dtop>
+      <TD width=3D"29%"><B>Vbscript</B></TD>
+      <TD width=3D"71%">Specifies whether the browser supports =
+VBScript.</TD></TR>
+    <TR vAlign=3Dtop>
+      <TD width=3D"29%"><B>Version</B></TD>
+      <TD width=3D"71%">Specifies the version number of the=20
+    browser.</TD></TR></TBODY></TABLE><BR><BR></P>
+  <DT><I>valueN</I>=20
+  <DD>An optional parameter specifying the value of <I>propertyN</I>. =
+This value=20
+  is a string by default. To specify an integer, prefix the value with a =
+number=20
+  sign (#). To specify a Boolean value, use TRUE or FALSE.<BR>
+  <DT><I>defaultPropertyN</I>=20
+  <DD>An optional parameter specifying the name of the browser property =
+to which=20
+  to assign a default value if none of the defined =
+<I>HTTPUserAgentHeader=20
+  </I>values match the HTTP User Agent header sent by the browser.<BR>
+  <DT><I>defaultValueN</I>=20
+  <DD>An optional parameter specifying the value of =
+<I>defaultPropertyN</I>.=20
+  This value is a string by default. To specify an integer, prefix the =
+value=20
+  with a number sign (#). To specify a Boolean value, use TRUE or FALSE. =
+
+</DD></DL>
+<H6>Example</H6>
+<P>In the following example, the parent tag allows the second browser =
+definition=20
+to inherit from the first, so that the Microsoft<SUP>=AE</SUP> Internet =
+Explorer=20
+5.x definition inherits all the properties of Microsoft<SUP>=AE</SUP> =
+Internet=20
+Explorer 5.0 definition (for example, <CODE>frames=3DTRUE</CODE>,<CODE>=20
+tables=3DTRUE</CODE>, and <CODE>cookies=3DTRUE</CODE>). It adds =
+platform-specific=20
+information by adding the line, =
+<CODE>platform=3DWinNT</CODE>.</P><PRE><CODE>;;ie 5.0
+[IE 5.0]
+browser=3DIE
+Version=3D5.0
+majorver=3D#5
+minorver=3D#0
+frames=3DTRUE
+tables=3DTRUE
+cookies=3DTRUE
+backgroundsounds=3DTRUE
+vbscript=3DTRUE
+javascript=3DTRUE
+javaapplets=3DTrue
+ActiveXControls=3DTRUE
+Win16=3DFalse
+beta=3DFalse
+AK=3DFalse
+SK=3DFalse
+AOL=3DFalse
+=20
+;;ie 5.x
+[Mozilla/4.0 (compatible; MSIE 5.*; Windows NT)]
+parent=3DIE 5.0
+version=3D5.0
+minorver=3D0
+platform=3DWinNT
+=20
+; Default Browser=20
+[*]
+browser=3DDefault
+frames=3DFALSE=20
+tables=3DTRUE=20
+cookies=3DFALSE=20
+backgroundsounds=3DFALSE=20
+vbscript=3DFALSE=20
+javascript=3DFALSE=20
+ </CODE></PRE>
+<HR class=3Diis SIZE=3D1>
+
+<DIV class=3Dfooter>Built on Wednesday, January 05, =
+2000</DIV><!--FOOTER_START-->
+<DIV class=3Dfooter style=3D"COLOR: #000000; FONT-SIZE: 90%"><A=20
+href=3D"mailto:sdkfdbk@microsoft.com">Send feedback</A> to the Platform =
+SDK.
+<P></P>
+<P><A=20
+href=3D"http://msdn.microsoft.com/isapi/gomscom.asp?TARGET=3D/info/cpyrig=
+ht.htm"=20
+target=3D_top>=A9 2000 Microsoft Corporation. All rights reserved. Terms =
+of=20
+use.</A></P></DIV><!--FOOTER_END--></BODY></HTML>
+
+------=_NextPart_000_0000_01BF9587.620547A0
+Content-Type: text/css;
+	charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
+Content-Location: http://msdn.microsoft.com/library/psdk/iisref/coua.css
+
+BODY {
+	BACKGROUND: #ffffff; FONT-FAMILY: Verdana, Arial, Helvetica, MS Sans =
+Serif; FONT-SIZE: 75%
+}
+A:link {
+	COLOR: #0000cc
+}
+A:active {
+	COLOR: #996699
+}
+A:visited {
+	COLOR: #996699
+}
+P {
+	MARGIN-BOTTOM: 0.6em; MARGIN-TOP: 0.6em
+}
+P.bigfix {
+	MARGIN-BOTTOM: 0em; MARGIN-TOP: -0.4em
+}
+P.margin {
+	MARGIN-LEFT: 2em; MARGIN-TOP: -1.75em
+}
+P.indent {
+	MARGIN-LEFT: 1.5em
+}
+P.K2 {
+	MARGIN-LEFT: 10pt; MARGIN-TOP: 0em
+}
+H1 {
+	FONT-SIZE: 145%; MARGIN-BOTTOM: 0.5em
+}
+H2 {
+	FONT-SIZE: 125%; MARGIN-BOTTOM: 0.5em; MARGIN-TOP: 1.5em
+}
+H3 {
+	FONT-SIZE: 110%; MARGIN-BOTTOM: 0.5em; MARGIN-TOP: 1.2em
+}
+H4 {
+	FONT-SIZE: 105%; MARGIN-BOTTOM: 0.5em; MARGIN-TOP: 1.2em
+}
+H5 {
+	FONT-SIZE: 100%; MARGIN-BOTTOM: 0.5em; MARGIN-TOP: 1.2em
+}
+H6 {
+	FONT-SIZE: 100%; MARGIN-BOTTOM: 0.5em; MARGIN-TOP: 1.2em
+}
+BIG {
+	FONT-SIZE: 105%; FONT-WEIGHT: bold
+}
+P.proclabel {
+	FONT-SIZE: 100%; FONT-WEIGHT: bold; MARGIN-TOP: 1.2em
+}
+OL {
+	MARGIN-BOTTOM: 0em; MARGIN-LEFT: 4em; MARGIN-TOP: 0.6em
+}
+UL {
+	MARGIN-BOTTOM: 0em; MARGIN-TOP: 0.6em
+}
+OL UL {
+	LIST-STYLE: disc; MARGIN-TOP: 0.6em
+}
+LI {
+	MARGIN-BOTTOM: 0.7em; MARGIN-LEFT: -2em
+}
+DL {
+	MARGIN-TOP: 0em
+}
+DT {
+	MARGIN-TOP: 1em
+}
+DD {
+	MARGIN-BOTTOM: 0em; MARGIN-LEFT: 1.5em
+}
+DL LI {
+	MARGIN-BOTTOM: 0.7em
+}
+DL DL {
+	MARGIN-LEFT: 0em; MARGIN-TOP: 0em
+}
+TABLE {
+	FONT-SIZE: 100%; MARGIN-BOTTOM: 1em; MARGIN-TOP: 1em
+}
+TH {
+	BACKGROUND: #dddddd; TEXT-ALIGN: left; VERTICAL-ALIGN: bottom
+}
+TH.center {
+	TEXT-ALIGN: center
+}
+TR {
+	VERTICAL-ALIGN: top
+}
+TD {
+	VERTICAL-ALIGN: top
+}
+PRE {
+	FONT-FAMILY: Courier; FONT-SIZE: 125%; MARGIN-BOTTOM: 1.5em; =
+MARGIN-TOP: 1.2em
+}
+CODE {
+	FONT-FAMILY: Courier; FONT-SIZE: 125%
+}
+PRE CODE {
+	FONT-SIZE: 100%
+}
+HR.sms {
+	COLOR: black; TEXT-ALIGN: left
+}
+HR.iis {
+	COLOR: black
+}
+
+------=_NextPart_000_0000_01BF9587.620547A0
+Content-Type: text/css;
+	charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
+Content-Location: http://msdn.microsoft.com/library/psdk/iisref/cocss.css
+
+BODY {
+	BACKGROUND: #ffffff; FONT-FAMILY: Verdana, Arial, Helvetica; FONT-SIZE: =
+75%
+}
+A:link {
+	BACKGROUND: none transparent scroll repeat 0% 0%; COLOR: #0000ff
+}
+A:visited {
+	COLOR: #800080
+}
+H1 {
+	FONT-SIZE: 55%; FONT-WEIGHT: bold; MARGIN-BOTTOM: -2.2em
+}
+H2 {
+	FONT-SIZE: 66%; FONT-WEIGHT: bold; MARGIN-BOTTOM: -2.2em; MARGIN-TOP: =
+6pt
+}
+H3 {
+	FONT-SIZE: 77%; FONT-WEIGHT: bold; MARGIN-BOTTOM: -3em; MARGIN-TOP: 6pt
+}
+H4 {
+	FONT-SIZE: 105%; MARGIN-BOTTOM: 0.5em; MARGIN-TOP: 1.2em
+}
+H5 {
+	FONT-SIZE: 100%; MARGIN-BOTTOM: 0.5em; MARGIN-TOP: 1.2em
+}
+H6 {
+	FONT-SIZE: 100%; MARGIN-BOTTOM: 0.5em; MARGIN-TOP: 1.2em
+}
+P {
+	MARGIN-BOTTOM: -2em; MARGIN-TOP: -2em
+}
+OL P {
+	MARGIN-TOP: -4em
+}
+OL DL {
+	MARGIN-LEFT: -31pt; MARGIN-TOP: -4em
+}
+OL DL DL {
+	MARGIN-LEFT: 0pt; MARGIN-TOP: 0em
+}
+UL P {
+	MARGIN-TOP: -4em
+}
+BIG {
+	FONT-SIZE: 75%; FONT-WEIGHT: bold; MARGIN-BOTTOM: -6em
+}
+OL {
+	MARGIN-LEFT: -15pt; MARGIN-TOP: -7em
+}
+UL {
+	MARGIN-LEFT: -15pt; MARGIN-TOP: -15em
+}
+OL UL {
+	MARGIN-BOTTOM: -6em; MARGIN-TOP: 2em
+}
+UL UL {
+	MARGIN-BOTTOM: -6em; MARGIN-TOP: 2em
+}
+DL UL {
+	MARGIN-LEFT: 0pt; MARGIN-TOP: 0pt
+}
+LI {
+	MARGIN-TOP: 4pt
+}
+CODE {
+	FONT-FAMILY: Courier; FONT-SIZE: 100%
+}
+PRE {
+	FONT-FAMILY: Courier; FONT-SIZE: 100%
+}
+DL {
+	MARGIN-TOP: -10em
+}
+DT {
+	FONT-WEIGHT: bold; MARGIN-LEFT: 15pt
+}
+DD {
+	MARGIN-BOTTOM: 10pt; MARGIN-TOP: 1pt
+}
+DIV DT {
+	MARGIN-LEFT: -2pt
+}
+HR {
+	MARGIN-BOTTOM: 20pt
+}
+TABLE {
+	MARGIN-BOTTOM: 10pt; MARGIN-TOP: 2pt
+}
+OBJECT {
+	LINE-HEIGHT: 11.3em; MARGIN-TOP: 0pt
+}
+IMG {
+	MARGIN-TOP: -4pt
+}
+indent {
+	MARGIN-LEFT: 12pt
+}
+P.bigfix {
+	MARGIN-BOTTOM: -11em; MARGIN-TOP: -11em
+}
+P.indent {
+	MARGIN-LEFT: 1.5em
+}
+HR.sms {
+	MARGIN-BOTTOM: 7pt; TEXT-ALIGN: left
+}
+HR.iis {
+	COLOR: black; MARGIN-BOTTOM: 20pt
+}
+
+------=_NextPart_000_0000_01BF9587.620547A0
+Content-Type: application/x-javascript
+Content-Transfer-Encoding: quoted-printable
+Content-Location: http://msdn.microsoft.com/library/synch.js
+
+var tmploc=3Dlocation.href;
+tmploc=3Dtmploc.toLowerCase();
+tmploc=3Dtmploc.substring(tmploc.indexOf("/library", 1));
+tmploc=3D'<A href=3D\"/isapi/msdnlib.idc?theURL=3D' + tmploc + '\" =
+TARGET=3D\"_top\">';
+var tmploc2=3Dlocation.href;
+tmploc2=3Dtmploc2.toLowerCase();
+tmploc2=3Dtmploc2.substring(tmploc2.indexOf("/library", 1));
+tmploc2=3D'<A href=3D\"/isapi/msdnlib2.idc?theURL=3D' + tmploc2 + '\" =
+TARGET=3D\"_top\">';
+artsource=3D'<IMG SRC=3D\"/library/images/msdn/art/';
+functsource=3D'<A href=3D\"#\" =
+onClick=3D\"top.PRODINFO.LEFTNAV.document.Outline.move';
+if (location.href =3D=3D top.location.href)
+{document.write(tmploc + artsource + 'mlibfram.gif\" WIDTH=3D75 =
+HEIGHT=3D17 BORDER=3D0></A>');}
+else if (location.href =3D=3D parent.parent.PRODINFO.location.href)
+{document.write(tmploc + artsource + 'mlibfram.gif\" WIDTH=3D75 =
+HEIGHT=3D17 BORDER=3D0 ALT=3D\"Click to show the Table of =
+Contents\"></A>');}
+else
+{document.write(functsource + 'Prev()\">' + artsource + 'mlibprev.gif\" =
+WIDTH=3D18 HEIGHT=3D17 BORDER=3D0 ALT=3D\"Previous Document\"></A>' + =
+functsource + 'Next()\">' + artsource + 'mlibnext.gif\" WIDTH=3D18 =
+HEIGHT=3D17 BORDER=3D0 ALT=3D\"Next Document\"></A>' + tmploc2 + =
+artsource + 'mlibhfram.gif\" WIDTH=3D88 HEIGHT=3D17 BORDER=3D0 =
+ALT=3D\"Hide the TOC\">' + tmploc + artsource + 'mlibsync.gif\" =
+WIDTH=3D113 HEIGHT=3D17 BORDER=3D0 ALT=3D\"Synchronize TOC\"></A>');}
+
+------=_NextPart_000_0000_01BF9587.620547A0--

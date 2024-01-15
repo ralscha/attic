@@ -1,0 +1,21 @@
+ALTER TABLE Draw ADD extrajoker CHAR(6) NULL
+
+
+CREATE TABLE ExtraJokerGainQuota (
+  no   SMALLINT NOT NULL,
+  year SMALLINT NOT NULL,
+  jackpot DOUBLE,
+  num6 SMALLINT,
+  quota6 DOUBLE,
+  num5 SMALLINT NOT NULL,
+  quota5 DOUBLE NOT NULL,
+  num4 SMALLINT NOT NULL,
+  quota4 DOUBLE NOT NULL,
+  num3 SMALLINT NOT NULL,
+  quota3 DOUBLE NOT NULL,
+  num2 SMALLINT NOT NULL,
+  quota2 DOUBLE NOT NULL,
+
+  	      
+  CONSTRAINT ejgq_pk PRIMARY KEY (no, year)
+)

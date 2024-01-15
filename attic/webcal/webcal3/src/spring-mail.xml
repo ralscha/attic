@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+ 
+  <bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+    <property name="host"><value>${mail.smtphost}</value></property>
+    <property name="port"><value>${mail.smtpport}</value></property>
+    <property name="username"><value>${mail.smtpuser}</value></property>
+    <property name="password"><value>${mail.smtppassword}</value></property>
+  </bean>
+ 
+  <bean id="passwordMailSender" class="ch.ess.cal.service.impl.TemplateMailSenderImpl">
+    <property name="textResourceDao"><ref bean="textResourceDao"/></property>
+    <property name="subject"><value>login.passwordmail.subject</value></property>
+    <property name="body"><value>login.passwordmail.body</value></property>    
+    <property name="mailSender"><ref local="mailSender"/></property>  
+  </bean>
+     
+  <bean id="eventMailSender" class="ch.ess.cal.service.impl.TemplateMailSenderImpl">
+    <property name="textResourceDao"><ref bean="textResourceDao"/></property>
+    <property name="subject"><value>event.reminder.subject</value></property>
+    <property name="body"><value>event.reminder.body</value></property>    
+    <property name="mailSender"><ref local="mailSender"/></property>  
+  </bean>     
+        									
+</beans>

@@ -1,0 +1,123 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE faces-config PUBLIC
+  "-//Sun Microsystems, Inc.//DTD JavaServer Faces Config 1.0//EN"
+  "http://java.sun.com/dtd/web-facesconfig_1_0.dtd">
+
+<!--
+   JavaServer Faces in Action example code, Copyright (C) 2004 Kito D. Mann.
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+
+-->
+
+<faces-config>
+
+ <application>
+   <message-bundle>ptrackResources</message-bundle>
+ </application>
+
+  <navigation-rule>
+    <from-view-id>/login.jsp</from-view-id>
+    <navigation-case>
+      <from-outcome>success</from-outcome>
+      <to-view-id>/inbox.jsp</to-view-id>
+    </navigation-case>
+    <navigation-case>
+      <from-outcome>failure</from-outcome>
+      <to-view-id>/login.jsp</to-view-id>
+    </navigation-case>
+  </navigation-rule>
+
+<navigation-rule>
+  <description>Navigation for the toolbar.</description>
+  <from-view-id>/*</from-view-id>
+  <navigation-case>
+    <from-outcome>inbox</from-outcome>
+    <to-view-id>/inbox.jsp</to-view-id>
+  </navigation-case>
+  <navigation-case>
+    <from-outcome>show_all</from-outcome>
+    <to-view-id>/show_all.jsp</to-view-id>
+  </navigation-case>
+  <navigation-case>
+    <from-outcome>create</from-outcome>
+    <to-view-id>/create.jsp</to-view-id>
+  </navigation-case>
+  <navigation-case>
+    <from-outcome>logout</from-outcome>
+    <to-view-id>/login.jsp</to-view-id>
+  </navigation-case>
+</navigation-rule>
+
+<navigation-rule>
+  <from-view-id>/inbox.jsp</from-view-id>
+  <navigation-case>
+    <from-outcome>details</from-outcome>
+    <to-view-id>/details.jsp</to-view-id>
+  </navigation-case>
+  <navigation-case>
+    <from-outcome>approve</from-outcome>
+    <to-view-id>/approve.jsp</to-view-id>
+  </navigation-case>
+  <navigation-case>
+    <from-outcome>reject</from-outcome>
+    <to-view-id>/reject.jsp</to-view-id>
+  </navigation-case>
+</navigation-rule>
+
+  <navigation-rule>
+    <from-view-id>/show_all.jsp</from-view-id>
+    <navigation-case>
+      <from-outcome>details</from-outcome>
+      <to-view-id>/details.jsp</to-view-id>
+    </navigation-case>
+  </navigation-rule>
+
+  <navigation-rule>
+    <from-view-id>/create.jsp</from-view-id>
+    <navigation-case>
+      <from-outcome>save</from-outcome>
+      <to-view-id>/inbox.jsp</to-view-id>
+    </navigation-case>
+    <navigation-case>
+      <from-outcome>cancel</from-outcome>
+      <to-view-id>/inbox.jsp</to-view-id>
+    </navigation-case>
+  </navigation-rule>
+
+  <navigation-rule>
+    <from-view-id>/reject.jsp</from-view-id>
+    <navigation-case>
+      <from-outcome>reject</from-outcome>
+      <to-view-id>/inbox.jsp</to-view-id>
+    </navigation-case>
+    <navigation-case>
+      <from-outcome>cancel</from-outcome>
+      <to-view-id>/inbox.jsp</to-view-id>
+    </navigation-case>
+  </navigation-rule>
+
+<navigation-rule>
+  <from-view-id>/approve.jsp</from-view-id>
+  <navigation-case>
+    <from-outcome>approve</from-outcome>
+    <to-view-id>/inbox.jsp</to-view-id>
+  </navigation-case>
+  <navigation-case>
+    <from-outcome>cancel</from-outcome>
+    <to-view-id>/inbox.jsp</to-view-id>
+  </navigation-case>
+</navigation-rule>
+
+</faces-config>

@@ -1,0 +1,40 @@
+java.util.Vector vector = {
+    java.lang.String [0] = "element 1";
+    java.lang.String [1] = "element 2";
+    java.lang.String [2] = "element 3";
+    
+};
+grace.io.test.Airplane airplane = {
+    java.lang.Integer numEngines = 4;
+    java.lang.String manufacturer = "Cessna";
+    grace.io.test.FlightState state = ;
+    java.util.Vector passengers = {
+        grace.io.test.Passenger [0] = {
+            java.lang.String name = "Chris";
+            
+        };
+        grace.io.test.Passenger [1] = {
+            java.lang.String name = "Sarah";
+            
+        };
+        grace.io.test.Passenger [2] = {
+            java.lang.String name = "Grace";
+            
+        };
+        
+    };
+    grace.io.test.Airplane self = {ref-1};
+    
+};
+java.util.Hashtable movies = {
+    java.lang.String Cary Grant = "Notorious";
+    java.lang.String grace kelly = "To Catch a Thief";
+    java.lang.String Lana Turner = "Lady From Shanghai";
+    
+};
+java.lang.String[] countries = {
+    java.lang.String [0] = "USA";
+    java.lang.String [1] = "France";
+    java.lang.String [2] = "Switzerland";
+    
+};

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+ <!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 1.1//EN"
+       "http://jakarta.apache.org/struts/dtds/tiles-config_1_1.dtd">
+
+
+<!--
+     This is the examples Tiles definition file
+-->
+
+<tiles-definitions>
+
+    <definition name=".examplesdefault" path="/WEB-INF/jsp/layouts/exampleslayout.jsp">
+        <put name="center" value="false"/>
+        <put name="menu"   value="/WEB-INF/jsp/menu.jsp" />
+        <put name="submenu"   value="/WEB-INF/jsp/examples/menu.jsp" />
+        <put name="body"   value="" />
+        <put name="error"   value="/WEB-INF/jsp/errors.jsp" />
+    </definition>
+
+    <definition name=".javascript" extends=".examplesdefault">
+        <put name="body"   value="/WEB-INF/jsp/examples/javascript.jsp" />
+    </definition>    
+    
+    <definition name=".chart" extends=".examplesdefault">
+        <put name="body"   value="/WEB-INF/jsp/examples/chart.jsp" />
+    </definition>         
+
+    <definition name=".cachetest" extends=".examplesdefault">
+        <put name="body"   value="/WEB-INF/jsp/examples/cachetest.jsp" />
+    </definition>        
+
+    <definition name=".cachecrontest" extends=".examplesdefault">
+        <put name="body"   value="/WEB-INF/jsp/examples/cachecrontest.jsp" />
+    </definition>  
+
+    <definition name=".cachegrouptest" extends=".examplesdefault">
+        <put name="body"   value="/WEB-INF/jsp/examples/cachegrouptest.jsp" />
+    </definition>      
+        
+    <definition name=".sendmail" extends=".examplesdefault">
+        <put name="body"   value="/WEB-INF/jsp/examples/sendmail.jsp" />
+    </definition>     
+    
+    <definition name=".tab" extends=".examplesdefault">
+        <put name="body"   value="/WEB-INF/jsp/examples/tab.jsp" />
+    </definition>     
+
+    
+    <definition name=".wait" extends=".examplesdefault">
+        <put name="body"   value="/WEB-INF/jsp/examples/wait.jsp" />
+    </definition>   
+    
+    <definition name=".clientinfo" extends=".examplesdefault">
+        <put name="body"   value="/WEB-INF/jsp/examples/clientinfo.jsp" />
+    </definition>    
+    
+</tiles-definitions>

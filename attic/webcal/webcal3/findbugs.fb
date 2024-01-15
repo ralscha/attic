@@ -1,0 +1,47 @@
+[Jar files]
+D:\eclipse\workspace\webcal3
+[Source dirs]
+D:\eclipse\workspace\webcal3\src
+[Aux classpath entries]
+D:\eclipse\workspace\webcal3\web\WEB-INF\lib\activation-1.0.2.jar
+D:\eclipse\workspace\webcal3\web\WEB-INF\lib\antlr.jar
+D:\eclipse\workspace\webcal3\web\WEB-INF\lib\aopalliance.jar
+D:\eclipse\workspace\webcal3\web\WEB-INF\lib\cglib-full-2.0.2.jar
+D:\eclipse\workspace\webcal3\web\WEB-INF\lib\common-controls-1.4.054b.jar
+D:\eclipse\workspace\webcal3\web\WEB-INF\lib\commons-beanutils-1.7.jar
+D:\eclipse\workspace\webcal3\web\WEB-INF\lib\commons-codec-1.3.jar
+D:\eclipse\workspace\webcal3\web\WEB-INF\lib\commons-collections-3.1.jar
+D:\eclipse\workspace\webcal3\web\WEB-INF\lib\commons-digester-1.6.jar
+D:\eclipse\workspace\webcal3\web\WEB-INF\lib\commons-el-1.0.jar
+D:\eclipse\workspace\webcal3\web\WEB-INF\lib\commons-el-ext-1.0.jar
+D:\eclipse\workspace\webcal3\web\WEB-INF\lib\commons-fileupload.jar
+D:\eclipse\workspace\webcal3\web\WEB-INF\lib\commons-lang-2.0.jar
+D:\eclipse\workspace\webcal3\web\WEB-INF\lib\commons-logging-1.0.4.jar
+D:\eclipse\workspace\webcal3\web\WEB-INF\lib\commons-validator-1.1.3.jar
+D:\eclipse\workspace\webcal3\web\WEB-INF\lib\displaytag-1.0-rc2.jar
+D:\eclipse\workspace\webcal3\web\WEB-INF\lib\dom4j-1.5.jar
+D:\eclipse\workspace\webcal3\web\WEB-INF\lib\ecs-1.4.2.jar
+D:\eclipse\workspace\webcal3\web\WEB-INF\lib\ehcache-0.9.jar
+D:\eclipse\workspace\webcal3\web\WEB-INF\lib\ess-holiday.jar
+D:\eclipse\workspace\webcal3\web\WEB-INF\lib\hibernate-2.1.7c.jar
+D:\eclipse\workspace\webcal3\web\WEB-INF\lib\jakarta-oro-2.0.8.jar
+D:\eclipse\workspace\webcal3\web\WEB-INF\lib\jstl-1.1.2.jar
+D:\eclipse\workspace\webcal3\web\WEB-INF\lib\jta.jar
+D:\eclipse\workspace\webcal3\web\WEB-INF\lib\mail-1.3.2.jar
+D:\eclipse\workspace\webcal3\web\WEB-INF\lib\odmg-3.0.jar
+D:\eclipse\workspace\webcal3\web\WEB-INF\lib\poi-2.5.1.jar
+D:\eclipse\workspace\webcal3\web\WEB-INF\lib\providers.jar
+D:\eclipse\workspace\webcal3\web\WEB-INF\lib\quartz-1.4.3.jar
+D:\eclipse\workspace\webcal3\web\WEB-INF\lib\sitemesh-2.2.1.jar
+D:\eclipse\workspace\webcal3\web\WEB-INF\lib\spring-1.1.3.jar
+D:\eclipse\workspace\webcal3\web\WEB-INF\lib\standard-1.1.2.jar
+D:\eclipse\workspace\webcal3\web\WEB-INF\lib\struts-1.2.6.jar
+D:\eclipse\workspace\webcal3\web\WEB-INF\lib\struts-menu-2.2.jar
+D:\eclipse\workspace\webcal3\web\WEB-INF\lib\velocity-1.4.jar
+D:\eclipse\workspace\webcal3\web\WEB-INF\lib\velocity-tools-1.1.jar
+D:\eclipse\workspace\webcal3\build\lib\deployer\jsp-api.jar
+D:\eclipse\workspace\webcal3\build\lib\deployer\servlet-api.jar
+D:\eclipse\workspace\webcal3\build\lib\deployer\jasper-compiler.jar
+D:\eclipse\workspace\webcal3\build\lib\deployer\jasper-runtime.jar
+D:\eclipse\workspace\webcal3\build\tools\lib\xstream-1.0.2.jar
+D:\eclipse\workspace\webcal3\build\tools\bin

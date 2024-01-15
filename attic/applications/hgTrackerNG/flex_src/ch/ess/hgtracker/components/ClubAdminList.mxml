@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Panel xmlns:mx="http://www.adobe.com/2006/mxml" width="626" title="Clubs" 
+  layout="absolute" creationComplete="init()">
+  
+  <mx:Script>
+    <![CDATA[
+      import ch.ess.hgtracker.db.Club;
+      import mx.managers.PopUpManager;
+      import mx.events.CloseEvent;
+      import mx.controls.Alert;
+      import mx.collections.SortField;
+      import mx.collections.Sort;
+      import mx.collections.ArrayCollection;
+      import mx.rpc.events.ResultEvent;      
+      
+      [Bindable]
+      [ArrayElementType("ch.ess.hgtracker.db.Club")]
+      private var clubModel:ArrayCollection = new ArrayCollection();
+      
+      private var selectedClub:Club;
+      
+      private function edit():void {        
+        var clubEdit:ClubAdminEdit = PopUpManager.createPopUp(this, ClubAdminEdit, true) as ClubAdminEdit;
+        clubEdit.editClub = selectedClub; 
+        clubEdit.addEventListener("dataInserted", onDataInserted);   
+      }
+            
+      private function deleteClub():void {
+        
+        Alert.show('Diesen Club wirklich löschen?', 'Frage', (Alert.YES | Alert.NO), this,
+                    function(event:CloseEvent):void {
+                      if (event.detail == Alert.YES) {
+                        clubService.deleteClub(selectedClub.id);
+                        
+                        clubDataGrid.selectedIndex = -1;
+                        clubDataGrid.selectedItem = null;
+                        selectedClub = null;
+                                
+                        clubService.getAll();
+                      }
+                    }
+                );
+
+      }
+      
+      private function neu():void {        
+        
+        clubDataGrid.selectedIndex = -1;
+        clubDataGrid.selectedItem = null;
+        editButton.enabled = false;
+        insertArtButton.enabled = false;
+        deleteButton.enabled = false; 
+        
+        selectedClub = new Club();
+        selectedClub.id = -1; 
+        selectedClub.punkteMS = 50;
+        
+        var clubEdit:ClubAdminEdit = PopUpManager.createPopUp(this, ClubAdminEdit, true) as ClubAdminEdit;
+        clubEdit.editClub = selectedClub;          
+        clubEdit.addEventListener("dataInserted", onDataInserted);       
+      }
+      
+      public function init():void {
+        clubService.getAll();
+      }
+      
+      public function insertArt():void {
+        clubService.insertExampleArt(selectedClub);
+      }
+      
+      private function onItemClick():void {
+        editButton.enabled = true;
+        deleteButton.enabled = true;
+        insertArtButton.enabled = true;
+        selectedClub = Club(clubDataGrid.selectedItem);     
+      }
+      
+      private function onGetAllResult(event:ResultEvent):void {
+                
+        var clubSort:Sort = (clubDataGrid.dataProvider ? ArrayCollection(clubDataGrid.dataProvider).sort : null);
+        clubModel = ArrayCollection(event.result);
+
+        if (clubSort) {
+          clubModel.sort = clubSort;
+               
+        } else {
+          var sort:Sort = new Sort();
+          sort.fields = [new SortField("hgName", true)];
+          
+          clubModel.sort = sort;
+        }    
+        clubModel.refresh();                
+      }   
+            
+      private function onDataInserted(event:Event):void {
+        clubService.getAll();
+      }      
+      
+      
+    ]]>
+  </mx:Script>
+  
+  <mx:RemoteObject id="clubService" showBusyCursor="true" destination="clubService">
+    <mx:method name="getAll" result="onGetAllResult(event)" />
+  </mx:RemoteObject>
+  
+  <mx:DataGrid id="clubDataGrid" dataProvider="{clubModel}" 
+     change="onItemClick()" bottom="60" top="10" left="10" right="10">
+    <mx:columns>
+      <mx:DataGridColumn width="200" headerText="Name" dataField="hgName"/>
+      <mx:DataGridColumn width="200" headerText="Benutzername" dataField="benutzername"/>
+      <mx:DataGridColumn width="200" headerText="Strasse" dataField="strasse"/>
+      <mx:DataGridColumn headerText="PLZ" dataField="plz"/>
+      <mx:DataGridColumn width="200" headerText="Ort" dataField="ort"/>
+
+    </mx:columns>
+  </mx:DataGrid>
+  <mx:HBox left="10" bottom="20" right="10">
+    <mx:Button label="Neuer Club" id="newButton" click="neu()" icon="@Embed(source='assets/form_green_add.png')"/>
+    <mx:Button label="Club editieren" id="editButton" enabled="false" click="edit()" icon="@Embed(source='assets/form_green_edit.png')"/>
+    <mx:Button label="Art einfügen" id="insertArtButton" enabled="false" click="insertArt()"/>
+    <mx:Spacer width="100%" />
+    <mx:Button label="Club löschen" id="deleteButton" enabled="false" click="deleteClub()" icon="@Embed(source='assets/form_green_delete.png')"/>
+  </mx:HBox>
+</mx:Panel>

@@ -1,0 +1,29 @@
+* {
+  font-family: arial, helvetica, tahoma, sans-serif;
+}
+
+.text {
+  font-size: 12px;
+}
+
+.appHeading {
+  background:#15428B url(images/user.png) no-repeat center left !important;
+  color:#ffffff;
+  font-size:20px;
+  font-weight:bold;
+  padding:2;
+  text-indent:20px
+}
+
+
+.icon-new {
+  background: url(images/new.gif) no-repeat center left !important;
+}
+
+.icon-delete {
+  background: url(images/delete.gif) no-repeat center left !important;
+}
+
+.icon-update {
+  background: url(images/update.png) no-repeat center left !important;
+}

@@ -1,0 +1,336 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<!DOCTYPE struts-config PUBLIC 
+          "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN"
+          "http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+
+<struts-config>
+    <form-beans>
+      <form-bean name="departmentForm" type="ch.ess.cal.admin.web.department.DepartmentForm"/>    
+      <form-bean name="resourceGroupForm" type="ch.ess.cal.admin.web.resourcegroup.ResourceGroupForm"/>    
+      <form-bean name="resourceForm" type="ch.ess.cal.admin.web.resource.ResourceForm"/>          
+      <form-bean name="resourceListForm" type="ch.ess.cal.admin.web.resource.ResourceListForm"/>       
+      <form-bean name="categoryForm" type="ch.ess.cal.admin.web.category.CategoryForm"/>    
+      <form-bean name="userForm" type="ch.ess.cal.admin.web.user.UserForm"/>  
+        
+      <form-bean name="systemForm" type="ch.ess.cal.admin.web.system.SystemForm"/>            
+      <form-bean name="mapForm" type="ch.ess.cal.common.MapForm"/>          
+      <form-bean name="nullForm" type="ch.ess.cal.common.NullForm"/>
+      <form-bean name="holidayUpdateForm" type="ch.ess.cal.admin.web.holiday.HolidayUpdateForm"/>      
+      
+      <form-bean name="dynLogonForm" type="org.apache.struts.validator.DynaValidatorForm">
+        <form-property name="userName" type="java.lang.String"/>
+        <form-property name="password" type="java.lang.String"/>
+      </form-bean>
+      
+    </form-beans>
+    
+  <global-exceptions>
+    <exception type="java.lang.Exception" key="error.exception" path="/error.do"/>
+  </global-exceptions>
+  
+  <global-forwards>
+    <forward name="logon" path=".logon"/>
+  </global-forwards>  
+  
+  <action-mappings>
+      
+    <action path="/default" unknown="true" forward=".logon"/>
+
+    <action path="/error" type="ch.ess.struts.RootSwitchAction" parameter="/error.jsp"/>
+    
+    <action path="/logon" 
+            type="ch.ess.cal.admin.web.LogonAction"
+            input=".logon"
+            name="dynLogonForm"
+            scope="session"                                
+            validate="true">            
+      <forward name="success" path=".admin"/>
+    </action>
+    
+    <action path="/logoff" type="ch.ess.cal.admin.web.LogoffAction">
+      <forward name="success" path=".logon"/>
+    </action>
+    
+    <!-- START DEPARTMENT -->
+    <action path="/department" forward=".department.list"/>
+    <action path="/listDepartment" 
+            type="ch.ess.cal.admin.web.department.DepartmentListAction"
+            name="mapForm"
+            scope="session"                                
+            validate="false">
+        <forward name="success" path=".department.list"/>        
+    </action>          
+
+    <action     path="/editDepartment"
+                type="ch.ess.cal.admin.web.department.DepartmentEditAction"
+                name="departmentForm"
+                input=".department.list"
+                scope="session"
+                validate="false">   
+       <forward name="success"      path=".department.edit"/>  			               
+    </action> 
+    
+    <action path="/storeDepartment"
+            type="ch.ess.cal.admin.web.department.DepartmentEditAction"
+            name="departmentForm"
+            input=".department.edit"
+            scope="session"
+            validate="true"
+            parameter="store">   
+       <forward name="saveandback"  path="/listDepartment.do"/>  
+       <forward name="success"      path=".department.edit"/>  			               
+       <forward name="cancel"       path="/listDepartment.do"/>
+       <forward name="reload"       path="/editDepartment.do?action=edit" redirect="true"/>  			               
+    </action>  
+    
+    <action path="/deleteDepartment"
+            type="ch.ess.cal.admin.web.department.DepartmentEditAction"
+            parameter="delete">   
+      <forward name="success"      path="/listDepartment.do"/>  
+    </action>     
+    
+    <!-- END DEPARTMENT -->    
+
+
+    <!-- START RESOURCEGROUP -->
+    <action path="/resourceGroup" forward=".resourceGroup.list"/>
+    <action path="/listResourceGroup" 
+            type="ch.ess.cal.admin.web.resourcegroup.ResourceGroupListAction"
+            name="mapForm"
+            scope="session"                                
+            validate="false">
+        <forward name="success" path=".resourceGroup.list"/>        
+    </action>          
+
+    <action     path="/editResourceGroup"
+                type="ch.ess.cal.admin.web.resourcegroup.ResourceGroupEditAction"
+                name="resourceGroupForm"
+                input=".resourceGroup.list"
+                scope="session"
+                validate="false">   
+       <forward name="success"      path=".resourceGroup.edit"/>  			               
+    </action> 
+    
+    <action path="/storeResourceGroup"
+            type="ch.ess.cal.admin.web.resourcegroup.ResourceGroupEditAction"
+            name="resourceGroupForm"
+            input=".resourceGroup.edit"
+            scope="session"
+            validate="true"
+            parameter="store">   
+       <forward name="saveandback"  path="/listResourceGroup.do"/>  
+       <forward name="success"      path=".resourceGroup.edit"/>  			               
+       <forward name="cancel"       path="/listResourceGroup.do"/>
+       <forward name="reload"       path="/editResourceGroup.do?action=edit" redirect="true"/>  			               
+    </action>  
+    
+    <action path="/deleteResourceGroup"
+            type="ch.ess.cal.admin.web.resourcegroup.ResourceGroupEditAction"
+            parameter="delete">   
+      <forward name="success"      path="/listResourceGroup.do"/>  
+    </action>     
+    
+    <!-- END RESOURCEGROUP -->    
+
+
+    <!-- START RESOURCE -->
+    <action path="/resource" forward=".resource.list"/>
+
+    <action path="/initResource" 
+            type="ch.ess.cal.admin.web.resource.ResourceAction"
+            name="resourceListForm"
+            scope="session"                                
+            validate="false">
+        <forward name="success" path=".resource.list"/>        
+    </action>          
+    
+    <action path="/listResource" 
+            type="ch.ess.cal.admin.web.resource.ResourceListAction"
+            name="resourceListForm"
+            scope="session"                                
+            validate="false">
+        <forward name="success" path=".resource.list"/>        
+    </action>          
+
+    <action     path="/editResource"
+                type="ch.ess.cal.admin.web.resource.ResourceEditAction"
+                name="resourceForm"
+                input=".resource.list"
+                scope="session"
+                validate="false">   
+       <forward name="success"      path=".resource.edit"/>  			               
+    </action> 
+    
+    <action path="/storeResource"
+            type="ch.ess.cal.admin.web.resource.ResourceEditAction"
+            name="resourceForm"
+            input=".resource.edit"
+            scope="session"
+            validate="true"
+            parameter="store">   
+       <forward name="saveandback"  path="/listResource.do"/>  
+       <forward name="success"      path=".resource.edit"/>  			               
+       <forward name="cancel"       path="/listResource.do"/>
+       <forward name="reload"       path="/editResource.do?action=edit" redirect="true"/>  			               
+    </action>  
+    
+    <action path="/deleteResource"
+            type="ch.ess.cal.admin.web.resource.ResourceEditAction"
+            parameter="delete">   
+      <forward name="success"      path="/listResource.do"/>  
+    </action>     
+    
+    <!-- END RESOURCE -->    
+
+
+    <!-- START CATEGORY -->
+    <action path="/category" forward=".category.list"/>
+    <action path="/listCategory" 
+            type="ch.ess.cal.admin.web.category.CategoryListAction"
+            name="mapForm"
+            scope="session"                                
+            validate="false">
+        <forward name="success" path=".category.list"/>        
+    </action>          
+
+    <action     path="/editCategory"
+                type="ch.ess.cal.admin.web.category.CategoryEditAction"
+                name="categoryForm"
+                input=".category.list"
+                scope="session"
+                validate="false">   
+       <forward name="success"      path=".category.edit"/>  			               
+    </action> 
+    
+    <action path="/storeCategory"
+            type="ch.ess.cal.admin.web.category.CategoryEditAction"
+            name="categoryForm"
+            input=".category.edit"
+            scope="session"
+            validate="true"
+            parameter="store">   
+       <forward name="saveandback"  path="/listCategory.do"/>  
+       <forward name="success"      path=".category.edit"/>  			               
+       <forward name="cancel"       path="/listCategory.do"/>
+       <forward name="reload"       path="/editCategory.do?action=edit" redirect="true"/>  			               
+    </action>  
+    
+    <action path="/deleteCategory"
+            type="ch.ess.cal.admin.web.category.CategoryEditAction"
+            parameter="delete">   
+      <forward name="success"      path="/listCategory.do"/>  
+    </action>     
+    
+    <!-- END CATEGORY -->    
+    
+    <!-- START USER -->
+    <action path="/user" forward=".user.list"/>
+    <action path="/listUser" 
+            type="ch.ess.cal.admin.web.user.UserListAction"
+            name="mapForm"
+            scope="session"                                
+            validate="false">
+        <forward name="success" path=".user.list"/>        
+    </action>          
+
+    <action     path="/editUser"
+                type="ch.ess.cal.admin.web.user.UserEditAction"
+                name="userForm"
+                input=".user.list"
+                scope="session"
+                validate="false">   
+       <forward name="success"      path=".user.edit"/>  			               
+    </action> 
+    
+    <action path="/storeUser"
+            type="ch.ess.cal.admin.web.user.UserEditAction"
+            name="userForm"
+            input=".user.edit"
+            scope="session"
+            validate="true"
+            parameter="store">   
+       <forward name="saveandback"  path="/listUser.do"/>  
+       <forward name="success"      path=".user.edit"/>  			               
+       <forward name="cancel"       path="/listUser.do"/>
+       <forward name="reload"       path="/editUser.do?action=edit" redirect="true"/>  			               
+    </action>  
+    
+    <action path="/deleteUser"
+            type="ch.ess.cal.admin.web.user.UserEditAction"
+            parameter="delete">   
+      <forward name="success"      path="/listUser.do"/>  
+    </action>     
+    
+    <!-- END USER -->    
+    
+    
+    <!-- START SYSTEM -->
+    <action path="/storeSystem"
+            type="ch.ess.cal.admin.web.system.SystemEditAction"      
+            name="systemForm"
+            input=".system.edit"
+            scope="session"
+            validate="true"
+            parameter="store">   
+       <forward name="success"      path=".system.edit"/>  			               
+    </action>     
+
+    <action     path="/editSystem"
+                type="ch.ess.cal.admin.web.system.SystemEditAction"
+                name="systemForm"
+                input=".system.edit"
+                scope="session"
+                validate="false"
+                parameter="edit">   
+       <forward name="success"      path=".system.edit"/>  			               
+    </action>    
+    
+    <!-- END SYSTEM -->
+    
+    
+    
+    <!-- START HOLIDAY -->
+    
+    <action path="/holiday" forward=".holiday.list"/>
+    <action path="/listHoliday" 
+            type="ch.ess.cal.admin.web.holiday.HolidayAction"
+            name="mapForm"
+            scope="session"                                
+            validate="false">
+        <forward name="success" path=".holiday.list"/>        
+    </action>          
+    
+    <action path="/updateHoliday" 
+            name="holidayUpdateForm" 
+            validate="false"
+            scope="request"
+            type="ch.ess.cal.admin.web.holiday.HolidayUpdateAction">
+      <forward name="success" path="/listHoliday.do"/>  
+    </action>
+    
+     
+    <!-- END HOLIDAY -->
+    
+  </action-mappings>    
+            
+  
+  <controller processorClass="ch.ess.cal.admin.web.AdminRequestProcessor" nocache="true" debug="0"/>
+  
+  <message-resources null="false" parameter="resources"/>
+  
+  <plug-in className="org.apache.struts.tiles.TilesPlugin">
+    <set-property property="definitions-config" 
+	                 value="/WEB-INF/tiles-defs-admin.xml" />
+    <set-property property="moduleAware" value="true" />
+    <set-property property="definitions-parser-validate" value="true" />
+  </plug-in>    
+
+    <plug-in className="org.apache.struts.validator.ValidatorPlugIn">
+      <set-property property="pathnames" value="/WEB-INF/validator-rules.xml,
+                                                /WEB-INF/validator-rules_app.xml,
+                                                /WEB-INF/validation-admin.xml"/>
+    </plug-in>     
+    
+      
+</struts-config>

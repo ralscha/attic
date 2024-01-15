@@ -1,0 +1,48 @@
+Application
+{
+	background-gradient-colors: #FFFFFF, #FFFFFF;	
+}
+
+Thumbnail
+{
+	border-style:solid;	
+}
+
+.fill
+{
+	background-color: #5CC0FF;	
+}
+
+.folder
+{
+	down-skin: Embed( '/assets/folder.png' );	
+	over-skin: Embed( '/assets/folder.png' );				
+	up-skin: Embed( '/assets/folder.png' );				
+}
+
+.highlight
+{
+	background-color: #5CC0FF;	
+	border-style: solid;
+	corner-radius: 5;
+}
+
+.thumbnails
+{
+	background-color: #EBEBEB;
+	border-style: solid;	
+	padding-bottom: 5;
+	padding-left: 5;
+	padding-top: 5;
+}
+
+.video
+{
+	down-skin: Embed( '/assets/control_play_blue.png' );	
+	over-skin: Embed( '/assets/control_play_blue.png' );				
+	up-skin: Embed( '/assets/control_play.png' );				
+	
+	selected-up-skin: Embed( '/assets/control_pause.png' );
+	selected-over-skin: Embed( '/assets/control_pause_blue.png' );
+	selected-down-skin: Embed( '/assets/control_pause_blue.png' );
+}		

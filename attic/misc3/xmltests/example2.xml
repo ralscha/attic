@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE Recipe SYSTEM "example.dtd">
+
+<!-- This document has some errors that a validating parser will catch -->
+
+<Recipe>
+   <Name>Lime Jello Marshmallow Cottage Cheese Surprise</Name>
+   <Description>My grandma's favorite (may she rest in peace.)</Description>
+   <Ingredients>
+      <Ingredient vegetarian="false">
+         <Qty unit="box">1</Qty>
+         <Item>lime gelatin</Item>
+      </Ingredient>
+      <Ingredient vegetarian="false">
+         <Qty unit="g">500</Qty>
+         <Item>multicolored tiny marshmallows</Item>
+      </Ingredient>
+      <Ingredient vegetarian="false">
+      <!-- Note that here, Qty and Item are reversed -->
+         <Item>Cottage cheese</Item>
+         <Qty unit="ml">500</Qty>
+      </Ingredient>
+      <Ingredient>
+         <Qty unit="dash"/>
+         <Item optional="true">Tabasco sauce</Item>
+      </Ingredient>
+      <Ingredient>
+      <!-- Note that here, Qty is missing -->
+         <Item>Horseradish to taste</Item>
+      </Ingredient>
+   </Ingredients>
+   <Instructions>
+      <Step>
+Prepare lime gelatin according to package instructions.
+      </Step>
+      <Step>
+Come to your senses.
+      </Step>
+      <Step>
+Discard all ingredients.
+      </Step>
+      <Step>
+Go to Ben &amp; Jerry's.
+      </Step>
+   </Instructions>
+</Recipe>

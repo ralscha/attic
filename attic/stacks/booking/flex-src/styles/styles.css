@@ -1,0 +1,308 @@
+/* GLOBAL SKINS */
+
+
+.bgCanvas {
+     top: 5;
+     bottom: 5;
+     right: 5;
+     left: 5;
+     verticalCenter: 5;
+     horizontalCenter: 5;
+     width: 1024;
+     height: 768;
+}
+
+.bgVBox {
+    borderStyle: solid;
+    dropShadowEnabled: true;
+    borderColor: #808080;
+}
+
+.HBoxstyle {
+    backgroundColor: #cccccc;
+    borderColor: #646464;
+    borderStyle: solid;
+    dropShadowEnabled: true;
+}
+
+Accordion {
+   headerHeight: 18;
+   backgroundAlpha: 1;
+   backgroundColor: #e2e5d5;
+   borderColor: #5886a3;
+   focusAlpha: 0;
+   highlightAlphas: 0.79, 0.2;
+   fillAlphas: 1, 1, 1, 1;
+   fillColors: #C3D4DC, #cccccc, #C3D4DC, #cccccc;
+   selectedFillColors: #C3D4DC, #C3D4DC;
+   color: #2d5974;
+   textRollOverColor: #5886a3;
+   textSelectedColor: #82afcb;
+   fontFamily: Arial;
+   fontSize: 10;
+   dropShadowEnabled: true;
+}
+
+.accountinfoFormItem {
+   textAlign: left;
+   paddingLeft: -3;
+   paddingRight: -5;
+   paddingBottom: -7;
+   paddingTop: 0;
+   fontSize: 9;
+   fontWeight: bold;
+   verticalScrollPolicy: false;
+}
+
+.accountinfoLabel {
+   fontFamily: Arial;
+   fontWeight: normal;
+   paddingLeft: -10;
+}
+
+TextInput {
+   fontSize: 9;
+   fontWeight: normal;
+   dropShadowEnabled: false;
+   borderStyle: solid;
+   cornerRadius:  9;
+   textIndent: 5;
+   textAlign: left;
+}
+
+TextArea {
+   fontSize: 9;
+   fontWeight: normal;
+   dropShadowEnabled: true;
+}
+
+Label {
+   fontSize: 9;
+   fontWeight: normal;
+   fontFamily: Arial;
+}
+
+/* EXTENDED TAB CODE */
+.CloseButton {
+   upSkin: Embed(source="../assets/extendedTab/Close_Up.png");
+   overSkin: Embed(source="../assets/extendedTab/Close_Over.png");
+   downSkin: Embed(source="../assets/extendedTab/Close_Down.png");
+}
+
+Tab {
+   paddingLeft: 5;
+   showCloseButton: true;
+}
+/* EXTENDED TAB CODE END */
+
+TabNavigator {
+    backgroundColor: #dadfe6;
+}
+
+.tabsmain {
+   tabHeight: 20;
+   horizontalAlign: left;
+   paddingLeft: 5;
+   paddingRight: 5;
+   paddingTop: 5;
+   paddingBottom: 5;
+   textIndent: 0;
+   borderStyle: solid;
+   borderThickness: 1;
+
+   dropShadowEnabled: true;
+   tabStyleName: "myTabs";
+   firstTabStyleName: "myTabs";
+   lastTabStyleName: "myTabs";
+   selectedTabTextStyleName: "mySelectedTabs";
+}
+
+.tabssub {
+    fontWeight: bold;
+    fontFamily: Verdana;
+    fontSize: 9;
+    backgroundColor: #c3ced2;
+    borderColor: #646464;
+    borderStyle: solid;
+}
+
+.myTabs {
+   cornerRadius: 15;
+   letterSpacing: 0;
+   fillColors: #ffffff, #9cc7dc;
+   color: #000033;
+   textRollOverColor: #0b333c;
+   fontFamily: Verdana;
+   fontWeight: bold;
+   fontSize: 11;
+}
+
+.mySelectedTabs {
+   fontSize: 11;
+   fontWeight: bold;
+}
+
+TabNavigator, .tabssub {
+   tabHeight: 20;
+   horizontalAlign: left;
+   paddingLeft: 5;
+   paddingRight: 5;
+   paddingTop: 5;
+   paddingBottom: 5;
+   textIndent: 0;
+   borderStyle: solid;
+   borderThickness: 1;
+   dropShadowEnabled: true;
+   tabStyleName: "myTabssub";
+   firstTabStyleName: "myTabssub";
+   lastTabStyleName: "myTabssub";
+   selectedTabTextStyleName: "mySelectedTabssub";
+}
+
+.myTabssub {
+   cornerRadius: 15;
+   letterSpacing: 0;
+   fillColors: #ffffff, #9cc7dc;
+   color: #000033;
+   textRollOverColor: #0b333c;
+   fontFamily: Verdana;
+   fontWeight: bold;
+   fontSize: 10;
+}
+
+.mySelectedTabssub {
+   fontSize: 10;
+   fontWeight: bold;
+}
+
+Panel {
+    backgroundColor: #ebf3cc;
+}
+
+HScrollBar {
+   cornerRadius: 15;
+   highlightAlphas: 0.79, 0.2;
+   fillColors: #c7cfda, #9cc7dc, #c7cfda, #9cc7dc;
+   fillAlphas: 1, 1, 1, 1;
+   borderColor: #999999;
+   trackColors: #c0c0c0, #FFFFFF;
+}
+
+VScrollBar {
+   cornerRadius: 15;
+   highlightAlphas: 0.79, 0.2;
+   fillColors: #c7cfda, #9cc7dc, #c7cfda, #9cc7dc;
+   fillAlphas: 1, 1, 1, 1;
+   borderColor: #999999;
+   trackColors: #c0c0c0, #FFFFFF;
+}
+
+DateChooser {
+   cornerRadius: 15;
+   highlightAlphas: 0.79, 0.2;
+   fillColors: #195eb9, #adf8ff, #195eb9, #adf8ff;
+   fillAlphas: 1, 1, 1, 1;
+   borderColor: #999999;
+   todayColor: #3370ce;
+   headerColors: #f9f9f9, #cacaca;
+   dropShadow: true;
+}
+
+Button {
+    themeColor: #414d5b;
+    fillColors: #cccccc, #cccccc, #e3f2e7, #e3f2e7;
+    cornerRadius: 9;
+    fontWeight: bold;
+    fontSize: 9;
+}
+
+.headers {
+   fontWeight: bold;
+   fontSize: 13;
+   color:#2d5974;
+   paddingLeft: 5;
+   paddingRight: 5;
+   paddingTop: 5;
+   paddingBottom: 5;
+}
+
+.boxBorders {
+    borderStyle: solid;
+    borderColor: #14446B;
+    borderThickness: 1;
+    cornerRadius: 20;
+    dropShadowEnabled: true;
+       paddingLeft: 10;
+       paddingRight: 10;
+       paddingTop: 10;
+       paddingBottom: 10;
+}
+
+.boxBordersGreen {
+    borderStyle: solid;
+    borderColor: #e3f2e7;
+    borderThickness: 1;
+    dropShadowEnabled: true;
+    backgroundColor: #e3f2e7;
+}
+
+.boxBordersSub {
+    borderStyle: solid;
+    borderColor: #eef4d3;
+    borderThickness: 1;
+    dropShadowEnabled: true;
+    backgroundColor: #eef4d3;
+    paddingLeft: 10;
+       paddingRight: 10;
+       paddingTop: 10;
+       paddingBottom: 10;
+}
+
+DataGrid {
+     rollOverColor: #e3f2e7;
+     selectionColor: #D7ECDB;
+}
+
+.paddingZero {
+    paddingLeft: 0;
+       paddingRight: 0;
+       paddingTop: 0;
+       paddingBottom: 0;
+}
+
+TextArea {
+    paddingLeft: 3;
+       paddingRight: 3;
+       paddingTop: 3;
+       paddingBottom: 3;
+}
+
+ComboBox {
+   selectionColor: #D7ECDB;
+   rollOverColor: #e3f2e7;
+   themeColor: #e3f2e7;
+   dropDownStyleName: "myComboBoxDropDowns";
+}
+
+.myComboBoxDropDowns {
+   cornerRadius: 20;
+   borderThickness: 1;
+}
+
+.bgSkin{
+    borderSkin:                 ClassReference("RepeatedBackground");
+    background-image:             Embed("/images/bg/bg_vbox.png");
+}
+
+.boxBordersSubbgSkin {
+    borderStyle: solid;
+    borderColor: #eef4d3;
+    borderThickness: 1;
+    dropShadowEnabled: true;
+    borderSkin:                 ClassReference("RepeatedBackground");
+    background-image:             Embed("/images/bg/bg_vbox.png");
+    paddingLeft: 10;
+       paddingRight: 10;
+       paddingTop: 10;
+       paddingBottom: 10;
+}

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE resource-factory PUBLIC
+	"-//common-controls//DTD ResourceFactory 1.2//EN"
+	"http://www.common-controls.com/dtds/resource-factory_1_2.dtd">
+
+<resource-factory version="1.2">
+
+	<!-- ============================== -->
+	<!-- Cascading Stylesheet Resources -->
+	<!-- ============================== -->
+
+	<resources destdir="docs/style/${painter}">
+		<stylebook name="stylebook" title="Colorpalette ${painter.name}"/>
+	</resources>
+
+	<resources destdir="web/fw/${painter}/style">
+		<textfile name="default.css"  template="templates/default.tem"/>
+
+		<textfile name="controls.css" template="templates/controls.tem"/>
+		<textfile name="forms.css"    template="templates/forms.tem"/>
+		<textfile name="menu.css"     template="templates/menu.tem"/>
+		<textfile name="panel.css"    template="templates/panel.tem"/>
+	</resources>
+
+	<!-- ============================== -->
+	<!-- JavaScript                     -->
+	<!-- ============================== -->
+
+	<resources destdir="web/fw/${painter}/jscript">
+		<textfile name="resourcemap.js"  template="templates/resourcemap.tem"/>
+	</resources>
+
+	<!-- ============================== -->
+	<!-- Java Painter Classes           -->
+	<!-- ============================== -->
+<!--
+	<resources destdir="${painter == 'def' ? 'source' : 'painter'}">
+		<javasource type="colorpalette" package="com.cc.framework.ui.painter.${painter}" name="${painter}ColorPalette"/>
+	</resources>
+-->	
+</resource-factory>

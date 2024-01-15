@@ -1,0 +1,43 @@
+; First load the JDBC driver and open a database.
+d jdbc.idbDriver;
+o jdbc:idb=mvsdb.prp;
+
+
+e DROP TABLE WordList ;
+e DROP TABLE Word12 ;
+e DROP TABLE Word3 ;
+e DROP TABLE BeginList ;
+e DROP TABLE RefNo;
+
+e CREATE TABLE WordList (
+	hash INTEGER primary key,
+   word VARCHAR(100));
+
+e CREATE TABLE Word12 (
+	word1 INTEGER,
+   word2 INTEGER,
+	word3ref INTEGER,
+	total    INTEGER);
+
+e create index word12ix on word12(word1, word2);
+
+e CREATE TABLE Word3 (
+	ref  INTEGER,
+	word3 INTEGER,
+	hits  INTEGER)
+	PRIMARY KEY (ref, word3);
+
+
+e CREATE TABLE BeginList (
+	word1 INTEGER,
+	word2 INTEGER,
+	total INTEGER)
+	PRIMARY KEY (word1, word2);
+
+
+
+e CREATE TABLE RefNo (
+	refno INTEGER Primary Key
+);
+
+c close;

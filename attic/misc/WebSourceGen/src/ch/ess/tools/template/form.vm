@@ -1,0 +1,66 @@
+package ${package}.form;
+
+import javax.servlet.http.HttpServletRequest;
+
+import org.apache.struts.action.ActionErrors;
+import org.apache.struts.action.ActionMapping;
+
+import ch.ess.ct.business.db.${objectNames};
+import ch.ess.ct.web.base.DbForm;
+
+import com.objectmatter.bsf.ConcurrencyAware;
+import com.objectmatter.bsf.Database;
+
+/**
+ * @version $Revision: $ $Date: $
+ * @author $Author: $
+ */
+public class ${objectName}Form extends DbForm {
+
+  private String name;
+  private boolean geloescht;
+
+  protected void clean() {
+    name = null;
+    geloescht = false;    
+  }
+  
+  public void reset(ActionMapping mapping, HttpServletRequest request) {
+    geloescht = false;
+  }
+
+  public ActionErrors validate(ActionMapping mapping, HttpServletRequest request) {
+    ActionErrors errors = new ActionErrors();
+    checkMandatoryFields(errors, name);
+    return errors;
+  }
+
+  public String getName() {
+    return name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public boolean isGeloescht() {
+    return geloescht;
+  }
+
+  public void setGeloescht(boolean geloescht) {
+    this.geloescht = geloescht;
+  }
+
+  public void form2db(Database db, ConcurrencyAware obj) {
+    ${objectNames} ${objectLowercaseName} = (${objectNames})obj;
+    ${objectLowercaseName}.setName(getName());
+  }
+
+  public void db2form(ConcurrencyAware obj) {
+    ${objectNames} ${objectLowercaseName} = (${objectNames})obj;
+    setId(${objectLowercaseName}.get${objectName}Id().intValue());    
+    setName(${objectLowercaseName}.getName());
+  }
+
+
+}

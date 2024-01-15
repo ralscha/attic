@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!DOCTYPE aspectj PUBLIC
+"-//AspectJ//DTD//EN" "http://www.eclipse.org/aspectj/dtd/aspectj.dtd">
+
+<aspectj>
+
+  <weaver options="-showWeaveInfo">
+    <include within="test..*"/>
+  </weaver>
+
+	<aspects>
+		<aspect name="org.springframework.beans.factory.aspectj.AnnotationBeanConfigurerAspect"/>
+	</aspects>
+
+</aspectj>

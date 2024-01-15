@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<resources>
+  <resource key="login.passwordmail.body">    
+    <description locale="en">Passwordmail Body</description>
+    <description locale="de">Passwortmail Text</description>        
+
+    <text locale="en"><![CDATA[Your new password is:
+
+  $!{password}
+
+Please change it after the next log in!
+]]>    
+    </text>  
+    <text locale="de"><![CDATA[Ihr neues Passwort lautet:
+    
+  $!{password}
+  
+Bitte bei der naechsten Anmeldung aendern!
+]]>    
+    </text>  
+       
+    <variable name="password">      
+      <description locale="en">New password</description>
+      <description locale="de">Neues Passwort</description>        
+    </variable>    
+    
+  </resource>
+  
+
+  <resource key="login.passwordmail.subject">    
+    <description locale="en">Passwordmail Subject</description>
+    <description locale="de">Passwortmail Subjekt</description>        
+
+    <text locale="en"><![CDATA[New password for Cal Web Application]]></text>  
+    <text locale="de"><![CDATA[Neues Passwort fuer Cal Web Applikation]]></text>  
+            
+  </resource>
+  
+  
+  <!-- START REMINDER MAIL -->
+
+  <resource key="event.reminder.body">    
+    <description locale="en">Reminder Body</description>
+    <description locale="de">Erinnerung Text</description>        
+
+    <text locale="en"><![CDATA[
+Subject:     $!{subject}
+Start:       $!{start}
+End:         $!{end}
+
+Location:    $!{location}
+Category:    $!{category}
+
+Sensitivity: $!{sensitivity}
+Importance:  $!{importance}
+
+Description: 
+$!{description}
+]]>    
+    </text>  
+    <text locale="de"><![CDATA[
+Subjekt:     $!{subject}
+Start:       $!{start}
+Ende:        $!{end}
+
+Ort:         $!{location}
+Kategorie:   $!{category}
+
+Sensibilität:$!{sensitivity}
+Wichtigkeit: $!{importance}
+
+Beschreibung:
+$!{description}
+]]>    
+    </text>  
+       
+    <variable name="subject">      
+      <description locale="en">Event Subject</description>
+      <description locale="de">Ereignis Subjekt</description>        
+    </variable> 
+    <variable name="start">      
+      <description locale="en">Starttime</description>
+      <description locale="de">Start</description>        
+    </variable>  
+    <variable name="end">      
+      <description locale="en">Endtime</description>
+      <description locale="de">Ende</description>        
+    </variable>
+    <variable name="location">      
+      <description locale="en">Location</description>
+      <description locale="de">Ort</description>        
+    </variable>
+    <variable name="category">      
+      <description locale="en">Category</description>
+      <description locale="de">Kategorie</description>        
+    </variable>
+    <variable name="description">      
+      <description locale="en">Description</description>
+      <description locale="de">Beschreibung</description>        
+    </variable>
+    <variable name="sensitivity">      
+      <description locale="en">Sensitivity</description>
+      <description locale="de">Sensibilität</description>        
+    </variable>  
+    <variable name="importance">      
+      <description locale="en">Importance</description>
+      <description locale="de">Wichtigkeit</description>        
+    </variable>      
+  </resource>    
+
+  <resource key="event.reminder.subject">    
+    <description locale="en">Reminder Subject</description>
+    <description locale="de">Erinnerung Subjekt</description>        
+
+    <text locale="en"><![CDATA[Reminder: $!{subject}]]></text>  
+    <text locale="de"><![CDATA[Erinnerung: $!{subject}]]></text>  
+         
+    <variable name="subject">      
+      <description locale="en">Event Subject</description>
+      <description locale="de">Ereignis Subjekt</description>        
+    </variable>           
+            
+  </resource>
+  
+  <!-- END REMINDER MAIL -->  
+    
+</resources>

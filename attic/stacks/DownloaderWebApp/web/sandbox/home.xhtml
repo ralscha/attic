@@ -1,0 +1,28 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+                      "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+                      
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:s="http://jboss.com/products/seam/taglib"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:rich="http://richfaces.org/rich"
+                template="templates/master.xhtml">
+                
+	<ui:define name="title">Introduction</ui:define>
+	<ui:define name="body">
+		<p>Open 18 is an application which allows you to record a
+		personal record of your golfing history. It offers a place to store
+		course information and the details of the rounds played on those
+		courses. The application includes business objects such as Course,
+		Tee, Hole, Round and Player. The domain model covers a rich
+		cross-section of entities, associations, collections, and
+		validations.</p>
+		<p>The purpose of this example application is to demonstrate the benefits
+		that Seam can provide above and beyond the standard JSF offerings.  It
+		also makes use of the Spring framework, since a majority of applications built
+		today also depend on this valuable and productive framework.  Despite the
+		use of Seam, this application does not require an EJB 3.0 container at all.
+		Rather, it can be run from simple servlet containers such as Tomcat and Jetty.</p>
+	</ui:define>
+</ui:composition>

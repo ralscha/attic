@@ -1,0 +1,78 @@
+<html>
+<head>
+<meta http-equiv = "pragma" content="no-cache">
+<title> .SSMI<!--market_i--></title>
+</head>
+<!-- record type: 118 -->
+<BODY BGCOLOR="#FFFFFF" TEXT="#002749" LINK="#0000E5" VLINK="#0000E5" TOPMARGIN=0 ALINK="#0000E5">
+<table border=0 align=right><tr>
+<td><img src="/terminal/images/client.gif" width=67 height=18 border=0></td>
+</tr></table><br><br>
+<center>
+
+<table border=0 bgcolor=000000 cellpadding=0><td>
+<table border=0 cellpadding=5 cellspacing=1 bgcolor=EE9250>
+<tr bgcolor=ffffff>
+<th align=center colspan=2> <font size=3 face=arial color=002749><b>SWISS MARKET IND</b></td></tr>
+<tr bgcolor=eeeeee>
+<th align=center> <A HREF="/CTIB/OTFCHART?RIC=.SSMI&T=1"><font face=arial size=2 color=#0000E5> Chart</th>
+<th align=center> <A HREF="/CTIB/OTFNEWS?REQ=.SSMI"><font face=arial size=2 color=#0000E5> News</th>
+</table>  </td></table><br>   
+
+<table border=0 bgcolor=EE9250 cellpadding=0><td>
+<table border=0 cellpadding=2 cellspacing=1>
+<tr bgcolor=ffffff>
+<th align=left><font face=arial size=2>Exchange</th>
+<td align=right><b><font face=arial size=2 color=#0000E5>ZRH</td>
+<th align=left><font face=arial size=2>Currency</th>
+<td align=right><b><font face=arial size=2 color=#0000E5>CHF</td>
+<th align=left><font face=arial size=2>Ric Code</th>
+<td align=right><strong><font face=arial size=2 color=#0000E5>.SSMI</td>
+<tr bgcolor=ffffff>
+<th align=left><font face=arial size=2>Last</th>
+<td align=right><font face=arial size=2 color=#0000E5><strong>%%last%%</td>
+<th align=left><font face=arial size=2>Net Chg</th>
+<td align=right><font face=arial size=2 color=#0000E5><strong>47.2</td>
+<th align=left><font face=arial size=2>Pct Chg</th>
+<td align=right><font face=arial size=2 color=#0000E5><strong>0.81</td>
+<tr bgcolor=ffffff>
+<th align=left><font face=arial size=2>Open</th>
+<td align=right><font face=arial size=2 color=#0000E5><strong> 5848.5</td>
+<th align=left><font face=arial size=2>Close</th>
+<td align=right><font face=arial size=2 color=#0000E5><strong>5846.9</td>
+<th align=left><font face=arial size=2>Close Date</th>
+<td align=right><font face=arial size=2 color=#0000E5><strong>07 OCT 1997</td>
+<tr bgcolor=ffffff>
+<th align=left><font face=arial size=2>High</th>
+<td align=right><font face=arial size=2 color=#0000E5><strong>%%high%%</td>
+<th align=left><font face=arial size=2>Life High</th>
+<td align=right><font face=arial size=2 color=#0000E5><strong>6101.2</td>
+<th align=left><font face=arial size=2>Date Life High</th>
+<td align=right><font face=arial size=2 color=#0000E5><strong>09 JUL 1997</td>
+<tr bgcolor=ffffff>
+<th align=left><font face=arial size=2>Low</th>
+<td align=right><font face=arial size=2 color=#0000E5><strong>%%low%%</td>
+<th align=left><font face=arial size=2>Life Low</th>
+<td align=right><font face=arial size=2 color=#0000E5><strong>1279.0</td>
+<th align=left><font face=arial size=2>Date Life Low</th>
+<td align=right><font face=arial size=2 color=#0000E5><strong>15 JAN 1991</td>
+<tr bgcolor=ffffff>
+<th align=left><font face=arial size=2>Year High</th>
+<td align=center colspan=2><font face=arial size=2 color=#0000E5><strong>6101.2</td>
+<th align=left><font face=arial size=2>Year Low</th>
+<td align=center colspan=2><font face=arial size=2 color=#0000E5><strong>3897.2</td>
+
+</table></td></table>
+
+<table border=0 padding=6>
+<th align=left><font face=arial size=2><font size=2>Updated
+<th><font size=2><font face=arial size=2 color=#0000E5><strong>%%update%%
+<th><font size=2>/
+<th><font size=2><font face=arial size=2 color=#0000E5><strong>08 OCT 1997</font>
+</table>
+</center>
+</body>
+
+</HTML>
+
+

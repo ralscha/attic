@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+
+  <bean id="dataSource" class="org.springframework.jndi.JndiObjectFactoryBean">
+      <property name="jndiName"><value>java:comp/env/jdbc/blank</value></property>
+  </bean>
+
+  <bean id="configurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+    <property name="properties"><ref local="dbProperties"/></property>
+    <property name="order"><value>1</value></property>
+  </bean>
+  
+  <bean id="dbProperties" class="ch.ess.common.util.DbPropertiesFactoryBean">
+    <property name="dataSource"><ref bean="dataSource"/></property>
+    <property name="query"><value>select name, propValue from blankConfiguration</value></property>
+    <!-- first col key, second col value -->
+  </bean>  
+    
+  <bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+    <property name="host"><value>${mail.smtphost}</value></property>
+    <property name="port"><value>${mail.smtpport}</value></property>
+    <property name="username"><value>${mail.smtpuser}</value></property>
+    <property name="password"><value>${mail.smtppassword}</value></property>
+  </bean>
+ 
+  <bean id="passwordMailSender" class="ch.ess.common.service.mail.impl.TemplateMailSenderImpl">
+    <property name="subject"><value>login.passwordmail.subject</value></property>
+    <property name="body"><value>login.passwordmail.body</value></property>    
+    <property name="mailSender"><ref local="mailSender"/></property>  
+  </bean>
+
+  <bean id="multipleLoginMailSender" class="ch.ess.common.service.mail.impl.TemplateMailSenderImpl">
+    <property name="subject"><value>login.multiplemail.subject</value></property>
+    <property name="body"><value>login.multiplemail.body</value></property>    
+    <property name="mailSender"><ref local="mailSender"/></property>  
+  </bean>  
+  
+															
+</beans>

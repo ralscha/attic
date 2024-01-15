@@ -1,0 +1,677 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+   <head>
+      <title>
+         WebCal
+      </title>
+      <link rel="shortcut icon" href="/cal/images/favicon.ico" />
+      <link href="/cal/styles/menubar.css" rel="stylesheet" type="text/css" />
+      <link href="/cal/styles/global.css" rel="stylesheet" type="text/css" />
+      <link href="/cal/styles/view.css" rel="stylesheet" type="text/css" />
+   </head>
+   <body>
+      <p>
+         &nbsp;
+      </p>
+      <table class="title" width="100%">
+         <tr>
+            <td width="40%" align="left">
+<script type="text/javascript" src="/cal/scripts/menubar.js">
+</script>
+                
+               <div class="menuBar" style="width:80%;">
+                  <a class="menuButton" href="" onclick=
+                  "return buttonClick(event, &#39;m_application&#39;);"
+                  onmouseover=
+                  "buttonMouseover(event, &#39;m_application&#39;);">Calendar</a>
+                  <a class="menuButton" href="" onclick=
+                  "return buttonClick(event, &#39;m_administration&#39;);"
+                  onmouseover=
+                  "buttonMouseover(event, &#39;m_administration&#39;);">Administration</a>
+                  <a class="menuButton" href="/cal/logout.jsp">Log Out</a>
+               </div>
+               <div id="m_application" class="menu" onmouseover=
+               "menuMouseover(event)">
+                  <a class="menuItem" href="/cal/events.do?clean=1">Events</a>
+                  <a class="menuItem" href=
+                  "/cal/groupMonth.do?clean=1">Overview</a> <a class="menuItem"
+                  href="/cal/holidays.do?clean=1">Holidays</a> <a class=
+                  "menuItem" href="/cal/categories.do?clean=1">Categories</a>
+                  <a class="menuItem" href=
+                  "/cal/departments.do?clean=1">Groups</a> <a class="menuItem"
+                  href="/cal/calresources.do?clean=1">Resources</a> <a class=
+                  "menuItem" href=
+                  "/cal/resourcegroups.do?clean=1">Resourcegroups</a>
+               </div>
+               <div id="m_administration" class="menu" onmouseover=
+               "menuMouseover(event)">
+                  <a class="menuItem" href=
+                  "/cal/editUserConfig.do">Personal</a> <a class="menuItem"
+                  href="/cal/editConfig.do">System</a> <a class="menuItem"
+                  href="/cal/resources.do?clean=1">Textresources</a> <a class=
+                  "menuItem" href="/cal/users.do?clean=1">Users</a>
+               </div>
+            </td>
+            <td align="center">
+               <div class="titlesmall">
+                  User:&nbsp; <strong>John&nbsp;Administrator&nbsp;</strong>
+               </div>
+            </td>
+            <td width="30%" align="right">
+               <table cellspacing="0" cellpadding="0">
+                  <tr>
+                     <td align="right" class="titlebig">
+                        <span class="titlebig">WebCal</span>&nbsp;<span class=
+                        "titlesmall">0.1</span> 
+                     </td>
+                  </tr>
+               </table>
+            </td>
+         </tr>
+      </table>
+      <hr size="1" noshade="noshade" />
+      <br />
+      <a href="/cal/groupMonth.do">Overview</a>
+      <p>
+         &nbsp;&nbsp;Day&nbsp;&nbsp;Week&nbsp;&nbsp;Month&nbsp;&nbsp;Year
+      </p>
+      <br />
+      <br />
+      <p>
+         January 10, 2004
+      </p>
+      <br />
+      <br />
+      <br />
+      <br />
+      <table width="50%" class="day">
+         <tr>
+            <td class="hour" height="60" rowspan="4" align="left" width="10%"
+            valign="top">
+               00:00
+            </td>
+            <td rowspan="1" colspan="2" class="dottedlinet">
+               &nbsp;
+            </td>
+         </tr>
+         <tr>
+            <td rowspan="1" colspan="2" class="dottedline">
+               &nbsp;
+            </td>
+         </tr>
+         <tr>
+            <td rowspan="1" colspan="2" class="dottedline">
+               &nbsp;
+            </td>
+         </tr>
+         <tr>
+            <td rowspan="1" colspan="2" class="dottedline">
+               &nbsp;
+            </td>
+         </tr>
+         <tr>
+            <td class="hour" height="60" rowspan="4" align="left" width="10%"
+            valign="top">
+               01:00
+            </td>
+            <td rowspan="1" colspan="2" class="dottedlinet">
+               &nbsp;
+            </td>
+         </tr>
+         <tr>
+            <td rowspan="1" colspan="2" class="dottedline">
+               &nbsp;
+            </td>
+         </tr>
+         <tr>
+            <td rowspan="1" colspan="2" class="dottedline">
+               &nbsp;
+            </td>
+         </tr>
+         <tr>
+            <td rowspan="1" colspan="2" class="dottedline">
+               &nbsp;
+            </td>
+         </tr>
+         <tr>
+            <td class="hour" height="60" rowspan="4" align="left" width="10%"
+            valign="top">
+               02:00
+            </td>
+            <td rowspan="1" colspan="2" class="dottedlinet">
+               &nbsp;
+            </td>
+         </tr>
+         <tr>
+            <td rowspan="1" colspan="2" class="dottedline">
+               &nbsp;
+            </td>
+         </tr>
+         <tr>
+            <td rowspan="1" colspan="2" class="dottedline">
+               &nbsp;
+            </td>
+         </tr>
+         <tr>
+            <td rowspan="1" colspan="2" class="dottedline">
+               &nbsp;
+            </td>
+         </tr>
+         <tr>
+            <td class="hour" height="60" rowspan="4" align="left" width="10%"
+            valign="top">
+               03:00
+            </td>
+            <td rowspan="1" colspan="2" class="dottedlinet">
+               &nbsp;
+            </td>
+         </tr>
+         <tr>
+            <td rowspan="1" colspan="2" class="dottedline">
+               &nbsp;
+            </td>
+         </tr>
+         <tr>
+            <td rowspan="1" colspan="2" class="dottedline">
+               &nbsp;
+            </td>
+         </tr>
+         <tr>
+            <td rowspan="1" colspan="2" class="dottedline">
+               &nbsp;
+            </td>
+         </tr>
+         <tr>
+            <td class="hour" height="60" rowspan="4" align="left" width="10%"
+            valign="top">
+               04:00
+            </td>
+            <td rowspan="1" colspan="2" class="dottedlinet">
+               &nbsp;
+            </td>
+         </tr>
+         <tr>
+            <td rowspan="1" colspan="2" class="dottedline">
+               &nbsp;
+            </td>
+         </tr>
+         <tr>
+            <td rowspan="1" colspan="2" class="dottedline">
+               &nbsp;
+            </td>
+         </tr>
+         <tr>
+            <td rowspan="1" colspan="2" class="dottedline">
+               &nbsp;
+            </td>
+         </tr>
+         <tr>
+            <td class="hour" height="60" rowspan="4" align="left" width="10%"
+            valign="top">
+               05:00
+            </td>
+            <td rowspan="1" colspan="2" class="dottedlinet">
+               &nbsp;
+            </td>
+         </tr>
+         <tr>
+            <td rowspan="1" colspan="2" class="dottedline">
+               &nbsp;
+            </td>
+         </tr>
+         <tr>
+            <td rowspan="1" colspan="2" class="dottedline">
+               &nbsp;
+            </td>
+         </tr>
+         <tr>
+            <td rowspan="1" colspan="2" class="dottedline">
+               &nbsp;
+            </td>
+         </tr>
+         <tr>
+            <td class="hour" height="60" rowspan="4" align="left" width="10%"
+            valign="top">
+               06:00
+            </td>
+            <td bgcolor="#C0C0C0" rowspan="24" colspan="1" class="dottedlinet">
+               <table width="100%" border="0" cellpadding="1" cellspacing="0">
+                  <tr>
+                     <td>
+                        hallo
+                     </td>
+                  </tr>
+               </table>
+            </td>
+            <td rowspan="1" colspan="1" class="dottedlinet">
+               &nbsp;
+            </td>
+         </tr>
+         <tr>
+            <td rowspan="1" colspan="1" class="dottedline">
+               &nbsp;
+            </td>
+         </tr>
+         <tr>
+            <td rowspan="1" colspan="1" class="dottedline">
+               &nbsp;
+            </td>
+         </tr>
+         <tr>
+            <td rowspan="1" colspan="1" class="dottedline">
+               &nbsp;
+            </td>
+         </tr>
+         <tr>
+            <td class="hour" height="60" rowspan="4" align="left" width="10%"
+            valign="top">
+               07:00
+            </td>
+            <td rowspan="1" colspan="1" class="dottedlinet">
+               &nbsp;
+            </td>
+         </tr>
+         <tr>
+            <td rowspan="1" colspan="1" class="dottedline">
+               &nbsp;
+            </td>
+         </tr>
+         <tr>
+            <td rowspan="1" colspan="1" class="dottedline">
+               &nbsp;
+            </td>
+         </tr>
+         <tr>
+            <td rowspan="1" colspan="1" class="dottedline">
+               &nbsp;
+            </td>
+         </tr>
+         <tr>
+            <td class="hour" height="60" rowspan="4" align="left" width="10%"
+            valign="top">
+               08:00
+            </td>
+            <td rowspan="1" colspan="1" class="dottedlinet">
+               &nbsp;
+            </td>
+         </tr>
+         <tr>
+            <td rowspan="1" colspan="1" class="dottedline">
+               &nbsp;
+            </td>
+         </tr>
+         <tr>
+            <td bgcolor="#C0C0C0" rowspan="5" colspan="1" class="dottedline">
+               <table width="100%" border="0" cellspacing="0" cellpadding="1">
+                  <tr>
+                     <td>
+                        hallo
+                     </td>
+                  </tr>
+               </table>
+            </td>
+         </tr>
+         <tr>
+            <td>
+            </td>
+         </tr>
+         <tr>
+            <td class="hour" height="60" rowspan="4" align="left" width="10%"
+            valign="top">
+               09:00
+            </td>
+         </tr>
+         <tr>
+            <td>
+            </td>
+         </tr>
+         <tr>
+            <td>
+            </td>
+         </tr>
+         <tr>
+            <td rowspan="1" colspan="1" class="dottedline">
+               &nbsp;
+            </td>
+         </tr>
+         <tr>
+            <td class="hour" height="60" rowspan="4" align="left" width="10%"
+            valign="top">
+               10:00
+            </td>
+            <td rowspan="1" colspan="1" class="dottedlinet">
+               &nbsp;
+            </td>
+         </tr>
+         <tr>
+            <td rowspan="1" colspan="1" class="dottedline">
+               &nbsp;
+            </td>
+         </tr>
+         <tr>
+            <td rowspan="1" colspan="1" class="dottedline">
+               &nbsp;
+            </td>
+         </tr>
+         <tr>
+            <td rowspan="1" colspan="1" class="dottedline">
+               &nbsp;
+            </td>
+         </tr>
+         <tr>
+            <td class="hour" height="60" rowspan="4" align="left" width="10%"
+            valign="top">
+               11:00
+            </td>
+            <td rowspan="1" colspan="1" class="dottedlinet">
+               &nbsp;
+            </td>
+         </tr>
+         <tr>
+            <td rowspan="1" colspan="1" class="dottedline">
+               &nbsp;
+            </td>
+         </tr>
+         <tr>
+            <td rowspan="1" colspan="1" class="dottedline">
+               &nbsp;
+            </td>
+         </tr>
+         <tr>
+            <td rowspan="1" colspan="1" class="dottedline">
+               &nbsp;
+            </td>
+         </tr>
+         <tr>
+            <td class="hour" height="60" rowspan="4" align="left" width="10%"
+            valign="top">
+               12:00
+            </td>
+            <td rowspan="1" colspan="2" class="dottedlinet">
+               &nbsp;
+            </td>
+         </tr>
+         <tr>
+            <td rowspan="1" colspan="2" class="dottedline">
+               &nbsp;
+            </td>
+         </tr>
+         <tr>
+            <td rowspan="1" colspan="2" class="dottedline">
+               &nbsp;
+            </td>
+         </tr>
+         <tr>
+            <td rowspan="1" colspan="2" class="dottedline">
+               &nbsp;
+            </td>
+         </tr>
+         <tr>
+            <td class="hour" height="60" rowspan="4" align="left" width="10%"
+            valign="top">
+               13:00
+            </td>
+            <td rowspan="1" colspan="2" class="dottedlinet">
+               &nbsp;
+            </td>
+         </tr>
+         <tr>
+            <td rowspan="1" colspan="2" class="dottedline">
+               &nbsp;
+            </td>
+         </tr>
+         <tr>
+            <td rowspan="1" colspan="2" class="dottedline">
+               &nbsp;
+            </td>
+         </tr>
+         <tr>
+            <td rowspan="1" colspan="2" class="dottedline">
+               &nbsp;
+            </td>
+         </tr>
+         <tr>
+            <td class="hour" height="60" rowspan="4" align="left" width="10%"
+            valign="top">
+               14:00
+            </td>
+            <td rowspan="1" colspan="2" class="dottedlinet">
+               &nbsp;
+            </td>
+         </tr>
+         <tr>
+            <td rowspan="1" colspan="2" class="dottedline">
+               &nbsp;
+            </td>
+         </tr>
+         <tr>
+            <td rowspan="1" colspan="2" class="dottedline">
+               &nbsp;
+            </td>
+         </tr>
+         <tr>
+            <td rowspan="1" colspan="2" class="dottedline">
+               &nbsp;
+            </td>
+         </tr>
+         <tr>
+            <td class="hour" height="60" rowspan="4" align="left" width="10%"
+            valign="top">
+               15:00
+            </td>
+            <td rowspan="1" colspan="2" class="dottedlinet">
+               &nbsp;
+            </td>
+         </tr>
+         <tr>
+            <td rowspan="1" colspan="2" class="dottedline">
+               &nbsp;
+            </td>
+         </tr>
+         <tr>
+            <td rowspan="1" colspan="2" class="dottedline">
+               &nbsp;
+            </td>
+         </tr>
+         <tr>
+            <td rowspan="1" colspan="2" class="dottedline">
+               &nbsp;
+            </td>
+         </tr>
+         <tr>
+            <td class="hour" height="60" rowspan="4" align="left" width="10%"
+            valign="top">
+               16:00
+            </td>
+            <td rowspan="1" colspan="2" class="dottedlinet">
+               &nbsp;
+            </td>
+         </tr>
+         <tr>
+            <td rowspan="1" colspan="2" class="dottedline">
+               &nbsp;
+            </td>
+         </tr>
+         <tr>
+            <td rowspan="1" colspan="2" class="dottedline">
+               &nbsp;
+            </td>
+         </tr>
+         <tr>
+            <td rowspan="1" colspan="2" class="dottedline">
+               &nbsp;
+            </td>
+         </tr>
+         <tr>
+            <td class="hour" height="60" rowspan="4" align="left" width="10%"
+            valign="top">
+               17:00
+            </td>
+            <td rowspan="1" colspan="2" class="dottedlinet">
+               &nbsp;
+            </td>
+         </tr>
+         <tr>
+            <td rowspan="1" colspan="2" class="dottedline">
+               &nbsp;
+            </td>
+         </tr>
+         <tr>
+            <td rowspan="1" colspan="2" class="dottedline">
+               &nbsp;
+            </td>
+         </tr>
+         <tr>
+            <td rowspan="1" colspan="2" class="dottedline">
+               &nbsp;
+            </td>
+         </tr>
+         <tr>
+            <td class="hour" height="60" rowspan="4" align="left" width="10%"
+            valign="top">
+               18:00
+            </td>
+            <td rowspan="1" colspan="2" class="dottedlinet">
+               &nbsp;
+            </td>
+         </tr>
+         <tr>
+            <td rowspan="1" colspan="2" class="dottedline">
+               &nbsp;
+            </td>
+         </tr>
+         <tr>
+            <td rowspan="1" colspan="2" class="dottedline">
+               &nbsp;
+            </td>
+         </tr>
+         <tr>
+            <td rowspan="1" colspan="2" class="dottedline">
+               &nbsp;
+            </td>
+         </tr>
+         <tr>
+            <td class="hour" height="60" rowspan="4" align="left" width="10%"
+            valign="top">
+               19:00
+            </td>
+            <td rowspan="1" colspan="2" class="dottedlinet">
+               &nbsp;
+            </td>
+         </tr>
+         <tr>
+            <td rowspan="1" colspan="2" class="dottedline">
+               &nbsp;
+            </td>
+         </tr>
+         <tr>
+            <td rowspan="1" colspan="2" class="dottedline">
+               &nbsp;
+            </td>
+         </tr>
+         <tr>
+            <td rowspan="1" colspan="2" class="dottedline">
+               &nbsp;
+            </td>
+         </tr>
+         <tr>
+            <td class="hour" height="60" rowspan="4" align="left" width="10%"
+            valign="top">
+               20:00
+            </td>
+            <td rowspan="1" colspan="2" class="dottedlinet">
+               &nbsp;
+            </td>
+         </tr>
+         <tr>
+            <td rowspan="1" colspan="2" class="dottedline">
+               &nbsp;
+            </td>
+         </tr>
+         <tr>
+            <td rowspan="1" colspan="2" class="dottedline">
+               &nbsp;
+            </td>
+         </tr>
+         <tr>
+            <td rowspan="1" colspan="2" class="dottedline">
+               &nbsp;
+            </td>
+         </tr>
+         <tr>
+            <td class="hour" height="60" rowspan="4" align="left" width="10%"
+            valign="top">
+               21:00
+            </td>
+            <td rowspan="1" colspan="2" class="dottedlinet">
+               &nbsp;
+            </td>
+         </tr>
+         <tr>
+            <td rowspan="1" colspan="2" class="dottedline">
+               &nbsp;
+            </td>
+         </tr>
+         <tr>
+            <td rowspan="1" colspan="2" class="dottedline">
+               &nbsp;
+            </td>
+         </tr>
+         <tr>
+            <td rowspan="1" colspan="2" class="dottedline">
+               &nbsp;
+            </td>
+         </tr>
+         <tr>
+            <td class="hour" height="60" rowspan="4" align="left" width="10%"
+            valign="top">
+               22:00
+            </td>
+            <td rowspan="1" colspan="2" class="dottedlinet">
+               &nbsp;
+            </td>
+         </tr>
+         <tr>
+            <td rowspan="1" colspan="2" class="dottedline">
+               &nbsp;
+            </td>
+         </tr>
+         <tr>
+            <td rowspan="1" colspan="2" class="dottedline">
+               &nbsp;
+            </td>
+         </tr>
+         <tr>
+            <td rowspan="1" colspan="2" class="dottedline">
+               &nbsp;
+            </td>
+         </tr>
+         <tr>
+            <td class="hour" height="60" rowspan="4" align="left" width="10%"
+            valign="top">
+               23:00
+            </td>
+            <td rowspan="1" colspan="2" class="dottedlinet">
+               &nbsp;
+            </td>
+         </tr>
+         <tr>
+            <td rowspan="1" colspan="2" class="dottedline">
+               &nbsp;
+            </td>
+         </tr>
+         <tr>
+            <td rowspan="1" colspan="2" class="dottedline">
+               &nbsp;
+            </td>
+         </tr>
+         <tr>
+            <td rowspan="1" colspan="2" class="dottedline">
+               &nbsp;
+            </td>
+         </tr>
+      </table>
+   </body>
+</html>
+

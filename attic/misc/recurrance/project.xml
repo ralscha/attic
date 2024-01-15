@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<project>
+
+  <!-- the version of maven's project object model -->
+  <pomVersion>3</pomVersion>
+  
+  <!-- a unique name for this project -->
+  <id>recurrance</id>
+  
+  <!-- a short but descriptive name for the project -->
+  <name>Recurrance</name>
+  
+  <!-- The version of the project under development, e.g.
+       1.1, 1.2, 2.0-dev -->
+  <currentVersion>1.1</currentVersion>
+  
+  <!-- details about the organization that 'owns' the project -->
+  <organization>
+    <name>SourceForge</name>
+    <url>http://sourceforge.net/projects/${pom.artifactId}/</url>
+    <logo>http://sourceforge.net/sflogo.php?group_id=56629&amp;type=5</logo>
+  </organization>
+  
+  <!-- the year the project started -->
+  <inceptionYear>2002</inceptionYear>
+  <package>com.managestar.recurrance</package>
+  <logo>/images/recurrance.gif</logo>
+  <description>
+ Gregorian calendar date recurrance as described by RRULE in rfc2445. This is an open source java implementation of that rule. When the rule is used, you can ask for all matching dates or given a date find the next/previous occurance.
+  </description>
+  <!-- a short description of what the project does -->
+  <shortDescription>
+    Implementation of RFC 2445 RRULE
+  </shortDescription>
+
+  <!-- the project home page -->
+  <url>http://${pom.artifactId}.sourceforge.net</url>
+  <issueTrackingUrl>http://sourceforge.net/tracker/?group_id=56629</issueTrackingUrl>
+  <siteAddress>${pom.artifactId}.sourceforge.net</siteAddress>
+  <siteDirectory>/home/groups/${pom.artifactId.substring(0,1)}/${pom.artifactId.substring(0,2)}/${pom.artifactId}/htdocs/</siteDirectory>
+  <distributionDirectory>/home/groups/${pom.artifactId.substring(0,1)}/${pom.artifactId.substring(0,2)}/${pom.artifactId}/htdocs/distributions/</distributionDirectory>
+
+  <!-- the version control repository and http url for online access
+       the connection element has the form:
+       scm:<system>:<system specific connection string> -->
+  <repository>
+    <connection>scm:cvs:pserver:anoncvs@cvs.${pom.artifactId}.sourceforge.net:/cvsroot/${pom.artifactId}:${pom.artifactId}</connection>
+    <url>http://cvs.sourceforge.net/cgi-bin/viewcvs.cgi/${pom.artifactId}/${pom.artifactId}/</url>
+  </repository>
+
+  <!-- any mailing lists for the project -->
+  <mailingLists/>
+  
+  <!-- who the developers are for the project -->
+  <developers>
+   <developer>
+      <name>Jason Henriksen</name>
+      <id>drake42</id>
+      <email>drake42@users.sourceforge.net</email>
+      <organization></organization>
+      <roles>
+        <role>Java Developer</role>
+      </roles>
+    </developer> 
+  </developers>
+
+  <!-- jar files the project is dependent on -->
+  <dependencies>
+
+   <dependency>
+     <id>commons-logging</id>
+     <version>1.0.2</version>
+   </dependency>
+
+  </dependencies>
+
+  
+  <!-- build information for the project -->
+  <build>
+    <nagEmailAddress>${pom.artifactId}@sourceforge.net</nagEmailAddress>
+    <sourceDirectory>${basedir}/src/java</sourceDirectory>
+    <unitTestSourceDirectory>${basedir}/src/test</unitTestSourceDirectory>
+
+    <unitTest>
+      <includes>
+        <include>**/*Test.java</include>
+      </includes>
+    </unitTest>
+
+    <resources>
+      <resource>
+        <directory>${basedir}/src/conf</directory>
+        <includes>
+          <include>*.dtd</include>
+        </includes>
+      </resource>
+    </resources>
+  </build>
+
+  <reports>
+   <report>maven-jdepend-plugin</report>
+   <report>maven-checkstyle-plugin</report>   
+   <report>maven-changelog-plugin</report>
+   
+   <!--<report>maven-developer-activity-plugin</report>
+   <report>maven-file-activity-plugin</report>-->
+   <report>maven-javadoc-plugin</report>
+   <!--<report>maven-jxr-plugin</report>-->
+   <report>maven-junit-report-plugin</report>
+   
+   <report>maven-license-plugin</report>
+   <!--<report>maven-linkcheck-plugin</report>-->
+   <report>maven-tasklist-plugin</report>
+   <report>maven-clover-plugin</report>
+  </reports>
+
+
+</project>
+

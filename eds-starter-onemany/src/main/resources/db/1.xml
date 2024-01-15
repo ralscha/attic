@@ -1,0 +1,347 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd
+    http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+	<changeSet author="dev" id="1">
+		<createTable tableName="logging_event">
+			<column name="timestmp" type="BIGINT">
+				<constraints nullable="false" />
+			</column>
+			<column name="formatted_message" type="CLOB">
+				<constraints nullable="false" />
+			</column>
+			<column name="logger_name" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="level_string" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="thread_name" type="VARCHAR(255)" />
+			<column name="reference_flag" type="SMALLINT" />
+			<column name="arg0" type="VARCHAR(255)" />
+			<column name="arg1" type="VARCHAR(255)" />
+			<column name="arg2" type="VARCHAR(255)" />
+			<column name="arg3" type="VARCHAR(255)" />
+			<column name="caller_filename" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="caller_class" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="caller_method" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="caller_line" type="CHAR(4)">
+				<constraints nullable="false" />
+			</column>
+			<column autoIncrement="true" name="event_id" type="BIGINT">
+				<constraints nullable="false" primaryKey="true" />
+			</column>
+		</createTable>
+	</changeSet>
+
+	<changeSet author="dev" id="2">
+		<createTable tableName="logging_event_exception">
+			<column name="event_id" type="BIGINT">
+				<constraints nullable="false" />
+			</column>
+			<column name="i" type="SMALLINT">
+				<constraints nullable="false" />
+			</column>
+			<column name="trace_line" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+		</createTable>
+	</changeSet>
+
+	<changeSet author="dev" id="3">
+		<createTable tableName="logging_event_property">
+			<column name="event_id" type="BIGINT">
+				<constraints nullable="false" />
+			</column>
+			<column name="mapped_key" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="mapped_value" type="VARCHAR(1024)" />
+		</createTable>
+	</changeSet>
+
+	<changeSet author="dev" id="4">
+		<addPrimaryKey columnNames="event_id, i" constraintName="PK_log_event_ex" tableName="logging_event_exception" />
+	</changeSet>
+
+	<changeSet author="dev" id="5">
+		<addPrimaryKey columnNames="event_id, mapped_key" constraintName="PK_log_event_prop" tableName="logging_event_property" />
+	</changeSet>
+
+	<changeSet author="dev" id="6">
+		<addForeignKeyConstraint baseColumnNames="event_id" baseTableName="logging_event_exception" constraintName="FK_log_event_ex_event"
+			referencedColumnNames="event_id"
+			referencedTableName="logging_event" />
+	</changeSet>
+
+	<changeSet author="dev" id="7">
+		<addForeignKeyConstraint baseColumnNames="event_id" baseTableName="logging_event_property" constraintName="FK_log_event_prop_event"
+			referencedColumnNames="event_id"
+			referencedTableName="logging_event" />
+	</changeSet>
+
+	<changeSet author="dev" id="8">
+		<createTable tableName="app_user">
+			<column autoIncrement="true" name="id" type="BIGINT">
+				<constraints nullable="false" primaryKey="true" primaryKeyName="PK_app_user" />
+			</column>
+            
+            <column name="login_name" type="varchar(255)">
+              <constraints nullable="false" unique="true" />
+			</column>
+			
+			<column name="last_name" type="varchar(255)" />
+			<column name="first_name" type="varchar(255)" />
+
+			<column name="email" type="varchar(255)" />
+			
+			<column name="password_hash" type="varchar(255)" />
+			<column name="role" type="varchar(255)" />
+			<column name="locale" type="varchar(8)" />
+			<column name="enabled" type="BOOLEAN" />
+            <column name="failed_logins" type="INT" />            
+            <column name="locked_out_until" type="datetime" />
+            <column name="password_reset_token" type="varchar(36)" />
+            <column name="password_reset_token_valid_until" type="datetime" />
+            <column name="is_deleted" type="BOOLEAN" />
+            
+		</createTable>
+	</changeSet>
+	
+	<changeSet author="dev" id="9">
+		<createTable tableName="access_log">
+			<column autoIncrement="true" name="id" type="BIGINT">
+				<constraints nullable="false" primaryKey="true" primaryKeyName="PK_access_log" />
+			</column>	
+			
+			<column name="session_id" type="varchar(100)" />
+			<column name="login_name" type="varchar(255)" />
+			<column name="login_timestamp" type="DATETIME" />
+			<column name="user_agent" type="varchar(255)" />
+			
+			<column name="user_agent_name" type="varchar(20)" />
+			<column name="user_agent_version" type="varchar(10)" />
+			<column name="operating_system" type="varchar(20)" />
+			
+			<column name="ip_address" type="varchar(45)" />
+			<column name="location" type="varchar(255)" />
+
+		</createTable>
+	</changeSet>
+	
+	<changeSet author="dev" id="10">
+		<createTable tableName="persistent_login">
+			<column name="series" type="varchar(255)">
+				<constraints nullable="false" primaryKey="true" primaryKeyName="pk_persistent_login" />
+			</column>							
+			<column name="user_id" type="bigint">
+               <constraints nullable="false"/>
+			</column>
+			<column name="token" type="varchar(255)">
+               <constraints nullable="false"/>
+			</column>			
+			<column name="last_used" type="datetime">
+               <constraints nullable="false"/>
+			</column>
+            <column name="ip_address" type="varchar(39)"/>
+            <column name="user_agent" type="varchar(255)"/>
+		</createTable>
+	</changeSet>	
+	
+	<changeSet author="dev" id="11">
+		<createTable tableName="configuration">
+			<column autoIncrement="true" name="id" type="BIGINT">
+				<constraints nullable="false" primaryKey="true" primaryKeyName="PK_configuration" />
+			</column>	
+						
+			<column name="conf_key" type="varchar(256)" />
+			<column name="conf_value" type="varchar(1024)" />
+
+		</createTable>
+	</changeSet>    
+	
+	<changeSet author="dev" id="12">
+	  <sql>insert into configuration(conf_key, conf_value) values('LOGIN_LOCK_ATTEMPTS', '10')</sql>
+	  <sql>insert into configuration(conf_key, conf_value) values('LOGIN_LOCK_MINUTES', '30')</sql>
+	</changeSet>	
+	
+	<changeSet author="dev" id="13">
+		<createTable tableName="client_state">
+			<column autoIncrement="true" name="id" type="INT(10)">
+				<constraints primaryKey="true" />
+			</column>
+			<column name="user_id" type="INT(10)" />
+			<column name="name" type="VARCHAR(255)" />
+			<column name="value" type="text" />
+		</createTable>
+	</changeSet>
+	
+	<changeSet author="dev" id="14">
+		<createIndex indexName="index_client_state" tableName="client_state" unique="false">
+			<column name="user_id" />
+		</createIndex>
+	</changeSet>
+
+	<!--add Inventory table-->
+
+	<changeSet id="15" author="dev">
+		<createTable tableName="sop_header">
+			<column name="id" type="BIGINT" autoIncrement="true">
+				<constraints nullable="false" primaryKey="true" primaryKeyName="PK_sop_header"/>
+			</column>
+			<column name="name" type="NVARCHAR(100)"/>
+			<column name="phone" type="varchar(100)"/>
+		</createTable>
+	</changeSet>
+
+	<changeSet id="16" author="dev">
+		<createTable tableName="sop_detail">
+			<column name="id" type="BIGINT" autoIncrement="true">
+				<constraints nullable="false" primaryKey="true" primaryKeyName="PK_sop_detail"/>
+			</column>
+			<column name="orderdate" type="datetime"/>
+			<column name="shipped" type="BOOLEAN"/>
+			<column name="sop_header_Id" type="BIGINT">
+				<constraints nullable="false"/>
+			</column>
+		</createTable>
+		<addForeignKeyConstraint baseTableName="sop_detail" baseColumnNames="sop_header_Id" constraintName="FK_Sop_detail_sop_header" referencedTableName="sop_header"
+								 referencedColumnNames="id"/>
+	</changeSet>
+
+	<!--End Inventory table-->
+
+	<changeSet id="17" author="dev">
+		<createTable tableName="department">
+			<column name="id" type="bigint" autoIncrement="true">
+				<constraints nullable="false" primaryKey="true" primaryKeyName="PK_department"></constraints>
+			</column>
+			<column name="department_name" type="nvarchar(255)">
+				<constraints nullable="false"></constraints>
+			</column>
+			<column name="notes" type="nvarchar(255)">
+			</column>
+			<column name="last_update" type="datetime"/>
+		</createTable>
+	</changeSet>
+
+	<changeSet id="18" author="dev">
+		<createTable tableName="section">
+			<column name="id" type="bigint" autoIncrement="true">
+				<constraints nullable="false" primaryKey="true" primaryKeyName="PK_section"></constraints>
+			</column>
+			<column name="section_name" type="nvarchar(255)">
+				<constraints nullable="false"></constraints>
+			</column>
+			<column name="notes" type="nvarchar(255)">
+			</column>
+			<column name="last_update" type="datetime"/>
+		</createTable>
+	</changeSet>
+
+	<changeSet id="19" author="dev">
+		<createTable tableName="location">
+			<column name="id" type="bigint" autoIncrement="true">
+				<constraints nullable="false" primaryKey="true" primaryKeyName="PK_location"></constraints>
+			</column>
+			<column name="location_name" type="nvarchar(255)">
+				<constraints nullable="false"></constraints>
+			</column>
+			<column name="notes" type="nvarchar(255)">
+			</column>
+			<column name="last_update" type="datetime"/>
+		</createTable>
+	</changeSet>
+
+	<changeSet id="20" author="dev">
+		<createTable tableName="uom">
+			<column name="id" type="bigint" autoIncrement="true">
+				<constraints nullable="false" primaryKey="true" primaryKeyName="PK_uom"></constraints>
+			</column>
+			<column name="uom_name" type="nvarchar(255)">
+				<constraints nullable="false"></constraints>
+			</column>
+			<column name="notes" type="nvarchar(255)">
+			</column>
+			<column name="last_update" type="datetime"/>
+		</createTable>
+	</changeSet>
+
+	<changeSet id="21" author="dev">
+		<createTable tableName="item">
+			<column name="id" type="bigint" autoIncrement="true">
+				<constraints nullable="false" primaryKey="true" primaryKeyName="PK_item"></constraints>
+			</column>
+			<column name="code" type="nvarchar(255)">
+				<constraints nullable="false"></constraints>
+			</column>
+			<column name="name" type="nvarchar(255)">
+				<constraints nullable="false"></constraints>
+			</column>
+			<column name="uom_id" type="bigint"></column>
+			<column name="remark" type="nvarchar(255)">
+			</column>
+			<column name="last_update" type="datetime"/>
+		</createTable>
+		<addForeignKeyConstraint baseTableName="item" baseColumnNames="uom_id"
+				constraintName="FK_item_uomid" referencedTableName="uom"
+				referencedColumnNames="id"/>
+	</changeSet>
+
+	<changeSet id="22" author="dev">
+		<createTable tableName="inventory_header">
+			<column name="id" type="BIGINT" autoIncrement="true">
+				<constraints nullable="false" primaryKey="true" primaryKeyName="PK_inventory_header"/>
+			</column>
+			<column name="user_name" type="nvarchar(255)">
+				<constraints nullable="false"></constraints>
+			</column>
+			<column name="enroll_no" type="nvarchar(255)"/>
+			<column name="department_id" type="bigint"></column>
+			<column name="section_id" type="bigint"></column>
+			<column name="location_id" type="bigint"></column>
+			<column name="remark" type="nvarchar(255)"></column>
+			<column name="last_update" type="datetime"/>
+		</createTable>
+		<addForeignKeyConstraint baseTableName="inventory_header" baseColumnNames="department_id"
+								 constraintName="FK_inventory_header_departmentid" referencedTableName="department"
+								 referencedColumnNames="id"/>
+		<addForeignKeyConstraint baseTableName="inventory_header" baseColumnNames="section_id"
+								 constraintName="FK_inventory_header_sectionid" referencedTableName="section"
+								 referencedColumnNames="id"/>
+		<addForeignKeyConstraint baseTableName="inventory_header" baseColumnNames="location_id"
+								 constraintName="FK_inventory_header_locationid" referencedTableName="location"
+								 referencedColumnNames="id"/>
+	</changeSet>
+
+	<changeSet id="23" author="dev">
+		<createTable tableName="inventory_detail">
+			<column name="id" type="BIGINT" autoIncrement="true">
+				<constraints nullable="false" primaryKey="true" primaryKeyName="PK_inventory_detail"/>
+			</column>
+			<column name="item_id" type="bigint"></column>
+			<column name="quantity" type="nvarchar(255)">
+				<constraints nullable="false"></constraints>
+			</column>
+			<column name="inventory_header_id" type="bigint">
+				<constraints nullable="false"/>
+			</column>
+		</createTable>
+		<addForeignKeyConstraint baseTableName="inventory_detail" baseColumnNames="item_id"
+								 constraintName="FK_inventory_detail_itemid" referencedTableName="item"
+								 referencedColumnNames="id"/>
+		<addForeignKeyConstraint baseTableName="inventory_detail" baseColumnNames="inventory_header_id"
+								 constraintName="FK_inventory_detail_inventoryheaderid" referencedTableName="inventory_header"
+								 referencedColumnNames="id"/>
+	</changeSet>
+
+
+</databaseChangeLog>

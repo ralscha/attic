@@ -1,0 +1,207 @@
+<project name="TestTrackerNG2" xmlns:ivy="antlib:org.apache.ivy.ant">
+
+  <property file="${user.home}/build.properties" /> 
+  <property file="${basedir}/build.properties" />
+
+  <property name="web.dir" value="${basedir}/web" />
+	<property name="build.dir" value="${basedir}/build" />
+	<property name="lib.dir" value="${web.dir}/WEB-INF/lib" />
+	<property name="classes.dir" value="${web.dir}/WEB-INF/classes" />
+	<property name="src.dir" value="${basedir}/src" />
+	<property name="flexsrc.dir" value="${basedir}/flex-src" />
+
+	<path id="ivy.lib.path">
+		<fileset dir="${build.dir}/lib" includes="*.jar" />
+	</path>
+
+	<path id="compile.classpath">
+		<fileset dir="${build.dir}/lib">
+			<include name="*.jar" />
+		</fileset>
+		<fileset dir="${lib.dir}">
+			<include name="*.jar" />
+		</fileset>
+	</path>
+
+	<path id="liquibase.classpath">
+		<path location="${jdbcDriverPath}" />
+    <fileset dir="${lib.dir}">
+      <include name="*.jar" />
+    </fileset>	
+		<pathelement location="${classes.dir}" />         
+	</path>
+
+	<taskdef resource="org/apache/ivy/ant/antlib.xml" uri="antlib:org.apache.ivy.ant" classpathref="ivy.lib.path" />
+
+	<ivy:settings file="${basedir}/ivysettings.xml" />
+
+	<taskdef resource="flexTasks.tasks" classpath="${FLEX_HOME}/ant/lib/flexTasks.jar" />
+
+	<target name="clean.java">
+		<delete dir="${classes.dir}" />
+	</target>
+
+	<target name="clean.flex">
+		<delete dir="${web.dir}/bin" />
+	</target>
+
+	<target name="clean" depends="clean.java,clean.flex" >
+    <delete file="${build.dir}/testTrackerNG2.war" />
+  </target>
+	
+	<target name="compile" depends="compile.java,compile.flex,wrapper" />
+
+	<target name="compile.flex">
+		<mkdir dir="${web.dir}/bin" />
+
+		<mxmlc file="${flexsrc.dir}/Main.mxml" 
+			     keep-generated-actionscript="false" 
+			     output="${web.dir}/bin/Main.swf" 
+			     context-root="tt" debug="false"
+			     optimize="true" 
+			     accessible="false" 
+			     static-link-runtime-shared-libraries="false" 
+			     services="${web.dir}/WEB-INF/flex/services-config.xml">
+			
+			<load-config filename="${FLEX_HOME}/frameworks/flex-config.xml" />
+
+			<source-path path-element="${FLEX_HOME}/frameworks" />
+
+			<compiler.include-libraries dir="${build.dir}/flex-lib" append="true">
+				<include name="granite.swc" />
+				<include name="granite-hibernate.swc" />
+				<include name="granite-seam.swc" />				
+				<include name="tide.swc" />				
+			</compiler.include-libraries>
+
+		</mxmlc>
+
+		<copy file="${FLEX_HOME}/frameworks/rsls/framework_3.0.0.477.swf" todir="${web.dir}/bin" />
+		<copy file="${FLEX_HOME}/frameworks/rsls/framework_3.0.0.477.swz" todir="${web.dir}/bin" />
+
+	</target>
+
+	<target name="wrapper">
+		<html-wrapper title="TestTrackerNG2" 
+			            height="100%" 
+			            width="100%" 
+			            bgcolor="white" 
+			            application="testTrackerNG2" 
+			            swf="Main" 
+			            version-major="9" version-minor="0" version-revision="60" 
+			            history="false" 
+			            template="express-installation" 
+			            output="${web.dir}/bin" />
+	</target>
+
+	<target name="compile.java">
+		<mkdir dir="${classes.dir}" />
+
+		<javac srcdir="${src.dir}" 
+			     destdir="${classes.dir}" 
+			     deprecation="true" 
+			     optimize="true" 
+			     debug="false" 
+			     includeAntRuntime="no" 
+			     source="1.6" 
+			     target="1.6">
+			<classpath refid="compile.classpath" />
+		</javac>
+
+		<copy todir="${classes.dir}">
+			<fileset dir="${src.dir}" excludes="**/*.java" />
+		</copy>
+
+	</target>
+
+	
+	<target name="war" depends="clean,compile">
+		<move todir="${web.dir}">
+			<fileset dir="${web.dir}/bin" />
+		</move>	    
+		<delete dir="${web.dir}/bin"/>
+		
+		<delete file="${build.dir}/testTrackerNG2.war"/>
+		<jar compress="yes" jarfile="${build.dir}/testTrackerNG2.war" basedir="${web.dir}" /> 
+		
+		<mkdir dir="${web.dir}/bin"/>
+		<move file="${web.dir}/AC_OETags.js" todir="${web.dir}/bin"/>
+		<move file="${web.dir}/Main.swf" todir="${web.dir}/bin"/>
+		<move file="${web.dir}/index.html" todir="${web.dir}/bin"/>
+		<move file="${web.dir}/playerProductInstall.swf" todir="${web.dir}/bin"/>
+		<move file="${web.dir}/framework_3.0.0.477.swf" todir="${web.dir}/bin" />
+		<move file="${web.dir}/framework_3.0.0.477.swz" todir="${web.dir}/bin" />
+	</target>
+	
+	
+	<target name="clean.lib">
+		<delete dir="${lib.dir}" />
+		<mkdir dir="${lib.dir}" />
+	</target>
+
+  <target name="resolve" depends="clean.lib">
+    <ivy:retrieve />
+
+    <copy todir="${lib.dir}">
+      <fileset dir="${basedir}/lib">
+        <include name="**/*.jar" />
+        <exclude name="servlet*.jar" />
+      </fileset>
+      <mapper type="flatten" />
+    </copy>
+    <copy todir="${build.dir}/lib">
+      <fileset dir="${basedir}/lib">
+        <include name="servlet*.jar" />
+      </fileset>
+      <mapper type="flatten" />
+    </copy> 
+    <delete dir="${basedir}/lib" />
+  </target>
+
+
+	<target name="generate.as3">			
+		<taskdef name="gas3" classname="org.granite.generator.ant.AntJavaAs3Task">
+		  <classpath>
+		    <fileset dir="${build.dir}/lib/gas">
+		      <include name="*.jar" />
+		    </fileset>		  	
+		  </classpath>	
+		</taskdef>
+			  
+		<gas3 outputdir="${flexsrc.dir}">
+			<classpath>
+				<pathelement location="${classes.dir}" />					
+			</classpath>		
+			<fileset dir="${classes.dir}">
+				<include name="ch/ess/testtracker/entity/*.class" />
+			</fileset>
+		</gas3>
+	</target>
+
+
+	<target name="create.db.changelog">
+		<input addproperty="changelogFileName" message="Changelog Filename: " defaultvalue="changelog_1.xml"/>
+		<available file="${src.dir}/db/${changelogFileName}" property="changelogFileExists"/>    
+		<fail if="changelogFileExists" message="Changelog File already exists"/>
+		
+		<taskdef resource="liquibasetasks.properties" classpathref="liquibase.classpath" />  
+ 
+	  <mkdir dir="${src.dir}/db"/>
+	
+    <diffDatabaseToChangeLog
+            driver="${hibernate.connection.driver_class}"
+            url="${hibernate.connection.url}"
+            username="${hibernate.connection.username}"
+            password="${hibernate.connection.password}"
+            baseUrl="hibernate:hibernate.cfg.xml"	 
+            outputFile="${src.dir}/db/${changelogFileName}"
+            classpathref="liquibase.classpath">
+    </diffDatabaseToChangeLog>
+		
+		<echo level="info" message="Don't forget to add autoIncrement to the id column!!" />
+		
+	</target>
+
+
+
+</project>

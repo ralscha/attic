@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute" creationComplete="init()">
+  
+  <mx:Script>
+    <![CDATA[
+      import mx.controls.Alert;
+      import org.granite.tide.TideAsync;
+      import org.granite.tide.events.TideContextEvent;
+      import org.granite.tide.events.TideFaultEvent;
+      import org.granite.tide.events.TideResultEvent;
+      import org.granite.tide.seam.Seam;
+      import org.granite.tide.seam.Context;
+      
+      
+      [Bindable]
+      public var ctx:Context = Seam.getInstance().getSeamContext();
+      
+      {
+        Seam.getInstance().addPlugin(TideAsync.getInstance("seamAsync"));         
+      }
+      
+      private function init():void {
+        ctx.addContextEventListener("notification", notificationHandler, true);
+      }
+      
+      private function onClick(e:MouseEvent):void {
+        ctx.helloAction.doSomething(onDoSomething);         
+      }
+      
+      private function onDoSomething(event:TideResultEvent):void {
+        resultLabel.text = "Output from Server: " + event.result;                          
+      }
+      
+      private function login():void {
+        loginButton.enabled = false;
+        ctx.identity.username = usernameTI.text;
+        ctx.identity.password = passwordTI.text;
+        ctx.identity.login(authenticateResult, authenticateFault);  
+      }
+
+      private function authenticateResult(event:TideResultEvent):void {      
+        statusLabel.text = "Login successful";        
+        logoffButton.enabled = true;
+      }
+  
+      private function authenticateFault(event:TideFaultEvent):void {
+        statusLabel.text = "Login unsuccessful !!!";
+        loginButton.enabled = true;
+        logoffButton.enabled = false;
+      }
+        
+      private function logoff():void {
+        ctx.identity.logout();
+        loginButton.enabled = true;
+        logoffButton.enabled = false;
+        statusLabel.text = "Logged off";
+      }
+      
+      private function asnycTest():void {
+        
+        ctx.async.doSomething(new Date(), 2000);
+      }
+      
+      public function notificationHandler(event:TideContextEvent):void {
+        asynchroniousLabel.text = "Got a notification from Server: " + new Date();                  
+      }      
+      
+    ]]>
+  </mx:Script>
+  
+  
+  <mx:Button x="47" y="293" label="Normale Tide Call" click="onClick(event)"/>
+  <mx:Label x="47" y="333" text="Output from Server:" width="300" height="31" id="resultLabel"/>
+  <mx:Label x="47" y="238" text="Output from Server:" width="356" height="31" id="asynchroniousLabel"/>
+  <mx:TextInput x="47" y="30" id="usernameTI"/>
+  <mx:Label x="47" y="16" text="Username"/>
+  <mx:TextInput x="47" y="86" id="passwordTI"/>
+  <mx:Label x="47" y="71" text="Password"/>
+  <mx:Button x="47" y="116" label="Login" click="login()" id="loginButton"/>
+  <mx:Label x="47" y="158" text="Not logged in" width="160" id="statusLabel"/>
+  <mx:Button x="111" y="116" label="Logoff" click="logoff()" id="logoffButton" enabled="false"/>
+  <mx:Button x="47" y="208" label="Asynchronious Call" click="asnycTest()"/>
+  
+</mx:Application>

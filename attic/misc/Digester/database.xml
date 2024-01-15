@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<!DOCTYPE db SYSTEM "database.dtd">
+
+<db>
+<!-- JavaExchangeBroker with Oracle -->
+<database name="db1" vendor="oracle">
+<pool class="examples.JavaExchangeBroker"/>
+<param name="dbDriver" value="oracle.jdbc.driver.OracleDriver"/>
+<param name="dbServer" value="jdbc:oracle:thin:@yourServer:1521:yourSID"/>
+<param name="dbLogin" value="yourlogin"/>
+<param name="dbPassword" value="yourPassword"/>
+<param name="minConns" value="2"/>
+<param name="maxConns" value="7"/>
+<param name="logFileString" value="D:\tmp\db.log"/>
+<param name="maxConnTime" value="1.0"/>
+</database>
+<!-- Oracle -->
+<database name="db2" vendor="oracle">
+<driver class="oracle.jdbc.driver.OracleDriver"
+url="jdbc:oracle:thin:@yourServer:1521:yourSID"/>
+<param name="user" value="yourlogin"/>
+<param name="password" value="yourPassword"/>
+</database>
+<!-- PostgreSQL Datasource -->
+<database name="db3" vendor="postgres">
+<datasource name="java:/comp/jdbc/db3"/>
+</database>
+<!-- PostgreSQL -->
+<database name="db4" vendor="postgres">
+<driver class="org.postgresql.Driver"
+url="jdbc:postgresql://yourHost/yourDB"/>
+<param name="user" value="user"/>
+<param name="password" value=""/>
+</database>
+<!-- InstantDB -->
+<database name="db5" vendor="generic">
+<driver class="org.enhydra.instantdb.jdbc.idbDriver"
+ url="jdbc:idb=yourdb.prp"/>
+</database>
+</db>

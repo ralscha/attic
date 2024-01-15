@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Panel xmlns:mx="http://www.adobe.com/2006/mxml"           
+          layout="absolute" title="Testfälle bearbeiten"
+          width="100%" height="100%" minHeight="460" minWidth="700">
+  
+  <mx:Script>
+    <![CDATA[
+      import ch.ess.tt.model.ModelLocator;
+      
+      [Bindable]
+      public var model:ModelLocator = ModelLocator.getInstance();
+           
+            
+    ]]>
+  </mx:Script>
+  
+  <mx:HDividedBox width="100%" height="100%" paddingBottom="10" paddingLeft="10" paddingTop="10" paddingRight="10">
+    
+    <mx:VBox height="100%">
+      <mx:Tree height="100%" minWidth="220" width="100%">
+        
+      </mx:Tree>
+
+      <mx:HBox width="100%">
+        <mx:Button label="Neu" />
+        <mx:Button label="Neu" />
+      </mx:HBox>
+
+    </mx:VBox>
+    
+    <mx:VBox width="100%" height="100%">
+    
+      <mx:Panel height="50%" width="100%">
+        
+      </mx:Panel>
+      
+      <mx:Panel height="50%" width="100%">
+      
+      </mx:Panel>
+      
+      <mx:HBox width="100%" horizontalAlign="right">
+        <mx:Button label="Speichern" id="saveButton" icon="@Embed(source='/assets/disk_blue.png')"/>
+        <mx:Button label="Zurück" click="model.testWorkflowState = ModelLocator.VIEWING_LIST_SCREEN;" icon="@Embed(source='/assets/navigate_left.png')"/>
+      </mx:HBox>      
+      
+    </mx:VBox>
+    
+  </mx:HDividedBox>
+               
+
+
+  
+</mx:Panel>

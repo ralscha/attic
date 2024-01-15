@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Canvas xmlns:mx="http://www.adobe.com/2006/mxml" width="100%" height="100%">
+  <mx:Script>
+    <![CDATA[
+      
+    private var _bytes:ByteArray = new ByteArray();
+    private var _visLoc:Point;
+    private var _visScale:Number;
+    private var _waveHeight:Number;
+    private var _leftBase:Number;
+    private var _rightBase:Number;
+    private var _fft:Boolean;
+    private var _timer:Timer
+
+    public function init(obj:Object):void {
+      _waveHeight = obj.waveHeight;
+      _leftBase = obj.leftBase;
+      _rightBase = obj.rightBase;
+      _visLoc = obj.visLoc;
+      _visScale = obj.visScale;
+      _fft = obj.fft;
+      initVars();
+
+      addVisTimer();
+      
+//      var canvas:Sprite = new Sprite();
+//      addChild(canvas);
+//      canvas.x = _visLoc.x;
+//      canvas.y = _visLoc.y;
+//      canvas.scaleX = canvas.scaleY = _visScale;
+    }
+    
+    private function initVars():void {
+      if (isNaN(_waveHeight)) { _waveHeight = 150; };
+      if (isNaN(_leftBase)) { _leftBase = 60; };
+      if (isNaN(_rightBase)) { _rightBase = 120; };
+      if (!(_visLoc is Point)) { _visLoc = new Point(); };
+      if (isNaN(_visScale)) { _visScale = 2; };
+    }
+    
+    public function addVisTimer():void {
+      if (_timer == null) {
+        _timer = new Timer(50);
+        _timer.addEventListener("timer", onVisualize);
+        _timer.start();
+      }
+    }
+    
+    public function removeVisTimer():void {
+      if (_timer != null) {
+        _timer.removeEventListener("timer", onVisualize);
+        _timer = null;
+      }
+    }
+
+    private function onVisualize(evt:TimerEvent):void {
+      SoundMixer.computeSpectrum(_bytes, _fft, 0);
+      graphics.clear();
+      plotWaveform(0x00CC00,_leftBase);
+      plotWaveform(0xFFCC00,_rightBase);
+    }
+    
+    private function plotWaveform(col:uint, chanBaseline:Number):void {
+      graphics.lineStyle(0, col);
+      graphics.beginFill(col, 0.5);
+      graphics.moveTo(0, chanBaseline);
+      for (var i:Number = 0; i < 256; i++) {
+        graphics.lineTo(i, chanBaseline - (_bytes.readFloat() * _waveHeight));
+      }
+      graphics.lineTo(i, chanBaseline);
+      graphics.endFill();
+    }
+      
+    ]]>
+  </mx:Script>
+</mx:Canvas>

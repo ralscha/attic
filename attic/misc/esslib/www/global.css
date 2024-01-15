@@ -1,0 +1,150 @@
+.topbar
+{
+    FONT-FAMILY: verdana,arial,helvetica
+}
+.breadcrumb
+{
+    FONT-FAMILY: verdana,arial,helvetica
+}
+.sidebarHeader
+{
+    FONT-FAMILY: verdana,arial,helvetica
+}
+.sidebarCell
+{
+    FONT-FAMILY: verdana,arial,helvetica
+}
+.mainContent
+{
+    FONT-FAMILY: verdana,arial,helvetica
+}
+.pageHeader
+{
+    FONT-FAMILY: verdana,arial,helvetica
+}
+.paraHeader
+{
+    FONT-FAMILY: verdana,arial,helvetica
+}
+.newsCell
+{
+    FONT-FAMILY: verdana,arial,helvetica
+}
+.cell
+{
+    FONT-FAMILY: verdana,arial,helvetica
+}
+.forumDate
+{
+    FONT-FAMILY: verdana,arial,helvetica
+}
+.small
+{
+    FONT-FAMILY: verdana,arial,helvetica
+}
+TD
+{
+    FONT-FAMILY: verdana,arial,helvetica
+}
+BODY
+{
+    FONT-FAMILY: verdana,arial,helvetica
+}
+UL
+{
+    FONT-FAMILY: verdana,arial,helvetica
+}
+TD
+{
+    FONT-SIZE: 10pt
+}
+BODY
+{
+    FONT-SIZE: 10pt
+}
+UL
+{
+    FONT-SIZE: 10pt
+}
+.cell
+{
+    FONT-SIZE: 10pt
+}
+.sidebarCell
+{
+    FONT-SIZE: 10pt
+}
+.newsCell
+{
+    FONT-SIZE: 8pt
+}
+.pageHeader
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 11pt;
+    COLOR: #003366
+}
+.paraHeader
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 10pt
+}
+.topbar
+{
+    FONT-SIZE: 10pt
+}
+.breadcrumbs
+{
+    FONT-SIZE: 8pt;
+    COLOR: #336699;
+    TEXT-DECORATION: none
+}
+.breadcrumbs:hover
+{
+    COLOR: #000000;
+    TEXT-DECORATION: underline
+}
+.sidebarHeader
+{
+    FONT-WEIGHT: bold;
+    TEXT-ALIGN: center
+}
+.forumDate
+{
+    FONT-SIZE: 9pt;
+    COLOR: #666666
+}
+.small
+{
+    FONT-SIZE: 8pt
+}
+.viewForumHeader
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 12pt;
+    FONT-FAMILY: verdana,arial,helvetica,sans-serif
+}
+.viewForumDeck
+{
+    FONT-SIZE: 10pt;
+    COLOR: #993333;
+    FONT-FAMILY: verdana,arial,helvetica,sans-serif
+}
+.forumListHeader
+{
+    FONT-SIZE: 8pt;
+    FONT-FAMILY: verdana,arial,helvetica,sans-serif;
+    TEXT-ALIGN: center
+}
+.forumListCell
+{
+    FONT-SIZE: 9pt;
+    FONT-FAMILY: verdana,arial,helvetica,sans-serif;
+    BACKGROUND-COLOR: #ffffff
+}
+.forumListDateCell
+{
+    FONT-SIZE: 8pt;
+    COLOR: #660000;
+    FONT-FAMILY: verdana,arial,helvetica,sans-serif
+}

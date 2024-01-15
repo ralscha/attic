@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xmlns:aop="http://www.springframework.org/schema/aop"
+	   xmlns:tx="http://www.springframework.org/schema/tx"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+       http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.0.xsd
+       http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.0.xsd">
+
+
+  <bean id="checkReminderJob" class="org.springframework.scheduling.quartz.JobDetailBean">
+    <property name="jobClass" value="ch.ess.cal.service.CheckReminderJob"/>
+    <property name="jobDataAsMap">
+      <map>
+        <entry key="eventDao" value-ref="eventDao"/>
+        <entry key="taskDao" value-ref="taskDao"/>        
+        <entry key="reminderMailer" value-ref="reminderMailer"/>
+        <entry key="sessionFactory" value-ref="sessionFactory"/>
+      </map>
+    </property>
+  </bean>
+
+  <bean id="optimizeJob" class="org.springframework.scheduling.quartz.JobDetailBean">
+    <property name="jobClass" value="ch.ess.cal.service.OptimizeJob"/>
+    <property name="jobDataAsMap">
+      <map>
+        <entry key="searchEngine" value-ref="searchEngine"/>
+      </map>
+    </property>
+  </bean>  
+  
+  <bean id="checkReminderTrigger"
+    class="org.springframework.scheduling.quartz.SimpleTriggerBean">
+      <property name="jobDetail" ref="checkReminderJob"/>
+      <property name="startDelay" value="20000"/>
+      <property name="repeatInterval" value="900000"/>      <!-- 15 Minutes -->  
+      <!--<property name="repeatInterval" value="120000"/>      2 Minutes -->  
+  </bean>
+
+  <bean id="optimizeTrigger"
+    class="org.springframework.scheduling.quartz.SimpleTriggerBean">
+      <property name="jobDetail" ref="optimizeJob"/>
+      <property name="startDelay" value="20000"/>
+      <property name="repeatInterval" value="21600000"/>
+  </bean>
+ 
+  
+  <bean id="scheduler"
+      class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+
+    <property name="triggers">
+      <list>
+        <ref local="checkReminderTrigger"/>
+        <ref local="optimizeTrigger"/>
+      </list>
+    </property>
+
+  </bean>
+  
+</beans>

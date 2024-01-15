@@ -1,0 +1,22 @@
+<script type="text/javascript">
+
+    var previousClass = null;
+    // simple script for highlighting rows
+    var table = document.getElementsByTagName("table")[${tableNo}];
+    var rows = table.getElementsByTagName("tr");
+
+    for (i=1; i < rows.length; i++) {
+        rows[i].onmouseover = function() { previousClass=this.className;this.className='tablerowover' };
+        rows[i].onmouseout = function() { this.className=previousClass };
+        rows[i].onclick = function() {
+		    if (!bClick) {					  
+            var cell = this.getElementsByTagName("td")[${colNo}];
+            var elink = cell.getElementsByTagName("a")[0];
+            var href = elink.getAttribute("href");                              
+            location.href=href;
+            this.style.cursor="wait";
+			}
+			bClick = false;
+        }
+    }
+</script>	

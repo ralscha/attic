@@ -1,0 +1,53 @@
+[COMPILER]
+INCLUDEDIRS=
+compile=concur|capture|:Compile:&Compile,javac %f
+make=:Build:&Build,javamake
+rebuild=concur|capture|:Rebuild:&Rebuild,
+debug=concur|capture|:Debug:&Debug,jdb %n
+execute=concur|capture|:Execute:E&xecute,java %n
+user1=hide|:User 1:User 1,
+user2=hide|:User 2:User 2,
+workingdir=
+includedirs=
+tagfiles=
+reffile=
+MACRO=\n
+FILTEREXPANSION=1 0 0 0 0
+[ASSOCIATION]
+[FILES]
+D:\Projects\JavaPro\JTree\SubClick\CheckListener.java
+D:\Projects\JavaPro\JTree\SubClick\CheckRenderer.java
+D:\Projects\JavaPro\JTree\SubClick\JxFrame.java
+D:\Projects\JavaPro\JTree\SubClick\SelectNode.java
+D:\Projects\JavaPro\JTree\SubClick\TreeDemo.java
+[STATE]
+SCREEN: 1280 1024 244 0 847 706 0 0 N 0 0 0 0 598 469
+CWD: D:\Projects\JavaPro\JTree\SubClick
+BUFFER: BN="C:\Program Files\vslick\win\vrestore.slk"
+BI: MA=1 254 1  TABS=1 9  WWS=3 IWT=0 ST=0 IN=0 BW=0 US=0 RO=0 SE=0 SN=0 BIN=0 MN=Fundamental	HM=0 MF=1
+VIEW: LN=.0 CL=1 LE=0 CX=0 CY=1 WI=5 BI=19 HT=0 HN=0 HF=0 HC=4
+BUFFER: BN="D:\Projects\JavaPro\JTree\SubClick\CheckListener.java"
+BI: MA=1 74 1  TABS=1 9  WWS=1 IWT=0 ST=0 IN=2 BW=0 US=32000 RO=0 SE=1 SN=0 BIN=0 MN=Java	HM=0 MF=360
+VIEW: LN=.1264 CL=15 LE=0 CX=14 CY=34 WI=5 BI=24 HT=0 HN=0 HF=0 HC=4
+BUFFER: BN="D:\Projects\JavaPro\JTree\SubClick\TreeDemo.java"
+BI: MA=1 74 1  TABS=1 9  WWS=1 IWT=0 ST=0 IN=2 BW=0 US=32000 RO=0 SE=1 SN=0 BIN=0 MN=Java	HM=0 MF=360
+VIEW: LN=.0 CL=1 LE=0 CX=0 CY=1 WI=5 BI=23 HT=0 HN=0 HF=0 HC=4
+WINDOW: 22 22 443 315 -1 -1 N  WF=0 WT=2 "OEM Fixed Font,10,0"
+BUFFER: BN="D:\Projects\JavaPro\JTree\SubClick\CheckListener.java"
+VIEW: LN=.1264 CL=14 LE=0 CX=13 CY=21 WI=209 BI=24 HT=0 HN=0 HF=0 HC=4
+WINDOW: 88 88 443 315 -1 -1 M  WF=0 WT=3 "OEM Fixed Font,10,0"
+BUFFER: BN="D:\Projects\JavaPro\JTree\SubClick\TreeDemo.java"
+VIEW: LN=.0 CL=1 LE=0 CX=0 CY=1 WI=210 BI=23 HT=0 HN=0 HF=0 HC=4
+FILEHIST: 9
+D:\Projects\JavaPro\JTree\CheckTree\CheckListener.java
+D:\Projects\JavaPro\JTree\CheckTree\SelectNode.java
+D:\Projects\JavaPro\JTree\ClickTree\TreeDemo.java
+D:\Projects\JavaPro\JTree\ClickTree\SelectNode.java
+D:\Projects\JavaPro\JTree\ClickTree\CheckListener.java
+D:\Projects\JavaPro\JTree\ClickTree\CheckRenderer.java
+C:\SWIM4\MEETS\LCAA99\RELAYS.INI
+D:\Projects\JavaPro\JTree\SubClick\TreeDemo.java
+D:\Projects\JavaPro\JTree\SubClick\CheckListener.java
+PRINTER: 2
+
+PRINTER: 2

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+
+  <bean id="config" class="ch.ess.common.service.impl.DbPropertyPlaceholderConfigurer">
+    <property name="order"><value>1</value></property>
+  </bean>
+
+  <bean id="mailConfiguration" class="ch.ess.common.service.mail.impl.MailConfiguration">
+    <property name="host"><value>${mail.smtphost}</value></property>
+    <property name="user"><value>${mail.smtpuser}</value></property>
+    <property name="password"><value>${mail.smtppassword}</value></property>
+    <property name="debug"><value>true</value></property>
+    <property name="port"><value>${mail.smtpport}</value></property>
+    <property name="defaultSender"><value>${mail.sender}</value></property>
+  </bean>
+  
+  <bean id="MailSender" class="ch.ess.common.service.mail.impl.MailSenderImpl">
+    <property name="configuration"><ref local="mailConfiguration"/></property>  
+  </bean>
+
+  <bean id="PasswordMailSender" class="ch.ess.common.service.mail.impl.TemplateMailSenderImpl">
+    <property name="subject"><value>login.passwordmail.subject</value></property>
+    <property name="body"><value>login.passwordmail.body</value></property>    
+    <property name="sender"><ref local="MailSender"/></property>  
+  </bean>
+
+  <bean id="MultipleLoginMailSender" class="ch.ess.common.service.mail.impl.TemplateMailSenderImpl">
+    <property name="subject"><value>login.multiplemail.subject</value></property>
+    <property name="body"><value>login.multiplemail.body</value></property>    
+    <property name="sender"><ref local="MailSender"/></property>  
+  </bean>
+	
+  <bean id="ReminderMailSender" class="ch.ess.common.service.mail.impl.TemplateMailSenderImpl">
+    <property name="subject"><value>event.reminder.subject</value></property>
+    <property name="body"><value>event.reminder.body</value></property>    
+    <property name="sender"><ref local="MailSender"/></property>  
+  </bean>	
+															
+</beans>

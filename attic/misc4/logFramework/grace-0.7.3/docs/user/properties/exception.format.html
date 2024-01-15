@@ -1,0 +1,107 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="GENERATOR" content="Mozilla/4.5 [en] (X11; I; SunOS 5.6 i86pc) [Netscape]">
+   <title>Java Log Facility - Example Output</title>
+</head>
+<body text="#000000" bgcolor="#FFFFFF">
+
+<center><img SRC="gkrwsit.jpg" NOSAVE height=220 width=152></center>
+
+<div align=right><font size=-1>$Revision: 1.1 $</font></div>
+
+<div align=right><font size=-1>$Date: 1999/09/27 12:26:04 $</font></div>
+
+<div align=right>
+<hr WIDTH="100%"></div>
+
+<table WIDTH="100%" NOSAVE >
+<tr NOSAVE>
+<td ALIGN=LEFT VALIGN=TOP NOSAVE><font color="#999999">Name:</font></td>
+
+<td NOSAVE><font color="#009900">log.exception.format</font></td>
+</tr>
+
+<tr NOSAVE>
+<td ALIGN=LEFT VALIGN=TOP NOSAVE><font color="#999999">Description:</font></td>
+
+<td ALIGN=LEFT VALIGN=TOP NOSAVE><font color="#000000">This controls how
+exceptions are logged.&nbsp; This property is especially useful since it
+can not be specified as a sub format in a <a href="property.log.format.html">log.format</a>.&nbsp;
+Exceptions are specified optionally by the programmer who calls the log
+function.&nbsp; Therefore, the exception format is used only when exception
+is given.&nbsp; Also, if the programmer calls one of the log functions
+and passes an exception to be logged, the exception is formatted at the
+point the object format character '%o' is in the <a href="property.log.format.html">log.format
+</a>string.&nbsp;
+So, exceptions are treated as normal objects, except the special format
+string described here is used instead of the default object formatting.</font></td>
+</tr>
+
+<tr NOSAVE>
+<td NOSAVE><font color="#999999">Type:</font></td>
+
+<td><font color="#009900">String</font></td>
+</tr>
+
+<tr NOSAVE>
+<td ALIGN=LEFT VALIGN=TOP NOSAVE><font color="#999999">Acceptable Values:</font></td>
+
+<td>Can be any combination of the following:
+<table BORDER WIDTH="100%" NOSAVE >
+<tr NOSAVE>
+<td NOSAVE><font color="#009900">%c</font></td>
+
+<td>Formats the class name of the exception.</td>
+</tr>
+
+<tr>
+<td><font color="#009900">%m</font></td>
+
+<td><font color="#000000">Formats the exception message.</font></td>
+</tr>
+
+<tr>
+<td><font color="#009900">%s</font></td>
+
+<td>Formats the entire stack trace.</td>
+</tr>
+
+<tr>
+<td><i><font color="#009900">plain-text</font></i></td>
+
+<td>Plain text is inserted into the formatted output.</td>
+</tr>
+</table>
+&nbsp;</td>
+</tr>
+
+<tr NOSAVE>
+<td NOSAVE><font color="#999999">Default Value:</font></td>
+
+<td><font color="#009900">: %c: %m: %s</font></td>
+</tr>
+
+<tr NOSAVE>
+<td ALIGN=LEFT VALIGN=TOP NOSAVE><font color="#999999">Example Usage:</font></td>
+
+<td>
+<table BORDER WIDTH="100%" NOSAVE >
+<tr NOSAVE>
+<td NOSAVE>$ java -Dlog.format="%t %e %o\n" -D<font color="#009900">log.exception.format</font>="%m"
+grace.log.Log</td>
+
+<td>Prints the time, event type, and object/exception with the exception
+format being the exception message only.&nbsp; An example line would like
+this:
+<p><tt><font size=-1>03/05/99 18:11:08 error Exception message</font></tt></td>
+</tr>
+</table>
+&nbsp;</td>
+</tr>
+</table>
+
+<br>&nbsp;
+</body>
+</html>

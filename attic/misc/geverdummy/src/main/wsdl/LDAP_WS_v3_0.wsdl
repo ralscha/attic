@@ -1,0 +1,435 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://www.trivadis.com/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://www.trivadis.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Version 3.0.0</wsdl:documentation>
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://www.trivadis.com/">
+      <s:element name="GetUserForRole">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="applicationname" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="rolename" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUserForRoleResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetUserForRoleResult" type="tns:ArrayOfUser"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfUser">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="User" nillable="true" type="tns:User"/>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="User">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Dn" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="Cn" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="Mandator" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="Uid" type="s:string"/>
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetUserForMandator">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="applicationname" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="mandatorname" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUserForMandatorResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetUserForMandatorResult" type="tns:ArrayOfUser"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetRole">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="applicationname" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetRoleResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetRoleResult" type="tns:ArrayOfRole"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfRole">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Role" nillable="true" type="tns:Role"/>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Role">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Dn" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="Cn" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="AstraMandatorName" type="s:string"/>
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetRoleMandator">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="applicationname" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="mandatorname" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetRoleMandatorResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetRoleMandatorResult" type="tns:ArrayOfRole"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMandator">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="applicationname" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMandatorResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMandatorResult" type="tns:ArrayOfMandator"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfMandator">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Mandator" nillable="true" type="tns:Mandator"/>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Mandator">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:MandatorShort">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Dn" type="s:string"/>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="MandatorShort">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="AstraApplicationname" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="AstraMandatorname" type="s:string"/>
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetMandatorShort">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="applicationname" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMandatorShortResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMandatorShortResult" type="tns:ArrayOfMandatorShort"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfMandatorShort">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="MandatorShort" nillable="true" type="tns:MandatorShort"/>
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetUserInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUserInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetUserInfoResult" type="tns:ArrayOfUserInfo"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfUserInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="UserInfo" nillable="true" type="tns:UserInfo"/>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="UserInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Dn" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="Uid" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="SureName" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="GivenName" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="Language" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="Mail" type="s:string"/>
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetAssemblyInfo">
+        <s:complexType/>
+      </s:element>
+      <s:element name="GetAssemblyInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAssemblyInfoResult" type="tns:VersionInfo"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="VersionInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="AssemblyVersion" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="AssemblyDescription" type="s:string"/>
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetUserForRoleSoapIn">
+    <wsdl:part name="parameters" element="tns:GetUserForRole"/>
+  </wsdl:message>
+  <wsdl:message name="GetUserForRoleSoapOut">
+    <wsdl:part name="parameters" element="tns:GetUserForRoleResponse"/>
+  </wsdl:message>
+  <wsdl:message name="GetUserForMandatorSoapIn">
+    <wsdl:part name="parameters" element="tns:GetUserForMandator"/>
+  </wsdl:message>
+  <wsdl:message name="GetUserForMandatorSoapOut">
+    <wsdl:part name="parameters" element="tns:GetUserForMandatorResponse"/>
+  </wsdl:message>
+  <wsdl:message name="GetRoleSoapIn">
+    <wsdl:part name="parameters" element="tns:GetRole"/>
+  </wsdl:message>
+  <wsdl:message name="GetRoleSoapOut">
+    <wsdl:part name="parameters" element="tns:GetRoleResponse"/>
+  </wsdl:message>
+  <wsdl:message name="GetRoleMandatorSoapIn">
+    <wsdl:part name="parameters" element="tns:GetRoleMandator"/>
+  </wsdl:message>
+  <wsdl:message name="GetRoleMandatorSoapOut">
+    <wsdl:part name="parameters" element="tns:GetRoleMandatorResponse"/>
+  </wsdl:message>
+  <wsdl:message name="GetMandatorSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMandator"/>
+  </wsdl:message>
+  <wsdl:message name="GetMandatorSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMandatorResponse"/>
+  </wsdl:message>
+  <wsdl:message name="GetMandatorShortSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMandatorShort"/>
+  </wsdl:message>
+  <wsdl:message name="GetMandatorShortSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMandatorShortResponse"/>
+  </wsdl:message>
+  <wsdl:message name="GetUserInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:GetUserInfo"/>
+  </wsdl:message>
+  <wsdl:message name="GetUserInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:GetUserInfoResponse"/>
+  </wsdl:message>
+  <wsdl:message name="GetAssemblyInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAssemblyInfo"/>
+  </wsdl:message>
+  <wsdl:message name="GetAssemblyInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAssemblyInfoResponse"/>
+  </wsdl:message>
+  <wsdl:portType name="LDAP_WS_v3_0Soap">
+    <wsdl:operation name="GetUserForRole">
+      <wsdl:input message="tns:GetUserForRoleSoapIn"/>
+      <wsdl:output message="tns:GetUserForRoleSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserForMandator">
+      <wsdl:input message="tns:GetUserForMandatorSoapIn"/>
+      <wsdl:output message="tns:GetUserForMandatorSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="GetRole">
+      <wsdl:input message="tns:GetRoleSoapIn"/>
+      <wsdl:output message="tns:GetRoleSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="GetRoleMandator">
+      <wsdl:input message="tns:GetRoleMandatorSoapIn"/>
+      <wsdl:output message="tns:GetRoleMandatorSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="GetMandator">
+      <wsdl:input message="tns:GetMandatorSoapIn"/>
+      <wsdl:output message="tns:GetMandatorSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="GetMandatorShort">
+      <wsdl:input message="tns:GetMandatorShortSoapIn"/>
+      <wsdl:output message="tns:GetMandatorShortSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserInfo">
+      <wsdl:input message="tns:GetUserInfoSoapIn"/>
+      <wsdl:output message="tns:GetUserInfoSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="GetAssemblyInfo">
+      <wsdl:input message="tns:GetAssemblyInfoSoapIn"/>
+      <wsdl:output message="tns:GetAssemblyInfoSoapOut"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="LDAP_WS_v3_0Soap" type="tns:LDAP_WS_v3_0Soap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="GetUserForRole">
+      <soap:operation soapAction="http://www.trivadis.com/GetUserForRole" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserForMandator">
+      <soap:operation soapAction="http://www.trivadis.com/GetUserForMandator" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRole">
+      <soap:operation soapAction="http://www.trivadis.com/GetRole" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRoleMandator">
+      <soap:operation soapAction="http://www.trivadis.com/GetRoleMandator" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMandator">
+      <soap:operation soapAction="http://www.trivadis.com/GetMandator" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMandatorShort">
+      <soap:operation soapAction="http://www.trivadis.com/GetMandatorShort" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserInfo">
+      <soap:operation soapAction="http://www.trivadis.com/GetUserInfo" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAssemblyInfo">
+      <soap:operation soapAction="http://www.trivadis.com/GetAssemblyInfo" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="LDAP_WS_v3_0Soap12" type="tns:LDAP_WS_v3_0Soap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="GetUserForRole">
+      <soap12:operation soapAction="http://www.trivadis.com/GetUserForRole" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserForMandator">
+      <soap12:operation soapAction="http://www.trivadis.com/GetUserForMandator" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRole">
+      <soap12:operation soapAction="http://www.trivadis.com/GetRole" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRoleMandator">
+      <soap12:operation soapAction="http://www.trivadis.com/GetRoleMandator" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMandator">
+      <soap12:operation soapAction="http://www.trivadis.com/GetMandator" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMandatorShort">
+      <soap12:operation soapAction="http://www.trivadis.com/GetMandatorShort" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserInfo">
+      <soap12:operation soapAction="http://www.trivadis.com/GetUserInfo" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAssemblyInfo">
+      <soap12:operation soapAction="http://www.trivadis.com/GetAssemblyInfo" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="LDAP_WS_v3_0">
+    <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Version 3.0.0</wsdl:documentation>
+    <wsdl:port name="LDAP_WS_v3_0Soap" binding="tns:LDAP_WS_v3_0Soap">
+      <soap:address location="http://mistra-abs-ldap-a.astra.admin.ch/ldapBV/LDAP_WS_v3_0.asmx"/>
+    </wsdl:port>
+    <wsdl:port name="LDAP_WS_v3_0Soap12" binding="tns:LDAP_WS_v3_0Soap12">
+      <soap12:address location="http://mistra-abs-ldap-a.astra.admin.ch/ldapBV/LDAP_WS_v3_0.asmx"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

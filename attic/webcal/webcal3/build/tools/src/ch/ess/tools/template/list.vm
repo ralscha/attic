@@ -1,0 +1,107 @@
+package ${clazz.packageName}.web.${clazz.nameAllSmall};
+
+import java.util.Iterator;
+import java.util.List;
+
+import org.apache.commons.beanutils.DynaBean;
+import org.apache.commons.beanutils.LazyDynaBean;
+
+import ${clazz.packageName}.model.${clazz.name};
+import ${clazz.packageName}.persistence.${clazz.name}Dao;
+import ${clazz.packageName}.web.AbstractListAction;
+import ${clazz.packageName}.web.DynaListDataModel;
+import ${clazz.packageName}.web.MapForm;
+
+import com.cc.framework.adapter.struts.ActionContext;
+import com.cc.framework.ui.control.ControlActionContext;
+import com.cc.framework.ui.model.ListDataModel;
+
+/** 
+ * @author sr
+ * @version $Revision: $ $Date: $ 
+ * 
+ * @struts.action path="/list${clazz.name}" roles="$${clazz.nameAllSmall}" name="mapForm" input="/${clazz.nameAllSmall}list.jsp" scope="request" validate="false"
+ * @struts.action-forward name="success" path="/${clazz.nameAllSmall}list.jsp" 
+ * @struts.action-forward name="edit" path="/edit${clazz.name}.do?id={0}" redirect="true"
+ * @struts.action-forward name="create" path="/edit${clazz.name}.do" redirect="true"
+ * 
+ * @spring.bean name="/list${clazz.name}" lazy-init="true"
+ * @spring.property name="attribute" value="${clazz.nameAllSmall}s"
+ */
+public class ${clazz.name}ListAction extends AbstractListAction {
+
+  private ${clazz.name}Dao ${clazz.nameSmall}Dao;
+
+  /**    
+   * @spring.property reflocal="${clazz.nameSmall}Dao"
+   */  
+  public void set${clazz.name}Dao(final ${clazz.name}Dao ${clazz.nameSmall}Dao) {
+    this.${clazz.nameSmall}Dao = ${clazz.nameSmall}Dao;
+  }
+
+  public ListDataModel getDataModel(final ActionContext ctx) throws Exception {
+
+    DynaListDataModel dataModel = new DynaListDataModel();
+
+    MapForm searchForm = (MapForm)ctx.form();
+
+    #if ($clazz.finderSignature)
+    
+    #foreach( $property in $clazz.properties )
+    #if ($property.finder)
+    String ${property.name} = null;
+    #end
+    #end
+    if (searchForm != null) {
+      #foreach( $property in $clazz.properties )
+      #if ($property.finder)    
+      ${property.name} = searchForm.getStringValue("${property.name}");
+	    #end
+	    #end      
+    }
+    
+    List ${clazz.nameSmall}s = null;
+    if ${clazz.finderIf} {
+      ${clazz.nameSmall}s = ${clazz.nameSmall}Dao.find(${clazz.finderMethodParameter});
+    } else {
+      ${clazz.nameSmall}s = ${clazz.nameSmall}Dao.list();
+    }
+    #else
+    List ${clazz.nameSmall}s = ${clazz.nameSmall}Dao.list();
+    #end
+    
+    for (Iterator iter = ${clazz.nameSmall}s.iterator(); iter.hasNext();) {
+      ${clazz.name} ${clazz.nameSmall} = (${clazz.name})iter.next();
+
+      DynaBean dynaBean = new LazyDynaBean("${clazz.nameSmall}List");
+
+      dynaBean.set("id", ${clazz.nameSmall}.getId().toString());
+      
+      #foreach( $property in $clazz.properties )
+      #if ($property.list) 
+        #if ($property.listReferenceProperty) 
+        dynaBean.set("${property.nameWithoutId}", ${clazz.nameSmall}.get${property.nameFirstUpperCaseWithoutId}().get${property.listReferenceProperty}());
+        #else
+        dynaBean.set("${property.name}", ${clazz.nameSmall}.get${property.nameFirstUpperCase}());
+        #end
+      #end
+      #end
+
+      dataModel.add(dynaBean);
+
+    }
+
+    #foreach( $property in $clazz.properties )
+    #if ($property.sort)
+    dataModel.sort("${property.name}", SortOrder.${property.sort});
+    #end
+    #end
+    
+    return dataModel;
+  }
+
+  public boolean deleteObject(final ControlActionContext ctx, final String key) throws Exception { 
+    return ${clazz.nameSmall}Dao.deleteCond(key);
+  }
+}
+

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jardesc>
+    <jar path="c:/temp/benchmark.jar"/>
+    <options overwrite="true" compress="true" exportErrors="false"
+        exportWarnings="false" saveDescription="true"
+        descriptionLocation="/RegexTest/jar.jardesc"
+        useSourceFolders="false" buildIfNeeded="true"/>
+    <manifest manifestVersion="1.0" usesManifest="true"
+        reuseManifest="false" saveManifest="true"
+        generateManifest="false" manifestLocation="/RegexTest/manifest">
+        <sealing sealJar="false">
+            <packagesToSeal/>
+            <packagesToUnSeal/>
+        </sealing>
+    </manifest>
+    <selectedElements exportClassFiles="true" exportJavaFiles="true">
+        <javaElement handleIdentifier="=RegexTest/src"/>
+    </selectedElements>
+</jardesc>

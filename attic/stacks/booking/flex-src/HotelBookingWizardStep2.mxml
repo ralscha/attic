@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+  GRANITE DATA SERVICES
+  Copyright (C) 2007-2008 ADEQUATE SYSTEMS SARL
+
+  This file is part of Granite Data Services.
+
+  Granite Data Services is free software; you can redistribute it and/or modify
+  it under the terms of the GNU Lesser General Public License as published by
+  the Free Software Foundation; either version 3 of the License, or (at your
+  option) any later version.
+
+  Granite Data Services is distributed in the hope that it will be useful, but
+  WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+  FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License
+  for more details.
+
+  You should have received a copy of the GNU Lesser General Public License
+  along with this library; if not, see <http://www.gnu.org/licenses/>.
+-->
+
+<mx:Canvas width="432" height="472" xmlns:mx="http://www.adobe.com/2006/mxml"
+    initialize="initializeHandler(event)">
+
+    <mx:Script>
+        <![CDATA[
+          import ch.ess.booking.control.BookingProcessCtl;
+            import org.granite.tide.seam.Seam;
+            import org.granite.tide.seam.Context;
+            import mx.events.FlexEvent;
+            import mx.controls.Alert;
+            import mx.formatters.DateFormatter;
+            import mx.controls.DateField;
+
+            [Bindable]
+            public var bookingProcessCtl:BookingProcessCtl;
+
+
+            //Initializes the default field values
+            private function initializeHandler(event:FlexEvent):void
+            {
+                state.selectedIndex = 9;
+            }
+
+            public function checkState():void {
+                bookingProcessCtl.booking.state = new String(state.selectedItem);
+            }
+        ]]>
+    </mx:Script>
+
+    <!-- Validators -->
+    <mx:StringValidator id="address1Validator" source="{address1}" property="text" required="true"/>
+    <mx:ZipCodeValidator id="zipValidator" source="{zip}" property="text" required="true" />
+    <mx:PhoneNumberValidator id="phoneValidator" source="{phone}" property="text" required="true" />
+    <mx:EmailValidator id="emailValidator" source="{email}" property="text" required="true" />
+
+    <!-- Data Binding -->
+    <mx:Binding source="address1.text" destination="bookingProcessCtl.booking.address1" />
+    <mx:Binding source="address2.text" destination="bookingProcessCtl.booking.address2" />
+    <mx:Binding source="String(state.selectedItem)" destination="bookingProcessCtl.booking.state" />
+    <mx:Binding source="zip.text" destination="bookingProcessCtl.booking.zip" />
+    <mx:Binding source="phone.text" destination="bookingProcessCtl.booking.phone" />
+    <mx:Binding source="email.text" destination="bookingProcessCtl.booking.email" />
+
+    <mx:transitions>
+    <mx:Transition>
+        <mx:Parallel>
+            <mx:Fade target="{authentication}" alphaFrom=".75" alphaTo="1" duration="500"  />
+        </mx:Parallel>
+    </mx:Transition>
+    </mx:transitions>
+
+    <mx:Panel label="Primary Information" id="authentication" title="Personal Information                                                             *Required Fields" width="425">
+        <mx:Form width="405" height="100%">
+            <mx:FormItem label="*Name:" required="true">
+                <mx:TextInput text="{bookingProcessCtl.user.name}" enabled="false"/>
+            </mx:FormItem>
+            <mx:FormItem label="*Address:" required="true">
+                <mx:TextInput id="address1" text="{bookingProcessCtl.booking.address1}" />
+            </mx:FormItem>
+            <mx:FormItem>
+                <mx:TextInput id="address2" text="{bookingProcessCtl.booking.address2}"/>
+            </mx:FormItem>
+            <mx:FormItem label="*State:" required="true">
+                <mx:ComboBox id="state" enabled="true" text="{bookingProcessCtl.booking.state}" >
+                <mx:dataProvider>
+                        <mx:String id="AL">Alabama</mx:String>
+                        <mx:String id="AK">Alaska</mx:String>
+                        <mx:String id="AZ">Arizona</mx:String>
+                        <mx:String id="AR">Arkansas</mx:String>
+                        <mx:String id="CA">California</mx:String>
+                        <mx:String id="CO">Colorado</mx:String>
+                        <mx:String id="CT">Connecticut</mx:String>
+                        <mx:String id="DE">Delaware</mx:String>
+                        <mx:String id="DC">District of Columbia</mx:String>
+                        <mx:String id="FL">Florida</mx:String>
+                        <mx:String id="GA">Georgia</mx:String>
+                        <mx:String id="HI">Hawaii</mx:String>
+                        <mx:String id="ID">Idaho</mx:String>
+                        <mx:String id="IL">Illinois</mx:String>
+                        <mx:String id="IN">Indiana</mx:String>
+                        <mx:String id="IA">Iowa</mx:String>
+                        <mx:String id="KS">Kansas</mx:String>
+                        <mx:String id="KY">Kentucky</mx:String>
+                        <mx:String id="LA">Louisiana</mx:String>
+                        <mx:String id="ME">Maine</mx:String>
+                        <mx:String id="MD">Maryland</mx:String>
+                        <mx:String id="MA">Massachusetts</mx:String>
+                        <mx:String id="MI">Michigan</mx:String>
+                        <mx:String id="MN">Minnesota</mx:String>
+                        <mx:String id="MS">Mississippi</mx:String>
+                        <mx:String id="MO">Missouri</mx:String>
+                        <mx:String id="MT">Montana</mx:String>
+                        <mx:String id="NE">Nebraska</mx:String>
+                        <mx:String id="NV">Nevada</mx:String>
+                        <mx:String id="NH">New Hampshire</mx:String>
+                        <mx:String id="NJ">New Jersey</mx:String>
+                        <mx:String id="NM">New Mexico</mx:String>
+                        <mx:String id="NY">New York</mx:String>
+                        <mx:String id="NC">North Carolina</mx:String>
+                        <mx:String id="ND">North Dakota</mx:String>
+                        <mx:String id="OH">Ohio</mx:String>
+                        <mx:String id="OK">Oklahoma</mx:String>
+                        <mx:String id="OR">Oregon</mx:String>
+                        <mx:String id="PA">Pennsylvania</mx:String>
+                        <mx:String id="RI">Rhode Island</mx:String>
+                        <mx:String id="SC">South Carolina</mx:String>
+                        <mx:String id="SD">South Dakota</mx:String>
+                        <mx:String id="TN">Tennessee</mx:String>
+                        <mx:String id="TX">Texas</mx:String>
+                        <mx:String id="UT">Utah</mx:String>
+                        <mx:String id="VT">Vermont</mx:String>
+                        <mx:String id="VA">Virginia</mx:String>
+                        <mx:String id="WA">Washington</mx:String>
+                        <mx:String id="WV">West Virginia</mx:String>
+                        <mx:String id="WI">Wisconsin</mx:String>
+                        <mx:String id="WY">Wyoming</mx:String>
+                </mx:dataProvider>
+                </mx:ComboBox>
+            </mx:FormItem>
+            <mx:FormItem label="*Zip:" required="true">
+                <mx:TextInput id="zip" text="{bookingProcessCtl.booking.zip}" />
+            </mx:FormItem>
+            <mx:FormItem label="*Phone:" required="true">
+                <mx:TextInput id="phone" text="{bookingProcessCtl.booking.phone}" maxChars="10"/>
+            </mx:FormItem>
+            <mx:FormItem label="Email:" required="true">
+                <mx:TextInput id="email" text="{bookingProcessCtl.booking.email}"/>
+            </mx:FormItem>
+        </mx:Form>
+        <mx:ControlBar id="controlbar1">
+        </mx:ControlBar>
+    </mx:Panel>
+
+</mx:Canvas>

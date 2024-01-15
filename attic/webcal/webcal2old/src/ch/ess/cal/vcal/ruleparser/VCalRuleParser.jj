@@ -1,0 +1,192 @@
+
+options {
+  STATIC = false ;
+}
+
+PARSER_BEGIN(VCalRuleParser)
+  package ch.ess.cal.vcal.ruleparser;
+  import java.util.*;
+  import java.io.*;
+  public class VCalRuleParser {
+  
+    public static String getICalRule(String rule) throws ParseException, TokenMgrError {
+      Reader reader = new StringReader(rule);
+      VCalRuleParser r = new VCalRuleParser(reader);
+      return r.parse();     
+    }
+  }
+PARSER_END(VCalRuleParser)
+
+SKIP : { " " } 
+SKIP : { "\n" | "\r" | "\r\n" } 
+
+TOKEN : { < #DIGIT : (["0"-"9"]) > }
+TOKEN : { < DIGITS : (<DIGIT>){1,4} > }
+TOKEN : { < PLUS : "+" > }
+TOKEN : { < MINUS : "-" > }
+
+TOKEN : { < ENDDATE : (<DIGIT>){8}"T"(<DIGIT>){6}("Z")? | (<DIGIT>){8}> }
+TOKEN : { < HASH : "#" > }
+
+TOKEN : { < WEEKDAY : "MO" | "TU" | "WE" | "TH" | "FR" | "SA" | "SU">}
+TOKEN : { < LASTDAY : "LD" > }
+
+
+
+String parse() :
+{
+String t = null;
+}
+{
+  (t= daily() | t= weekly() | t= monthlyPos() | t= monthlyDay() | t= yearlyMonth() | t= yearlyDay())  
+  {return t; }
+}
+
+String daily() : 
+{
+  StringBuffer sb = new StringBuffer(50);
+  Token t = null;
+  sb.append("FREQ=DAILY;");
+} 
+{
+  "D"
+  t=<DIGITS> { sb.append("INTERVAL=").append(t.image).append(";"); } 
+  [<HASH> t=<DIGITS> { sb.append("COUNT=").append(t.image).append(";"); } ] 
+  [t=<ENDDATE> { sb.append("UNTIL=").append(t.image).append(";"); } ]
+{
+  return sb.toString();
+}  
+}
+
+String weekly() : 
+{
+  StringBuffer sb = new StringBuffer(50);
+  Token t = null;
+  sb.append("FREQ=WEEKLY;");
+} 
+{
+  "W"
+  t=<DIGITS> { sb.append("INTERVAL=").append(t.image).append(";"); } 
+  {String w = "";}
+  (t=<WEEKDAY> {if (w.length() > 0) w += ","; w += t.image;})*
+  {if (w.length() > 0) sb.append("BYDAY=").append(w).append(";");} 
+  [<HASH> t=<DIGITS> { sb.append("COUNT=").append(t.image).append(";"); } ]   
+  [t=<ENDDATE> { sb.append("UNTIL=").append(t.image).append(";"); } ]  
+  
+{
+  return sb.toString();
+}    
+}
+
+String monthlyPos() :
+{
+  StringBuffer sb = new StringBuffer(50);
+  Token t = null;
+  Token minus = null;
+  sb.append("FREQ=MONTHLY;");
+} 
+{
+  "MP"
+  t=<DIGITS> { sb.append("INTERVAL=").append(t.image).append(";"); } 
+
+
+
+  {String m = "";}
+  
+  (
+    {String occ = "";}
+  
+    t=<DIGITS>(<PLUS>|minus=<MINUS>)
+    {if (minus != null) {occ+="-"; minus=null;} occ += t.image;}
+
+    (t=<WEEKDAY>{if (m.length() > 0) m += ",";m += occ; m+=t.image;})+
+    
+  )*
+  
+  {if (m.length() > 0) sb.append("BYDAY=").append(m).append(";");} 
+
+
+
+  [<HASH> t=<DIGITS> { sb.append("COUNT=").append(t.image).append(";"); } ]   
+  [t=<ENDDATE> { sb.append("UNTIL=").append(t.image).append(";"); } ]  
+  
+{
+  return sb.toString();
+}    
+}
+
+String monthlyDay() : 
+{
+  StringBuffer sb = new StringBuffer(50);
+  Token t = null;
+  Token minus = null;
+  sb.append("FREQ=MONTHLY;");
+} 
+{
+  "MD"
+  t=<DIGITS> { sb.append("INTERVAL=").append(t.image).append(";"); } 
+
+
+  {String m = "";}
+  
+  (
+    <LASTDAY> {if (m.length() > 0) m += ","; m += "-1";} |
+    t=<DIGITS>(<PLUS>|minus=<MINUS>)? 
+    {if (m.length() > 0) m += ","; if (minus != null) {m+="-"; minus=null;} m += t.image;}
+  )*
+  
+  {if (m.length() > 0) sb.append("BYMONTHDAY=").append(m).append(";");} 
+
+  [<HASH> t=<DIGITS> { sb.append("COUNT=").append(t.image).append(";"); } ]   
+  [t=<ENDDATE> { sb.append("UNTIL=").append(t.image).append(";"); } ]  
+  
+{
+  return sb.toString();
+}    
+}
+
+String yearlyMonth() : 
+{
+  StringBuffer sb = new StringBuffer(50);
+  Token t = null;
+  sb.append("FREQ=YEARLY;");
+} 
+{
+  "YM"
+  t=<DIGITS> { sb.append("INTERVAL=").append(t.image).append(";"); } 
+    
+  {String m = "";}
+  (t=<DIGITS> {if (m.length() > 0) m += ","; m += t.image;})*
+  {if (m.length() > 0) sb.append("BYMONTH=").append(m).append(";");} 
+      
+  [<HASH> t=<DIGITS> { sb.append("COUNT=").append(t.image).append(";"); } ]   
+  [t=<ENDDATE> { sb.append("UNTIL=").append(t.image).append(";"); } ]  
+  
+{
+  return sb.toString();
+}    
+}
+
+String yearlyDay() :
+{
+  StringBuffer sb = new StringBuffer(50);
+  Token t = null;
+  sb.append("FREQ=YEARLY;");
+} 
+{
+  "YD"
+  t=<DIGITS> { sb.append("INTERVAL=").append(t.image).append(";"); } 
+
+  {String d = "";}
+  (t=<DIGITS> {if (d.length() > 0) d += ","; d += t.image;})*
+  {if (d.length() > 0) sb.append("BYYEARDAY=").append(d).append(";");} 
+
+
+  [<HASH> t=<DIGITS> { sb.append("COUNT=").append(t.image).append(";"); } ]   
+  [t=<ENDDATE> { sb.append("UNTIL=").append(t.image).append(";"); } ]  
+  
+{
+  return sb.toString();
+}    
+}
+

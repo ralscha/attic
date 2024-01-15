@@ -1,0 +1,149 @@
+import java.awt.*;
+import java.awt.event.*;
+import java.awt.image.*;
+import javax.swing.*;
+import javax.swing.event.*;
+import javax.swing.border.*;
+
+public class JScrollView extends JPanel
+  implements ChangeListener, MouseListener,
+    MouseMotionListener
+{
+  protected JScrollPane scrollpane;
+  protected JViewport viewport;
+	protected Image thumbnail;
+  protected Dimension total;
+  protected Rectangle view;
+  protected int xDot, yDot;
+  protected boolean isWindow;
+
+  public JScrollView(JScrollPane scrollpane, int size)
+  {
+    this(scrollpane, size, false);
+  }
+  
+  public JScrollView(JScrollPane scrollpane,
+    int size, boolean isWindow)
+  {
+    this.scrollpane = scrollpane;
+    this.isWindow = isWindow;
+    viewport = scrollpane.getViewport();
+    viewport.addChangeListener(this);
+    addMouseListener(this);
+    addMouseMotionListener(this);
+    setBorder(new EtchedBorder(EtchedBorder.LOWERED));
+    
+    int width, height;
+    Dimension childSize = viewport.getView().getPreferredSize();
+    double ratio = (double)childSize.height /
+      (double)childSize.width;
+    if (childSize.width > childSize.height)
+    {
+      width = size;
+      height = (int)(size * ratio);
+    }
+    else
+    {
+      height = size;
+      width = (int)(size * ratio);
+    }
+    setPreferredSize(new Dimension(width, height));
+  }
+
+  public void stateChanged(ChangeEvent event)
+  {
+    total = viewport.getView().getSize();
+    view = viewport.getViewRect();
+    repaint();
+  }
+
+  public Rectangle calculateRectangle()
+  {
+    double xUnit = (double)(getSize().width -
+      (getInsets().left + getInsets().right)) /
+      (double)total.width;
+    double yUnit = (double)(getSize().height -
+      (getInsets().top + getInsets().bottom)) /
+      (double)total.height;
+    int x = (int)(view.x * xUnit) + getInsets().left;
+    int y = (int)(view.y * yUnit) + getInsets().top;
+    int w = (int)(view.width * xUnit);
+    int h = (int)(view.height * yUnit);
+    return new Rectangle(x, y, w, h);
+  }
+  
+  public void paintComponent(Graphics g)
+  {
+    int w = getSize().width;
+    int h = getSize().height;
+    g.setColor(getBackground());
+    g.fillRect(0, 0, w, h);
+    
+    if (scrollpane instanceof JScrollViewPane &&
+      (thumbnail == null || ((JScrollViewPane)scrollpane).
+        capture.isDynamic))
+    {
+      thumbnail = new BufferedImage(
+        w, h, BufferedImage.TYPE_INT_RGB);
+      Graphics gc = thumbnail.getGraphics();
+      gc.drawImage(
+        ((JScrollViewPane)scrollpane).getImage(),
+        0, 0, w, h, this);
+    }
+    if (thumbnail != null)
+      g.drawImage(thumbnail, 0, 0, this);
+
+    Rectangle rect = calculateRectangle();
+    g.setColor(Color.blue);
+    g.drawRect(rect.x, rect.y,
+      rect.width, rect.height);
+    g.drawRect(rect.x + 1, rect.y + 1,
+      rect.width - 2, rect.height - 2);
+  }
+
+  public void mouseEntered(MouseEvent event) {}
+  public void mouseExited(MouseEvent event) {}
+  public void mousePressed(MouseEvent event)
+  {
+    Rectangle rect = calculateRectangle();
+    xDot = event.getX() - rect.x;
+    yDot = event.getY() - rect.y;
+  }
+  
+  public void mouseReleased(MouseEvent event) {}
+  public void mouseClicked(MouseEvent event) {}
+  
+  public void mouseMoved(MouseEvent event)
+  {
+    Rectangle rect = calculateRectangle();
+    if (rect.contains(event.getX(), event.getY()))
+      setCursor(Cursor.getPredefinedCursor(Cursor.MOVE_CURSOR));
+    else
+      setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
+    if (isWindow)
+    {
+      xDot = rect.width / 2;
+      yDot = rect.height / 2;
+      mouseDragged(event);
+    }
+  }
+  
+  public void mouseDragged(MouseEvent event)
+  {
+    Rectangle rect = calculateRectangle();
+    int x = event.getX() - xDot;
+    int y = event.getY() - yDot;
+    int xView = (int)(((double)x / (double)(getSize().width -
+      (getInsets().top + getInsets().bottom))) *
+      (double)total.width);
+    int yView = (int)(((double)y / (double)(getSize().height -
+      (getInsets().left + getInsets().right))) *
+      (double)total.height);
+    if (xView + view.width > total.width)
+      xView = total.width - view.width;
+    if (yView + view.height > total.height)
+      yView = total.height- view.height;
+    viewport.setViewPosition(new Point(xView, yView));
+  }
+}
+

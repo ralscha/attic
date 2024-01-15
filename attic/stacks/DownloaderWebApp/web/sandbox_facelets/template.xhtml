@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html">
+
+  <head>
+    <title>Good Eats!</title>
+    <link rel="stylesheet" type="text/css" href="facelets-examples.css"/>    
+  </head>
+  
+   <body>
+      <div id="content-frame">
+        <div id="header">
+          <ui:insert name="header">
+            <ui:include src="header.xhtml"/>
+          </ui:insert>
+        </div>
+        <div id="left-nav">
+          <ui:insert name="left-nav">
+            TEST TEST TEST
+          </ui:insert>
+      </div>
+      <div id="main-content">
+          <ui:insert name="main-content" />
+      </div>
+      <div id="right-sidebar">
+        <ui:insert name="right-sidebar">
+          <ui:include src="rightSidebar.xhtml"/>
+        </ui:insert>
+      </div>
+      <div id="footer">
+        <ui:insert name="footer">
+          <ui:include src="footer.xhtml"/>
+        </ui:insert>
+      </div>
+      </div>
+   </body>
+
+</html>      

@@ -1,0 +1,8 @@
+Manifest-Version: 1.0
+Specification-Title: Blank Webapplication
+Specification-Vendor: ESS Development AG
+Specification-Version: 3.0.0
+Implementation-Title: Blank Webapplication
+Implementation-Vendor: ESS Development AG
+Implementation-Vendor-Id: ch.ess
+Implementation-Version: 3.0.0

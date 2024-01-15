@@ -1,0 +1,220 @@
+//Microsoft App Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+#ifdef APSTUDIO_INVOKED
+//////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""res\\DvE.rc2""  // non-App Studio edited resources\r\n"
+    "\r\n"
+    "#include ""afxres.rc""  \011// Standard components\r\n"
+    "\0"
+END
+
+/////////////////////////////////////////////////////////////////////////////////////
+#endif    // APSTUDIO_INVOKED
+
+
+//////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+IDR_MAIN_ICON           ICON    DISCARDABLE     "RES\\DVE.ICO"
+
+//////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDR_MAIN_MENU MENU DISCARDABLE 
+BEGIN
+    POPUP "&Datei"
+    BEGIN
+        MENUITEM "&Beenden\tAlt+F4",            IDCANCEL
+    END
+    POPUP "&Anzeigen"
+    BEGIN
+        MENUITEM "&Spielstand...",              ID_SPIELSTAND
+        MENUITEM "S&trategie...",               ID_STRATEGIE
+    END
+    POPUP "&Optionen"
+    BEGIN
+        MENUITEM "&Meldung 1",                  ID_MELDUNG
+        MENUITEM "&Ziel...",                    ID_ZIEL
+    END
+    POPUP "&Help", HELP
+    BEGIN
+        MENUITEM "&Info über...",               ID_ABOUT
+    END
+END
+
+
+//////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUTBOX DIALOG DISCARDABLE  34, 22, 217, 55
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Info über DvE"
+FONT 8, "MS Sans Serif"
+BEGIN
+    ICON            IDR_MAIN_ICON,IDC_STATIC,11,17,18,20
+    LTEXT           "DvE Version 1.0",IDC_STATIC,40,10,119,8
+    LTEXT           "Copyright\251 Ralph Sch\344r - 1994",IDC_STATIC,40,25,
+                    119,8
+    DEFPUSHBUTTON   "OK",IDOK,176,6,32,14,WS_GROUP
+END
+
+MAIN_DLG_WINDOW DIALOG DISCARDABLE  80, 60, 185, 144
+STYLE WS_MINIMIZEBOX | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "DvE Application"
+MENU IDR_MAIN_MENU
+FONT 8, "MS Sans Serif"
+BEGIN
+    LTEXT           "W\374rfel:",ID_FRAME1,74,11,24,8
+    LTEXT           "6",IDC_WURF,105,11,6,8
+    CONTROL         "",ID_FRAME1,"Static",SS_WHITEFRAME | WS_GROUP,69,9,47,
+                    13
+    LTEXT           "Computer",ID_FRAME1,80,40,34,8
+    CTEXT           "Du",ID_FRAME1,128,40,23,8
+    LTEXT           "Punkte",ID_FRAME1,42,53,27,8
+    LTEXT           "Total",ID_FRAME1,42,68,20,8
+    DEFPUSHBUTTON   "W\374rfeln",IDC_WUERFELN,25,116,50,14
+    PUSHBUTTON      "Runde beenden",IDC_RUNDEBEENDEN,96,116,65,14
+    CONTROL         "",ID_FRAME1,"Static",SS_BLACKFRAME | WS_GROUP,31,32,123,
+                    55
+    RTEXT           "0",IDC_RPTECOMP,85,53,14,8
+    RTEXT           "0",IDC_TOTALCOMP,85,68,14,8
+    RTEXT           "0",IDC_RPTEHUMA,129,53,14,8
+    RTEXT           "0",IDC_TOTALHUMA,129,68,14,8
+    LTEXT           "Ziel:",ID_FRAME1,75,92,16,8
+    RTEXT           "100",IDC_ZIEL,93,92,17,8
+    CONTROL         "",ID_FRAME1,"Static",SS_BLACKFRAME,70,90,45,13
+END
+
+IDD_SPIELSTAND DIALOG DISCARDABLE  71, 28, 130, 88
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "Spielstand"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,40,65,50,14
+    LTEXT           "Computer",-1,22,23,34,8
+    CTEXT           "Du",-1,81,23,29,8
+    CTEXT           "0",IDC_SSCOMP,30,38,19,8
+    CONTROL         "",-1,"Static",SS_BLACKFRAME,15,19,99,32
+    CTEXT           "0",IDC_SSHUMA,86,38,19,8
+    LTEXT           "Gewonnen",-1,47,7,35,8
+END
+
+IDD_STRATEGIE DIALOG DISCARDABLE  6, 15, 245, 187
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "Strategie"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,97,162,50,14
+    LTEXT           "Einmal w\374rfeln",-1,23,16,66,8
+    RTEXT           "100",S,93,16,13,8
+    RTEXT           "100",1016,93,27,13,8
+    LTEXT           "Zweimal w\374rfeln",-1,23,27,66,8
+    RTEXT           "100",1017,93,38,13,8
+    LTEXT           "Dreimal w\374rfeln",-1,23,38,66,8
+    RTEXT           "100",1018,93,49,13,8
+    LTEXT           "Viermal w\374rfeln",-1,23,49,66,8
+    RTEXT           "100",1019,93,60,13,8
+    LTEXT           "F\374nfmal w\374rfeln",-1,23,60,66,8
+    RTEXT           "100",1020,93,71,13,8
+    LTEXT           "Sechsmal w\374rfeln",-1,23,71,66,8
+    CONTROL         "",-1,"Static",SS_BLACKFRAME,17,11,97,73
+    LTEXT           "Punktzahl >=  3",-1,137,16,66,8
+    RTEXT           "100",1021,207,16,13,8
+    RTEXT           "100",1022,207,27,13,8
+    LTEXT           "Punktzahl >=  7",-1,137,27,66,8
+    RTEXT           "100",1023,207,38,13,8
+    LTEXT           "Punktzahl >= 11",-1,137,38,66,8
+    RTEXT           "100",1024,207,49,13,8
+    LTEXT           "Punktzahl >= 15",-1,137,49,66,8
+    RTEXT           "100",1025,207,60,13,8
+    LTEXT           "Punktzahl >= 19",-1,137,60,66,8
+    RTEXT           "100",1026,207,71,13,8
+    LTEXT           "Punktzahl >= 23",-1,137,71,66,8
+    CONTROL         "",-1,"Static",SS_BLACKFRAME,131,11,97,73
+    LTEXT           "Dreimal w\374rfeln",-1,44,102,60,8
+    RTEXT           "100",1027,187,102,13,8
+    RTEXT           "100",1028,187,113,13,8
+    RTEXT           "100",1029,187,124,13,8
+    RTEXT           "100",1030,187,135,13,8
+    CONTROL         "",-1,"Static",SS_BLACKFRAME,38,97,168,52
+    LTEXT           "oder Punktzahl >= 11",-1,106,102,74,8
+    LTEXT           "Viermal w\374rfeln",-1,44,113,60,8
+    LTEXT           "oder Punktzahl >= 15",-1,106,113,74,8
+    LTEXT           "F\374nfmal w\374rfeln",-1,44,124,60,8
+    LTEXT           "oder Punktzahl >= 19",-1,106,124,74,8
+    LTEXT           "Sechsmal w\374rfeln",-1,44,135,60,8
+    LTEXT           "oder Punktzahl >= 23",-1,106,135,74,8
+END
+
+IDD_ZIELDIALOG DIALOG DISCARDABLE  6, 15, 196, 105
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "Ziel ändern"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,34,80,50,14
+    CTEXT           "1000",IDC_ZIELPUNKTE,130,17,18,8
+    PUSHBUTTON      "Abbruch",IDCANCEL,112,80,50,14
+    CONTROL         "",-1,"Static",SS_BLACKFRAME,43,14,110,14
+    LTEXT           "Neue Zielpunktzahl:",-1,49,17,70,8
+    SCROLLBAR       IDC_SCROLLZIEL,21,47,153,11
+END
+
+
+//////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE PRELOAD DISCARDABLE 
+BEGIN
+    AFX_IDS_APP_TITLE       "DvE Windows Application"
+END
+
+
+#ifndef APSTUDIO_INVOKED
+////////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#include "res\DvE.rc2"  // non-App Studio edited resources
+
+#include "afxres.rc"  	// Standard components
+
+/////////////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

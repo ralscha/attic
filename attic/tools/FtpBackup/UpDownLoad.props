@@ -1,0 +1,11 @@
+proxy.host =
+proxy.port =
+
+ftp.user = user
+ftp.password = pw
+ftp.host = host
+ftp.directory = backup
+
+file.001 = urllist.txt
+path.001 = d:/internet/url organizer/
+

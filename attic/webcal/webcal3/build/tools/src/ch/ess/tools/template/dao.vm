@@ -1,0 +1,16 @@
+package ${clazz.packageName}.persistence;
+
+#if ($clazz.finderSignature)
+import java.util.List;
+#end
+
+/**
+ * @author sr
+ * @version $Revision: $ $Date: $
+ */
+public interface ${clazz.name}Dao extends Dao {
+  
+  #if ($clazz.finderSignature)
+  List find(${clazz.finderSignature});
+  #end
+}

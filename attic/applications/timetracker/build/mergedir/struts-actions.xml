@@ -1,0 +1,10 @@
+    <action path="/default" forward="/tasktimes.do" />
+    <action path="/error" forward="/error.jsp"/>
+
+    <action path="/users" forward=".user.list" roles="admin"/>    
+    <action path="/resources" forward=".resource.list" roles="admin"/> 
+    <action path="/customers" forward=".customer.list" roles="admin"/>    
+    <action path="/projects" forward=".project.list" roles="admin"/>  
+    <action path="/tasks" forward=".task.list" roles="admin"/>  
+
+     

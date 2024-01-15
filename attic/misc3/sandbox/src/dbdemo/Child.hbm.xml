@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping SYSTEM "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+<hibernate-mapping>
+	
+	<class name="dbdemo.Child">
+		<id name="id" type="long">
+			<generator class="native"/>
+		</id>
+		<property name="name" length="20" type="string"/>
+		<property name="descr" length="20" type="string"/>
+		
+		<many-to-one name="parent" column="parentId" not-null="true" class="dbdemo.Parent"/>
+	</class>
+
+</hibernate-mapping>

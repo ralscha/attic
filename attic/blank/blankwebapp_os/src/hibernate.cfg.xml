@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD//EN"
+        "http://hibernate.sourceforge.net/hibernate-configuration-2.0.dtd">
+<hibernate-configuration>
+    <!-- a SessionFactory instance listed as /jndi/name -->
+    <session-factory name="hibernate/sessionFactory">
+        <property name="show_sql">false</property>
+        <property name="use_outer_join">true</property>
+        <property name="query.substitutions">true 1, false 0, yes 'Y', no 'N'</property>
+        <property name="jdbc.use_streams_for_binary">true</property>
+
+        <!-- properties for this SessionFactory only -->
+        <property name="connection.datasource">java:comp/env/jdbc/blank</property>
+        <property name="dialect">net.sf.hibernate.dialect.MySQLDialect</property>
+
+        <!-- mapping files -->
+        <mapping resource="ch/ess/blank/db/Configuration.hbm.xml"/>
+        <mapping resource="ch/ess/blank/db/Role.hbm.xml"/>
+        <mapping resource="ch/ess/blank/db/User.hbm.xml"/>
+        <mapping resource="ch/ess/blank/db/UserRole.hbm.xml"/>
+        <mapping resource="ch/ess/blank/db/UserConfiguration.hbm.xml"/>        
+        <mapping resource="ch/ess/blank/db/TextResource.hbm.xml"/>         
+    </session-factory>
+</hibernate-configuration>

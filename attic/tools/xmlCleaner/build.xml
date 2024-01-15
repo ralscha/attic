@@ -1,0 +1,34 @@
+<project name="xmlCleaner" default="jar">
+
+	<target name="compile">
+    <mkdir dir="bin" />
+
+    <javac srcdir="src" 
+           destdir="bin" 
+           deprecation="true" 
+           optimize="true" 
+           debug="false" 
+           encoding="UTF-8"
+           includeAntRuntime="no" 
+           source="1.6" 
+           target="1.6">
+      <classpath>
+      	<fileset dir="lib">
+      	  <include name="*.jar" />
+        </fileset>
+      </classpath>
+    </javac>
+
+    <copy todir="bin">
+      <fileset dir="src" excludes="**/*.java" />
+    </copy>
+  </target>
+	
+	<target name="jar" depends="compile">
+    <jar jarfile="xmlCleaner.jar" manifest="xmlCleaner.MF">
+      <fileset dir="bin"/>
+    	<zipfileset src="lib/jdom.jar"/>
+    </jar>
+	</target>
+
+</project>

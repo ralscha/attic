@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE form-validation PUBLIC "-//Apache Software Foundation//DTD Commons Validator Rules Configuration 1.1//EN" "http://jakarta.apache.org/commons/dtds/validator_1_1.dtd">
+
+<form-validation>
+  <!--
+    Define global validation config in validation-global.xml
+  -->
+  <formset>
+      <form name="configForm">
+              <field property="errorMailReceiver"
+                     depends="required,email">
+
+                  <arg position="0" key="config.errorMailReceiver" resource="true"/>
+              </field>
+              <field property="mailSender"
+                     depends="required,email">
+
+                  <arg position="0" key="config.defaultMailSender" resource="true"/>
+              </field>
+              <field property="mailSmtp"
+                     depends="required">
+
+                  <arg position="0" key="config.mailSmtp" resource="true"/>
+              </field>
+              <field property="passwordLen"
+                     depends="required,integer">
+
+                  <arg position="0" key="config.passwordLen" resource="true"/>
+              </field>
+              <field property="sessionTimeout"
+                     depends="required,integer">
+
+                  <arg position="0" key="config.sessionTimeout" resource="true"/>
+              </field>
+              <field property="mailSmtpPort"
+                     depends="required,integer">
+
+                  <arg position="0" key="config.mailSmtpPort" resource="true"/>
+              </field>
+      </form>
+      <form name="sendMailForm">
+              <field property="recipient"
+                     depends="required,email">
+
+                  <arg position="0" key="Recipient" resource="true"/>
+              </field>
+              <field property="subject"
+                     depends="required">
+
+                  <arg position="0" key="Subject" resource="true"/>
+              </field>
+              <field property="text"
+                     depends="required">
+
+                  <arg position="0" key="Text" resource="true"/>
+              </field>
+      </form>
+      <form name="userConfigForm">
+              <field property="newPassword"
+                     depends="requiredif,identical">
+
+                  <var>
+                    <var-name>secondProperty</var-name>
+                    <var-value>retypeNewPassword</var-value>
+                  </var>
+                  <var>
+                    <var-name>field[0]</var-name>
+                    <var-value>oldPassword</var-value>
+                  </var>
+                  <var>
+                    <var-name>fieldTest[0]</var-name>
+                    <var-value>NOTNULL</var-value>
+                  </var>
+                  <arg position="0" key="userconfig.newPassword" resource="true"/>
+                  <arg position="1" key="user.retypePassword" resource="true"/>
+              </field>
+              <field property="time"
+                     depends="required,integer">
+
+                  <arg position="0" key="userconfig.loginRemember" resource="true"/>
+              </field>
+              <field property="locale"
+                     depends="required">
+
+                  <arg position="0" key="user.language" resource="true"/>
+              </field>
+              <field property="timeUnit"
+                     depends="required">
+
+                  <arg position="0" key="userconfig.loginRemember" resource="true"/>
+              </field>
+              <field property="lastName"
+                     depends="required">
+
+                  <arg position="0" key="user.lastName" resource="true"/>
+              </field>
+              <field property="firstName"
+                     depends="required">
+
+                  <arg position="0" key="user.firstName" resource="true"/>
+              </field>
+              <field property="email"
+                     depends="required,email">
+
+                  <arg position="0" key="user.eMail" resource="true"/>
+              </field>
+              <field property="firstDayOfWeek"
+                     depends="required">
+
+                  <arg position="0" key="userconfig.firstDayOfWeek" resource="true"/>
+              </field>
+      </form>
+      <form name="userForm">
+              <field property="userName"
+                     depends="required">
+
+                  <arg position="0" key="login.userName" resource="true"/>
+              </field>
+              <field property="lastName"
+                     depends="required">
+
+                  <arg position="0" key="user.lastName" resource="true"/>
+              </field>
+              <field property="firstName"
+                     depends="required">
+
+                  <arg position="0" key="user.firstName" resource="true"/>
+              </field>
+              <field property="email"
+                     depends="required,email">
+
+                  <arg position="0" key="user.eMail" resource="true"/>
+              </field>
+              <field property="password"
+                     depends="required,identical">
+
+                  <var>
+                    <var-name>secondProperty</var-name>
+                    <var-value>retypePassword</var-value>
+                  </var>
+                  <arg position="0" key="login.password" resource="true"/>
+                  <arg position="1" key="" resource="true"/>
+              </field>
+              <field property="retypePassword"
+                     depends="required">
+
+                  <arg position="0" key="user.retypePassword" resource="true"/>
+              </field>
+              <field property="localeStr"
+                     depends="required">
+
+                  <arg position="0" key="user.language" resource="true"/>
+              </field>
+      </form>
+      <form name="waitActionForm">
+              <field property="seconds"
+                     depends="required,integer">
+
+                  <arg position="0" key="Seconds" resource="true"/>
+              </field>
+      </form>
+  </formset>
+</form-validation>

@@ -1,0 +1,14 @@
+<module>
+
+	<!-- Inherit the core Web Toolkit stuff.                  -->
+	<inherits name='com.google.gwt.user.User'/>
+
+	<!-- Specify the app entry point class.                   -->
+	<entry-point class='ch.ess.sonne.client.Sonne'/>
+	
+  <!-- Map service implementation class to a URL path for GWT-shell. -->
+  <!-- Path is always mapped against root, so need a hack here to   -->
+  <!-- allow client to use relative "ws" path, preserving portability -->
+	<servlet path="/ch.ess.sonne.Sonne/ws" class="ch.ess.sonne.server.PictureServiceImpl"/>
+	<servlet path="/img/*" class="ch.ess.sonne.server.ShowPictureServlet"/>	
+</module>

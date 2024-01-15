@@ -1,0 +1,7 @@
+<project name="test" default="war" basedir=".">
+
+	<target name="war">
+		<jar compress="yes" jarfile="jodtest.war" basedir="${basedir}/web" /> 
+	</target>
+
+</project>

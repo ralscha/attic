@@ -1,0 +1,1001 @@
+<project name="WebCal Application" default="all" basedir="..">
+  <description>WebCal Application Build File</description> 
+
+  <!-- Home directory of the build process -->
+  <property name="build.dir" value="${basedir}/build"/>
+  <property name="etc.dir" value="${build.dir}/etc"/>
+  
+  <!-- Load local and user build properties -->
+  <!--<property file="${user.home}/build.properties" /> -->
+  <property file="${build.dir}/build.properties" />
+ 
+  <!-- Should Java compilations set the debug compiler option? -->
+  <property name="compile.debug" value="true" />
+
+  <!-- Should Java compilations set the deprecation compiler option? -->
+  <property name="compile.deprecation" value="true" />
+
+  <!-- Should Java compilations set the optimize compiler option? -->
+  <property name="compile.optimize" value="false" /> 
+
+  <!-- Source directory -->
+  <property name="src.dir" value="${basedir}/src"/>
+  <property name="testsrc.dir" value="${basedir}/test"/>
+  
+  <!-- Directory where build outputs are stored -->      
+  <property name="output.dir" value="${build.dir}/output"/>   
+
+  <!-- Temporary directory -->      
+  <property name="tmp.dir" value="${build.dir}/tmp"/>      
+
+  <!-- Web directories -->  
+  <property name="web.dir" value="${basedir}/web"/> 
+  <property name="webinf.dir" value="${web.dir}/WEB-INF"/>    
+  <property name="classes.dir" value="${webinf.dir}/classes"/>
+  <property name="testclasses.dir" value="${tmp.dir}/testclasses"/>
+  <property name="lib.dir" value="${webinf.dir}/lib"/>   
+    
+
+  <!-- Doc directory -->  
+  <property name="doc.dir" value="${basedir}/docs"/>  
+  
+  <!-- Directory where release files are stored -->  
+  <property name="dist.dir" value="${build.dir}/dist"/>
+       
+        
+  <property name="container.test.dir" value="${tmp.dir}/container"/>
+        
+  <!-- XDoclet Force -->
+  <property name="xdoclet.force" value="false"/>   
+
+<!--
+  ========================================================================
+    DATATYPES
+  ========================================================================
+-->
+
+  <!-- Build classpath -->
+  <path id="build.classpath">
+    <fileset dir="${build.dir}/lib">
+      <include name="*.jar"/>    
+    </fileset>
+    <pathelement location="${build.dir}/lib/deployer/servlet-api.jar"/> 
+    <pathelement location="${build.dir}/lib/deployer/jsp-api.jar"/> 
+  </path>
+   
+  <!-- WEB-INF/lib -->
+  <path id="lib.classpath">
+    <fileset dir="${lib.dir}">
+      <include name="**/*.jar"/>
+      <exclude name="clover.jar"/>
+      <exclude name="aspectjrt.jar"/>
+      <exclude name="cactus.jar"/>
+      <exclude name="commons-httpclient.jar"/>
+      <exclude name="junit.jar"/>
+      <exclude name="strutstest.jar"/>
+    </fileset> 
+  </path>    
+   
+  <!-- Compilation classpath -->
+  <path id="compile.classpath">
+    <path refid="build.classpath"/>
+    <path refid="lib.classpath"/>  
+  </path>     
+
+  <path id="run.classpath">
+    <pathelement location="${classes.dir}"/>    
+    <path refid="lib.classpath"/>    
+  </path>
+
+  <fileset id="hibernate.mapping.files" dir="${src.dir}">
+    <include name="**/*.hbm.xml" />
+  </fileset>
+
+
+  <path id="deployer.classpath">
+    <fileset dir="${build.dir}/lib/deployer">
+      <include name="*.jar"/>    
+    </fileset>
+      <pathelement location="${build.dir}/lib/deployer"/>  
+      <pathelement location="${lib.dir}/commons-beanutils.jar"/>
+      <pathelement location="${lib.dir}/commons-collections.jar"/>
+      <pathelement location="${lib.dir}/commons-digester.jar"/>
+      <pathelement location="${lib.dir}/commons-logging.jar"/>      
+      <pathelement location="${lib.dir}/log4j.jar"/> 
+      <pathelement location="${tomcat5.home}/server/lib/catalina.jar"/>       
+  </path>
+  
+  
+  
+<!--
+  ========================================================================
+    TASKDEFS
+  ========================================================================
+-->
+
+  <taskdef name="hibernatedoclet" classname="xdoclet.modules.hibernate.HibernateDocletTask">
+    <classpath>
+    <fileset dir="${build.dir}/lib/xdoclet">
+      <include name="**/*.jar"/>    
+    </fileset> 
+    <path refid="lib.classpath"/>    
+    </classpath> 
+  </taskdef>
+  
+  <taskdef name="webdoclet" classname="xdoclet.modules.web.WebDocletTask">
+    <classpath>
+    <pathelement location="${build.dir}/lib/deployer/servlet-api.jar"/> 
+    <pathelement location="${build.dir}/lib/deployer/jsp-api.jar"/> 
+    <fileset dir="${build.dir}/lib/xdoclet">
+      <include name="**/*.jar"/>    
+    </fileset> 
+    <path refid="lib.classpath"/>    
+    </classpath> 
+  </taskdef>
+
+  
+  <taskdef name="schemaexport" 
+           classname="net.sf.hibernate.tool.hbm2ddl.SchemaExportTask">
+    <classpath>
+    <path refid="run.classpath"/>    
+    <fileset dir="${build.dir}/lib">
+      <include name="**/*.jar"/>    
+    </fileset> 
+    <pathelement location="${jdbc.driver.jar}"/> 
+    </classpath> 
+           
+  </taskdef>
+           
+  <taskdef name="pmd" classname="net.sourceforge.pmd.ant.PMDTask">
+    <classpath>
+    <fileset dir="${build.dir}/lib/pmd">
+      <include name="**/*.jar"/>    
+    </fileset> 
+    </classpath> 
+  </taskdef>
+  
+  
+  <taskdef resource="simiantask.properties" classpath="${build.dir}/lib/tools/simian.jar"/>
+  
+  <taskdef resource="checkstyletask.properties"
+           classpath="${build.dir}/lib/checkstyle/checkstyle-all-3.1.jar"/>
+    
+  <taskdef resource="clovertasks">
+    <classpath>
+      <pathelement location="${build.dir}/lib/clover.jar"/>       
+    </classpath>      
+  </taskdef>
+    
+ 
+  <taskdef name="jmeter" classname="org.programmerplanet.ant.taskdefs.jmeter.JMeterTask">
+    <classpath>
+      <pathelement location="${build.dir}/lib/test/ant-jmeter.jar"/>       
+    </classpath>    
+ </taskdef>
+    
+
+    
+   
+  <taskdef resource="cactus.tasks">
+    <classpath>
+      <pathelement location="${build.dir}/lib/test/cactus.jar"/>
+      <pathelement location="${build.dir}/lib/test/cactus-ant.jar"/>
+      <pathelement location="${build.dir}/lib/test/commons-httpclient.jar"/>
+      <pathelement location="${lib.dir}/commons-logging.jar"/>
+      <pathelement location="${build.dir}/lib/test/aspectjrt.jar"/>      
+    </classpath>
+  </taskdef>   
+   
+ <taskdef name="strutsdoc" classname="strutsdoc.Main" classpath="${build.dir}/lib/tools/strutsdoc.jar"/>  
+    
+  <!-- Configure the custom Ant tasks for the Manager application -->
+  <taskdef name="deploy"    classname="org.apache.catalina.ant.DeployTask">
+    <classpath refid="deployer.classpath" />
+  </taskdef>
+  <taskdef name="list"      classname="org.apache.catalina.ant.ListTask">
+    <classpath refid="deployer.classpath" />
+  </taskdef>
+  <taskdef name="reload"    classname="org.apache.catalina.ant.ReloadTask">
+    <classpath refid="deployer.classpath" />
+  </taskdef>
+  <taskdef name="resources" classname="org.apache.catalina.ant.ResourcesTask">
+    <classpath refid="deployer.classpath" />
+  </taskdef>
+  <taskdef name="roles"     classname="org.apache.catalina.ant.RolesTask">
+    <classpath refid="deployer.classpath" />
+  </taskdef>
+  <taskdef name="start"     classname="org.apache.catalina.ant.StartTask">
+    <classpath refid="deployer.classpath" />
+  </taskdef>
+  <taskdef name="stop"      classname="org.apache.catalina.ant.StopTask">
+    <classpath refid="deployer.classpath" />
+  </taskdef>
+  <taskdef name="undeploy"  classname="org.apache.catalina.ant.UndeployTask">
+    <classpath refid="deployer.classpath" />
+  </taskdef>
+  <taskdef name="validator" classname="org.apache.catalina.ant.ValidatorTask">
+    <classpath refid="deployer.classpath" />
+  </taskdef>
+  <taskdef name="jasper2"   classname="org.apache.jasper.JspC" > 
+    <classpath refid="deployer.classpath" />
+  </taskdef>    
+           
+<!--
+  ========================================================================
+    Init
+  ========================================================================
+-->
+  <target name="init" description="Initializes the build process">
+    <!-- Create the time stamp -->
+    <tstamp/>       
+    
+  </target> 
+  
+<!--
+  ========================================================================
+    Clean build directories
+  ========================================================================
+-->
+
+  <target name="clean" depends="cactus.dev.delete" description="Clean build directories">
+    <delete dir="${classes.dir}"/>
+    <delete dir="${tmp.dir}"/>
+    <delete dir="${output.dir}"/>
+    <delete dir="${dist.dir}"/>          
+    <delete dir="${doc.dir}"/>          
+    <delete dir="${webinf.dir}/tmp"/>
+    <delete dir="${webinf.dir}/work"/>
+    
+    <delete file="${webinf.dir}/web.xml"/> 
+    <delete file="${webinf.dir}/struts-config.xml"/> 
+    <delete file="${webinf.dir}/validation.xml"/> 
+    <delete file="${webinf.dir}/ess-misc.tld"/>
+    <delete file="${lib.dir}/clover.jar"/>
+    <delete>
+      <fileset dir="${basedir}">
+        <include name="mycoverage*"/>    
+      </fileset>
+    </delete> 
+
+  </target>
+ 
+<!--
+  ========================================================================
+    Compile java sources
+  ========================================================================
+--> 
+
+  <target name="compile.all" depends="compile,compile.test"/>
+  
+  <target name="compile" depends="init" description="Compile java sources">
+  
+    <mkdir dir="${classes.dir}"/>
+    
+    <javac srcdir="${src.dir}" 
+           destdir="${classes.dir}"
+           deprecation="${compile.deprecation}"
+           optimize="${compile.optimize}" 
+           debug="${compile.debug}"
+           includeAntRuntime="no"
+           source="1.4">          
+      <classpath refid="compile.classpath"/>             
+    </javac>  
+        
+    <copy todir="${classes.dir}">
+      <fileset dir="${src.dir}" excludes="**/*.java"/>
+    </copy>
+    
+  </target>
+  
+  <target name="compile.test" depends="init" description="Compile test java sources">
+  
+    <delete dir="${testclasses.dir}"/>
+    <mkdir dir="${testclasses.dir}"/>
+    
+    <javac srcdir="${testsrc.dir}" 
+           destdir="${testclasses.dir}"
+           deprecation="${compile.deprecation}"
+           optimize="${compile.optimize}" 
+           debug="${compile.debug}"
+           includeAntRuntime="no"
+           source="1.4">          
+      <classpath>
+        <path refid="compile.classpath"/>
+        <pathelement location="${classes.dir}"/> 
+      	<pathelement location="${build.dir}/lib/junit.jar"/>             
+      	<pathelement location="${build.dir}/lib/test/strutstest.jar"/>
+      	<pathelement location="${build.dir}/lib/test/cactus.jar"/>
+      	<pathelement location="${build.dir}/lib/test/httpunit.jar"/>
+      </classpath>
+    </javac>  
+        
+    <copy todir="${classes.dir}">
+      <fileset dir="${testsrc.dir}" excludes="**/*.java"/>
+    </copy>
+    
+  </target>  
+  
+  
+  
+  <target name="generate" depends="generate.hibernate,generate.tld,generate.strutsvalidation,generate.strutsconfig,generate.webxml"/>
+<!--
+  ========================================================================
+    XDoclet: Create hbm.xml Files for Hibernate
+  ========================================================================
+--> 
+ 
+  <target name="generate.hibernate" description="Generates Hibernate class descriptor files." depends="compile">
+        
+    <hibernatedoclet
+      destdir="${src.dir}"
+      excludedtags="@version,@author,@todo"
+      force="${xdoclet.force}"
+      mergedir="${src.dir}"
+      verbose="false">
+
+      <fileset dir="${src.dir}">
+        <include name="**/db/*.java"/>
+      </fileset>
+
+      <hibernate validatexml="true" version="2.0"/>
+
+    </hibernatedoclet>   
+    
+    <copy todir="${classes.dir}">
+      <fileset dir="${src.dir}" excludes="**/*.java"/>
+    </copy>    
+  </target> 
+
+
+<!--
+  ========================================================================
+    XDoclet: Generate tld for Tag Library
+  ========================================================================
+--> 
+ 
+  <target name="generate.tld" description="Generates tld for Tag Library" depends="compile">
+    
+    
+    
+    <webdoclet
+      destdir="${webinf.dir}"
+      force="${xdoclet.force}"
+      verbose="false">
+
+      <fileset dir="${src.dir}">
+        <include name="**/tag/*.java"/>
+      </fileset>
+
+      <jsptaglib jspversion="1.2" taglibversion="1.0" validatexml="true" 
+                 shortname="essmisc" uri="/tags/ess-misc"
+                 filename="ess-misc.tld"/>
+
+    </webdoclet>   
+       
+  </target> 
+
+
+<!--
+  ========================================================================
+    XDoclet: Generate struts validation.xml
+  ========================================================================
+--> 
+ 
+  <target name="generate.strutsvalidation" description="Generates struts validation.xml" depends="compile">
+            
+    <webdoclet
+      destdir="${webinf.dir}"
+      force="${xdoclet.force}"
+      verbose="true">
+
+      <fileset dir="${src.dir}">
+        <include name="**/*.java"/>
+      </fileset>
+
+      <strutsvalidationxml validatexml="true" />
+
+    </webdoclet>   
+       
+  </target> 
+
+
+<!--
+  ========================================================================
+    XDoclet: Generate struts config.xml
+  ========================================================================
+--> 
+ 
+  <target name="generate.strutsconfig" description="Generates struts config.xml" depends="compile">
+            
+    <webdoclet
+      destdir="${webinf.dir}"
+      force="${xdoclet.force}"
+      mergeDir="${build.dir}/mergedir"
+      verbose="true">
+
+      <fileset dir="${src.dir}">
+        <include name="**/cal/**/*.java"/>
+        <include name="**/common/**/*.java"/>        
+      </fileset>
+
+      <strutsconfigxml version="1.1" validatexml="true" />
+
+    </webdoclet>   
+       
+  </target> 
+
+<!--
+  ========================================================================
+    XDoclet: Generates web.xml
+  ========================================================================
+--> 
+ 
+  <target name="generate.webxml" description="Generates web.xml" depends="compile">
+            
+    <webdoclet
+      destdir="${webinf.dir}"
+      mergeDir="${build.dir}/mergedir"
+      force="${xdoclet.force}"
+      verbose="true">
+
+      <fileset dir="${src.dir}">
+        <include name="**/*.java"/>
+      </fileset>
+
+      <deploymentdescriptor validatexml="true"
+         servletspec="2.3" sessiontimeout="30"
+         displayname="${ant.project.name}">      
+       <welcomefile file="index.jsp"/>
+       <contextparam name="log4j-config" value="/log4j.props" />
+       <contextparam name="webAppRootKey" value="cal.root" />
+       <contextparam name="contextConfigLocation" value="/WEB-INF/applicationContext.xml" />       
+       
+      </deploymentdescriptor>
+      
+
+    </webdoclet>   
+       
+    <antcall target="jsp2"/>     
+  </target> 
+ 
+
+<!--
+  ========================================================================
+    Create installation package
+  ========================================================================
+-->
+ 
+  <target name="createwar" depends="generate,compile" description="Create installation package">
+    <mkdir dir="${dist.dir}"/>
+    <mkdir dir="${dist.dir}/web"/>
+	
+    <copy todir="${dist.dir}/web">
+      <fileset dir="${web.dir}"/>
+    </copy>
+    
+	  <move todir="${dist.dir}/web" overwrite="true">
+	    <fileset dir="${dist.dir}/web"/>
+	    <mapper type="glob" from="*.dist" to="*" />
+	  </move>  
+	                	        
+    <jar compress="no" jarfile="${dist.dir}/${app.name}.war" basedir="${dist.dir}/web" /> 
+  
+  </target>  
+ 
+  <target name="dist" description="Compile web application"  depends="clean,generate,compile">
+    <mkdir dir="${dist.dir}"/>
+    <mkdir dir="${dist.dir}/web"/>
+    
+    <copy todir="${dist.dir}/web">
+      <fileset dir="${web.dir}"/>
+    </copy>
+    
+	  <move todir="${dist.dir}/web" overwrite="true">
+	    <fileset dir="${dist.dir}/web"/>
+	    <mapper type="glob" from="*.dist" to="*" />
+	  </move>  
+    
+    <mkdir dir="${dist.dir}/web/META-INF" />
+    <copy file="${build.dir}/conf/${context.conf}" tofile="${dist.dir}/web/META-INF/context.xml"/>
+
+    <jasper2 validateXml="false" 
+             uriroot="${dist.dir}/web" 
+             webXmlFragment="${dist.dir}/web/WEB-INF/generated_web.xml"
+             addWebXmlMappings="true"
+             outputDir="${dist.dir}/web/WEB-INF/classes" /> 
+
+    <validator path="${dist.dir}/web" />
+
+    <mkdir dir="${dist.dir}/web/WEB-INF/classes"/>
+    <mkdir dir="${dist.dir}/web/WEB-INF/lib"/>
+
+    <javac destdir="${dist.dir}/web/WEB-INF/classes"
+           optimize="off"
+           debug="on" failonerror="false"
+           srcdir="${dist.dir}/web/WEB-INF/classes" 
+	   excludes="**/*.smap">
+      <classpath>
+        <fileset dir="${dist.dir}/web/WEB-INF/lib">
+          <include name="*.jar"/>
+        </fileset>
+    <fileset dir="${build.dir}/lib/deployer">
+      <include name="*.jar"/>    
+    </fileset>        
+      </classpath>
+      <include name="**" />
+      <exclude name="tags/**" />
+    </javac>
+
+    <jar destfile="${dist.dir}/${app.name}.war"
+         basedir="${dist.dir}/web/" />
+
+  </target> 
+ 
+<!--
+  ========================================================================
+    Clean and build application
+  ========================================================================
+-->
+  <target name="all" depends="splash,init,clean,compile,generate,dist" description="Clean and build application">
+  </target>
+  
+  <target name="splash">
+   <splash/>
+  </target>
+<!--
+  ========================================================================
+    Generate documentation
+  ========================================================================
+-->
+  <target name="docs" depends="compile" description="Generate documentation">
+    <mkdir dir="${doc.dir}/api"/>
+    
+    <javadoc destdir="${doc.dir}/api"
+             packagenames="ch.ess.cal.*"
+             sourcepath="${src.dir}"
+             use="true"
+             windowtitle="WebCal Application Documentation"
+             private="true">
+      <classpath refid="compile.classpath"/>
+    </javadoc>  
+  </target>
+
+
+
+<!--
+  ========================================================================
+    Generate DDL
+  ========================================================================
+--> 
+<target name="export.schema" description="Exports schema to database">
+
+  <schemaexport  properties="${build.dir}/hibernate.properties"
+                 quiet="no"
+                 text="no"
+                 drop="no"
+                 output="${build.dir}/schema-export.sql">
+                 
+         <fileset dir="${classes.dir}">
+           <include name="**/*.hbm.xml"/>
+         </fileset>
+  </schemaexport>
+</target>
+
+
+<!--
+  ========================================================================
+    Convert to jsp2
+  ========================================================================
+-->
+  
+  <target name="jsp2">        
+
+            
+    <replaceregexp flags="g"
+     file="${web.dir}/WEB-INF/web.xml"
+     match='&lt;!DOCTYPE web-app PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN" "http://java.sun.com/dtd/web-app_2_3.dtd"&gt;'
+     replace=""/>
+
+    <replaceregexp flags="g"
+     file="${web.dir}/WEB-INF/web.xml"
+     match='&lt;web-app &gt;'
+     replace='&lt;web-app version="2.4" xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee web-app_2_4.xsd"&gt;'/>            
+    </target>
+
+
+
+<!--
+  ========================================================================
+    Test 
+  ========================================================================
+--> 
+
+
+
+
+  <target name="cactus.dev.on">
+    <copy file="${build.dir}/lib/test/aspectjrt.jar" todir="${lib.dir}"/>    
+    <copy file="${build.dir}/lib/test/cactus.jar" todir="${lib.dir}"/>    
+    <copy file="${build.dir}/lib/test/commons-httpclient.jar" todir="${lib.dir}"/>    
+    <copy file="${build.dir}/lib/junit.jar" todir="${lib.dir}"/>    
+    <copy file="${build.dir}/lib/test/strutstest.jar" todir="${lib.dir}"/>    
+    <copy file="${build.dir}/etc/jspRedirector.jsp" todir="${web.dir}"/>    
+    
+    <copy file="${build.dir}/conf/cactus.properties" todir="${src.dir}"/>    
+    <copy file="${build.dir}/conf/cactus.properties" todir="${classes.dir}"/>    
+        
+    <webxmlmerge srcfile="${webinf.dir}/web.xml"
+      destfile="${webinf.dir}/cactusweb.xml"
+      mergefile="${build.dir}/conf/cactus-web.xml"/>
+
+    <move file="${webinf.dir}/cactusweb.xml" 
+        tofile="${webinf.dir}/web.xml" overwrite="true"/>
+  </target>
+  
+  <target name="cactus.dev.off" depends="cactus.dev.delete, generate.webxml">
+  </target>
+  
+  <target name="cactus.dev.delete">
+    <delete file="${lib.dir}/aspectjrt.jar"/>
+    <delete file="${lib.dir}/cactus.jar"/>
+    <delete file="${lib.dir}/commons-httpclient.jar"/>
+    <delete file="${lib.dir}/junit.jar"/>
+    <delete file="${lib.dir}/strutstest.jar"/>
+    <delete file="${web.dir}/jspRedirector.jsp"/>
+    <delete file="${webinf.dir}/web.xml"/> 
+
+    <delete file="${src.dir}/cactus.properties"/>    
+    <delete file="${classes.dir}/cactus.properties"/>  
+  </target>
+
+  <target name="cactify" depends="createwar,compile.test">
+    <delete file="${dist.dir}/${app.name}-cactus.war"/>
+  
+    <cactifywar srcfile="${dist.dir}/${app.name}.war"
+                destfile="${dist.dir}/${app.name}-cactus.war">
+      
+      <classes dir="${testclasses.dir}"/>
+      <lib dir="${build.dir}/lib/test" includes="strutstest.jar"/>
+  
+      <servletredirector/>
+      <servletredirector name="ServletRedirectorSecure"
+           mapping="/ServletRedirectorSecure" roles="admin"/>      
+       
+    </cactifywar>
+  </target>        
+
+  <target name="prepare.tomcat" depends="cactify">       
+    <delete dir="${container.test.dir}"/>  
+    <mkdir dir="${container.test.dir}/conf/Catalina/localhost"/>
+    <mkdir dir="${container.test.dir}/work"/>
+    <mkdir dir="${container.test.dir}/app"/>
+
+    <!-- Copy the Tomcat web.xml -->
+    <copy file="${tomcat5.home}/conf/web.xml" todir="${container.test.dir}/conf"/>    
+    <copy file="${build.dir}/conf/testserver.xml" tofile="${container.test.dir}/conf/server.xml"/>    
+    <copy file="${build.dir}/conf/testdeploy.xml" tofile="${container.test.dir}/conf/Catalina/localhost/app.xml"/>    
+  
+    <copy file="${dist.dir}/${app.name}-cactus.war" todir="${container.test.dir}/app"/>
+          
+  </target>
+  
+  <target name="prepare.db">
+  
+    <sql driver="${test.jdbc.driver}"
+         url="${test.jdbc.url}"
+         userid="${test.jdbc.user}"
+         password="${test.jdbc.password}"
+         src="${build.dir}/droptables.sql"
+         onerror="continue">
+      <classpath>
+        <pathelement location="${jdbc.driver.jar}"/> 
+      </classpath>         
+    </sql>
+  
+  </target>
+  
+  
+  <target name="test.job">
+    <mkdir dir="${output.dir}"/> 
+    <delete file="${tmp.dir}/junit.properties"/>
+    
+    <junit printsummary="false"
+         errorProperty="test.failed"
+         failureProperty="test.failed"
+         fork="true">  
+      <formatter type="xml"/>
+   
+      <classpath>
+         <pathelement location="${classes.dir}"/>           
+         <pathelement location="${testclasses.dir}"/> 
+                 
+         <fileset dir="${lib.dir}" includes="**/*.jar"/>
+         <fileset dir="${build.dir}/lib/test" includes="**/*.jar"/>
+         <pathelement location="${build.dir}/conf"/> 
+         <path refid="build.classpath"/>	
+      </classpath>
+
+      <sysproperty key="test.db.driver" value="${test.jdbc.driver}"/>
+      <sysproperty key="test.db.url" value="${test.jdbc.url}"/>
+      <sysproperty key="test.db.user" value="${test.jdbc.user}"/>
+      <sysproperty key="test.db.password" value="${test.jdbc.password}"/>
+
+          
+      <batchtest todir="${output.dir}">
+        <fileset dir="${testclasses.dir}"
+          includes="**/*Test.class" />
+      </batchtest>          
+
+    </junit>  
+      
+    <junitreport todir="${output.dir}">
+      <fileset dir="${output.dir}">
+        <include name="TEST-*.xml"/>
+      </fileset>
+      <report format="frames" todir="${output.dir}/junit"/>
+    </junitreport>
+                      
+    <property file="${tmp.dir}/junit.properties" />     
+    <fail message="Tests failed. Check log and/or reports." if="test.failed"/>   
+    
+    <antcall target="jmeter"/>    
+        
+  </target>
+  
+  <target name="jmeter" if="jmeter.home">
+    <delete file="${output.dir}/jmeterresults.jtl"/>
+    <delete file="${output.dir}/JMeterResults.html"/>
+    
+    <jmeter jmeterhome="${jmeter.home}"
+      testplan="${build.dir}/etc/jmeter.jmx"
+      resultlog="${output.dir}/jmeterresults.jtl"/>
+  
+    <xslt
+      in="${output.dir}/jmeterresults.jtl"
+      out="${output.dir}/JMeterResults.html"
+      style="${build.dir}/etc/jmeter-results-report.xsl"/>
+
+  
+  </target>
+  
+    
+  <target name="test" depends="prepare.db, prepare.tomcat">        
+    <runservertests
+        testURL="http://localhost:8081/cal"
+        startTarget="start.tomcat"
+        stopTarget="stop.tomcat"
+        testTarget="test.job"/>
+  </target>
+
+	<target name="start.tomcat">
+	    <java classname="org.apache.catalina.startup.Bootstrap" fork="yes">
+	        <jvmarg value="-Dcatalina.home=${tomcat5.home}"/>
+	        <jvmarg value="-Dcatalina.base=${container.test.dir}"/>
+	        <arg value="start"/>
+	        <classpath>
+	          <pathelement path="${java.home}/../lib/tools.jar"/>      	
+	          <fileset dir="${tomcat5.home}">
+	              <include name="bin/bootstrap.jar"/>
+	          </fileset>
+	        </classpath>
+	    </java>
+  </target>
+
+	<target name="stop.tomcat">
+	    <java classname="org.apache.catalina.startup.Bootstrap" fork="yes">
+	        <jvmarg value="-Dcatalina.home=${tomcat5.home}"/>
+	        <jvmarg value="-Dcatalina.base=${container.test.dir}"/>
+	        <arg value="stop"/>
+	        <classpath>
+	          <fileset dir="${tomcat5.home}">
+	              <include name="bin/bootstrap.jar"/>
+	          </fileset>
+	        </classpath>
+	    </java>
+	</target>   
+
+<!--
+  ========================================================================
+    Create all reports
+  ========================================================================
+--> 
+
+   <target name="reports" depends="pmd,simian,checkstyle" description="Create all reports">
+   
+   </target>
+
+<!--
+  ========================================================================
+    PMD
+  ========================================================================
+--> 
+
+<target name="pmd" description="PMD">
+    <mkdir dir="${output.dir}"/>
+    <pmd shortFilenames="true" 
+         rulesetfiles="rulesets/strictexception.xml,rulesets/coupling.xml,rulesets/javabeans.xml,rulesets/braces.xml,rulesets/design.xml,rulesets/junit.xml,rulesets/unusedcode.xml,rulesets/imports.xml,rulesets/strings.xml,rulesets/basic.xml">
+        <formatter type="html" toFile="${output.dir}/pmd_report.html"/>
+        <fileset dir="${src.dir}">
+            <include name="**/*.java"/>
+        </fileset>
+    </pmd>
+</target>
+
+<!--
+  ========================================================================
+    Simian
+  ========================================================================
+--> 
+<target name="simian" description="Simian">
+    <mkdir dir="${output.dir}"/>
+    <simian threshold="10">
+        <fileset dir="${src.dir}" excludes="**/*.xml" />
+        <formatter type="xml" toFile="${output.dir}/simian-log.xml"/>
+    </simian>
+  <style in="${output.dir}/simian-log.xml"
+	  out="${output.dir}/simian.html"
+	  processor="trax"
+	  classpathref="compile.classpath"
+	  style="${etc.dir}/simian.xsl">    
+  </style> 
+  <copy file="${etc.dir}/simian.css" todir="${output.dir}" />   
+</target>
+
+<!--
+  ========================================================================
+    Checkstyle
+  ========================================================================
+--> 
+
+<target name="checkstyle" depends="init" description="Checkstyle">
+  <mkdir dir="${output.dir}"/>
+  
+  <checkstyle config="${build.dir}/checkstyle_checks.xml" failOnViolation="false">
+    <fileset dir="${src.dir}" includes="**/*.java" />
+    <formatter type="xml" toFile="${output.dir}/checkstyle_errors.xml"/>
+  </checkstyle>
+
+  <tstamp>
+    <format property="report.time" pattern="dd.MM.yyyy hh:mm:ss"/>
+  </tstamp>
+    
+  <style in="${output.dir}/checkstyle_errors.xml"
+	 out="${output.dir}/checkstyle.html"
+	 processor="trax"
+	 classpathref="compile.classpath"
+	 style="${etc.dir}/checkstyle-simple.xsl">
+    <param name="reporttime" expression="${report.time}"/>
+  </style>
+
+</target>
+
+
+<!--
+  ========================================================================
+    Clover
+  ========================================================================
+-->
+
+   
+  <target name="with.clover">
+    <clover-setup initString="${basedir}/mycoverage.db"/>
+    <copy file="${build.dir}/lib/clover.jar" todir="${lib.dir}"/>
+  </target>
+  
+  <target name="clover.swing" depends="with.clover">
+    <clover-view/>
+  </target>
+  
+
+
+<!--
+  ========================================================================
+    Tools
+  ========================================================================
+--> 
+
+<target name="luke" description="Lucene Index Browser">
+    <java classname="luke.Luke" fork="yes">
+      <classpath>
+        <pathelement location="${build.dir}/lib/tools/luke.jar"/>
+      </classpath> 
+    </java>
+</target>
+
+
+<target name="strutsdoc" description="StrutsDoc">
+  <mkdir dir="${doc.dir}/struts"/>
+  <strutsdoc destdir="docs/struts" servlet="action" webxml="${webinf.dir}/web.xml">
+    <plugin name="tiles"/>
+    <plugin name="validator"/>
+  </strutsdoc>
+</target>
+
+
+  <target name="clean.classes">
+    <delete dir="${classes.dir}"/>
+  </target>  
+  <target name="compile.just4log" depends="clean.classes,compile" description="Compile java sources with just4log">    
+    <mkdir dir="${tmp.dir}/just4log"/>
+    
+    <just4log destDir="${tmp.dir}/just4log" classpathref="compile.classpath" enters="false" exits="false">
+      <src path="${classes.dir}"/>
+    </just4log>
+  
+    <copy todir="${classes.dir}" overwrite="true">
+      <fileset dir="${tmp.dir}/just4log"/>
+    </copy>    
+    
+    <delete dir="${tmp.dir}/just4log"/>
+  </target>
+
+
+
+<!--
+  ========================================================================
+    Tomcat Manager
+  ========================================================================
+--> 
+  <target name="deploy" description="Deploy web application">
+    <deploy url="${url}" username="${username}" password="${password}"
+            path="${path}" war="${dist.dir}/${app.name}.war" update="true" />
+  </target>
+  <target name="undeploy" description="Undeploy web application">
+    <undeploy url="${url}" username="${username}" password="${password}"
+              path="${path}"/>
+  </target>
+
+  <!-- Webapp lifecycle control -->
+  <target name="start" description="Start web application">
+    <start url="${url}" username="${username}" password="${password}"
+           path="${path}"/>
+  </target>
+  <target name="reload" description="Reload web application">
+    <reload url="${url}" username="${username}" password="${password}"
+            path="${path}"/>
+  </target>
+  <target name="stop" description="Stop web application">
+    <stop url="${url}" username="${username}" password="${password}"
+          path="${path}"/>
+  </target>
+
+  <target name="list" description="Deploy web application">
+    <list url="${url}" username="${username}" password="${password}"/>
+  </target>
+  
+  
+<!--
+  ========================================================================
+    Source Gen Tool
+  ========================================================================
+-->   
+  <target name="source.gen">
+    <mkdir dir="${build.dir}/tools/bin"/>
+    
+    <path id="sourcegen.classpath">
+      <pathelement location="${build.dir}/tools/lib/forms-1.0.2.jar"/>
+      <pathelement location="${build.dir}/tools/lib/looks-1.2pre1.jar"/>
+      <pathelement location="${lib.dir}/commons-collections.jar"/>
+      <pathelement location="${lib.dir}/log4j.jar"/>
+      <pathelement location="${lib.dir}/velocity.jar"/>
+      <pathelement location="${build.dir}/tools/bin"/>
+    </path>
+  
+    <javac srcdir="${build.dir}/tools/src" 
+           destdir="${build.dir}/tools/bin"
+           includeAntRuntime="no">          
+      <classpath refid="sourcegen.classpath"/>                   
+    </javac>  
+    <copy todir="${build.dir}/tools/bin">
+      <fileset dir="${build.dir}/tools/src" excludes="**/*.java"/>
+    </copy>
+     
+  
+	  <java classname="ch.ess.tools.Gui" fork="yes">
+	    <arg value="${basedir}"/>
+	    <classpath refid="sourcegen.classpath"/> 
+	  </java>
+	</target>
+
+  
+</project>

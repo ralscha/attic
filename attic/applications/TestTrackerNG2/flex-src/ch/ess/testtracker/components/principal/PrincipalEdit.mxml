@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Panel xmlns:mx="http://www.adobe.com/2006/mxml" 
+          xmlns:tt="ch.ess.tt.components.*"
+          layout="absolute" title="Benutzer bearbeiten"
+          width="668" height="416">
+  
+  <mx:Script>
+    <![CDATA[
+      import mx.utils.StringUtil;
+      import com.hurlant.util.Hex;
+      import com.hurlant.crypto.Crypto;
+      import com.hurlant.crypto.hash.IHash;
+      import mx.validators.Validator;
+      import org.granite.tide.events.TideEvent;
+      import org.granite.tide.seam.Context;
+      import ch.ess.testtracker.entity.Principal;
+
+      [Bindable]
+      public var localContext:Context;
+
+      private function save():void {
+        var results:Array = Validator.validateAll([userNameTIValidator,emailTIValidator]);       
+        if (results.length == 0) {
+                                                                               
+          localContext.principal.enabled = enabledCB.selected;
+          localContext.principal.admin = adminCB.selected;
+          localContext.principal.userName = userNameTI.text;
+          localContext.principal.name = nameTI.text;
+          localContext.principal.firstName = firstNameTI.text;
+          localContext.principal.email = emailTI.text;
+          //localContext.principal.locale = localeCB.selectedLocale;
+          localContext.principal.oe = oeTI.text;
+          
+          localContext.principal.roleAuthor = (roleGroup.selectedValue == 'roleAuthor');
+          localContext.principal.roleTester = (roleGroup.selectedValue == 'roleTester');
+          localContext.principal.roleDeveloper = (roleGroup.selectedValue == 'roleDeveloper');
+          
+          if (passwordTI.text == 'changeme' || StringUtil.trim(passwordTI.text) == '') {
+            localContext.principal.passwordHash = 'changeme';
+          } else {
+            var hash:IHash = Crypto.getHash("sha1");
+            var result:ByteArray = hash.hash(Hex.toArray(Hex.fromString(passwordTI.text)));
+            localContext.principal.passwordHash = Hex.fromArray(result);            
+          }          
+          localContext.principalController.save(localContext.principal);  
+          localContext.dispatchEvent(new TideEvent("showPrincipalList"));
+        }    
+      }
+      
+      private function back():void {  
+        localContext.principalController.cancel();      
+        localContext.dispatchEvent(new TideEvent("showPrincipalList"));
+      }
+      
+////      [Bindable]
+////      public var model:ModelLocator = ModelLocator.getInstance();
+//                               
+      private function roleSelectedValue(principal:Principal):String {
+        if (principal.roleAuthor) {
+          return "roleAuthor";
+        } else if (principal.roleTester) {
+          return "roleTester";
+        } else if (principal.roleDeveloper) {
+          return "roleDeveloper";
+        } else {
+          return "roleNone";
+        }
+      }                     
+//                     
+//      private function savePrincipal():void {        
+//        var results:Array = Validator.validateAll([userNameTIValidator,localeComboBoxValidator,emailTIValidator]);
+//        
+//        if (results.length == 0) {
+//          
+//          var principal:Principal = new Principal();
+//          principal.id = model.selectedPrincipal.id;
+//          principal.enabled = enabledCB.selected;
+//          principal.admin = adminCB.selected;
+//          principal.userName = userNameTI.text;
+//          principal.name = nameTI.text;
+//          principal.firstName = firstNameTI.text;
+//          principal.email = emailTI.text;
+//          principal.locale = localeCB.selectedLocale;
+//          principal.oe = oeTI.text;
+//          
+//          principal.roleAuthor = (roleGroup.selectedValue == 'roleAuthor');
+//          principal.roleTester = (roleGroup.selectedValue == 'roleTester');
+//          principal.roleDeveloper = (roleGroup.selectedValue == 'roleDeveloper');
+//          
+//          if (passwordTI.text == 'changeme' || StringUtil.trim(passwordTI.text) == '') {
+//            principal.passwordHash = 'changeme';
+//          } else {
+//            var hash:IHash = Crypto.getHash("sha1");
+//            var result:ByteArray = hash.hash(Hex.toArray(Hex.fromString(passwordTI.text)));
+//            principal.passwordHash = Hex.fromArray(result);            
+//          }
+//          
+//          var events:Array = new Array();
+//          
+//          var event:UMEvent = new UMEvent(EventNames.SAVE_PRINCIPAL);
+//          event.data = principal;
+//          events.push(event);
+//          
+//          events.push(new UMEvent(EventNames.UPLOAD_TEST_INFORMATION_ATTACHMENT_1));
+//          events.push(new UMEvent(EventNames.UPLOAD_TEST_INFORMATION_ATTACHMENT_2));
+//          events.push(new UMEvent(EventNames.UPLOAD_TEST_INFORMATION_ATTACHMENT_3));          
+//          
+//          var generator:EventGenerator = new EventGenerator(events);
+//          generator.dispatch();
+//          
+//          //CairngormUtils.dispatchEvent(EventNames.SAVE_PRINCIPAL, principal);
+//          model.principalWorkflowState = ModelLocator.VIEWING_LIST_SCREEN;
+//        }
+//        
+//      }
+      
+
+      
+    ]]>
+  </mx:Script>
+  
+  <!--
+  <mx:Binding source="checkinDate.selectedDate" destination="tideContext.booking.checkinDate" />
+  <mx:Binding source="checkoutDate.selectedDate" destination="tideContext.booking.checkoutDate" />
+  <mx:Binding source="beds.selectedIndex" destination="tideContext.booking.beds" />
+  <mx:Binding source="smoking.selected" destination="tideContext.booking.smoking" />
+  -->
+  
+  <mx:StringValidator id="userNameTIValidator" source="{userNameTI}" property="text" required="true" />
+  <!--<mx:Validator id="localeComboBoxValidator" source="{localeCB}" property="selectedItem" required="true" />-->
+  <mx:EmailValidator id="emailTIValidator" source="{emailTI}" property="text" required="false" />
+  
+  <mx:VBox top="10" left="10" bottom="10" right="10">
+    <mx:Form>
+
+      <mx:FormItem label="Aktiv">
+        <mx:CheckBox id="enabledCB" selected="{localContext.principal.enabled}"/>
+      </mx:FormItem>
+      
+      <mx:FormItem label="Benutzername" required="true">
+        <mx:TextInput text="{localContext.principal.userName}" width="400" id="userNameTI"/>
+      </mx:FormItem>
+      
+      <mx:FormItem label="Passwort">
+        <mx:TextInput width="400" text="changeme" id="passwordTI" displayAsPassword="true"/>
+      </mx:FormItem>      
+      
+      <mx:FormItem label="Vorname">
+        <mx:TextInput text="{localContext.principal.firstName}" width="400" id="firstNameTI"/>
+      </mx:FormItem>
+      
+      <mx:FormItem label="Name">
+        <mx:TextInput text="{localContext.principal.name}" width="400" id="nameTI"/>
+      </mx:FormItem>
+      
+      <mx:FormItem label="E-Mail">
+        <mx:TextInput text="{localContext.principal.email}" width="400" id="emailTI"/>
+      </mx:FormItem>
+
+      <mx:FormItem label="OE">
+        <mx:TextInput text="{localContext.principal.oe}" width="400" id="oeTI"/>
+      </mx:FormItem>
+      
+      <!--
+      <mx:FormItem label="Sprache" required="true">                
+        <tt:LocaleComboBox id="localeCB" selectedLocale="{localContext.principal.locale}" />
+      </mx:FormItem>
+      -->
+      
+      <mx:FormItem label="Administrator">
+        <mx:CheckBox id="adminCB" selected="{localContext.principal.admin}"/>
+      </mx:FormItem>      
+                  
+      <mx:FormItem label="Rolle">
+        <mx:HBox>                  
+          <mx:RadioButtonGroup id="roleGroup" selectedValue="{roleSelectedValue(localContext.principal)}"/>
+          <mx:RadioButton id="roleNoneRB" label="Keine" value="roleNone" group="{roleGroup}"/>
+          <mx:RadioButton id="roleAuthorRB" label="Autor" value="roleAuthor" group="{roleGroup}"/> 
+          <mx:RadioButton id="roleTesterRB" label="Tester" value="roleTester" group="{roleGroup}"/>
+          <mx:RadioButton id="roleDeveloperRB" label="Entwickler" value="roleDeveloper" group="{roleGroup}"/>
+        </mx:HBox>
+      </mx:FormItem>            
+                  
+    </mx:Form>
+          
+    <mx:Spacer height="10" />      
+          
+    <mx:HBox width="100%" horizontalAlign="right">
+      <mx:Button label="Speichern" click="save()" id="saveButton"/>
+      <mx:Button label="Zurück" click="back()" />
+    </mx:HBox>
+   
+  </mx:VBox>
+  
+  
+</mx:Panel>

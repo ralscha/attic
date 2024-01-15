@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<!DOCTYPE form-validation PUBLIC
+          "-//Apache Software Foundation//DTD Commons Validator Rules Configuration 1.0//EN"
+          "http://jakarta.apache.org/commons/dtds/validator_1_0.dtd">
+
+<form-validation>
+
+
+
+    <formset>
+
+
+        <form name="contactForm">
+            <field property="birthday" depends="date">
+              <arg0 key="birthday"/>
+              <var>
+                <var-name>datePatternStrict</var-name>
+                <var-value>dd.MM.yyyy</var-value>
+              </var>                                      
+             </field>    
+            <field property="email" depends="email">
+              <arg0 key="email"/>                                    
+             </field>    
+            <field property="uploadFile" depends="contentType">
+              <arg0 key="File"/>
+              <var>
+                <var-name>accept</var-name>
+                <var-value>image/tiff,image/jpeg,image/pjpeg,image/gif,image/x-png</var-value>
+              </var>                                      
+             </field>                                  
+        </form>
+
+
+    </formset>
+
+
+
+</form-validation>

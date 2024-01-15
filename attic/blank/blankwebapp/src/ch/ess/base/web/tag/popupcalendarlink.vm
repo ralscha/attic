@@ -1,0 +1,13 @@
+<script type="text/javascript" language="JavaScript">
+Calendar.setup(
+	{
+	#foreach( $key in $params.keySet() )
+    $key : $params.get($key)
+    #if ($velocityCount < $params.size())
+    ,
+    #end
+  #end
+	}
+);
+</script>
+                               

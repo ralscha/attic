@@ -1,0 +1,24 @@
+package ${formPackage};
+
+import javax.servlet.http.*;
+import org.apache.struts.action.*;
+
+
+public class List${dbClassName}Form extends ActionForm {
+
+  private String searchStr;
+
+  public void reset(ActionMapping mapping, HttpServletRequest request) {
+    if (request.getParameter("search") != null) {
+      searchStr = null;
+    }
+  }
+
+  public String getSearchStr() {
+    return searchStr;
+  }
+
+  public void setSearchStr(String searchStr) {
+    this.searchStr = searchStr;
+  }
+}

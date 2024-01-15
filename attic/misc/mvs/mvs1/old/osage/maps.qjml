@@ -1,0 +1,106 @@
+<qjml root="maps">
+
+<element name="maps">
+<targetClass>java.util.ArrayList</targetClass>
+<child element="class" repeating="True" class="com.jxml.quick.access.QListAccess"/>
+</element>
+
+<element name="class">
+<targetClass>net.sourceforge.osage.mapping.ClassMap</targetClass>
+<attribute name="name" type="string" status="REQUIRED" property="name"/>
+<attribute name="stamp" type="string" property="stamp"/>
+<child element="map-to" property="mapTo" optional="False" />
+<selection optional="True" property="keyGenMap">
+<child element="key-generator" />
+<child element="sequence"/>
+<child element="highlow"/>
+<child element="cache" property="cacheMap" optional="True"/>
+</selection>
+<child element="field" listProperty="attributeMaps" optional="True" repeating="True"/>
+<child element="relation" listProperty="relationMaps" optional="True" repeating="True"/>
+</element>
+
+<element name="map-to" content="EMPTY">
+<targetClass>net.sourceforge.osage.mapping.MapTo</targetClass>
+<attribute name="database" type="string" status="REQUIRED" property="databaseName"/>
+<attribute name="xml" type="string" property="XMLName"/>
+</element>
+
+
+<element name="key-generator" content="EMPTY">
+<targetClass>net.sourceforge.osage.mapping.KeyGenMap</targetClass>
+<attribute name="type" type="string" status="REQUIRED" property="type"/>
+<attribute name="field" type="string" status="REQUIRED" property="field"/>
+</element>
+
+<element name="cache" content="EMPTY">
+<targetClass>net.sourceforge.osage.mapping.CacheMap</targetClass>
+<attribute name="size" type="int" property="size"/>
+<attribute name="expiry" type="int" property="expireMinutes"/>
+</element>
+
+<element name="sequence" content="EMPTY">
+<targetClass>net.sourceforge.osage.mapping.SequenceMap</targetClass>
+<attribute name="field" type="string" status="REQUIRED" property="field"/>
+<attribute name="name" type="string" property="name"/>
+</element>
+
+<element name="highlow" content="EMPTY">
+<targetClass>net.sourceforge.osage.mapping.HighLowMap</targetClass>
+<attribute name="field" type="string" status="REQUIRED" property="field"/>
+<attribute name="table" type="string" status="REQUIRED" property="table"/>
+<attribute name="tableColumn" type="string" status="REQUIRED" property="tableColumn"/>
+<attribute name="keyColumn" type="string" status="REQUIRED" property="keyColumn"/>
+</element>
+
+<element name="field">
+<targetClass>net.sourceforge.osage.mapping.AttributeMap</targetClass>
+<attribute name="name" type="string" status="REQUIRED" property="name"/>
+<attribute name="type" status="REQUIRED" type="string" property="type"/>
+<attribute name="convertor" type="string" property="convertor"/>
+<child element="sql" optional="False" repeating="False" property="columnMap"/>
+</element>
+
+<element name="sql" content="EMPTY">
+<targetClass>net.sourceforge.osage.mapping.ColumnMap</targetClass>
+<attribute name="name" type="string" property="name"/>
+<attribute name="table" type="string" status="REQUIRED" property="tableName"/>
+<attribute name="primary-key" type="boolean" property="isKeyColumn"/>
+<attribute name="nullable" type="boolean" property="isNullable"/>
+<attribute name="length" type="int" property="length"/>
+<attribute name="decimal" type="int" property="decimalDigits"/>
+<attribute name="type" type="string" property="type"/>
+<attribute name="ignoreCase" type="boolean" property="ignoreCase"/>
+</element>
+
+<element name="relation">
+<targetClass>net.sourceforge.osage.mapping.RelationMap</targetClass>
+<attribute name="name" type="string" status="REQUIRED" property="name"/>
+<attribute name="multi" type="boolean" status="REQUIRED" property="isMultiValued"/>
+<attribute name="type" type="string" status="REQUIRED" property="type"/>
+<attribute name="retrieve" type="string" property="retrieve" value="none">
+<value>none</value>
+<value>lazy</value>
+<value>auto</value>
+</attribute>
+<attribute name="autoSave" type="boolean" property="isSaveAutomatic"/>
+<attribute name="autoDelete" type="boolean" property="isDeleteAutomatic"/>
+<selection optional="True" listProperty="keys" repeating="True">
+<child element="key" />
+<child element="sql-key"/>
+</selection>
+</element>
+
+<element name="key" content="EMPTY">
+<targetClass>net.sourceforge.osage.mapping.KeyMap</targetClass>
+<attribute name="name" type="string" status="REQUIRED" property="name"/>
+<attribute name="foreign" type="string" status="REQUIRED" property="foreignKey"/>
+</element>
+
+<element name="sql-key">
+<targetClass>net.sourceforge.osage.mapping.SQLKeyMap</targetClass>
+<attribute name="foreign" type="string" status="REQUIRED" property="foreignKey"/>
+<child element="sql" optional="False" repeating="False" property="columnMap"/>
+</element>
+
+</qjml>

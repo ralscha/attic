@@ -1,0 +1,3866 @@
+
+D:\JavaProjects\private\phonet>echo off	 
+Ausgangswort                :  "Hoffer"
+
+Umwandlung nach 1. Regelsatz:  "HOFA"
+Umwandlung nach 2. Regelsatz:  "UFA"
+Ausgangswort                :  "Adam"
+
+Umwandlung nach 1. Regelsatz:  "ADAM"
+Umwandlung nach 2. Regelsatz:  "ATAN"
+Ausgangswort                :  "Advani"
+
+Umwandlung nach 1. Regelsatz:  "ATWANI"
+Umwandlung nach 2. Regelsatz:  "ATFANI"
+Ausgangswort                :  "Aeberhard"
+
+Umwandlung nach 1. Regelsatz:  "EBAHART"
+Umwandlung nach 2. Regelsatz:  "EBART"
+Ausgangswort                :  "Aebi"
+
+Umwandlung nach 1. Regelsatz:  "EBI"
+Umwandlung nach 2. Regelsatz:  "EBI"
+Ausgangswort                :  "Aebischer"
+
+Umwandlung nach 1. Regelsatz:  "EBISHA"
+Umwandlung nach 2. Regelsatz:  "EBIZA"
+Ausgangswort                :  "Aegerter"
+
+Umwandlung nach 1. Regelsatz:  "EGERTA"
+Umwandlung nach 2. Regelsatz:  "EKATA"
+Ausgangswort                :  "Aerni"
+
+Umwandlung nach 1. Regelsatz:  "ERNI"
+Umwandlung nach 2. Regelsatz:  "ERNI"
+Ausgangswort                :  "Affolter"
+
+Umwandlung nach 1. Regelsatz:  "AFOLTA"
+Umwandlung nach 2. Regelsatz:  "AFULTA"
+Ausgangswort                :  "Aggeler"
+
+Umwandlung nach 1. Regelsatz:  "AGELA"
+Umwandlung nach 2. Regelsatz:  "AKELA"
+Ausgangswort                :  "Al"
+
+Umwandlung nach 1. Regelsatz:  "AL"
+Umwandlung nach 2. Regelsatz:  "AL"
+Ausgangswort                :  "Alberghina"
+
+Umwandlung nach 1. Regelsatz:  "ALBERGINA"
+Umwandlung nach 2. Regelsatz:  "ALBAKINA"
+Ausgangswort                :  "Allemann"
+
+Umwandlung nach 1. Regelsatz:  "ALEMAN"
+Umwandlung nach 2. Regelsatz:  "ALENAN"
+Ausgangswort                :  "Alonso"
+
+Umwandlung nach 1. Regelsatz:  "ALONSO"
+Umwandlung nach 2. Regelsatz:  "ALUNZU"
+Ausgangswort                :  "Althaus"
+
+Umwandlung nach 1. Regelsatz:  "ALTAUS"
+Umwandlung nach 2. Regelsatz:  "ALTAUZ"
+Ausgangswort                :  "Altorfer"
+
+Umwandlung nach 1. Regelsatz:  "ALTORFA"
+Umwandlung nach 2. Regelsatz:  "ALTURFA"
+Ausgangswort                :  "Amende"
+
+Umwandlung nach 1. Regelsatz:  "AMENDE"
+Umwandlung nach 2. Regelsatz:  "ANENTE"
+Ausgangswort                :  "Amgwerd"
+
+Umwandlung nach 1. Regelsatz:  "AMKWERT"
+Umwandlung nach 2. Regelsatz:  "ANKFAT"
+Ausgangswort                :  "Ammann"
+
+Umwandlung nach 1. Regelsatz:  "AMAN"
+Umwandlung nach 2. Regelsatz:  "ANAN"
+Ausgangswort                :  "Andreae"
+
+Umwandlung nach 1. Regelsatz:  "ANDREAE"
+Umwandlung nach 2. Regelsatz:  "ANTREAE"
+Ausgangswort                :  "Andreas"
+
+Umwandlung nach 1. Regelsatz:  "ANDREAS"
+Umwandlung nach 2. Regelsatz:  "ANTRIZ"
+Ausgangswort                :  "Andy"
+
+Umwandlung nach 1. Regelsatz:  "ANDI"
+Umwandlung nach 2. Regelsatz:  "ANTI"
+Ausgangswort                :  "Anneler"
+
+Umwandlung nach 1. Regelsatz:  "ANELA"
+Umwandlung nach 2. Regelsatz:  "ANELA"
+Ausgangswort                :  "Antener"
+
+Umwandlung nach 1. Regelsatz:  "ANTENA"
+Umwandlung nach 2. Regelsatz:  "ANTENA"
+Ausgangswort                :  "Anthamatten"
+
+Umwandlung nach 1. Regelsatz:  "ANTAMATN"
+Umwandlung nach 2. Regelsatz:  "ANTANATN"
+Ausgangswort                :  "Antille"
+
+Umwandlung nach 1. Regelsatz:  "ANTILE"
+Umwandlung nach 2. Regelsatz:  "ANTILE"
+Ausgangswort                :  "Antonio"
+
+Umwandlung nach 1. Regelsatz:  "ANTONIO"
+Umwandlung nach 2. Regelsatz:  "ANTUNIU"
+Ausgangswort                :  "Arnold"
+
+Umwandlung nach 1. Regelsatz:  "ARNOLT"
+Umwandlung nach 2. Regelsatz:  "ARNULT"
+Ausgangswort                :  "Assals"
+
+Umwandlung nach 1. Regelsatz:  "ASALS"
+Umwandlung nach 2. Regelsatz:  "AZALZ"
+Ausgangswort                :  "Asseburg"
+
+Umwandlung nach 1. Regelsatz:  "ASEBURK"
+Umwandlung nach 2. Regelsatz:  "AZEBURK"
+Ausgangswort                :  "Auderset"
+
+Umwandlung nach 1. Regelsatz:  "AUDASET"
+Umwandlung nach 2. Regelsatz:  "AUTAZET"
+Ausgangswort                :  "Avramovic"
+
+Umwandlung nach 1. Regelsatz:  "AFRAMOWIZ"
+Umwandlung nach 2. Regelsatz:  "AFRANUFIZ"
+Ausgangswort                :  "Bachmann"
+
+Umwandlung nach 1. Regelsatz:  "BACHMAN"
+Umwandlung nach 2. Regelsatz:  "BAKNAN"
+Ausgangswort                :  "Bachor"
+
+Umwandlung nach 1. Regelsatz:  "BACHOR"
+Umwandlung nach 2. Regelsatz:  "BAKUR"
+Ausgangswort                :  "BSchtiger"
+
+Umwandlung nach 1. Regelsatz:  "BSTIGA"
+Umwandlung nach 2. Regelsatz:  "BZTIKA"
+Ausgangswort                :  "Baerwalde"
+
+Umwandlung nach 1. Regelsatz:  "BERWALDE"
+Umwandlung nach 2. Regelsatz:  "BERFALTE"
+Ausgangswort                :  "Baiges"
+
+Umwandlung nach 1. Regelsatz:  "BEIGES"
+Umwandlung nach 2. Regelsatz:  "BEIKEZ"
+Ausgangswort                :  "Bainbridge"
+
+Umwandlung nach 1. Regelsatz:  "BEINBRITGE"
+Umwandlung nach 2. Regelsatz:  "BEINBRITKE"
+Ausgangswort                :  "Balzer"
+
+Umwandlung nach 1. Regelsatz:  "BALZA"
+Umwandlung nach 2. Regelsatz:  "BALZA"
+Ausgangswort                :  "Bamberg"
+
+Umwandlung nach 1. Regelsatz:  "BAMBERK"
+Umwandlung nach 2. Regelsatz:  "BANBAK"
+Ausgangswort                :  "Bang"
+
+Umwandlung nach 1. Regelsatz:  "BANK"
+Umwandlung nach 2. Regelsatz:  "BANK"
+Ausgangswort                :  "Barclay"
+
+Umwandlung nach 1. Regelsatz:  "BARKLEI"
+Umwandlung nach 2. Regelsatz:  "BARKLEI"
+Ausgangswort                :  "Bardola"
+
+Umwandlung nach 1. Regelsatz:  "BARDOLA"
+Umwandlung nach 2. Regelsatz:  "BARTULA"
+Ausgangswort                :  "BSrfuss"
+
+Umwandlung nach 1. Regelsatz:  "BSRFUS"
+Umwandlung nach 2. Regelsatz:  "BZRFUZ"
+Ausgangswort                :  "BSriswyl"
+
+Umwandlung nach 1. Regelsatz:  "BSRISWÜL"
+Umwandlung nach 2. Regelsatz:  "BZRIZFIL"
+Ausgangswort                :  "Barmaz"
+
+Umwandlung nach 1. Regelsatz:  "BARMAZ"
+Umwandlung nach 2. Regelsatz:  "BARNAZ"
+Ausgangswort                :  "Bartlome"
+
+Umwandlung nach 1. Regelsatz:  "BARTLOME"
+Umwandlung nach 2. Regelsatz:  "BARTLUNE"
+Ausgangswort                :  "BSrtschi"
+
+Umwandlung nach 1. Regelsatz:  "BSRSHI"
+Umwandlung nach 2. Regelsatz:  "BZRZI"
+Ausgangswort                :  "Baschung"
+
+Umwandlung nach 1. Regelsatz:  "BASHUNK"
+Umwandlung nach 2. Regelsatz:  "BAZUNK"
+Ausgangswort                :  "Battaglia"
+
+Umwandlung nach 1. Regelsatz:  "BATAGLIA"
+Umwandlung nach 2. Regelsatz:  "BATAKLIA"
+Ausgangswort                :  "BSttig"
+
+Umwandlung nach 1. Regelsatz:  "BSTIK"
+Umwandlung nach 2. Regelsatz:  "BZTIK"
+Ausgangswort                :  "Battisti"
+
+Umwandlung nach 1. Regelsatz:  "BATISTI"
+Umwandlung nach 2. Regelsatz:  "BATIZTI"
+Ausgangswort                :  "Baudet"
+
+Umwandlung nach 1. Regelsatz:  "BAUDET"
+Umwandlung nach 2. Regelsatz:  "BAUTET"
+Ausgangswort                :  "Bauer"
+
+Umwandlung nach 1. Regelsatz:  "BAUA"
+Umwandlung nach 2. Regelsatz:  "BAUA"
+Ausgangswort                :  "Baumann"
+
+Umwandlung nach 1. Regelsatz:  "BAUMAN"
+Umwandlung nach 2. Regelsatz:  "BAUNAN"
+Ausgangswort                :  "Baumgartner"
+
+Umwandlung nach 1. Regelsatz:  "BAUMGARTNA"
+Umwandlung nach 2. Regelsatz:  "BAUNKARTNA"
+Ausgangswort                :  "Baur"
+
+Umwandlung nach 1. Regelsatz:  "BAUR"
+Umwandlung nach 2. Regelsatz:  "BAUR"
+Ausgangswort                :  "Baving"
+
+Umwandlung nach 1. Regelsatz:  "BAWINK"
+Umwandlung nach 2. Regelsatz:  "BAFINK"
+Ausgangswort                :  "Beck"
+
+Umwandlung nach 1. Regelsatz:  "BEK"
+Umwandlung nach 2. Regelsatz:  "BEK"
+Ausgangswort                :  "Becker"
+
+Umwandlung nach 1. Regelsatz:  "BEKA"
+Umwandlung nach 2. Regelsatz:  "BEKA"
+Ausgangswort                :  "BegrT"
+
+Umwandlung nach 1. Regelsatz:  "BEGRT"
+Umwandlung nach 2. Regelsatz:  "BEKRT"
+Ausgangswort                :  "Belfigilio"
+
+Umwandlung nach 1. Regelsatz:  "BELFIGILIO"
+Umwandlung nach 2. Regelsatz:  "BELFIKILIU"
+Ausgangswort                :  "Ben"
+
+Umwandlung nach 1. Regelsatz:  "BEN"
+Umwandlung nach 2. Regelsatz:  "BEN"
+Ausgangswort                :  "Berclaz"
+
+Umwandlung nach 1. Regelsatz:  "BERKLAZ"
+Umwandlung nach 2. Regelsatz:  "BERKLAZ"
+Ausgangswort                :  "Bergmann"
+
+Umwandlung nach 1. Regelsatz:  "BERKMAN"
+Umwandlung nach 2. Regelsatz:  "BERKNAN"
+Ausgangswort                :  "Berla"
+
+Umwandlung nach 1. Regelsatz:  "BERLA"
+Umwandlung nach 2. Regelsatz:  "BERLA"
+Ausgangswort                :  "Bernhard"
+
+Umwandlung nach 1. Regelsatz:  "BERNART"
+Umwandlung nach 2. Regelsatz:  "BERNART"
+Ausgangswort                :  "Besch"
+
+Umwandlung nach 1. Regelsatz:  "BESH"
+Umwandlung nach 2. Regelsatz:  "BEZ"
+Ausgangswort                :  "Beutler"
+
+Umwandlung nach 1. Regelsatz:  "BEUTLA"
+Umwandlung nach 2. Regelsatz:  "BEUTLA"
+Ausgangswort                :  "Beyeler"
+
+Umwandlung nach 1. Regelsatz:  "BEIELA"
+Umwandlung nach 2. Regelsatz:  "BEIELA"
+Ausgangswort                :  "Bichlmayer"
+
+Umwandlung nach 1. Regelsatz:  "BICHLMEIA"
+Umwandlung nach 2. Regelsatz:  "BIKLNEIA"
+Ausgangswort                :  "Bichsel"
+
+Umwandlung nach 1. Regelsatz:  "BIXL"
+Umwandlung nach 2. Regelsatz:  "BIXL"
+Ausgangswort                :  "Bidjan"
+
+Umwandlung nach 1. Regelsatz:  "BITIAN"
+Umwandlung nach 2. Regelsatz:  "BITIAN"
+Ausgangswort                :  "Biedermann"
+
+Umwandlung nach 1. Regelsatz:  "BIDERMAN"
+Umwandlung nach 2. Regelsatz:  "BITANAN"
+Ausgangswort                :  "Bienz"
+
+Umwandlung nach 1. Regelsatz:  "BINS"
+Umwandlung nach 2. Regelsatz:  "BINZ"
+Ausgangswort                :  "Bieri"
+
+Umwandlung nach 1. Regelsatz:  "BIRI"
+Umwandlung nach 2. Regelsatz:  "BIRI"
+Ausgangswort                :  "Bigi"
+
+Umwandlung nach 1. Regelsatz:  "BIGI"
+Umwandlung nach 2. Regelsatz:  "BIKI"
+Ausgangswort                :  "Bigler"
+
+Umwandlung nach 1. Regelsatz:  "BIGLA"
+Umwandlung nach 2. Regelsatz:  "BIKLA"
+Ausgangswort                :  "Billig"
+
+Umwandlung nach 1. Regelsatz:  "BILIK"
+Umwandlung nach 2. Regelsatz:  "BILIK"
+Ausgangswort                :  "BindschSdler"
+
+Umwandlung nach 1. Regelsatz:  "BINSHSTLA"
+Umwandlung nach 2. Regelsatz:  "BINZTLA"
+Ausgangswort                :  "Biri"
+
+Umwandlung nach 1. Regelsatz:  "BIRI"
+Umwandlung nach 2. Regelsatz:  "BIRI"
+Ausgangswort                :  "Bisanti"
+
+Umwandlung nach 1. Regelsatz:  "BISANTI"
+Umwandlung nach 2. Regelsatz:  "BIZANTI"
+Ausgangswort                :  "Bisel"
+
+Umwandlung nach 1. Regelsatz:  "BISL"
+Umwandlung nach 2. Regelsatz:  "BIZL"
+Ausgangswort                :  "Bittel"
+
+Umwandlung nach 1. Regelsatz:  "BITL"
+Umwandlung nach 2. Regelsatz:  "BITL"
+Ausgangswort                :  "Blaser"
+
+Umwandlung nach 1. Regelsatz:  "BLASA"
+Umwandlung nach 2. Regelsatz:  "BLAZA"
+Ausgangswort                :  "B÷cherer"
+
+Umwandlung nach 1. Regelsatz:  "B÷SHERA"
+Umwandlung nach 2. Regelsatz:  "B÷ZERA"
+Ausgangswort                :  "B÷gli"
+
+Umwandlung nach 1. Regelsatz:  "B÷GLI"
+Umwandlung nach 2. Regelsatz:  "B÷KLI"
+Ausgangswort                :  "Bohn"
+
+Umwandlung nach 1. Regelsatz:  "BON"
+Umwandlung nach 2. Regelsatz:  "BUN"
+Ausgangswort                :  "Bohnenblust"
+
+Umwandlung nach 1. Regelsatz:  "BONENBLUST"
+Umwandlung nach 2. Regelsatz:  "BUNENBLUZT"
+Ausgangswort                :  "Boie"
+
+Umwandlung nach 1. Regelsatz:  "BÖ"
+Umwandlung nach 2. Regelsatz:  "BÖ"
+Ausgangswort                :  "Bolliger"
+
+Umwandlung nach 1. Regelsatz:  "BOLIGA"
+Umwandlung nach 2. Regelsatz:  "BULIKA"
+Ausgangswort                :  "Bonny"
+
+Umwandlung nach 1. Regelsatz:  "BONI"
+Umwandlung nach 2. Regelsatz:  "BUNI"
+Ausgangswort                :  "Bonvin"
+
+Umwandlung nach 1. Regelsatz:  "BONWIN"
+Umwandlung nach 2. Regelsatz:  "BUNFIN"
+Ausgangswort                :  "Boran"
+
+Umwandlung nach 1. Regelsatz:  "BORAN"
+Umwandlung nach 2. Regelsatz:  "BURAN"
+Ausgangswort                :  "B÷sch"
+
+Umwandlung nach 1. Regelsatz:  "B÷SH"
+Umwandlung nach 2. Regelsatz:  "B÷Z"
+Ausgangswort                :  "Boschung"
+
+Umwandlung nach 1. Regelsatz:  "BOSHUNK"
+Umwandlung nach 2. Regelsatz:  "BUZUNK"
+Ausgangswort                :  "Bossert"
+
+Umwandlung nach 1. Regelsatz:  "BOSAT"
+Umwandlung nach 2. Regelsatz:  "BUZAT"
+Ausgangswort                :  "Bostjan"
+
+Umwandlung nach 1. Regelsatz:  "BOSTIAN"
+Umwandlung nach 2. Regelsatz:  "BUZTIAN"
+Ausgangswort                :  "B÷ttcher"
+
+Umwandlung nach 1. Regelsatz:  "B÷TCHA"
+Umwandlung nach 2. Regelsatz:  "B÷TKA"
+Ausgangswort                :  "B÷tzel"
+
+Umwandlung nach 1. Regelsatz:  "B÷ZL"
+Umwandlung nach 2. Regelsatz:  "B÷ZL"
+Ausgangswort                :  "Bouquet"
+
+Umwandlung nach 1. Regelsatz:  "BUKWET"
+Umwandlung nach 2. Regelsatz:  "BUKFET"
+Ausgangswort                :  "Bourquin"
+
+Umwandlung nach 1. Regelsatz:  "BURKI"
+Umwandlung nach 2. Regelsatz:  "BURKI"
+Ausgangswort                :  "Bracher"
+
+Umwandlung nach 1. Regelsatz:  "BRACHA"
+Umwandlung nach 2. Regelsatz:  "BRAKA"
+Ausgangswort                :  "Brand"
+
+Umwandlung nach 1. Regelsatz:  "BRANT"
+Umwandlung nach 2. Regelsatz:  "BRANT"
+Ausgangswort                :  "Brasey"
+
+Umwandlung nach 1. Regelsatz:  "BRASEI"
+Umwandlung nach 2. Regelsatz:  "BRAZEI"
+Ausgangswort                :  "Braunwarth"
+
+Umwandlung nach 1. Regelsatz:  "BRAUNWART"
+Umwandlung nach 2. Regelsatz:  "BRAUNFART"
+Ausgangswort                :  "Breu"
+
+Umwandlung nach 1. Regelsatz:  "BREU"
+Umwandlung nach 2. Regelsatz:  "BREU"
+Ausgangswort                :  "Brigljevic"
+
+Umwandlung nach 1. Regelsatz:  "BRIGLIEWIZ"
+Umwandlung nach 2. Regelsatz:  "BRIKLIEFIZ"
+Ausgangswort                :  "Broder"
+
+Umwandlung nach 1. Regelsatz:  "BRODA"
+Umwandlung nach 2. Regelsatz:  "BRUTA"
+Ausgangswort                :  "Broggi"
+
+Umwandlung nach 1. Regelsatz:  "BROGI"
+Umwandlung nach 2. Regelsatz:  "BRUKI"
+Ausgangswort                :  "Br÷nnimann"
+
+Umwandlung nach 1. Regelsatz:  "BR÷NIMAN"
+Umwandlung nach 2. Regelsatz:  "BR÷NINAN"
+Ausgangswort                :  "Brown"
+
+Umwandlung nach 1. Regelsatz:  "BROFN"
+Umwandlung nach 2. Regelsatz:  "BRUFN"
+Ausgangswort                :  "Bruchez"
+
+Umwandlung nach 1. Regelsatz:  "BRUCHEZ"
+Umwandlung nach 2. Regelsatz:  "BRUKEZ"
+Ausgangswort                :  "Brudermann"
+
+Umwandlung nach 1. Regelsatz:  "BRUDERMAN"
+Umwandlung nach 2. Regelsatz:  "BRUTANAN"
+Ausgangswort                :  "Brngger"
+
+Umwandlung nach 1. Regelsatz:  "BRNGA"
+Umwandlung nach 2. Regelsatz:  "BRNKA"
+Ausgangswort                :  "Brunner"
+
+Umwandlung nach 1. Regelsatz:  "BRUNA"
+Umwandlung nach 2. Regelsatz:  "BRUNA"
+Ausgangswort                :  "Brnstle"
+
+Umwandlung nach 1. Regelsatz:  "BRNSTLE"
+Umwandlung nach 2. Regelsatz:  "BRNZTLE"
+Ausgangswort                :  "Bucher"
+
+Umwandlung nach 1. Regelsatz:  "BUCHA"
+Umwandlung nach 2. Regelsatz:  "BUKA"
+Ausgangswort                :  "Buchs"
+
+Umwandlung nach 1. Regelsatz:  "BUX"
+Umwandlung nach 2. Regelsatz:  "BUX"
+Ausgangswort                :  "Buck"
+
+Umwandlung nach 1. Regelsatz:  "BUK"
+Umwandlung nach 2. Regelsatz:  "BUK"
+Ausgangswort                :  "Budai"
+
+Umwandlung nach 1. Regelsatz:  "BUDEI"
+Umwandlung nach 2. Regelsatz:  "BUTEI"
+Ausgangswort                :  "Buergi"
+
+Umwandlung nach 1. Regelsatz:  "BÜRGI"
+Umwandlung nach 2. Regelsatz:  "BIRKI"
+Ausgangswort                :  "Bnhler"
+
+Umwandlung nach 1. Regelsatz:  "BNLA"
+Umwandlung nach 2. Regelsatz:  "BNLA"
+Ausgangswort                :  "Bnhlmann"
+
+Umwandlung nach 1. Regelsatz:  "BNLMAN"
+Umwandlung nach 2. Regelsatz:  "BNLNAN"
+Ausgangswort                :  "Burg"
+
+Umwandlung nach 1. Regelsatz:  "BURK"
+Umwandlung nach 2. Regelsatz:  "BURK"
+Ausgangswort                :  "Burger"
+
+Umwandlung nach 1. Regelsatz:  "BURGA"
+Umwandlung nach 2. Regelsatz:  "BURKA"
+Ausgangswort                :  "Burkhardt"
+
+Umwandlung nach 1. Regelsatz:  "BURKART"
+Umwandlung nach 2. Regelsatz:  "BURKART"
+Ausgangswort                :  "Burri"
+
+Umwandlung nach 1. Regelsatz:  "BURI"
+Umwandlung nach 2. Regelsatz:  "BURI"
+Ausgangswort                :  "Busenhart"
+
+Umwandlung nach 1. Regelsatz:  "BUSNART"
+Umwandlung nach 2. Regelsatz:  "BUZNART"
+Ausgangswort                :  "Buser"
+
+Umwandlung nach 1. Regelsatz:  "BUSA"
+Umwandlung nach 2. Regelsatz:  "BUZA"
+Ausgangswort                :  "Buss"
+
+Umwandlung nach 1. Regelsatz:  "BUS"
+Umwandlung nach 2. Regelsatz:  "BUZ"
+Ausgangswort                :  "Bntikofer"
+
+Umwandlung nach 1. Regelsatz:  "BNTIKOFA"
+Umwandlung nach 2. Regelsatz:  "BNTIKUFA"
+Ausgangswort                :  "Butler"
+
+Umwandlung nach 1. Regelsatz:  "BUTLA"
+Umwandlung nach 2. Regelsatz:  "BUTLA"
+Ausgangswort                :  "Calduccio"
+
+Umwandlung nach 1. Regelsatz:  "KALDUZIO"
+Umwandlung nach 2. Regelsatz:  "KALTUZIU"
+Ausgangswort                :  "Calvetti"
+
+Umwandlung nach 1. Regelsatz:  "KALWETI"
+Umwandlung nach 2. Regelsatz:  "KALFETI"
+Ausgangswort                :  "Canonica"
+
+Umwandlung nach 1. Regelsatz:  "KANONIKA"
+Umwandlung nach 2. Regelsatz:  "KANUNIKA"
+Ausgangswort                :  "Cantner"
+
+Umwandlung nach 1. Regelsatz:  "KANTNA"
+Umwandlung nach 2. Regelsatz:  "KANTNA"
+Ausgangswort                :  "Cantoreggi"
+
+Umwandlung nach 1. Regelsatz:  "KANTOREGI"
+Umwandlung nach 2. Regelsatz:  "KANTUREKI"
+Ausgangswort                :  "Carlucci"
+
+Umwandlung nach 1. Regelsatz:  "KARLUZI"
+Umwandlung nach 2. Regelsatz:  "KARLUZI"
+Ausgangswort                :  "Carmiggelt"
+
+Umwandlung nach 1. Regelsatz:  "KARMIGELT"
+Umwandlung nach 2. Regelsatz:  "KARNIKELT"
+Ausgangswort                :  "Caspersen"
+
+Umwandlung nach 1. Regelsatz:  "KASPASN"
+Umwandlung nach 2. Regelsatz:  "KAZPAZN"
+Ausgangswort                :  "Casto"
+
+Umwandlung nach 1. Regelsatz:  "KASTO"
+Umwandlung nach 2. Regelsatz:  "KAZTU"
+Ausgangswort                :  "Cavalleri"
+
+Umwandlung nach 1. Regelsatz:  "KAWALERI"
+Umwandlung nach 2. Regelsatz:  "KAFALAI"
+Ausgangswort                :  "Cavanaugh"
+
+Umwandlung nach 1. Regelsatz:  "KAWANAUG"
+Umwandlung nach 2. Regelsatz:  "KAFANAUK"
+Ausgangswort                :  "Chakraborty"
+
+Umwandlung nach 1. Regelsatz:  "SHAKRABORTI"
+Umwandlung nach 2. Regelsatz:  "ZAKRABURTI"
+Ausgangswort                :  "Chautems"
+
+Umwandlung nach 1. Regelsatz:  "SHAUTEMS"
+Umwandlung nach 2. Regelsatz:  "ZAUTNZ"
+Ausgangswort                :  "Chavan"
+
+Umwandlung nach 1. Regelsatz:  "SHAWAN"
+Umwandlung nach 2. Regelsatz:  "ZAFAN"
+Ausgangswort                :  "Choffat"
+
+Umwandlung nach 1. Regelsatz:  "KOFAT"
+Umwandlung nach 2. Regelsatz:  "KUFAT"
+Ausgangswort                :  "CIT-SCC"
+
+Umwandlung nach 1. Regelsatz:  "ZIT SK"
+Umwandlung nach 2. Regelsatz:  "ZIT ZK"
+Ausgangswort                :  "Ciupek"
+
+Umwandlung nach 1. Regelsatz:  "ZIUPEK"
+Umwandlung nach 2. Regelsatz:  "ZIUPEK"
+Ausgangswort                :  "Conrad"
+
+Umwandlung nach 1. Regelsatz:  "KONRAT"
+Umwandlung nach 2. Regelsatz:  "KUNRAT"
+Ausgangswort                :  "Cook"
+
+Umwandlung nach 1. Regelsatz:  "KOK"
+Umwandlung nach 2. Regelsatz:  "KUK"
+Ausgangswort                :  "C÷ppicus"
+
+Umwandlung nach 1. Regelsatz:  "K÷PIKUS"
+Umwandlung nach 2. Regelsatz:  "K÷PIKUZ"
+Ausgangswort                :  "Cordonier"
+
+Umwandlung nach 1. Regelsatz:  "KORDONIR"
+Umwandlung nach 2. Regelsatz:  "KURTUNIR"
+Ausgangswort                :  "Cornu"
+
+Umwandlung nach 1. Regelsatz:  "KORNU"
+Umwandlung nach 2. Regelsatz:  "KURNU"
+Ausgangswort                :  "Corradi"
+
+Umwandlung nach 1. Regelsatz:  "KORADI"
+Umwandlung nach 2. Regelsatz:  "KURATI"
+Ausgangswort                :  "Cosmopoulos"
+
+Umwandlung nach 1. Regelsatz:  "KOSMOPULOS"
+Umwandlung nach 2. Regelsatz:  "KUZNUPULUZ"
+Ausgangswort                :  "Craig"
+
+Umwandlung nach 1. Regelsatz:  "KREIK"
+Umwandlung nach 2. Regelsatz:  "KREIK"
+Ausgangswort                :  "Crinquand"
+
+Umwandlung nach 1. Regelsatz:  "KRINKWANT"
+Umwandlung nach 2. Regelsatz:  "KRINKFANT"
+Ausgangswort                :  "Cruchet"
+
+Umwandlung nach 1. Regelsatz:  "KRUCHET"
+Umwandlung nach 2. Regelsatz:  "KRUKET"
+Ausgangswort                :  "Cuennet"
+
+Umwandlung nach 1. Regelsatz:  "KÜNET"
+Umwandlung nach 2. Regelsatz:  "KINET"
+Ausgangswort                :  "Culley"
+
+Umwandlung nach 1. Regelsatz:  "KULEI"
+Umwandlung nach 2. Regelsatz:  "KULEI"
+Ausgangswort                :  "Cunningham"
+
+Umwandlung nach 1. Regelsatz:  "KUNINGAM"
+Umwandlung nach 2. Regelsatz:  "KUNINKAN"
+Ausgangswort                :  "Czarska"
+
+Umwandlung nach 1. Regelsatz:  "ZARSKA"
+Umwandlung nach 2. Regelsatz:  "ZARZKA"
+Ausgangswort                :  "Daly"
+
+Umwandlung nach 1. Regelsatz:  "DALI"
+Umwandlung nach 2. Regelsatz:  "TALI"
+Ausgangswort                :  "D'Andrea"
+
+Umwandlung nach 1. Regelsatz:  "DANDREA"
+Umwandlung nach 2. Regelsatz:  "TANTREA"
+Ausgangswort                :  "D+ndrea"
+
+Umwandlung nach 1. Regelsatz:  "D+NDREA"
+Umwandlung nach 2. Regelsatz:  "T+NTREA"
+Ausgangswort                :  "Daniel"
+
+Umwandlung nach 1. Regelsatz:  "DANIEL"
+Umwandlung nach 2. Regelsatz:  "TANIL"
+Ausgangswort                :  "Danielsen"
+
+Umwandlung nach 1. Regelsatz:  "DANIELSN"
+Umwandlung nach 2. Regelsatz:  "TANILZN"
+Ausgangswort                :  "DSppen"
+
+Umwandlung nach 1. Regelsatz:  "DSPN"
+Umwandlung nach 2. Regelsatz:  "ZPN"
+Ausgangswort                :  "Dasen"
+
+Umwandlung nach 1. Regelsatz:  "DASN"
+Umwandlung nach 2. Regelsatz:  "TAZN"
+Ausgangswort                :  "De"
+
+Umwandlung nach 1. Regelsatz:  "DE"
+Umwandlung nach 2. Regelsatz:  "TE"
+Ausgangswort                :  "de"
+
+Umwandlung nach 1. Regelsatz:  "DE"
+Umwandlung nach 2. Regelsatz:  "TE"
+Ausgangswort                :  "De"
+
+Umwandlung nach 1. Regelsatz:  "DE"
+Umwandlung nach 2. Regelsatz:  "TE"
+Ausgangswort                :  "Deferne"
+
+Umwandlung nach 1. Regelsatz:  "DEFERNE"
+Umwandlung nach 2. Regelsatz:  "TEFANE"
+Ausgangswort                :  "Delessert"
+
+Umwandlung nach 1. Regelsatz:  "DELESAT"
+Umwandlung nach 2. Regelsatz:  "TELEZAT"
+Ausgangswort                :  "Dellers"
+
+Umwandlung nach 1. Regelsatz:  "DELAS"
+Umwandlung nach 2. Regelsatz:  "TELAZ"
+Ausgangswort                :  "Devaux"
+
+Umwandlung nach 1. Regelsatz:  "DEWO"
+Umwandlung nach 2. Regelsatz:  "TEFU"
+Ausgangswort                :  "Di"
+
+Umwandlung nach 1. Regelsatz:  "DI"
+Umwandlung nach 2. Regelsatz:  "TI"
+Ausgangswort                :  "Diamantis"
+
+Umwandlung nach 1. Regelsatz:  "DIAMANTIS"
+Umwandlung nach 2. Regelsatz:  "TIANANTIZ"
+Ausgangswort                :  "Dill"
+
+Umwandlung nach 1. Regelsatz:  "DIL"
+Umwandlung nach 2. Regelsatz:  "TIL"
+Ausgangswort                :  "D'Incau"
+
+Umwandlung nach 1. Regelsatz:  "DINKAU"
+Umwandlung nach 2. Regelsatz:  "TINKAU"
+Ausgangswort                :  "Dolinsky"
+
+Umwandlung nach 1. Regelsatz:  "DOLINSKI"
+Umwandlung nach 2. Regelsatz:  "TULINZKI"
+Ausgangswort                :  "Drognitz"
+
+Umwandlung nach 1. Regelsatz:  "DROKNIZ"
+Umwandlung nach 2. Regelsatz:  "TRUKNIZ"
+Ausgangswort                :  "du"
+
+Umwandlung nach 1. Regelsatz:  "DU"
+Umwandlung nach 2. Regelsatz:  "TU"
+Ausgangswort                :  "Dubernet"
+
+Umwandlung nach 1. Regelsatz:  "DUBERNET"
+Umwandlung nach 2. Regelsatz:  "TUBANET"
+Ausgangswort                :  "Duchardt"
+
+Umwandlung nach 1. Regelsatz:  "DUCHART"
+Umwandlung nach 2. Regelsatz:  "TUKART"
+Ausgangswort                :  "Dunn"
+
+Umwandlung nach 1. Regelsatz:  "DUN"
+Umwandlung nach 2. Regelsatz:  "TUN"
+Ausgangswort                :  "Dnrig-Michel"
+
+Umwandlung nach 1. Regelsatz:  "DNRIK MICHL"
+Umwandlung nach 2. Regelsatz:  "TNRIK NIKL"
+Ausgangswort                :  "Dnrsteler"
+
+Umwandlung nach 1. Regelsatz:  "DNRSTELA"
+Umwandlung nach 2. Regelsatz:  "TNRZTELA"
+Ausgangswort                :  "Durtschi"
+
+Umwandlung nach 1. Regelsatz:  "DURSHI"
+Umwandlung nach 2. Regelsatz:  "TURZI"
+Ausgangswort                :  "Eberle"
+
+Umwandlung nach 1. Regelsatz:  "EBERLE"
+Umwandlung nach 2. Regelsatz:  "EBALE"
+Ausgangswort                :  "Eckert"
+
+Umwandlung nach 1. Regelsatz:  "EKAT"
+Umwandlung nach 2. Regelsatz:  "EKAT"
+Ausgangswort                :  "Eggen"
+
+Umwandlung nach 1. Regelsatz:  "EGN"
+Umwandlung nach 2. Regelsatz:  "EKN"
+Ausgangswort                :  "Egger"
+
+Umwandlung nach 1. Regelsatz:  "EGA"
+Umwandlung nach 2. Regelsatz:  "EKA"
+Ausgangswort                :  "Eggimann"
+
+Umwandlung nach 1. Regelsatz:  "EGIMAN"
+Umwandlung nach 2. Regelsatz:  "EKINAN"
+Ausgangswort                :  "Ehrbar"
+
+Umwandlung nach 1. Regelsatz:  "ERBAR"
+Umwandlung nach 2. Regelsatz:  "ERBAR"
+Ausgangswort                :  "Ehrhardt"
+
+Umwandlung nach 1. Regelsatz:  "ERHART"
+Umwandlung nach 2. Regelsatz:  "ERART"
+Ausgangswort                :  "Eicher"
+
+Umwandlung nach 1. Regelsatz:  "EICHA"
+Umwandlung nach 2. Regelsatz:  "EIKA"
+Ausgangswort                :  "Eichholzer"
+
+Umwandlung nach 1. Regelsatz:  "EICHOLZA"
+Umwandlung nach 2. Regelsatz:  "EIKULZA"
+Ausgangswort                :  "Einsiedler"
+
+Umwandlung nach 1. Regelsatz:  "EINSITLA"
+Umwandlung nach 2. Regelsatz:  "EINZITLA"
+Ausgangswort                :  "Eitner"
+
+Umwandlung nach 1. Regelsatz:  "EITNA"
+Umwandlung nach 2. Regelsatz:  "EITNA"
+Ausgangswort                :  "Ellmer"
+
+Umwandlung nach 1. Regelsatz:  "ELMA"
+Umwandlung nach 2. Regelsatz:  "ELNA"
+Ausgangswort                :  "Emden"
+
+Umwandlung nach 1. Regelsatz:  "EMDN"
+Umwandlung nach 2. Regelsatz:  "ENTN"
+Ausgangswort                :  "Emery"
+
+Umwandlung nach 1. Regelsatz:  "EMERI"
+Umwandlung nach 2. Regelsatz:  "ENAI"
+Ausgangswort                :  "Enderl"
+
+Umwandlung nach 1. Regelsatz:  "ENDERL"
+Umwandlung nach 2. Regelsatz:  "ENTAL"
+Ausgangswort                :  "Enderle"
+
+Umwandlung nach 1. Regelsatz:  "ENDERLE"
+Umwandlung nach 2. Regelsatz:  "ENTALE"
+Ausgangswort                :  "engler"
+
+Umwandlung nach 1. Regelsatz:  "ENKLA"
+Umwandlung nach 2. Regelsatz:  "ENKLA"
+Ausgangswort                :  "Erdmann"
+
+Umwandlung nach 1. Regelsatz:  "ERTMAN"
+Umwandlung nach 2. Regelsatz:  "ERTNAN"
+Ausgangswort                :  "Ernst"
+
+Umwandlung nach 1. Regelsatz:  "ERNST"
+Umwandlung nach 2. Regelsatz:  "ERNZT"
+Ausgangswort                :  "Erwin"
+
+Umwandlung nach 1. Regelsatz:  "ERWIN"
+Umwandlung nach 2. Regelsatz:  "ERFIN"
+Ausgangswort                :  "Eschmann"
+
+Umwandlung nach 1. Regelsatz:  "ESHMAN"
+Umwandlung nach 2. Regelsatz:  "EZNAN"
+Ausgangswort                :  "Espinoza"
+
+Umwandlung nach 1. Regelsatz:  "ESPINOZA"
+Umwandlung nach 2. Regelsatz:  "EZPINUZA"
+Ausgangswort                :  "ess"
+
+Umwandlung nach 1. Regelsatz:  "ES"
+Umwandlung nach 2. Regelsatz:  "EZ"
+Ausgangswort                :  "Estermann"
+
+Umwandlung nach 1. Regelsatz:  "ESTERMAN"
+Umwandlung nach 2. Regelsatz:  "EZTANAN"
+Ausgangswort                :  "Etter"
+
+Umwandlung nach 1. Regelsatz:  "ETA"
+Umwandlung nach 2. Regelsatz:  "ETA"
+Ausgangswort                :  "Fa"
+
+Umwandlung nach 1. Regelsatz:  "FA"
+Umwandlung nach 2. Regelsatz:  "FA"
+Ausgangswort                :  "Falcy"
+
+Umwandlung nach 1. Regelsatz:  "FALZI"
+Umwandlung nach 2. Regelsatz:  "FALZI"
+Ausgangswort                :  "Farine"
+
+Umwandlung nach 1. Regelsatz:  "FARINE"
+Umwandlung nach 2. Regelsatz:  "FARINE"
+Ausgangswort                :  "FSssler"
+
+Umwandlung nach 1. Regelsatz:  "FSLA"
+Umwandlung nach 2. Regelsatz:  "FZLA"
+Ausgangswort                :  "Fatzer"
+
+Umwandlung nach 1. Regelsatz:  "FAZA"
+Umwandlung nach 2. Regelsatz:  "FAZA"
+Ausgangswort                :  "Fehlberg"
+
+Umwandlung nach 1. Regelsatz:  "FELBERK"
+Umwandlung nach 2. Regelsatz:  "FELBAK"
+Ausgangswort                :  "Feldmann"
+
+Umwandlung nach 1. Regelsatz:  "FELTMAN"
+Umwandlung nach 2. Regelsatz:  "FELTNAN"
+Ausgangswort                :  "Feller"
+
+Umwandlung nach 1. Regelsatz:  "FELA"
+Umwandlung nach 2. Regelsatz:  "FELA"
+Ausgangswort                :  "Fellmann"
+
+Umwandlung nach 1. Regelsatz:  "FELMAN"
+Umwandlung nach 2. Regelsatz:  "FELNAN"
+Ausgangswort                :  "Fernholz"
+
+Umwandlung nach 1. Regelsatz:  "FERNOLZ"
+Umwandlung nach 2. Regelsatz:  "FERNULZ"
+Ausgangswort                :  "Feuz"
+
+Umwandlung nach 1. Regelsatz:  "FEUS"
+Umwandlung nach 2. Regelsatz:  "FEUZ"
+Ausgangswort                :  "Fink"
+
+Umwandlung nach 1. Regelsatz:  "FINK"
+Umwandlung nach 2. Regelsatz:  "FINK"
+Ausgangswort                :  "Fischer"
+
+Umwandlung nach 1. Regelsatz:  "FISHA"
+Umwandlung nach 2. Regelsatz:  "FIZA"
+Ausgangswort                :  "Flammer"
+
+Umwandlung nach 1. Regelsatz:  "FLAMA"
+Umwandlung nach 2. Regelsatz:  "FLANA"
+Ausgangswort                :  "Flnck"
+
+Umwandlung nach 1. Regelsatz:  "FLNK"
+Umwandlung nach 2. Regelsatz:  "FLNK"
+Ausgangswort                :  "Flnckiger"
+
+Umwandlung nach 1. Regelsatz:  "FLNKIGA"
+Umwandlung nach 2. Regelsatz:  "FLNKIKA"
+Ausgangswort                :  "Flnkiger"
+
+Umwandlung nach 1. Regelsatz:  "FLNKIGA"
+Umwandlung nach 2. Regelsatz:  "FLNKIKA"
+Ausgangswort                :  "Flury"
+
+Umwandlung nach 1. Regelsatz:  "FLURI"
+Umwandlung nach 2. Regelsatz:  "FLURI"
+Ausgangswort                :  "Fodor"
+
+Umwandlung nach 1. Regelsatz:  "FODOR"
+Umwandlung nach 2. Regelsatz:  "FUTUR"
+Ausgangswort                :  "Fontana"
+
+Umwandlung nach 1. Regelsatz:  "FONTANA"
+Umwandlung nach 2. Regelsatz:  "FUNTANA"
+Ausgangswort                :  "Forait"
+
+Umwandlung nach 1. Regelsatz:  "FOREIT"
+Umwandlung nach 2. Regelsatz:  "FUREIT"
+Ausgangswort                :  "Forster"
+
+Umwandlung nach 1. Regelsatz:  "FORSTA"
+Umwandlung nach 2. Regelsatz:  "FURZTA"
+Ausgangswort                :  "Fortuni"
+
+Umwandlung nach 1. Regelsatz:  "FORTUNI"
+Umwandlung nach 2. Regelsatz:  "FURTUNI"
+Ausgangswort                :  "Fox"
+
+Umwandlung nach 1. Regelsatz:  "FOX"
+Umwandlung nach 2. Regelsatz:  "FUX"
+Ausgangswort                :  "Franca"
+
+Umwandlung nach 1. Regelsatz:  "FRANKA"
+Umwandlung nach 2. Regelsatz:  "FRANKA"
+Ausgangswort                :  "Francis"
+
+Umwandlung nach 1. Regelsatz:  "FRANZIS"
+Umwandlung nach 2. Regelsatz:  "FRANZIZ"
+Ausgangswort                :  "Frei"
+
+Umwandlung nach 1. Regelsatz:  "FREI"
+Umwandlung nach 2. Regelsatz:  "FREI"
+Ausgangswort                :  "Freiburghaus"
+
+Umwandlung nach 1. Regelsatz:  "FREIBURGAUS"
+Umwandlung nach 2. Regelsatz:  "FREIBURKAUZ"
+Ausgangswort                :  "Frey"
+
+Umwandlung nach 1. Regelsatz:  "FREI"
+Umwandlung nach 2. Regelsatz:  "FREI"
+Ausgangswort                :  "Fricker"
+
+Umwandlung nach 1. Regelsatz:  "FRIKA"
+Umwandlung nach 2. Regelsatz:  "FRIKA"
+Ausgangswort                :  "Fries"
+
+Umwandlung nach 1. Regelsatz:  "FRIS"
+Umwandlung nach 2. Regelsatz:  "FRIZ"
+Ausgangswort                :  "Fritschi"
+
+Umwandlung nach 1. Regelsatz:  "FRISHI"
+Umwandlung nach 2. Regelsatz:  "FRIZI"
+Ausgangswort                :  "Fritz"
+
+Umwandlung nach 1. Regelsatz:  "FRIZ"
+Umwandlung nach 2. Regelsatz:  "FRIZ"
+Ausgangswort                :  "Fuchs"
+
+Umwandlung nach 1. Regelsatz:  "FUX"
+Umwandlung nach 2. Regelsatz:  "FUX"
+Ausgangswort                :  "Fuellemann"
+
+Umwandlung nach 1. Regelsatz:  "FÜLEMAN"
+Umwandlung nach 2. Regelsatz:  "FILENAN"
+Ausgangswort                :  "Fnglister"
+
+Umwandlung nach 1. Regelsatz:  "FNKLISTA"
+Umwandlung nach 2. Regelsatz:  "FNKLIZTA"
+Ausgangswort                :  "Fuochi"
+
+Umwandlung nach 1. Regelsatz:  "FUOCHI"
+Umwandlung nach 2. Regelsatz:  "FUKI"
+Ausgangswort                :  "Furer"
+
+Umwandlung nach 1. Regelsatz:  "FURA"
+Umwandlung nach 2. Regelsatz:  "FURA"
+Ausgangswort                :  "Fuss"
+
+Umwandlung nach 1. Regelsatz:  "FUS"
+Umwandlung nach 2. Regelsatz:  "FUZ"
+Ausgangswort                :  "Gadient"
+
+Umwandlung nach 1. Regelsatz:  "GADINT"
+Umwandlung nach 2. Regelsatz:  "KATINT"
+Ausgangswort                :  "Gafner"
+
+Umwandlung nach 1. Regelsatz:  "GAFNA"
+Umwandlung nach 2. Regelsatz:  "KAFNA"
+Ausgangswort                :  "Gaillard"
+
+Umwandlung nach 1. Regelsatz:  "GAILIART"
+Umwandlung nach 2. Regelsatz:  "KAILIART"
+Ausgangswort                :  "Gall"
+
+Umwandlung nach 1. Regelsatz:  "GAL"
+Umwandlung nach 2. Regelsatz:  "KAL"
+Ausgangswort                :  "Galley"
+
+Umwandlung nach 1. Regelsatz:  "GALEI"
+Umwandlung nach 2. Regelsatz:  "KALEI"
+Ausgangswort                :  "Galvagno"
+
+Umwandlung nach 1. Regelsatz:  "GALWANIO"
+Umwandlung nach 2. Regelsatz:  "KALFANIU"
+Ausgangswort                :  "Garaio"
+
+Umwandlung nach 1. Regelsatz:  "GAREIO"
+Umwandlung nach 2. Regelsatz:  "KAREIU"
+Ausgangswort                :  "Gaspers"
+
+Umwandlung nach 1. Regelsatz:  "GASPAS"
+Umwandlung nach 2. Regelsatz:  "KAZPAZ"
+Ausgangswort                :  "Gasser"
+
+Umwandlung nach 1. Regelsatz:  "GASA"
+Umwandlung nach 2. Regelsatz:  "KAZA"
+Ausgangswort                :  "Gassner"
+
+Umwandlung nach 1. Regelsatz:  "GASNA"
+Umwandlung nach 2. Regelsatz:  "KAZNA"
+Ausgangswort                :  "GSumann"
+
+Umwandlung nach 1. Regelsatz:  "XUMAN"
+Umwandlung nach 2. Regelsatz:  "XUNAN"
+Ausgangswort                :  "Geiser"
+
+Umwandlung nach 1. Regelsatz:  "GEISA"
+Umwandlung nach 2. Regelsatz:  "KEIZA"
+Ausgangswort                :  "Genre"
+
+Umwandlung nach 1. Regelsatz:  "GENRE"
+Umwandlung nach 2. Regelsatz:  "KENRE"
+Ausgangswort                :  "Gerber"
+
+Umwandlung nach 1. Regelsatz:  "GERBA"
+Umwandlung nach 2. Regelsatz:  "KERBA"
+Ausgangswort                :  "Gerig"
+
+Umwandlung nach 1. Regelsatz:  "GERIK"
+Umwandlung nach 2. Regelsatz:  "KERIK"
+Ausgangswort                :  "Gerson"
+
+Umwandlung nach 1. Regelsatz:  "GERSON"
+Umwandlung nach 2. Regelsatz:  "KERZUN"
+Ausgangswort                :  "Giezendanner"
+
+Umwandlung nach 1. Regelsatz:  "GIZENDANA"
+Umwandlung nach 2. Regelsatz:  "KIZENTANA"
+Ausgangswort                :  "Gilg"
+
+Umwandlung nach 1. Regelsatz:  "GILK"
+Umwandlung nach 2. Regelsatz:  "KILK"
+Ausgangswort                :  "Gilgen"
+
+Umwandlung nach 1. Regelsatz:  "GILGN"
+Umwandlung nach 2. Regelsatz:  "KILKN"
+Ausgangswort                :  "Girod"
+
+Umwandlung nach 1. Regelsatz:  "GIROT"
+Umwandlung nach 2. Regelsatz:  "KIRUT"
+Ausgangswort                :  "Gisiger"
+
+Umwandlung nach 1. Regelsatz:  "GISIGA"
+Umwandlung nach 2. Regelsatz:  "KIZIKA"
+Ausgangswort                :  "Gisler"
+
+Umwandlung nach 1. Regelsatz:  "GISLA"
+Umwandlung nach 2. Regelsatz:  "KIZLA"
+Ausgangswort                :  "Gizdavcic"
+
+Umwandlung nach 1. Regelsatz:  "GIZDAFZIK"
+Umwandlung nach 2. Regelsatz:  "KIZTAFZIK"
+Ausgangswort                :  "Glauser"
+
+Umwandlung nach 1. Regelsatz:  "GLAUSA"
+Umwandlung nach 2. Regelsatz:  "KLAUZA"
+Ausgangswort                :  "GlFmot"
+
+Umwandlung nach 1. Regelsatz:  "GLFMOT"
+Umwandlung nach 2. Regelsatz:  "KLFNUT"
+Ausgangswort                :  "Gmnnder"
+
+Umwandlung nach 1. Regelsatz:  "GNDA"
+Umwandlung nach 2. Regelsatz:  "KNTA"
+Ausgangswort                :  "Gmnr"
+
+Umwandlung nach 1. Regelsatz:  "GNR"
+Umwandlung nach 2. Regelsatz:  "KNR"
+Ausgangswort                :  "Goeney"
+
+Umwandlung nach 1. Regelsatz:  "GÖNEI"
+Umwandlung nach 2. Regelsatz:  "KÖNEI"
+Ausgangswort                :  "Gomolka"
+
+Umwandlung nach 1. Regelsatz:  "GOMOLKA"
+Umwandlung nach 2. Regelsatz:  "KUNULKA"
+Ausgangswort                :  "Gonzalez-Torres"
+
+Umwandlung nach 1. Regelsatz:  "GONZALEZ TORES"
+Umwandlung nach 2. Regelsatz:  "KUNZALEZ TUREZ"
+Ausgangswort                :  "Gooda"
+
+Umwandlung nach 1. Regelsatz:  "GUDA"
+Umwandlung nach 2. Regelsatz:  "KUTA"
+Ausgangswort                :  "Goss-Kaiser"
+
+Umwandlung nach 1. Regelsatz:  "GOS KEISA"
+Umwandlung nach 2. Regelsatz:  "KUZ KEIZA"
+Ausgangswort                :  "G÷tz"
+
+Umwandlung nach 1. Regelsatz:  "G÷Z"
+Umwandlung nach 2. Regelsatz:  "K÷Z"
+Ausgangswort                :  "Graber"
+
+Umwandlung nach 1. Regelsatz:  "GRABA"
+Umwandlung nach 2. Regelsatz:  "KRABA"
+Ausgangswort                :  "Graber-Werren"
+
+Umwandlung nach 1. Regelsatz:  "GRABA WEREN"
+Umwandlung nach 2. Regelsatz:  "KRABA FEREN"
+Ausgangswort                :  "Graf"
+
+Umwandlung nach 1. Regelsatz:  "GRAF"
+Umwandlung nach 2. Regelsatz:  "KRAF"
+Ausgangswort                :  "Grana"
+
+Umwandlung nach 1. Regelsatz:  "GRANA"
+Umwandlung nach 2. Regelsatz:  "KRANA"
+Ausgangswort                :  "Grassi"
+
+Umwandlung nach 1. Regelsatz:  "GRASI"
+Umwandlung nach 2. Regelsatz:  "KRAZI"
+Ausgangswort                :  "Gravejat"
+
+Umwandlung nach 1. Regelsatz:  "GRAWEIAT"
+Umwandlung nach 2. Regelsatz:  "KRAFEIAT"
+Ausgangswort                :  "Greevy"
+
+Umwandlung nach 1. Regelsatz:  "GREWI"
+Umwandlung nach 2. Regelsatz:  "KREFI"
+Ausgangswort                :  "Grepper"
+
+Umwandlung nach 1. Regelsatz:  "GREPA"
+Umwandlung nach 2. Regelsatz:  "KREPA"
+Ausgangswort                :  "Greub"
+
+Umwandlung nach 1. Regelsatz:  "GREUB"
+Umwandlung nach 2. Regelsatz:  "KREUB"
+Ausgangswort                :  "Grieshaber"
+
+Umwandlung nach 1. Regelsatz:  "GRISHABA"
+Umwandlung nach 2. Regelsatz:  "KRIZABA"
+Ausgangswort                :  "Griessen"
+
+Umwandlung nach 1. Regelsatz:  "GRISN"
+Umwandlung nach 2. Regelsatz:  "KRIZN"
+Ausgangswort                :  "Grogg"
+
+Umwandlung nach 1. Regelsatz:  "GROK"
+Umwandlung nach 2. Regelsatz:  "KRUK"
+Ausgangswort                :  "Grolimund"
+
+Umwandlung nach 1. Regelsatz:  "GROLIMUNT"
+Umwandlung nach 2. Regelsatz:  "KRULINUNT"
+Ausgangswort                :  "Gross"
+
+Umwandlung nach 1. Regelsatz:  "GROS"
+Umwandlung nach 2. Regelsatz:  "KRUZ"
+Ausgangswort                :  "Grossen"
+
+Umwandlung nach 1. Regelsatz:  "GROSN"
+Umwandlung nach 2. Regelsatz:  "KRUZN"
+Ausgangswort                :  "Grossenbacher"
+
+Umwandlung nach 1. Regelsatz:  "GROSNBACHA"
+Umwandlung nach 2. Regelsatz:  "KRUZNBAKA"
+Ausgangswort                :  "Grossrieder"
+
+Umwandlung nach 1. Regelsatz:  "GROSRIDA"
+Umwandlung nach 2. Regelsatz:  "KRUZRITA"
+Ausgangswort                :  "Grnnhoff"
+
+Umwandlung nach 1. Regelsatz:  "GRNOF"
+Umwandlung nach 2. Regelsatz:  "KRNUF"
+Ausgangswort                :  "Grntter"
+
+Umwandlung nach 1. Regelsatz:  "GRNTA"
+Umwandlung nach 2. Regelsatz:  "KRNTA"
+Ausgangswort                :  "Gschwind"
+
+Umwandlung nach 1. Regelsatz:  "KSHWINT"
+Umwandlung nach 2. Regelsatz:  "KZFINT"
+Ausgangswort                :  "Gnbelin"
+
+Umwandlung nach 1. Regelsatz:  "GNBELIN"
+Umwandlung nach 2. Regelsatz:  "KNBELIN"
+Ausgangswort                :  "Gnnthart"
+
+Umwandlung nach 1. Regelsatz:  "GNTART"
+Umwandlung nach 2. Regelsatz:  "KNTART"
+Ausgangswort                :  "Gntle"
+
+Umwandlung nach 1. Regelsatz:  "GNTLE"
+Umwandlung nach 2. Regelsatz:  "KNTLE"
+Ausgangswort                :  "Gyger"
+
+Umwandlung nach 1. Regelsatz:  "GÜGA"
+Umwandlung nach 2. Regelsatz:  "KIKA"
+Ausgangswort                :  "Gysin"
+
+Umwandlung nach 1. Regelsatz:  "GÜSIN"
+Umwandlung nach 2. Regelsatz:  "KIZIN"
+Ausgangswort                :  "Haag"
+
+Umwandlung nach 1. Regelsatz:  "HAK"
+Umwandlung nach 2. Regelsatz:  "AK"
+Ausgangswort                :  "Haas"
+
+Umwandlung nach 1. Regelsatz:  "HAS"
+Umwandlung nach 2. Regelsatz:  "AZ"
+Ausgangswort                :  "HSberli"
+
+Umwandlung nach 1. Regelsatz:  "HSBERLI"
+Umwandlung nach 2. Regelsatz:  "ZBALI"
+Ausgangswort                :  "Haefelfinger"
+
+Umwandlung nach 1. Regelsatz:  "HEFLFINGA"
+Umwandlung nach 2. Regelsatz:  "EFLFINKA"
+Ausgangswort                :  "Halbig"
+
+Umwandlung nach 1. Regelsatz:  "HALBIK"
+Umwandlung nach 2. Regelsatz:  "ALBIK"
+Ausgangswort                :  "Handloser"
+
+Umwandlung nach 1. Regelsatz:  "HANTLOSA"
+Umwandlung nach 2. Regelsatz:  "ANTLUZA"
+Ausgangswort                :  "HSnni"
+
+Umwandlung nach 1. Regelsatz:  "HSNI"
+Umwandlung nach 2. Regelsatz:  "ZNI"
+Ausgangswort                :  "Hardegger"
+
+Umwandlung nach 1. Regelsatz:  "HARDEGA"
+Umwandlung nach 2. Regelsatz:  "ARTEKA"
+Ausgangswort                :  "Harenberg"
+
+Umwandlung nach 1. Regelsatz:  "HARENBERK"
+Umwandlung nach 2. Regelsatz:  "ARENBAK"
+Ausgangswort                :  "Hartenthaler"
+
+Umwandlung nach 1. Regelsatz:  "HARTENTALA"
+Umwandlung nach 2. Regelsatz:  "ARTENTALA"
+Ausgangswort                :  "Hasen"
+
+Umwandlung nach 1. Regelsatz:  "HASN"
+Umwandlung nach 2. Regelsatz:  "AZN"
+Ausgangswort                :  "Haudenschild"
+
+Umwandlung nach 1. Regelsatz:  "HAUDNSHILT"
+Umwandlung nach 2. Regelsatz:  "AUTNZILT"
+Ausgangswort                :  "Haueter"
+
+Umwandlung nach 1. Regelsatz:  "HAUETA"
+Umwandlung nach 2. Regelsatz:  "AUETA"
+Ausgangswort                :  "Hauff"
+
+Umwandlung nach 1. Regelsatz:  "HAUF"
+Umwandlung nach 2. Regelsatz:  "AUF"
+Ausgangswort                :  "Hauptlorenz"
+
+Umwandlung nach 1. Regelsatz:  "HAUBTLORENS"
+Umwandlung nach 2. Regelsatz:  "AUBTLURENZ"
+Ausgangswort                :  "HSusler"
+
+Umwandlung nach 1. Regelsatz:  "HSUSLA"
+Umwandlung nach 2. Regelsatz:  "ZUZLA"
+Ausgangswort                :  "Hegermann"
+
+Umwandlung nach 1. Regelsatz:  "HEGERMAN"
+Umwandlung nach 2. Regelsatz:  "EKANAN"
+Ausgangswort                :  "Heim"
+
+Umwandlung nach 1. Regelsatz:  "HEIM"
+Umwandlung nach 2. Regelsatz:  "EIN"
+Ausgangswort                :  "Heini"
+
+Umwandlung nach 1. Regelsatz:  "HEINI"
+Umwandlung nach 2. Regelsatz:  "EINI"
+Ausgangswort                :  "Helfer"
+
+Umwandlung nach 1. Regelsatz:  "HELFA"
+Umwandlung nach 2. Regelsatz:  "ELFA"
+Ausgangswort                :  "Heller"
+
+Umwandlung nach 1. Regelsatz:  "HELA"
+Umwandlung nach 2. Regelsatz:  "ELA"
+Ausgangswort                :  "Hellmnller"
+
+Umwandlung nach 1. Regelsatz:  "HELNLA"
+Umwandlung nach 2. Regelsatz:  "ELNLA"
+Ausgangswort                :  "Henzi"
+
+Umwandlung nach 1. Regelsatz:  "HENZI"
+Umwandlung nach 2. Regelsatz:  "ENZI"
+Ausgangswort                :  "Herbert"
+
+Umwandlung nach 1. Regelsatz:  "HERBERT"
+Umwandlung nach 2. Regelsatz:  "ERBAT"
+Ausgangswort                :  "Herde"
+
+Umwandlung nach 1. Regelsatz:  "HERDE"
+Umwandlung nach 2. Regelsatz:  "ERTE"
+Ausgangswort                :  "Herren"
+
+Umwandlung nach 1. Regelsatz:  "HEREN"
+Umwandlung nach 2. Regelsatz:  "EREN"
+Ausgangswort                :  "Herzog"
+
+Umwandlung nach 1. Regelsatz:  "HERZOK"
+Umwandlung nach 2. Regelsatz:  "ERZUK"
+Ausgangswort                :  "Hess"
+
+Umwandlung nach 1. Regelsatz:  "HES"
+Umwandlung nach 2. Regelsatz:  "EZ"
+Ausgangswort                :  "Hilland"
+
+Umwandlung nach 1. Regelsatz:  "HILANT"
+Umwandlung nach 2. Regelsatz:  "ILANT"
+Ausgangswort                :  "Hippenmeyer"
+
+Umwandlung nach 1. Regelsatz:  "HIPNMEIA"
+Umwandlung nach 2. Regelsatz:  "IPNEIA"
+Ausgangswort                :  "Hirsbrunner"
+
+Umwandlung nach 1. Regelsatz:  "HIRSBRUNA"
+Umwandlung nach 2. Regelsatz:  "IRZBRUNA"
+Ausgangswort                :  "Hodler"
+
+Umwandlung nach 1. Regelsatz:  "HOTLA"
+Umwandlung nach 2. Regelsatz:  "UTLA"
+Ausgangswort                :  "Hoeffel"
+
+Umwandlung nach 1. Regelsatz:  "HÖFL"
+Umwandlung nach 2. Regelsatz:  "ÖFL"
+Ausgangswort                :  "Hofer"
+
+Umwandlung nach 1. Regelsatz:  "HOFA"
+Umwandlung nach 2. Regelsatz:  "UFA"
+Ausgangswort                :  "Hofer-Roth"
+
+Umwandlung nach 1. Regelsatz:  "HOFA ROT"
+Umwandlung nach 2. Regelsatz:  "UFA RUT"
+Ausgangswort                :  "Hoffer"
+
+Umwandlung nach 1. Regelsatz:  "HOFA"
+Umwandlung nach 2. Regelsatz:  "UFA"
+Ausgangswort                :  "Hoffmann"
+
+Umwandlung nach 1. Regelsatz:  "HOFMAN"
+Umwandlung nach 2. Regelsatz:  "UFNAN"
+Ausgangswort                :  "Hofmann"
+
+Umwandlung nach 1. Regelsatz:  "HOFMAN"
+Umwandlung nach 2. Regelsatz:  "UFNAN"
+Ausgangswort                :  "H÷hener"
+
+Umwandlung nach 1. Regelsatz:  "H÷HENA"
+Umwandlung nach 2. Regelsatz:  "÷ENA"
+Ausgangswort                :  "Holden"
+
+Umwandlung nach 1. Regelsatz:  "HOLDN"
+Umwandlung nach 2. Regelsatz:  "ULTN"
+Ausgangswort                :  "Hollick"
+
+Umwandlung nach 1. Regelsatz:  "HOLIK"
+Umwandlung nach 2. Regelsatz:  "ULIK"
+Ausgangswort                :  "Hornung"
+
+Umwandlung nach 1. Regelsatz:  "HORNUNK"
+Umwandlung nach 2. Regelsatz:  "URNUNK"
+Ausgangswort                :  "Hornwall"
+
+Umwandlung nach 1. Regelsatz:  "HORNWAL"
+Umwandlung nach 2. Regelsatz:  "URNFAL"
+Ausgangswort                :  "Horst"
+
+Umwandlung nach 1. Regelsatz:  "HORST"
+Umwandlung nach 2. Regelsatz:  "URZT"
+Ausgangswort                :  "Hossmann"
+
+Umwandlung nach 1. Regelsatz:  "HOSMAN"
+Umwandlung nach 2. Regelsatz:  "UZNAN"
+Ausgangswort                :  "Huber"
+
+Umwandlung nach 1. Regelsatz:  "HUBA"
+Umwandlung nach 2. Regelsatz:  "UBA"
+Ausgangswort                :  "Hnbsch"
+
+Umwandlung nach 1. Regelsatz:  "HNBSH"
+Umwandlung nach 2. Regelsatz:  "NBZ"
+Ausgangswort                :  "Huerzeler"
+
+Umwandlung nach 1. Regelsatz:  "HÜRZELA"
+Umwandlung nach 2. Regelsatz:  "IRZELA"
+Ausgangswort                :  "Hug"
+
+Umwandlung nach 1. Regelsatz:  "HUK"
+Umwandlung nach 2. Regelsatz:  "UK"
+Ausgangswort                :  "Hugi"
+
+Umwandlung nach 1. Regelsatz:  "HUGI"
+Umwandlung nach 2. Regelsatz:  "UKI"
+Ausgangswort                :  "Hulliger"
+
+Umwandlung nach 1. Regelsatz:  "HULIGA"
+Umwandlung nach 2. Regelsatz:  "ULIKA"
+Ausgangswort                :  "Humphreys"
+
+Umwandlung nach 1. Regelsatz:  "HUMFREIS"
+Umwandlung nach 2. Regelsatz:  "UNFREIZ"
+Ausgangswort                :  "Hunziker"
+
+Umwandlung nach 1. Regelsatz:  "HUNZIKA"
+Umwandlung nach 2. Regelsatz:  "UNZIKA"
+Ausgangswort                :  "Hurni"
+
+Umwandlung nach 1. Regelsatz:  "HURNI"
+Umwandlung nach 2. Regelsatz:  "URNI"
+Ausgangswort                :  "Hnrzeler"
+
+Umwandlung nach 1. Regelsatz:  "HNRZELA"
+Umwandlung nach 2. Regelsatz:  "NRZELA"
+Ausgangswort                :  "Ihringer"
+
+Umwandlung nach 1. Regelsatz:  "IRINGA"
+Umwandlung nach 2. Regelsatz:  "IRINKA"
+Ausgangswort                :  "Imesch"
+
+Umwandlung nach 1. Regelsatz:  "IMESH"
+Umwandlung nach 2. Regelsatz:  "INEZ"
+Ausgangswort                :  "Indermnhle"
+
+Umwandlung nach 1. Regelsatz:  "INDERNLE"
+Umwandlung nach 2. Regelsatz:  "INTANLE"
+Ausgangswort                :  "Inglesby"
+
+Umwandlung nach 1. Regelsatz:  "INKLESBI"
+Umwandlung nach 2. Regelsatz:  "INKLEZBI"
+Ausgangswort                :  "Irzyk"
+
+Umwandlung nach 1. Regelsatz:  "IRZIK"
+Umwandlung nach 2. Regelsatz:  "IRZIK"
+Ausgangswort                :  "Iseli"
+
+Umwandlung nach 1. Regelsatz:  "ISELI"
+Umwandlung nach 2. Regelsatz:  "IZELI"
+Ausgangswort                :  "Isenring"
+
+Umwandlung nach 1. Regelsatz:  "ISNRINK"
+Umwandlung nach 2. Regelsatz:  "IZNRINK"
+Ausgangswort                :  "Isenschmid"
+
+Umwandlung nach 1. Regelsatz:  "ISNSHMIT"
+Umwandlung nach 2. Regelsatz:  "IZNZNIT"
+Ausgangswort                :  "Istegal"
+
+Umwandlung nach 1. Regelsatz:  "ISTEGAL"
+Umwandlung nach 2. Regelsatz:  "IZTEKAL"
+Ausgangswort                :  "Iten"
+
+Umwandlung nach 1. Regelsatz:  "ITN"
+Umwandlung nach 2. Regelsatz:  "ITN"
+Ausgangswort                :  "Jaberg"
+
+Umwandlung nach 1. Regelsatz:  "IABERK"
+Umwandlung nach 2. Regelsatz:  "IABAK"
+Ausgangswort                :  "Jaccottet"
+
+Umwandlung nach 1. Regelsatz:  "IAKOTET"
+Umwandlung nach 2. Regelsatz:  "IAKUTET"
+Ausgangswort                :  "Jacober"
+
+Umwandlung nach 1. Regelsatz:  "IAKOBA"
+Umwandlung nach 2. Regelsatz:  "IAKUBA"
+Ausgangswort                :  "JSger"
+
+Umwandlung nach 1. Regelsatz:  "ISGA"
+Umwandlung nach 2. Regelsatz:  "IZKA"
+Ausgangswort                :  "Jagst"
+
+Umwandlung nach 1. Regelsatz:  "IAXT"
+Umwandlung nach 2. Regelsatz:  "IAXT"
+Ausgangswort                :  "Jakob"
+
+Umwandlung nach 1. Regelsatz:  "IAKOB"
+Umwandlung nach 2. Regelsatz:  "IAKUB"
+Ausgangswort                :  "Jejina"
+
+Umwandlung nach 1. Regelsatz:  "IEINA"
+Umwandlung nach 2. Regelsatz:  "IEINA"
+Ausgangswort                :  "Jenni"
+
+Umwandlung nach 1. Regelsatz:  "IENI"
+Umwandlung nach 2. Regelsatz:  "IENI"
+Ausgangswort                :  "Jenny"
+
+Umwandlung nach 1. Regelsatz:  "IENI"
+Umwandlung nach 2. Regelsatz:  "IENI"
+Ausgangswort                :  "Jergen"
+
+Umwandlung nach 1. Regelsatz:  "IERGN"
+Umwandlung nach 2. Regelsatz:  "IERKN"
+Ausgangswort                :  "Jeschke"
+
+Umwandlung nach 1. Regelsatz:  "IESHKE"
+Umwandlung nach 2. Regelsatz:  "IEZKE"
+Ausgangswort                :  "Jochen"
+
+Umwandlung nach 1. Regelsatz:  "IOCHN"
+Umwandlung nach 2. Regelsatz:  "IUKN"
+Ausgangswort                :  "Jodko"
+
+Umwandlung nach 1. Regelsatz:  "IOTKO"
+Umwandlung nach 2. Regelsatz:  "IUTKU"
+Ausgangswort                :  "Johner"
+
+Umwandlung nach 1. Regelsatz:  "IONA"
+Umwandlung nach 2. Regelsatz:  "IUNA"
+Ausgangswort                :  "Jones"
+
+Umwandlung nach 1. Regelsatz:  "IONES"
+Umwandlung nach 2. Regelsatz:  "IUNEZ"
+Ausgangswort                :  "Jordan"
+
+Umwandlung nach 1. Regelsatz:  "IORDAN"
+Umwandlung nach 2. Regelsatz:  "IURTAN"
+Ausgangswort                :  "Joss"
+
+Umwandlung nach 1. Regelsatz:  "IOS"
+Umwandlung nach 2. Regelsatz:  "IUZ"
+Ausgangswort                :  "Jost"
+
+Umwandlung nach 1. Regelsatz:  "IOST"
+Umwandlung nach 2. Regelsatz:  "IUZT"
+Ausgangswort                :  "Juker"
+
+Umwandlung nach 1. Regelsatz:  "IUKA"
+Umwandlung nach 2. Regelsatz:  "IUKA"
+Ausgangswort                :  "Jungen"
+
+Umwandlung nach 1. Regelsatz:  "IUNGN"
+Umwandlung nach 2. Regelsatz:  "IUNKN"
+Ausgangswort                :  "Junker"
+
+Umwandlung nach 1. Regelsatz:  "IUNKA"
+Umwandlung nach 2. Regelsatz:  "IUNKA"
+Ausgangswort                :  "Jutzi"
+
+Umwandlung nach 1. Regelsatz:  "IUZI"
+Umwandlung nach 2. Regelsatz:  "IUZI"
+Ausgangswort                :  "Kabel"
+
+Umwandlung nach 1. Regelsatz:  "KABL"
+Umwandlung nach 2. Regelsatz:  "KABL"
+Ausgangswort                :  "KSch"
+
+Umwandlung nach 1. Regelsatz:  "KSH"
+Umwandlung nach 2. Regelsatz:  "KZ"
+Ausgangswort                :  "Kahanek"
+
+Umwandlung nach 1. Regelsatz:  "KAHANEK"
+Umwandlung nach 2. Regelsatz:  "KANEK"
+Ausgangswort                :  "KShr"
+
+Umwandlung nach 1. Regelsatz:  "XR"
+Umwandlung nach 2. Regelsatz:  "XR"
+Ausgangswort                :  "Kai"
+
+Umwandlung nach 1. Regelsatz:  "KEI"
+Umwandlung nach 2. Regelsatz:  "KEI"
+Ausgangswort                :  "Kalchofner"
+
+Umwandlung nach 1. Regelsatz:  "KALCHOFNA"
+Umwandlung nach 2. Regelsatz:  "KALKUFNA"
+Ausgangswort                :  "Kaljic"
+
+Umwandlung nach 1. Regelsatz:  "KALIK"
+Umwandlung nach 2. Regelsatz:  "KALIK"
+Ausgangswort                :  "Kamm"
+
+Umwandlung nach 1. Regelsatz:  "KAM"
+Umwandlung nach 2. Regelsatz:  "KAN"
+Ausgangswort                :  "Kammeyer"
+
+Umwandlung nach 1. Regelsatz:  "KAMEIA"
+Umwandlung nach 2. Regelsatz:  "KANEIA"
+Ausgangswort                :  "Kanis"
+
+Umwandlung nach 1. Regelsatz:  "KANIS"
+Umwandlung nach 2. Regelsatz:  "KANIZ"
+Ausgangswort                :  "Kappert"
+
+Umwandlung nach 1. Regelsatz:  "KAPAT"
+Umwandlung nach 2. Regelsatz:  "KAPAT"
+Ausgangswort                :  "Karl"
+
+Umwandlung nach 1. Regelsatz:  "KARL"
+Umwandlung nach 2. Regelsatz:  "KARL"
+Ausgangswort                :  "KSser"
+
+Umwandlung nach 1. Regelsatz:  "XSA"
+Umwandlung nach 2. Regelsatz:  "XZA"
+Ausgangswort                :  "KSstli"
+
+Umwandlung nach 1. Regelsatz:  "XSTLI"
+Umwandlung nach 2. Regelsatz:  "XZTLI"
+Ausgangswort                :  "Katan"
+
+Umwandlung nach 1. Regelsatz:  "KATAN"
+Umwandlung nach 2. Regelsatz:  "KATAN"
+Ausgangswort                :  "Kauf"
+
+Umwandlung nach 1. Regelsatz:  "KAUF"
+Umwandlung nach 2. Regelsatz:  "KAUF"
+Ausgangswort                :  "Kaufmann"
+
+Umwandlung nach 1. Regelsatz:  "KAUFMAN"
+Umwandlung nach 2. Regelsatz:  "KAUFNAN"
+Ausgangswort                :  "Keist"
+
+Umwandlung nach 1. Regelsatz:  "KEIST"
+Umwandlung nach 2. Regelsatz:  "KEIZT"
+Ausgangswort                :  "Keller"
+
+Umwandlung nach 1. Regelsatz:  "KELA"
+Umwandlung nach 2. Regelsatz:  "KELA"
+Ausgangswort                :  "Kemeny"
+
+Umwandlung nach 1. Regelsatz:  "KEMENI"
+Umwandlung nach 2. Regelsatz:  "KENENI"
+Ausgangswort                :  "Kern"
+
+Umwandlung nach 1. Regelsatz:  "KERN"
+Umwandlung nach 2. Regelsatz:  "KERN"
+Ausgangswort                :  "Kernen"
+
+Umwandlung nach 1. Regelsatz:  "KERNEN"
+Umwandlung nach 2. Regelsatz:  "KERNEN"
+Ausgangswort                :  "Kerscher"
+
+Umwandlung nach 1. Regelsatz:  "KERSHA"
+Umwandlung nach 2. Regelsatz:  "KERZA"
+Ausgangswort                :  "Kessler"
+
+Umwandlung nach 1. Regelsatz:  "KESLA"
+Umwandlung nach 2. Regelsatz:  "KEZLA"
+Ausgangswort                :  "Keuschnigg"
+
+Umwandlung nach 1. Regelsatz:  "KEUSHNIK"
+Umwandlung nach 2. Regelsatz:  "KEUZNIK"
+Ausgangswort                :  "Keuser"
+
+Umwandlung nach 1. Regelsatz:  "KEUSA"
+Umwandlung nach 2. Regelsatz:  "KEUZA"
+Ausgangswort                :  "Khimji"
+
+Umwandlung nach 1. Regelsatz:  "KIMI"
+Umwandlung nach 2. Regelsatz:  "KINI"
+Ausgangswort                :  "Kiefer"
+
+Umwandlung nach 1. Regelsatz:  "KIFA"
+Umwandlung nach 2. Regelsatz:  "KIFA"
+Ausgangswort                :  "Kiener"
+
+Umwandlung nach 1. Regelsatz:  "KINA"
+Umwandlung nach 2. Regelsatz:  "KINA"
+Ausgangswort                :  "Kind"
+
+Umwandlung nach 1. Regelsatz:  "KINT"
+Umwandlung nach 2. Regelsatz:  "KINT"
+Ausgangswort                :  "King"
+
+Umwandlung nach 1. Regelsatz:  "KINK"
+Umwandlung nach 2. Regelsatz:  "KINK"
+Ausgangswort                :  "Kirchmayer"
+
+Umwandlung nach 1. Regelsatz:  "KIRCHMEIA"
+Umwandlung nach 2. Regelsatz:  "KIRKNEIA"
+Ausgangswort                :  "Kirmser"
+
+Umwandlung nach 1. Regelsatz:  "KIRMSA"
+Umwandlung nach 2. Regelsatz:  "KIRNZA"
+Ausgangswort                :  "Klar"
+
+Umwandlung nach 1. Regelsatz:  "KLAR"
+Umwandlung nach 2. Regelsatz:  "KLAR"
+Ausgangswort                :  "Klaus"
+
+Umwandlung nach 1. Regelsatz:  "KLAUS"
+Umwandlung nach 2. Regelsatz:  "KLAUZ"
+Ausgangswort                :  "Klauser"
+
+Umwandlung nach 1. Regelsatz:  "KLAUSA"
+Umwandlung nach 2. Regelsatz:  "KLAUZA"
+Ausgangswort                :  "Klingler"
+
+Umwandlung nach 1. Regelsatz:  "KLINKLA"
+Umwandlung nach 2. Regelsatz:  "KLINKLA"
+Ausgangswort                :  "kneier"
+
+Umwandlung nach 1. Regelsatz:  "KNEIA"
+Umwandlung nach 2. Regelsatz:  "KNEIA"
+Ausgangswort                :  "Kneubnhl"
+
+Umwandlung nach 1. Regelsatz:  "KNEUBNL"
+Umwandlung nach 2. Regelsatz:  "KNEUBNL"
+Ausgangswort                :  "Knoll"
+
+Umwandlung nach 1. Regelsatz:  "KNOL"
+Umwandlung nach 2. Regelsatz:  "KNUL"
+Ausgangswort                :  "Knup"
+
+Umwandlung nach 1. Regelsatz:  "KNUB"
+Umwandlung nach 2. Regelsatz:  "KNUB"
+Ausgangswort                :  "Knutti"
+
+Umwandlung nach 1. Regelsatz:  "KNUTI"
+Umwandlung nach 2. Regelsatz:  "KNUTI"
+Ausgangswort                :  "Koch"
+
+Umwandlung nach 1. Regelsatz:  "KOCH"
+Umwandlung nach 2. Regelsatz:  "KUK"
+Ausgangswort                :  "Kocher"
+
+Umwandlung nach 1. Regelsatz:  "KOCHA"
+Umwandlung nach 2. Regelsatz:  "KUKA"
+Ausgangswort                :  "Kohlbauer"
+
+Umwandlung nach 1. Regelsatz:  "KOLBAUA"
+Umwandlung nach 2. Regelsatz:  "KULBAUA"
+Ausgangswort                :  "Kohler"
+
+Umwandlung nach 1. Regelsatz:  "KOLA"
+Umwandlung nach 2. Regelsatz:  "KULA"
+Ausgangswort                :  "Kolarich"
+
+Umwandlung nach 1. Regelsatz:  "KOLARICH"
+Umwandlung nach 2. Regelsatz:  "KULARIK"
+Ausgangswort                :  "K÷nig"
+
+Umwandlung nach 1. Regelsatz:  "K÷NIK"
+Umwandlung nach 2. Regelsatz:  "K÷NIK"
+Ausgangswort                :  "Koop"
+
+Umwandlung nach 1. Regelsatz:  "KOB"
+Umwandlung nach 2. Regelsatz:  "KUB"
+Ausgangswort                :  "Kopp"
+
+Umwandlung nach 1. Regelsatz:  "KOB"
+Umwandlung nach 2. Regelsatz:  "KUB"
+Ausgangswort                :  "Korf"
+
+Umwandlung nach 1. Regelsatz:  "KORF"
+Umwandlung nach 2. Regelsatz:  "KURF"
+Ausgangswort                :  "Koseck"
+
+Umwandlung nach 1. Regelsatz:  "KOSEK"
+Umwandlung nach 2. Regelsatz:  "KUZEK"
+Ausgangswort                :  "Kovacs"
+
+Umwandlung nach 1. Regelsatz:  "KOWAX"
+Umwandlung nach 2. Regelsatz:  "KUFAX"
+Ausgangswort                :  "KrShenbnhl"
+
+Umwandlung nach 1. Regelsatz:  "KRSHNBNL"
+Umwandlung nach 2. Regelsatz:  "KRZNBNL"
+Ausgangswort                :  "Kramer"
+
+Umwandlung nach 1. Regelsatz:  "KRAMA"
+Umwandlung nach 2. Regelsatz:  "KRANA"
+Ausgangswort                :  "Krasnod"
+
+Umwandlung nach 1. Regelsatz:  "KRASNOT"
+Umwandlung nach 2. Regelsatz:  "KRAZNUT"
+Ausgangswort                :  "Krebs"
+
+Umwandlung nach 1. Regelsatz:  "KREBS"
+Umwandlung nach 2. Regelsatz:  "KREBZ"
+Ausgangswort                :  "Kreppke"
+
+Umwandlung nach 1. Regelsatz:  "KREBKE"
+Umwandlung nach 2. Regelsatz:  "KREBKE"
+Ausgangswort                :  "Krienbnhl"
+
+Umwandlung nach 1. Regelsatz:  "KRINBNL"
+Umwandlung nach 2. Regelsatz:  "KRINBNL"
+Ausgangswort                :  "Kubisch"
+
+Umwandlung nach 1. Regelsatz:  "KUBISH"
+Umwandlung nach 2. Regelsatz:  "KUBIZ"
+Ausgangswort                :  "Knenzi"
+
+Umwandlung nach 1. Regelsatz:  "KNENZI"
+Umwandlung nach 2. Regelsatz:  "KNENZI"
+Ausgangswort                :  "Knhlkopf"
+
+Umwandlung nach 1. Regelsatz:  "KNLKOF"
+Umwandlung nach 2. Regelsatz:  "KNLKUF"
+Ausgangswort                :  "Knhnhanss"
+
+Umwandlung nach 1. Regelsatz:  "KNHANS"
+Umwandlung nach 2. Regelsatz:  "KNANZ"
+Ausgangswort                :  "Knhni"
+
+Umwandlung nach 1. Regelsatz:  "KNI"
+Umwandlung nach 2. Regelsatz:  "KNI"
+Ausgangswort                :  "Kummer"
+
+Umwandlung nach 1. Regelsatz:  "KUMA"
+Umwandlung nach 2. Regelsatz:  "KUNA"
+Ausgangswort                :  "Knng"
+
+Umwandlung nach 1. Regelsatz:  "KNK"
+Umwandlung nach 2. Regelsatz:  "KNK"
+Ausgangswort                :  "Kunz"
+
+Umwandlung nach 1. Regelsatz:  "KUNS"
+Umwandlung nach 2. Regelsatz:  "KUNZ"
+Ausgangswort                :  "Kunze"
+
+Umwandlung nach 1. Regelsatz:  "KUNZE"
+Umwandlung nach 2. Regelsatz:  "KUNZE"
+Ausgangswort                :  "Knnzi"
+
+Umwandlung nach 1. Regelsatz:  "KNZI"
+Umwandlung nach 2. Regelsatz:  "KNZI"
+Ausgangswort                :  "Knpfer"
+
+Umwandlung nach 1. Regelsatz:  "KNFA"
+Umwandlung nach 2. Regelsatz:  "KNFA"
+Ausgangswort                :  "Kurbanov"
+
+Umwandlung nach 1. Regelsatz:  "KURBANOF"
+Umwandlung nach 2. Regelsatz:  "KURBANUF"
+Ausgangswort                :  "Kurmann"
+
+Umwandlung nach 1. Regelsatz:  "KURMAN"
+Umwandlung nach 2. Regelsatz:  "KURNAN"
+Ausgangswort                :  "Kurt"
+
+Umwandlung nach 1. Regelsatz:  "KURT"
+Umwandlung nach 2. Regelsatz:  "KURT"
+Ausgangswort                :  "Knttel"
+
+Umwandlung nach 1. Regelsatz:  "KNTL"
+Umwandlung nach 2. Regelsatz:  "KNTL"
+Ausgangswort                :  "Lafferma"
+
+Umwandlung nach 1. Regelsatz:  "LAFERMA"
+Umwandlung nach 2. Regelsatz:  "LAFANA"
+Ausgangswort                :  "Lampietti"
+
+Umwandlung nach 1. Regelsatz:  "LAMPITI"
+Umwandlung nach 2. Regelsatz:  "LANPITI"
+Ausgangswort                :  "Lang"
+
+Umwandlung nach 1. Regelsatz:  "LANK"
+Umwandlung nach 2. Regelsatz:  "LANK"
+Ausgangswort                :  "Lange"
+
+Umwandlung nach 1. Regelsatz:  "LANGE"
+Umwandlung nach 2. Regelsatz:  "LANKE"
+Ausgangswort                :  "Langenegger"
+
+Umwandlung nach 1. Regelsatz:  "LANGENEGA"
+Umwandlung nach 2. Regelsatz:  "LANKENEKA"
+Ausgangswort                :  "Lanz"
+
+Umwandlung nach 1. Regelsatz:  "LANS"
+Umwandlung nach 2. Regelsatz:  "LANZ"
+Ausgangswort                :  "Lauper"
+
+Umwandlung nach 1. Regelsatz:  "LAUPA"
+Umwandlung nach 2. Regelsatz:  "LAUPA"
+Ausgangswort                :  "Lawn"
+
+Umwandlung nach 1. Regelsatz:  "LAFN"
+Umwandlung nach 2. Regelsatz:  "LAFN"
+Ausgangswort                :  "LO"
+
+Umwandlung nach 1. Regelsatz:  "LO"
+Umwandlung nach 2. Regelsatz:  "LU"
+Ausgangswort                :  "Lehmann"
+
+Umwandlung nach 1. Regelsatz:  "LEMAN"
+Umwandlung nach 2. Regelsatz:  "LENAN"
+Ausgangswort                :  "Lehner"
+
+Umwandlung nach 1. Regelsatz:  "LENA"
+Umwandlung nach 2. Regelsatz:  "LENA"
+Ausgangswort                :  "Leistner"
+
+Umwandlung nach 1. Regelsatz:  "LEISTNA"
+Umwandlung nach 2. Regelsatz:  "LEIZTNA"
+Ausgangswort                :  "Lekatsas"
+
+Umwandlung nach 1. Regelsatz:  "LEKAZAS"
+Umwandlung nach 2. Regelsatz:  "LEKAZAZ"
+Ausgangswort                :  "Leuenberger"
+
+Umwandlung nach 1. Regelsatz:  "LEUNBERGA"
+Umwandlung nach 2. Regelsatz:  "LEUNBAKA"
+Ausgangswort                :  "Liappas"
+
+Umwandlung nach 1. Regelsatz:  "LIAPAS"
+Umwandlung nach 2. Regelsatz:  "LIAPAZ"
+Ausgangswort                :  "Lichtenberg"
+
+Umwandlung nach 1. Regelsatz:  "LICHTNBERK"
+Umwandlung nach 2. Regelsatz:  "LIKTNBAK"
+Ausgangswort                :  "Lichtsteiner"
+
+Umwandlung nach 1. Regelsatz:  "LICHZTEINA"
+Umwandlung nach 2. Regelsatz:  "LIKZTEINA"
+Ausgangswort                :  "Lieb"
+
+Umwandlung nach 1. Regelsatz:  "LIB"
+Umwandlung nach 2. Regelsatz:  "LIB"
+Ausgangswort                :  "Liechti"
+
+Umwandlung nach 1. Regelsatz:  "LICHTI"
+Umwandlung nach 2. Regelsatz:  "LIKTI"
+Ausgangswort                :  "Liedtke"
+
+Umwandlung nach 1. Regelsatz:  "LITKE"
+Umwandlung nach 2. Regelsatz:  "LITKE"
+Ausgangswort                :  "Lilia"
+
+Umwandlung nach 1. Regelsatz:  "LILIA"
+Umwandlung nach 2. Regelsatz:  "LILIA"
+Ausgangswort                :  "Limacher"
+
+Umwandlung nach 1. Regelsatz:  "LIMACHA"
+Umwandlung nach 2. Regelsatz:  "LINAKA"
+Ausgangswort                :  "Liu"
+
+Umwandlung nach 1. Regelsatz:  "LIU"
+Umwandlung nach 2. Regelsatz:  "LIU"
+Ausgangswort                :  "Liyanage"
+
+Umwandlung nach 1. Regelsatz:  "LIANAGE"
+Umwandlung nach 2. Regelsatz:  "LIANAKE"
+Ausgangswort                :  "L÷ffel"
+
+Umwandlung nach 1. Regelsatz:  "L÷FL"
+Umwandlung nach 2. Regelsatz:  "L÷FL"
+Ausgangswort                :  "Loitz"
+
+Umwandlung nach 1. Regelsatz:  "LEUS"
+Umwandlung nach 2. Regelsatz:  "LEUZ"
+Ausgangswort                :  "Loosli"
+
+Umwandlung nach 1. Regelsatz:  "LOSLI"
+Umwandlung nach 2. Regelsatz:  "LUZLI"
+Ausgangswort                :  "Lopes"
+
+Umwandlung nach 1. Regelsatz:  "LOPES"
+Umwandlung nach 2. Regelsatz:  "LUPEZ"
+Ausgangswort                :  "Loreggia"
+
+Umwandlung nach 1. Regelsatz:  "LOREGIA"
+Umwandlung nach 2. Regelsatz:  "LUREKIA"
+Ausgangswort                :  "Lory"
+
+Umwandlung nach 1. Regelsatz:  "LORI"
+Umwandlung nach 2. Regelsatz:  "LURI"
+Ausgangswort                :  "L÷tscher"
+
+Umwandlung nach 1. Regelsatz:  "L÷SHA"
+Umwandlung nach 2. Regelsatz:  "L÷ZA"
+Ausgangswort                :  "Luchsinger"
+
+Umwandlung nach 1. Regelsatz:  "LUXINGA"
+Umwandlung nach 2. Regelsatz:  "LUXINKA"
+Ausgangswort                :  "Ludwig"
+
+Umwandlung nach 1. Regelsatz:  "LUTWIK"
+Umwandlung nach 2. Regelsatz:  "LUTFIK"
+Ausgangswort                :  "Luft"
+
+Umwandlung nach 1. Regelsatz:  "LUFT"
+Umwandlung nach 2. Regelsatz:  "LUFT"
+Ausgangswort                :  "Luginbnhl"
+
+Umwandlung nach 1. Regelsatz:  "LUGINBNL"
+Umwandlung nach 2. Regelsatz:  "LUKINBNL"
+Ausgangswort                :  "Lukas"
+
+Umwandlung nach 1. Regelsatz:  "LUKAS"
+Umwandlung nach 2. Regelsatz:  "LUKAZ"
+Ausgangswort                :  "Luna"
+
+Umwandlung nach 1. Regelsatz:  "LUNA"
+Umwandlung nach 2. Regelsatz:  "LUNA"
+Ausgangswort                :  "Lunginovic"
+
+Umwandlung nach 1. Regelsatz:  "LUNGINOWIZ"
+Umwandlung nach 2. Regelsatz:  "LUNKINUFIZ"
+Ausgangswort                :  "Lupascu"
+
+Umwandlung nach 1. Regelsatz:  "LUPASKU"
+Umwandlung nach 2. Regelsatz:  "LUPAZKU"
+Ausgangswort                :  "Lnscher"
+
+Umwandlung nach 1. Regelsatz:  "LNSHA"
+Umwandlung nach 2. Regelsatz:  "LNZA"
+Ausgangswort                :  "Lusebrink"
+
+Umwandlung nach 1. Regelsatz:  "LUSEBRINK"
+Umwandlung nach 2. Regelsatz:  "LUZEBRINK"
+Ausgangswort                :  "Lnthi"
+
+Umwandlung nach 1. Regelsatz:  "LNTI"
+Umwandlung nach 2. Regelsatz:  "LNTI"
+Ausgangswort                :  "Lntholf"
+
+Umwandlung nach 1. Regelsatz:  "LNTOLF"
+Umwandlung nach 2. Regelsatz:  "LNTULF"
+Ausgangswort                :  "Lntolf"
+
+Umwandlung nach 1. Regelsatz:  "LNTOLF"
+Umwandlung nach 2. Regelsatz:  "LNTULF"
+Ausgangswort                :  "Lutz"
+
+Umwandlung nach 1. Regelsatz:  "LUZ"
+Umwandlung nach 2. Regelsatz:  "LUZ"
+Ausgangswort                :  "Luy"
+
+Umwandlung nach 1. Regelsatz:  "LUI"
+Umwandlung nach 2. Regelsatz:  "LUI"
+Ausgangswort                :  "Lyn"
+
+Umwandlung nach 1. Regelsatz:  "LÜN"
+Umwandlung nach 2. Regelsatz:  "LIN"
+Ausgangswort                :  "Lyoth"
+
+Umwandlung nach 1. Regelsatz:  "LÜOT"
+Umwandlung nach 2. Regelsatz:  "LIUT"
+Ausgangswort                :  "M./239"
+
+Umwandlung nach 1. Regelsatz:  "M./239"
+Umwandlung nach 2. Regelsatz:  "N./239"
+Ausgangswort                :  "MSder"
+
+Umwandlung nach 1. Regelsatz:  "MSDA"
+Umwandlung nach 2. Regelsatz:  "NZTA"
+Ausgangswort                :  "Maier"
+
+Umwandlung nach 1. Regelsatz:  "MEIA"
+Umwandlung nach 2. Regelsatz:  "NEIA"
+Ausgangswort                :  "Majewsky"
+
+Umwandlung nach 1. Regelsatz:  "MAIEWSKI"
+Umwandlung nach 2. Regelsatz:  "NAIEFZKI"
+Ausgangswort                :  "MalSr"
+
+Umwandlung nach 1. Regelsatz:  "MALSR"
+Umwandlung nach 2. Regelsatz:  "NALZR"
+Ausgangswort                :  "Manderbach"
+
+Umwandlung nach 1. Regelsatz:  "MANDABACH"
+Umwandlung nach 2. Regelsatz:  "NANTABAK"
+Ausgangswort                :  "Manera"
+
+Umwandlung nach 1. Regelsatz:  "MANERA"
+Umwandlung nach 2. Regelsatz:  "NANA"
+Ausgangswort                :  "Mani"
+
+Umwandlung nach 1. Regelsatz:  "MANI"
+Umwandlung nach 2. Regelsatz:  "NANI"
+Ausgangswort                :  "Mannarella"
+
+Umwandlung nach 1. Regelsatz:  "MANARELA"
+Umwandlung nach 2. Regelsatz:  "NANARELA"
+Ausgangswort                :  "Manzano"
+
+Umwandlung nach 1. Regelsatz:  "MANZANO"
+Umwandlung nach 2. Regelsatz:  "NANZANU"
+Ausgangswort                :  "Marchner"
+
+Umwandlung nach 1. Regelsatz:  "MARCHNA"
+Umwandlung nach 2. Regelsatz:  "NARKNA"
+Ausgangswort                :  "Marcin"
+
+Umwandlung nach 1. Regelsatz:  "MARZIN"
+Umwandlung nach 2. Regelsatz:  "NARZIN"
+Ausgangswort                :  "Maret"
+
+Umwandlung nach 1. Regelsatz:  "MARET"
+Umwandlung nach 2. Regelsatz:  "NARET"
+Ausgangswort                :  "Marggi"
+
+Umwandlung nach 1. Regelsatz:  "MARGI"
+Umwandlung nach 2. Regelsatz:  "NARKI"
+Ausgangswort                :  "MariTthod"
+
+Umwandlung nach 1. Regelsatz:  "MARITOT"
+Umwandlung nach 2. Regelsatz:  "NARITUT"
+Ausgangswort                :  "Marro"
+
+Umwandlung nach 1. Regelsatz:  "MARO"
+Umwandlung nach 2. Regelsatz:  "NARU"
+Ausgangswort                :  "Marshall"
+
+Umwandlung nach 1. Regelsatz:  "MARSHAL"
+Umwandlung nach 2. Regelsatz:  "NARZAL"
+Ausgangswort                :  "Marten"
+
+Umwandlung nach 1. Regelsatz:  "MARTN"
+Umwandlung nach 2. Regelsatz:  "NARTN"
+Ausgangswort                :  "Martinelli"
+
+Umwandlung nach 1. Regelsatz:  "MARTINELI"
+Umwandlung nach 2. Regelsatz:  "NARTINELI"
+Ausgangswort                :  "Marty"
+
+Umwandlung nach 1. Regelsatz:  "MARTI"
+Umwandlung nach 2. Regelsatz:  "NARTI"
+Ausgangswort                :  "Marugg"
+
+Umwandlung nach 1. Regelsatz:  "MARUK"
+Umwandlung nach 2. Regelsatz:  "NARUK"
+Ausgangswort                :  "Mary"
+
+Umwandlung nach 1. Regelsatz:  "MARI"
+Umwandlung nach 2. Regelsatz:  "NARI"
+Ausgangswort                :  "Mathieu"
+
+Umwandlung nach 1. Regelsatz:  "MATIÖ"
+Umwandlung nach 2. Regelsatz:  "NATIÖ"
+Ausgangswort                :  "Maurer"
+
+Umwandlung nach 1. Regelsatz:  "MAURA"
+Umwandlung nach 2. Regelsatz:  "NAURA"
+Ausgangswort                :  "Mehl"
+
+Umwandlung nach 1. Regelsatz:  "MEL"
+Umwandlung nach 2. Regelsatz:  "NEL"
+Ausgangswort                :  "Meier"
+
+Umwandlung nach 1. Regelsatz:  "MEIA"
+Umwandlung nach 2. Regelsatz:  "NEIA"
+Ausgangswort                :  "Meister"
+
+Umwandlung nach 1. Regelsatz:  "MEISTA"
+Umwandlung nach 2. Regelsatz:  "NEIZTA"
+Ausgangswort                :  "Meli"
+
+Umwandlung nach 1. Regelsatz:  "MELI"
+Umwandlung nach 2. Regelsatz:  "NELI"
+Ausgangswort                :  "Mercurio"
+
+Umwandlung nach 1. Regelsatz:  "MERKURIO"
+Umwandlung nach 2. Regelsatz:  "NERKURIU"
+Ausgangswort                :  "Merkl"
+
+Umwandlung nach 1. Regelsatz:  "MERKL"
+Umwandlung nach 2. Regelsatz:  "NERKL"
+Ausgangswort                :  "Merz"
+
+Umwandlung nach 1. Regelsatz:  "MERZ"
+Umwandlung nach 2. Regelsatz:  "NERZ"
+Ausgangswort                :  "Messerli"
+
+Umwandlung nach 1. Regelsatz:  "MESERLI"
+Umwandlung nach 2. Regelsatz:  "NEZALI"
+Ausgangswort                :  "Messikommer"
+
+Umwandlung nach 1. Regelsatz:  "MESIKOMA"
+Umwandlung nach 2. Regelsatz:  "NEZIKUNA"
+Ausgangswort                :  "Metal"
+
+Umwandlung nach 1. Regelsatz:  "METAL"
+Umwandlung nach 2. Regelsatz:  "NETAL"
+Ausgangswort                :  "Mettler"
+
+Umwandlung nach 1. Regelsatz:  "METLA"
+Umwandlung nach 2. Regelsatz:  "NETLA"
+Ausgangswort                :  "Metz"
+
+Umwandlung nach 1. Regelsatz:  "MEZ"
+Umwandlung nach 2. Regelsatz:  "NEZ"
+Ausgangswort                :  "Meuwly"
+
+Umwandlung nach 1. Regelsatz:  "MEUFLI"
+Umwandlung nach 2. Regelsatz:  "NEUFLI"
+Ausgangswort                :  "Meyer"
+
+Umwandlung nach 1. Regelsatz:  "MEIA"
+Umwandlung nach 2. Regelsatz:  "NEIA"
+Ausgangswort                :  "Mi"
+
+Umwandlung nach 1. Regelsatz:  "MI"
+Umwandlung nach 2. Regelsatz:  "NI"
+Ausgangswort                :  "Miani"
+
+Umwandlung nach 1. Regelsatz:  "MIANI"
+Umwandlung nach 2. Regelsatz:  "NIANI"
+Ausgangswort                :  "Michel"
+
+Umwandlung nach 1. Regelsatz:  "MICHL"
+Umwandlung nach 2. Regelsatz:  "NIKL"
+Ausgangswort                :  "Miloradovic"
+
+Umwandlung nach 1. Regelsatz:  "MILORADOWIZ"
+Umwandlung nach 2. Regelsatz:  "NILURATUFIZ"
+Ausgangswort                :  "Misteli"
+
+Umwandlung nach 1. Regelsatz:  "MISTELI"
+Umwandlung nach 2. Regelsatz:  "NIZTELI"
+Ausgangswort                :  "M÷ll"
+
+Umwandlung nach 1. Regelsatz:  "M÷L"
+Umwandlung nach 2. Regelsatz:  "N÷L"
+Ausgangswort                :  "M÷rgeli"
+
+Umwandlung nach 1. Regelsatz:  "M÷RGELI"
+Umwandlung nach 2. Regelsatz:  "N÷RKELI"
+Ausgangswort                :  "Morger"
+
+Umwandlung nach 1. Regelsatz:  "MORGA"
+Umwandlung nach 2. Regelsatz:  "NURKA"
+Ausgangswort                :  "Moser"
+
+Umwandlung nach 1. Regelsatz:  "MOSA"
+Umwandlung nach 2. Regelsatz:  "NUZA"
+Ausgangswort                :  "M÷ser"
+
+Umwandlung nach 1. Regelsatz:  "M÷SER"
+Umwandlung nach 2. Regelsatz:  "N÷ZER"
+Ausgangswort                :  "Mosimann"
+
+Umwandlung nach 1. Regelsatz:  "MOSIMAN"
+Umwandlung nach 2. Regelsatz:  "NUZINAN"
+Ausgangswort                :  "Mseddi"
+
+Umwandlung nach 1. Regelsatz:  "MSEDI"
+Umwandlung nach 2. Regelsatz:  "NZETI"
+Ausgangswort                :  "M'seddi"
+
+Umwandlung nach 1. Regelsatz:  "MSEDI"
+Umwandlung nach 2. Regelsatz:  "NZETI"
+Ausgangswort                :  "Mudroch"
+
+Umwandlung nach 1. Regelsatz:  "MUDROCH"
+Umwandlung nach 2. Regelsatz:  "NUTRUK"
+Ausgangswort                :  "Mnller"
+
+Umwandlung nach 1. Regelsatz:  "NLA"
+Umwandlung nach 2. Regelsatz:  "NLA"
+Ausgangswort                :  "Mnllhauser"
+
+Umwandlung nach 1. Regelsatz:  "NLHAUSA"
+Umwandlung nach 2. Regelsatz:  "NLAUZA"
+Ausgangswort                :  "Mund"
+
+Umwandlung nach 1. Regelsatz:  "MUNT"
+Umwandlung nach 2. Regelsatz:  "NUNT"
+Ausgangswort                :  "Mundschin"
+
+Umwandlung nach 1. Regelsatz:  "MUNSHIN"
+Umwandlung nach 2. Regelsatz:  "NUNZIN"
+Ausgangswort                :  "Muster"
+
+Umwandlung nach 1. Regelsatz:  "MUSTA"
+Umwandlung nach 2. Regelsatz:  "NUZTA"
+Ausgangswort                :  "Nachbur"
+
+Umwandlung nach 1. Regelsatz:  "NACHBUR"
+Umwandlung nach 2. Regelsatz:  "NAKBUR"
+Ausgangswort                :  "Nacht"
+
+Umwandlung nach 1. Regelsatz:  "NACHT"
+Umwandlung nach 2. Regelsatz:  "NAKT"
+Ausgangswort                :  "Nameistunwichtig"
+
+Umwandlung nach 1. Regelsatz:  "NAMEISTUNWICHTIK"
+Umwandlung nach 2. Regelsatz:  "NANEIZTUNFIKTIK"
+Ausgangswort                :  "Nathan"
+
+Umwandlung nach 1. Regelsatz:  "NATAN"
+Umwandlung nach 2. Regelsatz:  "NATAN"
+Ausgangswort                :  "Nazarenus"
+
+Umwandlung nach 1. Regelsatz:  "NAZARENUS"
+Umwandlung nach 2. Regelsatz:  "NAZARENUZ"
+Ausgangswort                :  "Nebel"
+
+Umwandlung nach 1. Regelsatz:  "NEBL"
+Umwandlung nach 2. Regelsatz:  "NEBL"
+Ausgangswort                :  "Nehls"
+
+Umwandlung nach 1. Regelsatz:  "NELS"
+Umwandlung nach 2. Regelsatz:  "NELZ"
+Ausgangswort                :  "Nell"
+
+Umwandlung nach 1. Regelsatz:  "NEL"
+Umwandlung nach 2. Regelsatz:  "NEL"
+Ausgangswort                :  "Nellissen"
+
+Umwandlung nach 1. Regelsatz:  "NELISN"
+Umwandlung nach 2. Regelsatz:  "NELIZN"
+Ausgangswort                :  "Neugebauer"
+
+Umwandlung nach 1. Regelsatz:  "NEUGEBAUA"
+Umwandlung nach 2. Regelsatz:  "NEUKEBAUA"
+Ausgangswort                :  "Neuhaus"
+
+Umwandlung nach 1. Regelsatz:  "NEUHAUS"
+Umwandlung nach 2. Regelsatz:  "NEUAUZ"
+Ausgangswort                :  "Niederberger"
+
+Umwandlung nach 1. Regelsatz:  "NIDABERGA"
+Umwandlung nach 2. Regelsatz:  "NITABAKA"
+Ausgangswort                :  "Niessner"
+
+Umwandlung nach 1. Regelsatz:  "NISNA"
+Umwandlung nach 2. Regelsatz:  "NIZNA"
+Ausgangswort                :  "Nissen"
+
+Umwandlung nach 1. Regelsatz:  "NISN"
+Umwandlung nach 2. Regelsatz:  "NIZN"
+Ausgangswort                :  "Noger"
+
+Umwandlung nach 1. Regelsatz:  "NOGA"
+Umwandlung nach 2. Regelsatz:  "NUKA"
+Ausgangswort                :  "Notter"
+
+Umwandlung nach 1. Regelsatz:  "NOTA"
+Umwandlung nach 2. Regelsatz:  "NUTA"
+Ausgangswort                :  "Nunes"
+
+Umwandlung nach 1. Regelsatz:  "NUNES"
+Umwandlung nach 2. Regelsatz:  "NUNEZ"
+Ausgangswort                :  "Nntzi"
+
+Umwandlung nach 1. Regelsatz:  "NZI"
+Umwandlung nach 2. Regelsatz:  "NZI"
+Ausgangswort                :  "Nydegger"
+
+Umwandlung nach 1. Regelsatz:  "NÜDEGA"
+Umwandlung nach 2. Regelsatz:  "NITEKA"
+Ausgangswort                :  "O'Connor"
+
+Umwandlung nach 1. Regelsatz:  "OKONOR"
+Umwandlung nach 2. Regelsatz:  "UKUNUR"
+Ausgangswort                :  "Odermatt"
+
+Umwandlung nach 1. Regelsatz:  "ODERMAT"
+Umwandlung nach 2. Regelsatz:  "UTANAT"
+Ausgangswort                :  "Oerter"
+
+Umwandlung nach 1. Regelsatz:  "ÖRTA"
+Umwandlung nach 2. Regelsatz:  "ÖRTA"
+Ausgangswort                :  "Oester"
+
+Umwandlung nach 1. Regelsatz:  "ÖSTA"
+Umwandlung nach 2. Regelsatz:  "ÖZTA"
+Ausgangswort                :  "Ogay"
+
+Umwandlung nach 1. Regelsatz:  "OGEI"
+Umwandlung nach 2. Regelsatz:  "UKEI"
+Ausgangswort                :  "Olsthoorn"
+
+Umwandlung nach 1. Regelsatz:  "OLSTORN"
+Umwandlung nach 2. Regelsatz:  "ULZTURN"
+Ausgangswort                :  "O'Reilly"
+
+Umwandlung nach 1. Regelsatz:  "OREILI"
+Umwandlung nach 2. Regelsatz:  "UREILI"
+Ausgangswort                :  "Osicki"
+
+Umwandlung nach 1. Regelsatz:  "OSIKI"
+Umwandlung nach 2. Regelsatz:  "UZIKI"
+Ausgangswort                :  "Otto"
+
+Umwandlung nach 1. Regelsatz:  "OTO"
+Umwandlung nach 2. Regelsatz:  "UTU"
+Ausgangswort                :  "P"
+
+Umwandlung nach 1. Regelsatz:  "P"
+Umwandlung nach 2. Regelsatz:  "B"
+Ausgangswort                :  "Panico"
+
+Umwandlung nach 1. Regelsatz:  "PANIKO"
+Umwandlung nach 2. Regelsatz:  "PANIKU"
+Ausgangswort                :  "Pascali"
+
+Umwandlung nach 1. Regelsatz:  "PASKALI"
+Umwandlung nach 2. Regelsatz:  "PAZKALI"
+Ausgangswort                :  "Paschinger"
+
+Umwandlung nach 1. Regelsatz:  "PASHINGA"
+Umwandlung nach 2. Regelsatz:  "PAZINKA"
+Ausgangswort                :  "Passalacqua"
+
+Umwandlung nach 1. Regelsatz:  "PASALAKWA"
+Umwandlung nach 2. Regelsatz:  "PAZALAKFA"
+Ausgangswort                :  "Paul"
+
+Umwandlung nach 1. Regelsatz:  "PAUL"
+Umwandlung nach 2. Regelsatz:  "PAUL"
+Ausgangswort                :  "Pauli"
+
+Umwandlung nach 1. Regelsatz:  "PAULI"
+Umwandlung nach 2. Regelsatz:  "PAULI"
+Ausgangswort                :  "PBroker"
+
+Umwandlung nach 1. Regelsatz:  "PBROKA"
+Umwandlung nach 2. Regelsatz:  "BRUKA"
+Ausgangswort                :  "Pearce"
+
+Umwandlung nach 1. Regelsatz:  "PIRZE"
+Umwandlung nach 2. Regelsatz:  "PIRZE"
+Ausgangswort                :  "Pecorari"
+
+Umwandlung nach 1. Regelsatz:  "PEKORARI"
+Umwandlung nach 2. Regelsatz:  "PEKURARI"
+Ausgangswort                :  "Peet"
+
+Umwandlung nach 1. Regelsatz:  "PET"
+Umwandlung nach 2. Regelsatz:  "PET"
+Ausgangswort                :  "Perez"
+
+Umwandlung nach 1. Regelsatz:  "PEREZ"
+Umwandlung nach 2. Regelsatz:  "PEREZ"
+Ausgangswort                :  "Pernilla"
+
+Umwandlung nach 1. Regelsatz:  "PERNILA"
+Umwandlung nach 2. Regelsatz:  "PERNILA"
+Ausgangswort                :  "Perret"
+
+Umwandlung nach 1. Regelsatz:  "PERET"
+Umwandlung nach 2. Regelsatz:  "PERET"
+Ausgangswort                :  "Peseschkian"
+
+Umwandlung nach 1. Regelsatz:  "PESESHKIAN"
+Umwandlung nach 2. Regelsatz:  "PEZEZKIAN"
+Ausgangswort                :  "Petecchia"
+
+Umwandlung nach 1. Regelsatz:  "PETEZIA"
+Umwandlung nach 2. Regelsatz:  "PETEZIA"
+Ausgangswort                :  "Peter"
+
+Umwandlung nach 1. Regelsatz:  "PETA"
+Umwandlung nach 2. Regelsatz:  "PETA"
+Ausgangswort                :  "Petkovic"
+
+Umwandlung nach 1. Regelsatz:  "PETKOWIZ"
+Umwandlung nach 2. Regelsatz:  "PETKUFIZ"
+Ausgangswort                :  "Petzold"
+
+Umwandlung nach 1. Regelsatz:  "PEZOLT"
+Umwandlung nach 2. Regelsatz:  "PEZULT"
+Ausgangswort                :  "Pezzei"
+
+Umwandlung nach 1. Regelsatz:  "PEZEI"
+Umwandlung nach 2. Regelsatz:  "PEZEI"
+Ausgangswort                :  "Pfaffinger"
+
+Umwandlung nach 1. Regelsatz:  "FAFINGA"
+Umwandlung nach 2. Regelsatz:  "FAFINKA"
+Ausgangswort                :  "Pfenninger"
+
+Umwandlung nach 1. Regelsatz:  "FENINGA"
+Umwandlung nach 2. Regelsatz:  "FENINKA"
+Ausgangswort                :  "Pfister"
+
+Umwandlung nach 1. Regelsatz:  "FISTA"
+Umwandlung nach 2. Regelsatz:  "FIZTA"
+Ausgangswort                :  "Piaz"
+
+Umwandlung nach 1. Regelsatz:  "PIAZ"
+Umwandlung nach 2. Regelsatz:  "PIAZ"
+Ausgangswort                :  "Pilloud"
+
+Umwandlung nach 1. Regelsatz:  "PILUT"
+Umwandlung nach 2. Regelsatz:  "PILUT"
+Ausgangswort                :  "Piseddu"
+
+Umwandlung nach 1. Regelsatz:  "PISEDU"
+Umwandlung nach 2. Regelsatz:  "PIZETU"
+Ausgangswort                :  "Pissot"
+
+Umwandlung nach 1. Regelsatz:  "PISOT"
+Umwandlung nach 2. Regelsatz:  "PIZUT"
+Ausgangswort                :  "Plattner"
+
+Umwandlung nach 1. Regelsatz:  "PLATNA"
+Umwandlung nach 2. Regelsatz:  "BLATNA"
+Ausgangswort                :  "Plnss"
+
+Umwandlung nach 1. Regelsatz:  "PLNS"
+Umwandlung nach 2. Regelsatz:  "BLNZ"
+Ausgangswort                :  "Polivka"
+
+Umwandlung nach 1. Regelsatz:  "POLIFKA"
+Umwandlung nach 2. Regelsatz:  "PULIFKA"
+Ausgangswort                :  "Polzin"
+
+Umwandlung nach 1. Regelsatz:  "POLZIN"
+Umwandlung nach 2. Regelsatz:  "PULZIN"
+Ausgangswort                :  "Pont"
+
+Umwandlung nach 1. Regelsatz:  "PONT"
+Umwandlung nach 2. Regelsatz:  "PUNT"
+Ausgangswort                :  "Preisig"
+
+Umwandlung nach 1. Regelsatz:  "PREISIK"
+Umwandlung nach 2. Regelsatz:  "PREIZIK"
+Ausgangswort                :  "Pnntener"
+
+Umwandlung nach 1. Regelsatz:  "PNTENA"
+Umwandlung nach 2. Regelsatz:  "BNTENA"
+Ausgangswort                :  "Puric"
+
+Umwandlung nach 1. Regelsatz:  "PURIK"
+Umwandlung nach 2. Regelsatz:  "PURIK"
+Ausgangswort                :  "Puritscher"
+
+Umwandlung nach 1. Regelsatz:  "PURISHA"
+Umwandlung nach 2. Regelsatz:  "PURIZA"
+Ausgangswort                :  "Pusztay"
+
+Umwandlung nach 1. Regelsatz:  "PUSTEI"
+Umwandlung nach 2. Regelsatz:  "PUZTEI"
+Ausgangswort                :  "R"
+
+Umwandlung nach 1. Regelsatz:  "R"
+Umwandlung nach 2. Regelsatz:  "R"
+Ausgangswort                :  "Rademacher"
+
+Umwandlung nach 1. Regelsatz:  "RADEMACHA"
+Umwandlung nach 2. Regelsatz:  "RATENAKA"
+Ausgangswort                :  "Radtke"
+
+Umwandlung nach 1. Regelsatz:  "RATKE"
+Umwandlung nach 2. Regelsatz:  "RATKE"
+Ausgangswort                :  "Raemy"
+
+Umwandlung nach 1. Regelsatz:  "REMI"
+Umwandlung nach 2. Regelsatz:  "RENI"
+Ausgangswort                :  "Raetzo"
+
+Umwandlung nach 1. Regelsatz:  "REZO"
+Umwandlung nach 2. Regelsatz:  "REZU"
+Ausgangswort                :  "Rahm"
+
+Umwandlung nach 1. Regelsatz:  "RAM"
+Umwandlung nach 2. Regelsatz:  "RAN"
+Ausgangswort                :  "Ramseier"
+
+Umwandlung nach 1. Regelsatz:  "RAMSEIA"
+Umwandlung nach 2. Regelsatz:  "RANZEIA"
+Ausgangswort                :  "Raniolo"
+
+Umwandlung nach 1. Regelsatz:  "RANIOLO"
+Umwandlung nach 2. Regelsatz:  "RANIULU"
+Ausgangswort                :  "Re"
+
+Umwandlung nach 1. Regelsatz:  "RE"
+Umwandlung nach 2. Regelsatz:  "RE"
+Ausgangswort                :  "Rebbert"
+
+Umwandlung nach 1. Regelsatz:  "REBERT"
+Umwandlung nach 2. Regelsatz:  "REBAT"
+Ausgangswort                :  "Reese"
+
+Umwandlung nach 1. Regelsatz:  "RESE"
+Umwandlung nach 2. Regelsatz:  "REZE"
+Ausgangswort                :  "Reid"
+
+Umwandlung nach 1. Regelsatz:  "REIT"
+Umwandlung nach 2. Regelsatz:  "REIT"
+Ausgangswort                :  "Reif"
+
+Umwandlung nach 1. Regelsatz:  "REIF"
+Umwandlung nach 2. Regelsatz:  "REIF"
+Ausgangswort                :  "Reiff"
+
+Umwandlung nach 1. Regelsatz:  "REIF"
+Umwandlung nach 2. Regelsatz:  "REIF"
+Ausgangswort                :  "Reimann"
+
+Umwandlung nach 1. Regelsatz:  "REIMAN"
+Umwandlung nach 2. Regelsatz:  "REINAN"
+Ausgangswort                :  "Reinhard"
+
+Umwandlung nach 1. Regelsatz:  "REINART"
+Umwandlung nach 2. Regelsatz:  "REINART"
+Ausgangswort                :  "Reiter"
+
+Umwandlung nach 1. Regelsatz:  "REITA"
+Umwandlung nach 2. Regelsatz:  "REITA"
+Ausgangswort                :  "Remund"
+
+Umwandlung nach 1. Regelsatz:  "REMUNT"
+Umwandlung nach 2. Regelsatz:  "RENUNT"
+Ausgangswort                :  "RTmy"
+
+Umwandlung nach 1. Regelsatz:  "RTMI"
+Umwandlung nach 2. Regelsatz:  "RTNI"
+Ausgangswort                :  "Rentsch"
+
+Umwandlung nach 1. Regelsatz:  "RENSH"
+Umwandlung nach 2. Regelsatz:  "RENZ"
+Ausgangswort                :  "Repond"
+
+Umwandlung nach 1. Regelsatz:  "REPONT"
+Umwandlung nach 2. Regelsatz:  "REPUNT"
+Ausgangswort                :  "Riboni"
+
+Umwandlung nach 1. Regelsatz:  "RIBONI"
+Umwandlung nach 2. Regelsatz:  "RIBUNI"
+Ausgangswort                :  "Richard"
+
+Umwandlung nach 1. Regelsatz:  "RICHART"
+Umwandlung nach 2. Regelsatz:  "RIKART"
+Ausgangswort                :  "Richoz"
+
+Umwandlung nach 1. Regelsatz:  "RICHOS"
+Umwandlung nach 2. Regelsatz:  "RIKUZ"
+Ausgangswort                :  "Rieder"
+
+Umwandlung nach 1. Regelsatz:  "RIDA"
+Umwandlung nach 2. Regelsatz:  "RITA"
+Ausgangswort                :  "Riederer"
+
+Umwandlung nach 1. Regelsatz:  "RIDERA"
+Umwandlung nach 2. Regelsatz:  "RITA"
+Ausgangswort                :  "Riehm"
+
+Umwandlung nach 1. Regelsatz:  "RIM"
+Umwandlung nach 2. Regelsatz:  "RIN"
+Ausgangswort                :  "Rieken"
+
+Umwandlung nach 1. Regelsatz:  "RIKN"
+Umwandlung nach 2. Regelsatz:  "RIKN"
+Ausgangswort                :  "Rieker"
+
+Umwandlung nach 1. Regelsatz:  "RIKA"
+Umwandlung nach 2. Regelsatz:  "RIKA"
+Ausgangswort                :  "Rietmann"
+
+Umwandlung nach 1. Regelsatz:  "RITMAN"
+Umwandlung nach 2. Regelsatz:  "RITNAN"
+Ausgangswort                :  "Rink"
+
+Umwandlung nach 1. Regelsatz:  "RINK"
+Umwandlung nach 2. Regelsatz:  "RINK"
+Ausgangswort                :  "Riordan"
+
+Umwandlung nach 1. Regelsatz:  "RIORDAN"
+Umwandlung nach 2. Regelsatz:  "RIURTAN"
+Ausgangswort                :  "Ris"
+
+Umwandlung nach 1. Regelsatz:  "RIS"
+Umwandlung nach 2. Regelsatz:  "RIZ"
+Ausgangswort                :  "Robbins"
+
+Umwandlung nach 1. Regelsatz:  "ROBINS"
+Umwandlung nach 2. Regelsatz:  "RUBINZ"
+Ausgangswort                :  "Roberts"
+
+Umwandlung nach 1. Regelsatz:  "ROBERZ"
+Umwandlung nach 2. Regelsatz:  "RUBAZ"
+Ausgangswort                :  "Robroek"
+
+Umwandlung nach 1. Regelsatz:  "ROBRÖK"
+Umwandlung nach 2. Regelsatz:  "RUBRÖK"
+Ausgangswort                :  "Rodriguez"
+
+Umwandlung nach 1. Regelsatz:  "RODRIGÜZ"
+Umwandlung nach 2. Regelsatz:  "RUTRIKIZ"
+Ausgangswort                :  "Roger"
+
+Umwandlung nach 1. Regelsatz:  "ROGA"
+Umwandlung nach 2. Regelsatz:  "RUKA"
+Ausgangswort                :  "Rognon"
+
+Umwandlung nach 1. Regelsatz:  "RONION"
+Umwandlung nach 2. Regelsatz:  "RUNIUN"
+Ausgangswort                :  "Rohde"
+
+Umwandlung nach 1. Regelsatz:  "RODE"
+Umwandlung nach 2. Regelsatz:  "RUTE"
+Ausgangswort                :  "Rohner"
+
+Umwandlung nach 1. Regelsatz:  "RONA"
+Umwandlung nach 2. Regelsatz:  "RUNA"
+Ausgangswort                :  "Rohrer"
+
+Umwandlung nach 1. Regelsatz:  "RORA"
+Umwandlung nach 2. Regelsatz:  "RURA"
+Ausgangswort                :  "Rolla"
+
+Umwandlung nach 1. Regelsatz:  "ROLA"
+Umwandlung nach 2. Regelsatz:  "RULA"
+Ausgangswort                :  "Romano"
+
+Umwandlung nach 1. Regelsatz:  "ROMANO"
+Umwandlung nach 2. Regelsatz:  "RUNANU"
+Ausgangswort                :  "Roncaglioni"
+
+Umwandlung nach 1. Regelsatz:  "RONKAGLIONI"
+Umwandlung nach 2. Regelsatz:  "RUNKAKLIUNI"
+Ausgangswort                :  "Ronchetti"
+
+Umwandlung nach 1. Regelsatz:  "RONCHETI"
+Umwandlung nach 2. Regelsatz:  "RUNKETI"
+Ausgangswort                :  "Rose"
+
+Umwandlung nach 1. Regelsatz:  "ROSE"
+Umwandlung nach 2. Regelsatz:  "RUZE"
+Ausgangswort                :  "R÷singer"
+
+Umwandlung nach 1. Regelsatz:  "R÷SINGA"
+Umwandlung nach 2. Regelsatz:  "R÷ZINKA"
+Ausgangswort                :  "Rossier"
+
+Umwandlung nach 1. Regelsatz:  "ROSIR"
+Umwandlung nach 2. Regelsatz:  "RUZIR"
+Ausgangswort                :  "Rotach"
+
+Umwandlung nach 1. Regelsatz:  "ROTACH"
+Umwandlung nach 2. Regelsatz:  "RUTAK"
+Ausgangswort                :  "Roth"
+
+Umwandlung nach 1. Regelsatz:  "ROT"
+Umwandlung nach 2. Regelsatz:  "RUT"
+Ausgangswort                :  "Rothen"
+
+Umwandlung nach 1. Regelsatz:  "ROTN"
+Umwandlung nach 2. Regelsatz:  "RUTN"
+Ausgangswort                :  "Rnber"
+
+Umwandlung nach 1. Regelsatz:  "RNBA"
+Umwandlung nach 2. Regelsatz:  "RNBA"
+Ausgangswort                :  "Rubli"
+
+Umwandlung nach 1. Regelsatz:  "RUBLI"
+Umwandlung nach 2. Regelsatz:  "RUBLI"
+Ausgangswort                :  "Ruchti"
+
+Umwandlung nach 1. Regelsatz:  "RUCHTI"
+Umwandlung nach 2. Regelsatz:  "RUKTI"
+Ausgangswort                :  "Ruckstuhl"
+
+Umwandlung nach 1. Regelsatz:  "RUXTUL"
+Umwandlung nach 2. Regelsatz:  "RUXTUL"
+Ausgangswort                :  "Rudaz"
+
+Umwandlung nach 1. Regelsatz:  "RUDAZ"
+Umwandlung nach 2. Regelsatz:  "RUTAZ"
+Ausgangswort                :  "Rudolf"
+
+Umwandlung nach 1. Regelsatz:  "RUDOLF"
+Umwandlung nach 2. Regelsatz:  "RUTULF"
+Ausgangswort                :  "Ruef"
+
+Umwandlung nach 1. Regelsatz:  "RÜF"
+Umwandlung nach 2. Regelsatz:  "RIF"
+Ausgangswort                :  "Rnetschi"
+
+Umwandlung nach 1. Regelsatz:  "RNESHI"
+Umwandlung nach 2. Regelsatz:  "RNEZI"
+Ausgangswort                :  "Ruffieux"
+
+Umwandlung nach 1. Regelsatz:  "RUFIÖX"
+Umwandlung nach 2. Regelsatz:  "RUFIÖX"
+Ausgangswort                :  "Rnmbeli"
+
+Umwandlung nach 1. Regelsatz:  "RNMBELI"
+Umwandlung nach 2. Regelsatz:  "RNBELI"
+Ausgangswort                :  "Rnst"
+
+Umwandlung nach 1. Regelsatz:  "RNST"
+Umwandlung nach 2. Regelsatz:  "RNZT"
+Ausgangswort                :  "Ryser"
+
+Umwandlung nach 1. Regelsatz:  "RÜSA"
+Umwandlung nach 2. Regelsatz:  "RIZA"
+Ausgangswort                :  "S."
+
+Umwandlung nach 1. Regelsatz:  "S."
+Umwandlung nach 2. Regelsatz:  "Z."
+Ausgangswort                :  "SSgesser"
+
+Umwandlung nach 1. Regelsatz:  "SGESA"
+Umwandlung nach 2. Regelsatz:  "ZKEZA"
+Ausgangswort                :  "Salami"
+
+Umwandlung nach 1. Regelsatz:  "SALAMI"
+Umwandlung nach 2. Regelsatz:  "ZALANI"
+Ausgangswort                :  "SalathT"
+
+Umwandlung nach 1. Regelsatz:  "SALAT"
+Umwandlung nach 2. Regelsatz:  "ZALAT"
+Ausgangswort                :  "Salvisberg"
+
+Umwandlung nach 1. Regelsatz:  "SALWISBERK"
+Umwandlung nach 2. Regelsatz:  "ZALFIZBAK"
+Ausgangswort                :  "Santona"
+
+Umwandlung nach 1. Regelsatz:  "SANTONA"
+Umwandlung nach 2. Regelsatz:  "ZANTUNA"
+Ausgangswort                :  "Santoro"
+
+Umwandlung nach 1. Regelsatz:  "SANTORO"
+Umwandlung nach 2. Regelsatz:  "ZANTURU"
+Ausgangswort                :  "Sasson"
+
+Umwandlung nach 1. Regelsatz:  "SASON"
+Umwandlung nach 2. Regelsatz:  "ZAZUN"
+Ausgangswort                :  "Savic"
+
+Umwandlung nach 1. Regelsatz:  "SAWIZ"
+Umwandlung nach 2. Regelsatz:  "ZAFIZ"
+Ausgangswort                :  "Savoldelli"
+
+Umwandlung nach 1. Regelsatz:  "SAWOLDELI"
+Umwandlung nach 2. Regelsatz:  "ZAFULTELI"
+Ausgangswort                :  "Scarlin"
+
+Umwandlung nach 1. Regelsatz:  "SKARLIN"
+Umwandlung nach 2. Regelsatz:  "ZKARLIN"
+Ausgangswort                :  "SchSfer"
+
+Umwandlung nach 1. Regelsatz:  "SHSFA"
+Umwandlung nach 2. Regelsatz:  "ZFA"
+Ausgangswort                :  "Schaffner"
+
+Umwandlung nach 1. Regelsatz:  "SHAFNA"
+Umwandlung nach 2. Regelsatz:  "ZAFNA"
+Ausgangswort                :  "Schaller"
+
+Umwandlung nach 1. Regelsatz:  "SHALA"
+Umwandlung nach 2. Regelsatz:  "ZALA"
+Ausgangswort                :  "SchSr"
+
+Umwandlung nach 1. Regelsatz:  "SHSR"
+Umwandlung nach 2. Regelsatz:  "ZR"
+Ausgangswort                :  "SchSrer"
+
+Umwandlung nach 1. Regelsatz:  "SHSRA"
+Umwandlung nach 2. Regelsatz:  "ZRA"
+Ausgangswort                :  "Schaub"
+
+Umwandlung nach 1. Regelsatz:  "SHAUB"
+Umwandlung nach 2. Regelsatz:  "ZAUB"
+Ausgangswort                :  "Scheerle"
+
+Umwandlung nach 1. Regelsatz:  "SHERLE"
+Umwandlung nach 2. Regelsatz:  "ZERLE"
+Ausgangswort                :  "Scheidegger"
+
+Umwandlung nach 1. Regelsatz:  "SHEIDEGA"
+Umwandlung nach 2. Regelsatz:  "ZEITEKA"
+Ausgangswort                :  "Schenk"
+
+Umwandlung nach 1. Regelsatz:  "SHENK"
+Umwandlung nach 2. Regelsatz:  "ZENK"
+Ausgangswort                :  "Scherer"
+
+Umwandlung nach 1. Regelsatz:  "SHERA"
+Umwandlung nach 2. Regelsatz:  "ZERA"
+Ausgangswort                :  "Schick"
+
+Umwandlung nach 1. Regelsatz:  "SHIK"
+Umwandlung nach 2. Regelsatz:  "ZIK"
+Ausgangswort                :  "Schiegg"
+
+Umwandlung nach 1. Regelsatz:  "SHIK"
+Umwandlung nach 2. Regelsatz:  "ZIK"
+Ausgangswort                :  "Schiermeier"
+
+Umwandlung nach 1. Regelsatz:  "SHIRMEIA"
+Umwandlung nach 2. Regelsatz:  "ZIRNEIA"
+Ausgangswort                :  "Schiess"
+
+Umwandlung nach 1. Regelsatz:  "SHIS"
+Umwandlung nach 2. Regelsatz:  "ZIZ"
+Ausgangswort                :  "Schild"
+
+Umwandlung nach 1. Regelsatz:  "SHILT"
+Umwandlung nach 2. Regelsatz:  "ZILT"
+Ausgangswort                :  "Schildknecht"
+
+Umwandlung nach 1. Regelsatz:  "SHILTKNECHT"
+Umwandlung nach 2. Regelsatz:  "ZILTKNEKT"
+Ausgangswort                :  "Schlumpf"
+
+Umwandlung nach 1. Regelsatz:  "SHLUMF"
+Umwandlung nach 2. Regelsatz:  "ZLUNF"
+Ausgangswort                :  "Schmid"
+
+Umwandlung nach 1. Regelsatz:  "SHMIT"
+Umwandlung nach 2. Regelsatz:  "ZNIT"
+Ausgangswort                :  "Schmidiger"
+
+Umwandlung nach 1. Regelsatz:  "SHMIDIGA"
+Umwandlung nach 2. Regelsatz:  "ZNITIKA"
+Ausgangswort                :  "Schmidt"
+
+Umwandlung nach 1. Regelsatz:  "SHMIT"
+Umwandlung nach 2. Regelsatz:  "ZNIT"
+Ausgangswort                :  "Schmied"
+
+Umwandlung nach 1. Regelsatz:  "SHMIT"
+Umwandlung nach 2. Regelsatz:  "ZNIT"
+Ausgangswort                :  "Schmutz"
+
+Umwandlung nach 1. Regelsatz:  "SHMUZ"
+Umwandlung nach 2. Regelsatz:  "ZNUZ"
+Ausgangswort                :  "Schneeberger"
+
+Umwandlung nach 1. Regelsatz:  "SHNEBERGA"
+Umwandlung nach 2. Regelsatz:  "ZNEBAKA"
+Ausgangswort                :  "Schnegg"
+
+Umwandlung nach 1. Regelsatz:  "SHNEK"
+Umwandlung nach 2. Regelsatz:  "ZNEK"
+Ausgangswort                :  "Schneider"
+
+Umwandlung nach 1. Regelsatz:  "SHNEIDA"
+Umwandlung nach 2. Regelsatz:  "ZNEITA"
+Ausgangswort                :  "Schnell"
+
+Umwandlung nach 1. Regelsatz:  "SHNEL"
+Umwandlung nach 2. Regelsatz:  "ZNEL"
+Ausgangswort                :  "Schnidrig"
+
+Umwandlung nach 1. Regelsatz:  "SHNIDRIK"
+Umwandlung nach 2. Regelsatz:  "ZNITRIK"
+Ausgangswort                :  "Schnyder"
+
+Umwandlung nach 1. Regelsatz:  "SHNÜDA"
+Umwandlung nach 2. Regelsatz:  "ZNITA"
+Ausgangswort                :  "Sch÷nenberg"
+
+Umwandlung nach 1. Regelsatz:  "SH÷NENBERK"
+Umwandlung nach 2. Regelsatz:  "Z÷NENBAK"
+Ausgangswort                :  "Schori"
+
+Umwandlung nach 1. Regelsatz:  "SHORI"
+Umwandlung nach 2. Regelsatz:  "ZURI"
+Ausgangswort                :  "Schrag"
+
+Umwandlung nach 1. Regelsatz:  "SHRAK"
+Umwandlung nach 2. Regelsatz:  "ZRAK"
+Ausgangswort                :  "Schnck"
+
+Umwandlung nach 1. Regelsatz:  "SHNK"
+Umwandlung nach 2. Regelsatz:  "ZNK"
+Ausgangswort                :  "Schugg"
+
+Umwandlung nach 1. Regelsatz:  "SHUK"
+Umwandlung nach 2. Regelsatz:  "ZUK"
+Ausgangswort                :  "Schumacher"
+
+Umwandlung nach 1. Regelsatz:  "SHUMACHA"
+Umwandlung nach 2. Regelsatz:  "ZUNAKA"
+Ausgangswort                :  "Schntt"
+
+Umwandlung nach 1. Regelsatz:  "SHNT"
+Umwandlung nach 2. Regelsatz:  "ZNT"
+Ausgangswort                :  "Schntz"
+
+Umwandlung nach 1. Regelsatz:  "SHNZ"
+Umwandlung nach 2. Regelsatz:  "ZNZ"
+Ausgangswort                :  "Schwab"
+
+Umwandlung nach 1. Regelsatz:  "SHWAB"
+Umwandlung nach 2. Regelsatz:  "ZFAB"
+Ausgangswort                :  "Schwarz"
+
+Umwandlung nach 1. Regelsatz:  "SHWARZ"
+Umwandlung nach 2. Regelsatz:  "ZFARZ"
+Ausgangswort                :  "Schwarzen"
+
+Umwandlung nach 1. Regelsatz:  "SHWARZN"
+Umwandlung nach 2. Regelsatz:  "ZFARZN"
+Ausgangswort                :  "Schwarzenbach"
+
+Umwandlung nach 1. Regelsatz:  "SHWARZNBACH"
+Umwandlung nach 2. Regelsatz:  "ZFARZNBAK"
+Ausgangswort                :  "Schweizer"
+
+Umwandlung nach 1. Regelsatz:  "SHWEIZA"
+Umwandlung nach 2. Regelsatz:  "ZFEIZA"
+Ausgangswort                :  "Schwendimann"
+
+Umwandlung nach 1. Regelsatz:  "SHWENDIMAN"
+Umwandlung nach 2. Regelsatz:  "ZFENTINAN"
+Ausgangswort                :  "Schwenk"
+
+Umwandlung nach 1. Regelsatz:  "SHWENK"
+Umwandlung nach 2. Regelsatz:  "ZFENK"
+Ausgangswort                :  "Seiffert"
+
+Umwandlung nach 1. Regelsatz:  "SEIFAT"
+Umwandlung nach 2. Regelsatz:  "ZEIFAT"
+Ausgangswort                :  "Seiler"
+
+Umwandlung nach 1. Regelsatz:  "SEILA"
+Umwandlung nach 2. Regelsatz:  "ZEILA"
+Ausgangswort                :  "Selow"
+
+Umwandlung nach 1. Regelsatz:  "SELOF"
+Umwandlung nach 2. Regelsatz:  "ZELUF"
+Ausgangswort                :  "Senft"
+
+Umwandlung nach 1. Regelsatz:  "SENFT"
+Umwandlung nach 2. Regelsatz:  "ZENFT"
+Ausgangswort                :  "Sennert"
+
+Umwandlung nach 1. Regelsatz:  "SENAT"
+Umwandlung nach 2. Regelsatz:  "ZENAT"
+Ausgangswort                :  "Seres"
+
+Umwandlung nach 1. Regelsatz:  "SERES"
+Umwandlung nach 2. Regelsatz:  "ZEREZ"
+Ausgangswort                :  "Serra"
+
+Umwandlung nach 1. Regelsatz:  "SERA"
+Umwandlung nach 2. Regelsatz:  "ZERA"
+Ausgangswort                :  "Sertkaya"
+
+Umwandlung nach 1. Regelsatz:  "SERTKAIA"
+Umwandlung nach 2. Regelsatz:  "ZERTKAIA"
+Ausgangswort                :  "Sherry"
+
+Umwandlung nach 1. Regelsatz:  "SHERI"
+Umwandlung nach 2. Regelsatz:  "ZARI"
+Ausgangswort                :  "Sidler"
+
+Umwandlung nach 1. Regelsatz:  "SITLA"
+Umwandlung nach 2. Regelsatz:  "ZITLA"
+Ausgangswort                :  "Sieber"
+
+Umwandlung nach 1. Regelsatz:  "SIBA"
+Umwandlung nach 2. Regelsatz:  "ZIBA"
+Ausgangswort                :  "Siegenthaler"
+
+Umwandlung nach 1. Regelsatz:  "SIGENTALA"
+Umwandlung nach 2. Regelsatz:  "ZIKENTALA"
+Ausgangswort                :  "Sigg"
+
+Umwandlung nach 1. Regelsatz:  "SIK"
+Umwandlung nach 2. Regelsatz:  "ZIK"
+Ausgangswort                :  "Sigl"
+
+Umwandlung nach 1. Regelsatz:  "SIGL"
+Umwandlung nach 2. Regelsatz:  "ZIKL"
+Ausgangswort                :  "Signer"
+
+Umwandlung nach 1. Regelsatz:  "SEINA"
+Umwandlung nach 2. Regelsatz:  "ZEINA"
+Ausgangswort                :  "Simon"
+
+Umwandlung nach 1. Regelsatz:  "SIMON"
+Umwandlung nach 2. Regelsatz:  "ZINUN"
+Ausgangswort                :  "Sliwa"
+
+Umwandlung nach 1. Regelsatz:  "SLIWA"
+Umwandlung nach 2. Regelsatz:  "ZLIFA"
+Ausgangswort                :  "Smaili"
+
+Umwandlung nach 1. Regelsatz:  "SMEILI"
+Umwandlung nach 2. Regelsatz:  "ZNEILI"
+Ausgangswort                :  "Smith"
+
+Umwandlung nach 1. Regelsatz:  "SMIT"
+Umwandlung nach 2. Regelsatz:  "ZNIT"
+Ausgangswort                :  "Soder"
+
+Umwandlung nach 1. Regelsatz:  "SODA"
+Umwandlung nach 2. Regelsatz:  "ZUTA"
+Ausgangswort                :  "Sollberger"
+
+Umwandlung nach 1. Regelsatz:  "SOLBERGA"
+Umwandlung nach 2. Regelsatz:  "ZULBAKA"
+Ausgangswort                :  "Sonderegger"
+
+Umwandlung nach 1. Regelsatz:  "SONDEREGA"
+Umwandlung nach 2. Regelsatz:  "ZUNTAEKA"
+Ausgangswort                :  "S÷rensen"
+
+Umwandlung nach 1. Regelsatz:  "S÷RENSN"
+Umwandlung nach 2. Regelsatz:  "Z÷RENZN"
+Ausgangswort                :  "Sottas"
+
+Umwandlung nach 1. Regelsatz:  "SOTAS"
+Umwandlung nach 2. Regelsatz:  "ZUTAZ"
+Ausgangswort                :  "Spicher"
+
+Umwandlung nach 1. Regelsatz:  "SPICHA"
+Umwandlung nach 2. Regelsatz:  "ZPIKA"
+Ausgangswort                :  "Spichiger"
+
+Umwandlung nach 1. Regelsatz:  "SPISHIGA"
+Umwandlung nach 2. Regelsatz:  "ZPIZIKA"
+Ausgangswort                :  "Spichty"
+
+Umwandlung nach 1. Regelsatz:  "SPICHTI"
+Umwandlung nach 2. Regelsatz:  "ZPIKTI"
+Ausgangswort                :  "Spoljaric"
+
+Umwandlung nach 1. Regelsatz:  "SPOLIARIK"
+Umwandlung nach 2. Regelsatz:  "ZPULIARIK"
+Ausgangswort                :  "Sponholz"
+
+Umwandlung nach 1. Regelsatz:  "SPONOLZ"
+Umwandlung nach 2. Regelsatz:  "ZPUNULZ"
+Ausgangswort                :  "Sp÷ri"
+
+Umwandlung nach 1. Regelsatz:  "SP÷RI"
+Umwandlung nach 2. Regelsatz:  "ZB÷RI"
+Ausgangswort                :  "Spring"
+
+Umwandlung nach 1. Regelsatz:  "SPRINK"
+Umwandlung nach 2. Regelsatz:  "ZPRINK"
+Ausgangswort                :  "Stader"
+
+Umwandlung nach 1. Regelsatz:  "STADA"
+Umwandlung nach 2. Regelsatz:  "ZTATA"
+Ausgangswort                :  "Stadler"
+
+Umwandlung nach 1. Regelsatz:  "STATLA"
+Umwandlung nach 2. Regelsatz:  "ZTATLA"
+Ausgangswort                :  "Stahl"
+
+Umwandlung nach 1. Regelsatz:  "STAL"
+Umwandlung nach 2. Regelsatz:  "ZTAL"
+Ausgangswort                :  "StShli"
+
+Umwandlung nach 1. Regelsatz:  "STSHLI"
+Umwandlung nach 2. Regelsatz:  "ZTZLI"
+Ausgangswort                :  "Stalder"
+
+Umwandlung nach 1. Regelsatz:  "STALDA"
+Umwandlung nach 2. Regelsatz:  "ZTALTA"
+Ausgangswort                :  "Stalinski"
+
+Umwandlung nach 1. Regelsatz:  "STALINSKI"
+Umwandlung nach 2. Regelsatz:  "ZTALINZKI"
+Ausgangswort                :  "StSmpfli"
+
+Umwandlung nach 1. Regelsatz:  "ZMFLI"
+Umwandlung nach 2. Regelsatz:  "ZNFLI"
+Ausgangswort                :  "Staub"
+
+Umwandlung nach 1. Regelsatz:  "STAUB"
+Umwandlung nach 2. Regelsatz:  "ZTAUB"
+Ausgangswort                :  "Stauffer"
+
+Umwandlung nach 1. Regelsatz:  "STAUFA"
+Umwandlung nach 2. Regelsatz:  "ZTAUFA"
+Ausgangswort                :  "Steck"
+
+Umwandlung nach 1. Regelsatz:  "STEK"
+Umwandlung nach 2. Regelsatz:  "ZTEK"
+Ausgangswort                :  "Stefania"
+
+Umwandlung nach 1. Regelsatz:  "STEFANIA"
+Umwandlung nach 2. Regelsatz:  "ZTEFANIA"
+Ausgangswort                :  "Steffen"
+
+Umwandlung nach 1. Regelsatz:  "STEFN"
+Umwandlung nach 2. Regelsatz:  "ZTEFN"
+Ausgangswort                :  "Steiger"
+
+Umwandlung nach 1. Regelsatz:  "STEIGA"
+Umwandlung nach 2. Regelsatz:  "ZTEIKA"
+Ausgangswort                :  "Steinemann"
+
+Umwandlung nach 1. Regelsatz:  "STEINEMAN"
+Umwandlung nach 2. Regelsatz:  "ZTEINENAN"
+Ausgangswort                :  "Steiner"
+
+Umwandlung nach 1. Regelsatz:  "STEINA"
+Umwandlung nach 2. Regelsatz:  "ZTEINA"
+Ausgangswort                :  "Sterchi"
+
+Umwandlung nach 1. Regelsatz:  "STERCHI"
+Umwandlung nach 2. Regelsatz:  "ZTERKI"
+Ausgangswort                :  "Stettler"
+
+Umwandlung nach 1. Regelsatz:  "STETLA"
+Umwandlung nach 2. Regelsatz:  "ZTETLA"
+Ausgangswort                :  "Stevens"
+
+Umwandlung nach 1. Regelsatz:  "STEWNS"
+Umwandlung nach 2. Regelsatz:  "ZTEFNZ"
+Ausgangswort                :  "Stewart"
+
+Umwandlung nach 1. Regelsatz:  "STEWART"
+Umwandlung nach 2. Regelsatz:  "ZTEFART"
+Ausgangswort                :  "Stich"
+
+Umwandlung nach 1. Regelsatz:  "STICH"
+Umwandlung nach 2. Regelsatz:  "ZTIK"
+Ausgangswort                :  "Stingelin"
+
+Umwandlung nach 1. Regelsatz:  "STINGELIN"
+Umwandlung nach 2. Regelsatz:  "ZTINKELIN"
+Ausgangswort                :  "Stocker"
+
+Umwandlung nach 1. Regelsatz:  "STOKA"
+Umwandlung nach 2. Regelsatz:  "ZTUKA"
+Ausgangswort                :  "Stocker-Bosshardt"
+
+Umwandlung nach 1. Regelsatz:  "STOKA BOSHART"
+Umwandlung nach 2. Regelsatz:  "ZTUKA BUZART"
+Ausgangswort                :  "Stoll"
+
+Umwandlung nach 1. Regelsatz:  "STOL"
+Umwandlung nach 2. Regelsatz:  "ZTUL"
+Ausgangswort                :  "St÷ssl"
+
+Umwandlung nach 1. Regelsatz:  "ST÷SL"
+Umwandlung nach 2. Regelsatz:  "ZT÷ZL"
+Ausgangswort                :  "Stoupa"
+
+Umwandlung nach 1. Regelsatz:  "STUPA"
+Umwandlung nach 2. Regelsatz:  "ZTUPA"
+Ausgangswort                :  "StrSsser"
+
+Umwandlung nach 1. Regelsatz:  "STRSA"
+Umwandlung nach 2. Regelsatz:  "ZTRZA"
+Ausgangswort                :  "Straumann"
+
+Umwandlung nach 1. Regelsatz:  "STRAUMAN"
+Umwandlung nach 2. Regelsatz:  "ZTRAUNAN"
+Ausgangswort                :  "Strege"
+
+Umwandlung nach 1. Regelsatz:  "STREGE"
+Umwandlung nach 2. Regelsatz:  "ZTREKE"
+Ausgangswort                :  "Strehl"
+
+Umwandlung nach 1. Regelsatz:  "STREL"
+Umwandlung nach 2. Regelsatz:  "ZTREL"
+Ausgangswort                :  "Streit"
+
+Umwandlung nach 1. Regelsatz:  "STREIT"
+Umwandlung nach 2. Regelsatz:  "ZTREIT"
+Ausgangswort                :  "Stricker"
+
+Umwandlung nach 1. Regelsatz:  "STRIKA"
+Umwandlung nach 2. Regelsatz:  "ZTRIKA"
+Ausgangswort                :  "Str÷er"
+
+Umwandlung nach 1. Regelsatz:  "STR÷ER"
+Umwandlung nach 2. Regelsatz:  "ZTR÷ER"
+Ausgangswort                :  "Stuber"
+
+Umwandlung nach 1. Regelsatz:  "STUBA"
+Umwandlung nach 2. Regelsatz:  "ZTUBA"
+Ausgangswort                :  "Stucki"
+
+Umwandlung nach 1. Regelsatz:  "STUKI"
+Umwandlung nach 2. Regelsatz:  "ZTUKI"
+Ausgangswort                :  "Studer"
+
+Umwandlung nach 1. Regelsatz:  "STUDA"
+Umwandlung nach 2. Regelsatz:  "ZTUTA"
+Ausgangswort                :  "Stuker"
+
+Umwandlung nach 1. Regelsatz:  "STUKA"
+Umwandlung nach 2. Regelsatz:  "ZTUKA"
+Ausgangswort                :  "Stulz"
+
+Umwandlung nach 1. Regelsatz:  "STULZ"
+Umwandlung nach 2. Regelsatz:  "ZTULZ"
+Ausgangswort                :  "Sturzenegger"
+
+Umwandlung nach 1. Regelsatz:  "STURZENEGA"
+Umwandlung nach 2. Regelsatz:  "ZTURZENEKA"
+Ausgangswort                :  "Stutz"
+
+Umwandlung nach 1. Regelsatz:  "STUZ"
+Umwandlung nach 2. Regelsatz:  "ZTUZ"
+Ausgangswort                :  "Sulke"
+
+Umwandlung nach 1. Regelsatz:  "SULKE"
+Umwandlung nach 2. Regelsatz:  "ZULKE"
+Ausgangswort                :  "Suominen"
+
+Umwandlung nach 1. Regelsatz:  "SUOMINEN"
+Umwandlung nach 2. Regelsatz:  "ZUNINEN"
+Ausgangswort                :  "Suter"
+
+Umwandlung nach 1. Regelsatz:  "SUTA"
+Umwandlung nach 2. Regelsatz:  "ZUTA"
+Ausgangswort                :  "Suter1"
+
+Umwandlung nach 1. Regelsatz:  "SUTA1"
+Umwandlung nach 2. Regelsatz:  "ZUTA1"
+Ausgangswort                :  "Sutter"
+
+Umwandlung nach 1. Regelsatz:  "SUTA"
+Umwandlung nach 2. Regelsatz:  "ZUTA"
+Ausgangswort                :  "Sntterlin"
+
+Umwandlung nach 1. Regelsatz:  "SNTERLIN"
+Umwandlung nach 2. Regelsatz:  "ZNTALIN"
+Ausgangswort                :  "Svitek"
+
+Umwandlung nach 1. Regelsatz:  "SWITEK"
+Umwandlung nach 2. Regelsatz:  "ZFITEK"
+Ausgangswort                :  "Szasz"
+
+Umwandlung nach 1. Regelsatz:  "SHASH"
+Umwandlung nach 2. Regelsatz:  "ZAZ"
+Ausgangswort                :  "Ta"
+
+Umwandlung nach 1. Regelsatz:  "TA"
+Umwandlung nach 2. Regelsatz:  "TA"
+Ausgangswort                :  "Taborszky"
+
+Umwandlung nach 1. Regelsatz:  "TABORSHKI"
+Umwandlung nach 2. Regelsatz:  "TABURZKI"
+Ausgangswort                :  "Taher"
+
+Umwandlung nach 1. Regelsatz:  "TA"
+Umwandlung nach 2. Regelsatz:  "TA"
+Ausgangswort                :  "Tanner"
+
+Umwandlung nach 1. Regelsatz:  "TANA"
+Umwandlung nach 2. Regelsatz:  "TANA"
+Ausgangswort                :  "Tayler"
+
+Umwandlung nach 1. Regelsatz:  "TEILA"
+Umwandlung nach 2. Regelsatz:  "TEILA"
+Ausgangswort                :  "Teich"
+
+Umwandlung nach 1. Regelsatz:  "TEICH"
+Umwandlung nach 2. Regelsatz:  "TEIK"
+Ausgangswort                :  "Tesch"
+
+Umwandlung nach 1. Regelsatz:  "TESH"
+Umwandlung nach 2. Regelsatz:  "TEZ"
+Ausgangswort                :  "Thaddey"
+
+Umwandlung nach 1. Regelsatz:  "TADEI"
+Umwandlung nach 2. Regelsatz:  "TATEI"
+Ausgangswort                :  "Thiel"
+
+Umwandlung nach 1. Regelsatz:  "TIL"
+Umwandlung nach 2. Regelsatz:  "TIL"
+Ausgangswort                :  "Thomas"
+
+Umwandlung nach 1. Regelsatz:  "TOMAS"
+Umwandlung nach 2. Regelsatz:  "TUNAZ"
+Ausgangswort                :  "Thomi"
+
+Umwandlung nach 1. Regelsatz:  "TOMI"
+Umwandlung nach 2. Regelsatz:  "TUNI"
+Ausgangswort                :  "TiFche"
+
+Umwandlung nach 1. Regelsatz:  "TIFCHE"
+Umwandlung nach 2. Regelsatz:  "TIFKE"
+Ausgangswort                :  "T÷gel"
+
+Umwandlung nach 1. Regelsatz:  "T÷GEL"
+Umwandlung nach 2. Regelsatz:  "T÷KEL"
+Ausgangswort                :  "Tollefsen"
+
+Umwandlung nach 1. Regelsatz:  "TOLEFSN"
+Umwandlung nach 2. Regelsatz:  "TULEFZN"
+Ausgangswort                :  "Tomaschett"
+
+Umwandlung nach 1. Regelsatz:  "TOMASHET"
+Umwandlung nach 2. Regelsatz:  "TUNAZET"
+Ausgangswort                :  "Tommasi"
+
+Umwandlung nach 1. Regelsatz:  "TOMASI"
+Umwandlung nach 2. Regelsatz:  "TUNAZI"
+Ausgangswort                :  "Toulouse"
+
+Umwandlung nach 1. Regelsatz:  "TULAUS"
+Umwandlung nach 2. Regelsatz:  "TULAUZ"
+Ausgangswort                :  "Trachsel"
+
+Umwandlung nach 1. Regelsatz:  "TRAXL"
+Umwandlung nach 2. Regelsatz:  "TRAXL"
+Ausgangswort                :  "Trachsler"
+
+Umwandlung nach 1. Regelsatz:  "TRAXLA"
+Umwandlung nach 2. Regelsatz:  "TRAXLA"
+Ausgangswort                :  "Trepess"
+
+Umwandlung nach 1. Regelsatz:  "TREPES"
+Umwandlung nach 2. Regelsatz:  "TREPEZ"
+Ausgangswort                :  "Tr÷sch"
+
+Umwandlung nach 1. Regelsatz:  "TR÷SH"
+Umwandlung nach 2. Regelsatz:  "TR÷Z"
+Ausgangswort                :  "Trummer"
+
+Umwandlung nach 1. Regelsatz:  "TRUMA"
+Umwandlung nach 2. Regelsatz:  "TRUNA"
+Ausgangswort                :  "Trusch"
+
+Umwandlung nach 1. Regelsatz:  "TRUSH"
+Umwandlung nach 2. Regelsatz:  "TRUZ"
+Ausgangswort                :  "Turek"
+
+Umwandlung nach 1. Regelsatz:  "TUREK"
+Umwandlung nach 2. Regelsatz:  "TUREK"
+Ausgangswort                :  "Ulrich"
+
+Umwandlung nach 1. Regelsatz:  "ULRICH"
+Umwandlung nach 2. Regelsatz:  "ULRIK"
+Ausgangswort                :  "Urwyler"
+
+Umwandlung nach 1. Regelsatz:  "URWÜLA"
+Umwandlung nach 2. Regelsatz:  "URFILA"
+Ausgangswort                :  "Utiger"
+
+Umwandlung nach 1. Regelsatz:  "UTIGA"
+Umwandlung nach 2. Regelsatz:  "UTIKA"
+Ausgangswort                :  "Utz"
+
+Umwandlung nach 1. Regelsatz:  "UZ"
+Umwandlung nach 2. Regelsatz:  "UZ"
+Ausgangswort                :  "Valentini"
+
+Umwandlung nach 1. Regelsatz:  "WALENTINI"
+Umwandlung nach 2. Regelsatz:  "FALENTINI"
+Ausgangswort                :  "Vallone"
+
+Umwandlung nach 1. Regelsatz:  "WALONE"
+Umwandlung nach 2. Regelsatz:  "FALUNE"
+Ausgangswort                :  "Kaaij"
+
+Umwandlung nach 1. Regelsatz:  "KAI"
+Umwandlung nach 2. Regelsatz:  "KAI"
+Ausgangswort                :  "Heijningen"
+
+Umwandlung nach 1. Regelsatz:  "HEININGN"
+Umwandlung nach 2. Regelsatz:  "EININKN"
+Ausgangswort                :  "Herpen"
+
+Umwandlung nach 1. Regelsatz:  "HERPN"
+Umwandlung nach 2. Regelsatz:  "ERPN"
+Ausgangswort                :  "vanSprundel"
+
+Umwandlung nach 1. Regelsatz:  "FANSPRUNDL"
+Umwandlung nach 2. Regelsatz:  "FANZPRUNTL"
+Ausgangswort                :  "Varszegi"
+
+Umwandlung nach 1. Regelsatz:  "WARSHEGI"
+Umwandlung nach 2. Regelsatz:  "FARZEKI"
+Ausgangswort                :  "Vaucher"
+
+Umwandlung nach 1. Regelsatz:  "WAUCHA"
+Umwandlung nach 2. Regelsatz:  "FAUKA"
+Ausgangswort                :  "Vetter"
+
+Umwandlung nach 1. Regelsatz:  "FETA"
+Umwandlung nach 2. Regelsatz:  "FETA"
+Ausgangswort                :  "Vetterli"
+
+Umwandlung nach 1. Regelsatz:  "FETERLI"
+Umwandlung nach 2. Regelsatz:  "FETALI"
+Ausgangswort                :  "Vettori"
+
+Umwandlung nach 1. Regelsatz:  "FETORI"
+Umwandlung nach 2. Regelsatz:  "FETURI"
+Ausgangswort                :  "Vez"
+
+Umwandlung nach 1. Regelsatz:  "WEZ"
+Umwandlung nach 2. Regelsatz:  "FEZ"
+Ausgangswort                :  "Vista"
+
+Umwandlung nach 1. Regelsatz:  "FISTA"
+Umwandlung nach 2. Regelsatz:  "FIZTA"
+Ausgangswort                :  "Vitolic"
+
+Umwandlung nach 1. Regelsatz:  "WITOLIZ"
+Umwandlung nach 2. Regelsatz:  "FITULIZ"
+Ausgangswort                :  "Vlaski"
+
+Umwandlung nach 1. Regelsatz:  "FLASKI"
+Umwandlung nach 2. Regelsatz:  "FLAZKI"
+Ausgangswort                :  "Vocat"
+
+Umwandlung nach 1. Regelsatz:  "FOKAT"
+Umwandlung nach 2. Regelsatz:  "FUKAT"
+Ausgangswort                :  "Vogel"
+
+Umwandlung nach 1. Regelsatz:  "FOGL"
+Umwandlung nach 2. Regelsatz:  "FUKL"
+Ausgangswort                :  "Vogler"
+
+Umwandlung nach 1. Regelsatz:  "FOGLA"
+Umwandlung nach 2. Regelsatz:  "FUKLA"
+Ausgangswort                :  "Vogt"
+
+Umwandlung nach 1. Regelsatz:  "FOKT"
+Umwandlung nach 2. Regelsatz:  "FUKT"
+Ausgangswort                :  "Vogtlander"
+
+Umwandlung nach 1. Regelsatz:  "FOKTLANDA"
+Umwandlung nach 2. Regelsatz:  "FUKTLANTA"
+Ausgangswort                :  "Volger"
+
+Umwandlung nach 1. Regelsatz:  "FOLGA"
+Umwandlung nach 2. Regelsatz:  "FULKA"
+Ausgangswort                :  "Volk"
+
+Umwandlung nach 1. Regelsatz:  "FOLK"
+Umwandlung nach 2. Regelsatz:  "FULK"
+Ausgangswort                :  ""von"
+
+Umwandlung nach 1. Regelsatz:  " FON"
+Umwandlung nach 2. Regelsatz:  " FUN"
+Ausgangswort                :  ""von"
+
+Umwandlung nach 1. Regelsatz:  " FON"
+Umwandlung nach 2. Regelsatz:  " FUN"
+Ausgangswort                :  ""von"
+
+Umwandlung nach 1. Regelsatz:  " FON"
+Umwandlung nach 2. Regelsatz:  " FUN"
+Ausgangswort                :  ""Von"
+
+Umwandlung nach 1. Regelsatz:  " FON"
+Umwandlung nach 2. Regelsatz:  " FUN"
+Ausgangswort                :  "Vonarburg"
+
+Umwandlung nach 1. Regelsatz:  "FONARBURK"
+Umwandlung nach 2. Regelsatz:  "FUNARBURK"
+Ausgangswort                :  "Voutsis"
+
+Umwandlung nach 1. Regelsatz:  "FAUZIS"
+Umwandlung nach 2. Regelsatz:  "FAUZIZ"
+Ausgangswort                :  "Vrancken"
+
+Umwandlung nach 1. Regelsatz:  "FRANKN"
+Umwandlung nach 2. Regelsatz:  "FRANKN"
+Ausgangswort                :  "Waber"
+
+Umwandlung nach 1. Regelsatz:  "WABA"
+Umwandlung nach 2. Regelsatz:  "FABA"
+Ausgangswort                :  "WSger"
+
+Umwandlung nach 1. Regelsatz:  "WSGA"
+Umwandlung nach 2. Regelsatz:  "FZKA"
+Ausgangswort                :  "WSgli"
+
+Umwandlung nach 1. Regelsatz:  "WSGLI"
+Umwandlung nach 2. Regelsatz:  "FZKLI"
+Ausgangswort                :  "Wagner"
+
+Umwandlung nach 1. Regelsatz:  "WAKNA"
+Umwandlung nach 2. Regelsatz:  "FAKNA"
+Ausgangswort                :  "Wahlen"
+
+Umwandlung nach 1. Regelsatz:  "WALN"
+Umwandlung nach 2. Regelsatz:  "FALN"
+Ausgangswort                :  "Waldner"
+
+Umwandlung nach 1. Regelsatz:  "WALTNA"
+Umwandlung nach 2. Regelsatz:  "FALTNA"
+Ausgangswort                :  "Walker"
+
+Umwandlung nach 1. Regelsatz:  "WALKA"
+Umwandlung nach 2. Regelsatz:  "FALKA"
+Ausgangswort                :  "Walser"
+
+Umwandlung nach 1. Regelsatz:  "WALSA"
+Umwandlung nach 2. Regelsatz:  "FALZA"
+Ausgangswort                :  "WSlti"
+
+Umwandlung nach 1. Regelsatz:  "WSLTI"
+Umwandlung nach 2. Regelsatz:  "FZLTI"
+Ausgangswort                :  "Ward"
+
+Umwandlung nach 1. Regelsatz:  "WART"
+Umwandlung nach 2. Regelsatz:  "FART"
+Ausgangswort                :  "Wasser"
+
+Umwandlung nach 1. Regelsatz:  "WASA"
+Umwandlung nach 2. Regelsatz:  "FAZA"
+Ausgangswort                :  "Wawer"
+
+Umwandlung nach 1. Regelsatz:  "WAWA"
+Umwandlung nach 2. Regelsatz:  "FAFA"
+Ausgangswort                :  "Weber"
+
+Umwandlung nach 1. Regelsatz:  "WEBA"
+Umwandlung nach 2. Regelsatz:  "FEBA"
+Ausgangswort                :  "Wegmnller"
+
+Umwandlung nach 1. Regelsatz:  "WEKNLA"
+Umwandlung nach 2. Regelsatz:  "FEKNLA"
+Ausgangswort                :  "Wehrli"
+
+Umwandlung nach 1. Regelsatz:  "WERLI"
+Umwandlung nach 2. Regelsatz:  "FERLI"
+Ausgangswort                :  "Weibel"
+
+Umwandlung nach 1. Regelsatz:  "WEIBL"
+Umwandlung nach 2. Regelsatz:  "FEIBL"
+Ausgangswort                :  "Weiss"
+
+Umwandlung nach 1. Regelsatz:  "WEIS"
+Umwandlung nach 2. Regelsatz:  "FEIZ"
+Ausgangswort                :  "Wellinger"
+
+Umwandlung nach 1. Regelsatz:  "WELINGA"
+Umwandlung nach 2. Regelsatz:  "FELINKA"
+Ausgangswort                :  "Wenger"
+
+Umwandlung nach 1. Regelsatz:  "WENGA"
+Umwandlung nach 2. Regelsatz:  "FENKA"
+Ausgangswort                :  "Werlen"
+
+Umwandlung nach 1. Regelsatz:  "WERLN"
+Umwandlung nach 2. Regelsatz:  "FERLN"
+Ausgangswort                :  "Werlitz"
+
+Umwandlung nach 1. Regelsatz:  "WERLIZ"
+Umwandlung nach 2. Regelsatz:  "FERLIZ"
+Ausgangswort                :  "Werren"
+
+Umwandlung nach 1. Regelsatz:  "WEREN"
+Umwandlung nach 2. Regelsatz:  "FEREN"
+Ausgangswort                :  "Wetzels"
+
+Umwandlung nach 1. Regelsatz:  "WEZLS"
+Umwandlung nach 2. Regelsatz:  "FEZLZ"
+Ausgangswort                :  "Weymann"
+
+Umwandlung nach 1. Regelsatz:  "WEIMAN"
+Umwandlung nach 2. Regelsatz:  "FEINAN"
+Ausgangswort                :  "WGr"
+
+Umwandlung nach 1. Regelsatz:  "FGR"
+Umwandlung nach 2. Regelsatz:  "FKR"
+Ausgangswort                :  "Wicki"
+
+Umwandlung nach 1. Regelsatz:  "WIKI"
+Umwandlung nach 2. Regelsatz:  "FIKI"
+Ausgangswort                :  "Widmer"
+
+Umwandlung nach 1. Regelsatz:  "WITMA"
+Umwandlung nach 2. Regelsatz:  "FITNA"
+Ausgangswort                :  "Wiedmer"
+
+Umwandlung nach 1. Regelsatz:  "WITMA"
+Umwandlung nach 2. Regelsatz:  "FITNA"
+Ausgangswort                :  "Wieland"
+
+Umwandlung nach 1. Regelsatz:  "WILANT"
+Umwandlung nach 2. Regelsatz:  "FILANT"
+Ausgangswort                :  "Wiesendanger"
+
+Umwandlung nach 1. Regelsatz:  "WISENDANGA"
+Umwandlung nach 2. Regelsatz:  "FIZENTANKA"
+Ausgangswort                :  "Wilhelm"
+
+Umwandlung nach 1. Regelsatz:  "WILELM"
+Umwandlung nach 2. Regelsatz:  "FILELN"
+Ausgangswort                :  "Wille"
+
+Umwandlung nach 1. Regelsatz:  "WILE"
+Umwandlung nach 2. Regelsatz:  "FILE"
+Ausgangswort                :  "Willi"
+
+Umwandlung nach 1. Regelsatz:  "WILI"
+Umwandlung nach 2. Regelsatz:  "FILI"
+Ausgangswort                :  "Williams"
+
+Umwandlung nach 1. Regelsatz:  "WILIAMS"
+Umwandlung nach 2. Regelsatz:  "FILIANZ"
+Ausgangswort                :  "Wirth"
+
+Umwandlung nach 1. Regelsatz:  "WIRT"
+Umwandlung nach 2. Regelsatz:  "FIRT"
+Ausgangswort                :  "Wirz"
+
+Umwandlung nach 1. Regelsatz:  "WIRZ"
+Umwandlung nach 2. Regelsatz:  "FIRZ"
+Ausgangswort                :  "Wistar"
+
+Umwandlung nach 1. Regelsatz:  "WISTAR"
+Umwandlung nach 2. Regelsatz:  "FIZTAR"
+Ausgangswort                :  "Wittenwiller"
+
+Umwandlung nach 1. Regelsatz:  "WITNWILA"
+Umwandlung nach 2. Regelsatz:  "FITNFILA"
+Ausgangswort                :  "Wittwer"
+
+Umwandlung nach 1. Regelsatz:  "WITWA"
+Umwandlung nach 2. Regelsatz:  "FITFA"
+Ausgangswort                :  "Wohlhauser"
+
+Umwandlung nach 1. Regelsatz:  "WOLHAUSA"
+Umwandlung nach 2. Regelsatz:  "FULAUZA"
+Ausgangswort                :  "Wright"
+
+Umwandlung nach 1. Regelsatz:  "FREIT"
+Umwandlung nach 2. Regelsatz:  "FREIT"
+Ausgangswort                :  "Wnthrich"
+
+Umwandlung nach 1. Regelsatz:  "FNTRICH"
+Umwandlung nach 2. Regelsatz:  "FNTRIK"
+Ausgangswort                :  "Wydler"
+
+Umwandlung nach 1. Regelsatz:  "WÜTLA"
+Umwandlung nach 2. Regelsatz:  "FITLA"
+Ausgangswort                :  "Wyss"
+
+Umwandlung nach 1. Regelsatz:  "WÜS"
+Umwandlung nach 2. Regelsatz:  "FIZ"
+Ausgangswort                :  "Wyssbrod"
+
+Umwandlung nach 1. Regelsatz:  "WÜSBROT"
+Umwandlung nach 2. Regelsatz:  "FIZBRUT"
+Ausgangswort                :  "Wyttenbach"
+
+Umwandlung nach 1. Regelsatz:  "WÜTNBACH"
+Umwandlung nach 2. Regelsatz:  "FITNBAK"
+Ausgangswort                :  "ZSch"
+
+Umwandlung nach 1. Regelsatz:  "SH"
+Umwandlung nach 2. Regelsatz:  "Z"
+Ausgangswort                :  "Zachariassen"
+
+Umwandlung nach 1. Regelsatz:  "ZACHARIASN"
+Umwandlung nach 2. Regelsatz:  "ZAKARIAZN"
+Ausgangswort                :  "Zambelli"
+
+Umwandlung nach 1. Regelsatz:  "ZAMBELI"
+Umwandlung nach 2. Regelsatz:  "ZANBELI"
+Ausgangswort                :  "Zanetti"
+
+Umwandlung nach 1. Regelsatz:  "ZANETI"
+Umwandlung nach 2. Regelsatz:  "ZANETI"
+Ausgangswort                :  "Zanon"
+
+Umwandlung nach 1. Regelsatz:  "ZANON"
+Umwandlung nach 2. Regelsatz:  "ZANUN"
+Ausgangswort                :  "Zbikowski"
+
+Umwandlung nach 1. Regelsatz:  "ZBIKOWSKI"
+Umwandlung nach 2. Regelsatz:  "ZBIKUFZKI"
+Ausgangswort                :  "Zeller"
+
+Umwandlung nach 1. Regelsatz:  "ZELA"
+Umwandlung nach 2. Regelsatz:  "ZELA"
+Ausgangswort                :  "Zemp"
+
+Umwandlung nach 1. Regelsatz:  "ZEMB"
+Umwandlung nach 2. Regelsatz:  "ZENB"
+Ausgangswort                :  "Zesiger"
+
+Umwandlung nach 1. Regelsatz:  "ZESIGA"
+Umwandlung nach 2. Regelsatz:  "ZEZIKA"
+Ausgangswort                :  "Zibung"
+
+Umwandlung nach 1. Regelsatz:  "ZIBUNK"
+Umwandlung nach 2. Regelsatz:  "ZIBUNK"
+Ausgangswort                :  "Ziegler"
+
+Umwandlung nach 1. Regelsatz:  "ZIGLA"
+Umwandlung nach 2. Regelsatz:  "ZIKLA"
+Ausgangswort                :  "Zimmermann"
+
+Umwandlung nach 1. Regelsatz:  "ZIMERMAN"
+Umwandlung nach 2. Regelsatz:  "ZINANAN"
+Ausgangswort                :  "Zingg"
+
+Umwandlung nach 1. Regelsatz:  "ZINK"
+Umwandlung nach 2. Regelsatz:  "ZINK"
+Ausgangswort                :  "Zoltan+B853"
+
+Umwandlung nach 1. Regelsatz:  "ZOLTAN+B853"
+Umwandlung nach 2. Regelsatz:  "ZULTAN+B853"
+Ausgangswort                :  "Zuber"
+
+Umwandlung nach 1. Regelsatz:  "ZUBA"
+Umwandlung nach 2. Regelsatz:  "ZUBA"
+Ausgangswort                :  "Zumbrunn"
+
+Umwandlung nach 1. Regelsatz:  "ZUMBRUN"
+Umwandlung nach 2. Regelsatz:  "ZUNBRUN"
+Ausgangswort                :  "Zumbrunnen"
+
+Umwandlung nach 1. Regelsatz:  "ZUMBRUNEN"
+Umwandlung nach 2. Regelsatz:  "ZUNBRUNEN"
+Ausgangswort                :  "Zumwald"
+
+Umwandlung nach 1. Regelsatz:  "ZUMWALT"
+Umwandlung nach 2. Regelsatz:  "ZUNFALT"
+Ausgangswort                :  "Zurbuchen"
+
+Umwandlung nach 1. Regelsatz:  "ZURBUCHN"
+Umwandlung nach 2. Regelsatz:  "ZURBUKN"
+Ausgangswort                :  "Zurflnh"
+
+Umwandlung nach 1. Regelsatz:  "ZURFLN"
+Umwandlung nach 2. Regelsatz:  "ZURFLN"
+Ausgangswort                :  "Zwahlen"
+
+Umwandlung nach 1. Regelsatz:  "SWALN"
+Umwandlung nach 2. Regelsatz:  "ZFALN"
+Ausgangswort                :  "Zweidler"
+
+Umwandlung nach 1. Regelsatz:  "SWEITLA"
+Umwandlung nach 2. Regelsatz:  "ZFEITLA"

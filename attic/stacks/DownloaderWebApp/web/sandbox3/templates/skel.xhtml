@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jsp:root xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:jsp="http://java.sun.com/JSP/Page"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:c="http://java.sun.com/jstl/core"
+	version="2.0">
+	<ui:composition template="/templates/master.jspx">
+		<ui:define name="title">Title Here</ui:define>
+		<ui:define name="body">
+			<p>Primary content</p>
+			<h2>Heading</h2>
+			<p>Additional content</p>
+		</ui:define>
+		<ui:define name="fringe">
+			<h3>Sidebar</h3>
+			<p>Stuff in the sidebar</p>
+	  </ui:define>
+	</ui:composition>
+</jsp:root>

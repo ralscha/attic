@@ -1,0 +1,13 @@
+operation and priority of properties from:
+	  command line
+	  local .rc file
+	  home .rc file
+	  defaults
+
+Handlers
+	JDBC
+	File
+	Print
+	Proxy
+
+Color

@@ -1,0 +1,39 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="GENERATOR" content="Mozilla/4.5 [en] (X11; I; SunOS 5.6 i86pc) [Netscape]">
+   <title>Java Log Facility - Example Output</title>
+</head>
+<body text="#000000" bgcolor="#FFFFFF">
+
+<center><img SRC="gkrwsit.jpg" NOSAVE height=200 width=138></center>
+&nbsp;
+<center><b><i><font size=+4>Controlling by Code</font></i></b></center>
+
+<div align=right><font size=-1>$Revision: 1.1 $</font></div>
+
+<div align=right><font size=-1>$Date: 1999/03/01 17:24:18 $</font></div>
+<font size=-1></font><i>This page is currently being developed so more
+is comming.&nbsp; But here's what is document so far:</i>
+<p>The following functions control the run-time operation of the Log Facility.
+These functions will override the default configuration as well as the
+user properties specified on the command line. These functions are accessible
+only by Java, currently. There is also no ability currently to alter the
+log format or perform more advanced filtering at run-time.
+<pre>&nbsp;&nbsp;&nbsp; public static void enableErrors(boolean);
+&nbsp;&nbsp;&nbsp; public static void enableWarnings(boolean);
+&nbsp;&nbsp;&nbsp; public static void enableNotices(boolean);
+&nbsp;&nbsp;&nbsp; public static void enableTraces(boolean);</pre>
+Additionally, the Log Facility can be configured, in Java, to use a different
+or another <a href="../api/grace/log/Handler.html">Handler</a>.&nbsp; A
+Handler is class that takes log Events and writes them or displays them
+to the particular log device.&nbsp; A Handler can be installed in the Log
+Facility using the call:
+<pre>&nbsp;&nbsp;&nbsp; MyHandler handler = new MyHandler();
+&nbsp;&nbsp;&nbsp; Log.addHandler(handler, "errors");
+&nbsp;&nbsp;&nbsp; Log.addHandler(handler, "errors");</pre>
+In this case, one instance of MyHandler was added to handle errors and
+warnings.
+</body>
+</html>

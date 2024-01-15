@@ -1,0 +1,78 @@
+/* ==========================================
+** THIS FILE IS GENERATED WITH
+** THE CC-RESOURCEFACTORY TOOL.
+**
+** USER...........: ${user.name}
+** PAINTER........: ${painter}
+** BUILD-FACTORY..: ${build.factory}
+** BUILD-DATE.....: ${build.date}
+** BUILD-DIRECTORY: ${build.dir}
+** BUILD-FILE.....: ${build.file}
+**
+** DO NOT MODIFY!
+** ==========================================
+*/
+
+/* ==========================================
+** Panel Control
+**
+** Acronym's
+** ------------------------------------------
+** pc     : panel control
+** img    : image
+** text   : text
+** line   : line
+** header : Panel header
+** body   : Panel Body
+** ==========================================
+*/
+
+.pc .header {
+	font-family: ${panel.font.header.family};
+	font-size: ${panel.font.header.size};
+	font-weight: ${panel.font.header.weight};
+	background-color: ${panel.color.bg.header};
+	padding-top: 2px;
+	padding-left: 4px;
+	padding-bottom: 2px;
+	border-top: 1px solid ${panel.color.border.header};
+	border-bottom: 1px solid ${panel.color.border.header};
+	color: ${panel.color.text.header};
+}
+
+.pc .header SPAN {
+	font-family: ${panel.font.header.family};
+	font-size: ${panel.font.header.size};
+	font-weight: ${panel.font.header.weight};
+}
+
+.pc .body {
+	font-family: ${panel.font.body.family};
+	font-size: ${panel.font.body.size};
+	background-color: ${panel.color.bg.body};
+	border: 2px solid ${panel.color.border.body};
+}
+
+.pc .img {
+	padding-top:  6px;
+	padding-left: 2px;
+}
+
+.pc .text {
+	padding-left: 2px;
+	padding-top: 2px;
+}
+
+.pc .line {
+	 height : 1px;
+	 border-bottom: 1px solid ${panel.color.item.border};
+	 padding-top: 2px;
+}
+
+/* Hyperlinks */
+.pc .body tr td a {
+	font-family : ${panel.font.body.family};
+	font-size : ${panel.font.body.size};
+	text-decoration : none;
+	color : #0000FF;
+}

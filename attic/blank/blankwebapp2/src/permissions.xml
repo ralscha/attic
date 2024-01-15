@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<permissions>
+  <permission>example</permission>
+  <permission>userconfig</permission>
+  <permission>systemconfig</permission>
+  <permission>user</permission>
+  <permission>usergroup</permission>
+  <permission>textresource</permission>
+  <permission>online</permission>
+</permissions>

@@ -1,0 +1,78 @@
+/* ==========================================
+** THIS FILE IS GENERATED WITH
+** THE CC-RESOURCEFACTORY TOOL.
+**
+** USER...........: sr
+** PAINTER........: def
+** BUILD-FACTORY..: v1.6.029
+** BUILD-DATE.....: Fri Nov 30 15:29:24 CET 2012
+** BUILD-DIRECTORY: D:\ws\work\webcal5
+** BUILD-FILE.....: D:\ws\work\webcal5\build\resources\resources.xml
+**
+** DO NOT MODIFY!
+** ==========================================
+*/
+
+/* ==========================================
+** Panel Control
+**
+** Acronym's
+** ------------------------------------------
+** pc     : panel control
+** img    : image
+** text   : text
+** line   : line
+** header : Panel header
+** body   : Panel Body
+** ==========================================
+*/
+
+.pc .header {
+	font-family: Arial, Helvetica, Sans-Serif;
+	font-size: 10pt;
+	font-weight: bold;
+	background-color: #C1D6DB;
+	padding-top: 2px;
+	padding-left: 4px;
+	padding-bottom: 2px;
+	border-top: 1px solid #FFFFFF;
+	border-bottom: 1px solid #FFFFFF;
+	color: #005A6B;
+}
+
+.pc .header SPAN {
+	font-family: Arial, Helvetica, Sans-Serif;
+	font-size: 10pt;
+	font-weight: bold;
+}
+
+.pc .body {
+	font-family: Arial, Helvetica, Sans-Serif;
+	font-size: 8pt;
+	background-color: #DCE8EB;
+	border: 2px solid #DCE8EB;
+}
+
+.pc .img {
+	padding-top:  6px;
+	padding-left: 2px;
+}
+
+.pc .text {
+	padding-left: 2px;
+	padding-top: 2px;
+}
+
+.pc .line {
+	 height : 1px;
+	 border-bottom: 1px solid #808080;
+	 padding-top: 2px;
+}
+
+/* Hyperlinks */
+.pc .body tr td a {
+	font-family : Arial, Helvetica, Sans-Serif;
+	font-size : 8pt;
+	text-decoration : none;
+	color : #0000FF;
+}

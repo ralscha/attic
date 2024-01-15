@@ -1,0 +1,11 @@
+Starting DbConnectionBroker Version 1.0.7:
+dbDriver = jdbc.idbDriver
+dbServer = jdbc:idb:d:/projects/swiftinput/swift.prp
+dbLogin = 
+log file = connection.log
+minconnections = 2
+maxconnections = 10
+Total refresh interval = 0.2 days
+-----------------------------------------
+22.06.1999 19:08:53  Opening connection 0 jdbc.idbConnection@5224ee:
+22.06.1999 19:08:53  Opening connection 1 jdbc.idbConnection@2ffc70:

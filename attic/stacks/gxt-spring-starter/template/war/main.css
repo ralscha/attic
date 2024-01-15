@@ -1,0 +1,14 @@
+﻿* {
+  font-family:tahoma,arial,verdana,sans-serif;
+}
+
+.appHeading {
+  background: #1E4176;
+  border: none;
+  padding: 6px 0 6px 9px;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+

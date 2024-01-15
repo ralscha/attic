@@ -1,0 +1,68 @@
+app:
+# If on a network share, then smb may be used.
+# Then you should enter a path like smb://theserver/path/starting/at/share
+# smbuser: theUser
+# smbpwd: thePwd
+  imagepath: /Users/sk/Downloads/public/images/
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/todo
+    username: postgres
+    password: postgres
+
+    tomcat:
+      max-active: 20
+      max-idle: 10
+      min-idle: 4
+      initial-size: 4
+      validation-query: select 1
+      test-on-borrow: true
+      test-on-return: false
+      test-while-idle: true
+      time-between-eviction-runs-millis: 120000
+      min-evictable-idle-time-millis: 60000
+      max-wait: 10000
+      remove-abandoned: true
+      validation-interval: 120000
+      remove-abandoned-timeout: 600
+      jmx-enabled: false
+
+  jpa:
+    hibernate:
+      ddl-auto: none     
+    show-sql: false
+    properties:
+      hibernate.dialect: ch.rasc.todo.config.PostgreSQLWithIdentityDialect
+      hibernate.search.default.directory_provider: filesystem
+      hibernate.search.default.indexBase: ./lucene_index
+
+  async:
+    core-pool-size: 2
+    max-pool-size: 10
+    queue-capacity: 100
+    thread-name-prefix: todo-async-executor
+
+  cache:
+    cache-names:
+      - todo
+    caffeine:
+      spec: maximumSize=10000,expireAfterAccess=300s   
+
+liquibase:
+  change-log: 
+    classpath:/liquibase/changelog.xml
+        
+server:
+  compression:
+     enabled: true
+     mime-types: text/html,text/xml,text/plain,text/css,application/json,application/javascript,image/svg+xml,application/x-font-ttf,application/x-font-truetype,application/x-font-opentype,application/vnd.ms-fontobject,application/font-sfnt  
+  port: 8181
+  context-path: /
+  
+logging:
+  level: 
+    ROOT: INFO
+  file: ./app.log    
+
+  

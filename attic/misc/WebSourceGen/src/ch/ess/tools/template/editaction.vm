@@ -1,0 +1,33 @@
+package ${package}.action;
+
+import ch.ess.ct.business.db.${objectNames};
+import ch.ess.ct.web.base.DbAction;
+
+import com.objectmatter.bsf.ConcurrencyAware;
+import com.objectmatter.bsf.Database;
+
+/**
+ * @version $Revision: $ $Date: $
+ * @author $Author: $
+ */
+public class Edit${objectName}Action extends DbAction {
+     
+  protected void doDelete(Database db, ConcurrencyAware obj) {
+    //todo
+    /*
+    ${objectNames} ${objectLowercaseName} = (${objectNames})obj;
+    if (...) {
+      db.delete(${objectLowercaseName});
+    } else {
+      ${objectLowercaseName}.setGeloescht(Boolean.TRUE);
+      db.update(${objectLowercaseName});      
+    }
+    */
+  }
+  
+
+  protected Class getDbClass() {
+    return ${objectNames}.class;
+  }
+  
+}
