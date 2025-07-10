@@ -149,7 +149,7 @@
 		<dependency>
 			<groupId>org.nibor.autolink</groupId>
 			<artifactId>autolink</artifactId>
-			<version>0.8.0</version>
+			<version>0.12.0</version>
 		</dependency>
 
 		<dependency>
