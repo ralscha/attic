@@ -1,0 +1,59 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      Users
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content class="ion-padding">
+
+  <ion-refresher (ionRefresh)="refresh($event)" [pullFactor]="0.6" slot="fixed">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
+  <ion-searchbar (ionChange)="onSearch($event)"></ion-searchbar>
+  <ion-item class="ion-margin-bottom">
+    <ion-select (ionChange)="onFilterChange($event)" cancelText="Cancel" label="Filter" labelPlacement="stacked"
+                okText="Okay"
+                value="all">
+      <ion-select-option value="all">All Users</ion-select-option>
+      <ion-select-option value="disabled">Disabled Users</ion-select-option>
+      <ion-select-option value="enabled">Enabled Users</ion-select-option>
+      <ion-select-option value="inactive">Inactive Users</ion-select-option>
+      <ion-select-option value="admin">Admin Users</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+  <ng-container *ngIf="users$ | async as users">
+    <ion-list *ngFor="let user of users">
+      <ion-item-sliding #slidingItem>
+
+        <ion-item>
+          <ion-label>
+            {{user.email}} <span *ngIf="user.admin">(ADMIN)</span>
+            <p>
+              <ion-note *ngIf="user.lastAccess">Last Activity: {{user.lastAccess * 1000 | date:'medium'}}</ion-note>
+            </p>
+          </ion-label>
+        </ion-item>
+
+        <ion-item-options *ngIf="!user.admin" side="end">
+          <ion-item-option (click)="activate(user, slidingItem)" *ngIf="user.expired">Activate</ion-item-option>
+          <ion-item-option (click)="disable(user, slidingItem)" *ngIf="user.enabled">Disable</ion-item-option>
+          <ion-item-option (click)="enable(user, slidingItem)" *ngIf="!user.enabled">Enable</ion-item-option>
+          <ion-item-option (click)="delete(user, slidingItem)" *ngIf="!user.enabled">Delete</ion-item-option>
+        </ion-item-options>
+      </ion-item-sliding>
+    </ion-list>
+
+    <div *ngIf="users.length === 0" class="ion-text-center">
+      <i>No Users</i>
+    </div>
+  </ng-container>
+
+</ion-content>

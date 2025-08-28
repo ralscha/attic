@@ -1,0 +1,10 @@
+/target/
+!.mvn/wrapper/maven-wrapper.jar
+
+.classpath
+.factorypath
+.project
+.settings
+/.idea/
+/otodo.iml
+/.sts4-cache/

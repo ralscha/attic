@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/profile"></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      Sessions
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <ion-card *ngFor="let session of sessions">
+    <ion-card-header>
+      <ion-card-title>{{ session.ip }}</ion-card-title>
+    </ion-card-header>
+
+    <ion-item>
+      <ion-label>
+        <h1>{{ session.ua.uaBrowser }}</h1>
+        <h1>{{ session.ua.uaOs }}</h1>
+        <h1 *ngIf="session.ua.uaDevice">{{ session.ua.uaDevice }}</h1>
+
+        <p class="ion-padding-top">Last Access:</p>
+        <h2>{{ session.lastAccess * 1000 | date:'medium' }}</h2>
+
+        <p>{{ session.lastAccess * 1000 | relativeTime }}</p>
+      </ion-label>
+    </ion-item>
+
+    <ion-row *ngIf="!session.loggedIn" class="ion-no-padding">
+      <ion-col class="ion-text-right">
+        <ion-button (click)="deleteSession(session)" color="primary" fill="clear" size="small">
+          <ion-icon name="trash" slot="start"></ion-icon>
+          Delete
+        </ion-button>
+      </ion-col>
+    </ion-row>
+
+  </ion-card>
+
+
+</ion-content>

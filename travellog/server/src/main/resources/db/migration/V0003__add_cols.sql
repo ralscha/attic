@@ -1,0 +1,5 @@
+ALTER TABLE log_photo 
+    ADD COLUMN  lat DECIMAL(10, 8), 
+    ADD COLUMN  lng DECIMAL(11, 8),
+    ADD COLUMN  thumbnail MEDIUMBLOB NOT NULL,
+    ADD COLUMN  storage VARCHAR(22) NOT NULL;

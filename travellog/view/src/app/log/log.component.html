@@ -1,0 +1,21 @@
+<header>
+  TravelLog: {{travellog}}
+</header>
+
+<div class="log">
+  <mat-card (click)="onLogClick(log)" *ngFor="let log of logs" [class.selected]="log.id === selectedLog?.id"
+            appearance="outlined">
+    <mat-card-title>{{log.location}}</mat-card-title>
+    <mat-card-subtitle>{{createdString(log)}}</mat-card-subtitle>
+    <mat-card-content>{{log.report}}</mat-card-content>
+  </mat-card>
+</div>
+
+<div class="map">
+  <google-map [options]="options">
+    <map-marker *ngIf="selectedLog"
+                [position]="{lat: selectedLog.lat, lng: selectedLog.lng}">
+      <map-info-window>{{selectedLog.report}}</map-info-window>
+    </map-marker>
+  </google-map>
+</div>

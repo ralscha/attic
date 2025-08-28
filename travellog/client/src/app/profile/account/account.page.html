@@ -1,0 +1,67 @@
+<ion-header>
+  <ion-toolbar color="danger">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/profile"></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      Delete Account
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <form #deleteForm="ngForm" (ngSubmit)="deleteForm.valid && deleteAccount(password.value)"
+        [ngFormOptions]="{updateOn: 'submit'}" novalidate>
+
+    <ion-grid>
+
+      <ion-row>
+        <ion-col offsetLg="4" offsetSm="3" sizeLg="4" sizeSm="6">
+          <ion-text color="danger">
+            <p>Deleting your account deletes all your data and account information.</p>
+            <p><strong>This action is irreversible!</strong></p>
+          </ion-text>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col offsetLg="4" offsetSm="3" sizeLg="4" sizeSm="6">
+          <ion-item>
+            <ion-input #password="ngModel" [minlength]="8" [required]="true" autocomplete="current-password"
+                       label="Password"
+                       labelPlacement="stacked" name="password"
+                       ngModel type="password"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col offsetLg="4" offsetSm="3" sizeLg="4" sizeSm="6">
+          <ion-text *ngIf="deleteForm.submitted && password.invalid" color="danger">
+            <p *ngIf="password.errors.required" class="ion-padding-start">
+              Password is required
+            </p>
+            <p *ngIf="password.errors.minlength" class="ion-padding-start">
+              Minimum length is 8 characters
+            </p>
+          </ion-text>
+          <ion-text *ngIf="submitError" color="danger">
+            <p *ngIf="submitError === 'passwordInvalid'" class="ion-padding-start">
+              Password is invalid
+            </p>
+          </ion-text>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col class="ion-margin-top" offsetLg="4" offsetSm="3" sizeLg="4" sizeSm="6">
+          <ion-button color="danger" expand="block" type="submit">Delete my Account</ion-button>
+        </ion-col>
+      </ion-row>
+
+    </ion-grid>
+
+  </form>
+
+</ion-content>

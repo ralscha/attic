@@ -1,0 +1,25 @@
+<ion-app>
+  <ion-split-pane contentId="main-content">
+    <ion-menu [hidden]="!authenticated" contentId="main-content" type="overlay">
+      <ion-header>
+        <ion-toolbar color="primary">
+          <ion-title>Menu</ion-title>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content>
+        <ion-list>
+          <ion-menu-toggle *ngFor="let p of appPages" [autoHide]="false">
+            <ion-item [routerLink]="p.url" routerDirection="root" routerLinkActive="active">
+              <ion-icon *ngIf="p.icon" [name]="p.icon" slot="start"></ion-icon>
+              <i *ngIf="p.faIcon" [class]="p.faIcon" slot="start" style="width: 1.55em;"></i>
+              <ion-label>
+                {{p.title}}
+              </ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+        </ion-list>
+      </ion-content>
+    </ion-menu>
+    <ion-router-outlet id="main-content"></ion-router-outlet>
+  </ion-split-pane>
+</ion-app>

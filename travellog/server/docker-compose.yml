@@ -1,0 +1,8 @@
+services:
+  travellog_db:
+    image: mariadb
+    environment:
+      MARIADB_DATABASE: travellog
+      MARIADB_ROOT_PASSWORD: root
+    ports:
+      - "3306:3306"

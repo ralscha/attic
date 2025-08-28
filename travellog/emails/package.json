@@ -1,0 +1,10 @@
+{
+  "name": "travellog-emails",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "mjml src/* -o ../server/src/main/resources/emails --config.minify true"
+  },
+  "dependencies": {
+    "mjml": "4.15.3"
+  }
+}

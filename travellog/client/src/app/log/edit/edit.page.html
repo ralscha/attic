@@ -1,0 +1,131 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/log"></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      Edit Log
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="deleteLog()">
+        <ion-icon name="trash" slot="icon-only"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <form #logForm="ngForm" (ngSubmit)="logForm.valid && save(logForm)"
+        [ngFormOptions]="{updateOn: 'submit'}" novalidate>
+
+    <ion-grid *ngIf="selectedLog">
+
+      <ion-row>
+        <ion-col offsetLg="4" offsetSm="3" sizeLg="4" sizeSm="6">
+          <ion-item>
+            <ion-input #time="ngModel" [ngModel]="createdString" [required]="true" label="Time" labelPlacement="stacked"
+                       name="time"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col offsetLg="4" offsetSm="3" sizeLg="4" sizeSm="6">
+          <ion-text *ngIf="logForm.submitted && time.invalid" color="danger">
+            <p *ngIf="time.errors.required" class="error ion-padding-start">
+              Time is required
+            </p>
+          </ion-text>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col offsetLg="4" offsetSm="3" sizeLg="4" sizeSm="6">
+          <ion-item>
+            <ion-input #lat="ngModel" [ngModel]="selectedLog.lat" [required]="true" label="Latitue"
+                       labelPlacement="stacked"
+                       name="lat" type="number"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col offsetLg="4" offsetSm="3" sizeLg="4" sizeSm="6">
+          <ion-text *ngIf="logForm.submitted && lat.invalid" color="danger">
+            <p *ngIf="lat.errors.required" class="error ion-padding-start">
+              Latitude is required
+            </p>
+          </ion-text>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col offsetLg="4" offsetSm="3" sizeLg="4" sizeSm="6">
+          <ion-item>
+            <ion-input #lng="ngModel" [ngModel]="selectedLog.lng" [required]="true" label="Longitude"
+                       labelPlacement="stacked"
+                       name="lng" type="number"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col offsetLg="4" offsetSm="3" sizeLg="4" sizeSm="6">
+          <ion-text *ngIf="logForm.submitted && lng.invalid" color="danger">
+            <p *ngIf="lng.errors.required" class="error ion-padding-start">
+              Longitude is required
+            </p>
+          </ion-text>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col offsetLg="4" offsetSm="3" sizeLg="4" sizeSm="6">
+          <ion-button (click)="refreshLocation()" expand="block" size="small" type="button">Update Lat/Lng</ion-button>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col offsetLg="4" offsetSm="3" sizeLg="4" sizeSm="6">
+          <ion-item>
+            <ion-input #location="ngModel" [ngModel]="selectedLog.location" [required]="true" label="Location"
+                       labelPlacement="stacked" name="location"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col offsetLg="4" offsetSm="3" sizeLg="4" sizeSm="6">
+          <ion-text *ngIf="logForm.submitted && location.invalid" color="danger">
+            <p *ngIf="location.errors.required" class="error ion-padding-start">
+              Location is required
+            </p>
+          </ion-text>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col offsetLg="4" offsetSm="3" sizeLg="4" sizeSm="6">
+          <ion-item>
+            <ion-textarea [ngModel]="selectedLog.report" [rows]="6" label="Report" labelPlacement="stacked"
+                          name="report"></ion-textarea>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col class="ion-margin-top" offsetLg="4" offsetSm="3" sizeLg="4" sizeSm="6">
+          <ion-button expand="block" type="submit">Save</ion-button>
+        </ion-col>
+      </ion-row>
+
+      <ion-row *ngIf="online && selectedLog.id > 0">
+        <ion-col class="ion-margin-top" offsetLg="4" offsetSm="3" sizeLg="4" sizeSm="6">
+          <ion-button expand="block" routerDirection="forward" routerLink="/log/photo/{{selectedLog.id}}" type="button">
+            Photos
+          </ion-button>
+        </ion-col>
+      </ion-row>
+
+    </ion-grid>
+
+  </form>
+
+</ion-content>

@@ -1,0 +1,36 @@
+:host {
+  padding: 10px;
+  display: grid;
+  grid-template-rows: auto 1fr;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 20px;
+}
+
+header {
+  margin-left: 5px;
+  margin-top: 5px;
+  grid-column: 2 span;
+  font-size: 1.8em;
+}
+
+div.log {
+  height: calc(100vh - 110px);
+  overflow: auto;
+}
+
+div.map {
+  height: calc(100vh - 110px);
+}
+
+agm-map {
+  height: 100%;
+}
+
+/* TODO(mdc-migration): The following rule targets internal classes of card that may no longer apply for the MDC version. */
+mat-card {
+  margin: 5px;
+}
+
+.selected {
+  background: lightblue;
+}

@@ -1,0 +1,97 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+/* Core CSS required for Ionic components to work properly */
+@import "@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "@ionic/angular/css/normalize.css";
+@import "@ionic/angular/css/structure.css";
+@import "@ionic/angular/css/typography.css";
+@import '@ionic/angular/css/display.css';
+
+/* Optional CSS utils that can be commented out */
+@import "@ionic/angular/css/padding.css";
+@import "@ionic/angular/css/float-elements.css";
+@import "@ionic/angular/css/text-alignment.css";
+@import "@ionic/angular/css/text-transformation.css";
+@import "@ionic/angular/css/flex-utils.css";
+
+
+// App Styles
+// ----------------------------------------------------------------------------
+// Put style rules here that you want to apply to the entire application. These
+// styles are for the entire app and not just one component. Additionally, this
+// file can hold Sass mixins, functions, and placeholder classes to be imported
+// and used throughout the application.
+
+@font-face {
+  font-family: 'Rubik';
+  font-style: italic;
+  font-weight: 300;
+  src: local('Rubik Light Italic'), local('Rubik-LightItalic'), url(assets/Rubik/Rubik-Light-Italic.ttf) format('truetype'), url(assets/Rubik/Rubik-Light-Italic.woff) format('woff'), url(assets/Rubik/Rubik-Light-Italic.woff2) format('woff2');
+}
+
+@font-face {
+  font-family: 'Rubik';
+  font-style: italic;
+  font-weight: 400;
+  src: local('Rubik Italic'), local('Rubik-Italic'), url(assets/Rubik/Rubik-Italic.ttf) format('truetype'), url(assets/Rubik/Rubik-Italic.woff) format('woff'), url(assets/Rubik/Rubik-Italic.woff2) format('woff2');
+}
+
+@font-face {
+  font-family: 'Rubik';
+  font-style: italic;
+  font-weight: 700;
+  src: local('Rubik Bold Italic'), local('Rubik-BoldItalic'), url(assets/Rubik/Rubik-Bold-Italic.ttf) format('truetype'), url(assets/Rubik/Rubik-Bold-Italic.woff) format('woff'), url(assets/Rubik/Rubik-Bold-Italic.woff2) format('woff2');
+}
+
+@font-face {
+  font-family: 'Rubik';
+  font-style: italic;
+  font-weight: 900;
+  src: local('Rubik Black Italic'), local('Rubik-BlackItalic'), url(assets/Rubik/Rubik-Black-Italic.ttf) format('truetype'), url(assets/Rubik/Rubik-Black-Italic.woff) format('woff'), url(assets/Rubik/Rubik-Black-Italic.woff2) format('woff2');
+}
+
+@font-face {
+  font-family: 'Rubik';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Rubik Light'), local('Rubik-Light'), url(assets/Rubik/Rubik-Light.ttf) format('truetype'), url(assets/Rubik/Rubik-Light.woff) format('woff'), url(assets/Rubik/Rubik-Light.woff2) format('woff2');
+}
+
+@font-face {
+  font-family: 'Rubik';
+  font-style: normal;
+  font-weight: 400;
+  src: url(assets/Rubik/Rubik.eot);
+  src: local('Rubik'), local('Rubik-Regular'), url(assets/Rubik/Rubik.ttf) format('truetype'), url(assets/Rubik/Rubik.svg#Rubik) format('svg'), url(assets/Rubik/Rubik.woff) format('woff'), url(assets/Rubik/Rubik.eot?#iefix) format('embedded-opentype'), url(assets/Rubik/Rubik.woff2) format('woff2');
+}
+
+@font-face {
+  font-family: 'Rubik';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Rubik Bold'), local('Rubik-Bold'), url(assets/Rubik/Rubik-Bold.ttf) format('truetype'), url(assets/Rubik/Rubik-Bold.woff) format('woff'), url(assets/Rubik/Rubik-Bold.woff2) format('woff2');
+}
+
+@font-face {
+  font-family: 'Rubik';
+  font-style: normal;
+  font-weight: 900;
+  src: local('Rubik Black'), local('Rubik-Black'), url(assets/Rubik/Rubik-Black.ttf) format('truetype'), url(assets/Rubik/Rubik-Black.woff) format('woff'), url(assets/Rubik/Rubik-Black.woff2) format('woff2');
+}
+
+
+:root {
+  --ion-font-family: Rubik, sans-serif;
+}
+
