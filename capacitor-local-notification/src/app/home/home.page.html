@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Local Notifications Demo
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <p>
+    Notification Received: <br>
+    {{notificationReceived}}
+  </p>
+  <p>
+    Notification Action Performed: <br>
+    {{notificationActionPerformed}}
+  </p>
+
+  <p>
+  {{pendingNotifications}}
+  <ion-button (click)="getPending()">Show Pending Notifications</ion-button>
+    <ion-button (click)="cancelAllPendingNotification()">Cancel All Pending Notifications</ion-button>
+
+  </p>
+
+  <h2>Once</h2>
+  <ion-button (click)="onceNow()">Now</ion-button>
+  <ion-button (click)="onceInTwoMinutes()">In Two Minutes</ion-button>
+
+  <h2>Repeating</h2>
+  <ion-button (click)="repeatingOneMinuteAt()">In One Minute Repeating (at)</ion-button>
+  <ion-button (click)="repeatingOn()">On Repeating</ion-button>
+
+</ion-content>

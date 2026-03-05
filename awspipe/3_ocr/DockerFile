@@ -1,0 +1,17 @@
+FROM alpine:3 as build
+# install build tools
+RUN apk add go
+# cache dependencies
+ADD go.mod go.sum ./
+RUN go mod download
+# build
+ADD . .
+RUN go build -o /ocr .
+
+# runtime
+FROM alpine:3.13.4
+RUN apk add --no-cache tesseract-ocr
+RUN wget https://raw.githubusercontent.com/tesseract-ocr/tessdata/master/deu.traineddata -O /usr/share/tessdata/deu.traineddata
+COPY --from=build /ocr /ocr
+ENTRYPOINT [ "/ocr" ]
+

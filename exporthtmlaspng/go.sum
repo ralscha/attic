@@ -1,0 +1,16 @@
+github.com/go-rod/rod v0.116.2 h1:A5t2Ky2A+5eD/ZJQr1EfsQSe5rms5Xof/qj296e+ZqA=
+github.com/go-rod/rod v0.116.2/go.mod h1:H+CMO9SCNc2TJ2WfrG+pKhITz57uGNYU43qYHh438Mg=
+github.com/ysmood/fetchup v0.5.3 h1:A8kgQ9RfAgOvSvB501ufmB1z6Qnke4xMkv6VDgav6DQ=
+github.com/ysmood/fetchup v0.5.3/go.mod h1:yCv8s8itjsCul1LGXJ1Q+8EQnZcVjfbZ4+l1zDm4StE=
+github.com/ysmood/goob v0.4.0 h1:HsxXhyLBeGzWXnqVKtmT9qM7EuVs/XOgkX7T6r1o1AQ=
+github.com/ysmood/goob v0.4.0/go.mod h1:u6yx7ZhS4Exf2MwciFr6nIM8knHQIE22lFpWHnfql18=
+github.com/ysmood/gop v0.3.0 h1:b/t6tbGSIaSqfnhb1R6Xkye4ZkINfKiUxYZF33JEZWU=
+github.com/ysmood/gop v0.3.0/go.mod h1:K4LAB/BdLArknXrVSy+DyXcfb8P85JwAtwYM8zlb0mU=
+github.com/ysmood/got v0.42.3 h1:HCt1ctNOM4HXiRfwnLG452FgOskhO48HXEDk1mrXprw=
+github.com/ysmood/got v0.42.3/go.mod h1:uFF8sPWgVvWIGrjASUgtH0AbnU7ipaXGVaFtWdl3yP0=
+github.com/ysmood/gotrace v0.6.0 h1:SyI1d4jclswLhg7SWTL6os3L1WOKeNn/ZtzVQF8QmdY=
+github.com/ysmood/gotrace v0.6.0/go.mod h1:TzhIG7nHDry5//eYZDYcTzuJLYQIkykJzCRIo4/dzQM=
+github.com/ysmood/gson v0.7.3 h1:QFkWbTH8MxyUTKPkVWAENJhxqdBa4lYTQWqZCiLG6kE=
+github.com/ysmood/gson v0.7.3/go.mod h1:3Kzs5zDl21g5F/BlLTNcuAGAYLKt2lV5G8D1zF3RNmg=
+github.com/ysmood/leakless v0.9.0 h1:qxCG5VirSBvmi3uynXFkcnLMzkphdh3xx5FtrORwDCU=
+github.com/ysmood/leakless v0.9.0/go.mod h1:R8iAXPRaG97QJwqxs74RdwzcRHT1SWCGTNqY8q0JvMQ=

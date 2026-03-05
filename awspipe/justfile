@@ -1,0 +1,14 @@
+ecr-login:
+	aws ecr get-login-password --profile ralph --region us-east-1 | docker login --username AWS --password-stdin 660461151343.dkr.ecr.us-east-1.amazonaws.com
+
+build-split: ecr-login
+	cd 1_split; docker build -t 660461151343.dkr.ecr.us-east-1.amazonaws.com/split:latest .
+	docker push 660461151343.dkr.ecr.us-east-1.amazonaws.com/split:latest
+
+build-convert: ecr-login
+	cd 2_convert; docker build -t 660461151343.dkr.ecr.us-east-1.amazonaws.com/convert:latest .
+	docker push 660461151343.dkr.ecr.us-east-1.amazonaws.com/convert:latest
+	
+build-ocr: ecr-login
+	cd 3_ocr; docker build -t 660461151343.dkr.ecr.us-east-1.amazonaws.com/ocr:latest .
+	docker push 660461151343.dkr.ecr.us-east-1.amazonaws.com/ocr:latest
