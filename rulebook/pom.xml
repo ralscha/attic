@@ -1,0 +1,33 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>ch.rasc</groupId>
+	<artifactId>rulebook</artifactId>
+	<packaging>jar</packaging>
+	<version>1.0</version>
+	<name>rulebook</name>
+
+	<dependencies>
+		<dependency>
+			<groupId>com.deliveredtechnologies</groupId>
+			<artifactId>rulebook-core</artifactId>
+			<version>0.11</version>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.15.0</version>
+				<configuration>
+					<debug>true</debug>
+					<source>25</source>
+					<target>25</target>
+					<parameters>true</parameters>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>

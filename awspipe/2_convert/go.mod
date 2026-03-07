@@ -1,9 +1,9 @@
 module ch.rasc/split
 
-go 1.26.0
+go 1.26.1
 
 require (
-	github.com/aws/aws-lambda-go v1.52.0
+	github.com/aws/aws-lambda-go v1.53.0
 	github.com/aws/aws-sdk-go v1.55.8
 )
 
