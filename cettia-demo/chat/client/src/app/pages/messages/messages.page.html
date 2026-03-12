@@ -1,0 +1,85 @@
+<ion-header>
+  <ion-toolbar color="dark">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="room" />
+    </ion-buttons>
+    <ion-title>
+      {{ roomName }}
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="exit()">
+        <ion-icon name="exit-outline" size="large" slot="icon-only" />
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-no-border">
+  <ion-list>
+    @for (msg of messages; track $index) {
+      <ion-item>
+        <ion-label>
+          @if (msg.type === 'JOIN' || msg.type === 'LEAVE') {
+            <div class="status ion-text-center">
+              <span class="date">{{ msg.sendDate | relativeTime }}</span>
+              <span class="content-center">{{ msg.message }}</span>
+            </div>
+          } @else {
+            <div class="message-wrap">
+              <div
+                [class.left]="msg.user !== chatService.username"
+                [class.right]="msg.user === chatService.username"
+                class="message">
+                <img class="user-img" src="assets/guy1.png">
+                <div class="msg-detail">
+                  <div class="msg-info">
+                    <p>
+                      {{ msg.user }}&nbsp;&nbsp;&nbsp;{{ msg.sendDate | relativeTime }}</p>
+                  </div>
+                  <div class="msg-content">
+                    <span class="triangle"></span>
+                    <p class="line-breaker">{{ msg.message }}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          }
+        </ion-label>
+        <ng-template #message>
+          <div class="message-wrap">
+            <div
+              [class.left]="msg.user !== chatService.username"
+              [class.right]="msg.user === chatService.username"
+              class="message">
+              <img class="user-img" src="assets/guy1.png">
+              <div class="msg-detail">
+                <div class="msg-info">
+                  <p>
+                    {{ msg.user }}&nbsp;&nbsp;&nbsp;{{ msg.sendDate | relativeTime }}</p>
+                </div>
+                <div class="msg-content">
+                  <span class="triangle"></span>
+                  <p class="line-breaker">{{ msg.message }}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </ng-template>
+      </ion-item>
+    }
+  </ion-list>
+</ion-content>
+
+<ion-footer [style.height]="showEmojiPicker ? '255px' : '55px'">
+  <div class="input-wrap">
+    <ion-button (click)="toggleEmojiPicker()" class="ion-item-right" fill="clear">
+      <ion-icon name="happy-sharp" slot="icon-only" />
+    </ion-button>
+    <ion-textarea #messageInput (focusin)="onFocus()" (keyup.enter)="sendMessage()" [(ngModel)]="message" name="message"
+                  placeholder="Type a message" type="text" />
+    <ion-button (click)="sendMessage()" class="ion-item-right" fill="clear">
+      <ion-icon name="send-sharp" slot="icon-only" />
+    </ion-button>
+  </div>
+  <app-emoji-picker [(ngModel)]="message" />
+</ion-footer>

@@ -1,0 +1,15 @@
+<div class="emoji-picker">
+  <swiper-container [modules]="swiperModules" [pagination]="true">
+    @for (items of emojiArr; track $index) {
+      <swiper-slide>
+        <div class="emoji-items">
+          @for (item of items; track $index) {
+            <span (click)="setValue(item)" class="emoji-item">
+              {{ item }}
+            </span>
+          }
+        </div>
+      </swiper-slide>
+    }
+  </swiper-container>
+</div>

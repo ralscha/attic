@@ -1,0 +1,15 @@
+[package]
+name = "salvodemo"
+version = "0.1.0"
+edition = "2021"
+
+[profile.release]
+strip = true
+lto = true
+codegen-units = 1
+panic = "abort"
+
+[dependencies]
+salvo = "*"
+serde = "*"
+tokio = { version = "1", features = ["macros"] }

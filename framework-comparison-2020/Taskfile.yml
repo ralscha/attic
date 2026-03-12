@@ -1,0 +1,7 @@
+version: '3'
+tasks:
+  rust-upgrade:
+    desc: Upgrade Rust project dependencies using Docker
+    cmds:
+      - docker build -t rust-upgrade rust
+      - docker run --rm -v ${PWD}/rust:/app rust-upgrade

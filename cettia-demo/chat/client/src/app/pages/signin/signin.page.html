@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar color="dark">
+    <ion-title>Signin</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <form (ngSubmit)="enterUsername()">
+    <ion-list>
+      <ion-item>
+        <ion-input (keyup.enter)="enterUsername()" [(ngModel)]="username" [required]="true" labelPlacement="stacked"
+                   name="username" placeholder="Enter your Nickname"
+                   type="text" />
+      </ion-item>
+      <ion-item>
+        <ion-select [(ngModel)]="language" cancel-text="Dismiss"
+                    label="Select your language" labelPlacement="stacked"
+                    name="language" ok-text="Okay" required value="en">
+          @for (lang of supportedLanguages; track $index) {
+            <ion-select-option
+              [value]="lang.language">{{ lang.name }}
+            </ion-select-option>
+          }
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label>
+          <ion-button color="secondary" expand="block" size="default" type="submit">Enter</ion-button>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+  </form>
+</ion-content>

@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-toolbar color="dark">
+    <ion-buttons slot="start">
+      <ion-back-button />
+    </ion-buttons>
+    <ion-title>Rooms</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="exit()">
+        <ion-icon name="exit-outline" size="large" slot="icon-only" />
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <ion-list>
+    @for (room of chatService.rooms; track $index) {
+      <ion-item (click)="joinRoom(room)" [button]="true">
+        <ion-label>
+          {{ room }}
+        </ion-label>
+        <ion-icon name="chatbubbles-sharp" />
+      </ion-item>
+    }
+  </ion-list>
+
+  <ion-fab horizontal="end" slot="fixed" vertical="bottom">
+    <ion-fab-button (click)="addRoom()" color="secondary">
+      <ion-icon name="add-sharp" />
+    </ion-fab-button>
+  </ion-fab>
+
+</ion-content>

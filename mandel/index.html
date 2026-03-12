@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mandelbrot Set Explorer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #1a1a1a;
+            color: white;
+            overflow: hidden;
+        }
+        
+        #app {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        header {
+            background: #2d2d2d;
+            padding: 10px 20px;
+            border-bottom: 1px solid #444;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+        }
+        
+        h1 {
+            font-size: 1.5rem;
+            color: #ffffff;
+        }
+        
+        .controls {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+        
+        .control-group {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        label {
+            font-size: 0.9rem;
+            color: #ccc;
+        }
+        
+        input, select, button {
+            padding: 5px 10px;
+            border: 1px solid #555;
+            background: #333;
+            color: white;
+            border-radius: 3px;
+        }
+        
+        button {
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        
+        button:hover {
+            background: #555;
+        }
+        
+        .canvas-container {
+            flex: 1;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        canvas {
+            display: block;
+            cursor: crosshair;
+        }
+        
+        canvas.dragging {
+            cursor: grabbing;
+        }
+        
+        canvas.drag-mode {
+            cursor: grab;
+        }
+        
+        .info {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 0.8rem;
+            line-height: 1.4;
+        }
+        
+        .loading {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        
+        .progress-bar {
+            width: 200px;
+            height: 4px;
+            background: #333;
+            border-radius: 2px;
+            margin-top: 10px;
+            overflow: hidden;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #ff6b6b, #4ecdc4);
+            width: 0%;
+            transition: width 0.1s ease;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <header>
+            <h1>Mandelbrot Set Explorer</h1>
+            <div class="controls">
+                <div class="control-group">
+                    <label for="iterations">Iterations:</label>
+                    <input type="number" id="iterations" value="200" min="10" max="100000" step="100">
+                </div>
+                <div class="control-group">
+                    <label for="colorScheme">Color:</label>
+                    <select id="colorScheme">
+                        <option value="classic">Classic</option>
+                        <option value="fire">Fire</option>
+                        <option value="ocean">Ocean</option>
+                        <option value="rainbow">Rainbow</option>
+                        <option value="electric">Electric</option>
+                        <option value="sunset">Sunset</option>
+                        <option value="purple">Purple Dreams</option>
+                        <option value="gold">Golden</option>
+                        <option value="ice">Ice Blue</option>
+                        <option value="neon">Neon</option>
+                        <option value="forest">Forest</option>
+                        <option value="copper">Copper</option>
+                        <option value="spectrum">Spectrum</option>
+                        <option value="plasma">Plasma</option>
+                        <option value="stripes">Stripes</option>
+                        <option value="psychedelic">Psychedelic</option>
+                    </select>
+                </div>
+                <div class="control-group">
+                    <label for="computeMethod">Compute:</label>
+                    <select id="computeMethod">
+                        <option value="cpu">CPU (WebWorkers)</option>
+                        <option value="webgpu">WebGPU</option>
+                    </select>
+                </div>
+                <button id="resetView">Reset View</button>
+                <button id="saveImage">Save Image</button>
+            </div>
+        </header>
+        <div class="canvas-container">
+            <canvas id="mandelbrotCanvas"></canvas>
+            <div class="info" id="info">
+                <div>Zoom: 1.0x</div>
+                <div>Center: (0, 0)</div>
+                <div>Shift+drag to pan</div>
+                <div>Click+drag to zoom rectangle</div>
+            </div>
+            <div class="loading" id="loading" style="display: none;">
+                <div>Rendering Mandelbrot Set...</div>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="module" src="/src/main.js"></script>
+</body>
+</html>
