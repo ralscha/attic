@@ -1,0 +1,55 @@
+{
+  "name": "rollup-two-bundle-starter",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "dist": "cross-env NODE_ENV=production npm run build && npm run build:hash",
+    "clean": "shx rm -rf dist",
+    "prebuild": "npm run clean && shx mkdir -p dist",
+    "build": "npm run build:js && npm run build:css && npm run build:html && npm run build:assets",
+    "build:css": "shx mkdir -p dist && cleancss -o dist/main.css src/css/main.css",
+    "build:js": "rollup -c",
+    "build:html": "shx mkdir -p dist && shx cp src/*.html dist",
+    "build:assets": "shx mkdir -p dist/assets && shx cp src/assets/* dist/assets/",
+    "build:hash": "hashmark -r -l 8 --cwd dist *.{js,css} {name}.{hash}{ext} | map-replace -m \"<[^>]+>\" dist/index.html",
+    "preserve": "npm run clean && shx mkdir -p dist && npm run build:assets",
+    "serve": "ws --hostname localhost -d dist -p 9090 -o --log.format stats",
+    "servedist": "npm run dist && ws --hostname localhost -d dist -p 9090 -o --log.format stats",
+    "watch": "npm-run-all --parallel watch:* serve",
+    "watch:js": "onchange src/**/*.js -i -- npm run build:js",
+    "watch:css": "onchange src/**/*.css -i -- npm run build:css",
+    "watch:html": "onchange src/**/*.html -i -- npm run build:html",
+    "watch:assets": "onchange src/assets/** -i -- npm run build:assets"
+  },
+  "author": {
+    "name": "Ralph Schaer",
+    "email": "ralphschaer@gmail.com",
+    "url": "https://github.com/ralscha"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "core-js": "3.48.0",
+    "regenerator-runtime": "0.14.1",
+    "whatwg-fetch": "3.6.20"
+  },
+  "devDependencies": {
+    "@babel/core": "7.29.0",
+    "@babel/plugin-syntax-dynamic-import": "7.8.3",
+    "@babel/preset-env": "7.29.0",
+    "clean-css": "5.3.3",
+    "clean-css-cli": "5.6.3",
+    "cross-env": "10.1.0",
+    "hashmark": "5.0.0",
+    "local-web-server": "5.4.0",
+    "map-replace": "1.0.2",
+    "npm-run-all": "4.1.5",
+    "onchange": "7.1.0",
+    "rollup": "4.59.0",
+    "@rollup/plugin-babel": "7.0.0",
+    "@rollup/plugin-commonjs": "29.0.2",
+    "@rollup/plugin-node-resolve": "16.0.3",
+    "@rollup/plugin-replace": "6.0.3",
+    "@rollup/plugin-terser": "1.0.0",
+    "shx": "0.4.0"
+  }
+}
