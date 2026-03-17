@@ -1,0 +1,7 @@
+{
+  "name": "uploadminio",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

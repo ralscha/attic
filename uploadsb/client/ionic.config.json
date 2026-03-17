@@ -1,9 +1,7 @@
 {
-  "name": "upload",
-  "app_id": "",
-  "type": "ionic-angular",
+  "name": "uploadsb",
   "integrations": {
     "cordova": {}
   },
-  "hooks": {}
+  "type": "angular"
 }
