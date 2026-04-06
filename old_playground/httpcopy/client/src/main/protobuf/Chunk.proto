@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+option java_package = "ch.rasc.httpcopy";
+
+message Chunk {
+  
+  //  An unique client identifier
+  string clientId = 1;
+  
+  // The file name 
+  string filename = 2;
+  
+  // The index of the chunk in the current upload. First chunk is 1.
+  uint32 no = 3;
+  
+  // The chunk size
+  uint64 size = 4;
+  
+  // The total file size
+  uint64 totalSize = 5; 
+    
+  // The chunk
+  bytes payload = 6;
+}

@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema
+  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+  xmlns:upi="http://www.admin.ch/zas/regcent/UPI/0"
+  xmlns:wupift="http://www.ech.ch/xmlns/wupift/1"
+  xmlns:xmime="http://www.w3.org/2005/05/xmlmime"
+  xmlns:wsi="http://ws-i.org/profiles/basic/1.1/xsd"
+  targetNamespace="http://www.ech.ch/xmlns/wupift/1"
+  elementFormDefault="qualified"
+  attributeFormDefault="unqualified"
+  version="0">
+
+	<xs:annotation>
+		<xs:documentation xml:lang="en"> 
+			UPI File Transfer interface. Schema for UPI related to file transfer request and response messages.
+
+			Change history:
+			2010-01-04 Creation (TQN, Elca SA)
+			2013-03-08 Correction of error in namespace (NAH, ZAS)
+		</xs:documentation>
+	</xs:annotation>
+
+	<xs:import namespace="http://ws-i.org/profiles/basic/1.1/xsd" schemaLocation="swaref.xsd"/>
+
+	<xs:element name="postFileRequest" type="wupift:postFileRequestType">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">Corresponds to a "postFile" operation's request</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+
+	<xs:element name="postFileResponse" type="wupift:postFileResponseType">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">Corresponds to a "postFile" operation's answer</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+
+	<xs:element name="getFileRequest" type="wupift:getFileRequestType">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">Corresponds to a "getFile" operation's request</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="getFileResponse" type="wupift:getFileResponseType">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">Corresponds to a "getFile" operation's answer</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+
+
+	<xs:complexType name="postFileRequestType">
+		<xs:annotation>
+			<xs:documentation xml:lang="en"> 
+				File to post to UPI File Transfer web service. This corresponds to an UPI request compressed in ZIP format. Each ZIP file must contain only one UPI request.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="upiZIPRequest" type="wsi:swaRef"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="postFileResponseType">
+		<xs:choice>
+			<xs:element name="accepted">
+				<xs:annotation>
+					<xs:documentation xml:lang="en"> 
+							Is present, if the query has been processed successfully and the ticket is returned.
+					</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="ticket" type="xs:int"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="refused">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">
+                Is present, if the query contained an error.
+					</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="reason">
+							<xs:annotation>
+								<xs:documentation xml:lang="en">
+                      The reason is for refusing is: 1 = Transmitted data contains formal error, or 3 = The file has been already sent before, or 10 = Server's internal error (I/O) and 11 = Server's internal error (Database)
+								</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="xs:short">
+									<xs:enumeration value="1"/>
+									<xs:enumeration value="3"/>
+									<xs:enumeration value="10"/>
+									<xs:enumeration value="11"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
+						<xs:element name="detailedReason" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation xml:lang="en">Combined with the "reason", this gives more detail on the error. Possible values: 
+									2 = DB error while searching for the sequence, 
+									3 = DB error while inserting the new ticket, 
+									4 = DB error while reading the table TNNHPFILE, 
+									5 = The user is not defined, 
+									6 = The request is not XSD valid, 
+									7 = The attachment is not a compressed (zip) file, 
+									8 = The attachment could not be stored on the server, 
+									9 = The attached compressed file does not contain one and only one file inside, 
+									10 = The attached compressed file could not be decompressed, 
+									11 = The decompressed file is not a XML file, 
+									12 = The decompressed file is not an eCH-0085 or an eCH-0086 format, 
+									13 = The XML file could not be scanned, 
+									14 = The XML file could not be moved into the input folder.
+								</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<!--<xs:maxLength value="50"/>-->
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
+						<xs:element name="comment" minOccurs="0">
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:choice>
+	</xs:complexType>
+
+	<xs:complexType name="getFileRequestType">
+		<xs:annotation>
+			<xs:documentation xml:lang="en"> 
+				Incoming ticket.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="ticket" type="xs:int"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="getFileResponseType">
+		<xs:choice>
+			<xs:element name="accepted">
+				<xs:annotation>
+					<xs:documentation xml:lang="en"> 
+						Is present, if the query has been processed successfully and the response is returned. The UPI response is compressed in ZIP format and is sent back to the requester as a SOAP attachment.						 
+					</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="ticket" type="xs:int"/>
+						<xs:element name="upiZIPResponse" type="wsi:swaRef"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="refused">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">
+                Is present, if the query contained an error.
+					</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="reason">
+							<xs:annotation>
+								<xs:documentation xml:lang="en">
+								  The reason is for refusing is: 
+								  1 = Transmitted data contains formal error, 
+								  10 = Server's internal error (I/O),
+								  11 = Server's internal error (Database), 
+								  100 = The ticket does not exist, 
+								  101 = The ticket is still in process, 
+								  102 = The user-ticket relation is not correct, 
+								  103 = The ticket is too old
+								</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="xs:short">
+									<xs:enumeration value="1"/>
+									<xs:enumeration value="10"/>
+									<xs:enumeration value="11"/>
+									<xs:enumeration value="100"/>
+									<xs:enumeration value="101"/>
+									<xs:enumeration value="102"/>
+									<xs:enumeration value="103"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
+						<xs:element name="detailedReason" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation xml:lang="en">Combined with the "reason", this gives more detail on the error. Possible values: 
+									100 = The ticket does not exist in DB, 
+									102 = The ticket must be retrieved by the same user that posted the file, 
+									103 = The non-compressed (xml) response could not be found, 
+									104 = The compressed (zip) response could not be found, 
+									105 = The user could not be defined,  
+									106 = The request is not XSD valid, 
+									107 = DB error while reading table TNNHPFILE, 
+									108 = DB error while updating the ticket state to "Compression in process", 
+									109 = Error while compressing the response, 
+									110 = DB error while updating the ticket state to "Terminated", 
+									1NNN = The response is not available yet (state = NNNN), 
+									2NNN = The response is not compressed yet (state = NNN)  
+								</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<!--<xs:maxLength value="50"/>-->
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
+						<xs:element name="comment" minOccurs="0">
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:choice>
+	</xs:complexType>
+
+</xs:schema>

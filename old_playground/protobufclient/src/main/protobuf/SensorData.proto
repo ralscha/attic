@@ -1,0 +1,9 @@
+syntax = "proto3";
+
+option java_package = "ch.rasc.protobuf";
+
+message SensorData {
+  string id = 1;
+  uint32 tx = 2;
+  uint32 rx = 3;
+}

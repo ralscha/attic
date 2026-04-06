@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+</head>
+<script src="resumable.js"></script>
+<link rel="stylesheet" href="bootstrap.min.css">
+<body data-rendering="true">
+	<br>
+	<div class="container">
+
+		<form>
+		<div id="browseButton" class="btn">Choose Files</div>
+		<div>
+			<input type="button" class="btn" value="Upload" id="startUpload">
+		</div>
+		</form>
+	
+		Filename: <output id="fileName"></output><br>
+		Total Number of Chunks: <output id="noOfChunks"></output><br>
+		Progress:  
+		<progress id="uploadProgress" value="0" max="1" ></progress><span id="uploadProgressPercent">0</span>%
+
+	</div>
+	<script>
+		var r = new Resumable({
+			target: 'upload',
+			totalChunksParameterName: null,
+			currentChunkSizeParameterName: null,
+			relativePathParameterName: null,
+			typeParameterName: null
+		});
+
+		/*
+ 		r.on('fileAdded', function(file) {
+			console.log(file);
+		});
+		r.on('fileSuccess', function(file, message) {
+			console.log(file);
+		});
+		r.on('fileError', function(file, message) {
+			console.log(file);
+		});
+		*/
+		
+		r.on('fileProgress', function(file) {
+			//console.log(r.progress());
+			document.getElementById("fileName").innerHTML = file.fileName;
+			document.getElementById("noOfChunks").innerHTML = file.chunks.length;
+			if (r.progress()) {
+				document.getElementById("uploadProgress").value = r.progress();
+				document.getElementById("uploadProgressPercent").innerHTML = r.progress()*100;
+			}
+		});
+
+		r.assignBrowse(document.getElementById('browseButton'));
+
+		document.getElementById('startUpload').addEventListener('click', function(e) {
+			r.upload();
+		});
+	</script>
+</body>
+</html>

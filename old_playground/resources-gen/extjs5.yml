@@ -1,0 +1,156 @@
+sourceDir: D:\js\ext-5.1.4.414
+version: 5.1.4.414
+groupId: resources
+baseArtifactId: ext
+destDir: ./res
+
+artifacts:
+  - artifactId: ext-all
+    mappings:
+      - from: build/ext-all.js
+        to: ext-all.js
+
+      - from: build/packages/ext-locale/build
+        to: locale
+        parameter: locale
+        
+  - artifactId: ext-all-debug
+    mappings:      
+      - from: build/ext-all-debug.js
+        to: ext-all-debug.js
+      
+      - from: build/packages/ext-locale/build
+        to: locale
+        parameter: localedebug
+
+  - artifactId: ext-ux
+    mappings:      
+      - from: build/packages/ext-ux/build/ext-ux.js
+        to: ext-ux/ext-ux.js
+
+  - artifactId: ext-ux-debug
+    mappings:      
+      - from: build/packages/ext-ux/build/ext-ux-debug.js
+        to: ext-ux/ext-ux-debug.js
+
+  - artifactId: ext-ux-theme-classic
+    mappings:
+      - from: build/packages/ext-ux/build/classic/resources/ext-ux-all.css
+        to: ext-ux/theme-classic/ext-ux-all.css
+      - from: build/packages/ext-ux/build/classic/resources/images
+        to: ext-ux/theme-classic/images
+
+  - artifactId: ext-ux-theme-crisp
+    mappings:
+      - from: build/packages/ext-ux/build/crisp/resources/ext-ux-all.css
+        to: ext-ux/theme-crisp/ext-ux-all.css
+      - from: build/packages/ext-ux/build/crisp/resources/images
+        to: ext-ux/theme-crisp/images
+
+  - artifactId: ext-ux-theme-neptune
+    mappings:
+      - from: build/packages/ext-ux/build/neptune/resources/ext-ux-all.css
+        to: ext-ux/theme-neptune/ext-ux-all.css
+      - from: build/packages/ext-ux/build/neptune/resources/images
+        to: ext-ux/theme-neptune/images
+
+  - artifactId: ext-ux-examples
+    mappings:
+      - from: examples/ux
+        to: ext-ux/examples
+
+  - artifactId: ext-theme-classic
+    mappings:
+      - from: build/packages/ext-theme-classic/build/ext-theme-classic.js
+        to: ext-theme-classic/ext-theme-classic.js
+      - from: build/packages/ext-theme-classic/build/resources/ext-theme-classic-all.css
+        to: ext-theme-classic/ext-theme-classic-all.css
+      - from: build/packages/ext-theme-classic/build/resources/images
+        to: ext-theme-classic/images
+        
+  - artifactId: ext-theme-crisp
+    mappings:  
+      - from: build/packages/ext-theme-crisp/build/ext-theme-crisp.js
+        to: ext-theme-crisp/ext-theme-crisp.js
+      - from: build/packages/ext-theme-crisp/build/resources/ext-theme-crisp-all.css
+        to: ext-theme-crisp/ext-theme-crisp-all.css	
+      - from: build/packages/ext-theme-crisp/build/resources/ext-theme-crisp-all_01.css
+        to: ext-theme-crisp/ext-theme-crisp-all_01.css
+      - from: build/packages/ext-theme-crisp/build/resources/ext-theme-crisp-all_02.css
+        to: ext-theme-crisp/ext-theme-crisp-all_02.css
+      - from: build/packages/ext-theme-crisp/build/resources/images
+        to: ext-theme-crisp/images
+        
+  - artifactId: ext-theme-crisp-touch
+    mappings:    
+      - from: build/packages/ext-theme-crisp-touch/build/ext-theme-crisp-touch.js
+        to: ext-theme-crisp-touch/ext-theme-crisp-touch.js
+      - from: build/packages/ext-theme-crisp-touch/build/resources/ext-theme-crisp-touch-all.css
+        to: ext-theme-crisp-touch/ext-theme-crisp-touch-all.css
+      - from: build/packages/ext-theme-crisp-touch/build/resources/ext-theme-crisp-touch-all_01.css
+        to: ext-theme-crisp-touch/ext-theme-crisp-touch-all_01.css
+      - from: build/packages/ext-theme-crisp-touch/build/resources/ext-theme-crisp-touch-all_02.css
+        to: ext-theme-crisp-touch/ext-theme-crisp-touch-all_02.css
+      - from: build/packages/ext-theme-crisp-touch/build/resources/images
+        to: ext-theme-crisp-touch/images
+    
+  - artifactId: ext-theme-gray
+    mappings:
+      - from: build/packages/ext-theme-gray/build/ext-theme-gray.js
+        to: ext-theme-gray/ext-theme-gray.js
+      - from: build/packages/ext-theme-gray/build/resources/ext-theme-gray-all.css
+        to: ext-theme-gray/ext-theme-gray-all.css
+      - from: build/packages/ext-theme-gray/build/resources/images
+        to: ext-theme-gray/images
+  
+  - artifactId: ext-theme-neptune
+    mappings:
+      - from: build/packages/ext-theme-neptune/build/ext-theme-neptune.js
+        to: ext-theme-neptune/ext-theme-neptune.js
+      - from: build/packages/ext-theme-neptune/build/resources/ext-theme-neptune-all.css
+        to: ext-theme-neptune/ext-theme-neptune-all.css
+      - from: build/packages/ext-theme-neptune/build/resources/ext-theme-neptune-all_01.css
+        to: ext-theme-neptune/ext-theme-neptune-all_01.css
+      - from: build/packages/ext-theme-neptune/build/resources/ext-theme-neptune-all_02.css
+        to: ext-theme-neptune/ext-theme-neptune-all_02.css
+      - from: build/packages/ext-theme-neptune/build/resources/images
+        to: ext-theme-neptune/images
+  
+  - artifactId: ext-theme-neptune-touch
+    mappings:     
+      - from: build/packages/ext-theme-neptune-touch/build/ext-theme-neptune-touch.js
+        to: ext-theme-neptune-touch/ext-theme-neptune-touch.js
+      - from: build/packages/ext-theme-neptune-touch/build/resources/ext-theme-neptune-touch-all.css
+        to: ext-theme-neptune-touch/ext-theme-neptune-touch-all.css
+      - from: build/packages/ext-theme-neptune-touch/build/resources/ext-theme-neptune-touch-all_01.css
+        to: ext-theme-neptune-touch/ext-theme-neptune-touch-all_01.css
+      - from: build/packages/ext-theme-neptune-touch/build/resources/ext-theme-neptune-touch-all_02.css
+        to: ext-theme-neptune-touch/ext-theme-neptune-touch-all_02.css
+      - from: build/packages/ext-theme-neptune-touch/build/resources/images
+        to: ext-theme-neptune-touch/images
+
+  - artifactId: ext-sencha-charts
+    mappings:     
+      - from: build/packages/sencha-charts/build/sencha-charts.js
+        to: sencha-charts/sencha-charts.js 
+
+  - artifactId: ext-sencha-charts-debug
+    mappings:     
+      - from: build/packages/sencha-charts/build/sencha-charts-debug.js
+        to: sencha-charts/sencha-charts-debug.js
+        
+  - artifactId: ext-sencha-charts-theme-classic
+    mappings:
+      - from: build/packages/sencha-charts/build/classic/resources/sencha-charts-all.css
+        to: sencha-charts/theme-classic/sencha-charts-all.css
+
+  - artifactId: ext-sencha-charts-theme-crisp
+    mappings:
+      - from: build/packages/sencha-charts/build/crisp/resources/sencha-charts-all.css
+        to: sencha-charts/theme-crisp/sencha-charts-all.css
+
+  - artifactId: ext-sencha-charts-theme-neptune
+    mappings:
+      - from: build/packages/sencha-charts/build/neptune/resources/sencha-charts-all.css
+        to: sencha-charts/theme-neptune/sencha-charts-all.css
+        

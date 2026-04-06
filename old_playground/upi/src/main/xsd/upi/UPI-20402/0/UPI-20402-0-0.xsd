@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2005 rel. 3 U (http://www.altova.com) by Naef (OFIT) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:eCH-0044="http://www.ech.ch/xmlns/eCH-0044/3" xmlns:eCH-0058="http://www.ech.ch/xmlns/eCH-0058/4" xmlns:eCH-0084="http://www.ech.ch/xmlns/eCH-0084/1" xmlns:UPI-20402="http://www.zas.admin.ch/xmlns/UPI-20402/0" targetNamespace="http://www.zas.admin.ch/xmlns/UPI-20402/0" elementFormDefault="qualified" attributeFormDefault="unqualified" version="0">
+	<xs:annotation>
+		<xs:documentation xml:lang="en">
+      Message allowing the synchronisation of the local person id with the AHVN.
+      $Id: UPI-20402-0-0.xsd 2012-05-08 09:00:00Z naef $
+    </xs:documentation>
+	</xs:annotation>
+	<xs:import namespace="http://www.ech.ch/xmlns/eCH-0044/3" schemaLocation="http://www.ech.ch/xmlns/eCH-0044/3/eCH-0044-3-0.xsd"/>
+	<xs:import namespace="http://www.ech.ch/xmlns/eCH-0058/4" schemaLocation="http://www.ech.ch/xmlns/eCH-0058/4/eCH-0058-4-0.xsd"/>
+	<xs:import namespace="http://www.ech.ch/xmlns/eCH-0084/1" schemaLocation="http://www.ech.ch/xmlns/eCH-0084/1/eCH-0084-commons-1-2.xsd"/>
+	<xs:element name="delivery">
+		<xs:annotation>
+			<xs:documentation>Sent from ZAS to a given source of UPI</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="header" type="eCH-0058:headerType">
+					<xs:annotation>
+						<xs:documentation>Standard eCH-0058 header</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="content">
+					<xs:annotation>
+						<xs:documentation>Body of the delivery</xs:documentation>
+					</xs:annotation>
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="timeInterval">
+								<xs:annotation>
+									<xs:documentation xml:lang="en">Time interval covered by the delivery</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="since" type="xs:date"/>
+										<xs:element name="until" type="xs:date"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:sequence minOccurs="0" maxOccurs="unbounded">
+								<xs:element name="updatedLink">
+									<xs:annotation>
+										<xs:documentation>Link between a localPersonId and an AHVN. The update occures if: 1) the former AHVN has been inactivated or 2) the former AHVN has been canceled or 3) the ANVN has benn attributed for the first time after a manual processing.</xs:documentation>
+									</xs:annotation>
+									<xs:complexType>
+										<xs:sequence>
+											<xs:element name="updateTimestamp" type="xs:dateTime">
+												<xs:annotation>
+													<xs:documentation xml:lang="en">Timestamp of the update </xs:documentation>
+												</xs:annotation>
+											</xs:element>
+											<xs:element name="localPersonId" type="eCH-0044:namedPersonIdType">
+												<xs:annotation>
+													<xs:documentation xml:lang="en">StarId or Zemis-Number or Ordipro-Number or ... The content of the element personIdCategory is fully determined by the recipientId in the eCH-0058 header.</xs:documentation>
+												</xs:annotation>
+											</xs:element>
+											<xs:element name="updatedAhvvn" type="eCH-0044:vnType" minOccurs="0">
+												<xs:annotation>
+													<xs:documentation>Value of the AHVN after update. This element is missing if the local person id isn't anymore linked to a AVHN (example: in the case of a erasePerson, an eraseLocalPersonId, an updateLocalPersonId or a mergePersons).</xs:documentation>
+												</xs:annotation>
+											</xs:element>
+										</xs:sequence>
+									</xs:complexType>
+								</xs:element>
+							</xs:sequence>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

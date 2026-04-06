@@ -1,0 +1,1 @@
+mvn exec:java -Dexec.mainClass="ch.rasc.pubsub.tail.Main"  

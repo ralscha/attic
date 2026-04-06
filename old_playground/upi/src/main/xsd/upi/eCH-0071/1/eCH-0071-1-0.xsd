@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+  xmlns:eCH-0071="http://www.ech.ch/xmlns/eCH-0071/1" 
+  targetNamespace="http://www.ech.ch/xmlns/eCH-0071/1" 
+  elementFormDefault="unqualified" attributeFormDefault="unqualified">
+
+  <xs:annotation>
+    <xs:documentation xml:lang="de">
+      eCH-0071 Datenstandard Historisiertes Gemeindeverzeichnis der Schweiz.
+      Die ausführliche Dokumentation zur Semantik der hier definierten XML 
+      Elemente finden Sie im Dokument 'Historisiertes Gemeindeverzeichnis 
+      der Schweiz - Erläuterungen und Anwendungen.' (www.statistik.admin.ch 
+      > Infothek > Nomenklaturen > Amtliches Gemeindeverzeichnis der Schweiz 
+      > Historisiertes Gemeindeverzeichnis).
+    </xs:documentation>
+    <xs:documentation xml:lang="fr">
+      eCH-0071 Norme concernant les données : Liste historisée des communes 
+      de la Suisse.
+      Vous trouverez des informations détaillées sur la sémantique des éléments 
+      XML définis ici dans le document 'Liste historisée des communes de la 
+      Suisse - Explications et utilisation.' (www.statistique.admin.ch 
+      > Infothèque > Nomenclatures > Liste officielle des communes de la Suisse 
+      > Liste historisée des communes).
+    </xs:documentation>
+    <xs:documentation xml:lang="it">
+      eCH-0071 Standard dei dati : Elenco storicizzato dei Comuni della Svizzera.
+      Troverete la documentazione dettagliata sulla semantica degli elementi XML 
+      qui definiti nel documento 'Elenco storicizzato dei Comuni della 
+      Svizzera - Spiegazioni e utilizzazione.' (www.statistica.admin.ch 
+      > Infoteca > Nomenclature > Elenco ufficiale dei Comuni della Svizzera 
+      > Elenco storicizzato dei Comuni).
+    </xs:documentation>
+    <xs:documentation>
+      Copyright (c) 2007-2008 Swiss Federal Statistical Office. All Rights Reserved.
+      info@bfs.admin.ch
+    </xs:documentation>
+  </xs:annotation>
+  
+  <xs:element name="nomenclature">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="validFrom" type="xs:date">
+          <xs:annotation>
+            <xs:documentation xml:lang="de">
+              Die enthaltenen Daten sind ab diesem Datum gültig.
+            </xs:documentation>
+            <xs:documentation xml:lang="fr">
+              Les données sont valables depuis cette date.
+            </xs:documentation>
+            <xs:documentation xml:lang="it">
+              I dati sono validi a partire da questa data.
+            </xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="cantons">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="canton" type="eCH-0071:cantonType" minOccurs="26" maxOccurs="26"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="districts">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="district" type="eCH-0071:districtType" minOccurs="1" maxOccurs="unbounded"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="municipalities">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="municipality" type="eCH-0071:municipalityType" minOccurs="1" maxOccurs="unbounded"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+    <xs:unique name="uniqueMunicipalityId">
+      <xs:selector xpath="municipalities/municipality"/>
+      <xs:field xpath="historyMunicipalityId"/>
+    </xs:unique>
+    <xs:unique name="uniqueDistrictId">
+      <xs:selector xpath="districts/district"/>
+      <xs:field xpath="districtHistId"/>
+    </xs:unique>
+    <xs:unique name="uniqueCantonId">
+      <xs:selector xpath="cantons/canton"/>
+      <xs:field xpath="cantonId"/>
+    </xs:unique>
+  </xs:element>
+  
+	<xs:complexType name="municipalityType">
+		<xs:sequence>
+		  <xs:element name="historyMunicipalityId" type="eCH-0071:histIdType"/>
+			<xs:element name="districtHistId" type="eCH-0071:histIdType"/>
+		  <xs:element name="cantonAbbreviation" type="eCH-0071:cantonAbbreviationType"/>
+			<xs:element name="municipalityId" type="eCH-0071:municipalityIdType"/>
+			<xs:element name="municipalityLongName" type="eCH-0071:string40Type"/>
+			<xs:element name="municipalityShortName" type="eCH-0071:string24Type"/>
+			<xs:element name="municipalityEntryMode">
+				<xs:simpleType>
+					<xs:restriction base="xs:integer">
+						<xs:minInclusive value="11"/>
+						<xs:maxInclusive value="13"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="municipalityStatus">
+				<xs:simpleType>
+					<xs:restriction base="xs:integer">
+						<xs:minInclusive value="0"/>
+						<xs:maxInclusive value="1"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="municipalityAdmissionNumber">
+				<xs:simpleType>
+					<xs:restriction base="xs:integer">
+						<xs:minInclusive value="1000"/>
+						<xs:maxInclusive value="9999"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="municipalityAdmissionMode" type="eCH-0071:admissionModeType"/>
+		  <xs:element name="municipalityAdmissionDate" type="eCH-0071:dateType"/>
+			<xs:element name="municipalityAbolitionNumber" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:integer">
+						<xs:minInclusive value="1001"/>
+						<xs:maxInclusive value="9999"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="municipalityAbolitionMode" type="eCH-0071:abolitionMode" minOccurs="0"/>
+		  <xs:element name="municipalityAbolitionDate" type="eCH-0071:dateType" minOccurs="0" />
+			<xs:element name="municipalityDateOfChange" type="eCH-0071:dateType"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="districtType">
+		<xs:sequence>
+		  <xs:element name="districtHistId" type="eCH-0071:histIdType"/>
+			<xs:element name="cantonId" type="eCH-0071:cantonIdType"/>
+			<xs:element name="districtId">
+				<xs:simpleType>
+					<xs:restriction base="xs:integer">
+						<xs:minInclusive value="100"/>
+						<xs:maxInclusive value="9999"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="districtLongName" type="eCH-0071:string40Type"/>
+			<xs:element name="districtShortName" type="eCH-0071:string24Type"/>
+			<xs:element name="districtEntryMode">
+				<xs:simpleType>
+					<xs:restriction base="xs:integer">
+						<xs:minInclusive value="15"/>
+						<xs:maxInclusive value="17"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="districtAdmissionNumber">
+				<xs:simpleType>
+					<xs:restriction base="xs:integer">
+						<xs:minInclusive value="100"/>
+						<xs:maxInclusive value="999"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="districtAdmissionMode" type="eCH-0071:admissionModeType"/>
+			<xs:element name="districtAdmissionDate" type="eCH-0071:dateType"/>
+			<xs:element name="districtAbolitionNumber" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:integer">
+						<xs:minInclusive value="101"/>
+						<xs:maxInclusive value="999"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+		  <xs:element name="districtAbolitionMode" type="eCH-0071:abolitionMode" minOccurs="0" />
+			<xs:element name="districtAbolitionDate" type="eCH-0071:dateType" minOccurs="0"/>
+		  <xs:element name="districtDateOfChange" type="eCH-0071:dateType"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+  <xs:complexType name="cantonType">
+    <xs:sequence>
+      <xs:element name="cantonId" type="eCH-0071:cantonIdType"/>
+      <xs:element name="cantonAbbreviation" type="eCH-0071:cantonAbbreviationType"/>
+      <xs:element name="cantonLongName" type="eCH-0071:string40Type"/>
+      <xs:element name="cantonDateOfChange" type="eCH-0071:dateType"/>
+    </xs:sequence>
+  </xs:complexType>
+  
+  <xs:simpleType name="cantonAbbreviationType">
+    <xs:restriction base="xs:token">
+      <xs:maxLength value="2"/>
+      <xs:enumeration value="ZH"/>
+      <xs:enumeration value="BE"/>
+      <xs:enumeration value="LU"/>
+      <xs:enumeration value="UR"/>
+      <xs:enumeration value="SZ"/>
+      <xs:enumeration value="OW"/>
+      <xs:enumeration value="NW"/>
+      <xs:enumeration value="GL"/>
+      <xs:enumeration value="ZG"/>
+      <xs:enumeration value="FR"/>
+      <xs:enumeration value="SO"/>
+      <xs:enumeration value="BS"/>
+      <xs:enumeration value="BL"/>
+      <xs:enumeration value="SH"/>
+      <xs:enumeration value="AR"/>
+      <xs:enumeration value="AI"/>
+      <xs:enumeration value="SG"/>
+      <xs:enumeration value="GR"/>
+      <xs:enumeration value="AG"/>
+      <xs:enumeration value="TG"/>
+      <xs:enumeration value="TI"/>
+      <xs:enumeration value="VD"/>
+      <xs:enumeration value="VS"/>
+      <xs:enumeration value="NE"/>
+      <xs:enumeration value="GE"/>
+      <xs:enumeration value="JU"/>
+    </xs:restriction>
+  </xs:simpleType>
+  
+  <xs:simpleType name="histIdType">
+    <xs:restriction base="xs:integer">
+      <xs:minInclusive value="10001"/>
+      <xs:maxInclusive value="99999"/>
+    </xs:restriction>
+  </xs:simpleType>
+  
+  <xs:simpleType name="string24Type">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="24"/>
+    </xs:restriction>
+  </xs:simpleType>
+  
+  <xs:simpleType name="string40Type">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="40"/>
+    </xs:restriction>
+  </xs:simpleType>
+  
+  <xs:simpleType name="dateType">
+    <xs:restriction base="xs:date">
+      <xs:minInclusive value="1960-01-01"/>
+    </xs:restriction>
+  </xs:simpleType>
+  
+  <xs:simpleType name="municipalityIdType">
+    <xs:restriction base="xs:int">
+      <xs:minInclusive value="1"/>
+      <xs:maxInclusive value="9999"/>
+    </xs:restriction>
+  </xs:simpleType>
+  
+  <xs:simpleType name="admissionModeType">
+    <xs:restriction base="xs:integer">
+      <xs:enumeration value="20"/>
+      <xs:enumeration value="21"/>
+      <xs:enumeration value="22"/>
+      <xs:enumeration value="23"/>
+      <xs:enumeration value="24"/>
+      <xs:enumeration value="26"/>
+      <xs:enumeration value="27"/>
+    </xs:restriction>
+  </xs:simpleType>
+  
+  <xs:simpleType name="abolitionMode">
+    <xs:restriction base="xs:integer">
+      <xs:enumeration value="22"/>
+      <xs:enumeration value="23"/>
+      <xs:enumeration value="24"/>
+      <xs:enumeration value="26"/>
+      <xs:enumeration value="27"/>
+      <xs:enumeration value="29"/>
+      <xs:enumeration value="30"/>
+    </xs:restriction>
+  </xs:simpleType>
+  
+  <xs:simpleType name="cantonIdType">
+    <xs:restriction base="xs:integer">
+      <xs:minInclusive value="1"/>
+      <xs:maxInclusive value="26"/>
+    </xs:restriction>
+  </xs:simpleType>
+  
+</xs:schema>

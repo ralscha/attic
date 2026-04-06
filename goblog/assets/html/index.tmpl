@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ralph's Blog</title>
+<link rel="stylesheet" href="assets/blog-7.css">
+<link href="/feed.rss" rel="alternate" type="application/rss+xml" title="Ralph's Blog: RSS Feed" />
+<link href="/feed.atom" rel="alternate" type="application/atom+xml" title="Ralph's Blog: Atom Feed" />
+</head>
+<body>
+  <header>
+    <h1>
+      Ralph's Blog
+      <span class="indexsubtitle">about this and that <span class="small">(<a href="/feed.rss">RSS</a> | <a href="/feed.atom">Atom</a>)</span></span>
+    </h1>
+
+
+    <div class="query">
+		<form action="/index.html" method="get">
+		  <input type="search" name="query"{{ if .Query }} value="{{ .Query }}"{{ end }}><input type="submit" value="Search">
+		</form>
+
+		{{ range  $i, $y := .Years }}{{ if $i }}&nbsp;|&nbsp;{{ end }}{{ if $y.Current }}<strong>{{ $y.Year }}</strong>{{ else }}<a href="/index.html?year={{ $y.Year }}">{{ $y.Year }}</a>{{ end }}{{ end }}
+	</div>
+
+  </header>
+{{ range .Posts }}
+  <article class="indexarticle">
+    <h3><a href="/{{ .Url }}">{{ .Title }}</a></h3>
+    <p>Published: {{ .Published}}{{ if .Updated }}&nbsp;&nbsp;•&nbsp;&nbsp;Updated: {{ .Updated }}{{ end }}&nbsp;&nbsp;•&nbsp;&nbsp;{{ range  $i, $e := .Tags }}{{ if $i }}, {{ end }}<a href="/index.html?tag={{ $e }}">{{ $e }}</a>{{ end }}</p>
+    {{ if .Summary }}<p class="summary">{{ .Summary }}</p>{{ end }}
+  </article>
+{{ end }}
+
+
+
+</body>
+</html>
+

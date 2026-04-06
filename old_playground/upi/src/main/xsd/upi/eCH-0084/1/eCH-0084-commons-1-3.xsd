@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns:eCH-0071="http://www.ech.ch/xmlns/eCH-0071/1"
+    xmlns:eCH-0072="http://www.ech.ch/xmlns/eCH-0072/1"
+    xmlns:eCH-0011="http://www.ech.ch/xmlns/eCH-0011/3"
+    xmlns:eCH-0044="http://www.ech.ch/xmlns/eCH-0044/1"
+    xmlns:eCH-0084="http://www.ech.ch/xmlns/eCH-0084/1"
+    targetNamespace="http://www.ech.ch/xmlns/eCH-0084/1"
+    elementFormDefault="qualified"
+    attributeFormDefault="unqualified"
+    version="3">
+
+	<xs:annotation>
+		<xs:documentation xml:lang="en">
+      Common types used by the UPI (unqiue person identifier) related schemas.
+
+      $Id: eCH-0084-commons-1-3.xsd 2013-01-25 15:00:00Z naef $
+    </xs:documentation>
+	</xs:annotation>
+
+	<xs:import namespace="http://www.ech.ch/xmlns/eCH-0011/3" schemaLocation="http://www.ech.ch/xmlns/eCH-0011/3/eCH-0011-3-0.xsd"/>
+	<xs:import namespace="http://www.ech.ch/xmlns/eCH-0044/1" schemaLocation="http://www.ech.ch/xmlns/eCH-0044/1/eCH-0044-1-0.xsd"/>
+	<xs:import namespace="http://www.ech.ch/xmlns/eCH-0071/1" schemaLocation="http://www.ech.ch/xmlns/eCH-0071/1/eCH-0071-1-0.xsd"/>
+	<xs:import namespace="http://www.ech.ch/xmlns/eCH-0072/1" schemaLocation="http://www.ech.ch/xmlns/eCH-0072/1/eCH-0072-1-0.xsd"/>
+
+	<xs:complexType name="personInformationType">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">Type of person-related information elements.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="firstNames" type="eCH-0084:baseNameUPI_Type" nillable="true"/>
+			<xs:element name="officialName" type="eCH-0084:baseNameUPI_Type"/>
+			<xs:element name="originalName" type="eCH-0084:baseNameUPI_Type" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">The maiden name. Present only, if the maiden name is relevant.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="sex" type="eCH-0044:sexType"/>
+			<xs:element name="dateOfBirth" type="eCH-0044:datePartiallyKnownType"/>
+			<xs:element name="nationality">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="nationalityStatus" type="eCH-0011:nationalityStatusType"/>
+						<xs:element name="countryId" type="eCH-0072:countryIdType" minOccurs="0"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="personInformationWeakType">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">Type of person-related information elements.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="typeOfRecord" type="eCH-0084:typeOfRecord_Type" minOccurs="0"/>
+			<xs:element name="shownDocument" type="eCH-0084:shownDocument_Type" minOccurs="0"/>
+			<xs:element name="firstNames" type="eCH-0084:baseNameUPI_Type" nillable="true"/>
+			<xs:element name="officialName" type="eCH-0084:baseNameUPI_Type"/>
+			<xs:element name="originalName" type="eCH-0084:baseNameUPI_Type" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">The maiden name. Present only, if the maiden name is relevant.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="sex" type="eCH-0044:sexType"/>
+			<xs:element name="dateOfBirth" type="eCH-0044:datePartiallyKnownType"/>
+			<xs:element name="nationality" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Can only be missing, if the nationality cannot be determined for legal reasons. For instance for a newborn baby where both parents are strangers with different nationality.</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="nationalityStatus" type="eCH-0011:nationalityStatusType"/>
+						<xs:element name="countryId" type="eCH-0072:countryIdType" minOccurs="0"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="personInformationShortOptType">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">Same as personInformationType, but every single subelement is optional.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="firstNames" type="eCH-0084:baseNameUPI_Type" nillable="true" minOccurs="0"/>
+			<xs:element name="officialName" type="eCH-0084:baseNameUPI_Type" minOccurs="0"/>
+			<xs:element name="sex" type="eCH-0044:sexType" minOccurs="0"/>
+			<xs:element name="dateOfBirth" type="eCH-0044:datePartiallyKnownType" minOccurs="0"/>
+			<xs:element name="nationality" minOccurs="0">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="nationalityStatus" type="eCH-0011:nationalityStatusType"/>
+						<xs:element name="countryId" type="eCH-0072:countryIdType" minOccurs="0"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="personInformationShortOptPlusType">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">Same as personInformationShortOptType, with two additional optional elements</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="typeOfRecord" type="eCH-0084:typeOfRecord_Type" minOccurs="0"/>
+			<xs:element name="shownDocument" type="eCH-0084:shownDocument_Type" minOccurs="0"/>
+			<xs:element name="firstNames" type="eCH-0084:baseNameUPI_Type" nillable="true" minOccurs="0"/>
+			<xs:element name="officialName" type="eCH-0084:baseNameUPI_Type" minOccurs="0"/>
+			<xs:element name="sex" type="eCH-0044:sexType" minOccurs="0"/>
+			<xs:element name="dateOfBirth" type="eCH-0044:datePartiallyKnownType" minOccurs="0"/>
+			<xs:element name="nationality" minOccurs="0">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="nationalityStatus" type="eCH-0011:nationalityStatusType"/>
+						<xs:element name="countryId" type="eCH-0072:countryIdType" minOccurs="0"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="placeOfBirthType">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">Defines the place of birth.</xs:documentation>
+		</xs:annotation>
+		<xs:choice>
+			<xs:element name="unknown">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Empty marker element. Is used to indicate the unknown place of birth.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="swissTown">
+				<xs:complexType>
+					<xs:choice>
+						<xs:element name="historyMunicipalityId" type="eCH-0071:histIdType">
+							<xs:annotation>
+								<xs:documentation xml:lang="en">The historical municipality ID as defined in the BFS/OFS nomenclature.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="municipalityName" type="eCH-0071:string40Type">
+							<xs:annotation>
+								<xs:documentation xml:lang="en">The long name of the municipality as defined in the BFS/OFS nomenclature.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:choice>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="foreignCountry">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="country" type="eCH-0072:countryIdType"/>
+						<xs:element name="foreignBirthTown" minOccurs="0">
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:whiteSpace value="collapse"/>
+									<xs:maxLength value="100"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:choice>
+	</xs:complexType>
+
+	<xs:simpleType name="baseNameUPI_Type">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">Name constructed with the latin letters from ISO 8859-15 (or
+        in unicode (ISO 10646 at implementation level 3): BasicLatin, Latin-1Supplement and ŒœŠšŸŽž
+        from LatinExtended-A ) and the characters ' (APOSTROPHE), - (HYPHEN-MINUS), . (FULL STOP
+        also called period) and (SPACE). An other choise could be the latin letters mentioned in the
+        document "Informations utiles à l'intégration de nouvelles langues européennes" by Holger
+        Bagola (http://publications.europa.eu/pdf/fr/elarg-vl.pdf).
+        Change:
+        - a name consists of at least one letter from the base alphabeth. No resitrictions are
+        imposed on the usage of spaces, hyphens or full stops.
+      </xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:token">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="100"/>
+			<xs:pattern value="[']?[A-Za-zÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖØÙÚÛÜÝÞßàáâãäåæçèéêëìíîïðñòóôõöøùúûüýþÿŒœŠšŸŽž]['A-Za-zÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖØÙÚÛÜÝÞßàáâãäåæçèéêëìíîïðñòóôõöøùúûüýþÿŒœŠšŸŽž\.\- ]*"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="baseNameUPI2_Type">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">Same as baseNameUPI_Type but withe the additional caracter /
+      </xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:token">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="100"/>
+			<xs:pattern value="[']?[A-Za-zÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖØÙÚÛÜÝÞßàáâãäåæçèéêëìíîïðñòóôõöøùúûüýþÿŒœŠšŸŽž]['A-Za-zÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖØÙÚÛÜÝÞßàáâãäåæçèéêëìíîïðñòóôõöøùúûüýþÿŒœŠšŸŽž\./\- ]*"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:complexType name="fullName_Type">
+		<xs:sequence>
+			<xs:element name="firstNames" type="eCH-0084:baseNameUPI2_Type" nillable="true"/>
+			<xs:element name="lastName" type="eCH-0084:baseNameUPI2_Type"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="valuesStoredUnderAhvvn_Type">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">Note: this type is used in responses only.
+      </xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="lastUpdateTimestamp" type="xs:dateTime" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Creation timestamp of the latest UPI DB entry.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="person" type="eCH-0084:personInformationType"/>
+			<xs:element name="nameOnPassport" type="eCH-0084:baseNameUPI_Type" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Only relevant for foreigners.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="placeOfBirth" type="eCH-0011:birthplaceType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">historyMunicipalityId has always to be given if known. The municipalityId is the one corresponding now to the historyMunicipalityId (municipalityId is a time dependent information). If there is more than two current municipalityId corresponding to the historyMunicipalityId, then the smallest one is given. The same is true for the municipality name and the canton.  If the historyMunicipalityId is not known, the municipality name remains unchanged (the information is not time dependent in this case).</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="mothersName" type="eCH-0084:fullName_Type" minOccurs="0"/>
+			<xs:element name="fathersName" type="eCH-0084:fullName_Type" minOccurs="0"/>
+			<xs:element name="dateOfDeath" type="xs:date" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:simpleType name="typeOfRecord_Type">
+		<xs:annotation>
+			<xs:documentation>Determines the type of record. This type is thought for non mandatory element, therefore no value defined for missing information.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:token">
+			<xs:enumeration value="MAIN"/>
+			<xs:enumeration value="SECONDARY"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="shownDocument_Type">
+		<xs:annotation>
+			<xs:documentation>Determines the type of document shown. This type is thought for non mandatory element, therefore no value defined for missing information.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:unsignedShort">
+			<xs:enumeration value="211"/>
+			<xs:enumeration value="214"/>
+			<xs:enumeration value="217"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+</xs:schema>

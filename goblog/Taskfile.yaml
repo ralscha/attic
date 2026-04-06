@@ -1,0 +1,34 @@
+# https://taskfile.dev
+
+version: '3'
+
+vars:
+  CURRENT_DIR:
+    sh: pwd
+
+tasks:
+  default:
+    cmds:
+      - task --list-all
+
+  tidy:
+    cmds:
+      - go fmt ./...
+      - go mod tidy -v
+
+  lint:
+    cmds:
+      - docker run --rm -v {{toSlash .CURRENT_DIR}}:/app -w /app golangci/golangci-lint:v1.55.2 golangci-lint run -v --timeout 5m
+
+  audit:
+    cmds:
+      - go vet ./...
+      - go run honnef.co/go/tools/cmd/staticcheck@latest -checks=all,-ST1000,-U1000 ./...
+      - go mod verify
+
+  upgrade-libraries:
+    cmds:
+      - go get -u ./...
+      - go fmt ./...
+      - go mod tidy
+      - go mod verify

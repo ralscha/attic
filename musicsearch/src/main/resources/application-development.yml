@@ -1,0 +1,20 @@
+spring:
+  resources:
+    cache:
+      period: 0
+    static-locations: file:./client/
+    
+app:
+  music-dir: E:/music
+  index-dir: E:/music_index
+  nginx-send-file-context: 
+
+logging:
+  level:
+    org.jaudiotagger: ERROR
+    ch.rasc.musicsearch: INFO
+
+server:
+  port: 8080
+  compression:
+    enabled: false

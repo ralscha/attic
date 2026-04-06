@@ -1,0 +1,463 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2005 rel. 3 U (http://www.altova.com) by REY (OFFICE FEDERAL DE L'INFORMATIQUE) -->
+<xs:schema xmlns:eCH-0006="http://www.ech.ch/xmlns/eCH-0006/2" xmlns:eCH-0007="http://www.ech.ch/xmlns/eCH-0007/3" xmlns:eCH-0008="http://www.ech.ch/xmlns/eCH-0008/2" xmlns:eCH-0010="http://www.ech.ch/xmlns/eCH-0010/3" xmlns:eCH-0011="http://www.ech.ch/xmlns/eCH-0011/3" xmlns:eCH-0044="http://www.ech.ch/xmlns/eCH-0044/1" xmlns:eCH-0090="http://www.ech.ch/xmlns/eCH-0090/1" xmlns:eCH-0083="http://www.ech.ch/xmlns/eCH-0083/1" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.ech.ch/xmlns/eCH-0083/1" elementFormDefault="qualified" attributeFormDefault="unqualified" version="2">
+	<xs:annotation>
+		<xs:documentation xml:lang="de">
+      Schema für die Erstzuteilung der AHVN13.
+      
+      $Id: eCH-0083-1-1.xsd 92 2008-11-28 13:23:19Z metz $
+    </xs:documentation>
+		<xs:documentation xml:lang="fr">
+      Schema pour la 1ère attribution du NAVS13.
+      
+      $Id: eCH-0083-1-1.xsd 92 2008-11-28 13:23:19Z metz $
+    </xs:documentation>
+	</xs:annotation>
+	<xs:import namespace="http://www.ech.ch/xmlns/eCH-0006/2" schemaLocation="http://www.ech.ch/xmlns/eCH-0006/2/eCH-0006-2-0.xsd"/>
+	<xs:import namespace="http://www.ech.ch/xmlns/eCH-0007/3" schemaLocation="http://www.ech.ch/xmlns/eCH-0007/3/eCH-0007-3-0.xsd"/>
+	<xs:import namespace="http://www.ech.ch/xmlns/eCH-0008/2" schemaLocation="http://www.ech.ch/xmlns/eCH-0008/2/eCH-0008-2-0.xsd"/>
+	<xs:import namespace="http://www.ech.ch/xmlns/eCH-0010/3" schemaLocation="http://www.ech.ch/xmlns/eCH-0010/3/eCH-0010-3-0.xsd"/>
+	<xs:import namespace="http://www.ech.ch/xmlns/eCH-0011/3" schemaLocation="http://www.ech.ch/xmlns/eCH-0011/3/eCH-0011-3-0.xsd"/>
+	<xs:import namespace="http://www.ech.ch/xmlns/eCH-0044/1" schemaLocation="http://www.ech.ch/xmlns/eCH-0044/1/eCH-0044-1-0.xsd"/>
+	<xs:import namespace="http://www.ech.ch/xmlns/eCH-0090/1" schemaLocation="http://www.ech.ch/xmlns/eCH-0090/1/eCH-0090-1-0.xsd"/>
+	<xs:simpleType name="baseNameUPI_Type">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">Name constructed with the latin letters from ISO 8859-15 (or
+        in unicode (ISO 10646 at implementation level 3): BasicLatin, Latin-1Supplement and ŒœŠšŸŽž
+        from LatinExtended-A ) and the characters ' (APOSTROPHE), - (HYPHEN-MINUS), . (FULL STOP
+        also called period) and (SPACE). An other choise could be the latin letters mentioned in the
+        document "Informations utiles à l'intégration de nouvelles langues européennes" by Holger
+        Bagola (http://publications.europa.eu/pdf/fr/elarg-vl.pdf).
+        Change:
+        - a name consists of at least one letter from the base alphabeth. No resitrictions are
+          imposed on the usage of spaces, hyphens or full stops.
+      </xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:token">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="100"/>
+			<xs:pattern value="[']?[A-Za-zÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖØÙÚÛÜÝÞßàáâãäåæçèéêëìíîïðñòóôõöøùúûüýþÿŒœŠšŸŽž]['A-Za-zÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖØÙÚÛÜÝÞßàáâãäåæçèéêëìíîïðñòóôõöøùúûüýþÿŒœŠšŸŽž\.\- ]*"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="fullName_Type">
+		<xs:sequence>
+			<xs:element name="firstNames" type="eCH-0083:baseNameUPI_Type" nillable="true"/>
+			<xs:element name="lastName" type="eCH-0083:baseNameUPI_Type"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="submittedPersonalAttributesType">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">Set of personal attributes (= identifying attributes characterising one
+        given physical person) to be used by ZAS/CdC for NAVS13 assignment</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="localPersonId" type="eCH-0044:namedPersonIdType">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Person record identifier (technical) : MUST be unique by
+            the data source. Typically, represents the physical person identifier in the information
+            system of the submitting institution. If not, must allow for an unambiguous connection
+            to such a physical person. </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="otherPersonId" minOccurs="0" maxOccurs="unbounded">
+				<xs:complexType>
+					<xs:complexContent>
+						<xs:extension base="eCH-0044:namedPersonIdType"/>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="oldVN" type="eCH-0083:oldVNType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">11-digits swiss insured number (AHV/AVS), when known and
+            ONLY if it is the official one delivered by ZAS/CdC.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="vn" type="eCH-0044:vnType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">13-digits, new swiss social security number ("NAVS13")
+            delivered by AHV/AVS, if already known by another source than
+          ZAS/CdC.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="lastname" type="eCH-0083:baseNameUPI_Type">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Official surname (after BFS/OFS definition), if known.
+            When not known, the common name by which the person is known</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="originalName" type="eCH-0083:baseNameUPI_Type" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Family name at birth/after adoption time (after BFS/OFS
+            definition)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="otherName" type="eCH-0083:baseNameUPI_Type" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Other, alternate patronymic form (if
+          known)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="firstNames" type="eCH-0083:baseNameUPI_Type">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">(set of) first names</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="birthDate" type="eCH-0044:datePartiallyKnownType">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Date of birth. Must be given to the best of its known
+            precision.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="sex" type="eCH-0044:sexType">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Gender type</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="nationality">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="nationalityStatus" type="eCH-0011:nationalityStatusType"/>
+						<xs:element name="countryId" type="eCH-0008:countryIdType" minOccurs="0"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="languageOfCorrespondance" type="eCH-0011:languageType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Language of correspondence. To be provided if
+          available.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="birthPlace" type="eCH-0011:birthplaceType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Place of birth (if known) </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="mothersName" type="eCH-0083:fullName_Type" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Mother's name, preferrably at birth
+          time</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="fathersName" type="eCH-0083:fullName_Type" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Father's name, preferrably at birth
+          time</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:choice>
+				<xs:element name="placeOfOrigin" type="eCH-0011:placeOfOriginType" minOccurs="0" maxOccurs="4">
+					<xs:annotation>
+						<xs:documentation xml:lang="en">Swiss citizenship's "Heimatsort"/"Lieu
+              d'origine"</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="residencePermit" type="eCH-0006:residencePermitCategoryType" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation xml:lang="en">Foreigners type of residence permit.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:choice>
+			<xs:element name="residenceType" type="eCH-0083:typeOfResidenceType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Type of residence ("Relation d'annonce", after BFS/OFS
+            nomenclature)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="zipCode" type="eCH-0010:swissZipCodeType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Swiss postal zip code ("PLZ"/"NPA")</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="municipalityId" type="eCH-0007:municipalityIdType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Swiss municipality identifier (after BFS/OFS
+          nomenclature)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="municipalityName" type="eCH-0007:municipalityNameType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Swiss municipality name</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="streetAddressLine" type="eCH-0010:addressLineType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Mail address line (usually : street name + building
+            number)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="requestHeaderType">
+		<xs:annotation>
+			<xs:documentation xml:lang="en"> A reusable group of elements needed as part of the header of
+        each request. </xs:documentation>
+		</xs:annotation>
+		<xs:choice>
+			<xs:element name="sedexId" type="eCH-0090:participantIdType">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">WHEN THE DOCUMENT IS SEDEX-CARRIED : Identifier of the institution which
+            sends the request. The format is compliant to the sedex participant ID. See the 'sedex
+            Handbuch', ch. 4.9.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="senderId">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">WHEN THE DOCUMENT IS NOT SEDEX-CARRIED : Identifier of the
+            institution which sends the request : - For a swiss municipality : "Cnnnn" where "nnnn"
+            is the 4-digits BFS/OFS municipality code (the one valid at BFS/OFS-prescribed export
+            time); - For a health insurer : this is a VK-Center- or Santésuisse-attributed Id, of
+            type "VKnnn" (n is a digit); - For others : the Id must have been attributed by ZAS/CdC
+          </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:choice>
+	</xs:complexType>
+	<xs:simpleType name="typeOfResidenceType">
+		<xs:annotation>
+			<xs:documentation xml:lang="en"> Type of residence according to Amtlicher Katalog der
+        Merkmale. 1=main residence, 2=secondary residence, 3=main residence abroad.
+      </xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:int">
+			<xs:enumeration value="1"/>
+			<xs:enumeration value="2"/>
+			<xs:enumeration value="3"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="oldVNType">
+		<xs:restriction base="xs:string">
+			<xs:length value="11"/>
+			<xs:pattern value="[1-9][0-9]{10}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="phoneNumberType">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="15"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="returnedOfficialAttributesType">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">Set of personal attributes (= identifying attributes characterising one
+        given physical person) returned by ZAS/CdCas the "UPI-official" ones</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="sourceId" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Identifies the source of the official data.</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="EAZW"/>
+						<xs:enumeration value="BFM"/>
+						<xs:enumeration value="ORDIPRO"/>
+						<xs:enumeration value="VERA"/>
+						<xs:enumeration value="EWR"/>
+						<xs:enumeration value="AHV"/>
+						<xs:enumeration value="KK"/>
+						<xs:enumeration value="other"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="lastName" type="eCH-0083:baseNameUPI_Type">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Official surname (after BFS/OFS definition), when
+            available. Otherwise, the name made known to ZAS by a third party.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="originalName" type="eCH-0083:baseNameUPI_Type" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Family name at birth time (after BFS/OFS
+          definition)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="firstNames" type="eCH-0083:baseNameUPI_Type">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">(set of) first names</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="nameOnPassport" type="eCH-0083:baseNameUPI_Type" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">
+            Only relevant for foreigners. Only present, if not equal to officalName.
+          </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="birthDate" type="eCH-0044:datePartiallyKnownType">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Date of birth. Must be given to the best of its known
+            precision.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="sex" type="eCH-0044:sexType">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Gender type</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="nationality">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="nationalityStatus" type="eCH-0011:nationalityStatusType"/>
+						<xs:element name="countryId" type="eCH-0008:countryIdType" minOccurs="0"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="birthPlace" type="eCH-0011:birthplaceType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Place of birth (if known) </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="mothersName" type="eCH-0083:fullName_Type" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Mother's name, preferrably at birth
+          time</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="fathersName" type="eCH-0083:fullName_Type" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Father's name, preferrably at birth
+          time</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="attributionRequest">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">Databases of personal attributes ("Merkmale") to be transmitted to ZAS/CdC
+        in view of an NAVS13 attribution.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="header" type="eCH-0083:requestHeaderType"/>
+				<xs:element name="record" type="eCH-0083:submittedPersonalAttributesType" maxOccurs="unbounded">
+					<xs:annotation>
+						<xs:documentation xml:lang="en">Person-identifying record : contains available
+              attributes for the identification of a given physical person.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="attributionReceipt">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">
+        Receipt confirming the reception of the attribution request.
+      </xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:choice>
+				<xs:element name="accepted">
+					<xs:annotation>
+						<xs:documentation xml:lang="en">
+              This element is present, if the formal quality assurance approved the request
+              as valid.
+            </xs:documentation>
+					</xs:annotation>
+					<xs:complexType/>
+				</xs:element>
+				<xs:element name="rejected" type="xs:string">
+					<xs:annotation>
+						<xs:documentation xml:lang="en">
+              This element is present, if the request has been disapproved for formal 
+              reasons during quality assurance (e.g. request did not correspond to required
+              data format). The content of the element is a free-text error message.
+            </xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:choice>
+		</xs:complexType>
+	</xs:element>
+	<xs:complexType name="responseRecordType">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">Type for record as returned from ZAS/CdC after
+        NAVS13 attribution.</xs:documentation>
+		</xs:annotation>
+		<xs:choice>
+			<xs:element name="attributed">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">This element is present, if an NAVS13 has been
+          attributed to the person, whose data is contained herein.</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="submittedPersonalAttributes" type="eCH-0083:submittedPersonalAttributesType">
+							<xs:annotation>
+								<xs:documentation xml:lang="en">Available attributes for the identification of a
+                  given physical person, as received from the requesting party.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="vn" type="eCH-0044:vnType">
+							<xs:annotation>
+								<xs:documentation xml:lang="en">NAVS13 ("Versichertennummer")</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="returnedOfficialAttributes" type="eCH-0083:returnedOfficialAttributesType" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation xml:lang="en">Official attributes for the identification of a
+                  given physical person, as given by ZAS. NOTE : these data are only
+                  systematically disclosed to certain parties among all potential requesters. Such
+                  a communication also depends on the availability of such 'official' attributes
+                  at the time of processing.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="notAttributed">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">This element is present, if no AHVN13 has been
+            attributed to the person, whose data is contained herein.</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="submittedPersonalAttributes" type="eCH-0083:submittedPersonalAttributesType">
+							<xs:annotation>
+								<xs:documentation xml:lang="en">Available attributes for the identification of a
+                  given physical person, as received from the requesting party.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:choice>
+	</xs:complexType>
+	<xs:element name="attributionResponse">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">Databases of personal attributes ("Merkmale") returned from ZAS/CdC after
+        NAVS13 attribution</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="receivedHeader" type="eCH-0083:requestHeaderType">
+					<xs:annotation>
+						<xs:documentation xml:lang="en"> Reflects the header as it has been sent by the sending
+              application. </xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="timestamp" type="xs:dateTime">
+					<xs:annotation>
+						<xs:documentation xml:lang="en">Timestamp characterizing the time of processing (-> time
+              of validity) of the returned data.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="zasReference">
+					<xs:annotation>
+						<xs:documentation xml:lang="en">Technical field assigned by ZAS for tracking
+            purposes.</xs:documentation>
+					</xs:annotation>
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:maxLength value="120"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="record" type="eCH-0083:responseRecordType" maxOccurs="unbounded">
+					<xs:annotation>
+						<xs:documentation xml:lang="en">Set of person-identifying records containing available
+              attributes for the identification of a given physical person, as extracted from the
+              same source (=register). </xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

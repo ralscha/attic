@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions 
+  xmlns="http://schemas.xmlsoap.org/wsdl/"
+  xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+  xmlns:soapbind="http://schemas.xmlsoap.org/wsdl/soap/"
+  xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
+  xmlns:http="http://schemas.xmlsoap.org/wsdl/http/"
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+  targetNamespace="http://ws.admin.ch/zas/regcent/UPI/0"
+  xmlns:eCH-0085="http://www.ech.ch/xmlns/eCH-0085/1"
+  xmlns:upi-ws="http://ws.admin.ch/zas/regcent/UPI/0"
+  xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+	<documentation>
+    This WSDL definition describes the UPI Query Web Service interface.
+    The interface is supposed to be compliant to the WS-I Basic Profile 1.1
+    for interoperable Web Services (cf. http://www.ws-i.org/Profiles/BasicProfile-1.1.html).
+
+    Author: Igor Metz, Glue Software Engineering AG
+
+    Change history:
+    2007-11-04 created (Igor Metz)
+    2007-11-20 Operation getAhvvn added (Igor Metz, Igor Metz).
+    2008-02-21 (Igor Metz, Glue AG)
+    - adapted to renamed XML Schema
+	2009-06-10 Operation getCancelledAndInactiveAhvvn added (TQN, ELCA)
+	2009-11-04 Operations listOfSearchPerson, listOfGetInfoPerson and listOfGetAhvvn added (TQN, ELCA)
+	2010-02-16 Changed to eCH-0085-1-3.xsd (TQN, ELCA)
+	2010-09-09 Changed to eCH-0085-1-4.xsd (DBN, ELCA)
+	2011-07-06 Operation getSource added (DBN, ELCA)
+	</documentation>
+
+	<types>
+		<xs:schema elementFormDefault="qualified">
+			<xs:import namespace="http://www.ech.ch/xmlns/eCH-0085/1" schemaLocation="http://www.ech.ch/xmlns/eCH-0085/1/eCH-0085-1-4.xsd"/>
+		</xs:schema>
+	</types>
+
+	<message name="getInfoPersonRequestMsg">
+		<part name="body" element="eCH-0085:getInfoPersonRequest"/>
+	</message>
+	<message name="getInfoPersonResponseMsg">
+		<part name="body" element="eCH-0085:getInfoPersonResponse"/>
+	</message>
+
+	<message name="searchPersonRequestMsg">
+		<part name="body" element="eCH-0085:searchPersonRequest"/>
+	</message>
+	<message name="searchPersonResponseMsg">
+		<part name="body" element="eCH-0085:searchPersonResponse"/>
+	</message>
+
+	<message name="getAhvvnRequestMsg">
+		<part name="body" element="eCH-0085:getAhvvnRequest"/>
+	</message>
+	<message name="getAhvvnResponseMsg">
+		<part name="body" element="eCH-0085:getAhvvnResponse"/>
+	</message>
+
+	<message name="getCancelledAndInactiveAhvvnRequestMsg">
+		<part name="body" element="eCH-0085:getCancelledAndInactiveAhvvnRequest"/>
+	</message>
+	<message name="getCancelledAndInactiveAhvvnResponseMsg">
+		<part name="body" element="eCH-0085:getCancelledAndInactiveAhvvnResponse"/>
+	</message>
+
+	<message name="getSourceRequestMsg">
+		<part name="body" element="eCH-0085:getSourceRequest"/>
+	</message>
+	<message name="getSourceResponseMsg">
+		<part name="body" element="eCH-0085:getSourceResponse"/>
+	</message>
+	
+	<!-- Lists -->
+	<message name="listOfSearchPersonRequestMsg">
+		<part name="body" element="eCH-0085:listOfSearchPersonRequest"/>
+	</message>
+	<message name="listOfSearchPersonResponseMsg">
+		<part name="body" element="eCH-0085:listOfSearchPersonResponse"/>
+	</message>
+	<message name="listOfGetInfoPersonRequestMsg">
+		<part name="body" element="eCH-0085:listOfGetInfoPersonRequest"/>
+	</message>
+	<message name="listOfGetInfoPersonResponseMsg">
+		<part name="body" element="eCH-0085:listOfGetInfoPersonResponse"/>
+	</message>
+	<message name="listOfGetAhvvnRequestMsg">
+		<part name="body" element="eCH-0085:listOfGetAhvvnRequest"/>
+	</message>
+	<message name="listOfGetAhvvnResponseMsg">
+		<part name="body" element="eCH-0085:listOfGetAhvvnResponse"/>
+	</message>
+	
+
+	<portType name="UPIQueryServicePortType">
+
+		<operation name="getInfoPerson">
+			<input message="upi-ws:getInfoPersonRequestMsg"/>
+			<output message="upi-ws:getInfoPersonResponseMsg"/>
+		</operation>
+
+		<operation name="searchPerson">
+			<input message="upi-ws:searchPersonRequestMsg"/>
+			<output message="upi-ws:searchPersonResponseMsg"/>
+		</operation>
+
+		<operation name="getAhvvn">
+			<input message="upi-ws:getAhvvnRequestMsg"/>
+			<output message="upi-ws:getAhvvnResponseMsg"/>
+		</operation>
+
+		<operation name="getCancelledAndInactiveAhvvn">
+			<input message="upi-ws:getCancelledAndInactiveAhvvnRequestMsg"/>
+			<output message="upi-ws:getCancelledAndInactiveAhvvnResponseMsg"/>
+		</operation>
+
+		<operation name="getSource">
+			<input message="upi-ws:getSourceRequestMsg"/>
+			<output message="upi-ws:getSourceResponseMsg"/>
+		</operation>
+		
+		<operation name="listOfSearchPerson">
+			<input message="upi-ws:listOfSearchPersonRequestMsg"/>
+			<output message="upi-ws:listOfSearchPersonResponseMsg"/>
+		</operation>
+		
+		<operation name="listOfGetInfoPerson">
+			<input message="upi-ws:listOfGetInfoPersonRequestMsg"/>
+			<output message="upi-ws:listOfGetInfoPersonResponseMsg"/>
+		</operation>
+		
+		<operation name="listOfGetAhvvn">
+			<input message="upi-ws:listOfGetAhvvnRequestMsg"/>
+			<output message="upi-ws:listOfGetAhvvnResponseMsg"/>
+		</operation>
+		
+	</portType>
+
+	<binding name="UPIQueryServiceBinding" type="upi-ws:UPIQueryServicePortType">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+		<operation name="getInfoPerson">
+			<soap:operation soapAction="http://soap.upi.admin.ch"/>
+			<input>
+				<soap:body use="literal"/>
+			</input>
+			<output>
+				<soap:body use="literal"/>
+			</output>
+		</operation>   
+
+		<operation name="searchPerson">
+			<soap:operation soapAction="http://soap.upi.admin.ch"/>
+			<input>
+				<soap:body use="literal"/>
+			</input>
+			<output>
+				<soap:body use="literal"/>
+			</output>
+		</operation>   
+
+		<operation name="getAhvvn">
+			<soap:operation soapAction="http://soap.upi.admin.ch"/>
+			<input>
+				<soap:body use="literal"/>
+			</input>
+			<output>
+				<soap:body use="literal"/>
+			</output>
+		</operation>
+
+		<operation name="getCancelledAndInactiveAhvvn">
+			<soap:operation soapAction="http://soap.upi.admin.ch"/>
+			<input>
+				<soap:body use="literal"/>
+			</input>
+			<output>
+				<soap:body use="literal"/>
+			</output>
+		</operation>
+
+		<operation name="getSource">
+			<soap:operation soapAction="http://soap.upi.admin.ch"/>
+			<input>
+				<soap:body use="literal"/>
+			</input>
+			<output>
+				<soap:body use="literal"/>
+			</output>
+		</operation>
+
+		<operation name="listOfSearchPerson">
+			<soap:operation soapAction="http://soap.upi.admin.ch"/>
+			<input>
+				<soap:body use="literal"/>
+			</input>
+			<output>
+				<soap:body use="literal"/>
+			</output>
+		</operation>
+
+		<operation name="listOfGetInfoPerson">
+			<soap:operation soapAction="http://soap.upi.admin.ch"/>
+			<input>
+				<soap:body use="literal"/>
+			</input>
+			<output>
+				<soap:body use="literal"/>
+			</output>
+		</operation>
+
+		<operation name="listOfGetAhvvn">
+			<soap:operation soapAction="http://soap.upi.admin.ch"/>
+			<input>
+				<soap:body use="literal"/>
+			</input>
+			<output>
+				<soap:body use="literal"/>
+			</output>
+		</operation>		
+	</binding>
+
+	<service name="UPIQueryService">
+		<port name="UPIQueryServicePort" binding="upi-ws:UPIQueryServiceBinding">
+			<soap:address location="http://ws.zas.admin.ch/soap?Service=UPIQueryService"/>
+		</port>
+	</service>
+</definitions>

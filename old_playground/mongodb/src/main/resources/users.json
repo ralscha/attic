@@ -1,0 +1,37 @@
+[
+  {
+		"username" : "johnd",
+		"firstName" : "John",
+		"name" : "Doe",
+		"email" : "john.doe@test.com",
+		"enabled" : true,
+		"dob" : "1985-02-04",
+		"noOfLogins" : 5,
+		"password" : "91dfd9ddb4198affc5c194cd8ce6d338fde470e2",
+		"groups" : ["admin", "user"],
+		"phoneNumber" : [{
+				"type" : "home",
+				"number" : "212 555-1234"
+			}, {
+				"type" : "fax",
+				"number" : "646 555-4567"
+			}]
+	}, {
+		"username" : "francol",
+		"firstName" : "Franco",
+		"name" : "Lawrence",
+		"email" : "franco.lawrence@test.com",
+		"enabled" : true,
+		"dob" : "1979-12-02",
+		"noOfLogins" : 3,
+		"password" : "5baa61e4c9b93f3f0682250b6cf8331b7ee68fd8",
+		"groups" : ["user"],
+		"phoneNumber" : [{
+				"type" : "home",
+				"number" : "212 555-4321"
+			}, {
+				"type" : "fax",
+				"number" : "646 555-7654"
+			}]
+	}
+]

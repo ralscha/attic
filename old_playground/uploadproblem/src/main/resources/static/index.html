@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+</head>
+<body>
+
+	<form action="uploadTest" method="post" enctype="multipart/form-data">
+		<input type="hidden" name="hiddenParameter" value="theHiddenValue" />
+		<fieldset>
+		    <label for="multipleFiles" id="multipleFiles">Multiple File:</label>
+			<input type="file" id ="multipleFiles" name="multipleFiles" multiple="multiple">
+			
+			<label for="oneFile" id="oneFile">One File:</label>
+			<input type="file" id="oneFile" name="oneFile">
+			
+			<button type="submit">Start Upload</button>
+		</fieldset>
+
+		
+	</form>
+
+</body>
+</html>

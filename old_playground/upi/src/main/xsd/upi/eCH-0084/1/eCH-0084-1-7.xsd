@@ -1,0 +1,557 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+  xmlns:eCH-0011="http://www.ech.ch/xmlns/eCH-0011/3"
+  xmlns:eCH-0044="http://www.ech.ch/xmlns/eCH-0044/1"
+  xmlns:eCH-0072="http://www.ech.ch/xmlns/eCH-0072/1"
+  xmlns:eCH-0084="http://www.ech.ch/xmlns/eCH-0084/1"
+  xmlns:eCH-0090="http://www.ech.ch/xmlns/eCH-0090/1"
+  targetNamespace="http://www.ech.ch/xmlns/eCH-0084/1"
+  elementFormDefault="qualified"
+  attributeFormDefault="unqualified"
+  version="7">
+
+	<xs:annotation>
+		<xs:documentation xml:lang="en">
+      UPI (unique person identifier) declaration interface.
+      Schema for UPI related declaration request and response messages.
+
+      $Id: eCH-0084-1-7.xsd 2015-09-09 18:00:00Z naef $
+		</xs:documentation>
+	</xs:annotation>
+	<xs:include schemaLocation="../../../upi/eCH-0084/1/eCH-0084-commons-1-4.xsd"/>
+	<xs:import namespace="http://www.ech.ch/xmlns/eCH-0011/3" schemaLocation="http://www.ech.ch/xmlns/eCH-0011/3/eCH-0011-3-0.xsd"/>
+	<xs:import namespace="http://www.ech.ch/xmlns/eCH-0044/1" schemaLocation="http://www.ech.ch/xmlns/eCH-0044/1/eCH-0044-1-0.xsd"/>
+	<xs:import namespace="http://www.ech.ch/xmlns/eCH-0072/1" schemaLocation="http://www.ech.ch/xmlns/eCH-0072/1/eCH-0072-1-0.xsd"/>
+	<xs:import namespace="http://www.ech.ch/xmlns/eCH-0090/1" schemaLocation="http://www.ech.ch/xmlns/eCH-0090/1/eCH-0090-1-0.xsd"/>
+	<xs:complexType name="headerType">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">Type describing the header of each message.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="sedexId" type="eCH-0090:participantIdType">
+				<xs:annotation>
+					<xs:documentation>Identifier of the institution which is sending the request (data of the declaration. In other words, a constant for each institution which can be source of data. The source ID format is compliant to the sedex participant ID. See the 'sedex Handbuch', ch. 4.9.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="declarationNumber" type="xs:long">
+				<xs:annotation>
+					<xs:documentation>Running number forming with sedexId a key identifying the declaration. If a second declaration is sent with the same key, it is refused.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="declarationLocalReference">
+				<xs:annotation>
+					<xs:documentation>Contains information useful in case of manual clearing. For instance the case reference or the direct telephone number or the name of le clerk who has treated the record, etc...</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:minLength value="0"/>
+						<xs:maxLength value="100"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="orderingTimestamp" type="xs:dateTime" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>This timestamp determines the chronological order which should be used for processing the messages.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="personInformationExtType">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">Extended person-related information element</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="typeOfRecord" type="eCH-0084:typeOfRecord_Type" minOccurs="0"/>
+			<xs:element name="shownDocument" type="eCH-0084:shownDocument_Type" minOccurs="0"/>
+			<xs:element name="firstNames" type="eCH-0084:baseNameUPI_Type" nillable="true"/>
+			<xs:element name="officialName" type="eCH-0084:baseNameUPI_Type"/>
+			<xs:element name="originalName" type="eCH-0084:baseNameUPI_Type" nillable="true" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">The maiden name. Present only, if the maiden name is relevant.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="sex" type="eCH-0044:sexType"/>
+			<xs:element name="dateOfBirth" type="eCH-0044:datePartiallyKnownType"/>
+			<xs:element name="placeOfBirth" type="eCH-0084:placeOfBirthType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">The presence of the contained element municipalityName is only allowed if the date of birth is before 1960.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="mothersName" type="eCH-0084:fullName_Type" nillable="true" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">To delete the current value in the UPI for the mother's name at brith, set nil="true".</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="fathersName" type="eCH-0084:fullName_Type" nillable="true" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">To delete the current value in the UPI for the father's name at brith, set nil="true".</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="nationality" minOccurs="0">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="nationalityStatus" type="eCH-0011:nationalityStatusType"/>
+						<xs:element name="countryId" type="eCH-0072:countryIdType" minOccurs="0"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="dateOfDeath" type="xs:date" nillable="true" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">To delete the current value in the UPI for the date of death, set nil="true".</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="personInformationExtOptType">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">Extended person-related information element, where every single subelement is optional.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="typeOfRecord" type="eCH-0084:typeOfRecord_Type" minOccurs="0"/>
+			<xs:element name="shownDocument" type="eCH-0084:shownDocument_Type" minOccurs="0"/>
+			<xs:element name="firstNames" type="eCH-0084:baseNameUPI_Type" nillable="true" minOccurs="0"/>
+			<xs:element name="officialName" type="eCH-0084:baseNameUPI_Type" minOccurs="0"/>
+			<xs:element name="originalName" type="eCH-0084:baseNameUPI_Type" nillable="true" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">The maiden name. Present only, if the maiden name is relevant.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="sex" type="eCH-0044:sexType" minOccurs="0"/>
+			<xs:element name="dateOfBirth" type="eCH-0044:datePartiallyKnownType" nillable="false" minOccurs="0"/>
+			<xs:element name="placeOfBirth" type="eCH-0084:placeOfBirthType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">The presence of the contained element municipalityName is only allowed if the date of birth is before 1960.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="mothersName" type="eCH-0084:fullName_Type" nillable="true" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">To delete the current value in the UPI for the mother's name at brith, set nil="true".</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="fathersName" type="eCH-0084:fullName_Type" nillable="true" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">To delete the current value in the UPI for the father's name at brith, set nil="true".</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="nationality" minOccurs="0">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="nationalityStatus" type="eCH-0011:nationalityStatusType"/>
+						<xs:element name="countryId" type="eCH-0072:countryIdType" minOccurs="0"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="dateOfDeath" type="xs:date" nillable="true" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">To delete the current value in the UPI for the date of death, set nil="true".</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="newPersonRequest">
+		<xs:annotation>
+			<xs:documentation>Declaration of a new person to the UPI (Universal Personal Identifier) DB of the Swiss social security. Before sending  this declaration, you should be reasonably sure that this person is not already present in the UPI DB.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="header" type="eCH-0084:headerType">
+					<xs:annotation>
+						<xs:documentation xml:lang="en">Header common to all messages.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="localPersonId" type="eCH-0044:namedPersonIdType" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation xml:lang="en">Represents the person identifier in the information system of the institution sending the declaration. The cardinality 0 is only allowed for institutions belonging to the first pillar of the Swiss social security. </xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="reason" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation xml:lang="en">Reason for sending the message. Only used for special purpose. Possible values: 4=adoption.</xs:documentation>
+					</xs:annotation>
+					<xs:simpleType>
+						<xs:restriction base="xs:short">
+							<xs:enumeration value="4"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="noSearchDone" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation xml:lang="en">If this flag is present and the announced person is already in UPI, the request will be automatically transformed into a updateCurrentValues(OrAddEntryToHistory)Request. The source has to inform ZAS prior to send the flag for the first time.</xs:documentation>
+					</xs:annotation>
+					<xs:simpleType>
+						<xs:restriction base="xs:boolean">
+							<xs:pattern value="true"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="currentValues" type="eCH-0084:personInformationWeakType"/>
+				<xs:element name="historicalValues" type="eCH-0084:personInformationShortOptPlusType" minOccurs="0" maxOccurs="unbounded">
+					<xs:annotation>
+						<xs:documentation>In chronological order (oldest first). The presence of this element makes it possible to find a person on the basis of old attribute values.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="placeOfBirth" type="eCH-0084:placeOfBirthType">
+					<xs:annotation>
+						<xs:documentation xml:lang="en">The presence of the element municipalityName is only allowed, if the date of birth is before 1960.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="mothersName" type="eCH-0084:fullName_Type" nillable="true" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation xml:lang="en">Must be present in almost any case.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="fathersName" type="eCH-0084:fullName_Type" nillable="true" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation xml:lang="en">Should be present if available</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="isTwin" type="xs:boolean" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation xml:lang="en">true=this person has a twin brother/sister</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="dateOfDeath" type="xs:date" nillable="true" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="updateLocalPersonIdRequest">
+		<xs:annotation>
+			<xs:documentation>Requests the update of the person's local person ID. This element is used to modify the values of the persons attributes in the UPI DB.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="header" type="eCH-0084:headerType">
+					<xs:annotation>
+						<xs:documentation xml:lang="en">Header common to all messages.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="ahvvn" type="eCH-0044:vnType" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation xml:lang="en">The cardinality 0 is only allowed if the tag localPersonId is present and a newPersonRequest for the same person is still in the clearing process..</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="oldLocalPersonId" type="eCH-0044:namedPersonIdType"/>
+				<xs:element name="newLocalPersonId" type="eCH-0044:namedPersonIdType"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="updateCurrentValuesRequest">
+		<xs:annotation>
+			<xs:documentation>Requests the update of the person's current values. This element is used to modify the values of the persons attributes in the UPI DB.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="header" type="eCH-0084:headerType">
+					<xs:annotation>
+						<xs:documentation xml:lang="en">Header common to all messages.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="ahvvn" type="eCH-0044:vnType" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation xml:lang="en">The cardinality 0 is only allowed if the tag localPersonId is present and a newPersonRequest for the same person is still in the clearing process..</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="localPersonId" type="eCH-0044:namedPersonIdType" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation xml:lang="en">Represents the person
+              identifier in the information system of the institution sending the
+              declaration. The cardinality 0 is only allowed for institutions belonging
+              to the first pillar of the Swiss social security.
+            </xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="reason">
+					<xs:annotation>
+						<xs:documentation xml:lang="en">Reason for modification. Possible values: 0=unknown, 1=correction, 2=legal event, 3=resynchronisation, 4=adoption, 5=hybridation (internal use only)</xs:documentation>
+					</xs:annotation>
+					<xs:simpleType>
+						<xs:restriction base="xs:short">
+							<xs:minInclusive value="0"/>
+							<xs:maxInclusive value="5"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="person" type="eCH-0084:personInformationExtOptType"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="addEntryToHistoryRequest">
+		<xs:annotation>
+			<xs:documentation>Requests an additional entry in the person's historical values. This element is used to modify the values of the persons attributes in the UPI DB.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="header" type="eCH-0084:headerType">
+					<xs:annotation>
+						<xs:documentation xml:lang="en">Header common to all messages.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="ahvvn" type="eCH-0044:vnType" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation xml:lang="en">The cardinality 0 is only allowed if the tag localPersonId is present and a newPersonRequest for the same person is still in the clearing process..</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="localPersonId" type="eCH-0044:namedPersonIdType" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation xml:lang="en">Represents the person identifier in the information system of the institution sending the declaration. The cardinality 0 is only allowed for institutions belonging to the first pillar of the Swiss social security.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="reason" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation xml:lang="en">Reason for modification. Possible values: 0=unknown (equivalent to missing tag), 1=correction, 2=legal event., 3=resynchronisation, 4=adoption, 5=hybridation (internal use only).</xs:documentation>
+					</xs:annotation>
+					<xs:simpleType>
+						<xs:restriction base="xs:short">
+							<xs:minInclusive value="0"/>
+							<xs:maxInclusive value="5"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="person" type="eCH-0084:personInformationExtType"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="updateCurrentValuesOrAddEntryToHistoryRequest">
+		<xs:annotation>
+			<xs:documentation>The UPI decides wether to treat this request as a "updateCurrentValuesRequest" or as a "addEntryToHistoryRequest".</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="header" type="eCH-0084:headerType">
+					<xs:annotation>
+						<xs:documentation xml:lang="en">Header common to all messages.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="ahvvn" type="eCH-0044:vnType" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation xml:lang="en">The cardinality 0 is only allowed if the tag localPersonId is present and a newPersonRequest for the same person is still in the clearing process..</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="localPersonId" type="eCH-0044:namedPersonIdType" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation xml:lang="en">Represents the person identifier in the information system of the institution sending the declaration. The cardinality 0 is only allowed for institutions belonging to the first pillar of the Swiss social security.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="reason" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation xml:lang="en">Reason for modification. Possible values: 0=unknown (equivalent to missing tag), 1=correction, 2=legal event., 3=resynchronisation, 4=adoption, 5=hybridation (internal use only).</xs:documentation>
+					</xs:annotation>
+					<xs:simpleType>
+						<xs:restriction base="xs:short">
+							<xs:minInclusive value="0"/>
+							<xs:maxInclusive value="5"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="person" type="eCH-0084:personInformationExtType"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="erasePersonRequest">
+		<xs:annotation>
+			<xs:documentation>Erasure of a person from the UPI (Universal Personal Identifier) DB of the Swiss social security. A person can only be erased if she as been entered some hours ago.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="header" type="eCH-0084:headerType">
+					<xs:annotation>
+						<xs:documentation xml:lang="en">Header common to all messages.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="ahvvn" type="eCH-0044:vnType" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation xml:lang="en">The cardinality 0 is only allowed if the tag localPersonId is present and a newPersonRequest for the same person is still in the clearing process..</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="localPersonId" type="eCH-0044:namedPersonIdType" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>The cardinality 0 is only allowed for institutions belonging to the first pillar of the Swiss social security. It represents the person identifier in the information system of the institution sending the declaration.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="eraseLocalPersonIdRequest">
+		<xs:annotation>
+			<xs:documentation>Erasure of a person's local person ID. The person is not erased.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="header" type="eCH-0084:headerType">
+					<xs:annotation>
+						<xs:documentation xml:lang="en">Header common to all messages.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="ahvvn" type="eCH-0044:vnType" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation xml:lang="en">The cardinality 0 is only allowed if the tag localPersonId is present and a newPersonRequest for the same person is still in the clearing process..</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="localPersonId" type="eCH-0044:namedPersonIdType">
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="mergePersonsRequest">
+		<xs:annotation>
+			<xs:documentation>Merging of two (or more) persons in the UPI (Universal Personal Identifier) DB of the Swiss social security. This message is used to merge two persons which appear in the UPI DB as two separate persons into one person.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="header" type="eCH-0084:headerType">
+					<xs:annotation>
+						<xs:documentation xml:lang="en">Header common to all messages.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="person" minOccurs="2" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="ahvvn" type="eCH-0044:vnType" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation>The cardinality 0 is only allowed if the tag localPersonId is present.</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="localPersonId" type="eCH-0044:namedPersonIdType" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation>Represents the person identifier in the information system of the institution sending the declaration. The cardinality 0 is only allowed for institutions belonging to the first pillar of the Swiss social security.</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="mergePersonOrUpdateLocalPersonIdRequest">
+		<xs:annotation>
+			<xs:documentation>The UPI decides wether to treat this request as a 'mergePersonRequest' or as a 'updateLocalPersonIdRequest".</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="header" type="eCH-0084:headerType">
+					<xs:annotation>
+						<xs:documentation xml:lang="en">Header common to all messages.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="person" minOccurs="2" maxOccurs="2">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="ahvvn" type="eCH-0044:vnType" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation>The cardinality 0 is only allowed if the tag localPersonId is present.</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="localPersonId" type="eCH-0044:namedPersonIdType" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation>Represents the person identifier in the information system of the institution sending the declaration. The cardinality 0 is only allowed for institutions belonging to the first pillar of the Swiss social security.</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="echoLatestResponseRequest">
+		<xs:annotation>
+			<xs:documentation>If the communication as broken down while the response was transmitted, a message with this tag allows to recall the latest response to the declaration identified with the key (sedexId, declarationNumber). This element could also be used for manually processed declarations. </xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="header" type="eCH-0084:headerType">
+					<xs:annotation>
+						<xs:documentation xml:lang="en">Header common to all messages.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="response">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">Response to UPI related declaration message.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="timestamp" type="xs:dateTime">
+					<xs:annotation>
+						<xs:documentation xml:lang="en">The time, when the response was generated.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="header" type="eCH-0084:headerType">
+					<xs:annotation>
+						<xs:documentation xml:lang="en">Content of header received in the request.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:choice>
+					<xs:element name="accepted">
+						<xs:annotation>
+							<xs:documentation xml:lang="en">Is present, if the declaration message has been processed successfully.</xs:documentation>
+						</xs:annotation>
+						<xs:complexType>
+							<xs:sequence>
+								<xs:element name="ahvvn" type="eCH-0044:vnType"/>
+								<xs:element name="valuesStoredUnderAhvvn" type="eCH-0084:valuesStoredUnderAhvvn_Type" minOccurs="0">
+									<xs:annotation>
+										<xs:documentation xml:lang="en">This element is always present except in case the person is erased. IT contains the current values (recorded in the UPI at the moment mentioned in the element called timestamp) of the attributes of the person having the AHVN contained in the element called ahvn. </xs:documentation>
+									</xs:annotation>
+								</xs:element>
+							</xs:sequence>
+						</xs:complexType>
+					</xs:element>
+					<xs:element name="manualProcessing">
+						<xs:annotation>
+							<xs:documentation xml:lang="en">Empty marker element. Is present, if the declaration message has to be processed manually. The response can be retrieved at a later point in time.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="refused">
+						<xs:annotation>
+							<xs:documentation xml:lang="en">Is present, if the declaration message contained an error and has not been processed normally.</xs:documentation>
+						</xs:annotation>
+						<xs:complexType>
+							<xs:sequence>
+								<xs:element name="reason">
+									<xs:annotation>
+										<xs:documentation xml:lang="en">The reason is for refusing is:
+															1 = not valid against XSD or an other formal reason (wrong control number of ahvn for instance), or
+															3 = not valid against UPI data, or
+															4 = refused by the clearing service, or
+															10 = service (database) not available.
+										</xs:documentation>
+									</xs:annotation>
+									<xs:simpleType>
+										<xs:restriction base="xs:short">
+											<xs:enumeration value="1"/>
+											<xs:enumeration value="3"/>
+											<xs:enumeration value="4"/>
+											<xs:enumeration value="10"/>
+										</xs:restriction>
+									</xs:simpleType>
+								</xs:element>
+								<xs:element name="detailedReason" minOccurs="0">
+									<xs:annotation>
+										<xs:documentation xml:lang="en">Starts with the detailed error code followed by a short standard text.</xs:documentation>
+									</xs:annotation>
+									<xs:simpleType>
+										<xs:restriction base="xs:string">
+											<xs:maxLength value="50"/>
+										</xs:restriction>
+									</xs:simpleType>
+								</xs:element>
+								<xs:element name="comment" minOccurs="0">
+									<xs:annotation>
+										<xs:documentation xml:lang="en">Manually added free form comment.</xs:documentation>
+									</xs:annotation>
+									<xs:simpleType>
+										<xs:restriction base="xs:string">
+											<xs:maxLength value="100"/>
+										</xs:restriction>
+									</xs:simpleType>
+								</xs:element>
+							</xs:sequence>
+						</xs:complexType>
+					</xs:element>
+				</xs:choice>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

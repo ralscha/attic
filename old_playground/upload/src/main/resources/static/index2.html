@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+</head>
+<link rel="stylesheet" href="http://ralscha.ch/bootstrap/css/bootstrap.min.css">
+<body data-rendering="true">
+
+	<div class="container">
+		<form action="simpleUpload" method="post" enctype="multipart/form-data">
+			<fieldset>
+				<input id="file" type="file" name="file" multiple>
+			</fieldset>
+
+			<input type="button" class="btn" id="read" value="Read File(s)">&nbsp;
+			<button type="submit" class="btn primary">Upload File(s)</button>
+
+		</form>
+
+		<p>File contents:</p>
+	
+	    <div id="out"></div>
+
+	</div>
+
+	<script type="text/javascript">
+		document.getElementById('read').addEventListener('click', function(e) {
+			startRead();
+		});
+
+		function startRead() {
+			document.getElementById('out').innerHTML='';
+			var myFiles = document.getElementById('file').files;
+			for (var i = 0; i < myFiles.length; i++) {
+				var reader = new FileReader();
+				reader.onload = function(e) {
+					
+					 var pre = document.createElement('pre');
+					 pre.class = 'prettyprint linenums';
+			         pre.innerHTML = e.target.result;
+			         document.getElementById('out').insertBefore(pre, null);
+				}
+
+				reader.readAsText(myFiles[i]);
+			}
+		}
+	</script>
+
+</body>
+</html>

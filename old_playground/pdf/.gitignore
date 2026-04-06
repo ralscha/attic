@@ -1,0 +1,10 @@
+/target
+/.settings
+/.classpath
+/.project
+/testdata/
+/.factorypath
+/hw.pdf
+/sample.pdf
+/box.pdf
+/PdfWithtext.pdf

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{ .Title }}</title>
+<link rel="stylesheet" href="/assets/blog-7.css">
+<link href="/feed.rss" rel="alternate" type="application/rss+xml" title="Ralph's Blog: RSS Feed" />
+<link href="/feed.atom" rel="alternate" type="application/atom+xml" title="Ralph's Blog: Atom Feed" />
+</head>
+<body>
+
+  <header>
+    <a href="/index.html">Home</a> | <a href="/feedback/{{ .FeedbackUrl }}">Send Feedback</a>
+    <h1>{{ .Title }}</h1>
+    <p>Published: {{ .Published }}{{ if ne .Updated "" }}&nbsp;&nbsp;•&nbsp;&nbsp;Updated: {{ .Updated }}{{ end }}&nbsp;&nbsp;•&nbsp;&nbsp;{{ range  $i, $e := .Tags }}{{ if $i }}, {{ end }}<a href="/index.html?tag={{ $e }}">{{ $e }}</a>{{ end }}</p>
+  </header>
+
+  <article class="markdown-body">
+  {{ .Html }}
+  </article>
+
+  <footer>
+  	<a href="/index.html">Home</a> | <a href="/feed.rss">RSS</a> | <a href="/feed.atom">Atom</a> | <a href="/feedback/{{ .FeedbackUrl }}">Send Feedback</a>
+  </footer>
+
+</body>
+</html>

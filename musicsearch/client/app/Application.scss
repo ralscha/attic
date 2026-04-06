@@ -1,0 +1,14 @@
+/*
+ *  This file can be used to set variables and supply global styling.  View specific 
+ *  styling should be located the view's corresponding scss file.
+ */
+$enable-font-awesome: dynamic(true);
+$include-ie: false;
+
+.playlist-playing-row {
+	color: green !important;	
+}
+
+.playlist-playing-row > td {
+	font-weight: bold !important;
+}

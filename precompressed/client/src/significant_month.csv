@@ -1,0 +1,8 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2018-05-15T02:18:35.000Z,37.8053333,-122.202,8.77,3.45,mw,280,7,0.01381,0.15,nc,nc73016050,2018-05-27T01:34:57.447Z,"3km ENE of Oakland, CA",earthquake,0.08,0.13,,4,reviewed,nc,nc
+2018-05-09T10:41:45.750Z,36.9902,71.3687,111.93,6.2,mww,,19,0.586,1.03,us,us1000e19e,2018-05-16T01:16:08.207Z,"36km NW of Ishkashim, Tajikistan",earthquake,6,4.3,0.066,22,reviewed,us,us
+2018-05-08T11:49:34.020Z,34.016,-116.7798333,12.89,4.49,mw,185,18,0.03006,0.18,ci,ci38167848,2018-05-25T03:57:11.582Z,"11km N of Cabazon, CA",earthquake,0.09,0.22,,6,reviewed,ci,ci
+2018-05-05T06:19:05.040Z,14.5708,123.9192,18,6.1,mww,,21,2.928,0.98,us,us1000dym9,2018-05-16T10:13:20.977Z,"64km NNW of Pandan, Philippines",earthquake,4.4,1.8,0.055,32,reviewed,us,us
+2018-05-04T22:32:54.370Z,19.3127,-154.9975,2.06,6.9,mww,,212,0.115,1.49,us,us1000dyad,2018-05-27T05:16:41.771Z,"19km SSW of Leilani Estates, Hawaii",earthquake,5.5,3.6,0.056,31,reviewed,hv,us
+2018-05-04T21:32:46.120Z,19.4446,-155.1367,5.1,5.4,mww,,25,0.057,0.94,us,us1000dy8n,2018-05-09T08:45:28.534Z,"9km SW of Fern Acres, Hawaii",earthquake,6.1,3,0.098,10,reviewed,us,us
+2018-05-03T20:30:56.500Z,19.3442,-155.0702,6.93,5.1,mwb,,172,0.05,0.59,us,us1000dxhr,2018-05-25T20:28:19.343Z,"18km S of Fern Acres, Hawaii",earthquake,6,3.5,0.062,25,reviewed,hv,us

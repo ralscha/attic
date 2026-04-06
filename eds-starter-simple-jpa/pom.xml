@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>ch.rasc</groupId>
+	<artifactId>eds-starter-simple-jpa</artifactId>
+	<version>0.0.1</version>
+	<packaging>jar</packaging>
+
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.7.15</version>
+		<relativePath/>
+	</parent>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<java.version>25</java.version>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-validation</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+		
+		<dependency>
+			<groupId>ch.ralscha</groupId>
+			<artifactId>extdirectspring</artifactId>
+			<version>1.8.1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>ch.rasc</groupId>
+			<artifactId>extclassgenerator-annotations</artifactId>
+			<version>1.0.10</version>
+		</dependency>
+				
+	</dependencies>
+
+	<build>
+	    <finalName>eds-starter-simple-jpa</finalName>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<executable>true</executable>
+				</configuration>				
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<configuration>
+					<excludes>
+						<exclude>application-development.properties</exclude>
+					</excludes>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>com.mysema.maven</groupId>
+				<artifactId>apt-maven-plugin</artifactId>
+				<version>1.1.2</version>
+				<executions>
+					<execution>
+						<id>modelgen</id>
+						<phase>compile</phase>
+						<goals>
+							<goal>process</goal>
+						</goals>
+						<configuration>
+							<processor>ch.rasc.extclassgenerator.ModelAnnotationProcessor</processor>
+							<outputDirectory>${project.basedir}/clientopen/app/desktop/src</outputDirectory>
+							<options>
+								<debug>true</debug>
+								<outputFormat>extjs5</outputFormat>
+								<includeValidation>builtin</includeValidation>
+								<surroundApiWithQuotes>true</surroundApiWithQuotes>
+								<lineEnding>LF</lineEnding>
+							</options>
+						</configuration>
+					</execution>
+				</executions>
+				<dependencies>
+					<dependency>
+						<groupId>ch.rasc</groupId>
+						<artifactId>extclassgenerator</artifactId>
+						<version>2.0.0</version>
+					</dependency>
+				</dependencies>
+			</plugin>
+
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>exec-maven-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>build-production</id>
+						<goals>
+							<goal>exec</goal>
+						</goals>
+						<phase>prepare-package</phase>
+						<configuration>
+							<executable>npm</executable>
+							<workingDirectory>${basedir}/clientopen</workingDirectory>
+							<arguments>
+								<argument>run</argument>
+								<argument>build:desktop</argument>
+							</arguments>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
+			<plugin>
+				<artifactId>maven-antrun-plugin</artifactId>
+				<executions>
+					<execution>
+						<phase>prepare-package</phase>
+						<configuration>
+							<target>
+
+								<copy todir="${basedir}/target/classes/static"
+									includeEmptyDirs="false">
+									<fileset dir="${basedir}/clientopen/build/production/Starter">
+										<exclude name="**/Readme.md" />
+									</fileset>
+								</copy>
+
+								<replace file="${basedir}/target/classes/static/index.html">
+									<replacefilter token="var serverUrl = 'http://localhost:8080/';"
+										value="var serverUrl = '';" />
+								</replace>
+
+							</target>
+						</configuration>
+						<goals>
+							<goal>run</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+
+		</plugins>
+	</build>
+
+</project>

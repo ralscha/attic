@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<title>WebSocket Test</title>
+<script src="sockjs-0.3.4.min.js"></script>
+<script>
+
+  var sock = new SockJS('http://'+window.location.host+'/registry');
+    
+  sock.onmessage = function(event) {
+	  var result = JSON.parse(event.data);
+	  console.log('heap:'+result.heap);
+	  console.log('nonheap:'+result.nonheap);
+  };  
+  
+</script>

@@ -1,0 +1,27 @@
+{
+  "name": "precompressed",
+  "version": "1.0.0",
+  "private": true,
+  "main": "index.html",
+  "scripts": {
+    "prebuild": "shx rm -rf dist/*",
+    "build": "parcel build src/index.html --public-url ./",
+    "start": "parcel src/index.html --public-url ./",
+    "watch": "parcel watch src/index.html --public-url ./",
+    "compress:gzip": "bread-compressor -a gzip dist/2.5_day.csv",
+    "compress:brotli": "bread-compressor -a brotli dist/4.5_week.csv",
+    "compress:both": "bread-compressor dist/4.5_day.csv",
+    "compress": "npm run compress:gzip && npm run compress:brotli && npm run compress:both",
+    "copy": "shx cp src/*.csv dist",
+    "dist": "npm run build && npm run copy && npm run compress"
+  },
+  "devDependencies": {
+    "parcel-bundler": "1.11.0",
+    "shx": "0.3.2",
+    "bread-compressor-cli": "1.0.7"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions"
+  ]
+}

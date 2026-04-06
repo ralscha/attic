@@ -1,0 +1,748 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema
+  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+  xmlns:eCH-0044="http://www.ech.ch/xmlns/eCH-0044/1"
+  xmlns:eCH-0011="http://www.ech.ch/xmlns/eCH-0011/3"
+  xmlns:eCH-0072="http://www.ech.ch/xmlns/eCH-0072/1"
+  xmlns:eCH-0084="http://www.ech.ch/xmlns/eCH-0084/1"
+  xmlns:eCH-0085="http://www.ech.ch/xmlns/eCH-0085/1"
+  xmlns:eCH-0090="http://www.ech.ch/xmlns/eCH-0090/1"
+  targetNamespace="http://www.ech.ch/xmlns/eCH-0085/1"
+  elementFormDefault="qualified"
+  attributeFormDefault="unqualified"
+  version="4">
+
+  <xs:annotation>
+		<xs:documentation xml:lang="en">
+		 		   UPI (unique person identifier) query interface.
+      Schema for UPI related query requests and response messages.
+
+      $Id: eCH-0085-1-4.xsd 2011-06-01 14:00:00Z naef $
+		 		 </xs:documentation>
+	</xs:annotation>
+	<xs:import namespace="http://www.ech.ch/xmlns/eCH-0011/3" schemaLocation="http://www.ech.ch/xmlns/eCH-0011/3/eCH-0011-3-0.xsd"/>
+	<xs:import namespace="http://www.ech.ch/xmlns/eCH-0044/1" schemaLocation="http://www.ech.ch/xmlns/eCH-0044/1/eCH-0044-1-0.xsd"/>
+	<xs:import namespace="http://www.ech.ch/xmlns/eCH-0072/1" schemaLocation="http://www.ech.ch/xmlns/eCH-0072/1/eCH-0072-1-0.xsd"/>
+	<xs:import namespace="http://www.ech.ch/xmlns/eCH-0084/1" schemaLocation="http://www.ech.ch/xmlns/eCH-0084/1/eCH-0084-commons-1-2.xsd"/>
+	<xs:import namespace="http://www.ech.ch/xmlns/eCH-0090/1" schemaLocation="http://www.ech.ch/xmlns/eCH-0090/1/eCH-0090-1-0.xsd"/>
+	<xs:element name="searchPersonRequest" type="eCH-0085:searchPersonRequestType">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">Searches a person in the UPI without his ID as input.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="searchPersonResponse" type="eCH-0085:searchPersonResponseType">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">Response to a "searchPerson" request.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="getInfoPersonRequest" type="eCH-0085:getInfoPersonRequestType">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">Gets the informations stored under a given persons ID</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="getInfoPersonResponse" type="eCH-0085:getInfoPersonResponseType">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">Response to a "getInfoPerson" request.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="getAhvvnRequest" type="eCH-0085:getAhvvnRequestType">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">Gets the latest Ahvvn for "any" given person identifier</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="getAhvvnResponse" type="eCH-0085:getAhvvnResponseType">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">Response to a "getAhvvnRequest" request.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="getCancelledAndInactiveAhvvnRequest">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">Gets the cancelled and inactive Ahvvn during a given time interval</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="timeInterval">
+					<xs:annotation>
+						<xs:documentation xml:lang="en">Cannot be longer than one year</xs:documentation>
+					</xs:annotation>
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="since" type="xs:date">
+								<xs:annotation>
+									<xs:documentation xml:lang="en">Beginning of the time interval (inclusive). Cannot be before 2008-07-01.</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="until" type="xs:date">
+								<xs:annotation>
+									<xs:documentation xml:lang="en">End of the time interval (inclusive). Cannot be in the future.</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="getCancelledAndInactiveAhvvnResponse">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">Response to a "getCancelledAndInactiveAhvvnRequest"</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="timestamp" type="xs:dateTime">
+					<xs:annotation>
+						<xs:documentation xml:lang="en">The time, when the response was generated.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="timeInterval">
+					<xs:annotation>
+						<xs:documentation xml:lang="en">Echo of the requested parameters</xs:documentation>
+					</xs:annotation>
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="since" type="xs:date"/>
+							<xs:element name="until" type="xs:date"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:choice>
+					<xs:element name="refused">
+						<xs:annotation>
+							<xs:documentation xml:lang="en">Is present, if the request did not comply with the required XML Schema or other constraints.</xs:documentation>
+						</xs:annotation>
+						<xs:complexType>
+							<xs:sequence>
+								<xs:element name="reason">
+									<xs:annotation>
+										<xs:documentation xml:lang="en"> The reason for refusing is: 1 = not valid against XSD or an other formal reason (time interval in the future for instance), or 2 = the beginning of the time interval cannot be before 2008-07-01, or 3 = the end of the time interval cannot be in the future, or 4 = the time interval cannot be longer than one year or 5 end of time interval befor beginning or 10 = service not available (DB down for instance).</xs:documentation>
+									</xs:annotation>
+									<xs:simpleType>
+										<xs:restriction base="xs:short">
+											<xs:enumeration value="1"/>
+											<xs:enumeration value="2"/>
+											<xs:enumeration value="3"/>
+											<xs:enumeration value="4"/>
+											<xs:enumeration value="5"/>
+											<xs:enumeration value="10"/>
+										</xs:restriction>
+									</xs:simpleType>
+								</xs:element>
+								<xs:element name="detailedReason" minOccurs="0">
+									<xs:annotation>
+										<xs:documentation xml:lang="en">Starts with the detailed error code followed by a short standard text.</xs:documentation>
+									</xs:annotation>
+									<xs:simpleType>
+										<xs:restriction base="xs:string">
+											<xs:maxLength value="50"/>
+										</xs:restriction>
+									</xs:simpleType>
+								</xs:element>
+							</xs:sequence>
+						</xs:complexType>
+					</xs:element>
+					<xs:sequence>
+						<xs:annotation>
+							<xs:documentation xml:lang="en">Is present, if the query has been processed successfully.</xs:documentation>
+						</xs:annotation>
+						<xs:element name="warningLastUpdateTime" type="xs:dateTime" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation xml:lang="en">The presence of this element means that the last update in the database has been made before the end of the selected time interval (tag  "timeInterval/until"). There are 3 possible reasons: 1) the value of "timeInterval/until" is the current day, 2) the service accesses a mirror DB that is only synchronized every 24 hours, 3) nobody modified the reference DB recently (possible during the night or the week-end, almost impossible during a working day).</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="cancelledAhvvnList">
+							<xs:complexType>
+								<xs:sequence minOccurs="0" maxOccurs="unbounded">
+									<xs:element name="cancelledAhvvn">
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="cancellationTimestamp" type="xs:dateTime">
+													<xs:annotation>
+														<xs:documentation xml:lang="en">Timestamp of cancellation </xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="oldAhvvn" type="eCH-0044:vnType">
+													<xs:annotation>
+														<xs:documentation xml:lang="en">Ahvvn which has been cancelled, this number does not point anymore on a person</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:sequence minOccurs="0">
+													<xs:annotation>
+														<xs:documentation xml:lang="en">The presence of this sequence means that two physical persons where sharing the same AHV-VN (oldAhvvn), this number has been cancelled and exactly two new numbers (newAhvvnCandidate) have been generated. If this sequence is missing, you should try to find the person with the searchPersonRequest of eCH-0085 (or UPIViewer).</xs:documentation>
+													</xs:annotation>
+													<xs:element name="newAhvvnCandidate" type="eCH-0044:vnType" minOccurs="2" maxOccurs="2">
+														<xs:annotation>
+															<xs:documentation xml:lang="en">Be careful! You can not decide automatically which new Ahvvn candidate corresponds to the old Ahvvn. This operation has to be done manually</xs:documentation>
+														</xs:annotation>
+													</xs:element>
+												</xs:sequence>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="inactiveAhvvnList">
+							<xs:complexType>
+								<xs:sequence minOccurs="0" maxOccurs="unbounded">
+									<xs:element name="inactiveAhvvn">
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="inactivationTimestamp" type="xs:dateTime">
+													<xs:annotation>
+														<xs:documentation xml:lang="en">Timestamp of inactivation </xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="oldAhvvn" type="eCH-0044:vnType">
+													<xs:annotation>
+														<xs:documentation xml:lang="en">Ahvvn which has been inactivated. This number still points on a person, but the new number (newAhvvn) should be used</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="newAhvvn" type="eCH-0044:vnType">
+													<xs:annotation>
+														<xs:documentation xml:lang="en">New Ahvvn number which should be used instead of the old "oldAhvvn"</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+				</xs:choice>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="getSourceRequest">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">Gets the source of the reference data in UPI</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="ahvvn" type="eCH-0044:vnType"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="getSourceResponse">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">Response to a "getSourceRequest"</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="timestamp" type="xs:dateTime">
+					<xs:annotation>
+						<xs:documentation xml:lang="en">The time, when the response was generated.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="inputAhvvn" type="eCH-0044:vnType">
+					<xs:annotation>
+						<xs:documentation xml:lang="en">Ahvvn sent as query parameter.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:choice>
+					<xs:element name="accepted">
+						<xs:annotation>
+							<xs:documentation xml:lang="en">Is present, if the query has been processed successfully.</xs:documentation>
+						</xs:annotation>
+						<xs:complexType>
+							<xs:choice>
+								<xs:element name="sedexIdSource" type="eCH-0090:participantIdType">
+									<xs:annotation>
+										<xs:documentation xml:lang="en">SedexId of the source of the reference data for the person with AHVN=InputAhvvn</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+								<xs:element name="sedexIdSourceUndefined" type="eCH-0011:unknownType">
+									<xs:annotation>
+										<xs:documentation xml:lang="en">The presence of this tag means: the source is unknown, the source has no sedexId or the source is not an "official" source</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+							</xs:choice>
+						</xs:complexType>
+					</xs:element>
+					<xs:element name="refused">
+						<xs:annotation>
+							<xs:documentation xml:lang="en">Is present, if the query contained an error (or that the person ID "ahvvn" sent as query parameter was not found in the UPI) and has not been processed normally.</xs:documentation>
+						</xs:annotation>
+						<xs:complexType>
+							<xs:sequence>
+								<xs:element name="reason">
+									<xs:annotation>
+										<xs:documentation xml:lang="en">The reason is for refusing is:
+															1 = not valid against XSD or an other formal reason (wrong control number of ahvn for instance), or
+															3 = person id not found, or
+															4 ahvnn no more valid, or
+															10 = service not available.
+									</xs:documentation>
+									</xs:annotation>
+									<xs:simpleType>
+										<xs:restriction base="xs:short">
+											<xs:enumeration value="1"/>
+											<xs:enumeration value="3"/>
+											<xs:enumeration value="4"/>
+											<xs:enumeration value="10"/>
+										</xs:restriction>
+									</xs:simpleType>
+								</xs:element>
+								<xs:element name="detailedReason" minOccurs="0">
+									<xs:annotation>
+										<xs:documentation xml:lang="en">Starts with the error code followed by a short standard text.</xs:documentation>
+									</xs:annotation>
+									<xs:simpleType>
+										<xs:restriction base="xs:string">
+											<xs:maxLength value="50"/>
+										</xs:restriction>
+									</xs:simpleType>
+								</xs:element>
+							</xs:sequence>
+						</xs:complexType>
+					</xs:element>
+				</xs:choice>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="listOfSearchPersonRequest">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">Multiple "searchPersonRequest"</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">In practice the number of request is limited, see documentation www.zas.admin.ch</xs:documentation>
+				</xs:annotation>
+				<xs:element name="item">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="itemId" type="xs:int" nillable="false"/>
+							<xs:element name="searchPersonRequest" type="eCH-0085:searchPersonRequestType"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+		<xs:key name="itemIdRequestKey">
+			<xs:selector xpath="eCH-0085:item"/>
+			<xs:field xpath="eCH-0085:itemId"/>
+		</xs:key>
+	</xs:element>
+	<xs:element name="listOfSearchPersonResponse">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">Response to a "listOfSearchPersonRequest"</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:choice>
+				<xs:element name="allRefused" type="eCH-0085:allRefusedType"/>
+				<xs:sequence maxOccurs="unbounded">
+					<xs:annotation>
+						<xs:documentation xml:lang="en">To link the request to the response use the itemId</xs:documentation>
+					</xs:annotation>
+					<xs:element name="item">
+						<xs:complexType>
+							<xs:sequence>
+								<xs:element name="itemId" type="xs:int" nillable="false"/>
+								<xs:element name="searchPersonResponse" type="eCH-0085:searchPersonResponseType"/>
+							</xs:sequence>
+						</xs:complexType>
+					</xs:element>
+				</xs:sequence>
+			</xs:choice>
+		</xs:complexType>
+		<xs:key name="itemIdResponseKey">
+			<xs:selector xpath="eCH-0085:item"/>
+			<xs:field xpath="eCH-0085:itemId"/>
+		</xs:key>
+	</xs:element>
+	<xs:element name="listOfGetInfoPersonRequest">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">Multiple "getInfoPersonRequest"</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">In practice the number of request is limited, see documentation www.zas.admin.ch</xs:documentation>
+				</xs:annotation>
+				<xs:element name="getInfoPersonRequest" type="eCH-0085:getInfoPersonRequestType"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="listOfGetInfoPersonResponse">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">Response to a "listOfGetInfoPersonRequest"</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:choice>
+				<xs:element name="allRefused" type="eCH-0085:allRefusedType"/>
+				<xs:sequence maxOccurs="unbounded">
+					<xs:annotation>
+						<xs:documentation xml:lang="en">To link the request to the response use the InputAhvvn tag</xs:documentation>
+					</xs:annotation>
+					<xs:element name="getInfoPersonResponse" type="eCH-0085:getInfoPersonResponseType"/>
+				</xs:sequence>
+			</xs:choice>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="listOfGetAhvvnRequest">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">Multiple "getAhvvnRequest"</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">In practice the number of request is limited, see documentation www.zas.admin.ch</xs:documentation>
+				</xs:annotation>
+				<xs:element name="getAhvvnRequest" type="eCH-0085:getAhvvnRequestType"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="listOfGetAhvvnResponse">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">Response to a "listOfGetAhvvnRequest"</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:choice>
+				<xs:element name="allRefused" type="eCH-0085:allRefusedType"/>
+				<xs:sequence maxOccurs="unbounded">
+					<xs:annotation>
+						<xs:documentation xml:lang="en">To link the request to the response use the personIdentification tag</xs:documentation>
+					</xs:annotation>
+					<xs:element name="getAhvvnResponse" type="eCH-0085:getAhvvnResponseType"/>
+				</xs:sequence>
+			</xs:choice>
+		</xs:complexType>
+	</xs:element>
+	<xs:complexType name="personIdentificationType">
+		<xs:sequence>
+			<xs:choice>
+				<xs:element name="vn" type="eCH-0044:vnType"/>
+				<xs:element name="localPersonId" type="eCH-0044:namedPersonIdType">
+					<xs:annotation>
+						<xs:documentation xml:lang="en">Can for instance be used for an Ahvvn with 11 positions, or the STAR Number.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="EuPersonId" type="eCH-0044:namedPersonIdType"/>
+			</xs:choice>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="allRefusedType">
+		<xs:sequence>
+			<xs:element name="reason">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">The reason is for refusing is: 1 = not valid against XSD, (or 2 = reserved), or 5 = maximum amount of items for request exceeded, or 10 = service not available, try later.</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:short">
+						<xs:enumeration value="1"/>
+						<xs:enumeration value="2"/>
+						<xs:enumeration value="5"/>
+						<xs:enumeration value="10"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="detailedReason" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Starts with the detailed error code followed by a short standard text.</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="50"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="searchPersonRequestType">
+		<xs:sequence>
+			<xs:element name="firstNames" type="eCH-0084:baseNameUPI_Type">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Mandatory</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="officialName" type="eCH-0084:baseNameUPI_Type">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Mandatory</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="originalName" type="eCH-0084:baseNameUPI_Type" minOccurs="0"/>
+			<xs:element name="sex" type="eCH-0044:sexType" minOccurs="0"/>
+			<xs:element name="dateOfBirth" type="eCH-0044:datePartiallyKnownType">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Mandatory</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="nationality" minOccurs="0">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="nationalityStatus" type="eCH-0011:nationalityStatusType"/>
+						<xs:element name="countryId" type="eCH-0072:countryIdType" minOccurs="0"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="placeOfBirth" type="eCH-0084:placeOfBirthType"/>
+			<xs:element name="mothersName" type="eCH-0084:fullName_Type" minOccurs="0"/>
+			<xs:element name="fathersName" type="eCH-0084:fullName_Type" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="searchPersonResponseType">
+		<xs:sequence>
+			<xs:element name="timestamp" type="xs:dateTime">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">The time, when the response was generated.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:choice>
+				<xs:element name="accepted">
+					<xs:annotation>
+						<xs:documentation xml:lang="en">Is present, if the query has been processed successfully.</xs:documentation>
+					</xs:annotation>
+					<xs:complexType>
+						<xs:choice>
+							<xs:element name="found">
+								<xs:annotation>
+									<xs:documentation xml:lang="en">The presence of this tag means that exactly on person matches the search criteria</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="ahvvn" type="eCH-0044:vnType"/>
+										<xs:element name="valuesStoredUnderAhvvn" type="eCH-0084:valuesStoredUnderAhvvn_Type">
+											<xs:annotation>
+												<xs:documentation xml:lang="en">This element  contains the current values (recorded in the UPI at the moment mentioned in the element called timestamp) of the attributes of the person having the AHVN contained in the element called ahvn. </xs:documentation>
+											</xs:annotation>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="maybeFound">
+								<xs:annotation>
+									<xs:documentation xml:lang="en">The presence of this tag means that one or several candidates match (eventually only roughly) the search criteria. Please check if one candidate is the person you search.</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="candidate" maxOccurs="unbounded">
+											<xs:annotation>
+												<xs:documentation xml:lang="en">Listed by decreasing order of likeliness.</xs:documentation>
+											</xs:annotation>
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="ahvvn" type="eCH-0044:vnType"/>
+													<xs:element name="valuesStoredUnderAhvvn" type="eCH-0084:valuesStoredUnderAhvvn_Type">
+														<xs:annotation>
+															<xs:documentation xml:lang="en">This element contains the current values (recorded in the UPI at the moment mentioned in the element called timestamp) of the attributes of the person having the AHVN contained in the element called ahvvn. </xs:documentation>
+														</xs:annotation>
+													</xs:element>
+													<xs:element name="historicalValues" type="eCH-0084:personInformationShortOptType" minOccurs="0" maxOccurs="unbounded">
+														<xs:annotation>
+															<xs:documentation xml:lang="en">In chronological order (oldest first). The presence of this element makes it possible to find a person on the basis of old attibute values.</xs:documentation>
+														</xs:annotation>
+													</xs:element>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="notFound">
+								<xs:annotation>
+									<xs:documentation xml:lang="en">The presence of this tag means that no person matching the search criteria has been found in the UPI.</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+						</xs:choice>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="refused">
+					<xs:annotation>
+						<xs:documentation xml:lang="en">Is present, if the query contained an error (or to few search criteria) and has not been processed normally.</xs:documentation>
+					</xs:annotation>
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="reason">
+								<xs:annotation>
+									<xs:documentation xml:lang="en">The reason is for refusing is: ^
+															1 = not valid against XSD or an other formal reason (not self consistent), or
+															2 = one "almost match" found, more search criteria needed,
+															3 =  more than one match found, more search criteria needed, or
+															10 = service not available, try later.
+									</xs:documentation>
+								</xs:annotation>
+								<xs:simpleType>
+									<xs:restriction base="xs:short">
+										<xs:enumeration value="1"/>
+										<xs:enumeration value="2"/>
+										<xs:enumeration value="3"/>
+										<xs:enumeration value="10"/>
+									</xs:restriction>
+								</xs:simpleType>
+							</xs:element>
+							<xs:element name="detailedReason" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation xml:lang="en">Starts with the detailed error code followed by a short standard text.</xs:documentation>
+								</xs:annotation>
+								<xs:simpleType>
+									<xs:restriction base="xs:string">
+										<xs:maxLength value="50"/>
+									</xs:restriction>
+								</xs:simpleType>
+							</xs:element>
+							<xs:element name="comment" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation xml:lang="en">Manually added free form comment.</xs:documentation>
+								</xs:annotation>
+								<xs:simpleType>
+									<xs:restriction base="xs:string">
+										<xs:maxLength value="100"/>
+									</xs:restriction>
+								</xs:simpleType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:choice>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="getInfoPersonRequestType">
+		<xs:sequence>
+			<xs:element name="ahvvn" type="eCH-0044:vnType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="getInfoPersonResponseType">
+		<xs:sequence>
+			<xs:element name="timestamp" type="xs:dateTime">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">The time, when the response was generated.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="InputAhvvn" type="eCH-0044:vnType">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Ahvvn sent as query parameter.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:choice>
+				<xs:element name="accepted">
+					<xs:annotation>
+						<xs:documentation xml:lang="en">Is present, if the query has been processed successfully.</xs:documentation>
+					</xs:annotation>
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="latestAhvvn" type="eCH-0044:vnType">
+								<xs:annotation>
+									<xs:documentation xml:lang="en">If a person has more that one ahvvn than the latest one is sent.</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="valuesStoredUnderAhvvn" type="eCH-0084:valuesStoredUnderAhvvn_Type">
+								<xs:annotation>
+									<xs:documentation xml:lang="en">This element  contains the current values (recorded in the UPI at the moment mentioned in the element called timestamp) of the attributes of the person having the AHVN contained in the element called latestAhvn. </xs:documentation>
+								</xs:annotation>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="refused">
+					<xs:annotation>
+						<xs:documentation xml:lang="en">Is present, if the query contained an error (or that the person ID "ahvvn" sent as query parameter was not found in the UPI) and has not been processed normally.</xs:documentation>
+					</xs:annotation>
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="reason">
+								<xs:annotation>
+									<xs:documentation xml:lang="en">The reason is for refusing is:
+															1 = not valid against XSD or an other formal reason (wrong control number of ahvn for instance), or
+															3 = person id not found, or
+															4 ahvnn no more valid, or
+															10 = service not available.
+									</xs:documentation>
+								</xs:annotation>
+								<xs:simpleType>
+									<xs:restriction base="xs:short">
+										<xs:enumeration value="1"/>
+										<xs:enumeration value="3"/>
+										<xs:enumeration value="4"/>
+										<xs:enumeration value="10"/>
+									</xs:restriction>
+								</xs:simpleType>
+							</xs:element>
+							<xs:element name="detailedReason" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation xml:lang="en">Starts with the error code followed by a short standard text.</xs:documentation>
+								</xs:annotation>
+								<xs:simpleType>
+									<xs:restriction base="xs:string">
+										<xs:maxLength value="50"/>
+									</xs:restriction>
+								</xs:simpleType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:choice>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="getAhvvnRequestType">
+		<xs:sequence>
+			<xs:element name="personIdentification" type="eCH-0085:personIdentificationType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="getAhvvnResponseType">
+		<xs:sequence>
+			<xs:element name="timestamp" type="xs:dateTime">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">The time, when the response was generated.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="personIdentification" type="eCH-0085:personIdentificationType">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Person id sent as query parameter.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:choice>
+				<xs:element name="accepted">
+					<xs:annotation>
+						<xs:documentation xml:lang="en">Is present, if the query has been processed successfully.</xs:documentation>
+					</xs:annotation>
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="latestAhvvn" type="eCH-0044:vnType">
+								<xs:annotation>
+									<xs:documentation xml:lang="en">If a person has more that one ahvvn than the latest one is sent.</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="refused">
+					<xs:annotation>
+						<xs:documentation xml:lang="en">Is present, if the query contained an error (or that the person ID "ahvvn" sent as query parameter was not found in the UPI) and has not been processed normally.</xs:documentation>
+					</xs:annotation>
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="reason">
+								<xs:annotation>
+									<xs:documentation xml:lang="en">The reason is for refusing is:
+															1 = not valid against XSD or an other formal reason (wrong control number of ahvn for instance), or
+															3 = person id not found, or 4 ahvnn no more valid, or
+															10 = service not available.
+									</xs:documentation>
+								</xs:annotation>
+								<xs:simpleType>
+									<xs:restriction base="xs:short">
+										<xs:enumeration value="1"/>
+										<xs:enumeration value="3"/>
+										<xs:enumeration value="4"/>
+										<xs:enumeration value="10"/>
+									</xs:restriction>
+								</xs:simpleType>
+							</xs:element>
+							<xs:element name="detailedReason" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation xml:lang="en">Starts with the error code followed by a short standard text.</xs:documentation>
+								</xs:annotation>
+								<xs:simpleType>
+									<xs:restriction base="xs:string">
+										<xs:maxLength value="50"/>
+									</xs:restriction>
+								</xs:simpleType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:choice>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

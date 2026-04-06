@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions 
+  xmlns="http://schemas.xmlsoap.org/wsdl/"
+  xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+  xmlns:soapbind="http://schemas.xmlsoap.org/wsdl/soap/"
+  xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
+  xmlns:http="http://schemas.xmlsoap.org/wsdl/http/"
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+  targetNamespace="http://ws.admin.ch/zas/regcent/UPI/0"
+  xmlns:upi-ws="http://ws.admin.ch/zas/regcent/UPI/0"
+  xmlns:wupift="http://www.ech.ch/xmlns/wupift/1"
+  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+  xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/">
+
+	<documentation>
+		This WSDL definition describes the UPI File Transfer Web Service interface (WUPIFT).
+		
+		Change history:
+		2010-01-04 Creation (TQN, Elca SA)
+	</documentation>
+
+	<types>
+		<xs:schema elementFormDefault="qualified">
+			<xs:import namespace="http://www.ech.ch/xmlns/wupift/1" schemaLocation="../xsd/upi/WUPIFT/eCH-FileTransfer-1-0.xsd"/>
+		</xs:schema>
+	</types>
+	
+	<message name="postFileRequestMsg">
+		<part name="postFileRequest" element="wupift:postFileRequest"/>
+	</message>
+	<message name="postFileResponseMsg">
+		<part name="postFileResponse" element="wupift:postFileResponse"/>
+	</message>
+	
+	<message name="getFileRequestMsg">
+		<part name="getFileRequest" element="wupift:getFileRequest"/>
+	</message>
+	<message name="getFileResponseMsg">
+		<part name="getFileResponse" element="wupift:getFileResponse"/>
+	</message>
+
+	<portType name="UPIFileTransferPortType">
+		<operation name="postFile">
+			<input message="upi-ws:postFileRequestMsg"/>
+			<output message="upi-ws:postFileResponseMsg"/>
+		</operation>
+		
+		<operation name="getFile">
+			<input message="upi-ws:getFileRequestMsg"/>
+			<output message="upi-ws:getFileResponseMsg"/>
+		</operation>
+	</portType>
+
+	<binding name="UPIFileTransferBinding" type="upi-ws:UPIFileTransferPortType">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		
+		<operation name="postFile">
+			<soap:operation soapAction="http://soap.upi.admin.ch"/>
+			<input>
+				<soap:body use="literal"/>
+			</input>
+			<output>
+				<soap:body use="literal"/>
+			</output>
+		</operation>
+		
+		<operation name="getFile">
+			<soap:operation soapAction="http://soap.upi.admin.ch"/>
+			<input>
+				<soap:body use="literal"/>
+			</input>
+			<output>
+				<soap:body use="literal"/>
+			</output>
+		</operation>
+	</binding>
+
+	<service name="UPIFileTransferService">
+		<port name="UPIFileTransferServicePort" binding="upi-ws:UPIFileTransferBinding">
+			<soap:address location="http://ws.zas.admin.ch/soap?Service=UPIFileTransferService"/>
+		</port>
+	</service>
+</definitions>

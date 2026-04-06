@@ -1,0 +1,9 @@
+/target
+/.settings
+/.project
+/.classpath
+/dependency-reduced-pom.xml
+/dummy.pdf
+/hgt.pdf
+/test.pdf
+/test.xls

@@ -1,0 +1,10 @@
+/.settings
+/target
+/.classpath
+/.project
+/.springBeans
+/.factorypath
+/db
+/.apt_generated/
+/app.log
+/.sts4-cache/

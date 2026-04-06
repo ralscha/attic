@@ -1,0 +1,7 @@
+/target
+/.settings
+/.project
+/.classpath
+/res
+/deploy.bat
+/dependency-reduced-pom.xml

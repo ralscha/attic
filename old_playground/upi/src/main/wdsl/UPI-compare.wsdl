@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions 
+  xmlns="http://schemas.xmlsoap.org/wsdl/"
+  xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+  xmlns:soapbind="http://schemas.xmlsoap.org/wsdl/soap/"
+  xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
+  xmlns:http="http://schemas.xmlsoap.org/wsdl/http/"
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+  targetNamespace="http://ws.admin.ch/zas/regcent/UPI/0"
+  xmlns:eCH-0086="http://www.ech.ch/xmlns/eCH-0086/1"
+  xmlns:upi-ws="http://ws.admin.ch/zas/regcent/UPI/0"
+  xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <documentation>
+    This WSDL definition describes the UPI Compare Web Service interface.
+    The interface is supposed to be compliant to the WS-I Basic Profile 1.1
+    for interoperable Web Services (cf. http://www.ws-i.org/Profiles/BasicProfile-1.1.html).
+
+    Author: Igor Metz, Glue Software Engineering AG
+
+    Change history:
+    2007-12-18 created (Igor Metz)
+    2008-02-21 (Igor Metz, Glue AG)
+    - adapted to renamed XML Schema
+	2009-03-20 (Nguyen The Quang, ELCA)
+	- changed to eCH-0086-1-1.xsd
+	2010-02-16 (Nguyen The Quang, ELCA)
+	- changed to eCH-0086-1-2.xsd
+	2010-09-09 (DBN, ELCA) 
+	- changed to eCH-0086-1-3.xsd
+	2013-02-20 (DBN, ELCA) 
+	- changed to eCH-0086-1-5.xsd
+	2013-08-30 (DBN, ELCA) 
+	- changed to eCH-0086-1-6.xsd
+	2015-09-09 (DBN, ELCA) 
+	- changed to eCH-0086-1-7.xsd
+  </documentation>
+  
+  <types>
+    <xs:schema elementFormDefault="qualified">
+      <xs:import namespace="http://www.ech.ch/xmlns/eCH-0086/1" schemaLocation="../xsd/upi/eCH-0086/1/eCH-0086-1-7.xsd"/>
+    </xs:schema>
+  </types>
+  
+  <message name="compareDataRequestMsg">
+    <part name="body" element="eCH-0086:compareDataRequest"/>
+  </message>
+  
+  <message name="compareDataResponseMsg">
+    <part name="body" element="eCH-0086:compareDataResponse"/>
+  </message>
+  
+  <portType name="UPICompareServicePortType">
+    
+    <operation name="compareData">
+      <input message="upi-ws:compareDataRequestMsg"/>
+      <output message="upi-ws:compareDataResponseMsg"/>
+    </operation>
+    
+  </portType>
+  
+  <binding name="UPICompareServiceBinding" type="upi-ws:UPICompareServicePortType">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+    <operation name="compareData">
+      <soap:operation soapAction="http://soap.upi.admin.ch"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>   
+    
+  </binding>
+  
+  <service name="UPICompareService">
+    <port name="UPICompareServicePort" binding="upi-ws:UPICompareServiceBinding">
+      <soap:address location="http://ws.zas.admin.ch/soap?Service=UPICompareService"/>
+    </port>
+  </service>
+</definitions>

@@ -1,0 +1,66 @@
+<!DOCTYPE HTML>
+<html manifest="">
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=10, user-scalable=yes">
+
+<title>Starter</title>
+
+<link rel="apple-touch-icon" sizes="180x180" href="resources/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="resources/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="resources/favicon-16x16.png">
+<link rel="manifest" href="resources/manifest.json">
+<link rel="mask-icon" href="resources/safari-pinned-tab.svg" color="#5bbad5">
+<link rel="shortcut icon" href="resources/favicon.ico">
+<meta name="msapplication-config" content="resources/browserconfig.xml">
+<meta name="theme-color" content="#ffffff">
+
+<script>
+	var serverUrl = 'http://localhost:8080/';
+	(function() {
+		var appLocale = localStorage.starter_locale;
+		var language = null;
+		var i18nEnUrl = 'i18n-en.js';
+		var i18nDeUrl = 'i18n-de.js';
+		var script = document.createElement('script');
+
+		if (!appLocale) {
+			if (navigator.languages) {
+				language = navigator.languages[0];
+			}
+			else if (navigator.language) {
+				language = navigator.language;
+			}
+			else if (navigator.userLanguage) {
+				language = navigator.userLanguage;
+			}
+			else if (navigator.browserLanguage) {
+				language = navigator.browserLanguage;
+			}
+
+			if (language && language.slice(0, 2) === 'de') {
+				localStorage.starter_locale = 'de';
+				script.src = i18nDeUrl;
+			}
+			else {
+				localStorage.starter_locale = 'en';
+				script.src = i18nEnUrl;
+			}
+		}
+		else {
+			if (appLocale === 'de') {
+				script.src = i18nDeUrl;
+			}
+			else {
+				script.src = i18nEnUrl;
+			}
+		}
+
+		document.getElementsByTagName('head')[0].appendChild(script);
+	}());
+</script>
+<script id="microloader" data-app="2b6511f3-14bd-4704-8823-8eb31aff70c3" type="text/javascript" src="bootstrap.js"></script>
+</head>
+<body></body>
+</html>

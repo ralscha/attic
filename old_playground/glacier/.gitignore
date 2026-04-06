@@ -1,0 +1,8 @@
+/target
+/.settings
+/.project
+/.classpath
+/glacierdb
+/glacierdb.p
+/dependency-reduced-pom.xml
+/glacierdb.t

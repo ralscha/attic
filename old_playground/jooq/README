@@ -1,0 +1,2 @@
+1. Create database:       mvn sql:execute
+2. Generate jooq sources: mvn org.jooq:jooq-codegen-maven:generate

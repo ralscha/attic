@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>Kruemel</title>
+<script>
+	var canvasWidth, canvasHeight, ctx;
+	var colors = [];
+	var oldState;
+	var newState;
+	var iterationsOutput;
+	var steps = 1;
+	var requestId;
+
+	function start() {
+		for (var n = 0; n < 16; n++) {
+			colors.push([ n * 20 % 256, n * 30 % 256, n * 50 % 256 ]);
+		}
+		iterationsOutput = document.getElementById('iterations');
+		var canvas = document.getElementById('canvas');
+		canvasWidth = canvas.width;
+		canvasHeight = canvas.height;
+
+		ctx = canvas.getContext('2d');
+
+		document.getElementById('restartBtn').addEventListener('click', init);
+	}
+
+	function init() {
+		if (requestId) {
+			window.cancelAnimationFrame(requestId);
+			requestId = undefined;
+		}
+
+		steps = 0;
+		var imageData = ctx.getImageData(0, 0, canvasWidth, canvasHeight);
+		var data = imageData.data;
+		var x = 0;
+		oldState = [];
+
+		for (var i = 0; i < data.length; i += 4) {
+			var state = Math.floor(Math.random() * 16);
+
+			if (oldState[x]) {
+				oldState[x].push(state);
+			}
+			else {
+				oldState[x] = [ state ];
+			}
+
+			var c = colors[state];
+			//rgba
+			data[i] = c[0];
+			data[i + 1] = c[1];
+			data[i + 2] = c[2];
+			data[i + 3] = 255;
+
+			x++;
+			if (x >= canvasWidth) {
+				x = 0;
+			}
+		}
+		ctx.putImageData(imageData, 0, 0);
+
+		requestId = window.requestAnimationFrame(step);
+
+	}
+
+	function step() {
+		newState = oldState.map(function(arr) {
+			return arr.slice();
+		});
+		iterationsOutput.innerHTML = steps++;
+
+		for (var x = 0; x < canvasWidth; x++) {
+			for (var y = 0; y < canvasHeight; y++) {
+				var xl = x - 1;
+				if (xl < 0) {
+					xl = canvasWidth - 1;
+				}
+				var yt = y - 1;
+				if (yt < 0) {
+					yt = canvasHeight - 1;
+				}
+				var xr = (x + 1) % canvasWidth;
+				var yb = (y + 1) % canvasHeight;
+
+				var statePlusOne = (oldState[x][y] + 1) % 16;
+
+				if (oldState[xl][y] === statePlusOne || oldState[xr][y] === statePlusOne 
+						|| oldState[x][yt] === statePlusOne || oldState[x][yb] === statePlusOne 
+						|| oldState[xl][yt] === statePlusOne || oldState[xr][yt] === statePlusOne 
+						|| oldState[xl][yb] === statePlusOne || oldState[xr][yb] === statePlusOne) {
+					newState[x][y] = statePlusOne;
+				}
+			}
+		}
+
+		var imageData = ctx.getImageData(0, 0, canvasWidth, canvasHeight);
+		var data = imageData.data;
+		var x = 0;
+		var y = 0;
+
+		for (var i = 0; i < data.length; i += 4) {
+			var c = colors[newState[x][y]]
+			data[i] = c[0];
+			data[i + 1] = c[1];
+			data[i + 2] = c[2];
+			data[i + 3] = 255;
+
+			x++;
+			if (x >= canvasWidth) {
+				x = 0;
+				y++;
+			}
+		}
+
+		ctx.putImageData(imageData, 0, 0);
+		oldState = newState;
+		requestId = window.requestAnimationFrame(step);
+
+	}
+</script>
+<style>
+canvas {
+	border: 1px solid black;
+}
+
+h1 {
+	font-family: "Consolas";
+}
+</style>
+</head>
+<body onload="start();">
+	<canvas id="canvas" width="800" height="500"></canvas>
+	<h1 id="iterations">0</h1>
+	<input id="restartBtn" value="(Re)start" type="button">
+</body>
+</html>

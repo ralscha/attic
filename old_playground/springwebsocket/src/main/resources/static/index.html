@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<title>WebSocket Test</title>
+<script>
+  var ws = new WebSocket('ws://'+window.location.host+'/endpoint');
+  
+  ws.onopen = function(event) {
+	  console.log('websocket connection open', event);
+	  ws.send('a message from the client');
+	  //ws.close();
+  };
+  
+  ws.onclose = function(event) {
+	  console.log('websocket connection closed', event);
+	  if (event.wasClean) {
+		  console.log('closed normally');
+	  } else {
+		  console.log('something unexpected happened');
+	  }
+  };
+  
+  ws.onmessage = function(event) {
+	  console.log('websocket message received', event);
+	  console.log(event.data);
+  };
+  
+  ws.onerror = function(event) {
+	  console.log('an error occurred', event);
+  };
+  
+  
+  
+</script>

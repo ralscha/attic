@@ -1,0 +1,4 @@
+d:\java\jdk8\bin\wsimport.exe UPI-declaration.wsdl -d ..\java\ -extension -keep
+d:\java\jdk8\bin\wsimport.exe UPI-compare.wsdl -d ..\java\ -extension -keep
+d:\java\jdk8\bin\wsimport.exe UPI-FileTransfer.wsdl -d ..\java\ -extension -keep
+d:\java\jdk8\bin\wsimport.exe UPI-query.wsdl -d ..\java\ -extension -keep

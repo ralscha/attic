@@ -1,0 +1,6 @@
+/target
+/.settings
+/.classpath
+/.project
+/users_without_schema.avro
+/users.avro

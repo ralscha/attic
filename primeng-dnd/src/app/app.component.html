@@ -1,0 +1,45 @@
+<p-table [value]="availableProducts" [tableStyle]="{ 'min-width': '50rem' }"
+         pDroppable="selectedProducts" (onDrop)="dropSelectedProducts()"
+>
+  <ng-template pTemplate="header">
+    <tr>
+      <th>Code</th>
+      <th>Name</th>
+      <th>Category</th>
+      <th>Quantity</th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-product>
+    <tr pDraggable="products" (onDragStart)="dragStart(product)" (onDragEnd)="dragEnd()">
+      <td>{{ product.code }}</td>
+      <td>{{ product.name }}</td>
+      <td>{{ product.category }}</td>
+      <td>{{ product.quantity }}</td>
+    </tr>
+  </ng-template>
+</p-table>
+
+<p-table styleClass="mt-4" [value]="selectedProducts"
+         pDroppable="products" (onDrop)="drop()"
+         [tableStyle]="{ 'min-width': '50rem', 'min-height': '10vh' }">
+  <ng-template pTemplate="header">
+    <tr>
+      <th></th>
+      <th>Code</th>
+      <th>Name</th>
+      <th>Category</th>
+      <th>Quantity</th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-product let-index="rowIndex">
+    <tr [pReorderableRow]="index" pDraggable="selectedProducts" (onDragStart)="dragStartSelectedProducts(product)" (onDragEnd)="dragEndSelectedProducts()">
+      <td>
+        <span class="pi pi-bars" pReorderableRowHandle></span>
+      </td>
+      <td>{{ product.code }}</td>
+      <td>{{ product.name }}</td>
+      <td>{{ product.category }}</td>
+      <td>{{ product.quantity }}</td>
+    </tr>
+  </ng-template>
+</p-table>
