@@ -9,15 +9,15 @@ import (
 	"strings"
 )
 
-func DecodeJSON(w http.ResponseWriter, r *http.Request, dst interface{}) error {
+func DecodeJSON(w http.ResponseWriter, r *http.Request, dst any) error {
 	return decodeJSON(w, r, dst, false)
 }
 
-func DecodeJSONStrict(w http.ResponseWriter, r *http.Request, dst interface{}) error {
+func DecodeJSONStrict(w http.ResponseWriter, r *http.Request, dst any) error {
 	return decodeJSON(w, r, dst, true)
 }
 
-func decodeJSON(w http.ResponseWriter, r *http.Request, dst interface{}, disallowUnknownFields bool) error {
+func decodeJSON(w http.ResponseWriter, r *http.Request, dst any, disallowUnknownFields bool) error {
 	maxBytes := 1_048_576
 	r.Body = http.MaxBytesReader(w, r.Body, int64(maxBytes))
 

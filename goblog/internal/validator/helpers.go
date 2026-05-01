@@ -1,12 +1,12 @@
 package validator
 
 import (
+	"cmp"
 	"net/url"
 	"regexp"
+	"slices"
 	"strings"
 	"unicode/utf8"
-
-	"golang.org/x/exp/constraints"
 )
 
 var (
@@ -25,7 +25,7 @@ func MaxRunes(value string, n int) bool {
 	return utf8.RuneCountInString(value) <= n
 }
 
-func Between[T constraints.Ordered](value, min, max T) bool {
+func Between[T cmp.Ordered](value, min, max T) bool {
 	return value >= min && value <= max
 }
 
@@ -34,12 +34,7 @@ func Matches(value string, rx *regexp.Regexp) bool {
 }
 
 func In[T comparable](value T, safelist ...T) bool {
-	for i := range safelist {
-		if value == safelist[i] {
-			return true
-		}
-	}
-	return false
+	return slices.Contains(safelist, value)
 }
 
 func AllIn[T comparable](values []T, safelist ...T) bool {
@@ -52,12 +47,7 @@ func AllIn[T comparable](values []T, safelist ...T) bool {
 }
 
 func NotIn[T comparable](value T, blocklist ...T) bool {
-	for i := range blocklist {
-		if value == blocklist[i] {
-			return false
-		}
-	}
-	return true
+	return !slices.Contains(blocklist, value)
 }
 
 func NoDuplicates[T comparable](values []T) bool {
