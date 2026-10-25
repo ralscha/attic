@@ -1,0 +1,560 @@
+# Weekly version updates; security updates are enabled in repository settings.
+# Minor and patch releases are grouped; major releases remain separate.
+version: 2
+updates:
+- package-ecosystem: cargo
+  directory: /framework-comparison-2020/rust
+  schedule:
+    interval: weekly
+    day: monday
+    time: "09:00"
+    timezone: Europe/Zurich
+  open-pull-requests-limit: 5
+  groups:
+    minor-and-patch:
+      applies-to: version-updates
+      patterns:
+      - '*'
+      update-types:
+      - minor
+      - patch
+- package-ecosystem: docker
+  directories:
+  - /awspipe/1_split
+  - /awspipe/2_convert
+  - /awspipe/3_ocr
+  - /framework-comparison-2020/quarkus/src/main/docker
+  - /framework-comparison-2020/rust
+  schedule:
+    interval: weekly
+    day: monday
+    time: "09:00"
+    timezone: Europe/Zurich
+  open-pull-requests-limit: 5
+  groups:
+    minor-and-patch:
+      applies-to: version-updates
+      patterns:
+      - '*'
+      update-types:
+      - minor
+      - patch
+- package-ecosystem: docker-compose
+  directories:
+  - /goblog
+  - /travellog/server
+  - /webauthn-spring-security/server
+  schedule:
+    interval: weekly
+    day: monday
+    time: "09:00"
+    timezone: Europe/Zurich
+  open-pull-requests-limit: 5
+  groups:
+    minor-and-patch:
+      applies-to: version-updates
+      patterns:
+      - '*'
+      update-types:
+      - minor
+      - patch
+- package-ecosystem: gomod
+  directories:
+  - /awspipe/1_split
+  - /awspipe/2_convert
+  - /awspipe/3_ocr
+  - /exporthtmlaspng
+  - /framework-comparison-2020/go-echo
+  - /framework-comparison-2020/go-fibre
+  - /goblog
+  - /gomandel
+  - /gopng
+  - /s3select/go
+  schedule:
+    interval: weekly
+    day: monday
+    time: "09:00"
+    timezone: Europe/Zurich
+  open-pull-requests-limit: 5
+  groups:
+    minor-and-patch:
+      applies-to: version-updates
+      patterns:
+      - '*'
+      update-types:
+      - minor
+      - patch
+- package-ecosystem: gradle
+  directory: /attic/misc/gradleplayground
+  schedule:
+    interval: weekly
+    day: monday
+    time: "09:00"
+    timezone: Europe/Zurich
+  open-pull-requests-limit: 5
+  groups:
+    minor-and-patch:
+      applies-to: version-updates
+      patterns:
+      - '*'
+      update-types:
+      - minor
+      - patch
+- package-ecosystem: maven
+  directories:
+  - /addressbook
+  - /addressbook_old
+  - /archetypes/eds-starter-archetype
+  - /archetypes/eds-starter-simple-archetype
+  - /archetypes/springjpa-app
+  - /archetypes/springjpa-archetype
+  - /archetypes/springmvc-app
+  - /archetypes/springmvc-archetype
+  - /archetypes/webapp-app
+  - /archetypes/webapp-archetype
+  - /archetypes/webappsimple-app
+  - /archetypes/webappsimple-archetype
+  - /attic/applications/homepageAdmin
+  - /attic/applications/tomcatOnOff
+  - /attic/extclassgenerator-mojo
+  - /attic/misc/ext-atmosphere
+  - /attic/misc/extjsSpringSample
+  - /attic/misc/geverdummy
+  - /attic/misc/jsonviewtest
+  - /attic/misc/mongodbbench
+  schedule:
+    interval: weekly
+    day: monday
+    time: "09:00"
+    timezone: Europe/Zurich
+  open-pull-requests-limit: 5
+  groups:
+    minor-and-patch-a:
+      applies-to: version-updates
+      patterns:
+      - '*'
+      update-types:
+      - minor
+      - patch
+- package-ecosystem: maven
+  directories:
+  - /attic/misc/ntlmtest
+  - /attic/misc/springaop
+  - /attic/misc/springconfig
+  - /attic/misc/springformatdemo
+  - /attic/misc/springmvc
+  - /attic/spring-wamp
+  - /attic/stacks/HessianRiaDemo
+  - /attic/stacks/HessianRiaDemoFlash
+  - /attic/stacks/OneManyTest
+  - /attic/stacks/gxt-simple
+  - /attic/stacks/hessianRiaSeamDemo
+  - /attic/stacks/issueserver
+  - /attic/tools/dbexport
+  - /babelfishchat/server
+  - /bitprototype
+  - /cartracker
+  - /cettia-demo/chat/server
+  - /cettia-demo/datachannel
+  - /cettia-demo/gauge
+  - /cettia-demo/iss
+  schedule:
+    interval: weekly
+    day: monday
+    time: "09:00"
+    timezone: Europe/Zurich
+  open-pull-requests-limit: 5
+  groups:
+    minor-and-patch-b:
+      applies-to: version-updates
+      patterns:
+      - '*'
+      update-types:
+      - minor
+      - patch
+- package-ecosystem: maven
+  directories:
+  - /cettia-demo/maps
+  - /cettia-demo/simple-chat
+  - /cettia-demo/smoothie
+  - /cettia-demo/snake
+  - /cettia-demo/socketio-chat
+  - /cettia-demo/socketio-whiteboard
+  - /cettia-demo/webmvc
+  - /cettia/one/server
+  - /cettia/simple
+  - /cettia/two/server
+  - /changelog
+  - /chat/server
+  - /cryptochat/server
+  - /dashboard/server
+  - /dependency
+  - /dummyws
+  - /dummyws-client
+  - /e4ds-desktop
+  - /e4ds-mongodb-template
+  - /e4ds-template
+  schedule:
+    interval: weekly
+    day: monday
+    time: "09:00"
+    timezone: Europe/Zurich
+  open-pull-requests-limit: 5
+  groups:
+    minor-and-patch-c:
+      applies-to: version-updates
+      patterns:
+      - '*'
+      update-types:
+      - minor
+      - patch
+- package-ecosystem: maven
+  directories:
+  - /eds-starter-onemany
+  - /eds-starter-simple-jpa
+  - /eds-starter5
+  - /eds-starter5-simple-jpa
+  - /eds-starter5-simple-mongodb
+  - /eds-starter6-mongodb
+  - /eds-starter6-simple-jpa
+  - /eds-starter6-simple-mongodb
+  - /edsutil
+  - /embeddedtc
+  - /embeddedtc-maven-plugin
+  - /eventsource
+  - /eventsource2
+  - /framework-comparison-2020/micronaut
+  - /framework-comparison-2020/quarkus
+  - /framework-comparison-2020/springboot
+  - /geomessenger
+  - /geotracker/server
+  - /golb-p
+  - /groovytest
+  schedule:
+    interval: weekly
+    day: monday
+    time: "09:00"
+    timezone: Europe/Zurich
+  open-pull-requests-limit: 5
+  groups:
+    minor-and-patch-d:
+      applies-to: version-updates
+      patterns:
+      - '*'
+      update-types:
+      - minor
+      - patch
+- package-ecosystem: maven
+  directories:
+  - /guavasandbox
+  - /ignoring
+  - /jacksonhibernate
+  - /jettyembed
+  - /jsengine
+  - /jsonbenchmark
+  - /minio
+  - /musicsearch
+  - /mycustomer
+  - /old_playground/antlr
+  - /old_playground/arangodb
+  - /old_playground/autovalue
+  - /old_playground/avro
+  - /old_playground/bytebuddy
+  - /old_playground/caching
+  - /old_playground/cors
+  - /old_playground/csvimport
+  - /old_playground/dh/dh-client
+  - /old_playground/dh/dh-server
+  - /old_playground/el
+  schedule:
+    interval: weekly
+    day: monday
+    time: "09:00"
+    timezone: Europe/Zurich
+  open-pull-requests-limit: 5
+  groups:
+    minor-and-patch-e:
+      applies-to: version-updates
+      patterns:
+      - '*'
+      update-types:
+      - minor
+      - patch
+- package-ecosystem: maven
+  directories:
+  - /old_playground/equalsverifier
+  - /old_playground/eventbus
+  - /old_playground/github
+  - /old_playground/githubbackup
+  - /old_playground/glacier
+  - /old_playground/grpc/client
+  - /old_playground/grpc/server
+  - /old_playground/hazelcast
+  - /old_playground/httpcopy/client
+  - /old_playground/httpcopy/server
+  - /old_playground/immutable
+  - /old_playground/irc
+  - /old_playground/jasper
+  - /old_playground/java8
+  - /old_playground/jmx
+  - /old_playground/jooq
+  - /old_playground/jpa
+  - /old_playground/json
+  - /old_playground/lucene
+  - /old_playground/mail
+  schedule:
+    interval: weekly
+    day: monday
+    time: "09:00"
+    timezone: Europe/Zurich
+  open-pull-requests-limit: 5
+  groups:
+    minor-and-patch-f:
+      applies-to: version-updates
+      patterns:
+      - '*'
+      update-types:
+      - minor
+      - patch
+- package-ecosystem: maven
+  directories:
+  - /old_playground/maildeleter
+  - /old_playground/maptrack
+  - /old_playground/mongodb
+  - /old_playground/nosql
+  - /old_playground/orientdb
+  - /old_playground/paho
+  - /old_playground/pdf
+  - /old_playground/protobufclient
+  - /old_playground/protobufserver
+  - /old_playground/ratpack
+  - /old_playground/reflection
+  - /old_playground/resource-jar-demo/demoapp
+  - /old_playground/resource-jar-demo/demoapp-tomcat
+  - /old_playground/resource-jar-demo/resourcejar
+  - /old_playground/resources-gen
+  - /old_playground/retrofit
+  - /old_playground/s3
+  - /old_playground/servicerestarter
+  - /old_playground/springmongodb
+  - /old_playground/springsession
+  schedule:
+    interval: weekly
+    day: monday
+    time: "09:00"
+    timezone: Europe/Zurich
+  open-pull-requests-limit: 5
+  groups:
+    minor-and-patch-g:
+      applies-to: version-updates
+      patterns:
+      - '*'
+      update-types:
+      - minor
+      - patch
+- package-ecosystem: maven
+  directories:
+  - /old_playground/springsession2
+  - /old_playground/springwebsocket
+  - /old_playground/springwebsocketclient
+  - /old_playground/stats
+  - /old_playground/svg2img
+  - /old_playground/tailerhttplog
+  - /old_playground/tx
+  - /old_playground/upi
+  - /old_playground/upload
+  - /old_playground/uploadproblem
+  - /old_playground/watch
+  - /old_playground/webjar
+  - /old_playground/ws
+  - /old_playground/ws-client
+  - /openai4j
+  - /openai4j-examples
+  - /packtmasteringextjs
+  - /packtsales
+  - /pandora
+  - /parcelmaven
+  schedule:
+    interval: weekly
+    day: monday
+    time: "09:00"
+    timezone: Europe/Zurich
+  open-pull-requests-limit: 5
+  groups:
+    minor-and-patch-h:
+      applies-to: version-updates
+      patterns:
+      - '*'
+      update-types:
+      - minor
+      - patch
+- package-ecosystem: maven
+  directories:
+  - /phoenix
+  - /portal-demos
+  - /precompressed
+  - /propertiestool
+  - /proto
+  - /push/server
+  - /qxrpcspring
+  - /qxrpcspringdemo
+  - /rulebook
+  - /s3select/java
+  - /safebrowse
+  - /sage
+  - /security
+  - /smninfo
+  - /sqrl/core
+  - /sqrl/demo-server
+  - /todo
+  - /todo_svn
+  - /tomcatembed
+  - /travellog/server
+  schedule:
+    interval: weekly
+    day: monday
+    time: "09:00"
+    timezone: Europe/Zurich
+  open-pull-requests-limit: 5
+  groups:
+    minor-and-patch-i:
+      applies-to: version-updates
+      patterns:
+      - '*'
+      update-types:
+      - minor
+      - patch
+- package-ecosystem: maven
+  directories:
+  - /tttracker
+  - /upload-minio/server
+  - /uploadflowjs/server
+  - /uploadsb/server
+  - /wampclient
+  - /wampclient/wampdemo
+  - /wampspring
+  - /wampspring-demos/wampspring-demo-client/client
+  - /wampspring-demos/wampspring-demo-client/server
+  - /wampspring-demos/wampspring-demo-salmar
+  - /wampspring-demos/wampspring-demo-security
+  - /wampspring-demos/wampspring-demo-simple
+  - /wampspring-demos/wampspring-demo-various
+  - /wampspring-demos/wampspring-demo-webrtc
+  - /wampspring-security
+  - /wampspring-session
+  - /webauthn-spring-security/server
+  - /ws-tomcat
+  schedule:
+    interval: weekly
+    day: monday
+    time: "09:00"
+    timezone: Europe/Zurich
+  open-pull-requests-limit: 5
+  groups:
+    minor-and-patch-j:
+      applies-to: version-updates
+      patterns:
+      - '*'
+      update-types:
+      - minor
+      - patch
+- package-ecosystem: npm
+  directories:
+  - /babelfishchat/client
+  - /capacitor-local-notification
+  - /cettia-demo/chat/client
+  - /cettia/one/client
+  - /cettia/two/client
+  - /chat/client
+  - /cryptochat/client
+  - /customicons
+  - /dashboard/app
+  - /eds-starter-simple-jpa/clientopen
+  - /forerunnerdb
+  - /forwardbackward
+  - /framework-comparison-2020
+  - /geotracker/client
+  - /goblog/css_build
+  - /goblog/prismjs
+  - /ionic2/appyMapper
+  - /ionic2/awesome
+  - /ionic2/camperchat
+  - /ionic2/campermate
+  schedule:
+    interval: weekly
+    day: monday
+    time: "09:00"
+    timezone: Europe/Zurich
+  open-pull-requests-limit: 5
+  groups:
+    minor-and-patch-a:
+      applies-to: version-updates
+      patterns:
+      - '*'
+      update-types:
+      - minor
+      - patch
+- package-ecosystem: npm
+  directories:
+  - /ionic2/giflist
+  - /ionic2/movies
+  - /ionic2/quicklists
+  - /ionic2/quotes-app
+  - /ionic2/recipe-book
+  - /ionic2/snapaday
+  - /ionic2/soopadoopa
+  - /lovefield
+  - /mandel
+  - /mycustomer/clientopen
+  - /parcel/js
+  - /parcel/polyfill-io
+  - /parcel/ts
+  - /parcelmaven/src/main/frontend
+  - /precompressed/client
+  - /primeng-dnd
+  - /push/client
+  - /rollup-two-bundle-starter
+  - /secure-todo-asm
+  - /sqrl/demo-client
+  schedule:
+    interval: weekly
+    day: monday
+    time: "09:00"
+    timezone: Europe/Zurich
+  open-pull-requests-limit: 5
+  groups:
+    minor-and-patch-b:
+      applies-to: version-updates
+      patterns:
+      - '*'
+      update-types:
+      - minor
+      - patch
+- package-ecosystem: npm
+  directories:
+  - /tfjs-models
+  - /travellog/client
+  - /travellog/emails
+  - /travellog/view
+  - /upload-minio/client
+  - /uploadflowjs/client
+  - /uploadsb/client
+  - /wampclient/client
+  - /wampclient/wampdemo/client
+  - /webauthn-spring-security/client
+  - /workbox
+  - /workboxlazy
+  schedule:
+    interval: weekly
+    day: monday
+    time: "09:00"
+    timezone: Europe/Zurich
+  open-pull-requests-limit: 5
+  groups:
+    minor-and-patch-c:
+      applies-to: version-updates
+      patterns:
+      - '*'
+      update-types:
+      - minor
+      - patch
