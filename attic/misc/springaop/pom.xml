@@ -5,7 +5,7 @@
   <version>0.0.1</version>
   
   <properties>
-    <spring.version>3.0.3.RELEASE</spring.version>
+    <spring.version>7.0.10</spring.version>
     <slf4j.version>1.6.1</slf4j.version>
     <logback.version>0.9.24</logback.version>
     <aspectj.version>1.6.9</aspectj.version>
