@@ -5,8 +5,9 @@ apt install git screen ca-certificates curl gnupg build-essential libz-dev zlib1
 curl https://sh.rustup.rs -sSf | sh -s -- -q -y
 source "$HOME/.cargo/env"
 
-git clone https://github.com/ralscha/framework-comparison-2020.git
-cd framework-comparison-2020
+git clone --depth 1 --filter=blob:none --sparse --branch main https://github.com/ralscha/attic.git
+git -C attic sparse-checkout set framework-comparison-2020
+cd attic/framework-comparison-2020
 
 mkdir -p /etc/apt/keyrings
 curl -fsSL https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key | sudo gpg --dearmor -o /etc/apt/keyrings/nodesource.gpg
@@ -41,9 +42,9 @@ cargo build -r
 cp target/release/salvodemo ../rustdemo
 cd ..
 
-export GRAALVM_HOME="/root/framework-comparison-2020/graalvm"
-export PATH="/root/framework-comparison-2020/graalvm/bin:$PATH"
-export JAVA_HOME="/root/framework-comparison-2020/graalvm"
+export GRAALVM_HOME="$(pwd)/graalvm"
+export PATH="$GRAALVM_HOME/bin:$PATH"
+export JAVA_HOME="$GRAALVM_HOME"
 
 cd springboot
 ./mvnw -Pnative -DskipTests clean package
