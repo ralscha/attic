@@ -8,7 +8,7 @@
     <spring.version>3.0.3.RELEASE</spring.version>
     <slf4j.version>1.6.1</slf4j.version>
     <logback.version>0.9.24</logback.version>
-    <aspectj.version>1.6.9</aspectj.version>
+    <aspectj.version>1.9.26</aspectj.version>
   </properties>
   
   <repositories>
@@ -98,7 +98,7 @@
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
-      <version>4.8.1</version>
+      <version>4.13.2</version>
       <scope>test</scope>
     </dependency>  
     

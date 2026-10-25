@@ -35,7 +35,7 @@
 			<plugin>
 				<groupId>org.mortbay.jetty</groupId>
 				<artifactId>maven-jetty-plugin</artifactId>
-				<version>6.1.6</version>
+				<version>6.1.26</version>
 				<configuration>
 					<contextPath>/</contextPath>
 					<scanIntervalSeconds>10</scanIntervalSeconds>
@@ -92,7 +92,7 @@
 		<dependency>
 			<groupId>commons-logging</groupId>
 			<artifactId>commons-logging</artifactId>
-			<version>1.1</version>
+			<version>1.4.0</version>
 			<exclusions>
 				<exclusion>
 					<groupId>log4j</groupId>
@@ -130,13 +130,13 @@
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate</artifactId>
-			<version>3.2.5.ga</version>
+			<version>3.5.4-Final</version>
 		</dependency>
 
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-annotations</artifactId>
-			<version>3.3.0.ga</version>
+			<version>3.5.6-Final</version>
 		</dependency>
 
 		<dependency>
